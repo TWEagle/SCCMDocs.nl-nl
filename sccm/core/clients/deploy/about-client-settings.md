@@ -17,7 +17,7 @@ ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: 5eeeb9337926b983c26f681bff043fa1598dd4ee
 ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/15/2017
 ---
@@ -524,7 +524,7 @@ Hiermee peer-cache voor Configuration Manager-clients. Geef vervolgens de poorti
 
     -   Kies de **nieuw** pictogram toevoegen van een nieuw bestandstype aan inventaris. Geef vervolgens de volgende informatie in de **eigenschappen geïnventariseerd bestand** in het dialoogvenster:  
 
-        -   **Naam**: Geef een naam voor het bestand dat u wilt inventariseren. U kunt de ** \* * teken om weer te geven welke tekst van tekenreeksen en de **?** teken om om het even welk enkelvoudig teken voor te stellen. Bijvoorbeeld, als u inventariseren van alle bestanden met de extensie .doc wilt, de bestandsnaam opgeven ** \*.doc**.  
+        -   **Naam**: Geef een naam voor het bestand dat u wilt inventariseren. U kunt de * *\**  teken om weer te geven welke tekst van tekenreeksen en de **?** teken om om het even welk enkelvoudig teken voor te stellen. Bijvoorbeeld, als u inventariseren van alle bestanden met de extensie .doc wilt, de bestandsnaam opgeven  **\*.doc**.  
 
         -   **Locatie**: Kies **ingesteld** openen de **padeigenschappen** in het dialoogvenster. U kunt software-inventaris om te zoeken alle harde schijven voor het opgegeven bestand, zoek een opgegeven pad (bijvoorbeeld **C:\Folder**), of zoeken naar een opgegeven variabele (bijvoorbeeld *% windir %*). U kunt ook zoeken in alle Deelmappen onder het opgegeven pad.  
 
@@ -547,7 +547,7 @@ Hiermee peer-cache voor Configuration Manager-clients. Geef vervolgens de poorti
 
     -   Voer, in het dialoogvenster **Eigenschappen verzameld bestand** , de volgende informatie in:  
 
-        -   **Naam**: Geef een naam voor het bestand dat u wilt verzamelen. U kunt de ** \* * teken om weer te geven welke tekst van tekenreeksen en de **?** teken om om het even welk enkelvoudig teken voor te stellen.  
+        -   **Naam**: Geef een naam voor het bestand dat u wilt verzamelen. U kunt de * *\**  teken om weer te geven welke tekst van tekenreeksen en de **?** teken om om het even welk enkelvoudig teken voor te stellen.  
 
         -   **Locatie**: Kies **ingesteld** openen de **padeigenschappen** in het dialoogvenster. U kunt software-inventaris om te zoeken naar alle harde schijven voor het bestand dat u wilt verzamelen, zoek een opgegeven pad (bijvoorbeeld **C:\Folder**), of zoeken naar een opgegeven variabele (bijvoorbeeld *% windir %*). U kunt ook zoeken in alle Deelmappen onder het opgegeven pad.  
 
@@ -556,7 +556,7 @@ Hiermee peer-cache voor Configuration Manager-clients. Geef vervolgens de poorti
         -   **Stoppen met verzamelen van bestanden wanneer de totale grootte van de bestanden overschrijdt (KB)**: Geef de bestandsgrootte (in kB) die geen bestanden opgegeven onder meer **naam** zullen worden verzameld.  
 
           > [!NOTE]  
-          >  De siteserver verzamelt de vijf meest recent gewijzigde versies van verzamelde bestanden en slaat ze op in de * &lt;installatiemap van Configuration Manager\>*\Inboxes\Sinv.box\Filecol directory. Indien een bestand niet gewijzigd werd sedert de laatste software-inventaris werd verzameld, zal het bestand niet opnieuw verzameld worden.  
+          >  De siteserver verzamelt de vijf meest recent gewijzigde versies van verzamelde bestanden en slaat ze op in de  *&lt;installatiemap van Configuration Manager\>*\Inboxes\Sinv.box\Filecol directory. Indien een bestand niet gewijzigd werd sedert de laatste software-inventaris werd verzameld, zal het bestand niet opnieuw verzameld worden.  
           >   
           >  Software-inventaris verzamelt geen bestanden groter dan 20 MB.  
           >   

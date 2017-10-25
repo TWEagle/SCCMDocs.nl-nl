@@ -16,7 +16,7 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 5debc6559f4b1c213e8ca513d685941c9e669063
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
@@ -210,7 +210,7 @@ Wanneer u naar een eerdere versie dan 1610 bijwerkt, worden de volgende configur
 -   Een standaard sitegrensgroep is gemaakt voor elke primaire site, de naam is ***-Site-grens-standaardgroep&lt;sitecode >.***
   - Distributiepunten met *terugvalbronlocatie voor inhoud toestaan* gecontroleerd en statusmigratiepunten op primaire sites worden toegevoegd aan de *-Site-grens-standaardgroep&lt;sitecode >* grensgroep van die site.
   - Vanaf versie 1702, software-updatepunten zijn toegevoegd aan elke sites *-Site-grens-standaardgroep&lt;sitecode >*.
--   Er wordt een kopie gemaakt van elke bestaande grensgroep die een siteserver die is geconfigureerd met een trage verbinding. De naam van de nieuwe groep is *** &lt;oorspronkelijke grens groepsnaam >-&lt;oorspronkelijke grens groeps-ID >***:  
+-   Er wordt een kopie gemaakt van elke bestaande grensgroep die een siteserver die is geconfigureerd met een trage verbinding. De naam van de nieuwe groep is  ***&lt;oorspronkelijke grens groepsnaam >-&lt;oorspronkelijke grens groeps-ID >***:  
     -   Sitesystemen waarop een snelle verbinding blijven de oorspronkelijke grensgroep.
     -   Een kopie van de site-systemen (distributiepunten, beheerpunten) die een trage verbinding hebt worden toegevoegd aan de kopie van de grensgroep. De oorspronkelijke sitesystemen die zijn geconfigureerd als langzaam blijven in hun oorspronkelijke grensgroepen voor compatibiliteit met eerdere versies, maar worden niet gebruikt van die grensgroepen.
     - Dit exemplaar van de groep grens heeft geen grenzen die zijn gekoppeld. Echter, een fallback koppeling wordt gemaakt tussen de oorspronkelijke groep en de nieuwe grens groep kopie bevat de terugval tijd is ingesteld op nul.  

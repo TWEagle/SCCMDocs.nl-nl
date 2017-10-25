@@ -17,7 +17,7 @@ ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: d04fa417b311dc9f20e0691f6edffcf287cf43b8
 ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/15/2017
 ---
@@ -149,7 +149,7 @@ Client-computers in System Center Configuration Manager die vaak Windows Firewal
 
 |Beschrijving|UDP|TCP|  
 |-----------------|---------|---------|  
-|Server Message Block (SMB) tussen de clientcomputer en een netwerkshare van waaruit u CCMSetup.exe uitvoert.<br /><br /> Wanneer u Configuration Manager installeert, de bronbestanden van de client-installatie zijn gekopieerd en automatisch gedeeld van de * &lt;InstallationPath\>*map \Client op beheerpunten. U kunt evenwel deze bestanden kopiëren en een nieuwe share creëren op een computer op het netwerk. Alternatief kunt u dit netwerkverkeer elimineren door lokaal CCMSetup.exe uit te voeren door, bijvoorbeeld, verwisselbare media te gebruiken.|--|445|  
+|Server Message Block (SMB) tussen de clientcomputer en een netwerkshare van waaruit u CCMSetup.exe uitvoert.<br /><br /> Wanneer u Configuration Manager installeert, de bronbestanden van de client-installatie zijn gekopieerd en automatisch gedeeld van de  *&lt;InstallationPath\>*map \Client op beheerpunten. U kunt evenwel deze bestanden kopiëren en een nieuwe share creëren op een computer op het netwerk. Alternatief kunt u dit netwerkverkeer elimineren door lokaal CCMSetup.exe uit te voeren door, bijvoorbeeld, verwisselbare media te gebruiken.|--|445|  
 |Hypertext Transfer Protocol (HTTP) vanaf de clientcomputer naar een beheerpunt wanneer de verbinding via HTTP, en u niet de CCMSetup opdrachtregeleigenschap geeft **/source:&lt;pad\>**.|--|80 (zie opmerking 1, **alternatieve poort beschikbaar**)|  
 |Hypertext Transfer Protocol (HTTPS) beveiligen vanaf de clientcomputer naar een beheerpunt, wanneer de verbinding via HTTPS is en u niet de CCMSetup opdrachtregeleigenschap **/source:&lt;pad\>**.|--|443 (zie opmerking 1, **alternatieve poort beschikbaar**)|  
 |Server Message Block (SMB) tussen de bronserver en de clientcomputer wanneer u de CCMSetup-opdrachtregel-eigenschap opgeeft **/source:&lt;pad\>**.|--|445|  

@@ -16,7 +16,7 @@ ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: 1741506f390430c85dab9a5b8e8cc26dda7b57e3
 ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/15/2017
 ---
@@ -57,7 +57,7 @@ Elk clientinstallatiepakket bevat alle benodigde bestanden om de clientinstallat
 
      Voorbeeld: smsmp.contoso.com  
 
--   **-sitecode &lt;sitecode\> ** geeft de sitecode die de client is toegewezen aan.  
+-   **-sitecode &lt;sitecode\>**  geeft de sitecode die de client is toegewezen aan.  
 
      Voorbeeld: S01  
 

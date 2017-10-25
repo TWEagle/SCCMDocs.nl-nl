@@ -17,7 +17,7 @@ ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: fc898bf2433ab99eb0da9c60bd0e890bba97a415
 ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/15/2017
 ---
@@ -76,7 +76,7 @@ Voordat u kunt de status van de System Center Configuration Manager-client contr
     > [!NOTE]  
     >  U kunt geen waarschuwingen voor gebruikersverzamelingen configureren.  
 
-4.  Op de **waarschuwingen** tabblad van de * &lt;verzameling naam\>***eigenschappen** in het dialoogvenster, klikt u op **toevoegen**.  
+4.  Op de **waarschuwingen** tabblad van de  *&lt;verzameling naam\>***eigenschappen** in het dialoogvenster, klikt u op **toevoegen**.  
 
     > [!NOTE]  
     >  Het tabblad **Waarschuwingen** is alleen zichtbaar als aan de beveiligingsrol waaraan u gekoppeld bent machtigingen voor waarschuwingen zijn toegewezen.  
@@ -91,7 +91,7 @@ Voordat u kunt de status van de System Center Configuration Manager-client contr
 
     -   **Waarschuwing activeren** -Geef het drempelwaardepercentage voor de waarschuwing.  
 
-7.  Klik op **OK** sluiten de * &lt;verzameling naam\>***eigenschappen** in het dialoogvenster.  
+7.  Klik op **OK** sluiten de  *&lt;verzameling naam\>***eigenschappen** in het dialoogvenster.  
 
 ##  <a name="BKMK_3"></a>Computers uitsluiten van automatisch herstel  
 

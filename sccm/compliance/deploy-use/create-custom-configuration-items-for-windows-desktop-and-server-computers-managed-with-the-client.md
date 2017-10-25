@@ -17,7 +17,7 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: 9fe28782744a419acad9c1acec49ff8db6c0eaa6
 ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/15/2017
 ---
@@ -108,7 +108,7 @@ De System Center Configuration Manager gebruiken **aangepaste Windows-Desktops e
 
             -   **Zoekfilter**: Geef een optionele LDAP-filter op om de resultaten van de Active Directory Domain Services-query te verfijnen om de compatibiliteit vast te stellen op clientcomputers.  
 
-                 Als u alle resultaten van de query wilt retourneren, voert u ** (objectklasse=\*)** in.  
+                 Als u alle resultaten van de query wilt retourneren, voert u  **(objectklasse=\*)** in.  
 
             -   **Zoekbereik**: geef het zoekbereik op in Active Directory Domain Services/ U kunt kiezen uit:  
 

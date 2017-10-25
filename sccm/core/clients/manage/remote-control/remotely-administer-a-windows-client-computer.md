@@ -17,7 +17,7 @@ ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: 9ce5adccb9944daa4fb2b0ab132fc7cf52bd7b1b
 ms.sourcegitcommit: f6a428a8db7145affa388f59e0ad880bdfcf17b5
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/14/2017
 ---
@@ -94,4 +94,4 @@ CmRcViewer.exe ondersteunt de volgende opdrachtregelopties:
 - *Siteservernaam* -geeft de naam van de System Center Configuration Manager-siteserver waarnaar u wilt statusberichten die zijn gerelateerd aan de sessie voor beheer op afstand verzenden.
 - **/?** -Geeft de opdrachtregelopties voor beheer op afstand viewer.  
      
-**Example:CmRcViewer.exe** *< adres\> * * < \\\Site-servernaam >*  
+**Example:CmRcViewer.exe** *< adres\>*   *< \\\Site-servernaam >*  

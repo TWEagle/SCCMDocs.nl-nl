@@ -16,7 +16,7 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 89a41c8a3137d0e54011ddf9a1d9b4894ecb7df8
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
@@ -322,7 +322,7 @@ U beheren wanneer specifieke distributiepunten worden toegevoegd als een inhouds
 ### <a name="bkmk_update"></a>Bijwerken van bestaande grensgroepen naar het nieuwe model
 Wanneer u versie 1609 installeren en bijwerken van uw site, worden de volgende configuraties worden automatisch gemaakt. Deze zijn bedoeld om te controleren of dat uw huidige terugval gedrag beschikbaar is, blijft totdat u een nieuwe grensgroepen en relaties configureren.  
 -   Niet-beveiligde distributiepunten op een site worden toegevoegd aan de *-Site-grens-standaardgroep\<sitecode >* grensgroep van die site.
--   Er wordt een kopie gemaakt van elke bestaande grensgroep die een siteserver die is geconfigureerd met een trage verbinding. De naam van de nieuwe groep is *** \<oorspronkelijke grens groepsnaam > - traag - Tmp***:  
+-   Er wordt een kopie gemaakt van elke bestaande grensgroep die een siteserver die is geconfigureerd met een trage verbinding. De naam van de nieuwe groep is  ***\<oorspronkelijke grens groepsnaam > - traag - Tmp***:  
     -   Sitesystemen waarop een snelle verbinding blijven de oorspronkelijke grensgroep.
     -   Een kopie van de sitesystemen die een trage verbinding hebt worden toegevoegd aan de kopie van de grensgroep. De oorspronkelijke sitesystemen die zijn geconfigureerd als langzaam blijven in de oorspronkelijke grensgroep voor compatibiliteit met eerdere versies, maar worden niet gebruikt uit deze grensgroep.
     -   Dit exemplaar van de groep grens heeft geen grenzen die zijn gekoppeld. Echter, een fallback koppeling wordt gemaakt tussen de oorspronkelijke groep en de nieuwe grens groep kopie bevat de terugval tijd is ingesteld op nul.

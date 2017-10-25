@@ -17,7 +17,7 @@ ms.author: mabrigg
 manager: angrobe
 ms.openlocfilehash: f52dbb5e89746e30562132d4fe19886e7d9b5ea7
 ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/15/2017
 ---
@@ -60,7 +60,7 @@ Zorg ervoor dat u de informatie in hebt bekeken [inleiding op Toepassingsbeheer]
 
     -   **Type**: Kies **Windows Installer (\*MSI-bestand)**.  
 
-    -   **Locatie**: Typ de locatie (of kies **Bladeren** om de locatie te selecteren) van het installatiebestand **Contoso.msi**. Houd er rekening mee dat de locatie moet worden opgegeven in het formulier * \\\Server\Share\File* voor Configuration Manager de van installatiebestanden te vinden.  
+    -   **Locatie**: Typ de locatie (of kies **Bladeren** om de locatie te selecteren) van het installatiebestand **Contoso.msi**. Houd er rekening mee dat de locatie moet worden opgegeven in het formulier  *\\\Server\Share\File* voor Configuration Manager de van installatiebestanden te vinden.  
 
     U moet eindigen met iets dat op de volgende schermafbeelding lijkt:  
 

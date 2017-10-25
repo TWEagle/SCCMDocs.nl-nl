@@ -16,7 +16,7 @@ ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: 0526dccc21be8419bf772374a67bc7cd262e6375
 ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/15/2017
 ---
@@ -43,7 +43,7 @@ Clients in System Center Configuration Manager moeten een beheerpunt vinden om t
 
 -   Installeer de client met de volgende Client.msi-eigenschap van CCMSetup:  
 
-    -   **DNSSUFFIX =** * &lt;beheerpunt domein\>*  
+    -   **DNSSUFFIX =**  *&lt;beheerpunt domein\>*  
 
          Als de site meer dan één beheerpunt heeft en deze zich in meer dan één domein bevinden, geeft u slechts één domein op. Wanneer clients verbinding maken met een beheerpunt in dit domein, downloaden ze een lijst met beschikbare beheerpunten, inclusief de beheerpunten van de andere domeinen.  
 

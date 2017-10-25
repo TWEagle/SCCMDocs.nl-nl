@@ -79,7 +79,7 @@ Voor System Center Configuration Manager versie 1706, dit niveau omvat het volge
 
 - Basic-besturingssysteem-implementatie (OSD) telt (installatiekopieën)
 
-- ***[Bijgewerkt] *** Basic serverinformatie sitesysteem (gebruikte sitesysteemrollen, Internet- en SSL-status, besturingssysteem, processors, fysieke of virtuele machine en gebruik van hoge beschikbaarheid voor site)
+- ***[Bijgewerkt]***  Basic serverinformatie sitesysteem (gebruikte sitesysteemrollen, Internet- en SSL-status, besturingssysteem, processors, fysieke of virtuele machine en gebruik van hoge beschikbaarheid voor site)
 
 - Configuration Manager-databaseschema (hash van alle objectdefinities)
 
@@ -97,7 +97,7 @@ Voor System Center Configuration Manager versie 1706, dit niveau omvat het volge
 
 - Distributiepunt- en beheerpunttypen en basisinformatie over de configuratie (beveiligd, voorbereid, PXE, multicast, SSL-status, pull/peer-distributiepunten, MDM-functionaliteit, SSL is ingeschakeld, enz.)
 
-- ***[Nieuw] *** Hashed lijst met uitbreidingen voor wizards en eigenschappenvensters Administrator-console
+- ***[Nieuw]***  Hashed lijst met uitbreidingen voor wizards en eigenschappenvensters Administrator-console
 
 - Installatie-informatie:
      - Bouwen, installeert u type, taalpakketten, functies die u hebt ingeschakeld   
@@ -135,7 +135,7 @@ Voor System Center Configuration Manager versie 1706, dit niveau omvat het volge
 
    - Toepassing goedkeuring statistische gegevens en gebruiksgegevens frequentie
 
-   - ***[Nieuw] *** Statistieken Inhoudsgrootte
+   - ***[Nieuw]***  Statistieken Inhoudsgrootte
 
    - Informatie over de implementatie van de toepassing (het gebruik van installeren en verwijderen, vereist goedkeuring, gebruikersinteractie ingeschakeld/uitgeschakeld, afhankelijkheid, vervanging en gebruik telling van de functie voor gedrag)  
 
@@ -155,9 +155,9 @@ Voor System Center Configuration Manager versie 1706, dit niveau omvat het volge
 
    - Telling van de toepassingen waarnaar wordt verwezen door een takenreeks
 
-   - ***[Nieuw] *** Aantal afzonderlijke huisstijl voor application catalog
+   - ***[Nieuw]***  Aantal afzonderlijke huisstijl voor application catalog
 
-   - ***[Nieuw] *** Telling van Office 365-toepassingen die zijn gemaakt met behulp van dashboard
+   - ***[Nieuw]***  Telling van Office 365-toepassingen die zijn gemaakt met behulp van dashboard
 
    - Aantal pakketten per type  
 
@@ -165,7 +165,7 @@ Voor System Center Configuration Manager versie 1706, dit niveau omvat het volge
 
    - Aantal toepassingen met een Windows 10-licentie  
 
-   - ***[Nieuw] *** Telling van Windows Installer-implementatietypen verwijderen door de instellingen van inhoud
+   - ***[Nieuw]***  Telling van Windows Installer-implementatietypen verwijderen door de instellingen van inhoud
 
    - Telling van Windows Store voor bedrijven-apps en sync statistieken (inclusief samengevatte typen apps gelicentieerde app-status en aantal offline en online gelicentieerde apps)  
 
@@ -190,9 +190,9 @@ Voor System Center Configuration Manager versie 1706, dit niveau omvat het volge
 
    - BIOS-leeftijd in jaren
    
-   - ***[Nieuw] *** Aantal apparaten met Secure Boot is ingeschakeld
+   - ***[Nieuw]***  Aantal apparaten met Secure Boot is ingeschakeld
    
-   - ***[Nieuw] *** Aantal apparaten op TPM-status
+   - ***[Nieuw]***  Aantal apparaten op TPM-status
 
    - Automatische Clientupgrade: implementatieconfiguratie, met inbegrip van de client testen en de uitsluiting gebruik (uitgebreide interoperabiliteit client)
 
@@ -227,11 +227,11 @@ Voor System Center Configuration Manager versie 1706, dit niveau omvat het volge
 
 - **Cloudservices:**
 
-  - ***[Nieuw] *** Statistieken over azure Active Directory-gebruikersdetectie
+  - ***[Nieuw]***  Statistieken over azure Active Directory-gebruikersdetectie
 
-  - ***[Bijgewerkt] *** Statistieken voor configuratie en gebruik van Cloud Management Gateway, met inbegrip van de aantallen voor de regio's en omgevingen, en -verificatie/autorisatie
+  - ***[Bijgewerkt]***  Statistieken voor configuratie en gebruik van Cloud Management Gateway, met inbegrip van de aantallen voor de regio's en omgevingen, en -verificatie/autorisatie
 
-  - ***[Nieuw] *** Telling van Azure Active Directory-toepassingen en services verbonden aan Configuration Manager
+  - ***[Nieuw]***  Telling van Azure Active Directory-toepassingen en services verbonden aan Configuration Manager
 
   - Telling van clients die lid zijn van Azure Active Directory Services
 
@@ -260,7 +260,7 @@ Voor System Center Configuration Manager versie 1706, dit niveau omvat het volge
 
     - Basislijninformatie over basisconfiguratie (aantal, aantal implementaties en aantal verwijzingen)
 
-    - ***[Nieuw] *** Nalevingsstatistieken beleid fout
+    - ***[Nieuw]***  Nalevingsstatistieken beleid fout
 
     - Aantal configuratie-items per type  
 
@@ -285,7 +285,7 @@ Voor System Center Configuration Manager versie 1706, dit niveau omvat het volge
 
     - Aantal grenzen per type  
 
-    - ***[Bijgewerkt] *** Telling van peer-cacheclients, gebruik statistiek en statistieken met gedeeltelijke downloaden
+    - ***[Bijgewerkt]***  Telling van peer-cacheclients, gebruik statistiek en statistieken met gedeeltelijke downloaden
 
     - Distribution Manager configuratie-informatie (threads, vertraging, aantal nieuwe pogingen, en pull-distributiepuntinstellingen)  
 
@@ -353,19 +353,19 @@ Voor System Center Configuration Manager versie 1706, dit niveau omvat het volge
 
     - Aantal opstartinstallatiekopieën, stuurprogramma's, stuurprogrammapakketten, distributiepunten met ingeschakelde multicast, distributiepunten voor PXE-functionaliteit en takenreeksen  
 
-    - ***[Nieuw] *** Aantal opstarten afbeeldingen door Configuration Manager-clientversie
+    - ***[Nieuw]***  Aantal opstarten afbeeldingen door Configuration Manager-clientversie
 
-    - ***[Nieuw] *** Aantal opstarten afbeeldingen door Windows PE-versie
+    - ***[Nieuw]***  Aantal opstarten afbeeldingen door Windows PE-versie
 
     - Telling van de editie-Upgradebeleid
 
-    - ***[Nieuw] *** Aantal hardware-id's die zijn uitgesloten van PXE
+    - ***[Nieuw]***  Aantal hardware-id's die zijn uitgesloten van PXE
 
-    - ***[Nieuw] *** Aantal implementaties van takenreeksen met de optie voor het vooraf downloaden van inhoud
+    - ***[Nieuw]***  Aantal implementaties van takenreeksen met de optie voor het vooraf downloaden van inhoud
 
     - Telt het aantal van de taak sequence stap gebruik
 
-    - ***[Nieuw] *** Versie van Windows ADK die is geïnstalleerd
+    - ***[Nieuw]***  Versie van Windows ADK die is geïnstalleerd
 
 
 - **Site is bijgewerkt:**
@@ -392,7 +392,7 @@ Voor System Center Configuration Manager versie 1706, dit niveau omvat het volge
 
     - Aantal geïmplementeerde Office 365-updates  
 
-    - ***[Nieuw] *** Aantal van de Microsoft Surface stuurprogramma's die zijn gesynchroniseerd
+    - ***[Nieuw]***  Aantal van de Microsoft Surface stuurprogramma's die zijn gesynchroniseerd
 
     - Aantal updategroepen en toewijzingen  
 
@@ -402,7 +402,7 @@ Voor System Center Configuration Manager versie 1706, dit niveau omvat het volge
 
     - Aantal Windows 10-clients die gebruikmaken van Windows Update voor bedrijven  
 
-    - ***[Nieuw] *** Telling van Windows Update voor bedrijven-beleid gemaakt en geïmplementeerd
+    - ***[Nieuw]***  Telling van Windows Update voor bedrijven-beleid gemaakt en geïmplementeerd
 
     - Aantal regels voor automatische implementatie die zijn gekoppeld aan synchronisatie  
 
@@ -427,7 +427,7 @@ Voor System Center Configuration Manager versie 1706, dit niveau omvat het volge
 
 - **SQL/prestatiegegevens:**  
 
-    - ***[Nieuw] *** Configuratie en de duur van de samenvatting van de site
+    - ***[Nieuw]***  Configuratie en de duur van de samenvatting van de site
 
     - Aantal van de grootste databasetabellen  
 
@@ -449,7 +449,7 @@ Voor System Center Configuration Manager versie 1706, dit niveau omvat het volge
 
     - Configuratie van Data Warehouse-servicepunt inclusief synchronisatie schema en de gemiddelde tijd
 
-    - ***[Nieuw] *** Telling van Scripts en uitvoeren statistieken
+    - ***[Nieuw]***  Telling van Scripts en uitvoeren statistieken
 
     - Aantal sites met Wake op Lan (WOL)
 
@@ -468,7 +468,7 @@ Voor System Center Configuration Manager versie 1706, dit niveau omvat het volge
 
 - Evaluatie van verzamelingen en vernieuwingsstatistieken
 
-- ***[Nieuw] *** Beleid nalevingsstatistieken op naleving en fouten
+- ***[Nieuw]***  Beleid nalevingsstatistieken op naleving en fouten
 
 - Instellingen voor naleving: SCEP-, VPN-, Wi-Fi- en nalevingsbeleid sjabloon configuratiedetails aantal groepen die zijn verlopen software-updates
 

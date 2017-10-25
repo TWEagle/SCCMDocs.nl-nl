@@ -17,7 +17,7 @@ ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: bddc2cf4ae335a8b407035a90818d7fa01dcc398
 ms.sourcegitcommit: f6a428a8db7145affa388f59e0ad880bdfcf17b5
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/14/2017
 ---
@@ -52,7 +52,7 @@ Het kost tijd om clients te implementeren op uw site en sommige installaties luk
 
 -   Bekijk de overzichten van de clientimplementatiestatussen en van het aantal mislukte clientimplementaties.  
 
--   Als u het bereik van het rapport wijzigen wilt, klikt u op **bladeren... ** en kies een andere verzameling.  
+-   Als u het bereik van het rapport wijzigen wilt, klikt u op **bladeren...**  en kies een andere verzameling.  
 
  Zie voor meer informatie over pre-productieclient implementaties, [clientupgrades testen in pre-productieverzameling in System Center Configuration Manager](../../../core/clients/manage/upgrade/test-client-upgrades.md).
 

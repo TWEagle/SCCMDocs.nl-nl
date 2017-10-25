@@ -65,11 +65,11 @@ Wijzigingen van vorige versies worden vermeld met ***[Nieuw]*** of ***[bijgewerk
  -   Installatie-informatie:
     - Bouwen, installeert u type, taalpakketten, functies die u hebt ingeschakeld  
 
-    - ***[Bijgewerkt] *** Pack Implementatiestatus en fouten, download uitgevoerd en fouten in de vereisten bijwerken     
+    - ***[Bijgewerkt]***  Pack Implementatiestatus en fouten, download uitgevoerd en fouten in de vereisten bijwerken     
 
-    - ***[Nieuw] *** Versie van na de upgrade-script
+    - ***[Nieuw]***  Versie van na de upgrade-script
 
-    - ***[Nieuw] *** Gebruik van de update snelle-ring
+    - ***[Nieuw]***  Gebruik van de update snelle-ring
 
 -   Databaseprestatiegegevens (replicatie verwerken van gegevens, bovenste procedures voor het SQL Server opgeslagen door de processor en het schijfgebruik)
 
@@ -101,10 +101,10 @@ Wijzigingen van vorige versies worden vermeld met ***[Nieuw]*** of ***[bijgewerk
 
 -   Telemetriestatistieken (wanneer uitgevoerd, runtime en fouten)
 
-- ***[Nieuw] *** Geconfigureerd telemetrie niveau, modus (online of offline) en snelle update-configuratie
+- ***[Nieuw]***  Geconfigureerd telemetrie niveau, modus (online of offline) en snelle update-configuratie
 
-- ***[Nieuw] *** Gebruik van netwerkdetectie (ingeschakeld of uitgeschakeld)
-- ***[Nieuw] *** -Beheerconsole:
+- ***[Nieuw]***  Gebruik van netwerkdetectie (ingeschakeld of uitgeschakeld)
+- ***[Nieuw]***  -Beheerconsole:
 
     -  Statistieken over consoleverbindingen (opeating besturingssysteemversie, taal, SKU en architectuur, het systeemgeheugen aantal logische processors, site-ID, de geïnstalleerde versies van .NET en taalpakketten console verbinden)
 
@@ -117,9 +117,9 @@ U begint met System Center Configuration Manager versie 1602, omvat dit niveau h
 
 -   **Toepassingsbeheer:**
 
-  -   ***[Bijgewerkt] *** Over basic gebruik/targeting voor implementatietypen die worden gebruikt binnen de organisatie (gebruiker versus apparaat, vereist versus beschikbaar en universele apps)  
+  -   ***[Bijgewerkt]***  Over basic gebruik/targeting voor implementatietypen die worden gebruikt binnen de organisatie (gebruiker versus apparaat, vereist versus beschikbaar en universele apps)  
 
-  -  ***[Bijgewerkt] *** Informatie over de implementatie van de toepassing (installeren/verwijderen, vereist goedkeuring, gebruikersinteractie ingeschakeld/uitgeschakeld, afhankelijkheid en vervangingsimplementatie)  
+  -  ***[Bijgewerkt]***  Informatie over de implementatie van de toepassing (installeren/verwijderen, vereist goedkeuring, gebruikersinteractie ingeschakeld/uitgeschakeld, afhankelijkheid en vervangingsimplementatie)  
 
   -   Statistieken over beschikbare toepassingsaanvragen  
 
@@ -133,11 +133,11 @@ U begint met System Center Configuration Manager versie 1602, omvat dit niveau h
 
   -   Aantal toepassingen met een Windows 10-licentie  
 
-  -   ***[Bijgewerkt] *** Minimaal/maximaal/gemiddeld aantal toepassingsimplementaties per gebruiker/apparaat gedurende een periode
+  -   ***[Bijgewerkt]***  Minimaal/maximaal/gemiddeld aantal toepassingsimplementaties per gebruiker/apparaat gedurende een periode
 
   -   Type onderhoudsvenster en duur  
 
-  -  ***[Nieuw] *** Beleid omvang en complexiteit statistieken
+  -  ***[Nieuw]***  Beleid omvang en complexiteit statistieken
 
 -   **Client:**
 
@@ -157,9 +157,9 @@ U begint met System Center Configuration Manager versie 1602, omvat dit niveau h
 
     -   Aantal regels en implementaties die zijn gemaakt voor de aangepaste instellingen
 
-    -   ***[Bijgewerkt] *** Aantal geïmplementeerde sjablonen voor Simple Certificate Enrollment Protocol, VPN, Wi-Fi-, certificaat (.pfx) en nalevingsbeleid   
+    -   ***[Bijgewerkt]***  Aantal geïmplementeerde sjablonen voor Simple Certificate Enrollment Protocol, VPN, Wi-Fi-, certificaat (.pfx) en nalevingsbeleid   
 
-    -  ***[Nieuw] *** Telling van Simple Certificate Enrollment Protocol (SCEP)-certificaat, VPN, Wi-Fi, certificaat (.pfx) en nalevingsbeleid implementaties per platform
+    -  ***[Nieuw]***  Telling van Simple Certificate Enrollment Protocol (SCEP)-certificaat, VPN, Wi-Fi, certificaat (.pfx) en nalevingsbeleid implementaties per platform
 
 -   **Inhoud:**
 
@@ -261,7 +261,7 @@ U begint met System Center Configuration Manager versie 1602, omvat dit niveau h
 
     -   Aantal geïmplementeerde Office 365-updates
 
-    -   ***[Nieuw] *** Classificaties die worden gesynchroniseerd met de Software-updatepunt
+    -   ***[Nieuw]***  Classificaties die worden gesynchroniseerd met de Software-updatepunt
 
 -   **SQL/prestatiegegevens:**
 
@@ -271,13 +271,13 @@ U begint met System Center Configuration Manager versie 1602, omvat dit niveau h
 
     -   Aantal verzamelingen per type
 
-    -   ***[Bijgewerkt] *** Verzameling evaluatie-statistieken (query tijd, toegewezen en niet-toegewezen aantallen geteld met type, de overschakeling van de ID en het gebruik van de regel)
+    -   ***[Bijgewerkt]***  Verzameling evaluatie-statistieken (query tijd, toegewezen en niet-toegewezen aantallen geteld met type, de overschakeling van de ID en het gebruik van de regel)
 
-    - ***[Nieuw] *** Bewaarperiode voor bijhouden van SQL
+    - ***[Nieuw]***  Bewaarperiode voor bijhouden van SQL
 
 -   ***[Nieuw] Site is bijgewerkt:***
 
-    - ***[Nieuw] *** Versies van geïnstalleerde hotfixes voor Configuration Manager
+    - ***[Nieuw]***  Versies van geïnstalleerde hotfixes voor Configuration Manager
 
 ##  <a name="bkmk_level3"></a> Niveau 3 - Volledig
 Het niveau volledig omvat alle gegevens in de niveaus basis en uitgebreid. Het omvat ook aanvullende informatie over Endpoint Protection, percentages van updatenaleving en informatie over software-updates. Dit niveau kan ook geavanceerde diagnostische gegevens, zoals systeembestanden en momentopnamen van het geheugen, die mogelijk persoonlijke gegevens bevatten die in het geheugen of logboekbestanden op het moment van vastleggen voorkomen bevatten.
@@ -310,7 +310,7 @@ U begint met System Center Configuration Manager versie 1602, omvat dit niveau h
 
 -   Minimaal/maximaal/gemiddeld aantal uren sinds de vorige software-updatescan
 
--   ***[Nieuw] *** Update softwareproducten gesynchroniseerd door Software-updatepunt
--   ***[Nieuw] *** Instellingen voor naleving: SCEP-, VPN-, Wi-Fi- en nalevingsbeleid configuratiedetails voor sjabloon
+-   ***[Nieuw]***  Update softwareproducten gesynchroniseerd door Software-updatepunt
+-   ***[Nieuw]***  Instellingen voor naleving: SCEP-, VPN-, Wi-Fi- en nalevingsbeleid configuratiedetails voor sjabloon
 
--   ***[Nieuw] *** Type van EAS beleidsregels voor voorwaardelijke toegang (blokkeren of in quarantaine) voor de Intune-beheerde apparaten
+-   ***[Nieuw]***  Type van EAS beleidsregels voor voorwaardelijke toegang (blokkeren of in quarantaine) voor de Intune-beheerde apparaten

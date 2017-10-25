@@ -108,7 +108,7 @@ Wijzigingen van vorige versies worden vermeld met ***[Nieuw]***, ***[bijgewerkt]
      -  Statistieken over consoleverbindingen (besturingssysteemversie, taal, SKU en architectuur, het systeemgeheugen aantal logische processors, site-ID, de geïnstalleerde versies van .NET en taalpakketten console verbinden)    
 
 
-- ***[Nieuw] *** SQL versie, servicepackniveau edition, sorterings-ID en -teken instellen
+- ***[Nieuw]***  SQL versie, servicepackniveau edition, sorterings-ID en -teken instellen
 
 
 ##  <a name="bkmk_level2"></a> Niveau 2 - Uitgebreid
@@ -142,17 +142,17 @@ U begint met System Center Configuration Manager versie 1606, omvat dit niveau h
 
     -  Beleid omvang en complexiteit statistieken
 
-    - ***[Nieuw] *** Telling van Windows Store voor bedrijven-apps en sync-statistieken (inclusief samengevatte typen apps)  
+    - ***[Nieuw]***  Telling van Windows Store voor bedrijven-apps en sync-statistieken (inclusief samengevatte typen apps)  
 
-    - ***[Nieuw] *** Grens beheergroep statistieken (hoeveel snel, hoeveel vertragen en count per groep)
+    - ***[Nieuw]***  Grens beheergroep statistieken (hoeveel snel, hoeveel vertragen en count per groep)
 
-    - ***[Nieuw] *** MSI-configuratie-opties en telt
+    - ***[Nieuw]***  MSI-configuratie-opties en telt
 
-    - ***[Nieuw] *** Appvereisten (aantal van ingebouwde voorwaarden wordt verwezen door implementatietechnologie)
+    - ***[Nieuw]***  Appvereisten (aantal van ingebouwde voorwaarden wordt verwezen door implementatietechnologie)
 
-    - ***[Nieuw] *** Vervanging van de app, de maximale diepte van een keten van
+    - ***[Nieuw]***  Vervanging van de app, de maximale diepte van een keten van
 
-    - ***[Nieuw] *** Gebruik universal Data Access (UDA) en hoe zijn gemaakt
+    - ***[Nieuw]***  Gebruik universal Data Access (UDA) en hoe zijn gemaakt
 
 
 
@@ -164,43 +164,43 @@ U begint met System Center Configuration Manager versie 1606, omvat dit niveau h
 
     -   Aantal mislukte clientinstallaties  
 
-    -  ***[Nieuw] *** Automatische upgrade-implementatie voor clientconfiguratie, inclusief clientproef
+    -  ***[Nieuw]***  Automatische upgrade-implementatie voor clientconfiguratie, inclusief clientproef
 
-    -  ***[Nieuw] *** Client health statistieken en samenvatting van het bovenste probleem
+    -  ***[Nieuw]***  Client health statistieken en samenvatting van het bovenste probleem
 
-    - ***[Nieuw] *** BIOS leeftijd in jaren
+    - ***[Nieuw]***  BIOS leeftijd in jaren
 
-    - ***[Nieuw] *** Besturingssysteem leeftijd in maanden
+    - ***[Nieuw]***  Besturingssysteem leeftijd in maanden
 
-    - ***[Nieuw] *** Telling van Software Center-acties
+    - ***[Nieuw]***  Telling van Software Center-acties
 
-    - ***[Nieuw] *** Clientversie active Management Technology (AMT)
+    - ***[Nieuw]***  Clientversie active Management Technology (AMT)
 
-    - ***[Nieuw] *** Client downloaden implementatiefouten
+    - ***[Nieuw]***  Client downloaden implementatiefouten
 
-    - ***[Nieuw] *** Melding bewerking actie clientstatus (het aantal keren is uitgevoerd, Max. aantal gerichte clients en de gemiddelde Verwerkingsfrequentie)
+    - ***[Nieuw]***  Melding bewerking actie clientstatus (het aantal keren is uitgevoerd, Max. aantal gerichte clients en de gemiddelde Verwerkingsfrequentie)
 
-    - ***[Nieuw] *** Implementatiemethoden gebruikt voor de client en de telling van clients per methode-implementatie
+    - ***[Nieuw]***  Implementatiemethoden gebruikt voor de client en de telling van clients per methode-implementatie
 
-    - ***[Nieuw] *** Grootte van de clientconfiguratie-cache
+    - ***[Nieuw]***  Grootte van de clientconfiguratie-cache
 
 
 
-- ***[Nieuw] *** **Cloudservices:**
+- ***[Nieuw]***  **Cloudservices:**
 
-  - ***[Nieuw] *** Aantal verzamelingen die zijn gesynchroniseerd met Operations Management Suite
+  - ***[Nieuw]***  Aantal verzamelingen die zijn gesynchroniseerd met Operations Management Suite
 
-  - ***[Nieuw] *** Cloudconnector of de Operations Management Suite is ingeschakeld
+  - ***[Nieuw]***  Cloudconnector of de Operations Management Suite is ingeschakeld
 
 
 
 - ***[Nieuw] Verzamelingen:***
 
-    -  ***[Verplaatst] *** Verzameling evaluatie-statistieken (query tijd, toegewezen en niet-toegewezen aantallen geteld met type, de overschakeling van de ID en het gebruik van de regel)
+    -  ***[Verplaatst]***  Verzameling evaluatie-statistieken (query tijd, toegewezen en niet-toegewezen aantallen geteld met type, de overschakeling van de ID en het gebruik van de regel)
 
-    - ***[Nieuw] *** Verzamelingen zonder een implementatie
+    - ***[Nieuw]***  Verzamelingen zonder een implementatie
 
-    - ***[Nieuw] *** Verzamelings-ID-syntaxis (wordt niet uitgevoerd buiten de id's)
+    - ***[Nieuw]***  Verzamelings-ID-syntaxis (wordt niet uitgevoerd buiten de id's)
 
 
 
@@ -210,14 +210,14 @@ U begint met System Center Configuration Manager versie 1606, omvat dit niveau h
 
     -   Basislijninformatie over basisconfiguratie (aantal, aantal implementaties en aantal verwijzingen)  
 
-    -   ***[Bijgewerkt] *** Aantal implementaties die verwijzen naar ingebouwde instellingen (nu vastleggen instelling herstellen)  
+    -   ***[Bijgewerkt]***  Aantal implementaties die verwijzen naar ingebouwde instellingen (nu vastleggen instelling herstellen)  
 
-    -   ***[Bijgewerkt] *** Aantal regels en implementaties die zijn gemaakt voor aangepaste instellingen (nu vastleggen instelling herstellen)  
+    -   ***[Bijgewerkt]***  Aantal regels en implementaties die zijn gemaakt voor aangepaste instellingen (nu vastleggen instelling herstellen)  
     -   Aantal geïmplementeerde sjablonen voor Simple Certificate Enrollment Protocol (SCEP), VPN, Wi-Fi-, certificaat (.pfx) en nalevingsbeleid
 
     -  Telling van SCEP-certificaat, VPN, Wi-Fi, certificaat (.pfx) en nalevingsbeleid implementaties per platform
 
-    - ***[Nieuw] *** Passport for Work-beleid (gemaakt, geïmplementeerd)
+    - ***[Nieuw]***  Passport for Work-beleid (gemaakt, geïmplementeerd)
 
 
 
@@ -244,21 +244,21 @@ U begint met System Center Configuration Manager versie 1606, omvat dit niveau h
 
     -   Aantal waarschuwingen die zijn geconfigureerd voor de functie Endpoint Protection  
 
-    - ***[Nieuw] *** Advanced Threat Protection (ATP)-beleid (aantal beleidsregels en of het beleid wordt geïmplementeerd)
+    - ***[Nieuw]***  Advanced Threat Protection (ATP)-beleid (aantal beleidsregels en of het beleid wordt geïmplementeerd)
 
 
--   ***[Verwijderd] *** **Mobile application management (MAM):**  
+-   ***[Verwijderd]***  **Mobile application management (MAM):**  
 
-    -   ***[Verwijderd] *** Aantal MAM geschikte Office-toepassingen, line-of-business-toepassingen en -beleid door het besturingssysteem  
+    -   ***[Verwijderd]***  Aantal MAM geschikte Office-toepassingen, line-of-business-toepassingen en -beleid door het besturingssysteem  
 
-    -   ***[Verwijderd] *** Aantal MAM-toepassings/beleidsimplementaties  
+    -   ***[Verwijderd]***  Aantal MAM-toepassings/beleidsimplementaties  
 
-    -   ***[Verwijderd] *** Aantal regels dat per MAM-instelling worden gemaakt  
+    -   ***[Verwijderd]***  Aantal regels dat per MAM-instelling worden gemaakt  
 
 
-- ***[Nieuw] *** **Migratie:**
+- ***[Nieuw]***  **Migratie:**
 
-  -  ***[Nieuw] *** Aantal gemigreerde objecten (gebruik van de migratiewizard)
+  -  ***[Nieuw]***  Aantal gemigreerde objecten (gebruik van de migratiewizard)
 
 
 
@@ -295,7 +295,7 @@ U begint met System Center Configuration Manager versie 1606, omvat dit niveau h
 
     -   Aantal opstartinstallatiekopieën, stuurprogramma's, stuurprogrammapakketten, distributiepunten met ingeschakelde multicast, distributiepunten voor PXE-functionaliteit en takenreeksen  
 
-    -   ***[Nieuw] *** Tellingen van takenreeks stap gebruik
+    -   ***[Nieuw]***  Tellingen van takenreeks stap gebruik
 
 
 
@@ -348,7 +348,7 @@ U begint met System Center Configuration Manager versie 1606, omvat dit niveau h
 
     -   Classificaties die worden gesynchroniseerd met de Software-updatepunt
 
-    -   ***[Nieuw] *** Software-update-punt voor de load balancer statistieken
+    -   ***[Nieuw]***  Software-update-punt voor de load balancer statistieken
 
 
 
@@ -360,17 +360,17 @@ U begint met System Center Configuration Manager versie 1606, omvat dit niveau h
 
     -  Bewaarperiode voor bijhouden van SQL
 
-    - ***[Nieuw] *** Detectie typen, ingeschakeld en planning (volledig, incrementele)
+    - ***[Nieuw]***  Detectie typen, ingeschakeld en planning (volledig, incrementele)
 
-    - ***[Nieuw] *** Operationele statistieken over gebruikersdetectie (aantal objecten gevonden)
+    - ***[Nieuw]***  Operationele statistieken over gebruikersdetectie (aantal objecten gevonden)
 
-    - ***[Nieuw] *** SQL bijhouden prestatieproblemen bewaarperiode en status automatisch opschonen
+    - ***[Nieuw]***  SQL bijhouden prestatieproblemen bewaarperiode en status automatisch opschonen
 
 
 
-- ***[Nieuw] *** **Diverse**
+- ***[Nieuw]***  **Diverse**
 
-    - ***[Nieuw] *** Aantal sites met Wake op Lan (WOL)
+    - ***[Nieuw]***  Aantal sites met Wake op Lan (WOL)
 
 
 
@@ -391,7 +391,7 @@ U begint met System Center Configuration Manager versie 1606, omvat dit niveau h
 
 -   Informatie over de evaluatieplanning voor regels voor automatische implementatie
 
--   ***[VERWIJDERD] *** Aantal clients dat beveiliging netwerktoegangsbeleid hebben
+-   ***[VERWIJDERD]***  Aantal clients dat beveiliging netwerktoegangsbeleid hebben
 
 -   Aantal fouten en foutcodes voor software-update-implementaties
 
@@ -410,12 +410,12 @@ U begint met System Center Configuration Manager versie 1606, omvat dit niveau h
 
 -    Type EAS beleidsregels voor voorwaardelijke toegang (blokkeren of in quarantaine) voor apparaten die Intune beheert
 
--   ***[Nieuw] *** Top 50 CPU's in de omgeving
+-   ***[Nieuw]***  Top 50 CPU's in de omgeving
 
--   ***[Nieuw] *** DCM config pack voor het gebruik van System Center Configuration Manager
+-   ***[Nieuw]***  DCM config pack voor het gebruik van System Center Configuration Manager
 
--   ***[Nieuw] *** MSI-productcode (veelgebruikte apps die klanten implementeren)
+-   ***[Nieuw]***  MSI-productcode (veelgebruikte apps die klanten implementeren)
 
--   ***[Nieuw] *** ATP Health samenvatting
+-   ***[Nieuw]***  ATP Health samenvatting
 
--   ***[Nieuw] *** Gedetailleerde client implementatie installatiefouten
+-   ***[Nieuw]***  Gedetailleerde client implementatie installatiefouten

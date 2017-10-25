@@ -70,9 +70,9 @@ Vanaf versie 1610 kunt u het niveau verzameling uit binnen de console wijzigt do
 
       - Gebruik van de update snelle-ring
 
-    - ***[Nieuw] *** Pre-release gebruik, installatietype media, vertakking type
+    - ***[Nieuw]***  Pre-release gebruik, installatietype media, vertakking type
 
-    - ***[Nieuw] *** Software Assurance-vervaldatum
+    - ***[Nieuw]***  Software Assurance-vervaldatum
 
 - Meetgegevens over databaseprestaties (informatie over replicatieverwerking, beste in SQL Server opgeslagen procedures op processor- en schijfgebruik)
 
@@ -145,7 +145,7 @@ Voor System Center Configuration Manager versie 1610, dit niveau omvat het volge
 
     -  Beleid omvang en complexiteit statistieken
 
-    - ***[Bijgewerkt] *** Telling van Windows Store voor bedrijven-apps en sync statistieken (inclusief samengevatte typen apps gelicentieerde app-status en aantal offline en online gelicentieerde apps)  
+    - ***[Bijgewerkt]***  Telling van Windows Store voor bedrijven-apps en sync statistieken (inclusief samengevatte typen apps gelicentieerde app-status en aantal offline en online gelicentieerde apps)  
 
     - Grens beheergroep statistieken (hoeveel snel, hoeveel vertragen en count per groep)
 
@@ -157,7 +157,7 @@ Voor System Center Configuration Manager versie 1610, dit niveau omvat het volge
 
     - Universele Access (UDA) gebruik, hoe gemaakt
 
-    - ***[Nieuw] *** Toepassing goedkeuring statistische gegevens en gebruiksgegevens frequentie
+    - ***[Nieuw]***  Toepassing goedkeuring statistische gegevens en gebruiksgegevens frequentie
 
 
 
@@ -169,7 +169,7 @@ Voor System Center Configuration Manager versie 1610, dit niveau omvat het volge
 
     -   Aantal mislukte clientinstallaties  
 
-    -  ***[Bijgewerkt] *** Automatische Clientupgrade: implementatieconfiguratie, met inbegrip van de client testen en de uitsluiting gebruik (uitgebreide interoperabiliteit client)
+    -  ***[Bijgewerkt]***  Automatische Clientupgrade: implementatieconfiguratie, met inbegrip van de client testen en de uitsluiting gebruik (uitgebreide interoperabiliteit client)
 
     -  Client health statistieken en samenvatting van het bovenste probleem
 
@@ -189,7 +189,7 @@ Voor System Center Configuration Manager versie 1610, dit niveau omvat het volge
 
     - Grootte van de clientconfiguratie-cache
 
-    - ***[Nieuw] *** Aantal hardware-inventarisklassen, software-inventaris regels en regels voor het verzamelen
+    - ***[Nieuw]***  Aantal hardware-inventarisklassen, software-inventaris regels en regels voor het verzamelen
 
 
 
@@ -200,9 +200,9 @@ Voor System Center Configuration Manager versie 1610, dit niveau omvat het volge
 
   -  Hiermee wordt aangegeven of de cloud-connector van Operations Management Suite is ingeschakeld
 
-  - ***[Nieuw] *** Statistieken voor configuratie en gebruik van Cloud Management Gateway
+  - ***[Nieuw]***  Statistieken voor configuratie en gebruik van Cloud Management Gateway
 
-  - ***[Nieuw] *** Telling van de Upgrade Analytics Connectors
+  - ***[Nieuw]***  Telling van de Upgrade Analytics Connectors
 
 
 
@@ -240,7 +240,7 @@ Voor System Center Configuration Manager versie 1610, dit niveau omvat het volge
 
     -   Informatie over de grensgroep (aantal grenzen en sitesystemen die zijn toegewezen aan elke grensgroep)  
 
-    - ***[Nieuw] *** Groepsrelaties grens en alternatieve configuratie
+    - ***[Nieuw]***  Groepsrelaties grens en alternatieve configuratie
 
     -   Informatie over punt distributie (aantal pakketten en distributiepunten die zijn toegewezen aan elke distributiepuntengroep)  
 
@@ -248,9 +248,9 @@ Voor System Center Configuration Manager versie 1610, dit niveau omvat het volge
 
     -   Distribution Manager configuratie-informatie (threads, vertraging, aantal nieuwe pogingen, en pull-distributiepuntinstellingen)  
 
-    - ***[Nieuw] *** Telling van peer-cacheclients en statistieken voor Poortgebruik
+    - ***[Nieuw]***  Telling van peer-cacheclients en statistieken voor Poortgebruik
 
-    - ***[Nieuw] *** Client downloaden van inhoud statistieken
+    - ***[Nieuw]***  Client downloaden van inhoud statistieken
 
 
 -   **Endpoint Protection:**  
@@ -274,7 +274,7 @@ Voor System Center Configuration Manager versie 1610, dit niveau omvat het volge
 
 -   **Mobile Device Management (MDM):**  
 
-    -   ***[Bijgewerkt] *** Aantal uitgegeven acties voor mobiele apparaten: vergrendelen, pincode rest, wissen, buiten gebruik stellen en nu opdrachten synchroniseren  
+    -   ***[Bijgewerkt]***  Aantal uitgegeven acties voor mobiele apparaten: vergrendelen, pincode rest, wissen, buiten gebruik stellen en nu opdrachten synchroniseren  
 
     -   Telling van mobiele apparaten die worden beheerd door Configuration Manager en Microsoft Intune en hoe ze zijn geregistreerd (massaal, op basis van gebruikers)  
 
@@ -307,7 +307,7 @@ Voor System Center Configuration Manager versie 1610, dit niveau omvat het volge
 
     -   Telt het aantal van de taak sequence stap gebruik
 
-    - ***[Nieuw] *** Telling van de editie-Upgradebeleid
+    - ***[Nieuw]***  Telling van de editie-Upgradebeleid
 
 
 
@@ -362,7 +362,7 @@ Voor System Center Configuration Manager versie 1610, dit niveau omvat het volge
 
     -   Software-update-punt voor de load balancer statistieken
 
-    -  ***[Nieuw] *** Configuratie van Windows 10 express updates
+    -  ***[Nieuw]***  Configuratie van Windows 10 express updates
 
 
 
@@ -371,7 +371,7 @@ Voor System Center Configuration Manager versie 1610, dit niveau omvat het volge
 
     -   Aantal van de grootste databasetabellen  
 
-    -   ***[Bijgewerkt] *** SQL AlwaysOn-replica informatie, informatie over het gebruik en health-status
+    -   ***[Bijgewerkt]***  SQL AlwaysOn-replica informatie, informatie over het gebruik en health-status
 
     -  Bewaarperiode voor bijhouden van SQL
 
@@ -387,7 +387,7 @@ Voor System Center Configuration Manager versie 1610, dit niveau omvat het volge
 
     - Aantal sites met Wake op Lan (WOL)
 
-    - ***[Nieuw] *** Reporting statistieken over gebruik en prestaties  
+    - ***[Nieuw]***  Reporting statistieken over gebruik en prestaties  
 
 
 
@@ -435,4 +435,4 @@ Voor System Center Configuration Manager versie 1610, dit niveau omvat het volge
 
 -   Gedetailleerde client implementatie installatiefouten
 
-- ***[Nieuw] *** Windows Store voor bedrijven toepassingsgegevens (niet-samengestelde lijst met gesynchroniseerde toepassingen, waaronder AppID, online is of offlinestatus en totaal aantal aangeschafte licentieaantallen)
+- ***[Nieuw]***  Windows Store voor bedrijven toepassingsgegevens (niet-samengestelde lijst met gesynchroniseerde toepassingen, waaronder AppID, online is of offlinestatus en totaal aantal aangeschafte licentieaantallen)

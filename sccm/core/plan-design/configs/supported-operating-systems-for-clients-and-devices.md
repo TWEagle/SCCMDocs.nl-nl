@@ -16,7 +16,7 @@ ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: 4763043354f5a8418364e54543cfb7115a24b29b
 ms.sourcegitcommit: f6a428a8db7145affa388f59e0ad880bdfcf17b5
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/14/2017
 ---
@@ -73,7 +73,7 @@ ms.lasthandoff: 09/14/2017
 -   **De Server Core-installatie van Windows Server 2012** (x64) <sup>2</sup>    
 
 -   **De Server Core-installatie van Windows Server 2008 R2**  
-    **(zonder servicepack of met SP1) ** (x64)    
+    **(zonder servicepack of met SP1)**  (x64)    
 
 -   **De Server Core-installatie van Windows Server 2008 SP2** (x86, x64)  
 

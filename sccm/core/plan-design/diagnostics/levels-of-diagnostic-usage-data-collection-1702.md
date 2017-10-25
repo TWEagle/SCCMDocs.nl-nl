@@ -73,7 +73,7 @@ Voor System Center Configuration Manager versie 1702, dit niveau omvat het volge
 
 - Elementaire databaseconfiguratie (processors, clusterconfiguratie en configuratie van gedistribueerde weergaven)
 
-- ***[Bijgewerkt] *** Elementaire statistieken over gebruikersdetectie (detectie telling en het minimale/maximale/gemiddelde groepsgrootten) inclusief wanneer de site met de Azure Active Directory-Services wordt uitgevoerd.
+- ***[Bijgewerkt]***  Elementaire statistieken over gebruikersdetectie (detectie telling en het minimale/maximale/gemiddelde groepsgrootten) inclusief wanneer de site met de Azure Active Directory-Services wordt uitgevoerd.
 
 - Basisinformatie van Endpoint Protection (antimalwareclients)
 
@@ -133,13 +133,13 @@ Voor System Center Configuration Manager versie 1702, dit niveau omvat het volge
 
    - Toepassing goedkeuring statistische gegevens en gebruiksgegevens frequentie
 
-   - ***[Bijgewerkt] *** Informatie over de implementatie van de toepassing (het gebruik van installeren en verwijderen, vereist goedkeuring, gebruikersinteractie ingeschakeld/uitgeschakeld, afhankelijkheid, vervanging en gebruik telling van de functie voor gedrag)  
+   - ***[Bijgewerkt]***  Informatie over de implementatie van de toepassing (het gebruik van installeren en verwijderen, vereist goedkeuring, gebruikersinteractie ingeschakeld/uitgeschakeld, afhankelijkheid, vervanging en gebruik telling van de functie voor gedrag)  
 
    - Beleid omvang en complexiteit statistieken
 
    - Statistieken over beschikbare toepassingsaanvragen
 
-   - ***[Nieuw] *** Basisinformatie over de configuratie voor pakketten en programma's (implementatie-opties en programma-vlaggen)
+   - ***[Nieuw]***  Basisinformatie over de configuratie voor pakketten en programma's (implementatie-opties en programma-vlaggen)
 
    - Over Basic gebruik/targeting voor implementatietypen die worden gebruikt binnen de organisatie (gebruiker versus apparaat, vereist versus beschikbaar en universele apps)
 
@@ -149,7 +149,7 @@ Voor System Center Configuration Manager versie 1702, dit niveau omvat het volge
 
    - Aantal van toepassing zijnde toepassingen per besturingssysteem  
 
-   - ***[Nieuw] *** Telling van de toepassingen waarnaar wordt verwezen door een takenreeks
+   - ***[Nieuw]***  Telling van de toepassingen waarnaar wordt verwezen door een takenreeks
 
    - Aantal pakketten per type  
 
@@ -163,11 +163,11 @@ Voor System Center Configuration Manager versie 1702, dit niveau omvat het volge
 
    - Minimaal/maximaal/gemiddeld aantal toepassingsimplementaties per gebruiker/apparaat gedurende een periode
 
-   - ***[Nieuw] *** Meest gebruikte toepassing foutcodes voor clientinstallatie door implementatietechnologie
+   - ***[Nieuw]***  Meest gebruikte toepassing foutcodes voor clientinstallatie door implementatietechnologie
 
    - MSI-configuratieopties en aantallen
 
-   - ***[Nieuw] *** Statistieken over eindgebruikers interactie met de melding voor vereiste software-implementaties   
+   - ***[Nieuw]***  Statistieken over eindgebruikers interactie met de melding voor vereiste software-implementaties   
 
    - Universele Access (UDA) gebruik, hoe gemaakt
 
@@ -193,11 +193,11 @@ Voor System Center Configuration Manager versie 1702, dit niveau omvat het volge
 
    - Aantal mislukte clientinstallaties  
 
-   - ***[Nieuw] *** Telling van apparaten die door Hyper-V- of Azure gevirtualiseerd  
+   - ***[Nieuw]***  Telling van apparaten die door Hyper-V- of Azure gevirtualiseerd  
 
    - Telling van Software Center-acties   
 
-   - ***[Nieuw] *** Telling van UEFI-apparaten
+   - ***[Nieuw]***  Telling van UEFI-apparaten
 
    - Implementatiemethoden voor client en de telling van clients per implementatiemethode gebruikt
 
@@ -207,7 +207,7 @@ Voor System Center Configuration Manager versie 1702, dit niveau omvat het volge
 
    - Het aantal hardware-inventarisklassen, software-inventaris regels en regels voor het verzamelen
 
-   - ***[Nieuw] *** Statistieken voor health attestation van apparaten met inbegrip van de meest voorkomende fout codes, aantal van on-premises servers en het aantal apparaten in verschillende statussen.
+   - ***[Nieuw]***  Statistieken voor health attestation van apparaten met inbegrip van de meest voorkomende fout codes, aantal van on-premises servers en het aantal apparaten in verschillende statussen.
 
 
 
@@ -215,7 +215,7 @@ Voor System Center Configuration Manager versie 1702, dit niveau omvat het volge
 
   - Statistieken voor configuratie en gebruik van Cloud Management Gateway
 
-  - ***[Nieuw] *** Telling van clients die zijn gekoppeld aan Azure Active Directory Services
+  - ***[Nieuw]***  Telling van clients die zijn gekoppeld aan Azure Active Directory Services
 
   - Aantal verzamelingen die zijn gesynchroniseerd met Operations Management Suite
 
@@ -393,7 +393,7 @@ Voor System Center Configuration Manager versie 1702, dit niveau omvat het volge
 
 - **SQL/prestatiegegevens:**  
 
-    - ***[Nieuw] *** Configuratie en de duur van de samenvatting van de site
+    - ***[Nieuw]***  Configuratie en de duur van de samenvatting van de site
 
     - Aantal van de grootste databasetabellen  
 
@@ -407,13 +407,13 @@ Voor System Center Configuration Manager versie 1702, dit niveau omvat het volge
 
     - Bewaarperiode voor bijhouden van SQL
 
-    - ***[Nieuw] *** Toestand en status bericht prestatiestatistieken, met inbegrip van de meest voorkomende en meest duur berichttypen
+    - ***[Nieuw]***  Toestand en status bericht prestatiestatistieken, met inbegrip van de meest voorkomende en meest duur berichttypen
 
 
 
 - **Diverse**
 
-    - ***[Nieuw] *** Configuratie van datawarehouse Service gegevenspunt met inbegrip van de planning en gemiddelde synchronisatietijd
+    - ***[Nieuw]***  Configuratie van datawarehouse Service gegevenspunt met inbegrip van de planning en gemiddelde synchronisatietijd
 
     - Aantal sites met Wake op Lan (WOL)
 
@@ -441,7 +441,7 @@ Voor System Center Configuration Manager versie 1702, dit niveau omvat het volge
 
 - Endpoint Protection-beleidsconfiguratie
 
-- ***[Nieuw] *** Lijst met processen die zijn geconfigureerd met installatiegedrag voor toepassingen
+- ***[Nieuw]***  Lijst met processen die zijn geconfigureerd met installatiegedrag voor toepassingen
 
 - Minimaal/maximaal/gemiddeld aantal uren sinds de vorige software-updatescan
 
