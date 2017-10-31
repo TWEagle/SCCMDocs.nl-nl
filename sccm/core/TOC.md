@@ -103,6 +103,7 @@
 ###  [Instellen van uw testomgeving](get-started/set-up-your-lab.md)
 
 ##   [Technical Preview](get-started/technical-preview.md)
+###  [Mogelijkheden in 1710](get-started/capabilities-in-technical-preview-1710.md)
 ###  [Mogelijkheden in 1709](get-started/capabilities-in-technical-preview-1709.md)
 ###  [Mogelijkheden in 1708](get-started/capabilities-in-technical-preview-1708.md)
 ###  [Mogelijkheden in 1707](get-started/capabilities-in-technical-preview-1707.md)
