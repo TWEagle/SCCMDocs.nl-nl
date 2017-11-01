@@ -1,8 +1,9 @@
 ---
-title: Ondersteuning voor Windows 10 | Microsoft Docs
+title: Ondersteuning voor Windows 10
+titleSuffix: Configuration Manager
 description: Meer informatie over de versies van Windows 10 die worden ondersteund als clients of voor OSD met System Center Configuration Manager.
 ms.custom: na
-ms.date: 7/31/2017
+ms.date: 10/11/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +15,11 @@ caps.latest.revision: "5"
 author: brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 1d2e6e128531237ed76f94584aa42f76067db164
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 8ce7230a3aa64b78937b305fee4dc8e3f38abead
+ms.sourcegitcommit: f9c38b87fcd543ab8a5d7a7f446b42fd3e55450c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="support-for-windows-10-for-system-center-configuration-manager"></a>Ondersteuning voor Windows 10 voor System Center Configuration Manager  
 
@@ -37,13 +38,14 @@ Bijvoorbeeld: een Configuration Manager-versie wordt niet verwijderen uit de mat
 -   De volgende informatie supplementen [ondersteunde besturingssystemen voor clients en apparaten](/sccm/core/plan-design/configs/supported-operating-systems-for-clients-and-devices).
 -   Als u de Long-Term Servicing Branch van Configuration Manager gebruikt, Zie [ondersteunde configuraties voor de vertakking Long-Term onderhoud](/sccm/core/understand/supported-configurations-for-ltsb).
 
-|Windows 10-release                    |Configuration Manager 1610          |    Configuration Manager 1702          |    Configuration Manager 1706 |
+|Versie van Windows 10                    |Configuration Manager 1610          |    Configuration Manager 1702          |    Configuration Manager 1706 |
 |---------------------|-----|-----|-----|
 |Enterprise 2015 LTSB                   |![Ondersteund](media/green_check.png) |![Ondersteund](media/green_check.png) |![Ondersteund](media/green_check.png) |
-|1511  <br />(*edities Zie*)           |![Ondersteund](media/green_check.png) |![Ondersteund](media/green_check.png) |![Ondersteund](media/green_check.png) |
 |Enterprise 2016 LTSB                   |![Ondersteund](media/green_check.png) |![Ondersteund](media/green_check.png) |![Ondersteund](media/green_check.png) |
-|1607   <br />Update van de verjaardag<br />(*edities Zie*)   |![Ondersteund](media/green_check.png) |![Ondersteund](media/green_check.png)            |![Ondersteund](media/green_check.png) |
-|1703   <br />Auteurs bijwerken<br />(*edities Zie*)      |![Niet ondersteund](media/Red_X.png)   |![Achterwaarts compatibel](media/blue_compat.png) |![Ondersteund](media/green_check.png) |
+|1607   <br />(Ook wel bekend als de Update van de verjaardag)<br />(*edities Zie*)   |![Ondersteund](media/green_check.png) |![Ondersteund](media/green_check.png)            |![Ondersteund](media/green_check.png) |
+|1703   <br />(Ook wel bekend als de beveiligingsbeheerder-Update)<br />(*edities Zie*)      |![Niet ondersteund](media/Red_X.png)   |![Achterwaarts compatibel](media/blue_compat.png) |![Ondersteund](media/green_check.png) |
+|1709   <br />(Ook wel bekend als de beveiligingsbeheerder vallen Update)<br />(*edities Zie*) |![Niet ondersteund](media/Red_X.png)   |![Niet ondersteund](media/Red_X.png)   |![Achterwaarts compatibel](media/blue_compat.png) |
+
 
 
 **De volgende versies:** Enterprise, Pro, Education, Pro onderwijs   
@@ -62,9 +64,9 @@ De onderstaande lijst de versies van Windows 10 ADK die u met verschillende vers
 
 |Windows 10 ADK-versie  |Configuration Manager 1610 |Configuration Manager 1702   |Configuration Manager 1706 |
 |--------------------|-----|-----|-----|
-|1511  |![Niet ondersteund](media/Red_X.png)             |![Niet ondersteund](media/Red_X.png)              |![Niet ondersteund](media/Red_X.png)|
 |1607  |![Ondersteund](media/green_check.png)           |![Achterwaarts compatibel](media/blue_compat.png) |![Niet ondersteund](media/Red_X.png)|
 |1703  |![Niet ondersteund](media/Red_X.png)             |![Ondersteund](media/green_check.png)            |![Ondersteund](media/green_check.png) |  
+|1709  |![Niet ondersteund](media/Red_X.png)             |![Niet ondersteund](media/Red_X.png)              |![Ondersteund](media/green_check.png) |  
 
 |Sleutel|
 |--|

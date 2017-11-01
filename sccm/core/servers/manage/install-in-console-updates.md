@@ -1,5 +1,6 @@
 ---
-title: Updates binnen de console | Microsoft Docs
+title: Console-updates
+titleSuffix: Configuration Manager
 description: System Center Configuration Manager worden gesynchroniseerd met de Microsoft cloud ophalen van updates die u vanuit de console installeren kunt.
 ms.custom: na
 ms.date: 09/14/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "36"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 5302b5712e33c753d0193a32498bc02a2241428c
-ms.sourcegitcommit: 474e6ddbaaeac4ba17d8172321e08deeb0140d0a
-ms.translationtype: HT
+ms.openlocfilehash: b2aacb5c0e0c6cb98fbb9847a6f9c1ddbb03aeeb
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="install-in-console-updates-for-system-center-configuration-manager"></a>Updates binnen de console installeren voor System Center Configuration Manager
 

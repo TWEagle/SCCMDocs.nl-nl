@@ -1,8 +1,9 @@
 ---
-title: Gegevens beschermen met wissen op afstand, vergrendelen of opnieuw instellen met behulp van System Center Configuration Manager van wachtwoordcode | Microsoft Docs
+title: Gegevens beschermen met extern wissen, vergrendelen of de wachtwoordcode opnieuw instellen
+titleSuffix: Configuration Manager
 description: Apparaatgegevens beveiligen met volledig wissen, selectief wissen, vergrendelen op afstand en wachtwoordcode opnieuw instellen met behulp van System Center Configuration Manager.
 ms.custom: na
-ms.date: 09/28/2017
+ms.date: 10/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: ea92d7b4656a04f312f04c19cac6b17df931c9c5
-ms.sourcegitcommit: db079cd7322e7d4926b2df0ccb37e752c570d902
+ms.openlocfilehash: 55d49c388b4ea60627f72ffe61796c70de6f9416
+ms.sourcegitcommit: a5f8b5cfdabf0298e4302e24210e725a06a9de82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="protect-data-with-remote-wipe-lock-or-passcode-reset-by-using-system-center-configuration-manager"></a>Gegevens beschermen met wissen op afstand, vergrendelen of de wachtwoordcode opnieuw instellen met behulp van System Center Configuration Manager
 
@@ -39,6 +40,9 @@ System Center Configuration Manager biedt selectief wissen, volledig wissen, ver
 U kunt een wisopdracht geven aan een apparaat wanneer u een vermist apparaat wilt beveiligen of wanneer u een apparaat buiten actief gebruik wilt stellen.  
 
 Geef opdracht tot **volledig wissen** van een apparaat om het apparaat terug te zetten op de fabrieksinstellingen. Hiermee verwijdert u alle bedrijfs- en gebruikersgegevens en -instellingen. U kunt volledig wissen op Windows Phone, iOS, Android en Windows 10-apparaten kunt doen.  
+
+> [!NOTE]
+> U kunt alleen een volledig wissen uitvoeren op apparaten in Bedrijfseigendom.
 
 > [!NOTE]
 > Wissen van Windows 10-apparaten in versies eerder dan versie 1511 met minder dan 4 GB RAM-geheugen, blijft het apparaat niet reageert. [Meer informatie](https://technet.microsoft.com/library/mt592024.aspx#full-wipe-disables-windows-10-devices-with-less-than-4-gb-ram).

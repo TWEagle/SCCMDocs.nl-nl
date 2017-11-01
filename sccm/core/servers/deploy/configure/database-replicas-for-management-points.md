@@ -1,5 +1,6 @@
 ---
-title: Beheerpunt databasereplica | Microsoft Docs
+title: Databasereplica's Management-punt
+titleSuffix: Configuration Manager
 description: Een databasereplica gebruiken om te beperken van de CPU-belasting die door beheerpunten op de Sitedatabaseserver wordt geplaatst.
 ms.custom: na
 ms.date: 10/06/2016
@@ -14,11 +15,11 @@ caps.latest.revision: "9"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 130c053c9f2a1817dd85b1f3c01285aab19d59cb
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: c33bed2244e259edc0c5a7bb547be8bf69213920
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="database-replicas-for-management-points-for-system-center-configuration-manager"></a>Databasereplica's voor beheerpunten voor System Center Configuration Manager
 
@@ -455,7 +456,7 @@ Om clientnotificatie met een databasereplica voor een beheerpunt te ondersteunen
 ###  <a name="bkmk_supscript"></a> Aanvullend script voor extra databasereplica's op één SQL Server  
  Wanneer u het script uit stap 4 gebruikt een zelfondertekend certificaat voor de database-replicaserver configureren op een SQL-Server waarop al een databasereplica die u wilt blijven gebruiken, moet u een aangepaste versie van het oorspronkelijke script gebruiken. Met de volgende wijzigingen wordt voorkomen dat het script een bestaand certificaat op de server verwijdert en worden volgende certificaten met unieke beschrijvende namen gemaakt.  Bewerk het oorspronkelijke script als volgt:  
 
--   Uitcommentariëren (voorkomen dat wordt uitgevoerd) elke regel tussen de scriptvermeldingen **# bestaand certificaat verwijderen als er een bestaat** en **# het nieuwe certificaat maken**. Dit doet u door een  **#**  toe te voegen als eerste teken van elke betreffende regel.  
+-   Uitcommentariëren (voorkomen dat wordt uitgevoerd) elke regel tussen de scriptvermeldingen **# bestaand certificaat verwijderen als er een bestaat** en **# het nieuwe certificaat maken**. Dit doet u door een **#** toe te voegen als eerste teken van elke betreffende regel.  
 
 -   Voor elke volgende databasereplica waarvoor u dit script gebruikt om te configureren, werkt u de beschrijvende naam voor het certificaat bij.  Om dit te doen, bewerkt u de regel **$enrollment. CertificateFriendlyName = "ConfigMgr SQL Server Identification Certificate"** en vervang **ConfigMgr SQL Server Identification Certificate** met een nieuwe naam zoals **ConfigMgr SQL Server Identification Certificate1**.  
 

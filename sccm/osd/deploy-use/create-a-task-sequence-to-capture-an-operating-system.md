@@ -1,5 +1,6 @@
 ---
-title: Maak een takenreeks voor het vastleggen van een besturingssysteem | Microsoft Docs
+title: Maak een takenreeks voor het vastleggen van een besturingssysteem
+titleSuffix: Configuration Manager
 description: Een takenreeks voor samenstellen en vastleggen bouwt een referentiecomputer die specifieke stuurprogramma's en software-updates samen met het besturingssysteem kunt opnemen.
 ms.custom: na
 ms.date: 10/06/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: e9320e40b8e5031ffa3da5e5149c7da718cc87d5
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: 98f9f44373b854b61714c21105a28b3240b4a7f7
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="create-a-task-sequence-to-capture-an-operating-system-in-system-center-configuration-manager"></a>Maak een takenreeks voor het vastleggen van een besturingssysteem in System Center Configuration Manager
 

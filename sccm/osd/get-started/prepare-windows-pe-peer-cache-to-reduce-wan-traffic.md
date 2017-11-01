@@ -1,5 +1,6 @@
 ---
-title: Voorbereiden van Windows PE-peer-cache om WAN-verkeer te beperken | Microsoft Docs
+title: Windows PE-Peer-Cache voorbereiden om WAN-verkeer te beperken
+titleSuffix: Configuration Manager
 description: De Windows PE-Peer-Cache werkt in de Windows PE voor inhoud ophalen van een lokale peer en WAN-verkeer te beperken wanneer er geen lokaal distributiepunt.
 ms.custom: na
 ms.date: 10/06/2016
@@ -14,11 +15,11 @@ caps.latest.revision: "11"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 814c6133a30b1116d05aaeafddb0dfb7fe2a390e
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: bb0ed6809d1350c4ce28e20d1a83082a51c2e687
+ms.sourcegitcommit: 1132886e07d0c0a87dcc7eeef4577dd8d8840023
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="prepare-windows-pe-peer-cache-to-reduce-wan-traffic-in-system-center-configuration-manager"></a>Windows PE-Peer-Cache voorbereiden om WAN-verkeer te beperken in System Center Configuration Manager
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 08/07/2017
 
 Wanneer u een nieuw besturingssysteem in System Center Configuration Manager implementeert, kunnen computers waarop de takenreeks wordt uitgevoerd Windows PE-Peer-Cache gebruiken om inhoud te verkrijgen van een lokale peer (een peer-cachebron) in plaats van de inhoud van een distributiepunt wordt gedownload. Dit helpt het Wide Area Network-verkeer (WAN) te beperken indien er sprake is van meerdere filialen terwijl er geen lokaal distributiepunt bestaat.  
 
- Windows PE-Peer-Cache is vergelijkbaar met [Windows BranchCache](http://technet.microsoft.com/library/mt617255\(TechNet.10\).aspx#bkmk_branchcache), maar werkt in de Windows Preinstallation Environment (Windows PE). Als u de takenreeks start vanuit een besturingssysteemcontext, bijvoorbeeld via het Software Center op de client, wordt Windows PE-Peer-Cache niet gebruikt. De volgende termen worden gebruikt om de clients te beschrijven die Windows PE-Peer-Cache gebruiken:  
+ Windows PE-Peer-Cache is vergelijkbaar met [Windows BranchCache](http://technet.microsoft.com/library/mt617255\(TechNet.10\).aspx#bkmk_branchcache), maar werkt in de Windows Preinstallation Environment (Windows PE). De volgende termen worden gebruikt om de clients te beschrijven die Windows PE-Peer-Cache gebruiken:  
 
 -   Een **peer-cacheclient** is een computer die is geconfigureerd voor het gebruik van Windows PE-Peer-Cache.  
 

@@ -1,5 +1,6 @@
 ---
-title: Toegang tot e-mail beheren | Microsoft Docs
+title: Toegang tot e-mail beheren
+titleSuffix: Configuration Manager
 description: Informatie over het gebruik van voorwaardelijke toegang voor System Center Configuration Manager voor het beheren van toegang tot Exchange.
 ms.custom: na
 ms.date: 03/05/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "24"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: a5c2a8912cd2ef95a778b81d0b7f1f98315b8413
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: 8ab177067d0308b863274a7ae05574374b0af4ba
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="manage-email-access-in-system-center-configuration-manager"></a>Toegang tot e-mail beheren in System Center Configuration Manager
 

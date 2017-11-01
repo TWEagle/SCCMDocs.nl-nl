@@ -1,5 +1,6 @@
 ---
-title: Gebruik van de diagnostics-gegevens | Microsoft Docs
+title: Gebruik van diagnostische gegevens
+titleSuffix: Configuration Manager
 description: Meer informatie over hoe Microsoft gebruikt de diagnostische gegevens en gebruiksgegevens die door System Center Configuration Manager worden verzameld.
 ms.custom: na
 ms.date: 12/29/2016
@@ -14,11 +15,11 @@ caps.latest.revision: "5"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 9864f6ba7b9a2211c99b1a5d9ebd582e01ccfeb6
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: e6395421e88baf822bc0a8971119b6fe360e6680
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="how-diagnostics-and-usage-data-is-used-for-system-center-configuration-manager"></a>Hoe diagnostische gegevens en gebruiksgegevens worden gebruikt voor System Center Configuration
 

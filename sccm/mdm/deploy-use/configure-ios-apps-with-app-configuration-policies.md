@@ -1,5 +1,6 @@
 ---
-title: IOS-apps configureren met configuratiebeleid voor apps | Microsoft Docs
+title: IOS-apps met app-configuratiebeleid configureren
+titleSuffix: Configuration Manager
 description: Voorkomen configuratieproblemen op apparaten met iOS 8 of hoger door het app-configuratiebeleid implementeren voor gebruikers voordat ze apps uitvoeren.
 ms.custom: na
 ms.date: 03/05/2017
@@ -12,14 +13,14 @@ ms.topic: article
 ms.assetid: f0a78038-ea22-4826-9c07-1771b7dd2e8d
 caps.latest.revision: "18"
 caps.handback.revision: "0"
-author: mtillman
-ms.author: mtillman
+author: dougeby
+ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 50aea2afaf34974ca92ac58b6569bff56403a9ab
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 905b0925f88395942c954561aa0828c15d3ba758
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="apply-settings-to-ios-apps-with-app-configuration-policies-in-system-center-configuration-manager"></a>Instellingen toepassen op iOS-apps met configuratiebeleid voor apps in System Center Configuration Manager
 

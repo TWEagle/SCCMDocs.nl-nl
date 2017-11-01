@@ -1,5 +1,6 @@
 ---
-title: Grootte en schaal | Microsoft Docs
+title: Grootte en schaal
+titleSuffix: Configuration Manager
 description: Zoek het nummer van sitesysteemrollen en sites die u moet ondersteuning van de apparaten in uw omgeving voor System Center Configuration Manager.
 ms.custom: na
 ms.date: 07/24/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "4"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 9c50f6633a5ca04b62f4c3b06119fb1fbcab2643
-ms.sourcegitcommit: 974fbc4408028c8be28911e5cd646efcf47c7f15
+ms.openlocfilehash: c0277fed7db5803aa2b2246ca879640136dce02a
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="size-and-scale-numbers-for-system-center-configuration-manager"></a>Grootte en schaalgetallen voor System Center Configuration Manager
 
@@ -54,7 +55,6 @@ De volgende ondersteuning cijfers zijn gebaseerd op het gebruik van de aanbevole
 
 -   Secundaire sites ondersteunen geen onderliggende sites.  
 
--   Een centrale beheersite ondersteunt maximaal 25 onderliggende primaire sites.  
 
 
 ## <a name="bkmk_roles"></a>Sitesysteemrollen    

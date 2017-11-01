@@ -1,5 +1,6 @@
 ---
-title: Mogelijkheden in Technical Preview 1607 Configuration Manager
+title: Mogelijkheden van Technical Preview 1607
+titleSuffix: Configuration Manager
 description: Meer informatie over functies die beschikbaar zijn in de Technical Preview voor System Center Configuration Manager, versie 1607.
 ms.custom: na
 ms.date: 01/23/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "11"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 4717e0f8eef01501fb5b5790e855c476c1ca4590
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 3967df286332a3fde7f9c0eb22167ae2889dfcd8
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="capabilities-in-technical-preview-1607-for-system-center-configuration-manager"></a>Mogelijkheden van Technical Preview 1607 voor System Center Configuration Manager
 

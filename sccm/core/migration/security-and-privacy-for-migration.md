@@ -1,5 +1,6 @@
 ---
-title: Migratie-beveiliging en privacy | Microsoft Docs
+title: Migratie-beveiliging en privacy
+titleSuffix: Configuration Manager
 description: Aanbevolen beveiligingsprocedures en privacyinformatie voor migratie naar uw omgeving voor System Center Configuration Manager worden opgehaald.
 ms.custom: na
 ms.date: 10/06/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 8aa6971d75924ab5bcacd70c330913097ecf8717
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: e068cc0055a1f65ad0fe53be08bb996831d9a288
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="security-and-privacy-for-migration-to-system-center-configuration-manager"></a>Beveiliging en privacy voor migratie naar System Center Configuration Manager
 

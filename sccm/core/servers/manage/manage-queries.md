@@ -1,5 +1,6 @@
 ---
-title: Query's beheren | Microsoft Docs
+title: Query's beheren
+titleSuffix: Configuration Manager
 description: Informatie over het beheren van uw query's. Bevat een tabel voor gedetailleerde referentie.
 ms.custom: na
 ms.date: 10/06/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: 97db49ca3097a3588f3fc3c341a0c492ec07ff3e
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: HT
+ms.openlocfilehash: 8535927281e1d84a09c7d053b5313fe7e4fcd97f
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="how-to-manage-queries-in-system-center-configuration-manager"></a>Query's in System Center Configuration Manager beheren
 

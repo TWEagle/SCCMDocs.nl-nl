@@ -1,5 +1,6 @@
 ---
-title: Bij een clientmigratie plannen | Microsoft Docs
+title: Bij een clientmigratie plannen
+titleSuffix: Configuration Manager
 description: "Meer informatie over de taken die u clients vanuit een bronhiërarchie naar een doelhiërarchie van System Center Configuration Manager migreert."
 ms.custom: na
 ms.date: 12/30/2016
@@ -14,11 +15,11 @@ caps.latest.revision: "6"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: b52ca4059dfeed08cabf1f75319da40d6499622f
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 8e41135266565890c793f7920482a4455f05fbde
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="plan-a-client-migration-strategy-in-system-center-configuration-manager"></a>Een strategie voor clientmigratie in System Center Configuration Manager plannen
 

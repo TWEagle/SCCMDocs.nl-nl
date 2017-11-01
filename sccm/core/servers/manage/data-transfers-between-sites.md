@@ -1,5 +1,6 @@
 ---
-title: Gegevensoverdracht | Microsoft Docs
+title: Gegevensoverdracht
+titleSuffix: Configuration Manager
 description: Meer informatie over hoe worden gegevens in Configuration Manager worden verplaatst tussen sites en hoe u de overdracht van de gegevens in uw netwerk kunt beheren.
 ms.custom: na
 ms.date: 10/06/2016
@@ -14,11 +15,11 @@ caps.latest.revision: "12"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: bf0fdc8d4b4a72760b2cfb91231378a17df01594
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 29e15b9ebe01e9e266df24267bf402e3d07de095
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="data-transfers-between-sites-in-system-center-configuration-manager"></a>Gegevensoverdracht tussen sites in System Center Configuration Manager
 

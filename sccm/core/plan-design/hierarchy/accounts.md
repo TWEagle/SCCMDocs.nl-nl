@@ -1,5 +1,6 @@
 ---
-title: Accounts die worden gebruikt door Configuration Manager | Microsoft Docs
+title: Accounts die worden gebruikt
+titleSuffix: Configuraton Manager
 description: Identificeren en te beheren de Windows-groepen en de accounts in System Center Configuration Manager.
 ms.custom: na
 ms.date: 2/9/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: a776667cc9f24bd4a468afea76e466c34ce66864
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: ed1013226bbcd1094214adc2b327dfe8ed5a4ad5
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="accounts-used-in-system-center-configuration-manager"></a>Accounts die worden gebruikt System Center Configuration Manager
 

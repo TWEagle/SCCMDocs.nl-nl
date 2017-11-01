@@ -1,5 +1,6 @@
 ---
-title: Apps beheren via de Windows Store voor bedrijven | Microsoft Docs
+title: Apps beheren via de Windows Store voor Bedrijven
+titleSuffix: Configuration Manager
 description: Beheren en implementeren van apps uit de Windows Store voor bedrijven met behulp van System Center Configuration Manager.
 ms.custom: na
 ms.date: 7/31/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "11"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: ed7c3724e4804911f713e1239661fc53514300b2
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
+ms.openlocfilehash: 2dd6a2f9c62903119ba8c8374dcf222199c19fd5
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="manage-apps-from-the-windows-store-for-business-with-system-center-configuration-manager"></a>Apps beheren via de Windows Store voor Bedrijven met System Center Configuration Manager
 De [Windows Store voor bedrijven](https://www.microsoft.com/business-store) kunt u vinden en Windows-apps voor uw organisatie, kopen, afzonderlijk of in volume. De store koppelt aan Configuration Manager, kunt u de lijst met apps die u hebt aangeschaft synchroniseren met Configuration Manager. U kunt deze apps bekijken in de Configuration Manager-console, en deze implementeren zoals u zou ook een andere app implementeren.

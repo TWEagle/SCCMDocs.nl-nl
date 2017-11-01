@@ -1,5 +1,6 @@
 ---
-title: SQL Server AlwaysOn | Microsoft Docs
+title: SQL Server Always On
+titleSuffix: Configuration Manager
 description: Plan het gebruik van een SQL Server altijd op beschikbaarheidsgroep met SCCM.
 ms.custom: na
 ms.date: 09/22/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "16"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 3e275f6203a9e0b9210bfbadbf9addf64f6533d8
-ms.sourcegitcommit: 8faf42135a8dc9c384407e64f3f8ba204fb15847
+ms.openlocfilehash: 24eaa33f1f9b333894817f089149e2cbed35df75
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="prepare-to-use-sql-server-always-on-availability-groups-with-configuration-manager"></a>Voorbereiden op het gebruik van SQL Server Always On availability groups met Configuration Manager
 
@@ -75,7 +76,7 @@ Zie voor meer informatie [maken van een Database Mirroring-eindpunt voor altijd 
 -   U kunt maximaal twee synchrone secundaire replica's hebben voorafgaand aan versie 1706.
 -   Vanaf versie 1706, kunt u hetzelfde aantal en type van replica's in een beschikbaarheidsgroep als ondersteund door de versie van SQL Server die u gebruikt.
 
-    U kunt een replica met asynchrone doorvoer gebruiken voor het herstellen van de synchrone replica. Zie [opties voor herstel van site]( /sccm/protect/understand/backup-and-recovery#BKMK_SiteDatabaseRecoveryOption) in het onderwerp back-up en herstel voor meer informatie over om dit te bereiken.
+-   Vanaf versie 1706, kunt u een replica met asynchrone doorvoer voor het herstellen van de synchrone replica. Zie [opties voor herstel van site]( /sccm/protect/understand/backup-and-recovery#BKMK_SiteDatabaseRecoveryOption) in het onderwerp back-up en herstel voor meer informatie over om dit te bereiken.
     > [!CAUTION]  
     > Configuration Manager biedt geen ondersteuning voor failover voor het gebruik van de replica met asynchrone doorvoer als uw sitedatabase.
 Omdat Configuration Manager wordt de status van de replica met asynchrone doorvoer om te bevestigen dat het huidige, is niet gevalideerd en [standaard deze replica kan niet synchroon]( https://msdn.microsoft.com/library/ff877884(SQL.120).aspx(d=robot)#Availability%20Modes), het gebruik van een replica met asynchrone doorvoer als de sitedatabase kunt risico voor de integriteit van uw site en -gegevens.

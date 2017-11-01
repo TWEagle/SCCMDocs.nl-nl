@@ -1,5 +1,6 @@
 ---
-title: App-V virtuele toepassingen implementeren | Microsoft Docs
+title: App-V virtuele toepassingen implementeren
+titleSuffix: Configuration Manager
 description: Zie welke overwegingen u moet rekening account wanneer u maken en implementeren van virtuele toepassingen.
 ms.custom: na
 ms.date: 02/16/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: d2cc5e62a894c4e3ae9adb185f5f0433b0365722
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: HT
+ms.openlocfilehash: bf324f458c37fa137e24179eb4455fcbe75c855d
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="deploy-app-v-virtual-applications-with-system-center-configuration-manager"></a>App-V virtuele toepassingen met System Center Configuration Manager implementeren
 

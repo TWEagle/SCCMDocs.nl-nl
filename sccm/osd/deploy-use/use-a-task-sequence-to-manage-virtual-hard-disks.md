@@ -1,5 +1,6 @@
 ---
-title: Een takenreeks gebruiken voor het beheren van virtuele harde schijven | Microsoft Docs
+title: Een takenreeks gebruiken voor het beheren van virtuele harde schijven
+titleSuffix: Configuration Manager
 description: Maken en een VHD wijzigen, toepassingen en software-updates toevoegen en de VHD publiceren naar System Center Virtual Machine Manager (VMM) van Configuration Manager.
 ms.custom: na
 ms.date: 10/06/2016
@@ -14,11 +15,11 @@ caps.latest.revision: "5"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: f77af4b8fcb193ed44511c0e5eea7290f55dbbf8
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: 586eec745bdf86a42a9d33fb9e1163f03efa1c59
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="use-a-task-sequence-to-manage-virtual-hard-disks-in-system-center-configuration-manager"></a>Een takenreeks gebruiken voor het beheren van virtuele harde schijven in System Center Configuration Manager
 

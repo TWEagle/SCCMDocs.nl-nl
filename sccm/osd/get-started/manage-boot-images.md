@@ -1,5 +1,6 @@
 ---
-title: "Opstartinstallatiekopieën - Configuration Manager beheren | Microsoft Docs"
+title: "Opstartinstallatiekopieën beheren "
+titleSuffix: Configuration Manager
 description: "In Configuration Manager, informatie over het beheren van de Windows PE-opstartinstallatiekopieën die u tijdens de implementatie van een besturingssysteem gebruiken."
 ms.custom: na
 ms.date: 01/23/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 5668ba3ead3b7415508f9ecf02f2e119c3cd9cc6
-ms.sourcegitcommit: 2a1328da3facb20b0c78f3b12adbb5fdbe0dcc11
-ms.translationtype: HT
+ms.openlocfilehash: 1f169dbf645096777f3fd244d24ca5be92efa180
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="manage-boot-images-with-system-center-configuration-manager"></a>Opstartinstallatiekopieën beheren met System Center Configuration Manager
 

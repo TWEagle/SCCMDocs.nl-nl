@@ -1,5 +1,6 @@
 ---
-title: Vereisten voor rapportage | Microsoft Docs
+title: Vereisten voor rapportage
+titleSuffix: Configuration Manager
 description: Inzicht in verschillende afhankelijkheden die van invloed zijn op uw gebruik van rapportage in System Center Configuration Manager.
 ms.custom: na
 ms.date: 10/06/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 2e624eb2ea061a4eb7d92365410fada335640224
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 09f6ebd47070c63d238a74242d4b04b84c95ef49
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="prerequisites-for-reporting-in-system-center-configuration-manager"></a>Vereisten voor rapportage in System Center Configuration Manager
 

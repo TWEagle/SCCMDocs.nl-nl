@@ -1,5 +1,6 @@
 ---
-title: Troubleshooting Windows Defender of Endpoint Protection-client | Microsoft Docs
+title: Problemen met Windows Defender of Endpoint Protection-client oplossen
+titleSuffix: Configuration Manager
 description: Informatie over het oplossen van problemen met Windows Defender- en Endpoint Protection.
 ms.custom: na
 ms.date: 01/03/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: NathBarn
 ms.author: nathbarn
 manager: angrobe
-ms.openlocfilehash: 1b096e71f5131214fb4e235e84d0b7f63e566831
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: b667db471a16faef057f49a0a26759849e03f237
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="troubleshooting-windows-defender-or-endpoint-protection-client"></a>Problemen met Windows Defender of Endpoint Protection-client oplossen
 

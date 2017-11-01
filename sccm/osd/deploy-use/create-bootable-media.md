@@ -1,5 +1,6 @@
 ---
-title: Maken van opstartbare media - Configuration Manager | Microsoft Docs
+title: 'Opstartbare media maken '
+titleSuffix: Configuration Manager
 description: Opstartbare media in Configuration Manager kunt u eenvoudig een nieuwe versie van Windows installeren of de instellingen van een computer en de overdracht vervangen.
 ms.custom: na
 ms.date: 01/23/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 9032698fa12bf453041ea06bf330d3b4687c2a97
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: f75a29ff27a1f806d4329bd2dfc5e30a8991fac9
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="create-bootable-media-with-system-center-configuration-manager"></a>Opstartbare media maken met System Center Configuration Manager
 

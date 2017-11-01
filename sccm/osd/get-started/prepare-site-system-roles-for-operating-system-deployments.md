@@ -1,5 +1,6 @@
 ---
-title: Sitesysteemrollen voor besturingssysteemimplementaties voorbereiden | Microsoft Docs
+title: Sitesysteemrollen voor besturingssysteemimplementaties voorbereiden
+titleSuffix: Configuration Manager
 description: De sitesysteemrollen configureren voordat u besturingssystemen in System Center Configuration Manager implementeert.
 ms.custom: na
 ms.date: 10/06/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 11c0f169afebdb071fefb5ce300fd1ae3481a94f
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: c07172bec1032b021c2d7b7ccaabe33c96b930d2
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="prepare-site-system-roles-for-operating-system-deployments-with-system-center-configuration-manager"></a>Sitesysteemrollen voorbereiden voor besturingssysteemimplementaties met System Center Configuration Manager
 
@@ -67,7 +68,7 @@ Om besturingssystemen te implementeren in System Center Configuration Manager, m
 
 2.  Selecteer het distributiepunt dat u wilt configureren en klik in de groep **Eigenschappen** van het tabblad **Start** op de optie **Eigenschappen**.  
 
-3.  Ga op de eigenschappenpagina van het distributiepunt naar het tabblad **PXE** en selecteer **PXE-ondersteuning voor clients inschakelen** om PXE op dit distributiepunt in te schakelen.  
+3.  Klik op de eigenschappenpagina voor het distributiepunt op de **PXE** tabblad en selecteer **PXE-ondersteuning inschakelen voor clients** PXE moet worden ingeschakeld op dit distributiepunt.  
 
 4.  Klik in het dialoogvenster **Vereiste poorten voor PXE controleren** op **Ja** om te bevestigen dat u PXE wilt inschakelen. Configuration Manager configureert automatisch de standaardpoorten op een Windows-firewall. Als u een andere firewall gebruikt, moet u de poorten handmatig configureren.  
 

@@ -1,5 +1,6 @@
 ---
-title: Verzamelingen maken | Microsoft Docs
+title: Verzamelingen maken
+titleSuffix: Configuration Manager
 description: Verzamelingen in System Center Configuration Manager voor het beheren van groepen van gebruikers en apparaten eenvoudiger maken.
 ms.custom: na
 ms.date: 2/22/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: 44b4707b1a40624c51decf548d23ddd2164c5833
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: d7f320c53b2b696d3981019dfacccab5796455c8
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="how-to-create-collections-in-system-center-configuration-manager"></a>Verzamelingen maken in System Center Configuration Manager
 

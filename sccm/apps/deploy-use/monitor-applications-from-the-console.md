@@ -1,5 +1,6 @@
 ---
-title: Toepassingen bewaken vanuit de System Center Configuration Manager-console | Microsoft Docs
+title: Toepassingen bewaken vanuit de console
+titleSuffix: Configuration Manager
 description: Controleer de implementatie van software, inclusief updates, compatibiliteitsinstellingen en toepassingen met behulp van de werkruimte bewaking in Configuration Manager.
 ms.custom: na
 ms.date: 10/06/2016
@@ -14,11 +15,11 @@ caps.latest.revision: "5"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: ded2a085510def60d388d9754da9c2c41de565d4
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: HT
+ms.openlocfilehash: 015f4410f576fac90d913abfa30064b2eecb2a5b
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="monitor-applications-from-the-system-center-configuration-manager-console"></a>Toepassingen bewaken vanuit de System Center Configuration Manager-console
 

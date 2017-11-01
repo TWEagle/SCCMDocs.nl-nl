@@ -1,5 +1,6 @@
 ---
-title: Configuratie-items maken voor iOS- en Mac OS X-apparaten worden beheerd met Intune | Microsoft Docs
+title: Configuratie-items maken voor iOS- en Mac OS X-apparaten worden beheerd door Intune
+titleSuffix: Configuration Manager
 description: Gebruik de System Center Configuration Manager iOS en Mac OS X-configuratie-item voor het beheren van instellingen voor iOS en Mac OS X-apparaten.
 ms.custom: na
 ms.date: 03/28/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: 039173c9411a530348bf550e4be7b771756d57dc
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: HT
+ms.openlocfilehash: d101ffc649928c1136386bc7979d4a37ad404af1
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="how-to-create-configuration-items-for-ios-and-mac-os-x-devices-managed-with-intune"></a>Het maken van configuratie-items voor iOS en Mac OS X-apparaten worden beheerd door Intune
 De System Center Configuration Manager gebruiken **iOS en Mac OS X** configuratie-item voor het beheren van instellingen voor iOS en Mac OS X-apparaten die zijn ingeschreven bij Microsoft Intune of on-premises worden beheerd door Configuration Manager.  

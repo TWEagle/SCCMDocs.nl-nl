@@ -1,5 +1,6 @@
 ---
-title: Gebruikers koppelen aan een doelcomputer | Microsoft Docs
+title: Gebruikers koppelen aan een doelcomputer
+titleSuffix: Configuration Manager
 description: System Center Configuration Manager als u gebruikers koppelen aan doelcomputers bij het implementeren van besturingssystemen wilt configureren.
 ms.custom: na
 ms.date: 10/06/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: c0331567b94a99b29cc73c16de17a9f3bc6b9e43
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 4c0231057c2ac154b050cc7020eb1fbb4ed93228
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="associate-users-with-a-destination-computer-in-system-center-configuration-manager"></a>Gebruikers aan een doelcomputer koppelen in System Center Configuration Manager
 

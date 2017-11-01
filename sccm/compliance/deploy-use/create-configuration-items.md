@@ -1,5 +1,6 @@
 ---
-title: Configuratie-items maken | Microsoft Docs
+title: Configuratie-items maken
+titleSuffix: Configuration Manager
 description: Configuraties maken en implementeren op apparaten die worden beheerd door System Center Configuration Manager zowel geregistreerd bij Microsoft Intune.
 ms.custom: na
 ms.date: 03/28/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: 6a7839e11a30b069718a97a7ee3c02a3cf4d6964
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
+ms.openlocfilehash: 5cccd8308b35d54914200c8665eb15a55f153127
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="how-to-create-configuration-items-in-system-center-configuration-manager"></a>Configuratie-items maken in System Center Configuration Manager
 

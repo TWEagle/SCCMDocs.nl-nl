@@ -1,5 +1,6 @@
 ---
-title: Een takenreeks maken voor niet - besturingssysteemimplementaties | Microsoft Docs
+title: Een takenreeks maken voor niet - besturingssysteemimplementaties
+titleSuffix: Configuration Manager
 description: Takenreeksen maken die niet zijn gerelateerd aan het implementeren van besturingssystemen, zoals software distribueren, stuurprogramma's bijwerken, status van gebruikers, enzovoort bewerken.
 ms.custom: na
 ms.date: 10/06/2016
@@ -14,11 +15,11 @@ caps.latest.revision: "6"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: a50354070c03ad8acbd21432a192f949c0a196fa
-ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
+ms.openlocfilehash: 8d230cd6bba3bcc911f0762eea43e8cec56f0535
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="create-a-task-sequence-for-non-operating-system-deployments-with-system-center-configuration-manager"></a>Een takenreeks maken voor niet - besturingssysteemimplementaties met System Center Configuration Manager
 

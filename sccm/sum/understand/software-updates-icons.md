@@ -1,5 +1,6 @@
 ---
-title: Gebruikte pictogrammen voor software-updates | Microsoft Docs
+title: Gebruikte pictogrammen voor software-updates
+titleSuffix: Configuration Manager
 description: De Configuration Manager-console bevat pictogrammen die wijzen op een status voor de gesynchroniseerde update of software-updategroep.
 keywords: 
 author: dougeby
@@ -11,11 +12,11 @@ ms.prod: configuration-manager
 ms.service: 
 ms.technology: configmgr-sum
 ms.assetid: 63c5ef72-5715-4d86-85a2-71beba469fab
-ms.openlocfilehash: 04c5ccc53263b2672096b564695a636bfb28d952
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 34a988fc530c4ebd57a818bbeee4f88a2c39959a
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="icons-used-for-software-updates-in-system-center-configuration-manager"></a>Gebruikte pictogrammen voor software-updates in System Center Configuration Manager
 

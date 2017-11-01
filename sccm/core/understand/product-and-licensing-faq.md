@@ -1,5 +1,6 @@
 ---
-title: Product- en veelgestelde vragen over licentieverlening | Microsoft Docs
+title: Producten en veelgestelde vragen over licenties
+titleSuffix: Configuration Manager
 description: Antwoorden voor veelgestelde vragen voor product en de licentie voor System Center Configuration Manager.
 ms.custom: na
 ms.date: 2/28/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: c1a276ad1ed6d10d286ab389ab3f05ec780c4e58
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 99a28c8cd2311f23d26d8a105c3aef179dd634e1
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="frequently-asked-questions-for-system-center-configuration-manager-branches-and-licensing"></a>Veelgestelde vragen voor System Center Configuration Manager vertakkingen en licenties
 

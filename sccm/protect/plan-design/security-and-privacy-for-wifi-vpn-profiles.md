@@ -1,5 +1,6 @@
 ---
-title: Wi-Fi en VPN-profiel beveiliging en privacy | Microsoft Docs
+title: Wi-Fi en VPN-profiel beveiliging en privacy
+titleSuffix: Configuration Manager
 description: Meer informatie over de beveiliging aanbevolen procedures voor het beheren van Wi-Fi en VPN-profielen voor apparaten in System Center Configuration Manager.
 ms.custom: na
 ms.date: 12/28/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Nbigman
 ms.author: nbigman
 manager: angrobe
-ms.openlocfilehash: 6d1d0a393a2ce614ae5f819475bd47b05e699b45
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: 9c66945e498042ef013fb00f56cfb73598a9776f
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="security-and-privacy-for-wi-fi-and-vpn-profiles-in-system-center-configuration-manager"></a>Beveiliging en privacy voor Wi-Fi en VPN-profielen in System Center Configuration Manager
 

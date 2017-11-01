@@ -1,5 +1,6 @@
 ---
-title: "Tool hiërarchie-onderhoud | Microsoft Docs"
+title: "Tool hiërarchie-onderhoud"
+titleSuffix: Configuration Manager
 description: Begrijpen wat de Hierarchy Maintenance Tool doet en waarom u deze kunt gebruiken. Bevat de verwijzing naar de opdrachtregelopties.
 ms.custom: na
 ms.date: 10/06/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: f3ddeaadfb1418aeeaacdca47768600c86b59083
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: 96e5166498406259600849e9adffcdfb200e8ec1
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="hierarchy-maintenance-tool-preinstexe-for-system-center-configuration-manager"></a>De tool Hiërarchie-onderhoud (Preinst.exe) voor System Center Configuration Manager
 

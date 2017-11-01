@@ -1,5 +1,6 @@
 ---
-title: Takenreeksstappen voor het beheren van BIOS naar UEFI conversie | Configuration Manager
+title: Takenreeksstappen voor het beheren van BIOS naar UEFI-conversie
+titleSuffix: Configuration Manager
 description: Informatie over het aanpassen van een takenreeks voor implementatie van besturingssysteem voorbereiden van een FAT32-partitie voor de overgang naar UEFI.
 ms.custom: na
 ms.date: 03/24/2017
@@ -13,11 +14,11 @@ ms.assetid: bd3df04a-902f-4e91-89eb-5584b47d9efa
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 528ce515c86c4e778532290026a90a46476c4576
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 58a5c60e2d8b819051916b49911a236a9c5ac4ee
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="task-sequence-steps-to-manage-bios-to-uefi-conversion"></a>Takenreeksstappen voor het beheren van BIOS naar UEFI-conversie
 Windows 10 biedt veel nieuwe beveiligingsfuncties die UEFI-apparaten vereisen. U hebt mogelijk moderne Windows-pc's die UEFI ondersteunen, maar verouderd BIOS gebruikt. Een apparaat converteren naar UEFI is vereist dat u om te gaan op elke PC Partitioneer de harde schijf en de configuratie van de firmware. Met behulp van takenreeksen in Configuration Manager, kunt u een harde schijf voorbereiden voor BIOS UEFI conversie, BIOS converteren naar UEFI als onderdeel van de in-place upgrade en UEFI-informatie als onderdeel van de hardware-inventaris verzamelen.

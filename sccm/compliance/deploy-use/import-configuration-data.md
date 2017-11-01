@@ -1,5 +1,6 @@
 ---
-title: Configuratiegegevens importeren | Microsoft Docs
+title: Configuratiegegevens importeren
+titleSuffix: Configuration Manager
 description: Configuratiegegevens importeren als deze is opgenomen in een CAB-bestand-indeling en aan de ondersteunde Service Modeling Language-schema voldoet.
 ms.custom: na
 ms.date: 10/06/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: d770a2f305856560de70014cc39a95207f0efab5
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
+ms.openlocfilehash: c7273ff47edb4a6d39d8c85b2d349ee7315edb17
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="import-configuration-data-with-system-center-configuration-manager"></a>Configuratiegegevens importeren met System Center Configuration Manager
 

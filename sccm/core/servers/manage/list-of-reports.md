@@ -1,5 +1,6 @@
 ---
-title: Lijst met rapporten | Microsoft Docs
+title: Lijst met rapporten
+titleSuffix: Configuration Manager
 description: "Bekijk een lijst met rapporten die worden geleverd met Configuration Manager. De rapporten worden in verschillende categorieën weergegeven."
 ms.custom: na
 ms.date: 10/06/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 1480c38a6a3afef76b2e8759eaafd47d28f978f4
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: 9657634621b200b0fcda3fea2785a6ceaa68f8ca
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="list-of-reports-in-system-center-configuration-manager"></a>Lijst met rapporten in System Center Configuration Manager
 

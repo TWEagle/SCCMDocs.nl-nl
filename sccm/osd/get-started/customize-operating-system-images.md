@@ -1,5 +1,6 @@
 ---
-title: "Installatiekopieën van besturingssysteem - Configuration Manager aanpassen | Microsoft Docs"
+title: "Installatiekopieën van het besturingssysteem aanpassen "
+titleSuffix: Configuration Manager
 description: Vastleggen en build takenreeksen, handmatige configuratie of een combinatie van beide gebruiken voor het aanpassen van de installatiekopie van een besturingssysteem.
 ms.custom: na
 ms.date: 01/23/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 485cb3ca4988f983c1ec71b6c8daf136571bf0ea
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: 973a8df54d1acab48803b34bf18494b2ae7f6054
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="customize-operating-system-images-with-system-center-configuration-manager"></a>Installatiekopieën van een besturingssysteem aanpassen met System Center Configuration Manager
 

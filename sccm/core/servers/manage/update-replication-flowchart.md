@@ -1,5 +1,6 @@
 ---
-title: 'Stroomdiagram: updates replicatie | Microsoft Docs'
+title: Stroomdiagram - Update-replicatie
+titleSuffix: Configuration Manager
 description: Zie het proces waarmee een update in de console die u selecteert voor het installeren van gerepliceerd naar extra sites.
 ms.custom: na
 ms.date: 10/06/2016
@@ -14,11 +15,11 @@ caps.latest.revision: "5"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: cefde9fa6894e39715257f0453ccfe160a55919e
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 6a4c55701e3b023029c36d2ad81b21193e94fd64
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="flowchart---update-replication-for-system-center-configuration-manager"></a>Flowchart - Update replication for System Center Configuration Manager (Stroomdiagram - Updatereplicatie voor System Center Configuration Manager)
 

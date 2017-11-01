@@ -1,5 +1,6 @@
 ---
-title: Publicatie- en Active Directory-schema | Microsoft Docs
+title: Publicatie- en Active Directory-schema
+titleSuffix: Configuration Manager
 description: Breid het Active Directory-schema voor System Center Configuration Manager en het proces van het implementeren en configureren van clients vereenvoudigen.
 ms.custom: na
 ms.date: 2/6/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 58beef440db8e019a06ce7c4c8eaabc8e85ce954
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 747d194d8244d42d557bc442f09035808f6eb2f0
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="prepare-active-directory-for-site-publishing"></a>Active Directory voorbereiden voor het publiceren van site
 

@@ -1,5 +1,6 @@
 ---
-title: Een installatiekopie voor een OEM in de fabriek of een lokaal depot maken | Microsoft Docs
+title: Een installatiekopie voor een OEM in de fabriek of een lokaal depot maken
+titleSuffix: Configuration Manager
 description: Implementaties met voorbereide media gebruiken voor het netwerkverkeer te verminderen terwijl u een besturingssysteem implementeren op een computer die niet volledig is ingericht.
 ms.custom: na
 ms.date: 10/06/2016
@@ -14,11 +15,11 @@ caps.latest.revision: "8"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 07aba04fb1b845e389a5f75b115d536136c1569c
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: ec1d8012a899d09c46489578f396e7b298f6ec2c
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="create-an-image-for-an-oem-in-factory-or-a-local-depot-with-system-center-configuration-manager"></a>Een installatiekopie voor een OEM in de fabriek of een lokaal depot maken met System Center Configuration Manager
 

@@ -1,5 +1,6 @@
 ---
-title: Software-inventaris configureren | Microsoft Docs
+title: Software-inventaris configureren
+titleSuffix: Configuration Manager
 description: Software-inventaris configureren en mappen uitsluiten van software-inventarisatie in Configuration Manager.
 ms.custom: na
 ms.date: 02/22/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: e60cec71c425e5e42d450cbeee366528d4b42405
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: 3aac8bdf45a90f0c9c734d2f796e590e5dc9b90e
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="how-to-configure-software-inventory-in-system-center-configuration-manager"></a>Het configureren van software-inventaris in System Center Configuration Manager
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 08/07/2017
 
 ## <a name="to-configure-software-inventory"></a>De software-inventarisatie configureren  
 
-1.  Kies in de Configuration Manager-console **beheer** > **clientinstellingen****Standaardclientinstellingen**.    
+1.  Kies in de Configuration Manager-console **beheer** > **clientinstellingen****Standaardclientinstellingen**.  
 
 4.  Op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**.  
 

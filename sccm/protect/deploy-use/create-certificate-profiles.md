@@ -1,5 +1,6 @@
 ---
-title: Het maken van SCEP-certificaatprofielen | Microsoft Docs
+title: SCEP-certificaatprofielen maken
+titleSuffix: Configuration Manager
 description: Informatie over het gebruiken van certificaatprofielen voor het inrichten van beheerde apparaten met de certificaten die ze nodig hebben in System Center Configuration Manager.
 ms.custom: na
 ms.date: 03/28/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Nbigman
 ms.author: nbigman
 manager: angrobe
-ms.openlocfilehash: 1e00804d27ecef2aadd8bfa395db1919c46243ee
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: 827565bd4dac074e8599075b19c9dac678a21948
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="create-certificate-profiles"></a>Certificaatprofielen maken
 

@@ -1,5 +1,6 @@
 ---
-title: Exchange ActiveSync-e-mailprofielen | Microsoft Docs
+title: Exchange ActiveSync-e-mailprofiel maken
+titleSuffix: Configuration Manager
 description: Informatie over het maken en configureren van e-mailprofielen in System Center Configuration Manager die werken met Microsoft Intune.
 ms.custom: na
 ms.date: 07/28/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
-ms.openlocfilehash: 0af556b5b63b465a99650c8889eae3adbf7307f6
-ms.sourcegitcommit: 13599667ea77c16db1aebe64f8a6748c268f0b45
-ms.translationtype: HT
+ms.openlocfilehash: 0211acbd546ac207e640a43d012c1f82399ace53
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="exchange-activesync-email-profiles-in-system-center-configuration-manager"></a>Exchange ActiveSync-e-mailprofielen in System Center Configuration Manager
 

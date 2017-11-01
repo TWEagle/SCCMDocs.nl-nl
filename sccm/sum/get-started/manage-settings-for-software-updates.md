@@ -1,5 +1,6 @@
 ---
-title: Instellingen voor software-updates beheren | Microsoft Docs
+title: Instellingen voor software-updates beheren
+titleSuffix: Configuration Manager
 description: Meer informatie over de clientinstellingen die geschikt voor software-updates op uw site zijn na de installatie van de software-updatepunt.
 keywords: 
 author: dougeby
@@ -11,11 +12,11 @@ ms.prod: configuration-manager
 ms.service: 
 ms.technology: configmgr-sum
 ms.assetid: 0d484c1a-e903-4bff-9e9b-e452c62e38a8
-ms.openlocfilehash: fe4a8f56e0b554e206bcc4503a0268dc761ded81
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: 54fb48ca210f66eabe8d438f0aa23d9ad82e0bd9
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 #  <a name="BKMK_ManageSUSettings"></a>Instellingen voor software-updates beheren  
 

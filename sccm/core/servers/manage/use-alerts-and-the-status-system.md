@@ -1,5 +1,6 @@
 ---
-title: Waarschuwingen en het statussysteem | Microsoft Docs
+title: Waarschuwingen en het statussysteem
+titleSuffix: Configuration Manager
 description: Configureer waarschuwingen en het statussysteem gebruiken om te blijven op de hoogte over de status van de Configuration Manager-implementatie.
 ms.custom: na
 ms.date: 10/06/2016
@@ -14,11 +15,11 @@ caps.latest.revision: "10"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: ed692bdea055775890535d2666f09ba5f5c7c4e1
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: 690709c0067099a022f4a29de4e7d935952e4260
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="use-alerts-and-the-status-system-for-system-center-configuration-manager"></a>Waarschuwingen en het statussysteem voor System Center Configuration Manager gebruiken
 

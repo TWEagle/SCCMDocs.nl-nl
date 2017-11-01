@@ -1,5 +1,6 @@
 ---
-title: Pakketten en programma's | Microsoft Docs
+title: Pakketten en programma's
+titleSuffix: Configuration Manager
 description: Ondersteuning voor implementaties die pakketten en programma's of toepassingen met System Center Configuration Manager gebruiken.
 ms.custom: na
 ms.date: 10/06/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: 05dd67bab32c4ac5adfb03b6dd149886955a32e1
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: HT
+ms.openlocfilehash: 7712721167edad5808c46827f68fc32a2b890bfd
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="packages-and-programs-in-system-center-configuration-manager"></a>Pakketten en programma's in System Center Configuration Manager
 

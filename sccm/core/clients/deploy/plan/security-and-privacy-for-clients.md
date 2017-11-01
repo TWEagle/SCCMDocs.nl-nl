@@ -1,5 +1,6 @@
 ---
-title: Client-beveiliging en privacy | Microsoft Docs
+title: Client-beveiliging en privacy
+titleSuffix: Configuration Manager
 description: Meer informatie over beveiliging en privacy voor clients in System Center Configuration Manager.
 ms.custom: na
 ms.date: 04/23/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: b354155d83ce6f3a14b13b98fb54e1f3bd2f54da
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: HT
+ms.openlocfilehash: b28a461894bcd1cffd3c98bfce9fcfe22cc7a8f0
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="security-and-privacy-for-clients-in-system-center-configuration-manager"></a>Beveiliging en privacy voor clients in System Center Configuration Manager
 

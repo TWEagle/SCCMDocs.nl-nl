@@ -1,5 +1,6 @@
 ---
-title: Stuurprogramma's beheren - Configuration Manager | Microsoft Docs
+title: 'Stuurprogramma''s beheren '
+titleSuffix: Configuration Manager
 description: De stuurprogrammacatalogus Configuration Manager gebruiken voor het importeren van stuurprogramma's, groep-stuurprogramma's in pakketten, en die pakketten naar distributiepunten distribueren.
 ms.custom: na
 ms.date: 01/27/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 87ab9925717a307cbda3cea1f2e470ae012fa067
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: 43b9f954d6cca162606136c9b64a72daebee7f3d
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="manage-drivers-in-system-center-configuration-manager"></a>Stuurprogramma's beheren in System Center Configuration Manager
 

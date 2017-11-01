@@ -1,5 +1,6 @@
 ---
-title: Windows upgraden naar de nieuwste versie | Microsoft Docs
+title: Windows upgraden naar de meest recente versie
+titleSuffix: Configuration Manager
 description: Informatie over het upgraden van een besturingssysteem van Windows 7 of hoger naar Windows 10 met Configuration Manager.
 ms.custom: na
 ms.date: 02/06/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "13"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 412c2c644cc7f17f307c02b84471f3ee494045ec
-ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
+ms.openlocfilehash: ff6477b21f5befb421f85c2204c1b0f1d75742f1
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="upgrade-windows-to-the-latest-version-with-system-center-configuration-manager"></a>Windows upgraden naar de nieuwste versie met System Center Configuration Manager
 

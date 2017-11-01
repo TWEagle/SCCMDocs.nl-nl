@@ -1,5 +1,6 @@
 ---
-title: Gebruikers en apparaten koppelen met affiniteit van gebruikersapparaat | Microsoft Docs
+title: Gebruikers en apparaten koppelen met affiniteit tussen gebruikers en apparaten
+titleSuffix: Configuration Manager
 description: Gebruikers en apparaten koppelen met affiniteit tussen gebruikers en apparaten en apps automatisch op alle apparaten die zijn gekoppeld aan een gebruiker implementeert.
 ms.custom: na
 ms.date: 10/06/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: 141b4e7df4fb3fa4aed3a5a90c6197bf7636a3a0
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
+ms.openlocfilehash: 1066028d0cd20521d78780ae2fdfbce91a0860b2
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="link-users-and-devices-with-user-device-affinity-in-system-center-configuration-manager"></a>Gebruikers en apparaten koppelen met affiniteit tussen gebruikers en apparaten in System Center Configuration Manager
 

@@ -1,5 +1,6 @@
 ---
-title: Functies en mogelijkheden | Microsoft Docs
+title: Functies en mogelijkheden
+titleSuffix: Configuration Manager
 description: Meer informatie over de primaire beheerfuncties van System Center Configuration Manager.
 ms.custom: na
 ms.date: 12/29/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 4691f43dccdf73936107f4635321897b9779bead
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: c9b6720d08260c7a2a06e0ccc525228e5089b279
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="features-and-capabilities-of-system-center-configuration-manager"></a>Functies en mogelijkheden van System Center Configuration Manager
 

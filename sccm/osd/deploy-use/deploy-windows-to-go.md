@@ -1,5 +1,6 @@
 ---
-title: Windows to Go met System Center Configuration Manager implementeren | Microsoft Docs
+title: Windows to Go implementeren
+titleSuffix: Configuration Manager
 description: Informatie over het inrichten van Windows To Go in System Center Configuration Manager voor het maken van een Windows To Go-werkruimte die opstart vanaf een extern station.
 ms.custom: na
 ms.date: 10/06/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: a8b1a42c43438553cfbb62328bed933378bb344c
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: 91e3fa4aba93dc3012fe1e702f50c4f9438a69e8
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="deploy-windows-to-go-with-system-center-configuration-manager"></a>Windows to Go met System Center Configuration Manager implementeren
 

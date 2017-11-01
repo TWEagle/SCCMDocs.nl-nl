@@ -1,5 +1,6 @@
 ---
-title: "Bronhiërarchieën voor migratie | Microsoft Docs"
+title: "Bronhiërarchieën voor migratie"
+titleSuffix: Configuration Manager
 description: "Een bronhiërarchie en bronsites configureren zodat u gegevens naar uw System Center Configuration Manager-omgeving migreren kunt."
 ms.custom: na
 ms.date: 12/29/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 80c43ab93ee5a2de6bf8d7993dfd46f0005d2df8
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: 63df5f909b3718d4b720a6767da8272f1895b074
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="configure-source-hierarchies-and-source-sites-for-migration-to-system-center-configuration-manager"></a>Bronhiërarchieën en bronsites voor migratie naar System Center Configuration Manager configureren
 

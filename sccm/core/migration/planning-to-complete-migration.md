@@ -1,5 +1,6 @@
 ---
-title: Migratie voltooien | Microsoft Docs
+title: Volledige migratie
+titleSuffix: Configuration Manager
 description: "Informatie over het voltooien van migratie naar een doelhiërarchie van System Center Configuration Manager nadat een bronhiërarchie niet meer gegevens is."
 ms.custom: na
 ms.date: 1/12/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: eb1d2e320df02b26423ed4341d5bd1568b9444ad
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: 574e8897043651b7c80c4d61b86773ae02f412c2
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="plan-to-complete-migration-in-system-center-configuration-manager"></a>Voltooiing van migratie in System Center Configuration Manager plannen
 

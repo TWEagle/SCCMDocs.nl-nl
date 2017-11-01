@@ -1,5 +1,6 @@
 ---
-title: Globale voorwaarden maken | Microsoft Docs
+title: Globale voorwaarden maken
+titleSuffix: Configuration Manager
 description: "Algemene voorwaarden om op te geven hoe een toepassing beschikbaar wordt gesteld en geïmplementeerd voor clientapparaten maken."
 ms.custom: na
 ms.date: 10/06/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: 6aedab4ab23749061ec103e0de92edafdad13d33
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: HT
+ms.openlocfilehash: 480e7a68308d458bc77ddb4956db2616eaaced97
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="how-to-create-global-conditions-in-system-center-configuration-manager"></a>Globale voorwaarden maken in System Center Configuration Manager
 

@@ -1,5 +1,6 @@
 ---
-title: Technische Preview 1709 | Microsoft Docs
+title: Technische Preview 1709
+titleSuffix: Configuration Manager
 description: Meer informatie over functies die beschikbaar zijn in de Technical Preview-versie 1709 voor System Center Configuration Manager.
 ms.custom: na
 ms.date: 09/28/2017
@@ -13,11 +14,11 @@ ms.assetid: a3ef6bdc-a204-4c4c-a02f-2bd03f35183e
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 3348bc91e6810c873d50cb4efd3efb9fbd024bd3
-ms.sourcegitcommit: 96b79fa091f44e8e6ac5652f6cbbb4b873a8bad9
+ms.openlocfilehash: 90e31c26204323e33560270044ebac7dfe135684
+ms.sourcegitcommit: 1573a1bd0bd58fefb1ea651b3ea8d6fd53eff546
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="capabilities-in-technical-preview-1709-for-system-center-configuration-manager"></a>Mogelijkheden van Technical Preview 1709 voor System Center Configuration Manager
 
@@ -43,8 +44,8 @@ Dit artikel bevat de functies die beschikbaar in de Technical Preview voor Syste
 
 **Hier volgen nieuwe functies die u met deze versie kunt uitproberen.**  
 
-## <a name="improved-vpn-profile-experience-in-configuration-manager-console----1313282---"></a>Verbeterde ervaring voor VPN-profiel in Configuration Manager-console<!-- 1313282 -->
-
+## <a name="improved-vpn-profile-experience-in-configuration-manager-console"></a>Verbeterde ervaring voor VPN-profiel in Configuration Manager-console
+<!-- 1313282 -->
 We hebben de VPN-profiel wizard eigenschappen pagina's en om weer te geven van de instellingen die geschikt is voor het geselecteerde platform bijgewerkt met deze release. Specifieke opdrachten:
 
 - Elk platform heeft een eigen workflow, wat betekent dat nieuwe VPN-profielen alleen de instelling die wordt ondersteund door het platform bevatten.
@@ -80,8 +81,7 @@ Als u verschillende platforms selecteert, ziet u dat alleen de instellingen die 
 
 ## <a name="co-management-for-windows-10-devices"></a>CO-beheer voor Windows 10-apparaten    
 <!-- 1350871 -->
-Veel klanten willen beheren van Windows 10-apparaten op dezelfde manier beheren van mobiele apparaten met behulp van een vereenvoudigde en lagere kosten, cloud-gebaseerde oplossing. Echter, het overschakelen van traditionele management naar moderne management kan lastig zijn. CO-management is een oplossing waarbij Windows 10-apparaten kunnen worden gelijktijdig worden beheerd door Configuration Manager en Intune, evenals toegevoegd aan Active Directory (AD) en Azure Active Directory (Azure AD) biedt een manier om te moderniseren gedurende een bepaalde periode. Het is een oplossing voor het bieden van een verbinding met traditionele naar moderne management en biedt u een pad voor de overgang met behulp van een gefaseerde benadering.  
-
+Veel klanten willen beheren van Windows 10-apparaten op dezelfde manier beheren van mobiele apparaten met behulp van een vereenvoudigde en lagere kosten, cloud-gebaseerde oplossing. Echter, het overschakelen van traditionele management naar moderne management kan lastig zijn. Beginnen met het Windows 10 versie 1607 (ook wel bekend als de verjaardag Update), u kunt deelnemen aan een Windows 10-apparaten met on-premises Active Directory (AD) en Azure AD cloud-gebaseerd op hetzelfde moment (hybride Azure AD). Mede management maakt gebruik van deze verbetering en kunt u gelijktijdig Windows 10-apparaten beheren met behulp van zowel Configuration Manager en Intune. Het is een oplossing waarmee een verbinding met traditionele naar moderne management biedt en u een pad voor de overgang met behulp van een gefaseerde benadering. 
 
 ### <a name="prerequisites"></a>Vereisten
 U moet beschikken over de volgende vereisten voordat u kunt CO-beheer inschakelen. Er zijn algemene vereisten en andere vereisten gelden voor bestaande Configuration Manager-clients en apparaten die geen clients.
@@ -200,7 +200,7 @@ Voor Windows 10-apparaten die niet zijn ingeschreven in Intune of Configuration 
 Voor Windows 10-apparaten die al zijn ingeschreven in Intune, moet u een app maken in Intune voor het implementeren van Configuration Manager-client. Gebruik de [vanaf de opdrachtregel voor het installeren van Configuration Manager-client](#command-line-to-install-configuration-manager-client) wanneer u de stappen voor het doorloopt [-clients installeren vanaf het Internet met behulp van Azure AD](https://docs.microsoft.com/en-us/sccm/core/clients/deploy/deploy-clients-cmg-azure).  
 
 ### <a name="switch-configuration-manager-workloads-to-intune"></a>Configuration Manager-workloads overschakelen naar Intune
-In de vorige sectie, moet u Windows 10-apparaten voor het beheer van CO voorbereid. Deze apparaten zijn nu toegevoegd aan AD en Azure AD en deze zijn ingeschreven in Intune de Configuration Manager-client. Hebt u waarschijnlijk nog Windows 10-apparaten die lid zijn van AD en Configuration Manager-client, maar niet toegevoegd aan Azure AD. of zijn ingeschreven in Intune. De volgende procedure bevat de stappen voor het inschakelen van CO-beheer, de rest van uw Windows 10-apparaten (Configuration Manager-clients zonder inschrijving bij Intune) voor het beheer van CO voorbereiden en kunt u starten Overschakelen van specifieke Configuration Manager werkbelastingen naar Intune.
+In de vorige sectie, moet u Windows 10-apparaten voor het beheer van CO voorbereid. Deze apparaten zijn nu toegevoegd aan AD en Azure AD en ze zijn ingeschreven bij Intune en Configuration Manager-client hebben. Hebt u waarschijnlijk nog Windows 10-apparaten die lid zijn van AD en Configuration Manager-client, maar niet toegevoegd aan Azure AD. of zijn ingeschreven in Intune. De volgende procedure bevat de stappen voor het inschakelen van CO-beheer, de rest van uw Windows 10-apparaten (Configuration Manager-clients zonder inschrijving bij Intune) voor het beheer van CO voorbereiden en kunt u starten Overschakelen van specifieke Configuration Manager werkbelastingen naar Intune.
 
 1. Ga in de Configuration Manager-console naar **beheer** > **overzicht** > **Cloudservices**  >  **Mede management**.    
 2. Kies op het tabblad Start in de groep beheren **mede management configureren** openen van de Wizard mede management voorbereiden.    
@@ -210,7 +210,6 @@ In de vorige sectie, moet u Windows 10-apparaten voor het beheer van CO voorbere
     - **Productie**: Wanneer u deze instelling selecteert, worden alle ondersteunde Windows 10-apparaten zijn ingeschakeld voor het beheer van collega. Configureer de **uitsluiting groep** met een of meer verzamelingen. Apparaten die lid van een van de collecties in deze groep zijn worden uitgesloten van met CO-beheer. 
 5. Kies op de pagina stuk **proef** of **alle** (afhankelijk van de instellingen die u hebt geconfigureerd op de pagina fasering) inschakelen van automatische inschrijving bij Intune en klik vervolgens op **volgende**. Wanneer u de optie **test**, alleen de Configuration manager-clients die lid van de test-groep zijn automatisch zijn ingeschreven bij Intune. Hiermee kunt u mede beheer inschakelen op een subset van clients te testen in eerste instantie mede beheer en mede-implementatiebeheer met behulp van een gefaseerde benadering. 
 6. Op de pagina werkbelastingen kiezen of u wilt overschakelen van Configuration Manager workloads die moeten worden beheerd door Intune en klik vervolgens op **volgende**. Gebruik de schuifregelaars om te selecteren of u wilt overschakelen van de werkbelasting aan de groep prototype of voor alle Windows 10-clients (afhankelijk van de instellingen die u hebt geconfigureerd op de pagina fasering). 
-
 7. Mede als beheer wilt inschakelen, moet u de wizard voltooien.  
 
 <!--### Modify your co-management settings

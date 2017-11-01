@@ -1,5 +1,6 @@
 ---
-title: Toegang beheren tot O365-services voor beheerde pc's | Microsoft Docs
+title: Toegang tot O365-services voor beheerde pc's beheren
+titleSuffix: Configuration Manager
 description: Informatie over het configureren van voorwaardelijke toegang voor pc's die worden beheerd door System Center Configuration Manager.
 ms.custom: na
 ms.date: 03/05/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "15"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: aede531a0406c3d30c9cca957896e002ed22ae51
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: a49e53ca81d8bd01747c41ab9c25de7fd6396f32
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="manage-access-to-o365-services-for-pcs-managed-by-system-center-configuration-manager"></a>Toegang beheren tot O365-services voor pc’s die worden beheerd door System Center Configuration Manager
 

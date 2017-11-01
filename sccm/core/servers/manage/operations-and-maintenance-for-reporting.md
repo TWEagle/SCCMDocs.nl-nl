@@ -1,5 +1,6 @@
 ---
-title: Bewerkingen en onderhoud voor rapportage | Microsoft Docs
+title: 'Bewerkingen en onderhoud voor rapportage '
+titleSuffix: Configuration Manager
 description: Lees meer over het beheren van rapporten en rapportabonnementen in System Center Configuration Manager.
 ms.custom: na
 ms.date: 10/06/2016
@@ -14,11 +15,11 @@ caps.latest.revision: "5"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: df572cd0c64c82e25164430a53e1b893b3ba3cf5
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: 05a81cdfd46ba2bf0bea17b06bd72f79296b3930
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="operations-and-maintenance-for-reporting-in-system-center-configuration-manager"></a>Bewerkingen en onderhoud voor rapportage in System Center Configuration Manager
 

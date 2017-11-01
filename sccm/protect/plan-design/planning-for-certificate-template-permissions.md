@@ -1,5 +1,6 @@
 ---
-title: Certificaatprofielen plannen | Microsoft Docs
+title: Certificaatprofielen plannen
+titleSuffix: Configuration Manager
 description: Meer informatie over het plannen van de machtigingen die u nodig hebt voor het configureren van de certificaatsjablonen die gebruikmaakt van System Center Configuration Manager.
 ms.custom: na
 ms.date: 10/06/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: 832be8c9fda727804f57e83768cd8799db722c67
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: e5c748297b318e5256f2064811151ae96a55fccd
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="planning-for-certificate-template-permissions-for-certificate-profiles-in-system-center-configuration-manager"></a>Certificaatsjabloonmachtigingen voor certificaat voor certificaatprofielen in System Center Configuration Manager plannen
 

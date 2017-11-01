@@ -1,5 +1,6 @@
 ---
-title: Het maken van configuratie-items voor Windows Phone-apparaten worden beheerd met Intune | Microsoft Docs
+title: Het maken van configuratie-items voor Windows Phone-apparaten die worden beheerd met Intune
+titleSuffix: Configuration Manager
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -14,11 +15,11 @@ caps.handback.revision: "0"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: 092bb15e6c1d5cdfb5b8670ad46028a6daa49b8b
-ms.sourcegitcommit: f6a428a8db7145affa388f59e0ad880bdfcf17b5
-ms.translationtype: HT
+ms.openlocfilehash: f0a032bfa1d8d6383caf3065678d9b0a4dd3dde0
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="how-to-create-configuration-items-for-windows-phone-devices-managed-without-the-system-center-configuration-manager-client"></a>Configuratie-items maken voor Windows Phone-apparaten die worden beheerd zonder de System Center Configuration Manager-client
 De System Center Configuration Manager gebruiken**Windows Phone** configuratie-item voor het beheren van instellingen voor Windows Phone-apparaten die zijn geregistreerd bij Microsoft Intune of on-premises worden beheerd door Configuration Manager.  

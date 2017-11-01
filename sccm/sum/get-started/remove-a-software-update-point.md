@@ -1,5 +1,6 @@
 ---
-title: Software-updatepunt verwijderen | Microsoft Docs
+title: Software-updatepunt verwijderen
+titleSuffix: Configuration Manager
 description: Volg deze procedure om de software-update-punt sitesysteemrol op een site verwijderen uit de Configuration Manager-console.
 keywords: 
 author: dougeby
@@ -11,11 +12,11 @@ ms.prod: configuration-manager
 ms.service: 
 ms.technology: configmgr-sum
 ms.assetid: 2486375c-d4a2-4cf2-9124-9bee02bbf173
-ms.openlocfilehash: 22de02c51be3a0cd66b1be0f04b2fbdeb897858c
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: b5493f2572ecca50aba87b8944eeab706c3942fd
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 #  <a name="BKMK_RemoveSUP"></a> De sitesysteemrol software-updatepunt verwijderen  
 

@@ -1,5 +1,6 @@
 ---
-title: Inhoud implementeren | Microsoft Docs
+title: Inhoud implementeren
+titleSuffix: Configuration Manager
 description: Nadat u distributiepunten voor System Center Configuration Manager installeren, moet u hier is hoe u kunt beginnen met het implementeren van inhoud op deze.
 ms.custom: na
 ms.date: 10/06/2016
@@ -14,11 +15,11 @@ caps.latest.revision: "6"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 36b08285ef78d0acb9ba9c44abe2d57e311d44b3
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: b409e8b050a3f1871819bd857c225a8cf6333712
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="deploy-and-manage-content-for-system-center-configuration-manager"></a>Implementeren en beheren van inhoud voor System Center Configuration Manager
 

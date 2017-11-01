@@ -1,5 +1,6 @@
 ---
-title: Updates | Microsoft Docs
+title: Updates
+titleSuffix: Configuration Manager
 description: Meer informatie over een in de console-servicemethode aangeroepen ** Updates en onderhoud ** waarmee u gemakkelijk om te zoeken en installeren aanbevolen updates.
 ms.custom: na
 ms.date: 07/31/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: d46aca88111d4ee0e96b75ca5a3ec57aa4274d6d
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: bca724f15dc18d7273bbca122b6428b4704a5d43
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="updates-for-system-center-configuration-manager"></a>Updates voor System Center Configuration Manager
 
@@ -111,7 +112,7 @@ De updates in de console bieden een verbeterde stabiliteit en oplossingen voor a
 
 Configuration Manager detecteert nieuwe updates voor u wanneer u uw site system serviceverbindingspuntrol met de Microsoft-cloudservice synchroniseren en download center:  
 
--   Wanneer uw serviceaansluitpunt zich in de onlinemodus bevindt, synchroniseert uw site elke dag met Microsoft om automatisch nieuwe updates te identificeren die van toepassing zijn op uw infrastructuur.  Voor het downloaden van updates en redist-bestanden voor updates, de computer die als host fungeert voor de sitesysteemrol van het Service Connection Point gebruikt de **System** context voor toegang tot de volgende Internet-locaties: go.microsoft.com en download.microsoft.com. Zie voor meer informatie over de aanvullende locatie van het service connection point verbinding met maakt [vereisten voor internettoegang](../../../core/servers/deploy/configure/about-the-service-connection-point.md#bkmk_urls) in [informatie over het serviceaansluitpunt in System Center Configuration Manager](../../../core/servers/deploy/configure/about-the-service-connection-point.md).  
+-   Wanneer uw serviceaansluitpunt zich in de onlinemodus bevindt, synchroniseert uw site elke dag met Microsoft om automatisch nieuwe updates te identificeren die van toepassing zijn op uw infrastructuur.  Voor het downloaden van updates en redist-bestanden voor updates, de computer die als host fungeert voor de sitesysteemrol van het Service Connection Point gebruikt de **System** context voor toegang tot de volgende Internet-locaties: go.microsoft.com en download.microsoft.com. Zie voor meer informatie over de aanvullende locatie van het service connection point verbinding met maakt [vereisten voor internettoegang](../../../core/servers/deploy/configure/about-the-service-connection-point.md#bkmk_urls) in [informatie over het serviceaansluitpunt in System Center Configuration Manager](../../../core/servers/deploy/configure/about-the-service-connection-point.md) .  
 
 -   Als uw serviceaansluitpunt zich in de offlinemodus bevindt, gebruikt u het hulpprogramma voor serviceverbindingen om handmatig te synchroniseren met de Microsoft-cloud. Zie [Het hulpprogramma voor serviceverbindingen in System Center Configuration Manager gebruiken](../../../core/servers/manage/use-the-service-connection-tool.md) voor meer informatie.  
 

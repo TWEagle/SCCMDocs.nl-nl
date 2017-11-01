@@ -1,5 +1,6 @@
 ---
-title: Het beheren van naleving op apparaten worden beheerd met Intune | Microsoft Docs
+title: Het beheren van naleving op apparaten worden beheerd door Intune
+titleSuffix: Configuration Manager
 description: Meer informatie over System Center Configuration Manager-instellingen voor naleving door het uitvoeren van enkele algemene scenario's.
 ms.custom: na
 ms.date: 03/05/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "5"
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
-ms.openlocfilehash: 72446887d5f9d3baf083ad528a8e5e1e508dccb2
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
+ms.openlocfilehash: 97f0ed47447dc5603a65563b0e87ec90bcc1fe42
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="managing-compliance-on-devices-managed-with-intune"></a>Het beheren van naleving op apparaten worden beheerd door Intune
 

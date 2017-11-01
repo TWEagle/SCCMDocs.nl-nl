@@ -1,5 +1,6 @@
 ---
-title: Windows Phone-toepassingen maken | Microsoft Docs
+title: Windows Phone-toepassingen maken
+titleSuffix: Configuration Manager
 description: Zie welke overwegingen u moet rekening account wanneer u maken en implementeren van toepassingen voor Windows Phone-apparaten.
 ms.custom: na
 ms.date: 03/05/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "10"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: 1a4cfd8bc942ecefc1b2acdbf96326746cfced6f
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
+ms.openlocfilehash: 154cc1f6e8f16f2bfbb717cfd44fe596b9e31ac5
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="create-windows-phone-applications-with-system-center-configuration-manager"></a>Windows Phone-toepassingen maken met System Center Configuration Manager
 

@@ -1,5 +1,6 @@
 ---
-title: Gebruikersgegevens en profielen configuratie-items maken | Microsoft Docs
+title: Gebruikersgegevens en profielen configuratie-items maken
+titleSuffix: Configuration Manager
 description: Configuratie-items en -profielen in System Center Configuration Manager voor het beheren van Mapomleiding, offlinebestanden en zwervende profielen gebruiken.
 ms.custom: na
 ms.date: 10/06/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: 1b3b42fe0a39e5adfddebf73f4683e5a6c71cb1c
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: HT
+ms.openlocfilehash: ab027a197ffd696fe279a464d0f30b0d224bf312
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="create-user-data-and-profiles-configuration-items-in-system-center-configuration-manager"></a>Gebruikersgegevens en profielen configuratie-items maken in System Center Configuration Manager
 

@@ -1,5 +1,6 @@
 ---
-title: Meer informatie over licentieverlening en vertakkingen | Microsoft Docs
+title: Meer informatie over licentieverlening en vertakkingen
+titleSuffix: Configuration Manager
 description: Gebruik dit onderwerp voor meer informatie over de licentievereisten voor de beschikbare installatieopties met de release van oktober 2016 van System Center Configuration Manager, waaronder de huidige vertakking versie 1606, Long-Term Servicing Branch (LTSB) en evaluatie-installatie van de huidige vertakking.
 ms.custom: na
 ms.date: 10/12/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 90e16b316872cb370c9c2e645f46ac12afab7107
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 88cc85a98b9281ec07ead766c415bebe46c5a82c
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="licensing-and-branches-for-system-center-configuration-manager"></a>Licenties en vertakkingen voor System Center Configuration Manager
 

@@ -1,5 +1,6 @@
 ---
-title: Wi-Fi, VPN, e-mail en certificaatprofielen implementeren | Microsoft Docs
+title: Wi-Fi, VPN, e-mail en certificaatprofielen implementeren
+titleSuffix: Configuration Manager
 description: Informatie over het implementeren van Wi-Fi, VPN, e-mail en certificaatprofielen in System Center Configuration Manager.
 ms.custom: na
 ms.date: 10/06/2016
@@ -14,11 +15,11 @@ caps.latest.revision: "5"
 author: Nbigman
 ms.author: nbigman
 manager: angrobe
-ms.openlocfilehash: 70372d5df13034b48f3e43b766776442f1be5823
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 7e6b0038b5164a43a3198274a863d53750828776
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="deploy-profiles-in-system-center-configuration-manager"></a>In System Center Configuration Manager-profielen implementeren
 

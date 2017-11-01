@@ -1,5 +1,6 @@
 ---
-title: Gegevens en site-infrastructuur beveiligen | Microsoft Docs
+title: Gegevens en site-infrastructuur beveiligen
+titleSuffix: Configuration Manager
 description: Meer informatie over hoe bronnen van uw organisatie te beschermen tegen blootstelling of kwaadaardige aanvallen met System Center Configuration Manager.
 ms.custom: na
 ms.date: 11/27/2016
@@ -14,11 +15,11 @@ caps.latest.revision: "8"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: 0270a9039a42a4ed070a3a3a577a8848e662f577
-ms.sourcegitcommit: 474e6ddbaaeac4ba17d8172321e08deeb0140d0a
+ms.openlocfilehash: 925842a19f79e3674e988ea03661dfec36ba7145
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="protect-data-and-site-infrastructure-with-system-center-configuration-manager"></a>Gegevens en site-infrastructuur beveiligen met System Center Configuration Manager
 

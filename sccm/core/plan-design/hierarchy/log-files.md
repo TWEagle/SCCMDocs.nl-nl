@@ -1,5 +1,6 @@
 ---
-title: Logboekbestanden voor Configuration Manager | Microsoft Docs
+title: Logboekbestanden voor het oplossen van problemen
+titleSuffix: Configuration Manager
 description: "Logboekbestanden gebruiken voor het oplossen van problemen in een System Center Configuration Manager-hiërarchie."
 ms.custom: na
 ms.date: 7/03/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 28597cf1cb269fff0872c7f79ef961496aea32ab
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: b9c0425b00e707e8ccdacd9315a82b0293593aea
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="log-files-in-system-center-configuration-manager"></a>Logbestanden in System Center Configuration Manager
 

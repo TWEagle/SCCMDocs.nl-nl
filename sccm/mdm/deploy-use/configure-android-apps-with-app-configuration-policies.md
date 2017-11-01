@@ -1,5 +1,6 @@
 ---
-title: Android configureren voor zakelijke apps met configuratiebeleid voor apps | Microsoft Docs
+title: Android configureren voor zakelijke apps met configuratiebeleid voor apps
+titleSuffix: Configuration Manager
 description: Voorkomen configuratieproblemen op apparaten met Android for Work door het app-configuratiebeleid implementeren voor gebruikers voordat ze apps uitvoeren.
 ms.custom: na
 ms.date: 09/12/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: NathBarn
 ms.author: NathBarn
 manager: angrobe
-ms.openlocfilehash: bd8388689a49873860fa9951b7d522f9d96fc11f
-ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
+ms.openlocfilehash: 79d1b3fed3baa74c8ad195925ccda35713cb8865
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="apply-settings-to-android-for-work-apps-with-app-configuration-policies-in-system-center-configuration-manager"></a>Instellingen toepassen op Android voor zakelijke apps met configuratiebeleid voor apps in System Center Configuration Manager
 

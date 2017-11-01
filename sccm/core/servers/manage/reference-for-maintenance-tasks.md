@@ -1,5 +1,6 @@
 ---
-title: Verwijzing voor onderhoudstaken | Microsoft Docs
+title: Verwijzing voor onderhoudstaken
+titleSuffix: Configuration Manager
 description: Lees meer informatie voor elk van de onderhoudstaken voor System Center Configuration Manager-site en of deze taken zijn standaard ingeschakeld.
 ms.custom: na
 ms.date: 3/8/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: a2d4420c2274a9b1ceb47ffd267849fdb5a55a61
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 6cff26b689b3fb1139d235295530faa9d30f9bf6
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="reference-for-maintenance-tasks-for-system-center-configuration-manager"></a>Verwijzing voor onderhoudstaken voor System Center Configuration Manager
 

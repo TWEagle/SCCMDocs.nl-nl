@@ -1,5 +1,6 @@
 ---
-title: Windows Hello voor bedrijven-instellingen | Microsoft Docs
+title: Instellingen voor Windows Hello voor Bedrijven
+titleSuffix: Configuration Manager
 description: Informatie over het integreren van Windows Hello voor bedrijven met System Center Configuration Manager.
 ms.custom: na
 ms.date: 03/05/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "17"
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
-ms.openlocfilehash: a97b3d97eb302e4133b0a79a8c7e27004872c8b1
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: 285fb9e9a9d4538c0ff3b0f9e8b19bec99e9a8c5
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="windows-hello-for-business-settings-in-system-center-configuration-manager-hybrid"></a>Windows Hello voor bedrijven-instellingen in System Center Configuration Manager (hybride)
 

@@ -1,5 +1,6 @@
 ---
-title: Site-informatie vinden | Microsoft Docs
+title: Site-informatie vinden
+titleSuffix: Configuration Manager
 description: Meer informatie over hoe en wanneer de System Center Configuration Manager-clients servicelocatie zoeken naar sitebronnen gebruiken.
 ms.custom: na
 ms.date: 2/7/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "10"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 1c9e7ada6a8aa228b30e58865baae0f6e529e6af
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: e64b2c4242903143b677189e3bd4c8f32ebace20
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="learn-how-clients-find-site-resources-and-services-for-system-center-configuration-manager"></a>Meer informatie over hoe clients siteresources en -services voor System Center Configuration Manager vinden
 

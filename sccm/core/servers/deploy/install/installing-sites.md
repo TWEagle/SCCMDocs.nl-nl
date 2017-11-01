@@ -1,5 +1,6 @@
 ---
-title: Site-installatie resources | Microsoft Docs
+title: Bronnen voor site-installatie
+titleSuffix: Configuration Manager
 description: "Bekijk een lijst met onderwerpen die u helpen bij het installeren van System Center Configuration Manager of sites toevoegen aan uw hiërarchie."
 ms.custom: na
 ms.date: 1/3/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 75511c744d7d2bae960273c845ce68f06a82b697
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 02e3f342c56d420d52528d882b5c7150a94aaffc
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="resources-for-installing-system-center-configuration-manager-sites"></a>Bronnen voor het installeren van System Center Configuration Manager-sites
 

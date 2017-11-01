@@ -1,5 +1,6 @@
 ---
-title: De grondbeginselen van het beheer van apparaten | Microsoft Docs
+title: Grondbeginselen van het beheer van apparaten
+titleSuffix: Configuration Manager
 description: Informatie over het gebruik van System Center Configuration Manager om apparaten te beheren.
 ms.custom: na
 ms.date: 12/04/2016
@@ -14,11 +15,11 @@ caps.latest.revision: "6"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: 45d84122a86da880268c93ecd994250df6b76c8a
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: b8859537bd213928df3b4388ccbedb871e43c336
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="fundamentals-of-managing-devices-with-system-center-configuration-manager"></a>Grondbeginselen van het beheer van apparaten met System Center Configuration Manager
 

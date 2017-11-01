@@ -1,5 +1,6 @@
 ---
-title: Welke vertakking moet ik gebruiken | Microsoft Docs
+title: Welke vertakking moet ik gebruiken
+titleSuffix: Configuration Manager
 description: Meer informatie over de verschillen tussen de beschikbare vertakkingen van System Center Configuration Manager.
 ms.custom: na
 ms.date: 05/02/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 26356a80bd8c78d4517253bae73e53d8d8f3a73a
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 047ffc0953db4a4cc5d543d880136ce61fa99fa7
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="which-branch-of-configuration-manager-should-i-use"></a>Welke vertakking van Configuration Manager moet ik gebruiken?
 
@@ -149,5 +150,4 @@ Als u versie-informatie voor een Configuration Manager-site bekijkt, worden ook 
 Controleer de versie van uw site in de console Ga naar de **over System Center Configuration Manager** op de linkerbovenhoek van de console waar de **siteversie** wordt weergegeven. Zie [ ]() voor een lijst met versies van de site.
 
 **Filialen**  
-Om te bevestigen dat de vertakking van uw site (als de LTSB of Current Branch) in de console gaat u naar **beheer** > **siteconfiguratie** > **Sites**, en open **hiërarchie-instellingen**. Als er een optie om te converteren naar de huidige vertakking en actief is, voert de site de LTSB-versie. Wanneer de site wordt uitgevoerd de huidige vertakking, wordt deze optie grijs weergegeven.
-Zie voor informatie over de verschillende versies van Configuration Manager 'basislijn- en updateversies' [Updates voor Configuration Manager](/sccm/core/servers/manage/updates).
+Om te bevestigen dat de vertakking van uw site (als de LTSB of Current Branch) in de console gaat u naar **beheer** > **siteconfiguratie** > **Sites**, en open **hiërarchie-instellingen**. Als er een optie om te converteren naar de huidige vertakking en actief is, voert de site de LTSB-versie. Wanneer de site wordt uitgevoerd de huidige vertakking, wordt deze optie grijs weergegeven. Zie voor informatie over de verschillende versies van Configuration Manager 'basislijn- en updateversies' [Updates voor Configuration Manager](/sccm/core/servers/manage/updates).

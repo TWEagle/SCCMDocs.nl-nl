@@ -1,5 +1,6 @@
 ---
-title: Implementaties met een hoog risico beheren | Microsoft Docs
+title: Implementaties met een hoog risico beheren
+titleSuffix: Configuration Manager
 description: Informatie over het site-instellingen configureren in System Center Configuration Manager en beheerders waarschuwen als ze een implementatie met hoog risico maken.
 ms.custom: na
 ms.date: 10/06/2016
@@ -14,11 +15,11 @@ caps.latest.revision: "6"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 8b5564f39f07a67a3c9278379ed59ca415603d21
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 6c0ae39c674202bc999c3fccc9547a60ff8c6627
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="settings-to-manage-high-risk-deployments-for-system-center-configuration-manager"></a>Instellingen voor het beheren van implementaties van met een hoog risico voor System Center Configuration Manager
 

@@ -1,5 +1,6 @@
 ---
-title: Configuratie-items maken voor beheerde client Windows 10 - Configuration Manager | Microsoft Docs
+title: 'Configuratie-items maken voor Windows 10-client worden beheerd '
+titleSuffix: Configuration Manager
 description: Gebruik het configuratie-item voor System Center Configuration Manager Windows 10 om instellingen voor Windows 10-computers die worden beheerd door Configuration Manager-client te beheren.
 ms.custom: na
 ms.date: 03/28/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: be1a88341b08c454537279b27a27ce4fb90998de
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
+ms.openlocfilehash: 4f22ab22ec666c55962231bf92a42b25c4a7c127
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="how-to-create-configuration-items-for-windows-10-devices-managed-with-the-system-center-configuration-manager-client"></a>Het maken van configuratie-items voor Windows 10-apparaten die worden beheerd door System Center Configuration Manager-Client
 De System Center Configuration Manager gebruiken **Windows 10** configuratie-item voor het beheren van instellingen voor Windows 10-computers die worden beheerd door Configuration Manager-client.  

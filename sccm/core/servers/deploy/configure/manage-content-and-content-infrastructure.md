@@ -1,5 +1,6 @@
 ---
-title: Inhoudsinfrastructuur | Microsoft Docs
+title: Infrastructuur voor inhoud
+titleSuffix: Configuration Manager
 description: Informatie over het implementeren en vervolgens uw infrastructuur voor inhoudsbeheer beheren voor System Center Configuration Manager.
 ms.custom: na
 ms.date: 2/7/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: b0f297fddca4252f106dee9d3d5d8911a347825b
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 4173442c0813d6aa2cec0bc4be013a039e55380a
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="manage-content-and-content-infrastructure-for-system-center-configuration-manager"></a>Inhoud en infrastructuur voor inhoud beheren voor System Center Configuration Manager
 

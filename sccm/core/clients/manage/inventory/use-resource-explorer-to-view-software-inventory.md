@@ -1,5 +1,6 @@
 ---
-title: Software-inventaris weergeven | Microsoft Docs | Resource Explorer
+title: Software-inventaris weergeven met Resource Explorer
+titleSuffix: Configuration Manager
 description: Resource Explorer gebruiken om software-inventaris in System Center Configuration Manager weer te geven.
 ms.custom: na
 ms.date: 2/22/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: b76bcf65c61b0a2690a468d375ac95b1334d5298
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 242bd336fcb13172097e26187a48c924dbd9acb6
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="how-to-use-resource-explorer-to-view-software-inventory-in-system-center-configuration-manager"></a>Resource Explorer gebruiken om software-inventaris in System Center Configuration Manager weer te geven
 

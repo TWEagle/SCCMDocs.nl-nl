@@ -1,5 +1,6 @@
 ---
-title: Wat is er nieuw in hybride MDM met Configuration Manager | Microsoft Docs
+title: Wat is er nieuw in hybride MDM
+titleSuffix: Configuration Manager
 description: Meer informatie over de nieuwe functies voor mobiele apparaten beschikbaar voor hybride implementaties met Configuration Manager en Intune.
 ms.custom: na
 ms.date: 10/04/2017
@@ -13,11 +14,11 @@ ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 6c2c6ffee3b2084ede61e5602a78bf5ca82446f6
-ms.sourcegitcommit: 6c70e0af8d9af208009641786a3b555db4482e97
+ms.openlocfilehash: 74b7578610f60bc9d5692f90227aa11da592efcf
+ms.sourcegitcommit: b9c1c9ca5aaf806e8beee2709ed15392ee3e19fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Wat is er nieuw in hybride mobile device management met System Center Configuration Manager en Microsoft Intune
 
@@ -39,6 +40,51 @@ Elke sectie van dit artikel vindt u hybridefuncties onder drie verschillende cat
 |**Nieuw in Microsoft Intune** | In het algemeen moeten alle functies die worden vermeld in deze categorie samen met alle versies van de Configuration Manager. Deze inclusief System Center 2012 R2 Configuration Manager worden vrijgegeven, aangezien deze functies alleen de Intune-service nodig en niet aanvullende functionaliteit in Configuration Manager hoeven.|
 |**Nieuw in Configuration Manager Technical Preview**| Alle functies die worden vermeld in deze categorie werken alleen met de opgegeven Technical Preview-versie. Als u wilt deze functies uit te proberen, moet u de Technical Preview-versie die is opgegeven in de beschrijving van de functie installeren. Zie voor meer informatie [Technical Preview voor System Center Configuration Manager](../../core/get-started/technical-preview.md).|
 |**Nieuw in Configuration Manager (huidige vertakking)**| Alle functies die worden vermeld in deze categorie werken alleen met de opgegeven versie van Configuration Manager (huidige vertakking), zoals versie 1511 of 1602. Als u een oudere versie van Configuration Manager voor uw hybride implementatie gebruikt, moet u upgraden naar de Configuration Manager (huidige vertakking) versie opgegeven in de beschrijving van de functie. Zie voor meer informatie [upgraden naar System Center Configuration Manager](../../core/servers/deploy/install/upgrade-to-configuration-manager.md).|
+
+
+## <a name="october-2017"></a>Oktober 2017
+
+### <a name="new-in-configuration-manager-technical-preview-1709"></a>Nieuw in Configuration Manager Technical Preview 1709
+
+- **Verbeterde ervaring voor VPN-profiel in Configuration Manager-console**<!-- 1313282 -->     
+    Instellingen voor VPN-profiel zijn nu gefilterd volgens platform. Wanneer u nieuwe VPN-profielen maken, bevat elk ondersteund platform alleen de instellingen die geschikt is voor het platform. Bestaande VPN-profielen worden niet getroffen. U kunt meer lezen over deze wijziging [hier](/sccm/core/get-started/capabilities-in-technical-preview-1709#improved-vpn-profile-experience-in-configuration-manager-console).
+
+
+### <a name="new-in-microsoft-intune"></a>Nieuw in Microsoft Intune  
+
+- **Verbeteringen aan het apparaat instellen werkstroom in de bedrijfsportal**<!--1490692-->    
+  We hebben de apparaat-setup-werkstroom in de bedrijfsportal-app voor Android verbeterd. De taal is gebruiksvriendelijker en specifiek voor uw bedrijf. Tevens hebben we waar mogelijk schermen gecombineerd. U kunt deze ziet op de [wat is er nieuw in app UI](https://docs.microsoft.com/intune/whats-new-app-ui#week-of-october-2-2017) pagina.
+
+- **Verbeterde richtlijnen met betrekking tot de aanvraag voor toegang tot contacten op Android-apparaten**<!--1484985-->    
+  De bedrijfsportal-app voor Android is vaak vereist voor de eindgebruiker de machtiging contactpersonen accepteren. Als een eindgebruiker deze toegang weigert, zien ze nu een melding in de app die waarschuwingen om het voor voorwaardelijke toegang te geven. 
+
+- **Beveiligd opstarten herstel voor Android**<!--1490712-->    
+  Eindgebruikers met Android-apparaten zich te tikken de niet-naleving reden hiervoor in de bedrijfsportal-app. Indien mogelijk wordt duurt dit ze rechtstreeks naar de juiste locatie in de app instellingen om het probleem te verhelpen. 
+
+- **Aanvullende pushmeldingen voor eindgebruikers op de bedrijfsportal-app voor Android Oreo**<!--1475932 -->    
+  Eindgebruikers ziet aanvullende meldingen om aan te geven aan wanneer de bedrijfsportal-app voor Android Oreo achtergrondtaken, zoals het ophalen van beleid van de Intune-service uitvoert. De meldingen verhoogt de transparantie voor eindgebruikers over het uitvoeren van de bedrijfsportal is beheertaken op hun apparaat. Dit is onderdeel van de algemene [optimalisatie van de gebruikersinterface van de Portal bedrijf](https://blogs.technet.microsoft.com/intunesupport/2017/08/21/android-8-0-o-behaviour-changes-and-microsoft-intune) voor de bedrijfsportal-app voor Android Oreo. 
+
+- **Nieuw gedrag voor de bedrijfsportal-app voor Android met werkprofielen**<!--1485783-->    
+  Wanneer u een Android voor Work-apparaat met een werk-profiel hebt ingeschreven, is de bedrijfsportal-app in de work-profiel dat beheertaken op het apparaat uitvoert. 
+
+  Tenzij u een app met MAM-functionaliteit in het persoonlijk profiel gebruikt, langer de bedrijfsportal-app voor Android niet gebruik. Ter verbetering van de werkervaring profiel Intune, wordt automatisch verborgen persoonlijke bedrijfsportal-app na de inschrijving van een geslaagde work-profiel.
+
+  De bedrijfsportal-app voor Android kan worden ingeschakeld op elk gewenst moment in het persoonlijk profiel door te bladeren voor [bedrijfsportal in de Play Store](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal) en tik op **inschakelen**.
+
+- **Bedrijfs-Portal voor Windows 8.1 en Windows Phone 8.1 verplaatsen naar de modus**<!--1428681-->    
+ Een bericht is toegevoegd aan te kondigen of de bedrijfsportal-apps voor Windows 8.1 en Windows Phone 8.1 zijn verplaatst naar de modus. Zie voor meer informatie [meldingen](#notices).  
+
+- **Blok niet-ondersteunde Samsung Knox-apparaatinschrijving**<!-- 1490695 -->    
+  De app bedrijfsportal probeert alleen ondersteunde Samsung Knox-apparaten in te schrijven. Om te voorkomen KNOX activeringsfouten waardoor MDM-registratie, apparaatinschrijving alleen uitgevoerd als het apparaat wordt weergegeven in de [lijst met apparaten die zijn gepubliceerd door Samsung](https://www.samsungknox.com/knox-supported-devices/knox-workspace). Samsung apparaten kunnen model getallen die met KNOX ondersteunen en anderen die geen hebben. Knox compatibiliteit met uw wederverkoper apparaat controleren voordat de aankoop en implementatie. U vindt de volledige lijst met gecontroleerde apparaten in de [beleidsinstellingen voor Android en Samsung KNOX Standard](https://docs.microsoft.com/intune-classic/deploy-use/android-policy-settings-in-microsoft-intune#supported-samsung-knox-standard-devices).
+
+- **Einde van ondersteuning voor Android 4.3 en lagere**<!--1171126, 1326920 -->    
+  Een aankondiging is toegevoegd voor het einde van ondersteuning voor Android 4.3 en lager. Zie voor meer informatie [meldingen](#notices).
+
+- **Eindgebruikers informeren over welke gegevens van een apparaat kan worden weergegeven op ingeschreven apparaten**<!--1165314-->    
+  We toevoegen **eigendomstype** naar het scherm Apparaatdetails op alle bedrijfsportal-apps. Hiermee kunnen gebruikers voor meer informatie over privacy rechtstreeks vanuit de [welke gegevens kan uw bedrijf zien?](https://docs.microsoft.com/intune-user-help/what-info-can-your-company-see-when-you-enroll-your-device-in-intune) artikel. Dit zal worden implementeren in alle bedrijfsportal-apps in de nabije toekomst. We dit aangekondigd voor iOS in [September](https://docs.microsoft.com/intune/whats-new#week-of-september-11-2017). 
+
+
+
 
 ## <a name="september-2017"></a>September 2017
 
@@ -94,37 +140,37 @@ De volgende functies die eerder beschikbaar in Configuration Manager Technical P
 
 - **Uw MDM-instantie wijzigen**
 
-  Vanaf Configuration Manager versie 1610, kunt u uw MDM-instantie zonder contact opnemen met Microsoft Support en zonder de registratie ongedaan maken en registreren van uw bestaande beheerde apparaten. Zie voor meer informatie [wijzigen van uw MDM-instantie]( /sccm/mdm/deploy-use/change-mdm-authority).
+  Vanaf Configuration Manager versie 1610, kunt u uw MDM-instantie zonder contact opnemen met Microsoft Support en zonder de registratie ongedaan maken en registreren van uw bestaande beheerde apparaten. Zie voor meer informatie [wijzigen van uw MDM-instantie](/sccm/mdm/deploy-use/change-mdm-authority).
 
 - **Beheerde browser en app-proxy-integratie**
 
-  De Intune Managed Browser kunnen nu geïntegreerd met de service Azure AD-toepassingsproxy gebruikers toegang biedt tot interne websites, zelfs wanneer ze extern werken. Gebruikers van de browser Voer de URL van de site zoals ze normaal en de Managed Browser de aanvraag via de gateway application proxy web stuurt. Zie voor meer informatie [toegang tot het Internet beheren met beheerde-browserbeleid](/intune/app-configuration-managed-browser).
+  De Intune Managed Browser kunnen nu geïntegreerd met de service Azure AD-toepassingsproxy gebruikers toegang biedt tot interne websites, zelfs wanneer ze extern werken. Gebruikers van de browser Voer de URL van de site zoals ze normaal en de Managed Browser de aanvraag via de gateway application proxy web stuurt. Zie voor meer informatie [toegang tot het Internet beheren met beheerde-browserbeleid](https://docs.microsoft.com/intune/app-configuration-managed-browser).
 
 - **Bedrijfsportal-app voor Android is nu een nieuwe ervaring voor de eindgebruiker voor App-beveiligingsbeleid**
 
-  Op basis van feedback van klanten, hebben we de bedrijfsportal-app voor Android om weer te geven gewijzigd een **toegang bedrijf inhoud** knop. De bedoeling is om te voorkomen dat eindgebruikers onnodig gaan via het registratieproces wanneer ze alleen toegang tot apps die ondersteuning bieden voor App-beleid voor beveiliging, een functie van Intune-beheer van mobiele toepassingen nodig. U kunt deze wijzigingen kan zien op de [wat is er nieuw in app UI](/intune/whats-new-app-ui) pagina.
+  Op basis van feedback van klanten, hebben we de bedrijfsportal-app voor Android om weer te geven gewijzigd een **toegang bedrijf inhoud** knop. De bedoeling is om te voorkomen dat eindgebruikers onnodig gaan via het registratieproces wanneer ze alleen toegang tot apps die ondersteuning bieden voor App-beleid voor beveiliging, een functie van Intune-beheer van mobiele toepassingen nodig. U kunt deze wijzigingen kan zien op de [wat is er nieuw in app UI](https://docs.microsoft.com/intune/whats-new-app-ui) pagina.
 
 - **Nieuwe menu Actie eenvoudig bedrijfsportal verwijderen**
 
-  Op basis van feedback van gebruikers, is de bedrijfsportal-app voor Android een nieuwe menu Actie voor het initiëren van het verwijderen van de bedrijfsportal van uw apparaat toegevoegd. Deze actie verwijdert het apparaat uit Intune-beheer, zodat de app kan worden verwijderd van het apparaat door de gebruiker. U kunt deze wijzigingen kan zien op de [wat is er nieuw in gebruikersinterface-app](/intune/whats-new-app-ui) pagina en in de [documentatie voor Android-eindgebruikers](/intune-user-help/unenroll-your-device-from-intune-android).
+  Op basis van feedback van gebruikers, is de bedrijfsportal-app voor Android een nieuwe menu Actie voor het initiëren van het verwijderen van de bedrijfsportal van uw apparaat toegevoegd. Deze actie verwijdert het apparaat uit Intune-beheer, zodat de app kan worden verwijderd van het apparaat door de gebruiker. U kunt deze wijzigingen kan zien op de [wat is er nieuw in gebruikersinterface-app](https://docs.microsoft.com/intune/whats-new-app-ui) pagina en in de [documentatie voor Android-eindgebruikers](https://docs.microsoft.com/intune-user-help/unenroll-your-device-from-intune-android).
 
 - **Verbeteringen in de app worden gesynchroniseerd met Windows 10 auteurs Update**
 
-  De bedrijfsportal-app voor Windows 10 nu start automatisch een synchronisatie voor aanvragen van de app installeren voor apparaten met Windows 10 auteurs Update (versie 1703). Dit vermindert het probleem van app-installaties afslaan tijdens de status 'Sync in behandeling'. Bovendien kunnen gebruikers zich aan om een synchronisatie uit vanuit de app handmatig te starten. U kunt deze wijzigingen kan zien op de [wat is er nieuw in app UI](/intune/whats-new-app-ui) pagina.
+  De bedrijfsportal-app voor Windows 10 nu start automatisch een synchronisatie voor aanvragen van de app installeren voor apparaten met Windows 10 auteurs Update (versie 1703). Dit vermindert het probleem van app-installaties afslaan tijdens de status 'Sync in behandeling'. Bovendien kunnen gebruikers zich aan om een synchronisatie uit vanuit de app handmatig te starten. U kunt deze wijzigingen kan zien op de [wat is er nieuw in app UI](https://docs.microsoft.com/intune/whats-new-app-ui) pagina.
 
 - **Nieuwe begeleide ervaring voor Windows 10-bedrijfsportal**
 
   De bedrijfsportal-app voor Windows 10 bevat een begeleide ervaring van Intune walkthrough voor apparaten die niet zijn geïdentificeerd of geregistreerd. De nieuwe ervaring bevat stapsgewijze instructies die de gebruiker door het registratieproces te in Azure Active Directory leiden (vereist voor voorwaardelijke toegang functies) en de MDM-registratie (vereist voor apparaatfuncties management). De begeleide ervaring zijn toegankelijk vanaf de startpagina van de bedrijfsportal. Gebruikers kunnen de app gebruiken als ze niet registratie en de inschrijving uitvoert, maar heeft beperkte functionaliteit merken blijven.
 
-  Deze update is alleen zichtbaar op apparaten met Windows 10 Verjaardag Update (build 1607) of hoger. U kunt deze wijzigingen kan zien op de [wat is er nieuw in app UI](/intune/whats-new-app-ui) pagina.
+  Deze update is alleen zichtbaar op apparaten met Windows 10 Verjaardag Update (build 1607) of hoger. U kunt deze wijzigingen kan zien op de [wat is er nieuw in app UI](https://docs.microsoft.com/intune/whats-new-app-ui) pagina.
 
 - **Verbeteringen in de app-tegels in de bedrijfsportal-app voor iOS**
 
-  Het ontwerp van de app-tegels op de startpagina in overeenstemming met de huisstijl kleur die u voor de bedrijfsportal instelt is bijgewerkt. Zie voor meer informatie [wat is er nieuw in app UI](/intune/whats-new-app-ui).
+  Het ontwerp van de app-tegels op de startpagina in overeenstemming met de huisstijl kleur die u voor de bedrijfsportal instelt is bijgewerkt. Zie voor meer informatie [wat is er nieuw in app UI](https://docs.microsoft.com/intune/whats-new-app-ui).
 
 - **Account objectkiezer nu beschikbaar voor de bedrijfsportal-app voor iOS**
 
-  Gebruikers van iOS-apparaten zien mogelijk onze nieuwe account kiezen wanneer ze zich in de bedrijfsportal als ze hun werk- of gebruikt schoolaccount voor aanmelding bij andere Microsoft-apps. Zie voor meer informatie [wat is er nieuw in app UI](/intune/whats-new-app-ui).
+  Gebruikers van iOS-apparaten zien mogelijk onze nieuwe account kiezen wanneer ze zich in de bedrijfsportal als ze hun werk- of gebruikt schoolaccount voor aanmelding bij andere Microsoft-apps. Zie voor meer informatie [wat is er nieuw in app UI](https://docs.microsoft.com/intune/whats-new-app-ui).
 
 ### <a name="new-in-configuration-manager-technical-preview-1706"></a>Nieuw in Configuration Manager Technical Preview 1706
 
@@ -173,17 +219,17 @@ De volgende functies die eerder beschikbaar in Configuration Manager Technical P
 
 - **Nieuwe pictogrammen voor de Managed Browser en de bedrijfsportal**
 
-  De Managed Browser ontvangt bijgewerkte pictogrammen voor de Android- en iOS-versies van de app. Het pictogram Nieuw bevatten de bijgewerkte Intune badge om het te maken met andere apps consistente in Enterprise Mobility + Security (EM + S). U kunt het nieuwe pictogram voor de Managed Browser zien op de [wat is er nieuw in Intune op de pagina app UI](/intune/whats-new/whats-new-in-intune-app-ui.md).
+  De Managed Browser ontvangt bijgewerkte pictogrammen voor de Android- en iOS-versies van de app. Het pictogram Nieuw bevatten de bijgewerkte Intune badge om het te maken met andere apps consistente in Enterprise Mobility + Security (EM + S). U kunt het nieuwe pictogram voor de Managed Browser zien op de [wat is er nieuw in Intune op de pagina app UI](https://docs.microsoft.com/intune/whats-new-app-ui).
 
   Bijgewerkte pictogrammen voor de Android, iOS en Windows-versies van de app voor het verbeteren van de consistentie met andere apps in EM + S is ook ontvangen van de bedrijfsportal. Deze pictogrammen worden verschillende platforms van April eind mei geleidelijk uitgebracht.
 
 - **Meld u aan voortgangsindicator in Android-bedrijfsportal**
 
-  Een update voor de Android-bedrijfsportal-app bevat een teken in voortgangsindicator, wanneer de gebruiker wordt gestart of de app hervat. De indicator doorloopt nieuwe statussen, beginnen met 'Verbinden...' vervolgens 'Ondertekening in...' en 'Controleren voor de beveiligingsvereisten...' voorafgaand aan zodat de gebruiker toegang tot de app. U kunt de nieuwe schermen voor de bedrijfsportal-app voor Android zien op de [wat is er nieuw in Intune op de pagina app UI](/intune/whats-new/whats-new-in-intune-app-ui.md).
+  Een update voor de Android-bedrijfsportal-app bevat een teken in voortgangsindicator, wanneer de gebruiker wordt gestart of de app hervat. De indicator doorloopt nieuwe statussen, beginnen met 'Verbinden...' vervolgens 'Ondertekening in...' en 'Controleren voor de beveiligingsvereisten...' voorafgaand aan zodat de gebruiker toegang tot de app. U kunt de nieuwe schermen voor de bedrijfsportal-app voor Android zien op de [wat is er nieuw in Intune op de pagina app UI](https://docs.microsoft.com/intune/whats-new-app-ui).
 
 - **Toegang tot SharePoint Online blokkeren apps**
 
-  U kunt een beleid voor voorwaardelijke toegang op basis van een app voor het blokkeren van apps, waarvoor geen app protection-beleid toegepast naar hen nu toegang tot maken [SharePoint Online](/InTune/deploy-use/mam-ca-for-sharepoint-online). In het scenario voor voorwaardelijke toegang op basis van apps, kunt u de apps die u wilt toegang hebben tot SharePoint Online met Azure portal.
+  U kunt een beleid voor voorwaardelijke toegang op basis van een app voor het blokkeren van apps, waarvoor geen app protection-beleid toegepast naar hen nu toegang tot maken [SharePoint Online](https://docs.microsoft.com/intune-classic/deploy-use/mam-ca-for-sharepoint-online). In het scenario voor voorwaardelijke toegang op basis van apps, kunt u de apps die u wilt toegang hebben tot SharePoint Online met Azure portal.
 
 ### <a name="new-in-configuration-manager-technical-preview-1704"></a>Nieuw in Configuration Manager Technical Preview 1704
 
@@ -205,7 +251,7 @@ De volgende functies die eerder beschikbaar in Configuration Manager Technical P
   - Navigeren Apps: **Alle Apps** weergave toont tabbladen weergeven van **aanbevolen**, **alle**, en **categorieën** voor navigatie te vereenvoudigen.
   - Ondersteuning: **Mijn apparaten** en **contact opnemen met IT** tabbladen zijn bijgewerkt voor een betere leesbaarheid.
 
-  Zie voor meer informatie over deze wijzigingen [UI-updates voor Intune-eindgebruikers apps](/intune/whats-new/whats-new-in-intune-app-ui).
+  Zie voor meer informatie over deze wijzigingen [UI-updates voor Intune-eindgebruikers apps](https://docs.microsoft.com/intune/whats-new-app-ui).
 
 - **Script voor Windows 10-bedrijfsportal te ondertekenen**
 
@@ -292,7 +338,7 @@ De volgende aanvullende hybridefuncties zijn ook opgenomen in versie 1702 van Co
 
 - **De bedrijfsportalwebsite modernisering**
 
-  De bedrijfsportalwebsite ondersteunt apps die zijn gericht op gebruikers die geen beheerde apparaten. De website wordt uitgelijnd met andere Microsoft-producten en services met behulp van een nieuw tegengestelde kleurenschema, dynamische illustraties en een 'hamburger menu"met de helpdesk contactgegevens en informatie over het bestaande beheerde apparaten. De startpagina is geordend, zodat de apps die beschikbaar voor gebruikers met een carrousels voor aanbevolen en onlangs bijgewerkt apps zijn benadrukken. U kunt vinden voor en na installatiekopieën beschikbaar zijn op de [UI updates](/intune/whats-new/whats-new-in-intune-app-ui) pagina.
+  De bedrijfsportalwebsite ondersteunt apps die zijn gericht op gebruikers die geen beheerde apparaten. De website wordt uitgelijnd met andere Microsoft-producten en services met behulp van een nieuw tegengestelde kleurenschema, dynamische illustraties en een 'hamburger menu"met de helpdesk contactgegevens en informatie over het bestaande beheerde apparaten. De startpagina is geordend, zodat de apps die beschikbaar voor gebruikers met een carrousels voor aanbevolen en onlangs bijgewerkt apps zijn benadrukken. U kunt vinden voor en na installatiekopieën beschikbaar zijn op de [UI updates](https://docs.microsoft.com/intune/whats-new-app-ui) pagina.
 
 - **Nieuw adres door MDM-server voor Windows-apparaten**
 
@@ -306,7 +352,7 @@ De volgende aanvullende hybridefuncties zijn ook opgenomen in versie 1702 van Co
 
 - **Instellingen voor naleving van niet-compatibele Apps**
 
-  U kunt nu regels van de niet-compatibele apps voor Android en iOS-apps in een nalevingsbeleid maken. Als apparaten de opgegeven toepassingen geïnstalleerd zijn, wordt deze 'niet-compatibele' zijn gemarkeerd en geen toegang meer tot bedrijfsbronnen op basis van beleid voor voorwaardelijke toegang in plaats. Voor meer informatie [voorwaardelijke toegang apparaat naleving beleid verbeteringen](/sccm/core/get-started/capabilities-in-technical-preview-1702#conditional-access-device-compliance-policy-improvements).
+  U kunt nu regels van de niet-compatibele apps voor Android en iOS-apps in een nalevingsbeleid maken. Als apparaten de opgegeven toepassingen geïnstalleerd zijn, moet deze zijn gemarkeerd als 'niet-compatibele' en geen toegang meer tot bedrijfsbronnen op basis van beleid voor voorwaardelijke toegang in plaats. Zie voor meer informatie [voorwaardelijke toegang apparaat naleving beleid verbeteringen](/sccm/core/get-started/capabilities-in-technical-preview-1702#conditional-access-device-compliance-policy-improvements).
 
 - **PFX-certificaat maken en distributie en het S/MIME-ondersteuning**
 
@@ -326,7 +372,7 @@ De volgende aanvullende hybridefuncties zijn ook opgenomen in versie 1702 van Co
 
 - **Probleem waarbij iOS-apparaten zijn niet actief of de beheerconsole niet kan communiceren met deze oplossen**
 
-  Wanneer apparaten van gebruikers contact met Intune kwijtraken, kunt u ze nieuwe mogelijke problemen en oplossingen om u te helpen weer toegang tot bedrijfsbronnen op te geven. Zie [apparaten zijn niet actief of de beheerconsole kan niet communiceren met hen](/intune/troubleshoot/troubleshoot-device-enrollment-in-intune#devices-are-inactive-or-the-admin-console-cannot-communicate-with-them).
+  Wanneer apparaten van gebruikers contact met Intune kwijtraken, kunt u ze nieuwe mogelijke problemen en oplossingen om u te helpen weer toegang tot bedrijfsbronnen op te geven. Zie [apparaten zijn niet actief of de beheerconsole kan niet communiceren met hen](https://docs.microsoft.com/intune/troubleshoot/troubleshoot-device-enrollment-in-intune#devices-are-inactive-or-the-admin-console-cannot-communicate-with-them).
 
 ### <a name="new-in-configuration-manager-technical-preview-1701"></a>Nieuw in Configuration Manager Technical Preview 1701
 
@@ -336,6 +382,14 @@ De volgende aanvullende hybridefuncties zijn ook opgenomen in versie 1702 van Co
 
 
 ## <a name="notices"></a>Aankondigingen
+
+### <a name="company-portal-for-windows-81-and-windows-phone-81-moving-to-sustaining-mode"></a>Portal voor Windows 8.1 en Windows Phone 8.1 verplaatsen naar de modus voor de bedrijfsportal 
+<!--1428681-->
+*6 oktober 2017*   
+ 
+Vanaf oktober 2017 kan wordt de bedrijfsportal-apps voor Windows 8.1 en Windows Phone 8.1 verplaatst naar de modus. Dit betekent dat de apps en de bestaande scenario's, zoals de inschrijving en naleving, wordt alleen ondersteund voor deze platforms wordt voortgezet. Deze apps blijven worden gedownload via bestaande release kanalen, zoals de Microsoft Store. 
+
+Eenmaal in de modus, deze apps wordt ontvangt alleen kritieke beveiligingsupdates. Er zijn geen aanvullende updates of de functies voor deze apps uitgebracht. Nieuwe functies, wordt u aangeraden apparaten bij te werken naar Windows 10 of Windows 10 Mobile. 
 
 ### <a name="end-of-support-for-ios-80"></a>Einde van ondersteuning voor iOS 8.0 
 <!---1164477--->

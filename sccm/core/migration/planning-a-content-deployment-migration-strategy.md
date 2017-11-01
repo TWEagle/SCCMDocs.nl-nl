@@ -1,5 +1,6 @@
 ---
-title: Inhoud migreert | Microsoft Docs
+title: Inhoud migreert
+titleSuffix: Configuration Manager
 description: "Distributiepunten om inhoud te beheren terwijl u gegevens naar een doelhiërarchie van System Center Configuration Manager migreert gebruiken."
 ms.custom: na
 ms.date: 12/30/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 25619d91522193178e0415f649ca4b34c94ecc89
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: 09e4fd0237d16cdaa25ba3c26a8661bd14fd6692
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="plan-a-content-deployment-migration-strategy-in-system-center-configuration-manager"></a>Een migratiestrategie voor inhoudsimplementatie in System Center Configuration Manager plannen
 
@@ -113,7 +114,7 @@ De volgende tabel bevat de ondersteunde locaties voor elk type Configuration Man
 > [!WARNING]  
 >  Voordat u een vertakkingsdistributiepunt bijwerkt, moet u de Configuration Manager 2007-clientsoftware verwijderen. Wanneer u een vertakkingsdistributiepunt die de Configuration Manager 2007-clientsoftware geïnstalleerd heeft bijwerkt, wordt de inhoud die eerder was geïmplementeerd op de computer van de computer verwijderd en mislukt de upgrade van het distributiepunt.  
 
-Voor het identificeren van distributiepunten die in aanmerking komen voor een update in de Configuration Manager-console in de **bronhiërarchie** knooppunt, selecteert u een bronsite en selecteer vervolgens de **gedeelde distributiepunten** tabblad. Distributiepunten die in aanmerking voor upgrade komen, geven **Ja** weer in de kolom **Komt in aanmerking voor upgrade** .  
+Voor het identificeren van distributiepunten die in aanmerking komen voor een update in de Configuration Manager-console in de **bronhiërarchie** knooppunt, selecteert u een bronsite en selecteer vervolgens de **gedeelde distributiepunten** tabblad. Weergave van in aanmerking komende distributiepunten **Ja** in de **komt in aanmerking voor Upgrade** kolom.  
 
 Wanneer u een distributiepunt dat is geïnstalleerd op een secundaire Configuration Manager 2007-siteserver bijwerkt, wordt de secundaire site verwijderd van de bronhiërarchie. Hoewel dit scenario een secundaire site-upgrade wordt genoemd, is dit alleen van toepassing op de sitesysteemrol voor distributiepunten. Het resultaat is dat de secundaire site niet wordt bijgewerkt en dat deze in plaats daarvan wordt verwijderd. Dit laat een distributiepunt vanuit de doelhiërarchie op de computer waarop de secundaire siteserver is. Als u van plan bent het distributiepunt op een secundaire site bijwerken, Zie [plant u de upgrade van secundaire sites van Configuration Manager 2007](#BKMK_UpgradeSS) in dit onderwerp.  
 

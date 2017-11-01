@@ -1,5 +1,6 @@
 ---
-title: Wi-Fi-profielen maken | Microsoft Docs
+title: Wi-Fi-profielen maken
+titleSuffix: Configuration Manager
 description: Informatie over het gebruik van Wi-Fi-profielen in System Center Configuration Manager naar de instellingen voor draadloze netwerken implementeren voor gebruikers in uw organisatie.
 ms.custom: na
 ms.date: 12/11/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: f1ae976899de1fd3efcbde0c7268f071a5d0218b
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 24bc4ad8290bfa1a8b298374d5adf7ab1841398e
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="create-wi-fi-profiles"></a>Wi-Fi-profielen maken
 

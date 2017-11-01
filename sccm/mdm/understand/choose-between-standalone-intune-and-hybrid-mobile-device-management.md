@@ -1,5 +1,6 @@
 ---
-title: Kies Intune standalone of hybride MDM | Microsoft Docs
+title: Kies Intune standalone of hybride MDM
+titleSuffix: Configuration Manager
 description: Kies of u voor het implementeren van hybride mobile device management met Intune en Configuration Manager of Intune zelfstandig worden uitgevoerd.
 ms.custom: na
 ms.date: 07/18/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "10"
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 5c9e80fc5bc3f0629e1c27a4928b8a51cfe1ee7e
-ms.sourcegitcommit: 948644072bd158b156f782a4376bcd50fac7c73a
+ms.openlocfilehash: 993a3ada8b887adb52be468ea4e936140a455bca
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="choose-between-microsoft-intune-standalone-and-hybrid-mobile-device-management-with-system-center-configuration-manager"></a>Kiezen tussen Microsoft Intune standalone en hybride beheer van mobiele apparaten met System Center Configuration Manager
 

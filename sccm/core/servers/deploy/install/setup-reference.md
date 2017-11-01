@@ -1,5 +1,6 @@
 ---
-title: Setup-verwijzing | Microsoft Docs
+title: Naslaggids voor Setup
+titleSuffix: Configuration Manager
 description: "Bekijk deze verwijzing zodat u kunt voorbereiden voor het installeren van een Configuration Manager-site of hiërarchie."
 ms.custom: na
 ms.date: 4/18/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "22"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 739461a6cca0fd67431093524c1e8158afd80d0f
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: b7228da1623b5caf1679455e535e282ecf20724a
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="reference-for-system-center-configuration-manager-setup"></a>Documentatie voor de installatie van System Center Configuration Manager
 

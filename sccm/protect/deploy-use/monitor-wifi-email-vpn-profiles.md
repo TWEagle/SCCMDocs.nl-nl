@@ -1,5 +1,6 @@
 ---
-title: E-mail, Wi-Fi en VPN-profielen controleren | Microsoft Docs
+title: E-mail, Wi-Fi en VPN-profielen controleren
+titleSuffix: Configuration Manager
 description: Informatie over het bewaken van de status van naleving van e-mail, Wi-Fi en VPN-profielen in System Center Configuration Manager.
 ms.custom: na
 ms.date: 10/06/2016
@@ -14,11 +15,11 @@ caps.latest.revision: "4"
 author: Nbigman
 ms.author: nbigman
 manager: angrobe
-ms.openlocfilehash: 73d941633d270cf9628f8be14e1e56f3c78624b6
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: 0f49a1b30c6bd90164f2e40665c254b127b8a525
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="monitor-email-wi-fi-and-vpn-profiles-in-system-center-configuration-manager"></a>E-mail, Wi-Fi en VPN-profielen in System Center Configuration Manager controleren
 

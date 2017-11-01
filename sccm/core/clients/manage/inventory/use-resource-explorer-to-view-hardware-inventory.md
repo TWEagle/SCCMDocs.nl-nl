@@ -1,5 +1,6 @@
 ---
-title: Hardware-inventaris weergeven | Microsoft Docs | Resource Explorer
+title: Hardware-inventaris weergeven met Resource Explorer
+titleSuffix: Configuration Manager
 description: Resource Explorer gebruiken om hardware-inventaris in System Center Configuration Manager weer te geven.
 ms.custom: na
 ms.date: 01/03/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "7"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: e39fa60a5d215fa1b0a98d4463058497e63a4d4f
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: a08fdd76fee73e50cb1f1249dd3ef4f54ce378a0
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="how-to-use-resource-explorer-to-view-hardware-inventory-in-system-center-configuration-manager"></a>Resource Explorer gebruiken om hardware-inventaris te bekijken in System Center Configuration Manager
 

@@ -1,5 +1,6 @@
 ---
-title: Instellingen voor naleving bewaken | Microsoft Docs
+title: Instellingen voor naleving van monitor
+titleSuffix: Configuration Manager
 description: Een of meer van de procedures in dit onderwerp gebruiken om de status van naleving van de configuratiebasislijn weer te geven.
 ms.custom: na
 ms.date: 10/06/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: 12a75e8bdda681a2ef1520e834f764722788f0a4
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: HT
+ms.openlocfilehash: 1da8bf6ab83be7c72cc95ec5e07cb9b1a17526d5
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="monitor-compliance-settings-in-system-center-configuration-manager"></a>Instellingen voor naleving in System Center Configuration Manager controleren
 
