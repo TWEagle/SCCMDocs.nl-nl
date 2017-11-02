@@ -1,8 +1,8 @@
 ---
-title: Privacyverklaring voor System Center Configuration Manager - aanvullende informatie | Microsoft Docs
+title: Privacyverklaring voor System Center Configuration Manager - aanvullende informatie
 description: Meer informatie over hoe Microsoft worden verzameld en gebruikt gegevens uit een System Center Configuration Manager-implementatie.
 ms.custom: na
-ms.date: 12/30/2016
+ms.date: 10/13/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -34,11 +34,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-ms.openlocfilehash: ef7b3656f9b4a31e07227aa4e864448d0dd1fcdc
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 28caf163507692ad7d7b3cfa85536a88d94584ec
+ms.sourcegitcommit: 18ac58374d2d513fe2a197c80f7c8c6890a7d612
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="additional-information-about-privacy-for-system-center-configuration-manager"></a>Meer informatie over privacy voor System Center Configuration Manager
 
@@ -107,7 +107,7 @@ U kunt kiezen om de geografische weergave voor de sitehiërarchie niet te gebrui
 ## <a name="microsoft-intune-subscription"></a>Microsoft Intune-abonnement
 Klanten die een abonnement op Microsoft Intune hebt aangeschaft kunnen Configuration Manager gebruiken voor het beheren van hun mobiele apparaten die via Microsoft Intune verbonden zijn. [Privacyverklaring van Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkId=262214) geldt voor de Microsoft online services, waaronder Microsoft Intune. Als klanten ook een Microsoft Intune-abonnement hebt, de [privacyverklaring van Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkId=262214) moet worden gelezen in combinatie met deze privacyverklaring.
 
-Alle communicatie met Microsoft Intune gebruiken HTTPS. De Microsoft Intune-abonnement configureren en om te downloaden van het Certificate Signing Request (CSR) die nodig is voor het configureren van iOS-ondersteuning, een beheerder moet zich aanmelden bij Microsoft Intune met behulp van een organisatie-account en wachtwoord. Deze referenties worden niet opgeslagen in Configuration Manager. Alle andere communicaties met Microsoft Intune worden geverifieerd door gebruikmaking van PKI-certificaten die door Microsoft Intune wordt automatisch gegenereerd.
+Alle communicatie met Microsoft Intune gebruiken HTTPS. De Microsoft Intune-abonnement configureren en om te downloaden van het Certificate Signing Request (CSR) die nodig is voor het configureren van iOS-ondersteuning, een beheerder moet zich aanmelden bij Microsoft Intune met werkaccount en wachtwoord. Deze referenties worden niet opgeslagen in Configuration Manager. Alle andere communicaties met Microsoft Intune worden geverifieerd door gebruikmaking van PKI-certificaten die door Microsoft Intune wordt automatisch gegenereerd.
 
 Om apparaten te beheren die zijn verbonden met Microsoft Intune, wordt bepaalde informatie verzonden naar en ontvangen van Microsoft Intune. Deze informatie bevat de User Principal Name (UPN) van alle gebruikers die zijn toegewezen aan de dienst en Inventarisinformatie voor de apparaten die worden beheerd door Microsoft Intune. Metagegevens, zoals de toepassingsnaam, uitgever en versie worden, voor inhoud die is toegekend aan Manage.Microsoft.com-distributiepunten, verzonden naar Microsoft Intune. De werkelijke binaire inhoud die toegewezen aan een Manage.Microsoft.com-distributiepunt is versleuteld vóór deze geüpload wordt naar Microsoft Intune.
 

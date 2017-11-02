@@ -1,5 +1,6 @@
 ---
-title: Query's maken | Microsoft Docs
+title: Query's maken
+titleSuffix: Configuration Manager
 description: Ontdek hoe u kunt maken en importeren van query's in System Center Configuration Manager. Bevat voorbeelden van query's en tips.
 ms.custom: na
 ms.date: 10/06/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: e6886f3a9292fcb70e385959f8dab952219761f8
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: HT
+ms.openlocfilehash: cbd9710cec365323e754d2109c8c61c29a4c301f
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="how-to-create-queries-in-system-center-configuration-manager"></a>Query's maken in System Center Configuration Manager
 
@@ -48,9 +49,9 @@ U kunt in dit onderwerp gebruiken bij het maken of importeren van query's in Sys
     |**Gebruikersbron**|Gebruiken om te zoeken naar gangbare gebruikersinformatie, zoals gebruikersnamen, namen van gebruikersgroepen en namen van beveiligingsgroepen.|  
     |**Implementatie**|Gebruiken om te zoeken naar gangbare kenmerken van een implementatie, zoals de implementatienaam, planning en de verzameling die is geïmplementeerd op.|  
 
-6.  Kies **Query-instructie bewerken** openen de  *&lt;querynaam\>*  **instructie-eigenschappen** in het dialoogvenster.  
+6.  Kies **Query-instructie bewerken** openen de * &lt;querynaam\> * **instructie-eigenschappen** in het dialoogvenster.  
 
-7.  Op de **algemene** tabblad de  *&lt;querynaam\>*  **instructie-eigenschappen** dialoogvenster geeft u de kenmerken die deze query retourneert en hoe ze worden weergegeven. Kies de **nieuw** pictogram van een nieuw kenmerk toe te voegen. U kunt ook **querytaal weergeven** invoeren of bewerken van de query rechtstreeks in WMI Query Language (WQL). Zie de sectie [Example WQL queries](#BKMK_Example) in dit onderwerp voor voorbeelden van WMI-query's.  
+7.  Op de **algemene** tabblad de * &lt;querynaam\> * **instructie-eigenschappen** dialoogvenster geeft u de kenmerken die deze query retourneert en hoe ze worden weergegeven. Kies de **nieuw** pictogram van een nieuw kenmerk toe te voegen. U kunt ook **querytaal weergeven** invoeren of bewerken van de query rechtstreeks in WMI Query Language (WQL). Zie de sectie [Example WQL queries](#BKMK_Example) in dit onderwerp voor voorbeelden van WMI-query's.  
 
     > [!TIP]  
     > U kunt de volgende MSDN-naslagdocumentatie gebruiken bij het maken van uw eigen WQL-query's:  
@@ -59,12 +60,12 @@ U kunt in dit onderwerp gebruiken bij het maken of importeren van query's in Sys
     > -   [WHERE-component](http://go.microsoft.com/fwlink/p/?LinkId=256654)  
     > -   [WQL-operators](http://go.microsoft.com/fwlink/p/?LinkId=256655)  
 
-8.  Op de **Criteria** tabblad van de  *&lt;querynaam\>*  **instructie-eigenschappen** dialoogvenster geeft u de criteria die worden gebruikt om de resultaten van de query te verfijnen. U kunt bijvoorbeeld alleen bronnen retourneren met een sitecode van **XYZ** in de queryresultaten. U kunt meerdere criteria voor een query configureren.  
+8.  Op de **Criteria** tabblad van de * &lt;querynaam\> * **instructie-eigenschappen** dialoogvenster geeft u de criteria die worden gebruikt om de resultaten van de query te verfijnen. U kunt bijvoorbeeld alleen bronnen retourneren met een sitecode van **XYZ** in de queryresultaten. U kunt meerdere criteria voor een query configureren.  
 
     > [!IMPORTANT]  
     > Als u een query zonder criteria maakt, retourneert de query alle apparaten in de verzameling **Alle systemen** .  
 
-9. Op de **Joins** tabblad de  *&lt;querynaam\>*  **instructie-eigenschappen** in het dialoogvenster kunt u gegevens uit twee verschillende kenmerken combineren in uw queryresultaten. Hoewel de Configuration Manager automatisch query's samenvoegt wanneer u verschillende kenmerken voor het queryresultaat kiest de **Joins** tabblad biedt meer geavanceerde opties. De kenmerkklassen die ondersteuning biedt voor System Center 2012 Configuration Manager worden weergegeven in de volgende tabel:  
+9. Op de **Joins** tabblad de * &lt;querynaam\> * **instructie-eigenschappen** in het dialoogvenster kunt u gegevens uit twee verschillende kenmerken combineren in uw queryresultaten. Hoewel de Configuration Manager automatisch query's samenvoegt wanneer u verschillende kenmerken voor het queryresultaat kiest de **Joins** tabblad biedt meer geavanceerde opties. De kenmerkklassen die ondersteuning biedt voor System Center 2012 Configuration Manager worden weergegeven in de volgende tabel:  
 
     |Type samenvoeging|Beschrijving|  
     |---------------|-----------------|  
@@ -75,7 +76,7 @@ U kunt in dit onderwerp gebruiken bij het maken of importeren van query's in Sys
 
      Raadpleeg de SQL Server-documentatie voor meer informatie over het gebruik van samenvoegingsbewerkingen.  
 
-10. Kies **OK** sluiten de  *&lt;querynaam\>*  **instructie-eigenschappen** in het dialoogvenster.  
+10. Kies **OK** sluiten de * &lt;querynaam\> * **instructie-eigenschappen** in het dialoogvenster.  
 
 11. Op de **algemene** tabblad van de **Wizard Query maken**, opgeven of de resultaten van deze query niet beperkt tot de leden van een verzameling of ze zijn beperkt tot de leden van een opgegeven verzameling, of er is een prompt voor een verzameling telkens wanneer de query wordt uitgevoerd.  
 
@@ -159,7 +160,7 @@ Apparaattypen worden opgeslagen in de Configuration Manager-database onder de br
 Select SMS_R_System.ClientEdition from SMS_R_System where SMS_R_System.ClientEdition = <Device ID>  
 ```  
 
-Gebruik een van de volgende waarden voor  *&lt;apparaat-ID\>*:  
+Gebruik een van de volgende waarden voor * &lt;apparaat-ID\>*:  
 
 |Apparaattype|Waarde van AgentEdition|  
 |-----------------|---------------------------|  
