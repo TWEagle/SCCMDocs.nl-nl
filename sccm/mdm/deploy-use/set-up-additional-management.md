@@ -1,5 +1,6 @@
 ---
-title: Aanvullende met System Center Configuration Manager-beheer instellen | Microsoft Docs
+title: Extra beheer instellen
+titleSuffix: Configuration Manager
 description: Extra beheer met behulp van System Center Configuration Manager instellen.
 ms.custom: na
 ms.date: 03/05/2017
@@ -12,14 +13,14 @@ ms.topic: article
 ms.assetid: 4877d674-6bbc-4e16-810c-daad70c74daa
 caps.latest.revision: "18"
 caps.handback.revision: "0"
-author: mtillman
-ms.author: mtillman
+author: dougeby
+ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 947d2a85f2ac68c7ccaf9a1237fd60e89e7d1d10
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: e3aaefb1d240449467dc9744a3e959e21d3351d3
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="set-up-additional-management-with-system-center-configuration-manager"></a>Extra beheer met System Center Configuration Manager instellen
 

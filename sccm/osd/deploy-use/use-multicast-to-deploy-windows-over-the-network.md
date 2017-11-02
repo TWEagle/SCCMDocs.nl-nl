@@ -1,5 +1,6 @@
 ---
-title: Gebruik multicast om Windows via het netwerk implementeren | Microsoft Docs
+title: Gebruik multicast om Windows via het netwerk implementeren
+titleSuffix: Configuration Manager
 description: Gebruik van multicast in uw omgeving voor System Center Configuration Manager zodat meerdere computers kunnen tegelijkertijd de installatiekopie van het besturingssysteem downloaden.
 ms.custom: na
 ms.date: 10/06/2016
@@ -14,11 +15,11 @@ caps.latest.revision: "13"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 55266696aa7340fddda3a57ff90e20222ff665a5
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 00f42e9b29d3140577d27c1f311600fcfa409a81
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="use-multicast-to-deploy-windows-over-the-network-with-system-center-configuration-manager"></a>Multicast gebruiken om Windows te implementeren via het netwerk met System Center Configuration Manager
 

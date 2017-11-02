@@ -1,8 +1,9 @@
 ---
-title: Technical Preview voor Configuration Manager | Microsoft Docs
+title: Technische Preview-versies
+titleSuffix: Configuration Manager
 description: Meer informatie over de Technical Preview-versie dat we u test-drive nieuwe functionaliteit en mogelijkheden in System Center Configuration Manager.
 ms.custom: na
-ms.date: 09/28/2017
+ms.date: 10/30/2017
 ms.prod: configuration-manager
 ms.reviewer: nab
 ms.suite: na
@@ -14,11 +15,11 @@ caps.latest.revision: "157"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 429e20185bd23519f78c37ded39f2638d0c80ced
-ms.sourcegitcommit: 8ac9c2c9ba1fdcbb7cc8d5be898586865fcf67c0
+ms.openlocfilehash: 0f6fb329dae1dda18bbb1869dc77872a2a6a1b98
+ms.sourcegitcommit: 5437b2823bada8f8c9e67940f584953b9d190628
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/07/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="technical-preview-for-system-center-configuration-manager"></a>Technical Preview voor System Center Configuration Manager
 
@@ -93,10 +94,6 @@ Elke preview-versie wordt ondersteund totdat drie opeenvolgende versies beschikb
 U kunt een basislijnversie gedurende maximaal 1 jaar na de release installeren. Wanneer u een nieuwe technische preview-site installeert, is het echter aangeraden te gebruiken van de meest recente basislijnversie die beschikbaar is.
 -  **Technische Preview 1703** -de Configuration Manager Technical Preview 1703 is beschikbaar als zowel een in de console-update voor de Configuration Manager Technical Preview en als nieuwe basislijnversie die [beschikbaar is via de website van TechNet Evaluation Center](http://www.microsoft.com/evalcenter/evaluate-system-center-configuration-manager-and-endpoint-protection-technical-preview).
 
-<!-- out of support. Use baseline 1703
--  **Technical Preview 1610** - The Configuration Manager Technical Preview 1610 was available as both an in-console update for the Configuration Manager Technical Preview, and as a baseline version. If you have media for installing 1610, we recommend you download version 1703 and install that version instead.
--->
-
 
 
 ##  <a name="BKMK_TPFeedback"></a> Feedback geven  
@@ -110,19 +107,26 @@ U kunt een basislijnversie gedurende maximaal 1 jaar na de release installeren. 
 
 
 ##  <a name="bkmk_tpCaps"></a>Mogelijkheden die in de meest recente technical preview  
- Hieronder vindt u de mogelijkheden die in elke technical preview-versie van Configuration Manager.  Mogelijkheden die beschikbaar zijn vanaf een bepaalde versie van de Technical Preview blijven beschikbaar in latere versies. Evenzo blijven mogelijkheden die zijn toegevoegd aan de Release voor System Center Configuration Manager (huidige vertakking) beschikbaar in volgende technical previews.  Klik verder naar de inhoud voor elke preview-versie voor meer informatie over een specifieke functie.  
+Hieronder vindt u de mogelijkheden die in elke technical preview-versie van Configuration Manager.  Mogelijkheden die beschikbaar zijn vanaf een bepaalde versie van de Technical Preview blijven beschikbaar in latere versies. Evenzo blijven mogelijkheden die zijn toegevoegd aan de Release voor System Center Configuration Manager (huidige vertakking) beschikbaar in volgende technical previews.  Klik verder naar de inhoud voor elke preview-versie voor meer informatie over een specifieke functie.  
 
  |Mogelijkheid |Technische Preview-versie |Huidige versie van het filiaal|  
  |----------------|---------------------|--------------------|
- |Verbeterde VPN-profiel ervaring in Configuration Manager-Console<!-- 1313282 --> | [Technische Preview 1709](capabilities-in-technical-preview-1709.md) |![Niet toegevoegd](media/Red_X.gif)    |
- |CO-beheer voor Windows 10-apparaten|[Technische Preview 1709](capabilities-in-technical-preview-1709.md#co-management-for-windows-10-devices)|![Niet toegevoegd](media/Red_X.gif)    |
-
-
+ |Windows 10-telemetrie voor Windows Analytics Apparaatstatus<!--1356148 --> | [Technische Preview 1710](capabilities-in-technical-preview-1710.md#limit-windows-10-enhanced-telemetry-to-only-send-data-relevant-to-windows-analytics-device-health) |![Niet toegevoegd](media/Red_X.gif)    |
+ |Verbeteringen voor pictogrammen voor Software Center<!-- 1356194 --> | [Technische Preview 1710](capabilities-in-technical-preview-1710.md#software-center-no-longer-distorts-icons-larger-than-250x250) |![Niet toegevoegd](media/Red_X.gif)    |
+ |Controleren op naleving van Software Center voor naast beheerde apparaten<!-- 1356374 -->| [Technische Preview 1710](capabilities-in-technical-preview-1710.md#check-compliance-from-software-center-for-co-managed-devices)|![Niet toegevoegd](media/Red_X.gif)    |
+ |Beperkte ondersteuning voor CNG-certificaten<!-- 1356191 -->| [Technische Preview 1710](capabilities-in-technical-preview-1710.md#limited-support-for-cng-certificates)|![Niet toegevoegd](media/Red_X.gif)    |
+ |Ondersteuning voor misbruik Guard<!--1355468 --> | [Technische Preview 1710](capabilities-in-technical-preview-1710.md#support-for-exploit-guard) |![Niet toegevoegd](media/Red_X.gif)    |
+ |Verbeterde beschrijvingen van in afwachting van opnieuw opstarten<!-- 1356283  -->| [Technische Preview 1710](capabilities-in-technical-preview-1710.md)|![Niet toegevoegd](media/Red_X.gif)    |
+ |Device Guard beleidswijzigingen<!-- 1355092  -->| [Technische Preview 1710](capabilities-in-technical-preview-1710.md)|![Niet toegevoegd](media/Red_X.gif)    |
+ |Windows Defender toepassing Guard beleid configureren en implementeren<!-- 1351960  -->| [Technische Preview 1710](capabilities-in-technical-preview-1710.md)|![Niet toegevoegd](media/Red_X.gif)    |
+ 
 ## <a name="capabilities-delivered-in-previous-technical-previews"></a>Mogelijkheden die in vorige technical Previews worden geboden
  Wanneer alle functies van een technisch proefversie beschikbaar in de minimaal ondersteunde versie van de huidige vertakking zijn, worden de details voor deze preview-versie verwijderd uit de volgende tabel.  
 
  |Mogelijkheid |Technische Preview-versie |Huidige versie van het filiaal|  
  |----------------|---------------------|--------------------|
+ |Verbeterde VPN-profiel ervaring in Configuration Manager-Console<!-- 1313282 --> | [Technische Preview 1709](capabilities-in-technical-preview-1709.md) |![Niet toegevoegd](media/Red_X.gif)    |
+ |CO-beheer voor Windows 10-apparaten|[Technische Preview 1709](capabilities-in-technical-preview-1709.md#co-management-for-windows-10-devices)|![Niet toegevoegd](media/Red_X.gif)    |
  |Verbeteringen voor de scriptparameters op te geven wanneer u een PowerShell-scripts uit Configuration Manager implementeren<!-- 1236459 -->|[Technische Preview 1708](capabilities-in-technical-preview-1708.md#improvements-for-specifying-script-parameters-when-you-deploy-powershell-scripts-from-configuration-manager)|![Niet toegevoegd](media/Red_X.gif)|
  |Management insights<!-- 1353967 --> |[Technische Preview 1708](capabilities-in-technical-preview-1708.md#management-insights)|![Niet toegevoegd](media/Red_X.gif)|
  |Computers uit de Configuration Manager-console opnieuw opstarten<!-- 1356283 --> |[Technische Preview 1708](capabilities-in-technical-preview-1708.md#restart-computers-from-the-configuration-manager-console)|![Niet toegevoegd](media/Red_X.gif)|
@@ -272,3 +276,4 @@ U kunt een basislijnversie gedurende maximaal 1 jaar na de release installeren. 
 ## <a name="see-also"></a>Zie ook  
 [Wat is er nieuw in System Center Configuration Manager](/sccm/core/plan-design/changes/whats-new-incremental-versions)  
  [Inleiding op System Center Configuration Manager](../../core/understand/introduction.md)
+
