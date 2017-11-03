@@ -15,32 +15,32 @@ caps.latest.revision: "23"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: 99c65b876f4a2424db5dd4d2943f8ea3edfb1227
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 4d8c0eef8c85645ceb6f12aaf776ce1b1f82cbdd
+ms.sourcegitcommit: d025a2cbd1ed82f42f67255c97b913f2163b3baf
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="use-windows-analytics-with-configuration-manager"></a>Windows-Analytics gebruiken met Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-[Windows Analytics](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics) is een set van oplossingen die worden uitgevoerd op [Operations Management Suite](/azure/operations-management-suite/operations-management-suite-overview). De oplossingen kunnen u formulier inzicht in de huidige status van uw omgeving. Apparaten in uw omgeving rapporteren Windows telemetrische gegevens. Deze gegevens kan worden geopend en geanalyseerd door oplossingen in de [Operations Management Suite-webportal](https://mms.microsoft.com). In het geval van [gereedheid voor Upgrade](/sccm/core/clients/manage/upgrade/upgrade-analytics) de gegevens kunnen ook rechtstreeks beschikbaar gesteld in het knooppunt controle van de Configuration Manager-console door verbinding te maken gereedheid voor upgrade uitvoeren naar Configuration Manager.
+[Windows Analytics](https://www.microsoft.com/WindowsForBusiness/windows-analytics) is een set van oplossingen die worden uitgevoerd op [Operations Management Suite](/azure/operations-management-suite/operations-management-suite-overview). Deze oplossingen kunnen u meer inzicht krijgen in de huidige status van uw omgeving. Apparaten in uw omgeving rapporteren telemetriegegevens van Windows en deze gegevens kunnen worden geopend en geanalyseerd door oplossingen in de [Operations Management Suite-webportal](https://mms.microsoft.com). In het geval van [gereedheid voor Upgrade](/sccm/core/clients/manage/upgrade/upgrade-analytics) de gegevens kunnen ook worden gedefinieerd direct actie worden uitgevoerd in het knooppunt controle van de Configuration Manager-console door verbinding te maken gereedheid voor upgrade uitvoeren naar Configuration Manager.
 
-De Windows-telemetriegegevens die wordt gebruikt door Windows Analytics is niet rechtstreeks op de siteserver van Configuration Manager overgedragen. Windows-telemetriegegevens verzenden clientcomputers naar de telemetrie-service. De relevante gegevens wordt vervolgens overgedragen naar Windows analyseoplossingen gehost in een van uw organisatie OMS werkruimten. Configuration Manager kan vervolgens een u rechtstreeks naar de relevante gegevens in de webportal met-context koppelingen of rechtstreeks gegevens weergeven die deel uitmaakt van oplossingen die u hebt gekoppeld aan Configuration Manager. U kunt ook rechtstreeks een query de gegevens van de bewerking Management Suite-webportal.
+De Windows-telemetriegegevens die wordt gebruikt door Windows Analytics is niet rechtstreeks op de siteserver van Configuration Manager overgedragen. Clientcomputers Windows telemetrische gegevens verzenden naar de telemetrie-service en de relevante gegevens wordt vervolgens overgedragen naar Windows analyseoplossingen gehost in een van uw organisatie OMS werkruimten. Configuration Manager kunt u vervolgens rechtstreeks naar de relevante gegevens in de webportal met-context koppelingen of gegevens die deel uitmaakt van oplossingen die u hebt gekoppeld aan Configuration Manager rechtstreeks worden weergegeven. U kunt ook rechtstreeks een query de gegevens van de bewerking Management Suite-webportal.
 
 >[!Important]
 >[Configuration Manager diagnostische gegevens en gebruiksgegevens](../../plan-design/diagnostics/diagnostics-and-usage-data.md), die wordt gemeld aan Microsoft van de siteserver van Configuration Manager is volledig gescheiden van de analyses van Windows en Windows telemetrie.
 
 ## <a name="configure-clients-to-report-data-to-windows-analytics"></a>Clients configureren voor het rapportgegevens Windows Analytics
 
-In de volgorde voor clientapparaten naar rapport gegevens naar Windows Analytics, apparaten moeten worden geconfigureerd met een commerciële-ID sleutel gekoppeld aan de Operations Management Suite-werkruimte die als host fungeert voor de Windows analytische gegevens voor uw organisatie. De apparaten moeten ook worden geconfigureerd voor het rapport telemetrie op een niveau telemetrie geschikt is voor een bepaalde oplossing of oplossingen die u wilt gebruiken. 
+Voor clientapparaten naar rapport gegevens naar Windows Analytics, apparaten moeten worden geconfigureerd met een commerciële-ID sleutel gekoppeld aan de Operations Management Suite-werkruimte die als host fungeert voor de Windows analytische gegevens voor uw organisatie. De apparaten moeten ook worden geconfigureerd voor het rapport telemetrie op een niveau telemetrie geschikt is voor een bepaalde oplossing of oplossingen die u wilt gebruiken. 
 
 ### <a name="configure-windows-analytics-client-settings"></a>Windows Analytics clientinstellingen configureren
 Voor het configureren van Windows Analytics, in de console Configuration Manager kiezen **beheer** > **clientinstellingen**, dubbelklikt u op **aangepaste Apparaatclientinstellingen maken**, en controleer vervolgens **Windows Analytics**.  
 
 Na het navigeren naar de **Windows Analytics** tabblad instellingen configureert u het volgende:
-  -  **Commerciële-ID**  
+  -  **Commerciële id-sleutel**  
 De commerciële ID sleutel maps informatie vanaf apparaten die u naar de OMS-werkruimte die als host fungeert voor Windows Analytics-gegevens van uw organisatie beheren. Als u al een commerciële ID-sleutel voor gebruik met de gereedheid van de Upgrade hebt geconfigureerd, gebruikt u die-ID. Als u nog geen een commerciële ID-sleutel, Zie [uw commerciële ID-sleutel genereren]( https://technet.microsoft.com/itpro/windows/deploy/upgrade-readiness-get-started#generate-your-commercial-id-key).
 
   -  **Telemetrie-niveau voor Windows 10-apparaten**   
