@@ -14,11 +14,11 @@ ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 74b7578610f60bc9d5692f90227aa11da592efcf
-ms.sourcegitcommit: b9c1c9ca5aaf806e8beee2709ed15392ee3e19fe
+ms.openlocfilehash: 515aa4ae71a4e8b8bdfa3bbe693386c5ddf44223
+ms.sourcegitcommit: e858bacecf0f964ed619b3c2f83663c4dab92998
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Wat is er nieuw in hybride mobile device management met System Center Configuration Manager en Microsoft Intune
 
@@ -47,10 +47,12 @@ Elke sectie van dit artikel vindt u hybridefuncties onder drie verschillende cat
 ### <a name="new-in-configuration-manager-technical-preview-1709"></a>Nieuw in Configuration Manager Technical Preview 1709
 
 - **Verbeterde ervaring voor VPN-profiel in Configuration Manager-console**<!-- 1313282 -->     
-    Instellingen voor VPN-profiel zijn nu gefilterd volgens platform. Wanneer u nieuwe VPN-profielen maken, bevat elk ondersteund platform alleen de instellingen die geschikt is voor het platform. Bestaande VPN-profielen worden niet getroffen. U kunt meer lezen over deze wijziging [hier](/sccm/core/get-started/capabilities-in-technical-preview-1709#improved-vpn-profile-experience-in-configuration-manager-console).
+  Instellingen voor VPN-profiel zijn nu gefilterd volgens platform. Wanneer u nieuwe VPN-profielen maken, bevat elk ondersteund platform alleen de instellingen die geschikt is voor het platform. Bestaande VPN-profielen worden niet getroffen. U kunt meer lezen over deze wijziging [hier](/sccm/core/get-started/capabilities-in-technical-preview-1709#improved-vpn-profile-experience-in-configuration-manager-console).
 
 
 ### <a name="new-in-microsoft-intune"></a>Nieuw in Microsoft Intune  
+
+- **Ondersteuning voor verificatie op basis van certificaten op de bedrijfsportal voor iOS** <!--1029830--> is ondersteuning toegevoegd voor verificatie op basis van certificaten (CBA) in de bedrijfsportal-app voor iOS. Gebruikers met CBA hun gebruikersnaam invoeren en tik op de koppeling 'Meld u aan een certificaat met'. CBA wordt al op de bedrijfsportal-apps voor Android en Windows ondersteund. Meer informatie vindt u op de [aanmelden bij de bedrijfsportal-app](https://docs.microsoft.com/intune-user-help/sign-in-to-the-company-portal) pagina.
 
 - **Verbeteringen aan het apparaat instellen werkstroom in de bedrijfsportal**<!--1490692-->    
   We hebben de apparaat-setup-werkstroom in de bedrijfsportal-app voor Android verbeterd. De taal is gebruiksvriendelijker en specifiek voor uw bedrijf. Tevens hebben we waar mogelijk schermen gecombineerd. U kunt deze ziet op de [wat is er nieuw in app UI](https://docs.microsoft.com/intune/whats-new-app-ui#week-of-october-2-2017) pagina.
@@ -82,8 +84,6 @@ Elke sectie van dit artikel vindt u hybridefuncties onder drie verschillende cat
 
 - **Eindgebruikers informeren over welke gegevens van een apparaat kan worden weergegeven op ingeschreven apparaten**<!--1165314-->    
   We toevoegen **eigendomstype** naar het scherm Apparaatdetails op alle bedrijfsportal-apps. Hiermee kunnen gebruikers voor meer informatie over privacy rechtstreeks vanuit de [welke gegevens kan uw bedrijf zien?](https://docs.microsoft.com/intune-user-help/what-info-can-your-company-see-when-you-enroll-your-device-in-intune) artikel. Dit zal worden implementeren in alle bedrijfsportal-apps in de nabije toekomst. We dit aangekondigd voor iOS in [September](https://docs.microsoft.com/intune/whats-new#week-of-september-11-2017). 
-
-
 
 
 ## <a name="september-2017"></a>September 2017
@@ -173,16 +173,6 @@ De volgende functies die eerder beschikbaar in Configuration Manager Technical P
   Gebruikers van iOS-apparaten zien mogelijk onze nieuwe account kiezen wanneer ze zich in de bedrijfsportal als ze hun werk- of gebruikt schoolaccount voor aanmelding bij andere Microsoft-apps. Zie voor meer informatie [wat is er nieuw in app UI](https://docs.microsoft.com/intune/whats-new-app-ui).
 
 ### <a name="new-in-configuration-manager-technical-preview-1706"></a>Nieuw in Configuration Manager Technical Preview 1706
-
-- **Nieuwe beleidsinstellingen voor mobile application management**    
-
-  De volgende beleidsinstellingen voor mobile application management (MAM) zijn nu beschikbaar:
-
-  - **Schermafbeelding (alleen Android-apparaten) blokkeren:** Hiermee wordt opgegeven dat de schermafbeeldingsmogelijkheden van het apparaat zijn geblokkeerd bij gebruik van deze app.
-  - **Synchronisatie van contactpersonen uitschakelen:** Hiermee voorkomt dat de app opslaan van gegevens in de systeemeigen contactpersonen-app op het apparaat.
-  - **Afdrukken uitschakelen:** Voorkomt dat de app vanuit afdrukken werk- of schoolgegevens.
-
-  Zie [apps beveiligen met beleid voor app-beveiliging in Configuration Manager](https://docs.microsoft.com/sccm/mdm/deploy-use/protect-apps-using-mam-policies) om te proberen de nieuwe beleidsinstellingen van de app-beveiliging.
 
 - **Nieuwe configuratie-item-instellingen van Windows**  <!-- 1354715 -->    
 
