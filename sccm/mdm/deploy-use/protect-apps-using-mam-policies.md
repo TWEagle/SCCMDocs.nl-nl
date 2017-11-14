@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 12633eced1850b718bf7cad019cd943305a7d9fb
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 4eedd96fd399cf9577da8069bd0c8d5702f50d7b
+ms.sourcegitcommit: 922d6d9c91ba2158b938df381277be1b5f1d434a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="protect-apps-using-mobile-application-management-policies-in-system-center-configuration-manager"></a>Apps in System Center Configuration Manager beveiligen met Mobile Application Management-beleid
 
@@ -30,7 +30,7 @@ System Center Configuration Manager application management-beleid kunnen u de fu
 
 -   Apparaten met Android 4 en hoger  
 
--   Apparaten met iOS 7 en hoger  
+-   Apparaten met iOS 9 en hoger  
 
 U kunt ook mobile Application management-beleid gebruiken om apps op apparaten die niet worden beheerd door Intune te beveiligen. Met deze nieuwe mogelijkheid kunt u mam-beleid toepassen op apps die verbinding met Office 365-services maken. Dit wordt niet ondersteund voor apps die verbinding met on-premises Exchange of SharePoint maken.  
 

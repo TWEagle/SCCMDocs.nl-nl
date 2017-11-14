@@ -15,11 +15,11 @@ caps.latest.revision: "24"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: 8ab177067d0308b863274a7ae05574374b0af4ba
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: a83c2030de8a146dad7bf2258e8a983c8ab6c45e
+ms.sourcegitcommit: 922d6d9c91ba2158b938df381277be1b5f1d434a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="manage-email-access-in-system-center-configuration-manager"></a>Toegang tot e-mail beheren in System Center Configuration Manager
 
@@ -39,7 +39,7 @@ U kunt toegang tot Exchange Online en Exchange On-premises beheren vanuit de ing
 
 -   Android 4.0 en hoger, Samsung KNOX Standard 4.0 en hoger  
 
--   iOS 7.1 en hoger  
+-   iOS 9.0 of hoger  
 
 -   Windows Phone 8.1 en hoger  
 
@@ -93,13 +93,13 @@ Niet-ondersteunde browsers worden geblokkeerd. De OWA-apps voor iOS en Android w
 
 -   Android 4.0 en hoger, Samsung KNOX Standard 4.0 en hoger  
 
--   iOS 7.1 en hoger  
+-   iOS 9.0 of hoger  
 
 -   Windows Phone 8.1 en hoger  
 
 -   De toepassing **E-mail** in Windows 8.1 en hoger  
 
- De Outlook-app voor iOS en Android en Outlook-bureaublad 2013 en hoger worden alleen ondersteund voor Exchange Online.  
+ Outlook-app voor iOS en Android en Outlook-bureaublad 2013 en hoger wordt alleen ondersteund voor Exchange Online.  
 
  De **op lokale Exchange-connector** tussen Configuration Manager en Exchange is vereist voor voorwaardelijke toegang werkt.  
 

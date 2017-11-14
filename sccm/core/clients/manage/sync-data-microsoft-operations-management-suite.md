@@ -15,11 +15,11 @@ caps.latest.revision: "9"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: bbb76fda4ef831f358923946b3c16b821194bf6b
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 166f7c73f2050657a85bd5160f74c40cfd87fd7f
+ms.sourcegitcommit: 922d6d9c91ba2158b938df381277be1b5f1d434a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/13/2017
 ---
 #  <a name="sync-data-from-configuration-manager-to-the-microsoft-operations-management-suite"></a>Gegevens synchroniseren van Configuration Manager naar de Microsoft Operations Management Suite
 
@@ -90,7 +90,7 @@ Vanaf versie 1702, kunt u de OMS-connector verbinding maken met een OMS-werkruim
 
 ### <a name="install-the-oms-connector"></a>De OMS-Connector installeren  
 1. In de Configuration Manager-console configureert uw [hiërarchie gebruik van functies van evaluatieversies](/sccm/core/servers/manage/pre-release-features), en schakelt u het gebruik van de OMS-Connector.  
-
+0
 2. Ga vervolgens naar de **beheer** > **Cloudservices** > **OMS Connector**. Klik op 'Maken verbinding met Operations Management Suite' in het lint. Hiermee opent u de **verbinding met de Wizard bewerking Management Suite**. Selecteer **volgende**.  
 
 
@@ -134,13 +134,13 @@ Nadat u hebt de Configuration Manager met OMS gekoppeld, kunt u toevoegen of ver
       &lt;naam van de instelling serializeAs 'FairFaxArmResourceId' = 'Tekenreeks' = > &lt;waarde > https://management.usgovcloudapi.net/ &lt; /value >  
       &lt;/ instelling >
 
-  Wijzig de waarde voor de naam van de instelling *FairFaxAuthorityResource* moet gelijk zijn aan 'https://login.microsoftonline.com/'
+  Wijzig de waarde voor de naam van de instelling *FairFaxAuthorityResource* moet gelijk zijn aan 'https://login.microsoftonline.us/'
 
   - **Oorspronkelijke:** &lt;Instellingsnaam = serializeAs 'FairFaxAuthorityResource' = 'Tekenreeks' >   
     &lt;waarde > &lt; /value >
 
     - **Bewerkt:** &lt;Instellingsnaam = serializeAs 'FairFaxAuthorityResource' = 'Tekenreeks' >   
-    &lt;waarde > https://login.microsoftonline.com/ &lt; /value >
+    &lt;waarde > https://login.microsoftonline.us/ &lt; /value >
 
 2.  Nadat u het bestand met de twee wijzigingen hebt opgeslagen, wordt de Configuration Manager-console op dezelfde computer opnieuw opstarten en vervolgens die console gebruiken om de OMS-connector te installeren. Gebruik de informatie in om de connector installeert, [synchroniseren van gegevens uit Configuration Manager met de Microsoft Operations Management Suite](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite), en selecteer de **Operations Management Suite-werkruimte** dat zich op de Microsoft Azure Government cloud.
 

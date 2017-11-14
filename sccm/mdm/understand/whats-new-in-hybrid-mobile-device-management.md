@@ -3,7 +3,7 @@ title: Wat is er nieuw in hybride MDM
 titleSuffix: Configuration Manager
 description: Meer informatie over de nieuwe functies voor mobiele apparaten beschikbaar voor hybride implementaties met Configuration Manager en Intune.
 ms.custom: na
-ms.date: 10/04/2017
+ms.date: 11/12/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 102a84c4bc850ca7aef7dfd8bd6271b6feee0b18
-ms.sourcegitcommit: b517c791554500209435bca21fbf3ef8a26828c9
+ms.openlocfilehash: 29dd4bff6d35712c23d66751db16a00aa761b8b4
+ms.sourcegitcommit: 922d6d9c91ba2158b938df381277be1b5f1d434a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Wat is er nieuw in hybride mobile device management met System Center Configuration Manager en Microsoft Intune
 
@@ -110,6 +110,8 @@ Elke sectie van dit artikel vindt u hybridefuncties onder drie verschillende cat
 
 - **Windows 10-bedrijfsportal-app toegevoegd aan Windows Information Protection toestaan**<!-- 677129 -->    
     De app bedrijfsportal voor Windows 10 is bijgewerkt ter ondersteuning van Windows-beveiliging (OHW). De app kan worden toegevoegd aan het onderhanden werk toestaan. Met deze wijziging heeft de app niet meer worden toegevoegd aan de **uitgezonderd** lijst. 
+
+     Alleen een enkele OHW-configuratie-item kan worden geleverd op een apparaat.  Als twee OHW-configuratie-items zijn gericht op hetzelfde apparaat, wordt geen van beide OHW-beleid van toepassing.
 
 - **Einde van de kennisgeving van ondersteuning toegevoegd voor iOS 8.0**    
     Een bericht is toegevoegd voor einde van ondersteuning voor iOS 8.0. Zie voor meer informatie [meldingen](#notices).
