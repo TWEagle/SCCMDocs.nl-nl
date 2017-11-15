@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 98f9f44373b854b61714c21105a28b3240b4a7f7
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 48530c177a03b66dbc126025ca61e0078bc89d9f
+ms.sourcegitcommit: 5ec9f8c312688bf7f4de4d6007b121d743b80c4d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="create-a-task-sequence-to-capture-an-operating-system-in-system-center-configuration-manager"></a>Maak een takenreeks voor het vastleggen van een besturingssysteem in System Center Configuration Manager
 
@@ -171,6 +171,9 @@ Wanneer u een takenreeks een besturingssysteem implementeren op een computer in 
 9. Deze stap alleen gebruiken als Configuration Manager-client is geïnstalleerd op de referentiecomputer.  
 
      Klik op **toevoegen**, klikt u op **installatiekopieën**, en klik vervolgens op [ConfigMgr-Client voorbereiden voor vastleggen](../understand/task-sequence-steps.md#BKMK_PrepareConfigMgrClientforCapture). Deze takenreeksstap neemt de Configuration Manager-client op de referentiecomputer en voorbereid voor vastleggen als onderdeel van de installatiekopieprocedure.  
+
+    > [!Note]  
+    >  De takenreeks biedt geen ondersteuning voor het verwijderen van Configuration Manager-client.
 
 10. Klik op **toevoegen**, klikt u op **installatiekopieën**, en klik vervolgens op [Windows voorbereiden voor vastleggen](../understand/task-sequence-steps.md#BKMK_PrepareWindowsforCapture). Met deze takenreeksactie wordt Sysprep uitgevoerd en wordt vervolgens de computer opnieuw opgestart naar de opstartinstallatiekopie voor Windows PE die is opgegeven voor de takenreeks. Deze actie kan alleen worden voltooid als de referentiecomputer niet lid is van een domein.  
 
