@@ -1,5 +1,6 @@
 ---
-title: Softwareupdates automatisch implementeren | Microsoft Docs
+title: Software-updates automatisch implementeren
+titleSuffix: Configuration Manager
 description: Softwareupdates automatisch implementeren door nieuwe updates toe te voegen aan een updategroep die is gekoppeld aan een actieve implementatie of ADR's.
 keywords: 
 author: dougeby
@@ -11,11 +12,11 @@ ms.prod: configuration-manager
 ms.service: 
 ms.technology: configmgr-sum
 ms.assetid: b27682de-adf8-4edd-9572-54886af8f7fb
-ms.openlocfilehash: 804a9d7a32cfbdb498c6748c5d99a1874261c231
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 1910284b4d48442710ba5aea413cb7b65aa4e117
+ms.sourcegitcommit: 986fc2d54f7c5fa965fd4df42f4db4ecce6b79cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 11/17/2017
 ---
 #  <a name="BKMK_AutoDeploy"></a> Software-updates automatisch implementeren  
 

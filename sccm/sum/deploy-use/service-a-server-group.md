@@ -1,5 +1,6 @@
 ---
-title: Een servergroep onderhouden | Microsoft Docs
+title: Een servergroep onderhouden
+titleSuffix: Configuration Manager
 description: De System Center Configuration Manager-console biedt waarschuwingen en statussen voor het bewaken van updates en naleving.
 keywords: 
 author: dougeby
@@ -11,19 +12,18 @@ ms.prod: configuration-manager
 ms.service: 
 ms.technology: configmgr-sum
 ms.assetid: 304a83ea-0f72-437d-9688-2e6e0c7526dd
-ms.openlocfilehash: ae09a02dd5d67113b9a7e2ce146c844efa4caf55
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 12382015f2b673103c3c0d8fc9c0cbf29511a434
+ms.sourcegitcommit: 986fc2d54f7c5fa965fd4df42f4db4ecce6b79cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 11/17/2017
 ---
->[!IMPORTANT]
->Dit is een voorlopige versie-functie beschikbaar zijn in de Configuration Manager versie 1606 en versie 1610. Functies van evaluatieversies zijn opgenomen in het product voor vroege testdoeleinden in een productieomgeving, maar mogen niet worden beschouwd als gereed voor productie. U moet deze functie voor beschikbaar wilt inschakelen. Zie [Use pre-release features from updates](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease) (Functies van evaluatieversies gebruiken) voor meer informatie.
-
-
 # <a name="service-a-server-group"></a>Een servergroep onderhouden
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+
+>[!IMPORTANT]
+>Functies van evaluatieversies zijn functies die zich in de huidige vertakking voor vroege testdoeleinden in een productieomgeving. Deze functies worden volledig ondersteund maar nog in ontwikkeling actief zijn en wijzigingen mogelijk ontvangen totdat ze worden verplaatst buiten de categorie van de voorlopige versie. U moet deze functie voor beschikbaar wilt inschakelen. Zie [Use pre-release features from updates](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease) (Functies van evaluatieversies gebruiken) voor meer informatie.
 
 U start in System Center Configuration Manager versie 1606, kunt u instellingen servergroep voor een verzameling om te bepalen hoeveel, welk percentage of in welke volgorde computers in de verzameling de software-updates worden geïnstalleerd. U kunt ook PowerShell-scripts voor vóór en na de implementatie om aangepaste acties worden uitgevoerd.
 

@@ -1,21 +1,22 @@
 ---
-title: Inleiding tot software-updates | Microsoft Docs
+title: Inleiding tot software-updates
+titleSuffix: Configuration Manager
 description: Leer de basisbeginselen van software-updates in System Center Configuration Manager.
 keywords: 
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.date: 10/06/2016
+ms.date: 10/30/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
 ms.technology: configmgr-sum
 ms.assetid: e9778b13-c8a3-40eb-8655-34ac8ce9cdaa
-ms.openlocfilehash: 2904b904bbaf155f016f55fbd36af80308a42d76
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 66aa73e5c1aae68feeacb0eabe6233845289d104
+ms.sourcegitcommit: 986fc2d54f7c5fa965fd4df42f4db4ecce6b79cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="introduction-to-software-updates-in-system-center-configuration-manager"></a>Inleiding tot software-updates in System Center Configuration Manager
 
@@ -254,7 +255,7 @@ Zie voor een voorbeeldscenario dat toont hoe u software-updates in uw omgeving k
 ##  <a name="BKMK_DeploymentProcess"></a> Het implementatieproces voor software-updates  
  Nadat u software-updates implementeert of wanneer er een automatische implementatieregel wordt uitgevoerd en software-updates implementeert, wordt er een implementatietoewijzingsbeleid toegevoegd aan het machinebeleid voor de site. De software-updates worden naar de pakketbron gedownload vanaf de downloadlocatie, het internet of de gedeelde netwerkmap. De software-updates worden gekopieerd van de pakketbron naar de inhoudsbibliotheek op de siteserver en vervolgens gekopieerd naar de inhoudsbibliotheek op het distributiepunt.  
 
- Wanneer een clientcomputer in de doelverzameling voor de implementatie het machinebeleid ontvangt, start de clientagent voor software-updates een evaluatiescan. De clientagent downloadt de vereiste inhoud voor software-updates vanaf een distributiepunt naar de lokale clientcache zodra de implementatie wordt ontvangen, maar wacht tot na de waarde van de instelling **Tijd waarop de software beschikbaar is** voor de implementatie is bereikt voordat de software-updates beschikbaar zijn voor installatie. De software-updates in optionele implementaties (implementaties zonder installatiedeadline) worden pas gedownload wanneer een gebruiker de installatie handmatig start.  
+ Wanneer een clientcomputer in de doelverzameling voor de implementatie het machinebeleid ontvangt, start de clientagent voor software-updates een evaluatiescan. De clientagent downloadt de inhoud voor vereiste software-updates vanaf een distributiepunt verwijzen naar de lokale clientcache op de **tijd Software beschikbaar** instellen voor de implementatie en klikt u vervolgens de software updates beschikbaar zijn voor installatie . De software-updates in optionele implementaties (implementaties zonder installatiedeadline) worden pas gedownload wanneer een gebruiker de installatie handmatig start.  
 
  Wanneer de geconfigureerde deadline verstrijkt, voert de clientagent voor software-updates een scan uit om te controleren of de software-updates nog steeds vereist zijn. Vervolgens wordt de lokale cache op de clientcomputer gecontroleerd en wordt er nagegaan of de bronbestanden voor de software-update nog steeds beschikbaar zijn. Tot slot installeert de client de software-updates. Als de inhoud uit de clientcache is verwijderd om ruimte vrij te maken voor een andere implementatie, downloadt de client de software-updates opnieuw vanaf het distributiepunt naar de clientcache. Software-updates worden altijd naar de clientcache gedownload, ongeacht de maximale grootte van de clientcache. Wanneer de installatie is voltooid, controleert de clientagent of de software-updates nog vereist zijn en vervolgens wordt er een statusbericht naar het beheerpunt verzonden om aan te geven dat de software-updates nu op de client zijn geïnstalleerd.  
 
