@@ -3,7 +3,7 @@ title: Technische Preview-versies
 titleSuffix: Configuration Manager
 description: Meer informatie over de Technical Preview-versie dat we u test-drive nieuwe functionaliteit en mogelijkheden in System Center Configuration Manager.
 ms.custom: na
-ms.date: 10/30/2017
+ms.date: 11/17/2017
 ms.prod: configuration-manager
 ms.reviewer: nab
 ms.suite: na
@@ -15,11 +15,11 @@ caps.latest.revision: "157"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 0f6fb329dae1dda18bbb1869dc77872a2a6a1b98
-ms.sourcegitcommit: 5437b2823bada8f8c9e67940f584953b9d190628
+ms.openlocfilehash: 1c09a8566fe309be651cc34f1261bd4fe021e554
+ms.sourcegitcommit: b74c1beaabbb628fdf5d6948fa9a6ad719fd5035
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="technical-preview-for-system-center-configuration-manager"></a>Technical Preview voor System Center Configuration Manager
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/31/2017
 
  Omdat dit een Technical Preview is, kan het zijn dat de details en functionaliteit nog worden gewijzigd.  
 
- In dit onderwerp bevat informatie die van toepassing op alle versies van de Technical Preview en vermeldt tevens elke nieuwe mogelijkheid (of functie) samen met de technische Preview-versie waarin de mogelijkheid eerst wordt weergegeven, zoals versie 1701 voor januari 2017. De details van deze mogelijkheden worden per preview-versie in afzonderlijke onderwerpen beschreven.  
+ In dit onderwerp bevat informatie die van toepassing op alle versies van de Technical Preview en vermeldt tevens elke nieuwe mogelijkheid (of functie) samen met de technische Preview-versie waarin de mogelijkheid eerst wordt weergegeven, zoals versie 1710 voor oktober van 2017. De details van deze mogelijkheden worden per preview-versie in afzonderlijke onderwerpen beschreven.  
 
  Zie voor meer informatie over wat er nieuw in de huidige vertakking van Configuration Manager [wat is er nieuw in System Center Configuration Manager](/sccm/core/plan-design/changes/what-has-changed-from-configuration-manager-2012).
 
@@ -83,7 +83,7 @@ De volgende producten en technologieën worden ondersteund door deze vertakking 
 ##  <a name="bkmk_install"></a> De Technical Preview installeren en bijwerken  
  De System Center Configuration Manager Technical Preview is verschillend van de huidige release van System Center Configuration Manager.  
 
- Als u de Technical Preview wilt gebruiken, moet u eerst een **basislijnversie** van de Technical Preview-build installeren. Wanneer u een basislijnversie hebt geïnstalleerd, gebruikt u **in-console updates** om de installatie bij te werken naar de meest recente preview-versie.     Normaal gesproken wordt er elke maand een nieuwe versie van de Technical Preview beschikbaar.
+ Als u de Technical Preview wilt gebruiken, moet u eerst een **basislijnversie** van de Technical Preview-build installeren. Wanneer u een basislijnversie hebt geïnstalleerd, gebruikt u **in-console updates** om de installatie bij te werken naar de meest recente preview-versie. Normaal gesproken wordt er elke maand een nieuwe versie van de Technical Preview beschikbaar.
 
 Elke preview-versie wordt ondersteund totdat drie opeenvolgende versies beschikbaar zijn. Dit betekent dat als versie 1708 versies, versie 1704 zou niet langer worden ondersteund, maar versie 1705, 1706 en 1707 in de ondersteuning blijft. Wanneer u een basislijn valt buiten het ondersteuning (zoals versie 1703), is het nog steeds ondersteund voor het installeren van een nieuwe technische Preview-site totdat een nieuwe basislijnversie beschikbaar, is zolang u die installatie naar een ondersteunde versie bijwerken. Bij het bijwerken, als u de meest recente versie die beschikbaar zijn in de console niet ziet, is bijgewerkt naar de meest recente versie aangeboden en Herhaal dit proces totdat u de meest recente versie van de technical preview kunt installeren.
 
@@ -92,8 +92,8 @@ Elke preview-versie wordt ondersteund totdat drie opeenvolgende versies beschikb
 
 **Basislijnversies van de Technical Preview activeren:**  
 U kunt een basislijnversie gedurende maximaal 1 jaar na de release installeren. Wanneer u een nieuwe technische preview-site installeert, is het echter aangeraden te gebruiken van de meest recente basislijnversie die beschikbaar is.
--  **Technische Preview 1703** -de Configuration Manager Technical Preview 1703 is beschikbaar als zowel een in de console-update voor de Configuration Manager Technical Preview en als nieuwe basislijnversie die [beschikbaar is via de website van TechNet Evaluation Center](http://www.microsoft.com/evalcenter/evaluate-system-center-configuration-manager-and-endpoint-protection-technical-preview).
-
+-  **Technische Preview 1711** -de Configuration Manager Technical Preview 1711 is beschikbaar als zowel een in de console-update voor de Configuration Manager Technical Preview en als nieuwe basislijnversie die [beschikbaar via de TechNet Evaluation Center website](http://www.microsoft.com/evalcenter/evaluate-system-center-configuration-manager-and-endpoint-protection-technical-preview).
+-  **Technische Preview 1703** -de Configuration Manager Technical Preview 1703 is beschikbaar als zowel een in de console-update voor de Configuration Manager Technical Preview en als basislijnversie. Als u een nieuwe basislijn installeert, raden wij dat u versie 1711 gebruiken.
 
 
 ##  <a name="BKMK_TPFeedback"></a> Feedback geven  
@@ -111,6 +111,16 @@ Hieronder vindt u de mogelijkheden die in elke technical preview-versie van Conf
 
  |Mogelijkheid |Technische Preview-versie |Huidige versie van het filiaal|  
  |----------------|---------------------|--------------------|
+ |Verbeteringen in de takenreeksstap wordt uitgevoerd<!-- 1261338 --> | [Technische Preview 1711](capabilities-in-technical-preview-1711.md) |![Niet toegevoegd](media/Red_X.gif)    |
+ |Interactie van de gebruiker toestaan bij het installeren van een toepassing<!-- 1356976 --> | [Technische Preview 1711](capabilities-in-technical-preview-1711.md) |![Niet toegevoegd](media/Red_X.gif)    |
+ |Nieuwe beleidsregels voor nalevingsbeleid voor Windows 10<!-- 1356976 --> | [Technische Preview 1711](capabilities-in-technical-preview-1711.md#new-compliance-policy-options-for-windows-10) |![Niet toegevoegd](media/Red_X.gif)    |
+
+
+## <a name="capabilities-delivered-in-previous-technical-previews"></a>Mogelijkheden die in vorige technical Previews worden geboden
+ Wanneer alle functies van een technisch proefversie beschikbaar in de minimaal ondersteunde versie van de huidige vertakking zijn, worden de details voor deze preview-versie verwijderd uit de volgende tabel.  
+
+ |Mogelijkheid |Technische Preview-versie |Huidige versie van het filiaal|  
+ |----------------|---------------------|--------------------|
  |Windows 10-telemetrie voor Windows Analytics Apparaatstatus<!--1356148 --> | [Technische Preview 1710](capabilities-in-technical-preview-1710.md#limit-windows-10-enhanced-telemetry-to-only-send-data-relevant-to-windows-analytics-device-health) |![Niet toegevoegd](media/Red_X.gif)    |
  |Verbeteringen voor pictogrammen voor Software Center<!-- 1356194 --> | [Technische Preview 1710](capabilities-in-technical-preview-1710.md#software-center-no-longer-distorts-icons-larger-than-250x250) |![Niet toegevoegd](media/Red_X.gif)    |
  |Controleren op naleving van Software Center voor naast beheerde apparaten<!-- 1356374 -->| [Technische Preview 1710](capabilities-in-technical-preview-1710.md#check-compliance-from-software-center-for-co-managed-devices)|![Niet toegevoegd](media/Red_X.gif)    |
@@ -119,12 +129,6 @@ Hieronder vindt u de mogelijkheden die in elke technical preview-versie van Conf
  |Verbeterde beschrijvingen van in afwachting van opnieuw opstarten<!-- 1356283  -->| [Technische Preview 1710](capabilities-in-technical-preview-1710.md)|![Niet toegevoegd](media/Red_X.gif)    |
  |Device Guard beleidswijzigingen<!-- 1355092  -->| [Technische Preview 1710](capabilities-in-technical-preview-1710.md)|![Niet toegevoegd](media/Red_X.gif)    |
  |Windows Defender toepassing Guard beleid configureren en implementeren<!-- 1351960  -->| [Technische Preview 1710](capabilities-in-technical-preview-1710.md)|![Niet toegevoegd](media/Red_X.gif)    |
- 
-## <a name="capabilities-delivered-in-previous-technical-previews"></a>Mogelijkheden die in vorige technical Previews worden geboden
- Wanneer alle functies van een technisch proefversie beschikbaar in de minimaal ondersteunde versie van de huidige vertakking zijn, worden de details voor deze preview-versie verwijderd uit de volgende tabel.  
-
- |Mogelijkheid |Technische Preview-versie |Huidige versie van het filiaal|  
- |----------------|---------------------|--------------------|
  |Verbeterde VPN-profiel ervaring in Configuration Manager-Console<!-- 1313282 --> | [Technische Preview 1709](capabilities-in-technical-preview-1709.md) |![Niet toegevoegd](media/Red_X.gif)    |
  |CO-beheer voor Windows 10-apparaten|[Technische Preview 1709](capabilities-in-technical-preview-1709.md#co-management-for-windows-10-devices)|![Niet toegevoegd](media/Red_X.gif)    |
  |Verbeteringen voor de scriptparameters op te geven wanneer u een PowerShell-scripts uit Configuration Manager implementeren<!-- 1236459 -->|[Technische Preview 1708](capabilities-in-technical-preview-1708.md#improvements-for-specifying-script-parameters-when-you-deploy-powershell-scripts-from-configuration-manager)|![Niet toegevoegd](media/Red_X.gif)|
@@ -276,4 +280,3 @@ Hieronder vindt u de mogelijkheden die in elke technical preview-versie van Conf
 ## <a name="see-also"></a>Zie ook  
 [Wat is er nieuw in System Center Configuration Manager](/sccm/core/plan-design/changes/whats-new-incremental-versions)  
  [Inleiding op System Center Configuration Manager](../../core/understand/introduction.md)
-

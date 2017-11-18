@@ -3,7 +3,7 @@ title: Clientinstellingen
 titleSuffix: Configuration Manager
 description: Kies de instellingen voor client met behulp van de beheerconsole in System Center Configuration Manager.
 ms.custom: na
-ms.date: 08/01/2017
+ms.date: 11/17/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: f34479d6cf0c1153615c612480f204b71a8d84cb
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 46429a02debaaaa90562b9586af57e43a9aab92c
+ms.sourcegitcommit: b74c1beaabbb628fdf5d6948fa9a6ad719fd5035
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="about-client-settings-in-system-center-configuration-manager"></a>Clientinstellingen in System Center Configuration Manager
 
@@ -71,7 +71,7 @@ Hiermee schakelt BranchCache op clientcomputers.
 - **Clientcachegrootte configureren**
 
   De clientcache op Windows-computers opslaat tijdelijke bestanden gebruikt voor het installeren van toepassingen en programma's. Kies **Ja** geeft:
-    - **Maximale cachegrootte** (MB). 
+    - **Maximale cachegrootte** (MB).
     - **Maximale cachegrootte** (percentage van de schijf).
 De grootte van de client-cache kan worden uitgebreid tot de maximale grootte in MB of het percentage van de schijf **is afhankelijk van wat minder**. Als deze optie is **Nee**, de standaardgrootte is 5.120 MB.
 
@@ -288,6 +288,8 @@ Hiermee peer-cache voor Configuration Manager-clients. Geef vervolgens de poorti
  Zie [Onderhoudsvensters gebruiken in System Center Configuration Manager](../../../core/clients/manage/collections/use-maintenance-windows.md) voor meer informatie over onderhoudsvensters.  
 
 ##  <a name="endpoint-protection"></a>Endpoint Protection  
+>  [!Tip]   
+> Naast de volgende informatie vindt u meer informatie over het gebruik van Endpoint Protection-clientinstellingen in [voorbeeldscenario: System Center Endpoint Protection gebruiken om computers te beveiligen tegen schadelijke software in System Center Configuration Manager](/sccm/protect/deploy-use/scenarios-endpoint-protection).
 
 -   **Endpoint Protection-client op clientcomputers beheren**  
 
