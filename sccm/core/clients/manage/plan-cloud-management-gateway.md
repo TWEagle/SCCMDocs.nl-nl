@@ -9,11 +9,11 @@ ms.assetid: 2dc8c9f1-4176-4e35-9794-f44b15f4e55f
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: ffe7b2aa025b20d5b1d1a718e0eaa045817a66ee
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: b1063826841c37973e26954e164d867649c3fb9f
+ms.sourcegitcommit: c4a1bafcd004638d264a93d307c70d8b6f7fe023
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="plan-for-the-cloud-management-gateway-in-configuration-manager"></a>Plan voor de cloudgateway management in Configuration Manager
 
@@ -45,7 +45,7 @@ Clientcertificaten en Secure Socket Layer (SSL)-certificaten zijn vereist voor h
 - Cloud management gateway ondersteunt alleen de punt en software-update-punt beheerrollen.
 -   De volgende functies in Configuration Manager worden momenteel niet ondersteund voor cloud management gateway:
 
-    -   Clientimplementatie
+    -   Client-push
     -   Automatische sitetoewijzing
     -   Toepassingscatalogus (inclusief software goedkeuringsaanvragen)
     -   Implementatie van het volledige besturingssysteem (OSD)

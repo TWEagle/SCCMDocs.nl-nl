@@ -3,7 +3,7 @@ title: Toepassingsbeheer plannen en configureren
 titleSuffix: Configuration Manager
 description: Implementeren en configureren van de vereiste afhankelijkheden voor het implementeren van toepassingen in System Center Configuration Manager.
 ms.custom: na
-ms.date: 02/09/2017
+ms.date: 11/07/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.latest.revision: "13"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: 66317bea84adbddf2d2e94c30a4a72e19229439b
-ms.sourcegitcommit: 18ac58374d2d513fe2a197c80f7c8c6890a7d612
+ms.openlocfilehash: cd06d3ee2ea14c9ff1b9cf09980c2b25a5263db9
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="plan-for-and-configure-application-management-in-system-center-configuration-manager"></a>Toepassingsbeheer plannen en configureren in System Center Configuration Manager 
 
@@ -185,6 +185,26 @@ Aangepaste huisstijl voor Software Center is toegepast volgens de volgende regel
 1. Als de siteserverrol van Application Catalog-website-punt is niet geïnstalleerd, wordt de Software Center de organisatienaam die is opgegeven weergegeven in de **Computeragent** clientinstelling **organisatienaam** weergegeven in Software Center. Zie voor instructies [het configureren van clientinstellingen](https://docs.microsoft.com/sccm/core/clients/deploy/configure-client-settings).
 2. Als de siteserverrol van Application Catalog-website-punt is geïnstalleerd, wordt Software Center weergegeven de naam van de organisatie en de kleur die is opgegeven in de Application Catalog-website-punt eigenschappen van de siteserverrol. Zie voor meer informatie [configuratieopties voor het Application Catalog-websitepunt](https://docs.microsoft.com/sccm/core/servers/deploy/configure/configuration-options-for-site-system-roles#BKMK_ApplicationCatalog_Website).
 3. Als een Microsoft Intune-abonnement is geconfigureerd en aan Configuration Manager verbonden, klikt u vervolgens weergegeven Software Center organisatienaam van de, kleur en bedrijfslogo opgegeven in de eigenschappen van de Intune-abonnement. Zie [Het Windows Intune-abonnement configureren](https://docs.microsoft.com/sccm/mdm/deploy-use/setup-hybrid-mdm#step-3-configure-intune-subscription) voor meer informatie.
+
+#### <a name="to-manually-set-software-center-branding"></a>Handmatig in te stellen Software Center-huisstijl
+<!-- 1351224 -->
+Met het uitbrengen 1710, kunt u handmatig enterprise elementen huisstijl toevoegen en geef de zichtbaarheid van tabbladen in Software Center. U kunt de naam van uw Software Center-specifieke bedrijf toevoegen, een kleurthema van Software Center configuratie instellen, een bedrijfslogo, en instellen van de zichtbare tabbladen voor clientapparaten.
+
+1. In de **Configuration Manager** console, kiest u **beheer** > **clientinstellingen**. Klik op de instantie van de gewenste client-instelling.
+2. Op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**.
+3. In de **standaardinstellingen** dialoogvenster Kies **Software Center**.
+4. Selecteer **Ja** naar **Selecteer de nieuwe instellingen om op te geven bedrijfsgegevens** zodat uw aanpassingsinstellingen Software Center.
+5. Typ uw **bedrijfsnaam**.
+6. Selecteer uw **kleurenschema voor Software Center**.
+7. Klik op **Bladeren** om te navigeren naar uw logo voor Software Center. Het logo moet een JPEG of PNG van 400 x 100 pixels en een maximale grootte van 750 KB.
+8. Selecteer **Ja** tabbladen om zichtbaar te maken in Software Center voor clientapparaten. Ten minste één tabblad moet zichtbaar zijn:
+
+    -  Op het tabblad toepassingen inschakelen
+    -  Tabblad Updates inschakelen
+    -  Tabblad besturingssystemen inschakelen
+    -  Tabblad installatiestatus inschakelen
+    -  Tabblad van de naleving apparaat inschakelen
+    -  Tabblad Opties inschakelen
 
 > [!IMPORTANT]  
 >  Software Center-huisstijl is gesynchroniseerd met de Intune-service in de 14 dagen. Daarom kunnen er een vertraging optreden voordat de wijzigingen die u in Intune aanbrengt worden weergegeven in Configuration Manager.

@@ -3,7 +3,7 @@ title: Clients beheren
 titleSuffix: Configuration Manager
 description: Informatie over het beheren van clients in System Center Configuration Manager.
 ms.custom: na
-ms.date: 04/23/2017
+ms.date: 11/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.latest.revision: "17"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: d62138f573745a16634e06aeb9301a248f707cae
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: ae1bc53cf15b2a1746656667f7bf546742432c11
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="how-to-manage-clients-in-system-center-configuration-manager"></a>Clients beheren in System Center Configuration Manager
 
@@ -51,7 +51,7 @@ Houd er rekening mee dat, afhankelijk van het apparaattype sommige van deze opti
     -   **Het apparaat toevoegen aan een nieuwe of bestaande verzameling**  
 
          Het apparaat toevoegen aan een verzameling met een directe regel.  
-         
+
     -   **Installeer en installeer de client opnieuw door gebruik te maken van de wizard clientpush.**  
 
          Installeren en opnieuw installeren van Configuration Manager-client om hem te herstellen of opnieuw te configureren op computers waarop Windows wordt uitgevoerd. Bevat opties voor site-configuratie en client.msi-eigenschappen die u hebt ingesteld voor push-clientinstallatie.  
@@ -185,6 +185,21 @@ Houd er rekening mee dat, afhankelijk van het apparaattype sommige van deze opti
 
          Clientmeldingstaken worden weergegeven in het knooppunt **Clientbewerkingen** in de werkruimte **Bewaken** .  
 
+
+## <a name="restart-clients"></a>Clients opnieuw starten
+Vanaf versie 1710, kunt u de Configuration Manager-console gebruiken om clientapparaten waarvoor opnieuw opstarten te identificeren en gebruik vervolgens een melding clientactie te starten.
+
+Om apparaten te identificeren die opnieuw opgestart worden, gaat u naar **activa en naleving** > **apparaten** en selecteer een verzameling met apparaten die u opnieuw opstarten moet mogelijk. Nadat u een verzameling selecteren, kunt u de status voor elk apparaat weergeven in het detailvenster in een nieuwe kolom die met de naam **in behandeling opnieuw**. Elk apparaat heeft een waarde van **Ja**, of **Nee**.
+
+**De clientmelding opnieuw opstarten van een apparaat maken:**
+1.  Zoek het apparaat dat u wilt starten in het knooppunt apparaten van de console.
+2.  Met de rechtermuisknop op het apparaat, selecteer **Clientmelding**, en selecteer vervolgens **opnieuw**. Hiermee opent u een informatievenster van de over het opnieuw opstarten. Klik op **OK** om te bevestigen dat de aanvraag opnieuw.
+
+Wanneer de melding wordt ontvangen door een client een **Software Center** meldingsvenster wordt geopend om te informeren over de gebruiker over de herstart. Standaard wordt het opnieuw opstarten na 90 minuten plaatsvindt. U kunt voor het opstarten wijzigen door het configureren van [clientinstellingen](/sccm/core/clients/deploy/configure-client-settings). Instellingen voor het gedrag voor opnieuw opstarten worden gevonden op de [opnieuw opstarten van Computer](/sccm/core/clients/deploy/about-client-settings#computer-restart) tabblad van de standaardinstellingen.
+
+
+
+
 ##  <a name="BKMK_ClientCache"></a> De clientcache configureren voor Configuration Manager-clients  
 De clientcache slaat tijdelijke bestanden voor wanneer clients toepassingen en programma's installeren. De clientcache wordt eveneens gebruikt door software-updates, maar software-updates worden niet beperkt door de geconfigureerde cachegrootte en worden altijd gedownload naar de cache. U kunt de clientcache-instellingen, zoals de grootte en locatie, configureren wanneer u de Configuration Manager-client handmatig installeert wanneer u push-clientinstallatie of nadat de client is geïnstalleerd.
 
@@ -257,8 +272,8 @@ Zie [Over de eigenschappen van clientinstallatie in System Center Configuration 
 5.  Voor het verwijderen van de bestanden in de cachemap kiezen **bestanden verwijderen**.  
 
     > [!NOTE]
-    > 
-    > De cachemap is een gewone Windows-map, zodat u de verwijdering van de inhoud van de map met een script, een hulpprogramma of met de PowerShell-cmdlet kunt automatiseren `Remove-Item`. 
+    >
+    > De cachemap is een gewone Windows-map, zodat u de verwijdering van de inhoud van de map met een script, een hulpprogramma of met de PowerShell-cmdlet kunt automatiseren `Remove-Item`.
 
 
 ### <a name="to-configure-client-cache-size-in-client-settings"></a>De client-cachegrootte in clientinstellingen configureren
@@ -273,6 +288,8 @@ Vanaf versie 1606, kunt u de grootte van de clientcachemap aanpassen zonder de c
  3. Kies **clientcache-instellingen** en kies **Ja** voor **clientcachegrootte configureren**, gebruik de **MB** of **percentage van de instellingen voor de schijf**. De cache wordt aangepast aan de kleinste grootte.
 
      De Configuration Manager-client configureert de cachegrootte op grond van deze instellingen de volgende keer dat er een clientbeleid wordt gedownload.
+
+
 
 ##  <a name="BKMK_UninstalClient"></a> De Configuration Manager-client verwijderen  
  U kunt de Windows Configuration Manager-clientsoftware verwijderen van een computer met behulp van **CCMSetup.exe** met de **/Uninstall** eigenschap. Voer CCMSetup.exe op een afzonderlijke computer uit via de opdrachtprompt of implementeer een pakket en programma om de client te verwijderen voor een verzameling computers.  
@@ -331,7 +348,7 @@ U kunt een lijst met hardware-id's in Configuration Manager wordt genegeerd voor
 U kunt starten ophalen met behulp van beleid:
 
 
-- [Clientmeldingen](#initiate-client-policy-retrieval-using-client-notification) 
+- [Clientmeldingen](#initiate-client-policy-retrieval-using-client-notification)
 - [De **acties** tabblad op de client](#manually-initiate-client-policy-retrieval-on-the-actions-tab-of-the-configuration-manager-client)
 - [Een script](#manually-initiate-client-policy-retrieval-by-script)
 

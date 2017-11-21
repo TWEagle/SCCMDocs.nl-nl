@@ -3,7 +3,7 @@ title: Technische Preview-versies
 titleSuffix: Configuration Manager
 description: Meer informatie over de Technical Preview-versie dat we u test-drive nieuwe functionaliteit en mogelijkheden in System Center Configuration Manager.
 ms.custom: na
-ms.date: 11/17/2017
+ms.date: 11/20/2017
 ms.prod: configuration-manager
 ms.reviewer: nab
 ms.suite: na
@@ -15,11 +15,11 @@ caps.latest.revision: "157"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 1c09a8566fe309be651cc34f1261bd4fe021e554
-ms.sourcegitcommit: b74c1beaabbb628fdf5d6948fa9a6ad719fd5035
+ms.openlocfilehash: c03581ba5d582d6b86f17c7ec34c3e6e0e8d627e
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="technical-preview-for-system-center-configuration-manager"></a>Technical Preview voor System Center Configuration Manager
 
@@ -123,23 +123,30 @@ Hieronder vindt u de mogelijkheden die in elke technical preview-versie van Conf
  |----------------|---------------------|--------------------|
  |Windows 10-telemetrie voor Windows Analytics Apparaatstatus<!--1356148 --> | [Technische Preview 1710](capabilities-in-technical-preview-1710.md#limit-windows-10-enhanced-telemetry-to-only-send-data-relevant-to-windows-analytics-device-health) |![Niet toegevoegd](media/Red_X.gif)    |
  |Verbeteringen voor pictogrammen voor Software Center<!-- 1356194 --> | [Technische Preview 1710](capabilities-in-technical-preview-1710.md#software-center-no-longer-distorts-icons-larger-than-250x250) |![Niet toegevoegd](media/Red_X.gif)    |
- |Controleren op naleving van Software Center voor naast beheerde apparaten<!-- 1356374 -->| [Technische Preview 1710](capabilities-in-technical-preview-1710.md#check-compliance-from-software-center-for-co-managed-devices)|![Niet toegevoegd](media/Red_X.gif)    |
+ |Controleren op naleving van Software Center voor naast beheerde apparaten<!-- 1356374 -->|[Technische Preview 1710](capabilities-in-technical-preview-1710.md#check-compliance-from-software-center-for-co-managed-devices)|![Niet toegevoegd](media/Red_X.gif)    |
  |Beperkte ondersteuning voor CNG-certificaten<!-- 1356191 -->| [Technische Preview 1710](capabilities-in-technical-preview-1710.md#limited-support-for-cng-certificates)|![Niet toegevoegd](media/Red_X.gif)    |
- |Ondersteuning voor misbruik Guard<!--1355468 --> | [Technische Preview 1710](capabilities-in-technical-preview-1710.md#support-for-exploit-guard) |![Niet toegevoegd](media/Red_X.gif)    |
- |Verbeterde beschrijvingen van in afwachting van opnieuw opstarten<!-- 1356283  -->| [Technische Preview 1710](capabilities-in-technical-preview-1710.md)|![Niet toegevoegd](media/Red_X.gif)    |
- |Device Guard beleidswijzigingen<!-- 1355092  -->| [Technische Preview 1710](capabilities-in-technical-preview-1710.md)|![Niet toegevoegd](media/Red_X.gif)    |
- |Windows Defender toepassing Guard beleid configureren en implementeren<!-- 1351960  -->| [Technische Preview 1710](capabilities-in-technical-preview-1710.md)|![Niet toegevoegd](media/Red_X.gif)    |
+ |Ondersteuning voor misbruik Guard<!--1355468 --> | [Technische Preview 1710](capabilities-in-technical-preview-1710.md#support-for-exploit-guard) |[Versie 1710](/sccm/protect/deploy-use/create-deploy-exploit-guard-policy)    |
+ |Verbeterde beschrijvingen van in afwachting van opnieuw opstarten<!-- 1356283  -->| [Technische Preview 1710](capabilities-in-technical-preview-1710.md)|[Versie 1710](/sccm/core/clients/manage/manage-clients)    |
+ |Device Guard beleidswijzigingen<!-- 1355092  -->| [Technische Preview 1710](capabilities-in-technical-preview-1710.md)|[Versie 1710](/sccm/protect/deploy-use/use-device-guard-with-configuration-manager)    |
+ |Windows Defender toepassing Guard beleid configureren en implementeren<!-- 1351960  -->| [Technische Preview 1710](capabilities-in-technical-preview-1710.md)|[Versie 1710](/sccm/protect/deploy-use/create-deploy-application-guard-policy)    |
+ |Verbeteringen voor het implementeren van PowerShell-scripts uit Configuration Manager<!-- 1236459 -->| [Technische Preview 1710](capabilities-in-technical-preview-1710.md#improvements-for-deploying-powershell-scripts-from-configuration-manager) | [Versie 1710](/sccm/apps/deploy-use/create-deploy-scripts)
+
+## <a name="capabilities-delivered-in-previous-technical-previews"></a>Mogelijkheden die in vorige technical Previews worden geboden
+ Wanneer alle functies van een technisch proefversie beschikbaar in de minimaal ondersteunde versie van de huidige vertakking zijn, worden de details voor deze preview-versie verwijderd uit de volgende tabel.  
+
+ |Mogelijkheid |Technische Preview-versie |Huidige versie van het filiaal|  
+ |----------------|---------------------|--------------------|
  |Verbeterde VPN-profiel ervaring in Configuration Manager-Console<!-- 1313282 --> | [Technische Preview 1709](capabilities-in-technical-preview-1709.md) |![Niet toegevoegd](media/Red_X.gif)    |
- |CO-beheer voor Windows 10-apparaten|[Technische Preview 1709](capabilities-in-technical-preview-1709.md#co-management-for-windows-10-devices)|![Niet toegevoegd](media/Red_X.gif)    |
- |Verbeteringen voor de scriptparameters op te geven wanneer u een PowerShell-scripts uit Configuration Manager implementeren<!-- 1236459 -->|[Technische Preview 1708](capabilities-in-technical-preview-1708.md#improvements-for-specifying-script-parameters-when-you-deploy-powershell-scripts-from-configuration-manager)|![Niet toegevoegd](media/Red_X.gif)|
+ |CO-beheer voor Windows 10-apparaten|[Technische Preview 1709](capabilities-in-technical-preview-1709.md#co-management-for-windows-10-devices)|[Versie 1710](/sccm/core/clients/manage/co-management-overview.md)|
+ |Verbeteringen voor de scriptparameters op te geven wanneer u een PowerShell-scripts uit Configuration Manager implementeren<!-- 1236459 -->|[Technische Preview 1708](capabilities-in-technical-preview-1708.md#improvements-for-specifying-script-parameters-when-you-deploy-powershell-scripts-from-configuration-manager)|[Versie 1710](/sccm/apps/deploy-use/create-deploy-scripts)|
  |Management insights<!-- 1353967 --> |[Technische Preview 1708](capabilities-in-technical-preview-1708.md#management-insights)|![Niet toegevoegd](media/Red_X.gif)|
- |Computers uit de Configuration Manager-console opnieuw opstarten<!-- 1356283 --> |[Technische Preview 1708](capabilities-in-technical-preview-1708.md#restart-computers-from-the-configuration-manager-console)|![Niet toegevoegd](media/Red_X.gif)|
+ |Computers uit de Configuration Manager-console opnieuw opstarten<!-- 1356283 --> |[Technische Preview 1708](capabilities-in-technical-preview-1708.md#restart-computers-from-the-configuration-manager-console)|[Versie 1710](/sccm/core/clients/manage/manage-clients) |
  |Aanpassing van software Center<!-- 1351224 --> |[Technische Preview 1708](capabilities-in-technical-preview-1708.md#software-center-customization)|![Niet toegevoegd](media/Red_X.gif)|
-|Client-Peer-Cache-ondersteuning voor bestanden voor snelle installatie voor Windows 10 en Office 365|[Technische Preview 1707](capabilities-in-technical-preview-1707.md#client-peer-cache-support-for-express-installation-files-for-windows-10-and-office-365)|![Niet toegevoegd](media/Red_X.gif)|
+|Client-Peer-Cache-ondersteuning voor bestanden voor snelle installatie voor Windows 10 en Office 365|[Technische Preview 1707](capabilities-in-technical-preview-1707.md#client-peer-cache-support-for-express-installation-files-for-windows-10-and-office-365)|[Versie 1706](/sccm/core/plan-design/hierarchy/client-peer-cache#requirements-and-considerations-for-peer-cache)|
  |Surface apparaat dashboard|[Technische Preview 1707](capabilities-in-technical-preview-1707.md#surface-device-dashboard)|![Niet toegevoegd](media/Red_X.gif)|
- |Windows Defender toepassing Guard beleid configureren en implementeren|[Technische Preview 1707](capabilities-in-technical-preview-1707.md#configure-and-deploy-windows-defender-application-guard-policies)|![Niet toegevoegd](media/Red_X.gif)|
- |Parameters toevoegen bij het implementeren van PowerShell-scripts uit Configuration Manager|[Technische Preview 1707](capabilities-in-technical-preview-1707.md#add-parameters-when-you-deploy-powershell-scripts-from-configuration-manager)|![Niet toegevoegd](media/Red_X.gif)|
- |Nieuwe beleidsinstellingen voor mobile application management|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#new-mobile-application-management-policy-settings)|![Niet toegevoegd](media/Red_X.gif)|
+ |Windows Defender toepassing Guard beleid configureren en implementeren|[Technische Preview 1707](capabilities-in-technical-preview-1707.md#configure-and-deploy-windows-defender-application-guard-policies)|[Versie 1710](/sccm/protect/deploy-use/create-deploy-application-guard-policy)|
+ |Parameters toevoegen bij het implementeren van PowerShell-scripts uit Configuration Manager|[Technische Preview 1707](capabilities-in-technical-preview-1707.md#add-parameters-when-you-deploy-powershell-scripts-from-configuration-manager)|[Versie 1710](/sccm/apps/deploy-use/create-deploy-scripts)|
+ |Nieuwe beleidsinstellingen voor mobile application management|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#new-mobile-application-management-policy-settings)|[Versie 1710](/sccm/mdm/deploy-use/protect-apps-using-mam-policies#step-3-create-an-application-management-policy)|
  |Verbeterde grensgroepen voor software-updatepunten|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#improved-boundary-groups-for-software-update-points)|[Versie 1706](/sccm/core/servers/deploy/configure/boundary-groups#software-update-points)|
  |Beschikbaarheid van de site server-rol|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#site-server-role-high-availability) |![Niet toegevoegd](media/Red_X.gif)|
  |Vertrouwen voor specifieke bestanden en mappen in een beleid Device Guard opnemen|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#include-trust-for-specific-files-and-folders-in-a-device-guard-policy)|[Versie 1706](/sccm/protect/deploy-use/use-device-guard-with-configuration-manager)|
@@ -148,7 +155,7 @@ Hieronder vindt u de mogelijkheden die in elke technical preview-versie van Conf
  |Verbeterde toegankelijkheid |[Technische Preview 1706](capabilities-in-technical-preview-1706.md#accessibility-improvements)|[Versie 1706](/sccm/core/understand/accessibility-features)|
  |Ondersteuning van Azure Services Wizard gereedheid voor Upgrade |[Technische Preview 1706](capabilities-in-technical-preview-1706.md#changes-to-the-azure-services-wizard-to-support-upgrade-readiness)|[Versie 1706](/sccm/core/servers/deploy/configure/azure-services-wizard)|
  |Nieuwe clientinstellingen voor cloud-services|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#new-client-settings-for-cloud-services)|[Versie 1706](/sccm/core/clients/deploy/deploy-clients-cmg-azure)|
- |Maken en PowerShell-scripts uitvoeren vanaf de Configuration Manager-console|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#create-and-run-powershell-scripts-from-the-configuration-manager-console)|[Versie 1706](/sccm/apps/deploy-use/create-deploy-scripts)|
+ |Maken en PowerShell-scripts uitvoeren vanaf de Configuration Manager-console|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#create-and-run-powershell-scripts-from-the-configuration-manager-console)|[Versie 1710](/sccm/apps/deploy-use/create-deploy-scripts)|
  |Ondersteuning voor PXE-netwerk opstarten voor IPv6 |[Technische Preview 1706](capabilities-in-technical-preview-1706.md#pxe-network-boot-support-for-ipv6)|![Niet toegevoegd](media/Red_X.gif)|
  |Updates voor Microsoft Surface stuurprogramma's beheren |[Technische Preview 1706](capabilities-in-technical-preview-1706.md#manage-microsoft-surface-driver-updates)|[Versie 1706](/sccm/core/plan-design/changes/whats-new-in-version-1706#manage-microsoft-surface-driver-updates)|
  |Windows Update voor bedrijven uitgestelde beleid configureren |[Technische Preview 1706](capabilities-in-technical-preview-1706.md#configure-windows-update-for-business-deferral-policies)|[Versie 1706](/sccm/sum/deploy-use/integrate-windows-update-for-business-windows-10#configure-windows-update-for-business-deferral-policies)|
@@ -161,7 +168,7 @@ Hieronder vindt u de mogelijkheden die in elke technical preview-versie van Conf
  |Ondersteuning voor Entrust certificeringsinstanties|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#support-for-entrust-certification-authorities)|[Versie 1706](/sccm/mdm/deploy-use/create-pfx-certificate-profiles)|
  |Cisco (IPSec) ondersteuning voor Mac OS VPN-profielen|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#cisco-ipsec-support-for-macos-vpn-profiles)|[Versie 1706](/sccm/protect/deploy-use/vpn-profiles)|
  |Nieuwe mogelijkheden voor Azure AD en in de cloud management|[Technische Preview 1705](capabilities-in-technical-preview-1705.md#new-capabilities-for-azure-ad-and-cloud-management)|[Versie 1706](/sccm/core/plan-design/changes/whats-new-in-version-1706#azure-ad-integration-with-configuration-manager)|
- |Windows Defender toepassing Guard beleid configureren en implementeren|[Technische Preview 1705](capabilities-in-technical-preview-1705.md#configure-and-deploy-windows-defender-application-guard-policies)|![Niet toegevoegd](media/Red_X.gif)|
+ |Windows Defender toepassing Guard beleid configureren en implementeren|[Technische Preview 1705](capabilities-in-technical-preview-1705.md#configure-and-deploy-windows-defender-application-guard-policies)|[Versie 1710](/sccm/protect/deploy-use/create-deploy-application-guard-policy)|
  |Hulpprogramma voor het bijwerken opnieuw instellen  |[Technische Preview 1705](capabilities-in-technical-preview-1705.md#update-reset-tool)|[Versie 1706](/sccm/core/servers/manage/update-reset-tool)|
  |Hoge DPI-ondersteuning  |[Technische Preview 1705](capabilities-in-technical-preview-1705.md#high-dpi-console-support)|[Versie 1706](/sccm/core/plan-design/changes/whats-new-in-version-1706#high-dpi-console-support)|
  |Verbeteringen voor peer-Cache  |[Technische Preview 1705](capabilities-in-technical-preview-1705.md#peer-cache-improvements) |[Versie 1706](/sccm/core/plan-design/hierarchy/client-peer-cache#requirements-and-considerations-for-peer-cache)|

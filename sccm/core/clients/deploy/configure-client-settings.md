@@ -15,11 +15,11 @@ caps.latest.revision: "5"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: 7d63aa43062b331dde993ae5f59f1d2a7e846482
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 20a8f91d10d98542f08e440bcfbc1a6f98a51932
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="how-to-configure-client-settings-in-system-center-configuration-manager"></a>Het configureren van clientinstellingen in System Center Configuration Manager
 
@@ -66,6 +66,19 @@ Wanneer u deze aangepaste instellingen implementeert, overschrijven ze de standa
 10. Geef de volgorde weer van de aangepaste clientinstelling die u zojuist hebt gemaakt. Wanneer u meerdere aangepaste clientinstellingen hebt, worden deze toegepast volgens hun volgordenummer. Als er conflicten zijn, heft de instelling met het laagste volgordenummer de andere stellingen op. De als volgordenummer wilt wijzigen, op de **Start** tabblad, in de **clientinstellingen** groep, kiest u **Item omhoog verplaatsen** of **Item omlaag verplaatsen**.  
 
  Clientcomputers zullen worden geconfigureerd met deze instellingen wanneer ze de volgende keer het clientbeleid downloaden. Zie voor het initiëren van het ophaalbeleid voor één client [ophalen van beleid initiëren voor een Configuration Manager-Client](../../../core/clients/manage/manage-clients.md#BKMK_PolicyRetrieval) in [clients in System Center Configuration Manager beheren](../../../core/clients/manage/manage-clients.md).  
+
+## <a name="limit-windows-10-enhanced-telemetry-to-only-send-data-relevant-to-windows-analytics-device-health"></a>Windows 10 verbeterde telemetrie alleen om gegevens te verzenden relevant zijn voor Windows Analytics Apparaatstatus beperken
+<!-- 1356148 -->
+
+Met de update 1710, kunt u instellen de gegevensverzameling voor Windows 10-telemetrie op **uitgebreid (beperkt)**. Deze instelling kunt u actie worden uitgevoerd om inzicht te krijgen over de apparaten in uw omgeving zonder apparaten rapportage van de gegevens in de **uitgebreid** telemetrie niveau met Windows 10 versie 1709 of hoger.
+
+Het niveau uitgebreid (beperkt) telemetrie bevat metrische gegevens van het niveau basis, evenals een subset van gegevens verzameld van de **uitgebreid** niveau relevant zijn voor Windows Analytics. Zie voor meer informatie over telemetrie niveaus [telemetrie niveaus](https://docs.microsoft.com/windows/configuration/configure-windows-telemetry-in-your-organization#telemetry-levels).
+
+1.  Kies in de Configuration Manager-console **beheer** > **clientinstellingen** > **Standaardclientinstellingen**.  
+
+2.  Op de **Start** Kies **eigenschappen**.  
+
+3.  Open **Cloudservices**, en Windows 10 telemetrie ingesteld op **uitgebreid**.
 
 ##  <a name="view-client-settings"></a>Instellingen van de client weergeven  
  Wanneer er meerdere clientinstellingen zijn geïmplementeerd voor hetzelfde apparaat, dezelfde gebruiker of dezelfde gebruikersgroep, kan de prioriteitsaanduiding en combinatie van instellingen erg complex zijn. Instellingen voor de client weergeven:  

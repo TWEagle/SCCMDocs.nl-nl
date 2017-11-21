@@ -13,11 +13,11 @@ ms.assetid: ac034143-003e-4629-aac2-99eaffef4db1
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 9b3248f30470ee8250efcbf171642ea476627d68
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 2889de0709096aa481ca6203c5ab2bac1f064d5e
+ms.sourcegitcommit: c4a1bafcd004638d264a93d307c70d8b6f7fe023
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="what39s-new-in-version-1706-of-system-center-configuration-manager"></a>Wat &#39; s is nieuw in versie 1706 van System Center Configuration Manager
 
@@ -189,10 +189,6 @@ Zie voor meer informatie [maken en uitvoeren van PowerShell-scripts uit de Confi
 Vanaf deze versie, kunt u drie nieuwe beleidsinstellingen voor mobile application management (MAM):
 
 - **Schermafbeelding (alleen Android-apparaten) blokkeren:** Hiermee wordt opgegeven dat de schermafbeeldingsmogelijkheden van het apparaat zijn geblokkeerd bij gebruik van deze app.
-
-- **Synchronisatie van contactpersonen uitschakelen:** Hiermee voorkomt dat de app opslaan van gegevens in de systeemeigen contactpersonen-app op het apparaat.
-
-- **Afdrukken uitschakelen:** Voorkomt dat de app vanuit afdrukken werk- of schoolgegevens.
 
 Zie [apps beveiligen met beleid voor app-beveiliging in Configuration Manager](https://docs.microsoft.com/sccm/mdm/deploy-use/protect-apps-using-mam-policies) om te proberen de nieuwe beleidsinstellingen van de app-beveiliging.
 

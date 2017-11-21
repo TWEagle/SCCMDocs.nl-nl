@@ -3,7 +3,7 @@ title: Een certificeringsinstantie PFX-certificaatprofielen maken
 titleSuffix: Configuration Manager
 description: Informatie over het PFX-bestanden in System Center Configuration Manager gebruiken voor het genereren van gebruikersspecifieke certificaten die ondersteuning van versleutelde gegevensuitwisseling.
 ms.custom: na
-ms.date: 04/04/2017
+ms.date: 11/01/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
-ms.openlocfilehash: 26bbe68fb593404d59389de223212511e6b44ed5
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: ee51d395026b03d251e65f510b1df3ba5b03325d
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="how-to-create-pfx-certificate-profiles-using-a-certificate-authority"></a>Het maken van een certificeringsinstantie PFX-certificaatprofielen
 
@@ -58,11 +58,12 @@ De pagina ondersteunde Platforms identificeert de besturingssystemen en apparate
 
 Certificaat profielen ondersteunen mogelijk meerdere besturingssystemen en apparaten, echter, bepaalde besturingssysteem of apparaat combinaties moet mogelijk verschillende instellingen.  In dergelijke gevallen is het raadzaam te maken van verschillende profielen voor elke unieke set van instellingen.  
 
-Vanaf versie 1706 zijn de volgende opties beschikbaar:
+Vanaf versie 1710 zijn de volgende opties beschikbaar:
 
 - Windows 10
     - Alle Windows 10 (64-bits)
     - Alle Windows 10 (32-bits)
+    - Alle Windows 10 (ARM64)
     - Alle Windows 10 Holographic Enterprise en hoger
     - Alle Windows 10 Holographic en hoger
     - Alle Windows 10 Team en hoger

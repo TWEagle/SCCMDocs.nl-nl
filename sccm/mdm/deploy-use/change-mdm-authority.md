@@ -5,31 +5,31 @@ description: Informatie over het wijzigen van de MDM-instantie van Configuration
 keywords: 
 author: dougeby
 manager: angrobe
-ms.date: 10/04/2017
+ms.date: 11/17/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.technology: configmgr-hybrid
 ms.assetid: cc397ab5-125f-4f17-905b-fab980194f49
-ms.openlocfilehash: cbf45c5f9f04affc65243fdc4c8410d4ff033c1e
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: c61a44cce443a7ff210a626d114068691541aaae
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="change-your-mdm-authority"></a>Wijzigen van uw MDM-instantie
-Vanaf Configuration Manager versie 1610, kunt u uw MDM-instantie zonder contact opnemen met Microsoft Support en zonder de registratie ongedaan maken en registreren van uw bestaande beheerde apparaten. Dit onderwerp bevat de stappen voor het wijzigen van een bestaande Microsoft Intune-tenant geconfigureerd via de Configuration Manager-console (hybride) zelfstandige versie van Intune.
+Vanaf Configuration Manager versie 1610, kunt u uw MDM-instantie zonder contact opnemen met Microsoft Support en zonder de registratie ongedaan maken en registreren van uw bestaande beheerde apparaten. Dit artikel bevat de stappen voor het wijzigen van een bestaande Microsoft Intune-tenant geconfigureerd via de Configuration Manager-console (hybride) zelfstandige versie van Intune. Wanneer u de stappen in dit artikel hebt voltooid, apparaten worden beheerd door Microsoft Intune in de [Azure-portal](https://portal.azure.com). 
 
 > [!Note]    
 > Als u wilt wijzigen van een bestaande Microsoft Intune-tenant met de MDM-instantie is ingesteld op Intune, Configuration Manager (hybride), Zie [wijzigen van de MDM-instantie](https://docs.microsoft.com/intune-classic/deploy-use/change-mdm-authority).
 
 > [!Important]    
-> In dit onderwerp wordt uw MDM-instantie wordt gewijzigd wanneer u gebruikers niet eerder hebt gemigreerd. Uw MDM-instantie wijzigen nadat u hebt [gemigreerd van een subset van gebruikers](migrate-hybridmdm-to-intunesa.md), Zie [wijzigen van uw MDM-instantie](migrate-change-mdm-authority.md).
+> In dit artikel wordt uw MDM-instantie wordt gewijzigd wanneer u gebruikers niet eerder hebt gemigreerd. Uw MDM-instantie wijzigen nadat u hebt [gemigreerd van een subset van gebruikers](migrate-hybridmdm-to-intunesa.md), Zie [wijzigen van uw MDM-instantie](migrate-change-mdm-authority.md).
 
 ## <a name="key-considerations"></a>Belangrijke aandachtspunten
 Nadat u op de nieuwe MDM-instantie, er wordt waarschijnlijk overgang tijd (maximaal acht uur) voordat wordt het apparaat wordt ingecheckt en synchroniseert met de service. In de nieuwe MDM-instantie (Intune zelfstandig) om ervoor te zorgen blijven ingeschreven apparaten worden beheerd en beveiligd wanneer de wijziging moet u instellingen configureren. Houd rekening met de volgende overwegingen:
-- Apparaten moeten verbinding maken met de service na de wijziging zodat de instellingen van de nieuwe MDM-instantie (Intune zelfstandig) vervangt de bestaande instellingen op het apparaat.
-- Nadat u de MDM-instantie hebt gewijzigd, blijven sommige van de algemene instellingen (zoals profielen) uit de vorige MDM-instantie (hybride) op het apparaat gedurende zeven dagen. Het verdient aanbeveling dat u apps en instellingen (beleid, profielen, apps, enzovoort) in de nieuwe MDM-instantie zo snel mogelijk configureren. Bovendien moet u de instellingen implementeren voor de gebruikersgroepen die gebruikers die beschikken over bestaande geregistreerde apparaten bevatten. Wanneer een apparaat verbinding met de service na de wijziging in de MDM-instantie maakt, ontvangt deze nieuwe instellingen van de nieuwe MDM-instantie. Alle regels voor het nieuwe gerichte overschrijft bestaande beleidsregels op het apparaat.
-- Nadat u de nieuwe MDM-instantie wijzigt, kan de gegevens in de Microsoft Intune-beheerconsole duren een week nauwkeurig rapporteren. De nalevingsstatussen in Azure Active Directory en op het apparaat worden echter nauwkeurige zodat het apparaat nog steeds worden beveiligd.
+- Apparaten moeten verbinding maken met de service na de wijziging zodat de instellingen van de nieuwe MDM-instantie (Intune zelfstandig) de bestaande instellingen op het apparaat vervangt.
+- Nadat u de MDM-instantie hebt gewijzigd, blijven sommige van de algemene instellingen (zoals profielen) uit de vorige MDM-instantie (hybride) op het apparaat gedurende zeven dagen. Het verdient aanbeveling dat u apps en instellingen (beleid, profielen, apps, enzovoort) in de nieuwe MDM-instantie zo snel mogelijk configureren. Bovendien moet u de instellingen implementeren voor de gebruikersgroepen die gebruikers die beschikken over bestaande geregistreerde apparaten bevatten. Wanneer een apparaat verbinding met de service na de wijziging in de MDM-instantie maakt, ontvangt deze nieuwe instellingen van de nieuwe MDM-instantie. Een nieuw gerichte beleid voorrang op bestaande beleidsregels op het apparaat.
+- Nadat u op de nieuwe MDM-instantie, de gegevens in de [Azure-portal](https://portal.azure.com) een week tot nauwkeurig rapport kan duren. De nalevingsstatussen in Azure Active Directory en op het apparaat worden echter nauwkeurige zodat het apparaat nog steeds worden beveiligd.
 - Apparaten waarvoor geen bijbehorende gebruikers (meestal wanneer u hebt iOS Device Enrollment Program of bulksgewijs inschrijven scenario's) worden niet gemigreerd naar de nieuwe MDM-instantie. Voor deze apparaten moet u contact op met ondersteuning voor hulp naar de nieuwe MDM-instantie.
 
 ## <a name="prepare-to-change-the-mdm-authority-to-intune-standalone"></a>Voorbereiden om te wijzigen van de MDM-instantie in zelfstandige versie van Intune
@@ -37,21 +37,13 @@ Controleer de volgende informatie om voor te bereiden voor de wijziging van de M
 - U moet Configuration Manager versie 1610 of hoger om de optie voor het wijzigen van de MDM-instantie beschikbaar hebben.
 - Het kan tot acht uur voor een apparaat verbinding maken met de service na wijziging van de nieuwe MDM-instantie duren.
 - Zorg ervoor dat alle gebruikers die momenteel worden beheerd door hybride hebben een Intune/EMS-licentie toegewezen voordat de wijziging in de MDM-instantie. Met de licentievoorwaarden, zorgt u ervoor dat de gebruiker en hun apparaten worden beheerd door Intune standalone die na de wijziging in de MDM-instantie. Zie voor meer informatie [toewijzen Intune-licenties aan uw gebruikersaccounts](https://docs.microsoft.com/intune/get-started/start-with-a-paid-subscription-to-microsoft-intune-step-4).
-- Zorg ervoor dat het beheerdersaccount van de gebruiker een Intune/EMS-licentie toegewezen heeft en Bevestig dat het beheerdersaccount van de gebruiker bij Intune voordat de wijziging van de MDM-instantie aanmelden zich. De MDM-instantie moet worden weergegeven **Configuration Manager ingesteld als** (hybride tenant) in de Microsoft Intune-beheerconsole vóór de wijziging in de MDM-instantie.
-- Verwijder alle Apparaatinschrijvingsmanager-rollen in de Configuration Manager-console. Ga naar **beheer** > **Cloudservices** > **Microsoft Intune-abonnementen**, selecteer het Microsoft Intune-abonnement, klik op **eigenschappen**, klikt u op de **Apparaatinschrijvingsmanager** tabblad en verwijder alle Apparaatinschrijvingsmanager-rollen.
-- Verwijder de bestaande categorieën voor apparaatstuurprogramma in de Configuration Manager-console. Ga naar **activa en naleving** > **overzicht** > **Apparaatverzamelingen**, kies **apparaatcategorieën beheren**, en verwijder de bestaande categorieën voor apparaatstuurprogramma.
+- Zorg ervoor dat het beheerdersaccount van de gebruiker een Intune/EMS-licentie toegewezen heeft en Bevestig dat het beheerdersaccount van de gebruiker bij Intune voordat de wijziging van de MDM-instantie aanmelden zich. De MDM-instantie moet worden weergegeven **Configuration Manager ingesteld als** (hybride tenant) in Intune in de [Azure-portal](https://portal.azure.com) vóór de wijziging in de MDM-instantie.
 - Er mag geen merkbare invloed hebben op eindgebruikers tijdens de wijziging in de MDM-instantie. 
-- Als u Configuration Manager (hybride tenant) voor het beheren van iOS-apparaten voordat de wijziging in de MDM-instantie gebruikt, moet u ervoor zorgen dat het certificaat met dezelfde Apple Push Notification service (APNs) die in Configuration Manager voorheen is vernieuwd en gebruikt voor het instellen van de tenant opnieuw in de zelfstandige versie van Intune.
-
-   > [!IMPORTANT]  
-   > Als een ander APNs-certificaat voor de zelfstandige versie van Intune gebruikt, wordt alle eerder ingeschreven iOS-apparaten worden uitgeschreven en moet u de procedure opnieuw te registreren ze te doorlopen. Voordat u de MDM-instantie wijzigen, moet u weten precies welke APNs-certificaat is gebruikt voor het beheren van iOS-apparaten in Configuration Manager. Zoek hetzelfde certificaat vermeld in de Apple Push Certificates Portal (https://identity.apple.com) en zorg ervoor dat de gebruiker met de Apple-ID is gebruikt voor het maken van het oorspronkelijke APNs-certificaat is geïdentificeerd en beschikbaar voor het vernieuwen van het dezelfde APNs-certificaat als onderdeel van de wijzigingen in de nieuwe MDM-instantie.  
 
 ## <a name="change-the-mdm-authority-to-intune-standalone"></a>Wijzig de MDM-instantie in zelfstandige versie van Intune
 Het proces voor het wijzigen van de MDM-instantie zelfstandige versie van Intune bevat de volgende geavanceerde stappen:  
 - In de Configuration Manager-console, gebruiken de **wijziging MDM-instantie op Microsoft Intune** optie voor het verwijderen van de bestaande Microsoft Intune-abonnement.
-- In de Microsoft Intune-beheerconsole, kunt u de nieuwe MDM-instantie instellen op **Intune**.
-- Het Apple APNs-certificaat configureren met behulp van het APNs-certificaat dat u vernieuwd.
-- In de Microsoft Intune-beheerconsole, configureren en implementeren van nieuwe instellingen en apps op de nieuwe MDM-instantie (Intune).
+- In Intune in de [Azure-portal](https://portal.azure.com), configureren en implementeren van nieuwe instellingen en apps op de nieuwe MDM-instantie (Intune).
 - De volgende keer apparaten verbinding met de service, automatisch gesynchroniseerd en ontvangen van de nieuwe instellingen van de nieuwe MDM-instantie.
 
 #### <a name="to-change-the-mdm-authority-to-intune-standalone"></a>Wijzigen van de MDM-instantie in zelfstandige versie van Intune
@@ -60,67 +52,17 @@ Het proces voor het wijzigen van de MDM-instantie zelfstandige versie van Intune
    ![De APNs-certificaataanvraag downloaden](./media/mdm-change-delete-subscription.png)
 3. Aanmelden bij de Intune-tenant die u oorspronkelijk hebt gebruikt bij het instellen van de MDM-instantie in Configuration Manager.
 4. Klik op **Volgende** en voltooi de wizard.
-5. De MDM-instantie wordt nu opnieuw ingesteld. Het Intune-abonnement mag niet meer weergegeven in het knooppunt van de Microsoft Intune-abonnementen van de Configuration Manager-console.
-6. Meld u aan bij de [Microsoft Intune-beheerconsole](http://manage.microsoft.com) met dezelfde Intune-tenant die u eerder hebt gebruikt.
-7. Controleer of de MDM-instantie is opnieuw instellen en stel vervolgens de MDM-instantie als **Microsoft Intune**. Nadat u de MDM-instantie hebt gewijzigd, ziet u dat deze in de console worden weergegeven. Zie voor meer informatie [het instellen van de MDM-instantie](https://docs.microsoft.com/en-us/intune/deploy-use/prerequisites-for-enrollment#step-2-set-mdm-authority).
-<!-- [Azure portal](https://docs.microsoft.com/en-us/intune-azure/enroll-devices/set-mdm-authority) -->
-
-
-## <a name="configure-the-apns-certificate"></a>Het APNs-certificaat configureren
-Wanneer u iOS-apparaten hebt, moet u het APNs-certificaat configureren in Intune.
-
-#### <a name="to-configure-the-apns-certificate"></a>Het APNs-certificaat configureren
-1. De APNs-certificaataanvraag downloaden.
-   <!--The process is different depending on how you connect to Intune:
-    **Azure portal**   
-    In the [Azure portal](https://azure.portal.com), choose **More Services** &gt; **Monitoring + Management** &gt; **Intune**. On the **Intune** blade, choose **Device enrollment** &gt; **Apple Enrollment** &gt; **Apple MDM Push Certificate**, and then select **Download your CSR** to download and save the .csr file locally.   
-    <br/>
-    **Microsoft Intune administration console**   -->
-   In de [Microsoft Intune-beheerconsole](http://manage.microsoft.com), gaat u naar **beheer** &gt; **Mobile Device Management** &gt; **iOS en Mac OS X** &gt; **een APNs-certificaat uploaden**, en kies vervolgens **de APNs-certificaataanvraag downloaden**. Sla het bestand met de aanvraag voor certificaatondertekening (.csr) lokaal op.    
-   > [!IMPORTANT]    
-   > Een nieuwe aanvraag voor Certificaatondertekening downloaden. Gebruik een bestaand bestand niet of zal mislukken.
-
-   ![De APNs-certificaataanvraag downloaden](./media/mdm-change-download-apns-certificate.png)
-
-2. Ga naar de [Apple Push Certificates Portal](http://go.microsoft.com/fwlink/?LinkId=269844), en meld u met de **dezelfde** Apple-ID die is gebruikt voor het eerder maken en vernieuwen van het APNs-certificaat dat u in Configuration Manager (hybride gebruikt).
-
-   ![Aanmeldingspagina voor Apple Push Certificates-Portal](./media/mdm-change-apns-portal.png)
-
-3. Selecteer het APNs-certificaat dat u gebruikt in Configuration Manager (hybride) en klik vervolgens op **vernieuwen**.   
-
-    ![Dialoogvenster APNs vernieuwen](./media/mdm-change-renew-apns.png)
-
-4. Selecteer het APNs-certificaat ondertekenen CSR-bestand dat u lokaal hebt gedownload en klik vervolgens op **uploaden**.
-
-    ![Aanmeldingspagina voor Apple Push Certificates-Portal](/sccm/mdm/deploy-use/media/mdm-change-renew-apns-upload.png)
- 
-5. Selecteer de dezelfde APNs en klik vervolgens op **downloaden**. Download het certificaat voor APNs (.pem) en sla het bestand lokaal.  
-
-   ![Aanmeldingspagina voor Apple Push Certificates-Portal](./media/mdm-change-renew-apns-download.png)
-
-6. De vernieuwd APNs-certificaat uploaden naar de Intune-tenant met dezelfde Apple-ID als voordat.
-<!--The process is different depending on how to connect to Intune:  
-    **Azure portal**   
-    In the [Azure portal](https://azure.portal.com), choose **More Services** &gt; **Monitoring + Management** &gt; **Intune**. On the **Intune** blade, choose **Device enrollment** &gt; **Apple Enrollment**  &gt; **Apple MDM Push Certificate**, enter your Apple ID in step 3, select the certificate (.pem) file in step 4, and then click **Upload**.     
-    <br/>
-    **Microsoft Intune administration console**    -->
-    In the [Microsoft Intune administration console](http://manage.microsoft.com), go to **Administration** &gt; **Mobile Device Management** &gt; **iOS and Mac OS X** &gt; **Upload an APNs Certificate**, and then choose **Upload the APNs certificate**. Go to the certificate (.pem) file, choose **Open**, and then enter your **Apple ID**.   
-
-   ![Het APNs-certificaat uploaden](./media/mdm-change-upload-apns-certificate.png)
+5. De MDM-instantie is nu ingesteld op **Microsoft Intune**. Het Intune-abonnement mag niet meer weergegeven in het knooppunt van de Microsoft Intune-abonnementen van de Configuration Manager-console. 
+6. Om te controleren of de MDM-instantie is ingesteld, voert u de volgende stappen uit: een. Aanmelden bij de [Azure-portal](https://portal.azure.com) met behulp van de Intune-tenant die u eerder hebt gebruikt. 
+    b. Kies **meer Services** > **bewaking + Management** > **Intune** > **apparaatinschrijving**. De MDM-instantie wordt weergegeven in de sectie rechtsboven van de **overzicht** blade. 
 
 ## <a name="next-steps"></a>Volgende stappen
 Nadat de wijziging in de MDM-instantie voltooid is, controleert u de volgende stappen uit:
-- Als de Intune-service detecteert dat een tenant MDM-instantie is gewijzigd, verstuurt een melding op alle geregistreerde apparaten in te checken synchroniseren met de service (dit is buiten de regelmatig geplande controle in). Daarom nadat de MDM-instantie voor de tenant is gewijzigd van hybride zelfstandige versie van Intune, alle apparaten die zijn ingeschakeld en online maakt verbinding met de service, wordt de nieuwe MDM-instantie en worden beheerd door Intune standalone voortaan. Er zijn geen gevolgen heeft voor het beheer en beveiliging van deze apparaten.
+- Als de Intune-service detecteert dat een tenant MDM-instantie is gewijzigd, verstuurt een melding op alle geregistreerde apparaten in te checken synchroniseren met de service (dit is buiten het regelmatig geplande inchecken). Daarom nadat de MDM-instantie voor de tenant is gewijzigd van hybride zelfstandige versie van Intune, alle apparaten die zijn ingeschakeld en online maakt verbinding met de service, wordt de nieuwe MDM-instantie en worden beheerd door Intune standalone voortaan. Er zijn geen gevolgen heeft voor het beheer en beveiliging van deze apparaten.
 - Apparaten die uitgeschakeld of offline zijn tijdens (of kort na) de wijziging in de MDM-instantie verbinding maken met en synchroniseren met de service onder de nieuwe MDM-instantie wanneer ze zijn ingeschakeld en online.  
-
-  iOS-apparaten vereisen meer tijd om te vernieuwen en het instellen van het APNs-certificaat. Daarom ontvangen iOS-apparaten niet de eerste controle in de aanvraag. Zelfs als iOS-apparaten ingeschakeld en online zijn tijdens (of kort na) de wijziging in MDM-instantie, zal er een vertraging van maximaal acht uur (afhankelijk van de timing van de volgende geplande reguliere inchecken) voordat u iOS-apparaten zijn geregistreerd bij de service onder de nieuwe MDM-instantie.    
-
-  > [!IMPORTANT]
-  > Tussen het moment waarop het wijzigen van de MDM inchecken-instantie en wanneer de vernieuwd APNs-certificaat is geüpload naar de nieuwe instantie, inschrijvingen van nieuwe apparaten en apparaten voor iOS-apparaten mislukken. Het is daarom belangrijk dat u bekijken en het APNs-certificaat naar de nieuwe instantie zo snel mogelijk na de wijziging in de MDM-instantie uploaden.   
-
-- Gebruikers kunnen snel wijzigen naar de nieuwe MDM-instantie handmatig starten door een vinkje in vanaf het apparaat naar de service. Gebruikers kunnen dit eenvoudig doen met behulp van de bedrijfsportal-app en een apparaatgeschiktheidscontrole is gestart.
-- Om te valideren of dingen goed werken nadat apparaten hebt ingecheckt en gesynchroniseerd met de service na de wijziging in de MDM-instantie, zoekt u de apparaten de [Microsoft Intune-beheerconsole](http://manage.microsoft.com). De apparaten die werden eerder beheerd door Configuration Manager (hybride) worden nu weergegeven als beheerde apparaten.    
-- Er is een tussentijdse periode wanneer een apparaat offline gedurende de wijziging in de MDM-instantie en is als dat het apparaat wordt ingecheckt met de service. Om ervoor te zorgen dat het apparaat beveiligd en in werking tijdens deze tijdelijke periode blijft, blijven het volgende op het apparaat gedurende zeven dagen (of totdat het apparaat verbinding met de nieuwe MDM-instantie maakt en ontvangt van de nieuwe instellingen waarmee wordt de bestaande bestanden overschreven):
+- Gebruikers kunnen snel aan de nieuwe MDM-instantie wijzigen door het handmatig starten van een selectievakje in van het apparaat naar de service. Gebruikers kunnen dit eenvoudig doen met behulp van de bedrijfsportal-app en een apparaatgeschiktheidscontrole is gestart.
+- Om te valideren of dingen goed werken nadat apparaten hebt ingecheckt en gesynchroniseerd met de service na de wijziging in de MDM-instantie, zoekt u de apparaten in de [Azure-portal](https://portal.azure.com). De apparaten die werden eerder beheerd door Configuration Manager (hybride) worden nu weergegeven als beheerde apparaten in Intune.    
+- Er is een tussentijdse periode wanneer een apparaat offline gedurende de wijziging in de MDM-instantie en is als dat het apparaat wordt ingecheckt met de service. Om ervoor te zorgen dat het apparaat nog steeds beveiligde en functionele tijdens deze periode tussentijdse blijft in het volgende op het apparaat gedurende zeven dagen (of totdat het apparaat verbinding met de nieuwe MDM-instantie maakt en ontvangt van de nieuwe instellingen waarmee de bestaande bestanden overschreven):
     - E-mailprofiel
     - VPN-profiel
     - Certificaat-profiel
@@ -129,12 +71,9 @@ Nadat de wijziging in de MDM-instantie voltooid is, controleert u de volgende st
 - Zorg dat de nieuwe instellingen die zijn bedoeld om de bestaande instellingen overschreven door dezelfde naam als de vorige scripts om ervoor te zorgen dat de oude instellingen overschreven. Anders wordt kunnen de apparaten eindigen met redundant profielen en beleidsregels.    
 
   > [!TIP]   
-  > Als een best practice moet u alle instellingen en configuraties, evenals implementaties, kort nadat de wijziging van de MDM-instantie is voltooid. Dit helpt ervoor te zorgen dat apparaten zijn beveiligd en dat actief wordt beheerd in de tijdelijke periode.   
+  > Als een best practice moet u alle instellingen en configuraties, evenals implementaties, kort nadat de wijziging van de MDM-instantie is voltooid. Dit zorgt ervoor dat apparaten zijn beveiligd en dat actief wordt beheerd in de tijdelijke periode.   
 -  Nadat u de MDM-instantie hebt gewijzigd, moet u de volgende stappen voor het valideren van nieuwe apparaten met succes zijn geregistreerd bij de nieuwe instantie uitvoeren:   
     - Een nieuw apparaat registreren
-    - Zorg ervoor dat het nieuw ingeschreven apparaat wordt weergegeven in de Intune-beheerconsole.
-    - Een actie uitgevoerd, zoals vergrendelen op afstand van de beheerconsole voor het apparaat. Als dat lukt, wordt het apparaat wordt beheerd door de nieuwe MDM-instantie.
+    - Zorg ervoor dat het nieuw ingeschreven apparaat wordt weergegeven in de [Azure-portal](https://portal.azure.com).
+    - Een actie uitgevoerd, zoals vergrendelen op afstand van de [Azure-portal](https://portal.azure.com) op het apparaat. Als dat lukt, wordt het apparaat wordt beheerd door de nieuwe MDM-instantie.
 - Als u problemen met specifieke apparaten hebt, kunt u registratie ongedaan maken en registreren van de apparaten om op te halen ze verbonden met de nieuwe instantie van en worden beheerd zo snel mogelijk.
-
-<!-- After the change in MDM authority and devices check in with the service, note the following:      - The updated compliance status of devices will only display in the Azure portal immediately.
-- There will be a delay for compliance status of devices to display in the Intune administrative console.-->

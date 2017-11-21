@@ -3,7 +3,7 @@ title: PKI-certificaatvereisten
 titleSuffix: Configuration Manager
 description: Vereisten voor PKI-certificaten die u voor System Center Configuration Manager wellicht vindt.
 ms.custom: na
-ms.date: 04/24/2017
+ms.date: 11/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,21 +15,26 @@ caps.latest.revision: "17"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: f5afa9fd9823cfbaa305b4d4e88f89be7004bd60
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: c9d95f6282820a41db762c143b3aa2f6d4fadf3e
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="pki-certificate-requirements-for-system-center-configuration-manager"></a>PKI-certificaatvereisten voor System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-De openbare-sleutelinfrastructuur (PKI)-certificaten die u nodig voor System Center Configuration Manager hebt worden vermeld in de volgende tabellen. Bij deze informatie wordt ervan uitgegaan dat u basiskennis hebt van PKI-certificaten. Zie voor stapsgewijze implementatiehulp [voorbeeld van stapsgewijze implementatie van de PKI-certificaten voor System Center Configuration Manager: Windows Server 2008-certificeringsinstantie](/sccm/core/plan-design/network/example-deployment-of-pki-certificates). Zie voor meer informatie over Active Directory Certificate Services, de volgende documentatie:  
+De openbare-sleutelinfrastructuur (PKI)-certificaten die u nodig voor System Center Configuration Manager hebt worden vermeld in de volgende tabellen. Bij deze informatie wordt ervan uitgegaan dat u basiskennis hebt van PKI-certificaten. Zie voor stapsgewijze implementatiehulp [voorbeeld van stapsgewijze implementatie van de PKI-certificaten voor System Center Configuration Manager: Windows Server 2008-certificeringsinstantie](/sccm/core/plan-design/network/example-deployment-of-pki-certificates). 
+
+Zie voor meer informatie over Active Directory Certificate Services, de volgende documentatie:  
 
 -   Voor WindowsServer 2012: [Overzicht van Active Directory Certificate Services](http://go.microsoft.com/fwlink/p/?LinkId=286744)  
 
--   Voor WindowsServer 2008: [Active Directory certificaatservices in WindowsServer 2008](http://go.microsoft.com/fwlink/p/?LinkId=115018)  
+-   Voor WindowsServer 2008: [Active Directory certificaatservices in WindowsServer 2008](http://go.microsoft.com/fwlink/p/?LinkId=115018)
+
+Voor informatie over het gebruik van Cryptography API: Volgende Generation (CNG)-certificaten met Configuration Manager, raadpleegt u [CNG-certificaten overzicht](cng-certificates-overview.md).
+
 
 > [!IMPORTANT]  
 > System Center Configuration Manager ondersteunt de Secure Hash-algoritme 2 (SHA-2)-certificaten. SHA-2-certificaten doen om een voordeel belangrijk beveiliging. Daarom raden we het volgende:

@@ -15,11 +15,11 @@ caps.latest.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 047ffc0953db4a4cc5d543d880136ce61fa99fa7
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: a1d9144db864d261c13992a2ef4d01223d927d88
+ms.sourcegitcommit: c4a1bafcd004638d264a93d307c70d8b6f7fe023
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="which-branch-of-configuration-manager-should-i-use"></a>Welke vertakking van Configuration Manager moet ik gebruiken?
 
@@ -147,7 +147,7 @@ Zie voor meer informatie [Technical Preview voor System Center Configuration Man
 Als u versie-informatie voor een Configuration Manager-site bekijkt, worden ook de vertakking bevestigen.
 
 **Versie**   
-Controleer de versie van uw site in de console Ga naar de **over System Center Configuration Manager** op de linkerbovenhoek van de console waar de **siteversie** wordt weergegeven. Zie [ ]() voor een lijst met versies van de site.
+Controleer de versie van uw site in de console Ga naar de **over System Center Configuration Manager** op de linkerbovenhoek van de console waar de **siteversie** wordt weergegeven. Zie [basislijn- en updateversies](/sccm/core/servers/manage/updates#bkmk_Baselines) voor een lijst met versies van de site.
 
 **Filialen**  
 Om te bevestigen dat de vertakking van uw site (als de LTSB of Current Branch) in de console gaat u naar **beheer** > **siteconfiguratie** > **Sites**, en open **hiërarchie-instellingen**. Als er een optie om te converteren naar de huidige vertakking en actief is, voert de site de LTSB-versie. Wanneer de site wordt uitgevoerd de huidige vertakking, wordt deze optie grijs weergegeven. Zie voor informatie over de verschillende versies van Configuration Manager 'basislijn- en updateversies' [Updates voor Configuration Manager](/sccm/core/servers/manage/updates).

@@ -3,7 +3,7 @@ title: 'VPN-profielen maken '
 titleSuffix: Configuration Manager
 description: Informatie over het maken van VPN-profielen in System Center Configuration Manager.
 ms.custom: 
-ms.date: 4/19/2017
+ms.date: 11/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,11 +16,11 @@ author: lleonard-msft
 caps.handback.revision: "0"
 ms.author: alleonar
 ms.manager: angrobe
-ms.openlocfilehash: 4e8a082bff8b0f734da620669ddf403c0fe3eca6
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 21fc286cdcc05244e1895ded5623d346e6cb8ebe
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="how-to-create-vpn-profiles-in-system-center-configuration-manager"></a>VPN-profielen maken in System Center Configuration Manager
 
@@ -34,16 +34,19 @@ Voor de VPN-verbindingen van derden door de VPN-app te distribueren voordat u he
 
 1.  Kies in de Configuration Manager-console **activa en naleving** > **instellingen voor naleving** > **toegang tot bedrijfsbronnen** > **VPN-profielen**.  
 
-3.  Op de **Start** tabblad, in de **maken** groep, kiest u **VPN-profiel maken**.  
+2.  Op de **Start** tabblad, in de **maken** groep, kiest u **VPN-profiel maken**.  
 
 
-1.  Voltooi de **algemene** pagina. Houd rekening met het volgende:  
+3.  Voltooi de **algemene** pagina. Houd rekening met het volgende:  
+
+    - Selecteer de relevante **Platform**.
+
+       - Als u het Windows 8.1-platform selecteert, hebt u de optie te selecteren **een bestaande VPN-profielitem uit een bestand importeren** voor VPN-profielgegevens importeren die is geëxporteerd naar een XML-bestand.
 
     - Gebruik niet de tekens \\/ :*?&lt; > &#124; of een spatie in de naam van de VPN-profiel. Deze tekens worden niet ondersteund door de Windows Server-VPN-profiel.  
 
-     -   Selecteer **een bestaande VPN-profielitem uit een bestand importeren** voor VPN-profielgegevens importeren die werd geëxporteerd naar een XML-bestand (Windows 8.1 en Windows RT alleen).  
 
-1.  Op de **verbinding** pagina:  
+4.  Op de **verbinding** pagina:  
 
     -   **Verbindingstype**: Kies het type VPN-verbinding. U kunt kiezen uit de verbindingstypen in de volgende tabel.  
 

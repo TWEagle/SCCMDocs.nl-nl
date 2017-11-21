@@ -3,7 +3,7 @@ title: Client-Peer-Cache
 titleSuffix: Configuration Manager
 description: Gebruik voor de inhoudsbron clientlocaties Peer-Cache bij het implementeren van inhoud met System Center Configuration Manager.
 ms.custom: na
-ms.date: 7/31/2017
+ms.date: 11/20/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
@@ -15,11 +15,11 @@ caps.latest.revision: "3"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 20438f51a67fb29da21c879620870caf3328121d
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 2bf8f0e5a2636ffd92f8ba1898cc4f1b250f925f
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="peer-cache-for-configuration-manager-clients"></a>Peer-Cache voor Configuration Manager-clients
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/12/2017
 U begint met System Center Configuration Manager versie 1610, kunt u **Peer-Cache** voor het beheer van de implementatie van inhoud voor clients op externe locaties. Peer-Cache is een ingebouwde Configuration Manager-oplossing waarmee clients inhoud te delen met andere clients rechtstreeks vanuit het lokale cachegeheugen.   
 
 > [!TIP]  
-> Geïntroduceerd in versie 1610, zijn Peer-Cache en het dashboard van gegevensbronnen van de Client functies van evaluatieversies. Zie zodat ze [functies van evaluatieversies van updates gebruiken](/sccm/core/servers/manage/pre-release-features).
+> Deze functie is geïntroduceerd in versie 1610 als een [functie van de voorlopige versie](/sccm/core/servers/manage/pre-release-features). Vanaf versie 1710, deze functie is niet langer een voorlopige versie.
 
 ## <a name="overview"></a>Overzicht
 Een client-Peer-Cache is een Configuration Manager-client die is ingeschakeld voor Peer-Cache gebruiken. Een client die deze inhoud met extra clients delen kunt Peer-Cache is een Peer-Cache-bron.

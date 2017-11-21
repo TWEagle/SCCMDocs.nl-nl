@@ -3,7 +3,7 @@ title: Apps beveiligen met Mobile Application Management-beleid
 titleSuffix: Configuration Manager
 description: De functionaliteit aanpassen van apps die u implementeert zodat deze voldoet aan uw bedrijf nalevings- en beveiligingsbeleid.
 ms.custom: na
-ms.date: 03/05/2017
+ms.date: 11/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 4eedd96fd399cf9577da8069bd0c8d5702f50d7b
-ms.sourcegitcommit: 922d6d9c91ba2158b938df381277be1b5f1d434a
+ms.openlocfilehash: 3365f46026178d30c9bffa5078d251186d0ffba3
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="protect-apps-using-mobile-application-management-policies-in-system-center-configuration-manager"></a>Apps in System Center Configuration Manager beveiligen met Mobile Application Management-beleid
 
@@ -134,6 +134,8 @@ Als beperkingen wilt toepassen op een app, moet de app gebruikmaken van de Micro
 |**Toegangsvereisten opnieuw controleren na (minuten)**|Hiermee geeft u de tijdsperiode op waarna de toegangsvereisten voor de app opnieuw worden gecontroleerd nadat de app wordt gestart (in de **time-out** veld).<br /><br /> In de **Offline respijtperiode** veld als het apparaat offline is, geeft u de tijdsperiode op waarna de toegangsvereisten voor de app opnieuw worden gecontroleerd.|  
 |**Appgegevens versleutelen**|Hiermee geeft u op dat alle gegevens die is gekoppeld aan deze app worden versleuteld, met inbegrip van gegevens die extern, zoals gegevens die zijn opgeslagen op de SD-kaarten zijn opgeslagen.<br /><br /> **Versleuteling voor iOS**<br /><br /> Voor apps die gekoppeld aan een mobile application management-beleid van Configuration Manager zijn, worden de gegevens versleuteld in rust met behulp van versleuteling op apparaatniveau die wordt geleverd door het besturingssysteem. Dit wordt ingeschakeld via apparaatpincodebeleid dat moet worden ingesteld door de IT-beheerder. Als een PINCODE vereist is, wordt de gegevens versleuteld volgens de instellingen in het mobile application management-beleid. Zoals vermeld in de Apple-documentatie [de modules die worden gebruikt door iOS 7 zijn FIPS 140-2 gecertificeerd](http://support.apple.com/en-us/HT202739).<br /><br /> **Versleuteling voor Android**<br /><br /> Voor apps die gekoppeld aan een mobile application management-beleid van Configuration Manager zijn, wordt versleuteling geleverd door Microsoft. Gegevens worden synchroon versleuteld tijdens bestands-I/O-bewerkingen overeenkomstig de instelling in het Mobile Application Management-beleid. Beheerde apps op Android gebruiken AES-128-versleuteling in CBC-modus waarbij de cryptografiebibliotheken van het platform worden gebruikt. De versleutelingsmethode is niet gecertificeerd volgens FIPS 140-2. Inhoud in de apparaatopslag wordt altijd versleuteld.|  
     |**Schermafbeelding blokkeren** (alleen Android-apparaten)|Hiermee wordt opgegeven dat de schermafbeeldingsmogelijkheden van het apparaat zijn geblokkeerd bij gebruik van deze app.|  
+    |**Synchronisatie van contactpersonen uitschakelen**| Vanaf versie 1710 kunt deze optie voorkomt u dat de app opslaan van gegevens in de systeemeigen contactpersonen-app op het apparaat. Als u Nee kiest, kan de app gegevens opslaan in de systeemeigen contactpersonen-app op het apparaat.|  
+    |**Afdrukken uitschakelen**| Vanaf versie 1710 kunt wordt deze optie de app vanuit afdrukken werk- of schoolgegevens. |  
 
 6)  Op de **Managed Browser** pagina, selecteert u of de beheerde browser mag alleen URL's openen in de lijst of de beheerde browser openen van URL's in de lijst en kies vervolgens **volgende**.  
 Zie voor meer informatie [internettoegang beheren met beheerde-browserbeleid](manage-internet-access-using-managed-browser-policies.md).  

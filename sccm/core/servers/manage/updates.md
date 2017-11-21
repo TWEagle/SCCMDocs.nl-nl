@@ -3,7 +3,7 @@ title: Updates
 titleSuffix: Configuration Manager
 description: Meer informatie over een in de console-servicemethode aangeroepen ** Updates en onderhoud ** waarmee u gemakkelijk om te zoeken en installeren aanbevolen updates.
 ms.custom: na
-ms.date: 07/31/2017
+ms.date: 11/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: bca724f15dc18d7273bbca122b6428b4704a5d43
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: ecd458cc5f86a65926d44481c894228bae5f5fbe
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="updates-for-system-center-configuration-manager"></a>Updates voor System Center Configuration Manager
 
@@ -75,12 +75,13 @@ De volgende versies van Configuration Manager zijn beschikbaar als basislijn, al
 
 |Versie |Beschikbaarheidsdatum|[Einddatum voor ondersteuning](/sccm/core/servers/manage/current-branch-versions-supported) |Basislijn|Update in de console|  
 |-------------|-----------|------------|--------------|------------------------|  
+|[1710](/sccm/core/plan-design/changes/whats-new-in-version-1710)<br /><br /> 5.00.8577.1000|20 november 2017|20 november 2018|Nee|Ja|
 |[1706](/sccm/core/plan-design/changes/whats-new-in-version-1706)<br /><br /> 5.00.8540.1000|31 juli 2017|31 juli 2018|Nee|Ja|
 |[1702](/sccm/core/plan-design/changes/whats-new-in-version-1702)<br /><br /> 5.00.8498.1000|27 maart 2017| 27 maart 2018|Ja|Ja|
 |[1610](/sccm/core/plan-design/changes/whats-new-in-version-1610)<br /><br /> 5.00.8458.1000|18 november 2016| 18 november 2017|Nee|Ja|
 |[1606](/sccm/core/plan-design/changes/whats-new-in-version-1606)<br /><br /> 5.00.8412.1000|22 juli 2016| 22 juli 2017|Nee|Ja|
 |[1606](/sccm/core/plan-design/changes/whats-new-in-version-1606) met het updatepakket voor 1606 hotfix (KB3186654) </br></br>5.00.8412.1307 *(Opmerking 1)* |12 oktober 2016| 12 oktober 2017|Ja|Nee|
-| 1602<br /><br /> 5.00.8355.1000|11 maart 2016| 11 maart 2017|Nee|Ja| 
+| 1602<br /><br /> 5.00.8355.1000|11 maart 2016| 11 maart 2017|Nee|Ja|
 | 1511 <br /><br /> 5.00.8325.1000|8 december 2015| 8 december 2016|Ja|Nee|  
 
 

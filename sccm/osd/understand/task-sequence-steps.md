@@ -3,7 +3,7 @@ title: Stappen voor takenreeksen
 titleSuffix: Configuration Manager
 description: Meer informatie over de takenreeksstappen die u aan een takenreeks van Configuration Manager toevoegen kunt.
 ms.custom: na
-ms.date: 03/26/2017
+ms.date: 11/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,17 +16,20 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 8bc73b8aaafa9af4e12589b2d2a742bfc18afd0e
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 02d3ca5ed494c20266125686f26b66cebcc7c2a2
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="task-sequence-steps-in-system-center-configuration-manager"></a>Stappen voor takenreeksen in System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 De volgende takenreeksstappen kunnen worden toegevoegd aan een takenreeks van Configuration Manager. Zie [Edit a task sequence](../deploy-use/manage-task-sequences-to-automate-tasks.md#BKMK_ModifyTaskSequence) (Een takenreeks bewerken) voor meer informatie over het bewerken van een takenreeks.  
+
+> [!TIP]  
+> **Ondersteuning voor Windows 10 versie 1709 (ook wel bekend als de vallen auteurs Update)**.  Vanaf deze versie van Windows, bevat Windows media meerdere edities. Bij het configureren van een takenreeks om een upgradepakket voor besturingssysteem of de installatiekopie van besturingssysteem te gebruiken, moet u selecteren een [-editie die wordt ondersteund voor gebruik door Configuration Manager](/sccm/core/plan-design/configs/support-for-windows-10#windows-10-as-a-client).
 
 
 ##  <a name="BKMK_ApplyDataImage"></a>Takenreeksstap van gegevens gegevensinstallatiekopie toepassen  
@@ -536,6 +539,22 @@ Deze takenreeksstap kan alleen in Windows PE worden uitgevoerd. De taak kan niet
  **Zorg ervoor dat de huidige OET worden vernieuwd**  
  Selecteer deze instelling om te controleren of het geïnstalleerde besturingssysteem op de doelcomputer voldoet aan de vereisten die u opgeeft. Deze instelling is standaard geselecteerd met de waarde **CLIENT**.  
 
+##  <a name="child-task-sequence"></a>Onderliggende takenreeks
+
+U kunt een nieuwe takenreeksstap waarop een andere takenreeks wordt uitgevoerd vanaf Configuration Manager versie 1710 kunt toevoegen. Hiermee maakt u een bovenliggende / onderliggende relatie tussen de takenreeksen. U kunt met een onderliggende taak seqeucne, modulaire, herbruikbare takenreeksen maken.
+
+Overweeg het volgende wanneer u een takenreeks onderliggende aan een takenreeks toevoegt:
+
+ - De bovenliggende en onderliggende takenreeksen effectief gecombineerd tot een enkele beleidsregel die de client wordt uitgevoerd.
+ - De omgeving is algemeen. Bijvoorbeeld, als een variabele is ingesteld door de takenreeks voor de bovenliggende en vervolgens worden gewijzigd door de onderliggende takenreeks wordt uitgevoerd, de variabele blijft gewijzigd zwevend doorsturen. Op dezelfde manier als de onderliggende takenreeks maakt u een nieuwe variabele, is de variabele beschikbaar voor de overige stappen in de takenreeks bovenliggende.
+ - Statusberichten worden voor een enkele takenreeksbewerking per normaal verzonden.
+ - De takenreeksen vermeldingen schrijven naar het bestand smsts.log met nieuwe logboekbestanden vermeldingen die duidelijk wanneer een onderliggende takenreeks wordt gestart.
+
+### <a name="details"></a>Details
+
+1. Klik in de takenreekseditor op **toevoegen**, selecteer **algemene**, en klik op **Takenreeks uitvoeren**.
+2. Klik op **Bladeren** naar de onderliggende takenreeks selecteren.  
+
 ##  <a name="BKMK_ConnectToNetworkFolder"></a>Verbinding maken met netwerkmap  
  Gebruik de takenreeksactie **Verbinding maken met netwerkmap** om een verbinding te maken met een gedeelde netwerkmap.  
 
@@ -745,7 +764,7 @@ Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoe
  Het fysieke schijfnummer van de schijf die wordt geformatteerd. Het nummer is gebaseerd op de rangschikking van Windows-schijfinventarisatie.  
 
  **Schijftype**  
- Het type van de schijf die wordt geformatteerd. Er zijn twee opties die u kunt selecteren in de vervolgkeuzelijst:  
+ Het type van de schijf die wordt geformatteerd. Er zijn twee opties die u kunt selecteren in de vervolgkeuzelijst: 
 
 -   Standaard(MBR) - Master Boot Record.  
 

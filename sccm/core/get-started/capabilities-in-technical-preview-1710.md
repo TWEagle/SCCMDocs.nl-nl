@@ -3,7 +3,7 @@ title: Technische Preview 1710 | Microsoft Docs
 titleSuffix: Configuration Manager
 description: Meer informatie over functies die beschikbaar zijn in de Technical Preview-versie 1710 voor System Center Configuration Manager.
 ms.custom: na
-ms.date: 10/30/2017
+ms.date: 11/20/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.reviewer: na
@@ -14,11 +14,11 @@ ms.assetid: f4706a58-1f11-4eab-b1eb-3d1a0da02d0f
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 813fdc40c4a0eb7c2dd3c1831bac1ba1667fe247
-ms.sourcegitcommit: 5437b2823bada8f8c9e67940f584953b9d190628
+ms.openlocfilehash: 309d677c0b8c692548d649346bb35bfa9d2a81f3
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="capabilities-in-technical-preview-1710-for-system-center-configuration-manager"></a>Mogelijkheden van Technical Preview 1710 voor System Center Configuration Manager
 
@@ -52,6 +52,19 @@ Dit artikel bevat de functies die beschikbaar in de Technical Preview voor Syste
  -  Task 1
  -  Task 2              
 -->
+
+## <a name="improvements-for-deploying-powershell-scripts-from-configuration-manager"></a>Verbeteringen voor het implementeren van PowerShell-Scripts uit Configuration Manager
+Met deze release ondersteuning PowerShell-scripts die u implementeert nu voor gebruik van de volgende verbeteringen: 
+- **Beveiligingsbereiken**.  Scripts gebruiken nu beveiligingsbereiken control-scripts schrijven en uitvoeren. Dit wordt gedaan via het toewijzen van de labels die gebruikersgroepen vertegenwoordigen. Zie voor meer informatie over het gebruik van beveiligingsbereiken [beheer op basis van rollen voor System Center Configuration Manager configureren](../../core/servers/deploy/configure/configure-role-based-administration.md).
+- **Realtime-controle**. Wanneer u de uitvoering van een script bewaken, het is nu in realtime als het script wordt uitgevoerd.
+- **Validatie van de parameter**. Elke parameter in het script heeft een **Script parametereigenschappen** dialoogvenster u validatie voor deze parameter. Na het toevoegen van validatie moet er treden fouten als u een waarde opgeeft voor een parameter die niet aan de validatie voldoet.
+
+Implementatie van de PowerShell-scripts is geïntroduceerd in Technical Preview [technische Preview 1706](/sccm/core/get-started/capabilities-in-technical-preview-1706#create-and-run-powershell-scripts-from-the-configuration-manager-console). Aanvullende verbeteringen zijn geleverd bij [technische Preview 1707](/sccm/core/get-started/capabilities-in-technical-preview-1707#add-parameters-when-you-deploy-powershell-scripts-from-configuration-manager) en vervolgens [technische Preview 1708](/sccm/core/get-started/capabilities-in-technical-preview-1708#improvements-for-specifying-script-parameters-when-you-deploy-powershell-scripts-from-configuration-manager).
+
+
+### <a name="try-it-out"></a>Probeer het nu!
+
+Als u wilt uitproberen met de functie Scripts uitvoeren, Zie [maken en uitvoeren van scripts](../../apps/deploy-use/create-deploy-scripts.md).
 
 
 
@@ -116,7 +129,7 @@ Beheerde apparaten Windows 10 1709 vallen auteurs Update moeten worden uitgevoer
 Nadat u beleid ter voorkoming van misbruik gemaakt, gebruikt u de wizard misbruiken Guard-beleid implementeren voor de implementatie ervan. Om dit te doen, opent u de Configuration Manager-console naar **activa en naleving** > **Endpoint Protection**, en klik vervolgens op **misbruiken Guard-beleid implementeren**.
 
 ## <a name="limited-support-for-cng-certificates"></a>Beperkte ondersteuning voor CNG-certificaten
-<!-- 1356191 --> 
+<!-- 1356191 -->
 Vanaf deze release kunt u nu kunt [Cryptography API: Next Generation (CNG)](https://msdn.microsoft.com/library/windows/desktop/bb204775.aspx) certificaatsjablonen voor de volgende scenario's:
 
 - Clientregistratie en -communicatie met een HTTPS-beheerpunt.   
@@ -184,13 +197,13 @@ Volg deze stappen zodat een apparaat met Windows Defender SmartScreen vertrouwde
 ## <a name="configure-and-deploy-windows-defender-application-guard-policies----1351960---"></a>Windows Defender toepassing Guard beleid configureren en implementeren<!-- 1351960 -->
 
 [Windows Defender toepassing Guard](https://blogs.windows.com/msedgedev/2016/09/27/application-guard-microsoft-edge/#XLxEbcpkuKcFebrw.97) is een nieuwe Windows-functie die voorkomen dat uw gebruikers via niet-vertrouwde websites in een beveiligde geïsoleerde container die is niet toegankelijk voor andere onderdelen van het besturingssysteem. In deze technical preview ondersteuning voor het configureren van deze functie met Configuration Manager-instellingen voor naleving die u configureert en vervolgens implementeert op een verzameling toegevoegd. Deze functie worden uitgebracht Preview-versie voor de 64-bits versie van de Windows 10-Creator Update (codename: RS2). Als u wilt testen van dit onderdeel nu moet u een preview-versie van deze update.
- 
+
 ### <a name="before-you-start"></a>Voordat u begint
 Voor het maken en implementeren van beleid voor Windows Defender toepassing Guard, moeten de Windows 10-apparaten waarop u het beleid implementeert worden geconfigureerd met een beleid voor het isoleren van netwerken. Zie de blog post waarnaar wordt verwezen later voor meer informatie. Deze functie werkt alleen met huidige Insider voor Windows 10-builds. Als u wilt testen, moeten uw clients worden uitgevoerd een recente Windows 10 Insider niet maken.
 
 ### <a name="try-it-out"></a>Probeer het nu!
 
-Als u wilt de basisbeginselen over Windows Defender toepassing Guard lezen [het blogbericht]((https://blogs.windows.com/msedgedev/2016/09/27/application-guard-microsoft-edge/#XLxEbcpkuKcFebrw.97)).
+Als u wilt de basisbeginselen over Windows Defender toepassing Guard lezen [het blogbericht](https://blogs.windows.com/msedgedev/2016/09/27/application-guard-microsoft-edge/#XLxEbcpkuKcFebrw.97).
 
 Een beleid maken en om te bladeren, de beschikbare instellingen:
 1. In de **Configuration Manager** console, kiest u **activa en naleving**.
@@ -202,7 +215,7 @@ Een beleid maken en om te bladeren, de beschikbare instellingen:
     > [!NOTE]
     > Windows 10-computers opslaan slechts één netwerk isolatie lijst op de client. In deze release kunt u twee soorten netwerk isolatie lijsten (vanaf Windows Information Protection en vanaf Windows Defender toepassing Guard) maken en implementeren naar de client. Als u beide beleidsregels implementeren, moeten deze netwerk isolatie lijsten overeenkomen. Als u lijsten die niet met dezelfde client overeenkomen implementeert, mislukt de implementatie.
 
-    U vindt meer informatie over het opgeven van netwerkdefinities in het [documentatie van Windows-gegevensbeveiliging](https://docs.microsoft.com/windows/threat-protection/windows-information-protection/create-wip-policy-using-sccm). 
+    U vindt meer informatie over het opgeven van netwerkdefinities in het [documentatie van Windows-gegevensbeveiliging](https://docs.microsoft.com/windows/threat-protection/windows-information-protection/create-wip-policy-using-sccm).
 
 6. Wanneer u klaar bent, voltooi de wizard en implementeer het beleid voor een of meer Windows 10-apparaten.
 

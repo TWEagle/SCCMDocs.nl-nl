@@ -3,7 +3,7 @@ title: Toepassingen maken
 titleSuffix: Configuration Manager
 description: Maken en implementeren van toepassingen en implementatietypen met System Center Configuration Manager.
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 11/07/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: 6896a4905b9eecf520dae2c887100df472963356
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: f680b692f3ae92fb8a5e8b6640ed053ceedba436
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="create-applications-with-system-center-configuration-manager"></a>Toepassingen maken met System Center Configuration Manager
 
@@ -119,7 +119,7 @@ De nieuwe toepassing wordt weergegeven in de **toepassingen** knooppunt van de C
 
     -   **Trefwoorden**--Geef een lijst met trefwoorden in de taal die u hebt geselecteerd in de **geselecteerde taal** vervolgkeuzelijst. Deze trefwoorden helpen gebruikers van Software Center zoeken naar de toepassing.  
 
-    -   **Pictogram**--kiezen **Bladeren** selecteren van een pictogram voor deze toepassing uit de beschikbare pictogrammen. Als u geen pictogram opgeeft, wordt een standaardpictogram gebruikt voor deze toepassing.  
+    -   **Pictogram**--kiezen **Bladeren** selecteren van een pictogram voor deze toepassing uit de beschikbare pictogrammen. Als u geen pictogram opgeeft, wordt een standaardpictogram gebruikt voor deze toepassing. U kunt nu een pictogram met een afmetingen in pixels van maximaal 512 x 512 instellen.
 
     -   **Geef deze App weer als aanbevolen app en markeer deze in de bedrijfsportal**--Selecteer deze optie om de app prominent wilt weergeven in de bedrijfsportal.  
 

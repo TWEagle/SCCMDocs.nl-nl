@@ -3,7 +3,7 @@ title: Siteherstel
 titleSuffix: Configuration Manager
 description: Informatie over het herstellen van uw sites in System Center Configuration Manager.
 ms.custom: na
-ms.date: 6/5/2017
+ms.date: 11/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.latest.revision:
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 96785ea5abcb4ae67952ad8243c36bf6b238daca
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 497860c9b5698271d7ca6e4683e99350100f596f
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/21/2017
 ---
 #  <a name="recover-a-configuration-manager-site"></a>Een Configuration Manager-site herstellen
 
@@ -30,6 +30,12 @@ Een Configuration Manager uitvoeren siteherstel nadat een Configuration Manager-
 De secties in dit onderwerp kunt u een Configuration Manager-site te herstellen. Zie het maken van een back-up [voor Configuration Manager back-](/sccm/protect/understand/backup-and-recovery).
 
 ## <a name="considerations-before-recovering-a-site"></a>Overwegingen voor het herstellen van een site
+> [!Important]  
+> Deze informatie geldt alleen voor de site herstelscenario's.  Wanneer u een upgrade van uw on-premises infrastructuur en het herstellen van een mislukte site niet actief, lees de informatie in de volgende onderwerpen:
+> - [On-premises infrastructuur upgraden](/sccm/core/servers/manage/upgrade-on-premises-infrastructure)
+> - [Uw infrastructuur wijzigen](/sccm/core/servers/manage/modify-your-infrastructure)
+
+
 **U moet dezelfde versie en editie van SQL Server gebruiken:** Bijvoorbeeld: terugzetten van een database die is uitgevoerd op SQL Server 2014 naar SQL Server 2016 wordt niet ondersteund. Op deze manier wordt terugzetten van een sitedatabase die is uitgevoerd op een Standard-editie van SQL Server 2016 naar een Enterprise-editie van SQL Server 2016 niet ondersteund.
 -   SQL Server moet niet worden ingesteld op **modus voor één gebruiker**.
 -   Controleer of de .MDF- en .LDF-bestanden geldig zijn. Wanneer u een site herstelt, is er geen controle voor de status van de bestanden die u wilt herstellen.
@@ -124,7 +130,7 @@ Nadat een sitedatabase is hersteld van een back-up, probeert de Configuration Ma
 Gebruik een van de volgende procedures om u te helpen uw siteserver en sitedatabase te herstellen.
 
 ### <a name="to-start-a-site-recovery-in-the-setup-wizard"></a>Een siteherstel in de Installatiewizard starten
-1.  Kopieer de [CD. Meest recente map](/sccm/core/servers/manage/the-cd.latest-folde) naar een locatie buiten de installatiemap van Configuration Manager.
+1.  Kopieer de [CD. Meest recente map](/sccm/core/servers/manage/the-cd.latest-folder) naar een locatie buiten de installatiemap van Configuration Manager.
 Via de kopie van de CD. Meest recente map, voer de installatiewizard van Configuration Manager.
 
 2.  Op de pagina **Aan de slag** selecteert u **Een site herstellen**en klikt u vervolgens op **Volgende**.

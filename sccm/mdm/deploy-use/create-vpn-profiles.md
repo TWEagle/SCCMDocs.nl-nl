@@ -3,7 +3,7 @@ title: VPN-profielen
 titleSuffix: Configuration Manager
 description: VPN-profielen op mobiele apparaten in System Center Configuration Manager.
 ms.custom: na
-ms.date: 07/26/2017
+ms.date: 11/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
-ms.openlocfilehash: 40446ce656bd446f890b9b1349ab0b95742cadb8
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: b60a1b9e85b00cbaba54db4ea4cd92a1038c3fcf
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="vpn-profiles-on-mobile-devices-in-system-center-configuration-manager"></a>VPN-profielen op mobiele apparaten in System Center Configuration Manager
 
@@ -71,8 +71,8 @@ VPN-profielen in System Center Configuration Manager voor het VPN-instellingen i
 > [!IMPORTANT]
 > Het is raadzaam dat u alle lijsten met gekoppelde apps die u voor gebruik in de configuratie van per-app VPN compileert, beveiligt. Als een onbevoegde gebruiker uw lijst wijzigt en u deze naar de app-lijst per app VPN importeren, wordt u mogelijk machtigt u VPN-toegang tot apps die geen toegang mogen hebben. Er is een manier die u kunt een lijst met Apps beveiligen met behulp van een toegangsbeheerlijst (ACL).
 
-
-1.  Op de **verificatiemethode** pagina van de wizard opgeven:  
+1. Op de **ondersteunde Platforms** pagina van de **Wizard VPN-profiel**, selecteer de besturingssystemen waarop het VPN-profiel wordt geïnstalleerd of kies **Alles selecteren** voor het installeren van het VPN-profiel op alle beschikbare besturingssystemen.  
+2.  Op de **verificatiemethode** pagina van de wizard opgeven:  
 
     -   **Verificatiemethode**: Selecteer de verificatiemethode die door de VPN-verbinding wordt gebruikt. Beschikbare methoden, is afhankelijk van het verbindingstype zoals weergegeven in deze tabel.  
 
@@ -112,46 +112,13 @@ VPN-profielen in System Center Configuration Manager voor het VPN-instellingen i
 
          Wanneer wordt ondersteund door de versie van Windows die wordt uitgevoerd van Configuration Manager _en_ de geselecteerde autorisatiemethode die u kunt kiezen **configureren** opent het dialoogvenster Eigenschappen van Windows en configureren van eigenschappen verificatiemethode.  Als **configureren** is uitgeschakeld, een andere methode gebruiken voor het configureren van eigenschappen verificatiemethode.
 
-2.  Op de **Proxy-instellingen** pagina van de **Wizard VPN-profiel**, Controleer de **proxy-instellingen voor dit VPN-profiel configureren** vak als uw VPN-verbinding gebruikmaakt van een proxyserver. Vervolgens de proxy-serverinformatie opgeven. Raadpleeg de Windows Server-documentatie voor meer informatie.  
+3.  Op de **Proxy-instellingen** pagina van de **Wizard VPN-profiel**, Controleer de **proxy-instellingen voor dit VPN-profiel configureren** vak als uw VPN-verbinding gebruikmaakt van een proxyserver. Vervolgens de proxy-serverinformatie opgeven. Raadpleeg de Windows Server-documentatie voor meer informatie.  
 
     > [!NOTE]  
     >  Op computers met Windows 8.1, wordt het VPN-profiel niet de proxy-informatie weergegeven totdat u een verbinding met de VPN-verbinding maken met behulp van die computer.  
 
 
-3. Meer DNS-instellingen configureren (indien nodig).  
- Op de **automatische VPN-verbinding configureren** pagina kunt u het volgende configureren:  
-
-    -   **VPN op aanvraag inschakelen**: Gebruik deze optie als u wilt meer DNS-instellingen voor Windows Phone 8.1-apparaten configureren. Deze instelling geldt alleen voor Windows Phone 8.1-apparaten en moet alleen worden ingeschakeld voor VPN-profielen die op Windows Phone 8.1-apparaten kunnen worden geïmplementeerd.
-
-    -   **Lijst met DNS-achtervoegsels** (alleen Windows Phone 8.1-apparaten): Hiermee configureert u domeinen die een VPN-verbinding tot stand brengen. Voor elk domein dat u opgeeft, voegt u het DNS-achtervoegsel, het DNS-serveradres en een van de volgende acties voor op aanvraag:  
-
-        -   **Nooit verbinding maken**: Open nooit een VPN-verbinding.  
-
-        -   **Verbinding maken indien nodig**: Alleen een VPN-verbinding openen als het apparaat verbinding moet maken met resources.  
-
-        -   **Altijd verbinding maken**: Altijd de VPN-verbinding openen.  
-
-    -   **Samenvoegen**: Kopieert alle DNS-achtervoegsels die u hebt geconfigureerd voor de **lijst met vertrouwde netwerken**.  
-
-    -   **Lijst met vertrouwde netwerken** (alleen Windows Phone 8.1-apparaten): Geef per regel één DNS-achtervoegsel. Als het apparaat zich in een vertrouwd netwerk bevindt, wordt de VPN-verbinding niet geopend.  
-
-    -   **Zoeklijst voor achtervoegsels** (alleen Windows Phone 8.1-apparaten): Geef per regel één DNS-achtervoegsel. Elke DNS-achtervoegsel wordt doorzocht wanneer met behulp van een korte naam verbinding te maken met een website.  
-
-     Geef bijvoorbeeld de DNS-achtervoegsels **domain1.contoso.com** en **domain2.contoso.com**, en gaat u naar de URL **http://mywebsite**. De volgende adressen worden doorzocht:  
-
-    -   **http://mywebsite.domain1.contoso.com**  
-
-    -   **http://mywebsite.domain2.contoso.com**  
-
-    > [!NOTE]  
-    >  Alleen voor apparaten met Windows Phone 8.1  
-    >   
-    >  Wanneer de *alle netwerkverkeer via de VPN-verbinding verzenden* optie is geselecteerd *en* gebruikmaakt van de VPN-verbinding volledige tunneling gebruikt, de VPN-verbinding automatisch geopend met behulp van het profiel van het eerste apparaat. Wilt openen een verbinding met een ander profiel, stelt u het gewenste profiel als standaardwaarde.  
-    >   
-    >  Wanneer de *alle netwerkverkeer via de VPN-verbinding verzenden* optie is *niet* geselecteerde *en* gebruikmaakt van de VPN-verbinding split tunneling, VPN-verbindingen voor geconfigureerde routes of verbindingsspecifieke DNS-achtervoegsels automatisch geopend.  
-
-
-4. Op de **ondersteunde Platforms** pagina van de **Wizard VPN-profiel**, selecteer de besturingssystemen waarop het VPN-profiel wordt geïnstalleerd of kies **Alles selecteren** voor het installeren van het VPN-profiel op alle beschikbare besturingssystemen.  
+4. Meer DNS-instellingen configureren (indien nodig).  
 
 5. Sluit de wizard af. De **VPN-profielen** knooppunt in de **activa en naleving** werkruimte ziet u het nieuwe VPN-profiel.  
 

@@ -3,9 +3,9 @@ title: Takenreeksen beheren om taken te automatiseren
 titleSuffix: Configuration Manager
 description: U kunt maken, bewerken, implementeren, importeren en exporteren van takenreeksen om ze in uw System Center Configuration Manager-omgeving te beheren.
 ms.custom: na
-ms.date: 03/24/2017
+ms.date: 11/15/2017
 ms.prod: configuration-manager
-ms.reviewer: na
+ms.reviewer: nac
 ms.suite: na
 ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ caps.latest.revision: "10"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 0174a95f1d3a487cab66d8152a3de70d91b07635
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 44e6afbfac3ef1e8318991854c8fdd22ead4c6ed
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="manage-task-sequences-to-automate-tasks-in-system-center-configuration-manager"></a>Takenreeksen beheren om taken te automatiseren in System Center Configuration Manager
 
@@ -446,6 +446,22 @@ U kunt per computer variabelen op een primaire site of op een centrale beheersit
 5.  Geef eventueel de prioriteit voor Configuration Manager moet worden gebruikt wanneer de takenreeksvariabelen worden beoordeeld.  
 
 6.  Wanneer u alle variabelen aan de verzameling hebt toegevoegd, klikt u op **OK**.  
+
+## <a name="add-child-task-sequences-to-a-task-sequence"></a>Takenreeksen onderliggende toevoegen aan een takenreeks
+
+U kunt een nieuwe takenreeksstap waarop een andere takenreeks wordt uitgevoerd vanaf Configuration Manager versie 1710 kunt toevoegen. Hiermee maakt u een bovenliggende / onderliggende relatie tussen de takenreeksen. Hiermee kunt u meer modulaire takenreeksen maken die u opnieuw kunt gebruiken.
+
+Overweeg het volgende wanneer u een takenreeks onderliggende aan een takenreeks toevoegt:
+
+ - De bovenliggende en onderliggende takenreeksen effectief gecombineerd tot een enkele beleidsregel die de client wordt uitgevoerd.
+ - De omgeving is algemeen. Bijvoorbeeld, als een variabele is ingesteld door de takenreeks voor de bovenliggende en vervolgens worden gewijzigd door de onderliggende takenreeks wordt uitgevoerd, de variabele blijft gewijzigd zwevend doorsturen. Op dezelfde manier als de onderliggende takenreeks maakt u een nieuwe variabele, is de variabele beschikbaar voor de overige stappen in de takenreeks bovenliggende.
+ - Statusberichten worden voor een enkele takenreeksbewerking per normaal verzonden.
+ - De takenreeksen vermeldingen schrijven naar het bestand smsts.log met nieuwe logboekbestanden vermeldingen die duidelijk wanneer een onderliggende takenreeks wordt gestart.
+
+### <a name="to-add-a-child-task-sequence-to-a-task-sequence"></a>Een takenreeks onderliggende toevoegen aan een takenreeks
+
+1. Klik in de takenreekseditor op **toevoegen**, selecteer **algemene**, en klik op **Takenreeks uitvoeren**.
+2. Klik op **Bladeren** naar de onderliggende takenreeks selecteren.  
 
 ##  <a name="BKMK_AdditionalActionsTS"></a> Aanvullende acties voor het beheren van takenreeksen  
  U kunt takenreeksen beheren door middel van extra acties wanneer u een takenreeks selecteert.  

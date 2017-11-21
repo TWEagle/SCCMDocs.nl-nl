@@ -3,7 +3,7 @@ title: Pre-release functies
 titleSuffix: Configuration Manager
 description: Functies van evaluatieversies in System Center Configuration Manager
 ms.custom: na
-ms.date: 7/31/2017
+ms.date: 11/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.latest.revision: "36"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 6d7ec308aa465f2b715ce51b8c6bbbe59faaf2cb
-ms.sourcegitcommit: b36f8c8b06e4b2e13f8c1500a82af79a071ab4f6
+ms.openlocfilehash: 299f0cd71b1aac80a1e226a0fa035f323aed38cb
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="pre-release-features-in-system-center-configuration-manager"></a>Functies van evaluatieversies in System Center Configuration Manager
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
@@ -53,7 +53,7 @@ Als u toestemming op een zelfstandige primaire site hebt opgegeven en vouw vervo
 | Guard Apparaatbeheer met Configuration Manager |  [Versie 1702](/sccm/protect/deploy-use/use-device-guard-with-configuration-manager)|![Nog niet](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
 | Controleer voor het uitvoeren van uitvoerbare bestanden voordat u een toepassing installeert  |   [Versie 1702](/sccm/apps/deploy-use/deploy-applications#how-to-check-for-running-executable-files-before-installing-an-application) |[Versie 1706](/sccm/apps/deploy-use/deploy-applications#how-to-check-for-running-executable-files-before-installing-an-application)|
 | Datawarehouse-servicepunt  |  [Versie 1702](/sccm/core/servers/manage/data-warehouse) |[Versie 1706](/sccm/core/servers/manage/data-warehouse)|
-| Peer-Cache voor de distributie van inhoud aan clients |  [Versie 1610](/sccm/core/plan-design/hierarchy/client-peer-cache) |![Nog niet](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
+| Peer-Cache voor de distributie van inhoud aan clients |  [Versie 1610](/sccm/core/plan-design/hierarchy/client-peer-cache) | [Versie 1710](/sccm/core/plan-design/hierarchy/client-peer-cache)|
 | Beheergateway cloud |  [Versie 1610](/sccm/core/clients/manage/plan-cloud-management-gateway) |![Nog niet](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
 | Client gegevensbronnen dashboard |  [Versie 1610](/sccm/core/servers/deploy/configure/monitor-content-you-have-distributed#client-data-sources-dashboard) |![Nog niet](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
 | Microsoft Operations Management Suite-Connector  | [Versie 1606](../../../core/clients/manage/sync-data-microsoft-operations-management-suite.md) |![Nog niet](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
