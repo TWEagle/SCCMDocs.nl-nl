@@ -27,10 +27,11 @@
 ###  [Functies en mogelijkheden](plan-design/changes/features-and-capabilities.md)
 ###  [Wat is er veranderd in vergelijking met Configuration Manager 2012](plan-design/changes/what-has-changed-from-configuration-manager-2012.md)
 ###  [Wat is er nieuw in incrementele versies](plan-design/changes/whats-new-incremental-versions.md)
+###  [Wat is er nieuw in versie 1710](plan-design/changes/whats-new-in-version-1710.md)
 ###  [Wat is er nieuw in versie 1706](plan-design/changes/whats-new-in-version-1706.md)
 ###  [Wat is er nieuw in versie 1702](plan-design/changes/whats-new-in-version-1702.md)
-###  [Wat is er nieuw in versie 1610](plan-design/changes/whats-new-in-version-1610.md)
 <!--
+###  [What's new in version 1610](plan-design/changes/whats-new-in-version-1610.md)
 ###  [What's new in version 1606](plan-design/changes/whats-new-in-version-1606.md)
 ###  [What's new in version 1602](plan-design/changes/whats-new-in-version-1602.md)
 -->
@@ -74,14 +75,15 @@
 ###  [Windows-servers voorbereiden voor de ondersteuning van sitesystemen](plan-design/network/prepare-windows-servers.md)
 ###  [Websites voor sitesysteemservers](plan-design/network/websites-for-site-system-servers.md)
 ###  [Vereisten voor PKI-certificaten](plan-design/network/pki-certificate-requirements.md)
+###  [Overzicht van de CNG-certificaten](plan-design/network/cng-certificates-overview.md)
 
 ##   [Diagnostische gegevens en gebruiksgegevens](plan-design/diagnostics/diagnostics-and-usage-data.md)
 ###  [Hoe diagnostische gegevens en gebruiksgegevens worden gebruikt](plan-design/diagnostics/how-diagnostics-and-usage-data-is-used.md)
+###  [Diagnostische gegevens voor 1710](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1710.md)
 ###  [Diagnostische gegevens voor 1706](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1706.md)
 ###  [Diagnostische gegevens voor 1702](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1702.md)
-###  [Diagnostische gegevens voor 1610](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1610.md)
-
 <!--
+###  [Diagnostic data for 1610](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1610.md)
 ###  [Diagnostic data for 1606](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1606.md)
 ###  [Diagnostic data for 1602](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1602.md)
 ###  [Diagnostic data for 1511](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1511.md)
@@ -228,10 +230,11 @@
 ###  [Het hulpprogramma voor serviceverbindingen gebruiken](servers/manage/use-the-service-connection-tool.md)
 ###  [Het hulpprogramma Registratie bijwerken gebruiken](servers/manage/use-the-update-registration-tool-to-import-hotfixes.md)
 ###  [Het installatieprogramma voor hotfixes gebruiken](servers/manage/use-the-hotfix-installer-to-install-updates.md)
+###  [Controlelijst voor het installeren van update 1710](servers/manage/checklist-for-installing-update-1710.md)
 ###  [Controlelijst voor het installeren van update 1706](servers/manage/checklist-for-installing-update-1706.md)
 ###  [Controlelijst voor het installeren van update 1702](servers/manage/checklist-for-installing-update-1702.md)
-###  [Controlelijst voor het installeren van update 1610](servers/manage/checklist-for-installing-update-1610.md)
 <!-- Deprecated from Content - still published but out of TOC:
+###  [Checklist for installing update 1610](servers/manage/checklist-for-installing-update-1610.md)
 ###  [Checklist for installing update 1606](servers/manage/checklist-for-installing-update-1606.md)
 ###  [Checklist for installing update 1602](servers/manage/checklist-for-installing-update-1602.md)
 -->
@@ -305,6 +308,10 @@
 ###  [Clients voor Linux- en UNIX-servers beheren](clients/manage/manage-clients-for-linux-and-unix-servers.md)
 ###  [Gegevens synchroniseren met OMS](clients/manage/sync-data-microsoft-operations-management-suite.md)
 ###  [Mac-clients onderhouden](clients/manage/maintain-mac-clients.md)
+
+##   [Co-beheer voor Windows 10-apparaten](clients/manage/co-management-overview.md)
+###  [Windows 10-apparaten voorbereiden op co-beheer](clients/manage/co-management-prepare.md)
+###  [Configuration Manager-workloads overschakelen naar Intune](clients/manage/co-management-switch-workloads.md)
 
 ##   [Clients op internet beheren](clients/manage/manage-clients-internet.md)
 ###  [Een cloudbeheergateway plannen](clients/manage/plan-cloud-management-gateway.md)

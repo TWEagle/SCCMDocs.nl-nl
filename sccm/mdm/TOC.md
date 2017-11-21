@@ -72,6 +72,7 @@
 
 ## [Voorwaardelijke toegang beheren](deploy-use/manage-access-to-services.md)
 ### [Nalevingsbeleid voor apparaten](deploy-use/device-compliance-policies.md)
+#### [Acties voor niet-nageleefd](deploy-use/actions-for-noncompliance.md)
 ### [Een nalevingsbeleid voor apparaten maken](deploy-use/create-compliance-policy.md)
 ### [Toegang tot e-mail beheren](deploy-use/manage-email-access.md)
 ### [Toegang tot SharePoint Online beheren](deploy-use/manage-sharepoint-online-access.md)
