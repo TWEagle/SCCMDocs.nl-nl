@@ -10,15 +10,15 @@ ms.prod: configuration-manager
 ms.service: 
 ms.technology: 
 ms.assetid: d6bbc787-83a5-44b4-ad64-016e5da7413f
-ms.openlocfilehash: e05c82be9bffd213d0452565e5c91cb008cbb5ff
-ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
+ms.openlocfilehash: c0a577c6076630f0615f953091f35c4f3c2d0a7d
+ms.sourcegitcommit: 536f7295e9ea361f1f9ead6c25f3685deb041ad8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/21/2017
 ---
 # <a name="co-management-for-windows-10-devices"></a>CO-beheer voor Windows 10-apparaten    
 <!-- 1350871 -->
-Veel klanten willen beheren van Windows 10-apparaten op dezelfde manier beheren van mobiele apparaten met behulp van een vereenvoudigde en lagere kosten, cloud-gebaseerde oplossing. Echter, het overschakelen van traditionele management naar moderne management kan lastig zijn. Beginnen met het Windows 10 versie 1607 (ook wel bekend als de verjaardag Update), u kunt deelnemen aan een Windows 10-apparaten met on-premises Active Directory (AD) en Azure AD cloud-gebaseerd op hetzelfde moment (hybride Azure AD). Beginnen met Configuration Manager versie 1710, mede management maakt gebruik van deze verbetering en kunt u gelijktijdig Windows 10-apparaten beheren met behulp van zowel Configuration Manager en Intune. Het is een oplossing waarmee een verbinding met traditionele naar moderne management biedt en u een pad voor de overgang met behulp van een gefaseerde benadering. 
+Veel klanten willen beheren van Windows 10-apparaten op dezelfde manier beheren van mobiele apparaten met behulp van een vereenvoudigde en lagere kosten, cloud-gebaseerde oplossing. Echter, het overschakelen van traditionele management naar moderne management kan lastig zijn. In Windows 10 versie 1709 (ook wel bekend als de vallen auteurs Update) en hoger, u kunt deelnemen aan een Windows 10-apparaten met on-premises Active Directory (AD) en Azure AD cloud-gebaseerd op hetzelfde moment (hybride Azure AD). Beginnen met Configuration Manager versie 1710, mede management maakt gebruik van deze verbetering en kunt u gelijktijdig Windows 10-apparaten beheren met behulp van zowel Configuration Manager en Intune. Het is een oplossing waarmee een verbinding met traditionele naar moderne management biedt en u een pad voor de overgang met behulp van een gefaseerde benadering. 
 
 Er zijn twee belangrijkste paden naar CO management bereiken.  Een is Configuration Manager ingerichte mede management waarbij Windows 10-apparaten worden beheerd door Configuration Manager en hybride Azure AD lid ophalen ingeschreven bij Intune. De andere is Intune ingericht op apparaten die zijn ingeschreven bij Intune en vervolgens worden geïnstalleerd met het bereik van de client Configuration Manager een CO-management-status.  
 
@@ -84,4 +84,4 @@ Wanneer een apparaat met Windows 10 is ingeschakeld voor het beheer van CO, hebt
 - [Nieuwe start](https://docs.microsoft.com/intune/device-fresh-start)
 
 ## <a name="next-steps"></a>Volgende stappen
-[Windows 10-apparaten voor het beheer van CO voorbereiden](co-management-prepare.md)
+[Windows 10-apparaten voorbereiden op co-beheer](co-management-prepare.md)
