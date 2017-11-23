@@ -3,7 +3,7 @@ title: Huidige vertakking versies
 titleSuffix: Configuration Manager
 description: Bekijk de versiegeschiedenis van de van System Center Configuration Manager en meer informatie over de fasen geboden.
 ms.custom: na
-ms.date: 11/20/2017
+ms.date: 11/22/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,11 +16,11 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 robots: noindex,nofollow
-ms.openlocfilehash: 628c01d3f746155076e5bab68a38c0a50c73697d
-ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
+ms.openlocfilehash: 8909c4de81ef0ca914120a67be1634380dc50c53
+ms.sourcegitcommit: 29196ffba45b16b2b6a2dc71de981dead850c41c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="support-for-system-center-configuration-manager-current-branch-versions"></a>Ondersteuning voor de huidige vertakking-versies van System Center Configuration Manager
 
@@ -44,9 +44,9 @@ Afbeelding 1. Voorbeeld van de overlapping van de cyclus release voor de huidige
 
  **Versiegeschiedenis**  
 
-|Versie|Beschikbaarheidsdatum|Einddatum voor ondersteuning|  
+|Versie |Beschikbaarheidsdatum |Einddatum voor ondersteuning|  
 |-------------|-----------------------|----------------------|  
-|1710|20 november 2017|20 november 2018|
+|1710|20 november 2017|20 mei 2019 |
 |1706|31 juli 2017|31 juli 2018|
 |1702|27 maart 2017|27 maart 2018|
 |1610|18 november 2016|18 november 2017|
