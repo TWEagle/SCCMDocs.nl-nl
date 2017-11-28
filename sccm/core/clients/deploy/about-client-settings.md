@@ -527,7 +527,7 @@ Hiermee peer-cache voor Configuration Manager-clients. Geef vervolgens de poorti
 
     -   Kies de **nieuw** pictogram toevoegen van een nieuw bestandstype aan inventaris. Geef vervolgens de volgende informatie in de **eigenschappen geïnventariseerd bestand** in het dialoogvenster:  
 
-        -   **Naam**: Geef een naam voor het bestand dat u wilt inventariseren. U kunt de * *\**  teken om weer te geven welke tekst van tekenreeksen en de **?** teken om om het even welk enkelvoudig teken voor te stellen. Bijvoorbeeld, als u inventariseren van alle bestanden met de extensie .doc wilt, de bestandsnaam opgeven  **\*.doc**.  
+        -   **Naam**: Geef een naam voor het bestand dat u wilt inventariseren. U kunt de **\** teken om weer te geven welke tekst van tekenreeksen en de **?** teken om om het even welk enkelvoudig teken voor te stellen. Bijvoorbeeld, als u inventariseren van alle bestanden met de extensie .doc wilt, de bestandsnaam opgeven  **\*.doc**.  
 
         -   **Locatie**: Kies **ingesteld** openen de **padeigenschappen** in het dialoogvenster. U kunt software-inventaris om te zoeken alle harde schijven voor het opgegeven bestand, zoek een opgegeven pad (bijvoorbeeld **C:\Folder**), of zoeken naar een opgegeven variabele (bijvoorbeeld *% windir %*). U kunt ook zoeken in alle Deelmappen onder het opgegeven pad.  
 
@@ -550,7 +550,7 @@ Hiermee peer-cache voor Configuration Manager-clients. Geef vervolgens de poorti
 
     -   Voer, in het dialoogvenster **Eigenschappen verzameld bestand** , de volgende informatie in:  
 
-        -   **Naam**: Geef een naam voor het bestand dat u wilt verzamelen. U kunt de * *\**  teken om weer te geven welke tekst van tekenreeksen en de **?** teken om om het even welk enkelvoudig teken voor te stellen.  
+        -   **Naam**: Geef een naam voor het bestand dat u wilt verzamelen. U kunt de **\** teken om weer te geven welke tekst van tekenreeksen en de **?** teken om om het even welk enkelvoudig teken voor te stellen.  
 
         -   **Locatie**: Kies **ingesteld** openen de **padeigenschappen** in het dialoogvenster. U kunt software-inventaris om te zoeken naar alle harde schijven voor het bestand dat u wilt verzamelen, zoek een opgegeven pad (bijvoorbeeld **C:\Folder**), of zoeken naar een opgegeven variabele (bijvoorbeeld *% windir %*). U kunt ook zoeken in alle Deelmappen onder het opgegeven pad.  
 
