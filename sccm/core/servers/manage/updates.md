@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: ecd458cc5f86a65926d44481c894228bae5f5fbe
-ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
+ms.openlocfilehash: 5dff8641767270272bc671f19841214a141b1ea3
+ms.sourcegitcommit: ccf28bcc317f0e3cee49dae2d5b6a999ff11e956
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="updates-for-system-center-configuration-manager"></a>Updates voor System Center Configuration Manager
 
@@ -75,7 +75,7 @@ De volgende versies van Configuration Manager zijn beschikbaar als basislijn, al
 
 |Versie |Beschikbaarheidsdatum|[Einddatum voor ondersteuning](/sccm/core/servers/manage/current-branch-versions-supported) |Basislijn|Update in de console|  
 |-------------|-----------|------------|--------------|------------------------|  
-|[1710](/sccm/core/plan-design/changes/whats-new-in-version-1710)<br /><br /> 5.00.8577.1000|20 november 2017|20 november 2018|Nee|Ja|
+|[1710](/sccm/core/plan-design/changes/whats-new-in-version-1710)<br /><br /> 5.00.8577.1000|20 november 2017|20 mei 2019|Nee|Ja|
 |[1706](/sccm/core/plan-design/changes/whats-new-in-version-1706)<br /><br /> 5.00.8540.1000|31 juli 2017|31 juli 2018|Nee|Ja|
 |[1702](/sccm/core/plan-design/changes/whats-new-in-version-1702)<br /><br /> 5.00.8498.1000|27 maart 2017| 27 maart 2018|Ja|Ja|
 |[1610](/sccm/core/plan-design/changes/whats-new-in-version-1610)<br /><br /> 5.00.8458.1000|18 november 2016| 18 november 2017|Nee|Ja|
