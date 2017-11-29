@@ -3,7 +3,7 @@ title: 'Release-opmerkingen '
 titleSuffix: Configuration Manager
 description: Raadpleeg deze opmerkingen voor urgente problemen die nog niet zijn opgelost in het product of in een Microsoft Knowledge Base-artikel besproken.
 ms.custom: na
-ms.date: 08/23/2017
+ms.date: 11/28/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 2571cfbff1373db05279918af776d8be81a5c322
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: b156cd7762be59092bb46f4a4a992badcbd9d74a
+ms.sourcegitcommit: 1dd051d8548a19b724bb8f9e6a2278a4901ed916
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="release-notes-for-system-center-configuration-manager"></a>Opmerkingen bij de release van System Center Configuration Manager
 
@@ -37,30 +37,10 @@ Zie de volgende onderwerpen voor informatie over de nieuwe functies geïntroduce
 - [Wat is er nieuw in versie 1706](/sccm/core/plan-design/changes/whats-new-in-version-1706)  
 - [Wat is er nieuw in versie 1702](/sccm/core/plan-design/changes/whats-new-in-version-1702)
 - [Wat is er nieuw in versie 1610](/sccm/core/plan-design/changes/whats-new-in-version-1610)
-   
+
 
 
 ## <a name="setup-and-upgrade"></a>Installatie en upgrade  
-
-### <a name="after-you-update-a-configuration-manager-console-using-consolesetupexe-from-the-site-server-folder-recent-language-pack-changes-are-not-available"></a>Na het bijwerken van een Configuration Manager-console met behulp van ConsoleSetup.exe vanaf de site server-map zijn recente language pack wijzigingen niet beschikbaar
-<!--  SMS 486420  Applicability should be 1610 and 1702.  -->
-*De volgende van toepassing op versie 1610 en 1702.*   
-Nadat u een update in-place uitgevoerd naar een console via ConsoleSetup.exe uit de installatiemap van een site-servers, onlangs geïnstalleerde taalpakketten mogelijk niet beschikbaar. Dit gebeurt wanneer:
-- Uw site versie 1610 of 1702 wordt uitgevoerd.
-- De console wordt bijgewerkt in-place via ConsoleSetup.exe uit de installatiemap van de site server.
-
-Als dit probleem optreedt, gebruikt de opnieuw geïnstalleerde console niet de meest recente set van taalpakketten die zijn geconfigureerd. Geen fouten zijn geretourneerd, maar de taalpakketten die beschikbaar zijn voor de console wordt niet gewijzigd.  
-
-**Tijdelijke oplossing:** Verwijder de huidige console en vervolgens opnieuw installeren als een nieuwe installatie van de console. U kunt ConsoleSetup.exe gebruiken uit de installatiemap van de site-servers. Zorg dat u selecteert de language pack-bestanden die u wilt gebruiken tijdens de installatie.
-
-
-### <a name="with-version-1702-the-default-site-boundary-group-is-configured-for-use-for-site-assignment"></a>Met versie 1702, is de standaardgroep voor de grens van site geconfigureerd voor gebruik voor sitetoewijzing
-<!--  SMS 486380   Applicability should only be to 1702. -->
-*De volgende van toepassing op versie 1702.*  
-Het tabblad standaard site grens groepen verwijzing is een controle voor de **deze grensgroep gebruiken voor sitetoewijzing**, geeft een lijst van de site als de **toegewezen site**, en lichter gekleurd weergegeven zodat de configuratie kan niet worden bewerkt of verwijderd.
-
-**Tijdelijke oplossing:** Geen. U kunt deze instelling negeren. Hoewel de groep voor sitetoewijzing is ingeschakeld, wordt de standaard sitegrensgroep niet gebruikt voor sitetoewijzing. Met 1702, deze configuratie zorgt ervoor dat de standaard site-grensgroep is gekoppeld aan de juiste site.
-
 
 
 ### <a name="when-installing-a-long-term-service-branch-site-using-version-1606-a-current-branch-site-is-installed"></a>Als u een Service-vertakking Long-Term site met versie 1606 installeert, is een Current Branch-site geïnstalleerd
@@ -112,29 +92,6 @@ Wanneer u Setup uitvoert vanaf een CD. Meest recente map gemaakt voor versie 160
  - Verwijder handmatig de *cd.latest\redist\languagepack\zhh* map en voer vervolgens Setup opnieuw uit.
 
 
-### <a name="service-connection-tool-throws-an-exception-when-sql-server-is-remote-or-when-shared-memory-is-disabled"></a>Hulpprogramma voor serviceverbindingen er een uitzondering gegenereerd als SQL server staat, of wanneer het gedeelde geheugen is uitgeschakeld
-<!-- 479223   Fixed in 1702 and later   -->
-*De volgende van toepassing op versie 1610 en eerdere versies.*  
-Het hulpprogramma voor serviceverbindingen wordt een uitzondering gegenereerd wanneer een van de volgende ingesteld op true is:  
- -  De sitedatabase zich op afstand van de computer die als host fungeert voor het service connection point en gebruikt een niet-standaardpoort (een andere poort dan 1433)
- -  De sitedatabase zich op dezelfde server als het serviceverbindingspunt wordt gehost, maar SQL-protocol **Shared Memory** is uitgeschakeld
-
-De uitzondering is vergelijkbaar met het volgende:
- - *Niet-verwerkte uitzondering: System.Data.SqlClient.SqlException: Er is een netwerkgerelateerde of exemplaarspecifieke fout opgetreden tijdens het maken van een verbinding met SQL Server. De server is niet gevonden of is niet toegankelijk. Controleer of dat de exemplaarnaam juist is en dat SQL Server is geconfigureerd voor externe verbindingen. (provider: Named Pipes-Provider, fout: 40 - kan geen verbinding openen met SQL Server)--*
-
-**Tijdelijke oplossing**: Tijdens het gebruik van het hulpprogramma moet u het register van de server die als host fungeert voor het service connection point met informatie over de SQL Server-poort wijzigen:
-
-   1.   De volgende registersleutel bewerken voordat u het hulpprogramma gebruikt, en het nummer van de poort die wordt gebruikt op de naam van de SQL-Server toevoegen:
-    - Sleutel:   HKLM\Microsoft\SMS\COMPONENTS\SMS_DMP_UPLOADER\
-      - Waarde: &lt;SQL-servernaam >
-    - Toevoegen: **,&lt;poort >**
-
-    Bijvoorbeeld poort *15001* naar een server met de naam *testserver.test.net*, zou de resulterende sleutel: ***HKLM\Software\Microsoft\SMS\COMPONENTS\SMS_DMP_UPLOADER\testserver.test.NET,15001***
-
-   2.   Na het toevoegen van de poort in het register, moet het hulpprogramma normaal functioneren.  
-
-   3.   Nadat uw gebruik van het hulpprogramma voltooid voor zowel is de **-verbinding** en **-importeren** stappen, wijzigt u de registersleutel terug naar de oorspronkelijke waarde.  
-
 
 <!-- ## Backup and recovery  -->
 
@@ -157,15 +114,6 @@ De wizard Onderhoudsplan maken wordt momenteel standaard uitgevoerd na elke sync
 Nadat u een onderhoudsplan hebt gemaakt, opent u de eigenschappen voor het onderhoudsplan, gaat u naar de **Evaluatieplanning** tabblad **e regel uitvoeren volgens een schema**, klikt u op **aanpassen**, en maak een aangepaste planning. U kunt bijvoorbeeld instellen dat het onderhoudsplan elke 60 dagen wordt uitgevoerd.  
 
 
-### <a name="when-a-high-risk-deployment-dialog-is-visible-to-a-user-subsequent-high-risk-dialogs-with-a-sooner-deadline-are-not-displayed"></a>Wanneer een implementatie met hoog risico dialoogvenster zichtbaar voor een gebruiker is, worden daaropvolgende met een hoog risico dialoogvensters met een deadline vroeger niet weergegeven
-<!-- Fixed in 1702 and later -->
-*De volgende van toepassing op versie 1610 en eerdere versies.*   
-Nadat u maken en implementeren van een implementatie met een hoog risico taak voor gebruikers, wordt een dialoogvenster met een hoog risico voor de gebruiker weergegeven. Als de gebruiker komt niet in het dialoogvenster sluiten en u maakt en implementeert een andere implementatie met hoog risico met een deadline vroeger dan de eerste, ontvangt de gebruiker niet een bijgewerkte dialoogvenster totdat ze de oorspronkelijke dialoogvenster hebt gesloten. De implementaties zullen nog steeds uitgevoerd op de geconfigureerde deadlines.
-
-**Tijdelijke oplossing**:  
-De gebruiker moet in het dialoogvenster voor de eerste implementatie met hoog risico om te zien in het dialoogvenster voor de volgende implementatie met hoog risico sluiten.
-
-
 
 ## <a name="software-updates"></a>Software-updates
 
@@ -180,6 +128,12 @@ Gebruik alleen de [talen die worden ondersteund door de Office 365 ProPlus-clien
 
 
 ## <a name="mobile-device-management"></a>Beheer van mobiele apparaten  
+
+### <a name="beginning-with-version-1710-you-can-no-longer-deploy-windows-phone-81-vpn-profiles-to-windows-10------503274--should-be-fixed-by-1802-if-not-sooner---"></a>Vanaf versie 1710, u kunt niet langer Windows Phone 8.1 VPN-profielen implementeren op Windows 10<!-- 503274  Should be fixed by 1802, if not sooner -->
+In 1710 is het niet meer mogelijk te maken van een VPN-profiel met de Windows Phone 8.1-werkstroom die is ook van toepassing op Windows 10-apparaten. De pagina ondersteunde Platforms is niet meer weergegeven in de wizard maken voor deze profielen, en Windows Phone 8.1 wordt automatisch geselecteerd op de back-end; de pagina ondersteunde Platforms is beschikbaar in de eigenschappenpagina's, maar de opties voor Windows 10 worden niet weergegeven.
+
+**Tijdelijke oplossing**: Gebruik de werkstroom van Windows 10 VPN-profiel voor Windows 10-apparaten. Als dit niet haalbaar voor uw omgeving, moet u contact op met ondersteuning. Ondersteuning kunt u toevoegen met de Windows 10 ontwikkelt, indien nodig.
+
 
 ### <a name="full-wipe-disables-windows-10-devices-with-less-than-4-gb-ram"></a>Met Volledig wissen worden Windows 10-apparaten met minder dan 4 GB RAM uitgeschakeld
 Nadat de functie Volledig wissen is uitgevoerd op een Windows 10 RTM-apparaat (versies vóór versie 1511) met minder dan 4 GB RAM, is het apparaat mogelijk niet meer bruikbaar. Na een poging om het apparaat te wissen, kan het niet meer worden opgestart of reageert het niet meer.
@@ -204,20 +158,4 @@ Wanneer u een Android voor werk-e-mailprofiel maakt, zijn er twee opties voor ve
 
 <!-- ## Reports and monitoring    -->
 <!-- ## Conditional access   -->
-
-
-## <a name="endpoint-protection"></a>Endpoint Protection
-
-### <a name="antimalware-policy-fails-to-apply-on-windows-server-2016-core"></a>Antimalware-beleid mislukt toepassen op Windows Server 2016 Core
-<!--  Product Studio bug 485370 added 04 19 2017   Fixed in 1702 -->
-*De volgende van toepassing op versie 1610 en eerdere versies.*  
-Antimalwarebeleid mislukt op Windows Server 2016 Core toe te passen.  De foutcode is 0x80070002.  Er is een ontbrekende afhankelijkheid voor ConfigSecurityPolicy.exe.
-
-**Tijdelijke oplossing:**  Dit probleem is opgelost door [Knowledge Base-artikel 4019472](https://support.microsoft.com/help/4019472/windows-10-update-kb4019472) 9 mei 2017 gedistribueerd.
-
-
-### <a name="windows-defender-advanced-threat-protection-policies-fail-on-older-client-agents"></a>Windows Defender Advanced Threat Protection-beleid niet op oudere clientagents
-<!-- Product Studio bug 462286 added  05 25 2017 and valid until July 2017 GA release      Fixed in 1610 -->
-Windows Defender Advanced Threat Protection-beleid wordt gemaakt van een Configuration Manager versie 1610 of hoger siteserver mislukken wilt toepassen op Configuration Manager versie 1606 en oudere clients.  De clients zijn niet geïntegreerde en de evaluatie van het beleid een fout gemeld. De **Implementatiestatus** ziet u in de configuratie van Windows Defender Advanced Threat Protection **fout**.
-
-**TIJDELIJKE OPLOSSING**: Configuration Manager-client bijwerken naar versie 1610 of hoger.
+<!-- ## Endpoint Protection -->

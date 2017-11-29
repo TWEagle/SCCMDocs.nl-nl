@@ -3,7 +3,7 @@ title: Implementatie van clientsoftware op Mac-computers voorbereiden
 titleSuffix: Configuration Manager
 description: Configuratietaken voordat u Configuration Manager-client implementeert op Mac-computers.
 ms.custom: na
-ms.date: 05/04/2017
+ms.date: 11/28/2017
 ms.prod: configuration-manager
 ms.reviewer: aaroncz
 ms.suite: na
@@ -15,17 +15,17 @@ caps.latest.revision: "12"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: b878c7b0328e89ff7b12bf44167fd12444a0cba4
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 1d096111250af4061c94e71f8dc602ccae2d4607
+ms.sourcegitcommit: 1dd051d8548a19b724bb8f9e6a2278a4901ed916
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="prepare-to-deploy-client-software-to-macs"></a>Implementatie van clientsoftware op Mac-computers voorbereiden
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Volg deze stappen om ervoor te zorgen dat u nu [Configuration Manager-client implementeren op Mac-computers](/sccm/core/clients/deploy/deploy-clients-to-macs). 
+Volg deze stappen om ervoor te zorgen dat u nu [Configuration Manager-client implementeren op Mac-computers](/sccm/core/clients/deploy/deploy-clients-to-macs).
 
 ## <a name="mac-prerequisites"></a>Vereisten voor Mac
 
@@ -33,9 +33,9 @@ Het installatiepakket voor Mac-client wordt niet meegeleverd met de Configuratio
 
 **Ondersteunde versies:**  
 
--   **Mac OS X 10.6** (sneeuw Leopard) 
+-   **Mac OS X 10.6** (sneeuw Leopard)
 
--   **Mac OS X 10.7** (Lion) 
+-   **Mac OS X 10.7** (Lion)
 
 -   **Mac OS X 10.8** (Mountain Lion)
 
@@ -49,11 +49,13 @@ Het installatiepakket voor Mac-client wordt niet meegeleverd met de Configuratio
 
 -   **Mac OS X 10,12** (Mac OS Sierra)  
 
+-   **Mac OS X 10.13** (Mac OS hoge Sierra)  
+
 ## <a name="certificate-requirements"></a>Certificaatvereisten
 Vereist certificaten voor openbare-sleutelinfrastructuur (PKI) client installeren en beheren voor Mac-computers. PKI-certificaten beveiligen de communicatie tussen de Mac-computers en de Configuration Manager-site met behulp van wederzijdse verificatie en versleutelde gegevensoverdracht. Configuration Manager kunt aanvragen en installeren van een clientcertificaat voor gebruikers met behulp van Microsoft Certificate Services met een enterprise-certificeringsinstantie (CA) en de Configuration Manager inschrijving punt en de inschrijving proxy sitesysteemrollen. Of u kunt aanvragen en een computercertificaat installeren onafhankelijk van Configuration Manager als het certificaat voldoet aan de vereisten voor Configuration Manager.   
-  
+
 Configuration Manager Mac-clients voeren altijd certificaatintrekkingscontrole. U kunt deze functie niet uitschakelen.  
-  
+
 Als Mac-clients de certificaatintrekkingsstatus voor een servercertificaat kunnen niet bevestigen, omdat ze de CRL niet kunnen vinden, is ze niet mogelijk om verbinding te maken met sitesystemen van Configuration Manager. In het bijzonder voor Mac-clients in een verschillend forest dan de uitgevende certificeringsinstantie, dient u uw CRL-ontwerp te controleren om ervoor te zorgen dat Mac-clients een CRL-distributiepunt (CDP) kunnen vinden en er een verbinding mee kunnen maken om een verbinding te maken met sitesysteemservers.  
 
 Voordat u Configuration Manager-client op een Mac-computer installeert, bepalen hoe u het clientcertificaat installeren:  
@@ -83,7 +85,7 @@ Als deze sitesystemen niet hebt, implementeert u een Webservercertificaat op de 
 
 Het webservercertificaat moet de internet-FQDN bevatten dat in de sitesysteemeigenschappen is opgegeven. De server heeft geen toegankelijk zijn vanaf Internet ter ondersteuning van Mac-computers. Als u geen clientbeheer via internet vereist, kunt u de intranet FQDN-waarde voor de internet-FQDN opgeven.  
 
-Geeft het sitesysteem Internet-FQDN-waarde in het Webservercertificaat voor het beheerpunt, het distributiepunt en het proxypunt voor inschrijving. 
+Geeft het sitesysteem Internet-FQDN-waarde in het Webservercertificaat voor het beheerpunt, het distributiepunt en het proxypunt voor inschrijving.
 
 Zie voor een voorbeeldimplementatie die is gemaakt en dit Webservercertificaat wordt geïnstalleerd, de [het Webservercertificaat voor Sitesystemen die IIS uitvoeren implementeren](../../plan-design/network/example-deployment-of-pki-certificates.md#BKMK_webserver2008_cm2012).  
 
@@ -119,10 +121,10 @@ Zie voor een voorbeeldimplementatie die is gemaakt en dit Webservercertificaat w
 
  Hoewel distributiepunten niet vereist om de client te installeren, moet u distributiepunten om clientverbindingen toestaat vanaf het Internet als u software implementeren op deze computers wilt nadat de client is geïnstalleerd.  
 
- 
+
 ### <a name="to-configure-management-points-and-distribution-points-to-support-macs"></a>Beheerpunten en distributiepunten ter ondersteuning van Macs configureren  
 
-Voordat u deze procedure start, moet u ervoor zorgen dat de sitesysteemserver die het beheerpunt en distributiepunt uitvoert, is geconfigureerd met een internet-FQDN. Als u deze servers clientbeheer op Internet niet wordt ondersteund, kunt u de intranet-FQDN opgeven als de Internet-FQDN-waarde. 
+Voordat u deze procedure start, moet u ervoor zorgen dat de sitesysteemserver die het beheerpunt en distributiepunt uitvoert, is geconfigureerd met een internet-FQDN. Als u deze servers clientbeheer op Internet niet wordt ondersteund, kunt u de intranet-FQDN opgeven als de Internet-FQDN-waarde.
 
 De sitesysteemrollen moeten zich in een primaire site.  
 

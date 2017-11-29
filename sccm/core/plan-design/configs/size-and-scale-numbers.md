@@ -15,11 +15,11 @@ caps.latest.revision: "4"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: c0277fed7db5803aa2b2246ca879640136dce02a
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 2652a7353821c616ada2bf594073b13e327c93ee
+ms.sourcegitcommit: 1dd051d8548a19b724bb8f9e6a2278a4901ed916
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="size-and-scale-numbers-for-system-center-configuration-manager"></a>Grootte en schaalgetallen voor System Center Configuration Manager
 
@@ -147,7 +147,10 @@ Een centrale beheersite ondersteunt een totaal aantal apparaten tot het aantal a
  Bijvoorbeeld in een hiërarchie, kunt u ondersteunen 700.000 desktops, maximaal 25.000 Mac en Windows CE 7.0 en maximaal 300.000 cloudapparaten wanneer u Microsoft Intune integreert, voor een totaal 1.025.000 apparaten. Als u ondersteuning voor apparaten die worden beheerd door lokale MDM, is het totaal voor de hiërarchie 825.000 apparaten.  
 
 > [!IMPORTANT]  
->  In een hiërarchie waarbij de centrale beheersite een Standard-editie van SQL Server gebruikt, ondersteunt de hiërarchie maximaal 50.000 desktops en apparaten. De editie van SQL Server die wordt gebruikt op een zelfstandige primaire site beperken niet die site capaciteit voor maximaal het vermelde aantal clients ondersteunen.  
+>  In een hiërarchie waarbij de centrale beheersite een Standard-editie van SQL Server gebruikt, ondersteunt de hiërarchie maximaal 50.000 desktops en apparaten. Ter ondersteuning van meer dan 50.000 desktops en apparaten, moet u een Enterprise-editie van SQL Server. Deze vereiste geldt alleen voor een centrale beheersite en niet van toepassing op een zelfstandige primaire site of een onderliggende primaire site waar de editie van SQL Server die u gebruikt de capaciteit van de site ter ondersteuning van het vermelde aantal clients niet beperkt.   
+
+
+ De editie van SQL Server die wordt gebruikt op een zelfstandige primaire site beperken niet die site capaciteit voor maximaal het vermelde aantal clients ondersteunen.  
 
 
 ###  <a name="bkmk_chipri"></a>Onderliggende primaire site  
