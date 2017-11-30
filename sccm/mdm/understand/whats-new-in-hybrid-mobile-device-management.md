@@ -3,7 +3,7 @@ title: Wat is er nieuw in hybride MDM
 titleSuffix: Configuration Manager
 description: Meer informatie over de nieuwe functies voor mobiele apparaten beschikbaar voor hybride implementaties met Configuration Manager en Intune.
 ms.custom: na
-ms.date: 11/12/2017
+ms.date: 11/29/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 4877d05004bd883a3ae0ad353a78643cf559275e
-ms.sourcegitcommit: 536f7295e9ea361f1f9ead6c25f3685deb041ad8
+ms.openlocfilehash: aa72e57077cbeba525895dd394720dc24f28568c
+ms.sourcegitcommit: 5d46ed593b1cc461ea3f6ff6917bcd272b095ed7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Wat is er nieuw in hybride mobile device management met System Center Configuration Manager en Microsoft Intune
 
@@ -48,7 +48,7 @@ Elke sectie van dit artikel vindt u hybridefuncties onder drie verschillende cat
 
 - **Bedrijfsportal-app voor Mac OS is beschikbaar** <!--1541700--> de Intune-bedrijfsportal op Mac OS is een bijgewerkte ervaring die is geoptimaliseerd om alle informatie en naleving meldingen uw gebruikers nodig voor alle apparaten hebben correct weer te geven ze hebben ingeschreven. En als de Intune bedrijfsportal is geïmplementeerd op een apparaat, Microsoft AutoUpdate voor Mac OS updates bieden. U kunt de nieuwe Intune-bedrijfsportal voor Mac OS downloaden door aan te melden bij de Intune-bedrijfsportal-website vanaf een Mac OS-apparaat.
 
-- **Microsoft Planner maakt nu deel uit van de mobiele app management (MAM)-lijst met goedgekeurde apps** <!-- 1248473 --> de Microsoft-Planner-app voor iOS en Android maakt nu deel uit van de goedgekeurde apps voor mobile app management (MAM).   De app kan worden geconfigureerd via de Intune App Protection blade in de Azure portal voor alle tenants. Zie voor meer informatie [MAM lijst met goedgekeurde apps](https://www.microsoft.com/cloud-platform/microsoft-intune-apps).
+- **Microsoft Planner maakt nu deel uit van de mobiele app management (MAM)-lijst met goedgekeurde apps** <!-- 1248473 --> de Microsoft-Planner-app voor iOS en Android maakt nu deel uit van de goedgekeurde apps voor mobile app management (MAM). De app kan worden geconfigureerd via de Intune App Protection blade in de Azure portal voor alle tenants. Zie voor meer informatie [MAM lijst met goedgekeurde apps](https://www.microsoft.com/cloud-platform/microsoft-intune-apps).
 
 - **Toegang tot beheerde app voor iOS registreert** <!-- 1469920 --> eindgebruikers met de beheerde Browser kunnen nu weergave van de status van beheer van alle Microsoft-apps en de logboeken verzenden voor het oplossen van hun beheerde iOS-apps geïnstalleerd.
   
@@ -81,7 +81,7 @@ Verbeterde VPN-profiel ervaring in Configuration Manager-Console
 
 ### <a name="new-in-configuration-manger-technical-preview-1711"></a>Nieuw in Configuration Manager Technical Preview 1711
 
-- **Nieuwe opties voor nalevingsbeleid voor Windows 10** u nu de nieuwe opties voor nalevingsbeleid voor Windows 10-apparaten kunt configureren. De nieuwe instellingen omvatten beleid voor de Firewall, User Account Control, Windows Defender Anitivirus en OS-build-versiebeheer. Zie voor meer informatie [nieuwe opties voor nalevingsbeleid voor Windows 10](/sccm/core/get-started/capabilities-in-technical-preview-1711#new-compliance-policy-options-for-windows-10).
+- **Nieuwe opties voor nalevingsbeleid voor Windows 10** u nu de nieuwe opties voor nalevingsbeleid voor Windows 10-apparaten kunt configureren. De nieuwe instellingen omvatten beleid voor de Firewall, User Account Control, Windows Defender Antivirus en OS-build-versiebeheer. Zie voor meer informatie [nieuwe opties voor nalevingsbeleid voor Windows 10](/sccm/core/get-started/capabilities-in-technical-preview-1711#new-compliance-policy-options-for-windows-10).
 
 
 ## <a name="october-2017"></a>Oktober 2017
