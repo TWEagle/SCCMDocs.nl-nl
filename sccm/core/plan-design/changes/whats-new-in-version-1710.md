@@ -10,14 +10,14 @@ ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: bc6c3e5f-b9e2-400e-9d9d-446ff93c520c
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 33a5bff1e202822ce3ec5755958d34af461957e9
-ms.sourcegitcommit: 536f7295e9ea361f1f9ead6c25f3685deb041ad8
+ms.openlocfilehash: 5812133d183c76ab479d547e0f848c2287e5e950
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="what39s-new-in-version-1710-of-system-center-configuration-manager"></a>Wat &#39; s is nieuw in versie 1710 van System Center Configuration Manager
 
@@ -28,8 +28,8 @@ Update 1710 voor de huidige vertakking van System Center Configuration Manager i
 > [!TIP]  
 > Een nieuwe site te installeren, moet u een basislijnversie van Configuration Manager.  
 >  Meer informatie over:    
->   - [Nieuwe sites installeren](https://technet.microsoft.com/library/mt590197.aspx)  
->   - [Updates installeren op sites](https://technet.microsoft.com/library/mt607046.aspx)  
+>   - [Nieuwe sites installeren](/sccm/core/servers/deploy/install/installing-sites)  
+>   - [Updates installeren op sites](/sccm/core/servers/manage/updates)  
 >   - [Basislijn- en updateversies](/sccm/core/servers/manage/updates#a-namebkmkbaselinesa-baseline-and-update-versions)  
 
 De volgende secties bevatten informatie over wijzigingen en nieuwe mogelijkheden die zijn geïntroduceerd in versie 1710 van Configuration Manager.  
@@ -60,7 +60,7 @@ U kunt nu [cloud-gebaseerde distributiepunten](/sccm/core/plan-design/hierarchy/
 <!-- 1350871 -->
 Beginnen met het Windows 10 versie 1607 (ook wel bekend als de verjaardag Update), u kunt deelnemen aan een Windows 10-apparaten met on-premises Active Directory (AD) en Azure AD cloud-gebaseerd op hetzelfde moment (hybride Azure AD). Mede management maakt gebruik van deze verbetering en kunt u gelijktijdig Windows 10-apparaten beheren met behulp van zowel Configuration Manager en Intune. Het is een oplossing waarmee een verbinding met traditionele naar moderne management biedt en u een pad voor de overgang met behulp van een gefaseerde benadering. Zie voor meer informatie [mede management voor Windows 10-apparaten](/sccm/core/clients/manage/co-management-overview).
 
-### <a name="restart-computers-form-the-configuration-manager-console-----1356283---"></a>Opnieuw opstarten van computers uit de Configuration Manager-console<!-- 1356283 -->
+### <a name="restart-computers-from-the-configuration-manager-console-----1356283---"></a>Computers uit de Configuration Manager-console opnieuw opstarten<!-- 1356283 -->
 Vanaf deze release kunt kunt u de Configuration Manager-console gebruiken om clientapparaten waarvoor opnieuw opstarten te identificeren en gebruik vervolgens een melding clientactie te starten.
 
 Zie [clients in System Center Configuration Manager beheren](/sccm/core/clients/manage/manage-clients#restart-clients)

@@ -14,11 +14,11 @@ ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: aa72e57077cbeba525895dd394720dc24f28568c
-ms.sourcegitcommit: 5d46ed593b1cc461ea3f6ff6917bcd272b095ed7
+ms.openlocfilehash: f6ca5a7eb9befd82af3a54c6db868e15291b1621
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Wat is er nieuw in hybride mobile device management met System Center Configuration Manager en Microsoft Intune
 
@@ -46,38 +46,49 @@ Elke sectie van dit artikel vindt u hybridefuncties onder drie verschillende cat
 
 ### <a name="new-in-microsoft-intune"></a>Nieuw in Microsoft Intune
 
-- **Bedrijfsportal-app voor Mac OS is beschikbaar** <!--1541700--> de Intune-bedrijfsportal op Mac OS is een bijgewerkte ervaring die is geoptimaliseerd om alle informatie en naleving meldingen uw gebruikers nodig voor alle apparaten hebben correct weer te geven ze hebben ingeschreven. En als de Intune bedrijfsportal is geïmplementeerd op een apparaat, Microsoft AutoUpdate voor Mac OS updates bieden. U kunt de nieuwe Intune-bedrijfsportal voor Mac OS downloaden door aan te melden bij de Intune-bedrijfsportal-website vanaf een Mac OS-apparaat.
+- **Tekst-protocol toegestaan van beheerde Apps**<!-- 1414050  -->    
+  Apps die worden beheerd door de Intune App SDK zijn SMS-berichten verzenden.
 
-- **Microsoft Planner maakt nu deel uit van de mobiele app management (MAM)-lijst met goedgekeurde apps** <!-- 1248473 --> de Microsoft-Planner-app voor iOS en Android maakt nu deel uit van de goedgekeurde apps voor mobile app management (MAM). De app kan worden geconfigureerd via de Intune App Protection blade in de Azure portal voor alle tenants. Zie voor meer informatie [MAM lijst met goedgekeurde apps](https://www.microsoft.com/cloud-platform/microsoft-intune-apps).
+- **Bedrijfsportal-app voor Mac OS is beschikbaar**<!--1541700-->    
+  De Intune-bedrijfsportal op Mac OS heeft een nieuwe ervaring die is geoptimaliseerd om alle informatie en naleving meldingen die uw gebruikers nodig hebben voor alle apparaten die ze hebben ingeschreven foutloos weer te geven. En als de Intune bedrijfsportal is geïmplementeerd op een apparaat, Microsoft AutoUpdate voor Mac OS updates bieden. U kunt de nieuwe Intune-bedrijfsportal voor Mac OS downloaden door aan te melden bij de Intune-bedrijfsportal-website vanaf een Mac OS-apparaat.
 
-- **Toegang tot beheerde app voor iOS registreert** <!-- 1469920 --> eindgebruikers met de beheerde Browser kunnen nu weergave van de status van beheer van alle Microsoft-apps en de logboeken verzenden voor het oplossen van hun beheerde iOS-apps geïnstalleerd.
+- **Microsoft Planner maakt nu deel uit van de mobiele app management (MAM)-lijst met goedgekeurde apps**  <!-- 1248473 -->    
+  De app Microsoft Planner voor iOS en Android is nu onderdeel van de goedgekeurde apps voor mobile app management (MAM). De app kan worden geconfigureerd via de Intune App Protection blade in de Azure portal voor alle tenants. Zie voor meer informatie [MAM lijst met goedgekeurde apps](https://www.microsoft.com/cloud-platform/microsoft-intune-apps).
+
+- **Toegang tot beheerde app voor iOS registreert**<!-- 1469920 -->    
+  Eindgebruikers met de beheerde Browser is geïnstalleerd, kunnen nu de weergave de status van beheer van alle Microsoft gepubliceerde apps en logboeken voor het oplossen van hun beheerde iOS-apps verzendt.
   
   Meer informatie over het inschakelen van de probleemoplossingsmodus in de Managed Browser op een iOS-apparaat, Zie [hoe de toegang tot beheerde app logboeken met behulp van de Managed Browser voor iOS](https://docs.microsoft.com/intune/app-configuration-managed-browser#how-to-access-to-managed-app-logs-using-the-managed-browser-on-ios).
 
-- **Verbeteringen aan het apparaat instellen werkstroom in de bedrijfsportal voor iOS in versie 2.9.0** hebben We de apparaat-setup-werkstroom in de bedrijfsportal-app voor iOS verbeterd. De taal is gebruikersvriendelijker en we schermen hebt gecombineerd waar mogelijk. We hebben de taal ook meer specifieke aangebracht in uw bedrijf met behulp van de naam van uw bedrijf overal in de setup-tekst. U kunt deze bijgewerkte werkstroom zien op de [wat is er nieuw in app UI](https://docs.microsoft.com/intune/whats-new-app-ui#week-of-november-13-2017) pagina.
+- **Verbeteringen in apparaat instellen werkstroom in de bedrijfsportal voor iOS in versie 2.9.0**    
+  We hebben de apparaat-setup-werkstroom in de bedrijfsportal-app voor iOS verbeterd. De taal is gebruikersvriendelijker en we schermen hebt gecombineerd waar mogelijk. We hebben de taal ook meer specifieke aangebracht in uw bedrijf met behulp van de naam van uw bedrijf overal in de setup-tekst. U kunt deze bijgewerkte werkstroom zien op de [wat is er nieuw in app UI](https://docs.microsoft.com/intune/whats-new-app-ui#week-of-november-13-2017) pagina.
 
-- **Feedback vraagt om de bedrijfsportal-app voor Android** <!--1165249--> de bedrijfsportal-app voor Android-eindgebruikers feedback nu aanvragen. Deze feedback wordt rechtstreeks naar Microsoft worden verzonden en eindgebruikers voorzien van een kans om te controleren van de app in de openbare Google Play store. Feedback is niet vereist en kan eenvoudig worden gesloten zodat gebruikers kunnen doorgaan met de app. 
+- **Feedback vraagt om de bedrijfsportal-app voor Android**<!--1165249-->    
+De bedrijfsportal-app voor Android-eindgebruikers feedback nu aanvragen. Deze feedback wordt rechtstreeks naar Microsoft worden verzonden en eindgebruikers voorzien van een kans om te controleren van de app in de openbare Google Play store. Feedback is niet vereist en kan eenvoudig worden gesloten zodat gebruikers kunnen doorgaan met de app. 
 
-- **Eindgebruikers informeren over welke gegevens van een apparaat worden weergegeven voor Windows 10-apparaten** <!--1337920--> toegevoegd **eigendomstype** naar het scherm Apparaatdetails op de bedrijfsportal-app voor Windows 10. Hiermee kunnen gebruikers voor meer informatie over privacy rechtstreeks op deze pagina van de Intune-eindgebruikers-documenten. Ze worden ook deze informatie vinden op de **over** scherm.
+- **Eindgebruikers informeren over welke gegevens van een apparaat worden weergegeven voor Windows 10-apparaten**<!--1337920-->    
+We hebben toegevoegd **eigendomstype** naar het scherm Apparaatdetails op de bedrijfsportal-app voor Windows 10. Hiermee kunnen gebruikers voor meer informatie over privacy rechtstreeks op deze pagina van de Intune-eindgebruikers-documenten. Ze worden ook deze informatie vinden op de **over** scherm.
 
-- **Nieuwe 'oplossen' beschikbaar voor Android-apparaten in te grijpen** <!--1583480--> de bedrijfsportal-app voor Android introduceert een actie 'Oplossen' op de _bijwerken apparaatinstellingen_ pagina. Als u deze optie selecteert, duurt de eindgebruiker rechtstreeks met de instelling die wordt veroorzaakt door hun apparaat niet compatibel is. De bedrijfsportal-app voor Android ondersteunt momenteel deze actie uit voor de [wachtwoordcode](https://docs.microsoft.com/intune-user-help/set-your-pin-or-password-android), [apparaatversleuteling](https://docs.microsoft.com/intune-user-help/encrypt-your-device-android), [USB-foutopsporing](https://docs.microsoft.com/intune-user-help/you-need-to-turn-off-usb-debugging-android), en [onbekend Bronnen](https://docs.microsoft.com/intune-user-help/you-need-to-turn-off-unknown-sources-android) instellingen. 
+- **Nieuwe 'oplossen' beschikbaar voor Android-apparaten in te grijpen**<!--1583480-->    
+  De bedrijfsportal-app voor Android introduceert een actie 'Oplossen' op de _bijwerken apparaatinstellingen_ pagina. Als u deze optie selecteert, duurt de eindgebruiker rechtstreeks met de instelling die wordt veroorzaakt door hun apparaat niet compatibel is. De bedrijfsportal-app voor Android ondersteunt momenteel deze actie uit voor de [wachtwoordcode](https://docs.microsoft.com/intune-user-help/set-your-pin-or-password-android), [apparaatversleuteling](https://docs.microsoft.com/intune-user-help/encrypt-your-device-android), [USB-foutopsporing](https://docs.microsoft.com/intune-user-help/you-need-to-turn-off-usb-debugging-android), en [onbekend Bronnen](https://docs.microsoft.com/intune-user-help/you-need-to-turn-off-unknown-sources-android) instellingen. 
 
 
 ### <a name="new-in-configuration-manager-current-branch"></a>Nieuw in Configuration Manager (huidige vertakking)
 
-- **Nieuwe beleidsinstellingen voor mobiele toepassing management** <!-- 1324760 --> de volgende instellingen zijn toegevoegd aan de mobiele toepassing management-beleidsinstellingen:
+- **Nieuwe beleidsinstellingen voor mobiele toepassing management**<!-- 1324760 -->    
+  De volgende instellingen zijn toegevoegd aan de mobiele toepassing management-beleidsinstellingen:
   - **Synchronisatie van contactpersonen uitschakelen**: Hiermee voorkomt dat de app opslaan van gegevens in de systeemeigen contactpersonen-app op het apparaat.
   - **Afdrukken uitschakelen**: Voorkomt dat de app vanuit afdrukken werk- of schoolgegevens.
 
   Zie [apps beveiligen met beleid voor app-beveiliging in Configuration Manager](/sccm/mdm/deploy-use/protect-apps-using-mam-policies) om te proberen de nieuwe beleidsinstellingen van de app-beveiliging.
 
-- **Ondersteuning voor Windows 10 ARM64 apparaten** <!-- 1355000 --> hybride mobile device management (MDM)-scenario's worden ondersteund op ARM64 apparaten met Windows 10 wanneer deze apparaten beschikbaar zijn. Zie voor meer informatie [ondersteuning voor Windows 10 ARM64 apparaten](/sccm/core/plan-design/changes/whats-new-in-version-1710#windows-10-arm64-device-support).
+- **Ondersteuning voor Windows 10 ARM64 apparaten**<!-- 1355000 -->    
+  Hybride mobile device management (MDM)-scenario's worden ondersteund op ARM64 apparaten met Windows 10 wanneer deze apparaten beschikbaar zijn. Zie voor meer informatie [ondersteuning voor Windows 10 ARM64 apparaten](/sccm/core/plan-design/changes/whats-new-in-version-1710#windows-10-arm64-device-support).
 
-- **Verbeterde ervaring van de VPN-profiel in de Configuration Manager-console** <!-- 1318232 --> met deze versie, hebt de wizard VPN-profiel is bijgewerkt en eigenschappenpagina's om instellingen weer te geven die geschikt zijn voor het geselecteerde platform. Deze functie eerder beschikbaar was in Configuration Manager Technical Preview 1709 en nu beschikbaar in hybride implementaties met Intune en Configuration Manager (huidige vertakking) versie 1710:
+- **Verbeterde ervaring van de VPN-profiel in de Configuration Manager-console**<!-- 1318232 -->    
+  We hebben de VPN-profiel wizard eigenschappen pagina's en om weer te geven van de instellingen die geschikt is voor het geselecteerde platform bijgewerkt met deze release. Deze functie eerder beschikbaar was in Configuration Manager Technical Preview 1709 en nu beschikbaar in hybride implementaties met Intune en Configuration Manager (huidige vertakking) versie 1710:
   - [Verbeterde ervaring van de VPN-profiel in Configuration Manager-console](/sccm/core/plan-design/changes/whats-new-in-version-1710#improved-vpn-profile-experience-in-configuration-manager-console).
 
-
-Verbeterde VPN-profiel ervaring in Configuration Manager-Console
 
 ### <a name="new-in-configuration-manger-technical-preview-1711"></a>Nieuw in Configuration Manager Technical Preview 1711
 
@@ -94,7 +105,11 @@ Verbeterde VPN-profiel ervaring in Configuration Manager-Console
 
 ### <a name="new-in-microsoft-intune"></a>Nieuw in Microsoft Intune  
 
-- **Ondersteuning voor verificatie op basis van certificaten op de bedrijfsportal voor iOS** <!--1029830--> is ondersteuning toegevoegd voor verificatie op basis van certificaten (CBA) in de bedrijfsportal-app voor iOS. Gebruikers met CBA hun gebruikersnaam invoeren en tik op de koppeling 'Meld u aan een certificaat met'. CBA wordt al op de bedrijfsportal-apps voor Android en Windows ondersteund. Meer informatie vindt u op de [aanmelden bij de bedrijfsportal-app](https://docs.microsoft.com/intune-user-help/sign-in-to-the-company-portal) pagina.
+- **Apparaat setup voortgangsindicator in Android-bedrijfsportal**<!--1565657-->    
+  De bedrijfsportal-app voor Android ziet u een voortgangsindicator voor installatie van apparaat wanneer een gebruiker inschrijving van het apparaat. De indicator bevat nieuwe statussen, beginnen met ' Uw apparaat instellen...', vervolgens 'Registreren van uw apparaat...', vervolgens 'Is voltooid voor het registreren van uw apparaat...' vervolgens 'Instellen... van uw apparaat is voltooid'.  
+
+- **Ondersteuning voor verificatie op basis van certificaten op de bedrijfsportal voor iOS**<!--1029830-->    
+  Er is ondersteuning toegevoegd voor verificatie op basis van certificaten (CBA) in de bedrijfsportal-app voor iOS. Gebruikers met CBA hun gebruikersnaam invoeren en tik op de koppeling 'Meld u aan een certificaat met'. CBA wordt al op de bedrijfsportal-apps voor Android en Windows ondersteund. Meer informatie vindt u op de [aanmelden bij de bedrijfsportal-app](https://docs.microsoft.com/intune-user-help/sign-in-to-the-company-portal) pagina.
 
 - **Verbeteringen aan het apparaat instellen werkstroom in de bedrijfsportal**<!--1490692-->    
   We hebben de apparaat-setup-werkstroom in de bedrijfsportal-app voor Android verbeterd. De taal is gebruiksvriendelijker en specifiek voor uw bedrijf. Tevens hebben we waar mogelijk schermen gecombineerd. U kunt deze ziet op de [wat is er nieuw in app UI](https://docs.microsoft.com/intune/whats-new-app-ui#week-of-october-2-2017) pagina.
