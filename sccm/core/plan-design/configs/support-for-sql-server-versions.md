@@ -3,7 +3,7 @@ title: Ondersteunde versies van SQL Server
 titleSuffix: Configuration Manager
 description: Ophalen van SQL Server-versie en configuratie van vereisten voor het hosten van een System Center Configuration Manager-sitedatabase.
 ms.custom: na
-ms.date: 10/10/2017
+ms.date: 11/30/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,8 +15,8 @@ caps.latest.revision: "21"
 author: mstewart
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 9db753a7efb4a3fd56eaf38a31eb2b992c114ddc
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: f9edff3d50305a4166a6ea8e696e58a2120c4212
+ms.sourcegitcommit: 4af1da9c18f5bdff31426cf1d58c7d949372292d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/01/2017
@@ -95,8 +95,6 @@ U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebru
 -   Een primaire site  
 -   Een secundaire site
 
-
-
 ### <a name="sql-server-2014-sp1-standard-enterprise"></a>SQL Server 2014 SP1: Standard, Enterprise  
  U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor het volgende:  
 
@@ -136,8 +134,6 @@ Wanneer dit wordt ondersteund door uw versie van Configuration Manager, kunt u d
 -   Een centrale beheersite  
 -   Een primaire site
 -   Een secundaire site
-
-
 
 ### <a name="sql-server-2016-express-sp1"></a>SQL Server 2016 snelle SP1  
 U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor het volgende:

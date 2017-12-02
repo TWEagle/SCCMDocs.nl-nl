@@ -13,8 +13,8 @@ ms.assetid: bc6c3e5f-b9e2-400e-9d9d-446ff93c520c
 author: mstewart
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 5812133d183c76ab479d547e0f848c2287e5e950
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 71510d7f28941bbac56888afcc2332ed1ebec3b8
+ms.sourcegitcommit: 4af1da9c18f5bdff31426cf1d58c7d949372292d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/01/2017
@@ -66,7 +66,7 @@ Vanaf deze release kunt kunt u de Configuration Manager-console gebruiken om cli
 Zie [clients in System Center Configuration Manager beheren](/sccm/core/clients/manage/manage-clients#restart-clients)
 
 
-<!--  ## Compliance settings  -->
+<!-- ## Compliance settings -->
 
 
 ## <a name="application-management"></a>Toepassingsbeheer
@@ -130,6 +130,10 @@ Zie voor meer informatie [het configureren van clientinstellingen in System Cent
 
 
 ## <a name="mobile-device-management"></a>Beheer van mobiele apparaten
+
+### <a name="actions-for-non-compliance"></a>Acties voor niet-naleving 
+<!--1321366 -->    
+U kunt nu een tijd besteld reeks acties die worden toegepast op apparaten die niet compatibel. U kunt bijvoorbeeld meldingen verzenden naar gebruikers van niet-compatibele apparaten via e-mail of die apparaten niet-compatibele markeren. Zie voor meer informatie [acties instellen voor niet-naleving](/sccm/mdm/deploy-use/actions-for-noncompliance).
 
 ### <a name="windows-10-arm64-device-support"></a>Ondersteuning voor Windows 10 ARM64 apparaten
 <!-- 1355000 -->

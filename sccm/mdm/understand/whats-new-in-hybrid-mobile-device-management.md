@@ -14,8 +14,8 @@ ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: f6ca5a7eb9befd82af3a54c6db868e15291b1621
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 189e737eca5dee5bca3f0748cd1b4d944f868565
+ms.sourcegitcommit: 4af1da9c18f5bdff31426cf1d58c7d949372292d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/01/2017
@@ -74,6 +74,9 @@ We hebben toegevoegd **eigendomstype** naar het scherm Apparaatdetails op de bed
 
 
 ### <a name="new-in-configuration-manager-current-branch"></a>Nieuw in Configuration Manager (huidige vertakking)
+
+- **Acties voor niet-naleving**<!--1321366 -->    
+  U kunt nu een tijd besteld reeks acties die worden toegepast op apparaten die niet compatibel. U kunt bijvoorbeeld meldingen verzenden naar gebruikers van niet-compatibele apparaten via e-mail of die apparaten niet-compatibele markeren. Zie voor meer informatie [acties instellen voor niet-naleving](/sccm/mdm/deploy-use/actions-for-noncompliance).
 
 - **Nieuwe beleidsinstellingen voor mobiele toepassing management**<!-- 1324760 -->    
   De volgende instellingen zijn toegevoegd aan de mobiele toepassing management-beleidsinstellingen:
