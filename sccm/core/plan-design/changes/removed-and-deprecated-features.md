@@ -13,14 +13,14 @@ ms.topic: get-started-article
 ms.assetid: d8c8b44c-1e8a-42b6-bab4-23c72a0a6169
 caps.latest.revision: "15"
 caps.handback.revision: "0"
-author: mstewart
+author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 11d175a4ac42d62a440c6b374463c778b58b0973
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 95df27d4bf21a2cb1b6d613415a3eff4c3a73552
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="removed-and-deprecated-features-for-system-center-configuration-manager"></a>Verwijderde en afgeschafte functies voor System Center Configuration Manager
 
@@ -55,7 +55,7 @@ Zie voor meer informatie:
 |Windows Server 2008|10 juli 2015|Versie 1511 </br></br>Ondersteuning voor een sitesysteem is verwijderd. (Zie Opmerking 1).|  
 |Windows Server 2008 R2|10 juli 2015| Versie 1702 (Zie Opmerking 2)|  
 
--   Opmerking 1: Dit besturingssysteem wordt niet ondersteund voor siteservers of sitesysteemrollen met uitzondering van het distributiepunt en pull-distributiepunt. U kunt blijven gebruiken van dit besturingssysteem als een distributiepunt totdat afschaffing van deze ondersteuning wordt aangekondigd of de periode voor uitgebreide ondersteuning van dit besturingssysteem is verstreken. Zie voor meer informatie [installatie van System Center Configuration Manager CB en LTSB mislukt op Windows Server 2008](https://support.microsoft.com/help/4015095).
+-   Opmerking 1: Dit besturingssysteem wordt niet ondersteund voor siteservers of sitesysteemrollen behalve distributiepunt en pull-distributiepunt. U kunt blijven gebruiken van dit besturingssysteem als een distributiepunt totdat afschaffing van deze ondersteuning wordt aangekondigd of de periode voor uitgebreide ondersteuning van dit besturingssysteem is verstreken. Zie voor meer informatie [installatie van System Center Configuration Manager CB en LTSB mislukt op Windows Server 2008](https://support.microsoft.com/help/4015095).
 
 -   Opmerking 2:    Vanaf versie 1702, wordt dit besturingssysteem niet ondersteund voor siteservers of de meeste sitesysteemrollen echter versies voorafgaand aan 1702 blijven ondersteunen het gebruik ervan. Dit besturingssysteem ondersteund voor de sitesysteemrol distributiepunt blijven (inclusief pull-distributiepunten en voor PXE en multicast) totdat afschaffing van deze ondersteuning wordt aangekondigd of van dit besturingssysteem uitgebreide ondersteuning is verstreken. Vanaf versie 1602 kunt u kunt een upgrade ter plekke het besturingssysteem van een siteserver van Windows Server 2008 R2 naar Windows Server 2012 R2.  
 
@@ -89,7 +89,7 @@ Zie voor meer informatie:
 
 Als u moet de versie van SQL Server wilt bijwerken, raden wij de volgende methoden van eenvoudig complexere.
 1. [SQL Server in-place upgrade](/sccm/core/servers/manage/upgrade-on-premises-infrastructure#a-namebkmksupconfigupgradedbsrva-upgrade-sql-server-on-the-site-database-server) (aanbevolen).
-2. Een nieuwe versie van SQL Server op een nieuwe computer installeren en vervolgens [gebruikt u de optie-database verplaatsen](/sccm/core/servers/manage/modify-your-infrastructure#a-namebkmkdbconfiga-modify-the-site-database-configuration) installatieprogramma van Configuration Manager uw siteserver verwijzen naar de nieuwe SQL-Server.
+2. Een nieuwe versie van SQL Server installeren op een nieuwe computer. Vervolgens [gebruikt u de optie-database verplaatsen](/sccm/core/servers/manage/modify-your-infrastructure#a-namebkmkdbconfiga-modify-the-site-database-configuration) installatieprogramma van Configuration Manager uw siteserver verwijzen naar de nieuwe SQL-Server.
 3. Gebruik [back-up en herstel](/sccm/protect/understand/backup-and-recovery).
 
 
@@ -104,7 +104,7 @@ Als u moet de versie van SQL Server wilt bijwerken, raden wij de volgende method
 |Software Center heeft een nieuwe, moderne vormgeving. In de komende maanden wordt de vorige versie van het Software Center niet langer beschikbaar.<br><br>U kunt clients zo instellen dat er gebruik van het nieuwe Software Center doordat de client-instelling, **Computeragent** > **nieuwe Software Center gebruiken**.<br><br>Zie voor meer informatie over Software Center [plannen en configureren van Toepassingsbeheer in System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/plan-design/plan-for-and-configure-application-management).|December 13 mei 2016|Ondersteuning voor de vorige versie van Software Center eindigt met de eerste update die na 1 januari 2018 uitgebracht.|
 |Met de komst van de nieuwe ervaring met Software Center in versie 1511 weergegeven apps die nu alleen in de Toepassingscatalogus (voor gebruikers beschikbare apps eerst) in Software Center. </br></br>Met deze primaire functionaliteit van de Application Catalog nu opgenomen in Software Center kan wordt de Application Catalog webgebaseerde ervaring niet langer beschikbaar in de komende maanden.|11 augustus 2017| Ondersteuning voor de Application Catalog website gebruikerservaring op de eerste update die na 1 juni 2018 wordt uitgebracht eindigt|
 |Beheer van virtuele harde schijven (VHD's) met Configuration Manager. </br></br>Dit omvat het verwijderen van de opties voor een nieuwe VHD maken of beheren van een VHD met behulp van een takenreeks en het verwijderen van het knooppunt van de virtuele harde schijven uit de Configuration Manager-console. </br></br>Wanneer deze ondersteuning wordt verwijderd, worden bestaande VHD's worden niet verwijderd, maar niet langer toegankelijk vanuit de Configuration Manager-console.  |6 januari 2017 |Ondersteuning voor virtuele harde schijven eindigt met de eerste update die na 1 juni 2017 uitgebracht.|
-|System Center Configuration Manager Upgrade Assessment Tool. </br></br>Het hulpprogramma Upgradebeoordeling hangt af van System Center Configuration Manager en Application Compatibility Toolkit (ACT) 6.x. De definitieve versie van ACT is geleverd in de v1511 Windows 10 ADK. Omdat er wordt geen verdere updates met de functioneren, ondersteuning voor het hulpprogramma Upgradebeoordeling stopgezet. </br></br>Het hulpprogramma Upgradebeoordeling wordt vervangen door de [gereedheid voor Upgrade](/sccm/core/clients/manage/upgrade/upgrade-analytics) functie. Afschaffing bericht is toegevoegd aan de [downloadpagina voor UAT](https://www.microsoft.com/download/details.aspx?id=37145) op 9-12-2016. |9/12/2016  | 11 juli 2017 |
+|System Center Configuration Manager Upgrade Assessment Tool. </br></br>Het hulpprogramma Upgradebeoordeling hangt af van System Center Configuration Manager en Application Compatibility Toolkit (ACT) 6.x. De definitieve versie van ACT is geleverd in de v1511 Windows 10 ADK. Omdat er wordt geen verdere updates met de functioneren, ondersteuning voor het hulpprogramma Upgradebeoordeling stopgezet. </br></br>Het hulpprogramma Upgradebeoordeling wordt vervangen door de [gereedheid voor Upgrade](/sccm/core/clients/manage/upgrade/upgrade-analytics) functie. Afschaffing bericht is toegevoegd aan de [downloadpagina voor UAT](https://www.microsoft.com/download/details.aspx?id=37145) op 12 September 2016. | Op 12 september 2016  | 11 juli 2017 |
 
 
 <br></br>

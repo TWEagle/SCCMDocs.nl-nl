@@ -15,11 +15,11 @@ caps.latest.revision: "17"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: ae1bc53cf15b2a1746656667f7bf546742432c11
-ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
+ms.openlocfilehash: 8afb217524d5c2236fb07b13cb42ca50ae200183
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="how-to-manage-clients-in-system-center-configuration-manager"></a>Clients beheren in System Center Configuration Manager
 
@@ -269,12 +269,7 @@ Zie [Over de eigenschappen van clientinstallatie in System Center Configuration 
 
 2.  Op de **Cache** tabblad Eigenschappen ruimte en locatie instellen. De standaardlocatie is *%windir%*\ccmcache.  
 
-5.  Voor het verwijderen van de bestanden in de cachemap kiezen **bestanden verwijderen**.  
-
-    > [!NOTE]
-    >
-    > De cachemap is een gewone Windows-map, zodat u de verwijdering van de inhoud van de map met een script, een hulpprogramma of met de PowerShell-cmdlet kunt automatiseren `Remove-Item`.
-
+3.  Voor het verwijderen van de bestanden in de cachemap kiezen **bestanden verwijderen**.  
 
 ### <a name="to-configure-client-cache-size-in-client-settings"></a>De client-cachegrootte in clientinstellingen configureren
 
