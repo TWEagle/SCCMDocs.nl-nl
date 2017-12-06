@@ -15,11 +15,11 @@ caps.latest.revision: "5"
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 34886a38ed4b797b254e3fb83eb66588c7e1d116
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 2c87cf0e63e4b95f5b94b6cda9e2aa40c4389184
+ms.sourcegitcommit: 8c6e9355846ff6a73c534c079e3cdae09cf13c45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="site-and-site-system-prerequisites-for-system-center-configuration-manager"></a>Site- en site-systeemvereisten voor System Center Configuration Manager
 
@@ -258,8 +258,9 @@ ms.lasthandoff: 12/04/2017
     > [!NOTE]  
     >  WDS automatisch geïnstalleerd en geconfigureerd wanneer u een distributiepunt configureert voor ondersteuning van PXE of multicast op een server waarop WindowsServer 2012 of later.  
 
+<!--sms.503672 -Clarified BITS use-->
 > [!NOTE]  
-> De sitesysteemrol distributiepunt vereist geen Background Intelligent Transfer Service (BITS). Wanneer BITS is geconfigureerd op de computer van het distributiepunt, wordt niet BITS op de distributiepuntcomputer gebruikt om het downloaden van inhoud door clients die gebruikmaken van BITS.  
+> Wanneer het distributiepunt inhoud overdraagt, wordt dit gedaan met behulp van de **Background Intelligent Transfer Service** (BITS) is ingebouwd in de Windows-besturingssysteem. De distributiepuntrol nodig niet de optionele functie BITS IIS-serveruitbreiding moet worden geïnstalleerd omdat de client heeft naar deze informatie niet uploaden.  
 
 ###  <a name="bkmk_2012EPPpreq"></a>Endpoint Protection-punt  
 **Windows Server-functies en onderdelen:**  
@@ -626,8 +627,9 @@ Wanneer u een aangepaste configuratie voor IIS gebruikt, kunt u de opties die ni
     > [!NOTE]  
     >  WDS automatisch geïnstalleerd en geconfigureerd wanneer u een distributiepunt configureert voor ondersteuning van PXE of multicast op een server waarop WindowsServer 2012 of later.  
 
+<!--sms.503672 -Clarified BITS use-->
 > [!NOTE]  
-> De sitesysteemrol distributiepunt vereist geen Background Intelligent Transfer Service (BITS). Wanneer BITS is geconfigureerd op de computer van het distributiepunt, wordt niet BITS op de distributiepuntcomputer gebruikt om het downloaden van inhoud door clients die gebruikmaken van BITS.  
+> Wanneer het distributiepunt inhoud overdraagt, wordt dit gedaan met behulp van de **Background Intelligent Transfer Service** (BITS) is ingebouwd in de Windows-besturingssysteem. De distributiepuntrol nodig niet de optionele functie BITS IIS-serveruitbreiding moet worden geïnstalleerd omdat de client heeft naar deze informatie niet uploaden.   
 
 
 ###  <a name="bkmk_2008EPPpreq"></a>Endpoint Protection-punt  

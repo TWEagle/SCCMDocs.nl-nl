@@ -5,23 +5,23 @@ description: Informatie over het voorbereiden van Intune in Azure voor gebruiker
 keywords: 
 author: dougeby
 manager: dougeby
-ms.date: 09/14/2017
+ms.date: 12/05/2017
 ms.topic: article
 ms.prod: configmgr-hybrid
 ms.service: 
 ms.technology: 
 ms.assetid: db97ae9e-34f4-4e10-a282-cd211f612bb4
-ms.openlocfilehash: 7addb69ff0336b82d0e59e2288110ebb7c074af3
-ms.sourcegitcommit: 986fc2d54f7c5fa965fd4df42f4db4ecce6b79cb
+ms.openlocfilehash: 226586f0ee42cdad98b1d74f25421685d85e0dcf
+ms.sourcegitcommit: 8c6e9355846ff6a73c534c079e3cdae09cf13c45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="prepare-intune-for-user-migration"></a>Intune voorbereiden voor gebruikersmigratie van de 
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*    
 
-Voordat u gebruikers van hybride MDM (Intune geïntegreerd met Configuration Manager) voor zelfstandige versie van Intune migreert, moet u de stappen voor het voorbereiden van Intune uitvoeren. Deze stappen kunt u ervoor zorgen dat de gemigreerde gebruikers en hun apparaten blijven worden beheerd. Wanneer u deze stappen hebt uitgevoerd en start de migratie naar Intune, moet het worden transparant voor uw gebruikers.  
+Voordat u gebruikers van hybride MDM (Intune geïntegreerd met Configuration Manager) voor zelfstandige versie van Intune migreert, moet u de stappen voor het voorbereiden van Intune uitvoeren. Deze stappen ervoor te zorgen dat de gemigreerde gebruikers en hun apparaten blijven worden beheerd. Wanneer u deze stappen hebt uitgevoerd en start de migratie naar Intune, moet het worden transparant voor uw gebruikers.  
 
 ## <a name="fix-issues-found-during-data-collection-and-import"></a>Los problemen gevonden tijdens het verzamelen van gegevens en importeren
 Als u door het proces is een fout [Configuration Manager-gegevens importeren in Microsoft Intune](migrate-import-data.md), het hulpprogramma voor gegevensimport Intune bieden u een overzicht van alle objecten die was het niet importeren. Enkele typische problemen die u waarschijnlijk hebt uitgevoerd, en de stappen die u ondernemen kunt om los het probleem in Intune, worden vermeld in de volgende tabel: 
@@ -39,7 +39,7 @@ Als u door het proces is een fout [Configuration Manager-gegevens importeren in 
 In Configuration Manager u een verzameling toevoegen aan het Intune-abonnement en de leden van de verzameling zijn de mogelijkheid hun apparaten kunnen inschrijven. Terwijl een Intune-licentie is gereserveerd voor ingeschreven apparaten, zijn deze licenties niet specifiek gekoppeld aan de gebruiker of het apparaat. Bijvoorbeeld, wouldn't u een Intune-licentie vinden in AAD voor een gebruiker met een geregistreerd apparaat. U moet echter een Intune-licentie voor elke gebruiker configureren in de zelfstandige versie van Intune. U moet dit doen voordat u een gebruiker naar de zelfstandige versie van Intune migreert om ervoor te zorgen dat de gebruiker en hun apparaten worden beheerd door Intune die na de wijziging in de MDM-instantie. Zie voor meer informatie [toewijzen Intune-licenties aan uw gebruikersaccounts](https://docs.microsoft.com/intune/licenses-assign). 
 
 ## <a name="verify-intune-user-groups"></a>Controleer of de Intune-gebruikersgroepen
-Uw gebruikers en groepen zijn waarschijnlijk al in AAD, omdat u directory-synchronisatie is geconfigureerd. Om ervoor te zorgen dat uw gebruikers deel van de juiste gebruikersgroep uitmaken, wordt u aangeraden u wordt aangeraden uw Intune-gebruikersgroepen. U heeft betrekking op beleid, profielen, apps, enz. aan deze groepen. Zorg ervoor dat de gebruikers die u kunt naar Intune standalone migreren deel uitmaken van de juiste groepen. 
+Uw gebruikers en groepen zijn waarschijnlijk al in AAD, omdat u directory-synchronisatie is geconfigureerd. Om ervoor te zorgen dat uw gebruikers deel van de juiste gebruikersgroep uitmaken, wordt u aangeraden u wordt aangeraden uw Intune-gebruikersgroepen. U richt de beleidsregels, profielen, apps, enz. aan deze groepen. Zorg ervoor dat de gebruikers die u kunt naar Intune standalone migreren deel uitmaken van de juiste groepen. 
 
 ## <a name="configure-role-based-administration-control-rbac"></a>Op rollen gebaseerd beheer toegangsbeheer (RBAC) configureren
 Als onderdeel van de migratie alle benodigde RBAC-rollen configureren in Intune en gebruikers aan deze rollen toewijzen. Houd er rekening mee dat er verschillen tussen RBAC in Configuration Manager en Intune, zijn zoals het bereik van resources. Zie voor meer informatie [Rolgebaseerd beheer toegangsbeheer (RBAC) met Intune](https://docs.microsoft.com/en-us/intune/role-based-access-control).
@@ -54,14 +54,17 @@ Als u hebben doorlopen de [Import Configuration Manager-gegevens naar Microsoft 
 Net als andere beleidsregels op tenantniveau worden voorwaarden automatisch gemigreerd naar Intune zodra gemengde autoriteit is ingeschakeld voor uw tenant.  Echter, moet u de voorwaarden en voorwaarden voor een groep met gebruikers nauwkeurig rapporteren over acceptatie voor de gemigreerde gebruikers, en zorg ervoor dat de voorwaarden en bepalingen voor toekomstige bepalingen en voorwaarden updates of het apparaat goed zijn gericht gemigreerd inschrijvingen. Gebruikers geen opnieuw moeten accepteren de voorwaarden en bepalingen tenzij er wijzigingen aangebracht aan het beleid in de Configuration Manager-console zijn. Zie voor meer informatie [bepalingen en voorwaarden toewijzen](https://docs.microsoft.com/intune/terms-and-conditions-create#assign-terms-and-conditions).
 
 ## <a name="configure-the-exchange-connector"></a>De Exchange Connector configureren
-Als u Exchange en hebt een Exchange-Connector in Configuration Manager, moet u de lokale Exchange-Connector configureren in Intune. Zie voor meer informatie [stelt u de Intune op lokale Exchange-Connector in Microsoft Intune-Azure](https://docs.microsoft.com/intune/exchange-connector-install)
+Als u Exchange en hebt een lokale Exchange-Connector in Configuration Manager, moet u [configureren van de lokale Exchange-Connector in Intune](https://docs.microsoft.com/intune/exchange-connector-install). U kunt ook de informatie in de volgende secties voor hulp bij het migreren naar de Intune Exchange Connector en zodat voorwaardelijke toegang werk correct na de migratie.
 
-> [!Important]
-> Voor voorwaardelijke toegang tot goed werken nadat het migreren van gebruikers, en om ervoor te zorgen dat uw gebruikers toegang hebben tot hun e-mailserver blijven, zorg ervoor dat de volgende voorwaarden wordt voldaan:
-> - Als de Exchange ActiveSync toegang niveau standaardinstelling (DefaultAccessLevel) is ingesteld op blokkeren of in quarantaine, kunnen apparaten toegang tot e-mail verliezen. 
-> - Als de Exchange-Connector in Configuration Manager is geïnstalleerd en de **toegangsniveau wanneer een mobiel apparaat niet wordt beheerd door een regel** instelling een waarde heeft van **toegang toestaan**, moet u de [ Lokale Exchange-connector](https://docs.microsoft.com/en-us/intune/conditional-access-exchange-create#configure-exchange-on-premises-access) in Intune voordat u gebruikers migreert. De standaardinstelling voor het niveau van toegang in Intune configureren op de **on-premises Exchange** blade in **geavanceerde Exchange ActiveSync-toegangsinstellingen**. Zie voor meer informatie [Exchange configureren lokale toegang](https://docs.microsoft.com/intune/conditional-access-exchange-create#configure-exchange-on-premises-access).
-> - Gebruik dezelfde configuratie voor beide connectors. De laatste connector die u configureert, overschrijft de eerder geschreven door de andere connector ActiveSync organisatie-instellingen. Als u de connectors anders is geconfigureerd, kan dit leiden tot onverwachte voorwaardelijke toegang wijzigingen.
-> - Gebruikers verwijderen uit de voorwaardelijke toegang in Configuration Manager als doel zodra ze worden gemigreerd naar de zelfstandige versie van Intune.
+### <a name="powershell-scripts-to-help-you-migrate-to-the-intune-exchange-connector"></a>PowerShell-scripts voor het migreren naar de Intune Exchange Connector 
+PowerShell-scripts zijn beschikbaar om te helpen bij het voorbereiden voor de overgang van uw Exchange-apparaten van de Configuration Manager Exchange Connector met de Intune Exchange Connector. Deze scripts zijn optioneel, dat het is raadzaam dat u deze om te verwijderen van inactieve apparaten uit Exchange, die voorkomt dat Intune onnodige apparaten detecteren uitvoeren tijdens de uitvoering. De scripts ervoor te zorgen dat apparaten die zijn gedetecteerd via Exchange met apparaten die zijn ingeschreven bij Intune zo soepel mogelijk samenvoegen kunnen die wordt uitgevoerd. Voer deze scripts vóór het instellen van de Intune Exchange Connector. De PowerShell-scripts maken deel uit van de installatie van gegevensimport van Intune waarmee u [Configuration Manager-gegevens importeren in Microsoft Intune](migrate-import-data.md) in het volgende artikel. Voor meer informatie en de scripts downloaden, gaat u naar [Microsoft Intune-gegevensimport](https://github.com/ConfigMgrTools/Intune-Data-Importer) GitHub-pagina.
+
+### <a name="steps-to-ensure-conditional-access-works-properly-after-user-migration"></a>Om ervoor te zorgen van voorwaardelijke toegang werkt goed in na de gebruikersmigratie
+Voor voorwaardelijke toegang tot goed werken nadat het migreren van gebruikers, en om ervoor te zorgen dat uw gebruikers toegang hebben tot hun e-mailserver blijven, zorg ervoor dat de volgende voorwaarden wordt voldaan:
+- Als de Exchange ActiveSync toegang niveau standaardinstelling (DefaultAccessLevel) is ingesteld op blokkeren of in quarantaine, kunnen apparaten toegang tot e-mail verliezen. 
+- Als de Exchange-Connector in Configuration Manager is geïnstalleerd en de **toegangsniveau wanneer een mobiel apparaat niet wordt beheerd door een regel** instelling een waarde heeft van **toegang toestaan**, moet u de [ Lokale Exchange-connector](https://docs.microsoft.com/en-us/intune/conditional-access-exchange-create#configure-exchange-on-premises-access) in Intune voordat u gebruikers migreert. De standaardinstelling voor het niveau van toegang in Intune configureren op de **on-premises Exchange** blade in **geavanceerde Exchange ActiveSync-toegangsinstellingen**. Zie voor meer informatie [Exchange configureren lokale toegang](https://docs.microsoft.com/intune/conditional-access-exchange-create#configure-exchange-on-premises-access).
+- Gebruik dezelfde configuratie voor beide connectors. De laatste connector die u configureert, overschrijft de eerder geschreven door de andere connector ActiveSync organisatie-instellingen. Als u de connectors anders is geconfigureerd, kan dit leiden tot onverwachte voorwaardelijke toegang wijzigingen.
+- Gebruikers verwijderen uit de voorwaardelijke toegang in Configuration Manager als doel zodra ze worden gemigreerd naar de zelfstandige versie van Intune.
 
 ## <a name="configure-the-microsoft-intune-certificate-connector"></a>De Microsoft Intune-Certificaatconnector configureren
 Als u NDES om certificaten te verlenen met behulp van SCEP gebruikt, moet u de Microsoft Intune-Certificaatconnector configureren. De computer die als host fungeert voor de NDES connector in Intune kan niet dezelfde computer die als host fungeert voor de NDES connector in Configuration Manager. Zie voor meer informatie [configureren en beheren van SCEP-certificaten met Intune](https://docs.microsoft.com/en-us/intune/certificates-scep-configure). 

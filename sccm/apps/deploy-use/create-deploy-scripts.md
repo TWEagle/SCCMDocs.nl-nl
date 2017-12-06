@@ -3,7 +3,7 @@ title: Maken en uitvoeren van scripts
 titleSuffix: Configuration Manager
 description: Maak en Powershell-scripts uitvoeren op clientapparaten.
 ms.custom: na
-ms.date: 11/20/2017
+ms.date: 11/29/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,31 +16,31 @@ caps.handback.revision: "0"
 author: BrucePerlerMS
 ms.author: bruceper
 manager: angrobe
-ms.openlocfilehash: 964f6d39c4c1afc82ff4336821740923d27cd569
-ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
+ms.openlocfilehash: 1472f697ae8b82e6268433aa6398fcc10a429994
+ms.sourcegitcommit: 5f4a584d4a833b0cc22bd8c47da7dd55aced97fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-and-run-powershell-scripts-from-the-configuration-manager-console"></a>Maken en PowerShell-scripts uitvoeren vanaf de Configuration Manager-console
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Je nu de mogelijkheid om uit te voeren Powershell-Scripts met System Center Configuration Manager beter geïntegreerd. PowerShell heeft het voordeel van het maken van geavanceerde, geautomatiseerde scripts die zijn begrepen en gedeeld met een grotere community. De scripts vereenvoudigen aangepaste hulpprogramma's voor het beheren van software en kunt u dat taken snel zodat u grote werk gemakkelijker en consistenter bouwen.
+>[!TIP]
+>De mogelijkheid om uit te voeren PowerShell-scripts is geïntroduceerd in versie 1706, is een voorlopige versie-functie. Zie voor het inschakelen van scripts [pre-release functies in System Center Configuration Manager](/sccm/core/servers/manage/pre-release-features).
+
+Je nu de mogelijkheid om uit te voeren Powershell-scripts met System Center Configuration Manager beter geïntegreerd. PowerShell heeft het voordeel van het maken van geavanceerde, geautomatiseerde scripts die zijn begrepen en gedeeld met een grotere community. De scripts vereenvoudigen aangepaste hulpprogramma's voor het beheren van software en kunt die u dat snel taken, zodat u grote werk gemakkelijker en consistenter bouwen.
 
 Met deze integratie in System Center Configuration Manager, kunt u de *Scripts uitvoeren* functionaliteit voor het volgende doen:
 
-- Maken en bewerken van scripts voor gebruik met Configuration Manager.
-- Beheren van het gebruik van script via de rollen en beveiligingsbereiken  
+- Maken en bewerken van scripts voor gebruik met System Center Configuration Manager.
+- Beheren van het gebruik van script via de rollen en beveiligingsbereiken. 
 - Scripts uitvoeren op verzamelingen of afzonderlijke lokale beheerde Windows-pc's.
 - Snelle geaggregeerde script resultaten van clientapparaten ophalen.
 - Uitvoering van script bewaken en rapportage resultaten van de uitvoer van het script weergeven.
 
->[!IMPORTANT]
+>[!WARNING]
 >Gezien de kracht van scripts, herinneren wij u opzettelijk en voorzichtig met het gebruik. We zijn ingebouwd in extra veiligheidsmaatregelen helpen u; gescheiden rollen en bereiken. Zorg ervoor dat de nauwkeurigheid van scripts valideren voordat u ze uitvoert en die afkomstig zijn van een vertrouwde bron, om te voorkomen dat de uitvoering van het onbedoeld script bevestigen. Houd ook rekening met uitgebreide tekens of andere codeversleuteling en Lees over het beveiligen van scripts.
-
->[!TIP]
->PowerShell-Scripts is geïntroduceerd in versie 1706, is een voorlopige versie-functie. Zie voor het inschakelen van scripts [pre-release functies in System Center Configuration Manager](/sccm/core/servers/manage/pre-release-features).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -49,7 +49,7 @@ Met deze integratie in System Center Configuration Manager, kunt u de *Scripts u
 - Gebruik van scripts, moet u lid zijn van de juiste Configuration Manager-beveiligingsrol.
 - Importeren en scripts - schrijft u uw account moet hebben **maken** machtigingen voor **SMS Scripts** in de **volledige beheerder** beveiligingsrol.
 - Goedkeuren of weigeren van scripts - uw account moet hebben **goedkeuren** machtigingen voor **SMS Scripts** in de **volledige beheerder** beveiligingsrol.
-- Uitvoeren van scripts - uw account moet hebben **-Script uitvoeren** machtigingen voor **verzamelingen** in de **instellingen voor naleving** beveiligingsrol.
+- Uitvoeren van scripts - uw account moet hebben **-Script uitvoeren** machtigingen voor **verzamelingen** in de **volledige beheerder** beveiligingsrol.
 
 Zie voor meer informatie over beveiligingsrollen voor Configuration Manager [basisprincipes van beheer op basis van rollen](/sccm/core/understand/fundamentals-of-role-based-administration).
 
@@ -58,7 +58,7 @@ Zie voor meer informatie over beveiligingsrollen voor Configuration Manager [bas
 Scripts uitvoeren op dit moment ondersteunt:
 
 - Scripttalen: PowerShell
-- Parametertypen: geheel getal en de tekenreeks
+- Parametertypen: integer, tekenreeks en lijst
 
 ## <a name="run-script-authors-and-approvers"></a>Voer Script auteurs en fiatteurs
 
@@ -120,79 +120,83 @@ Elk van uw script parameters heeft een eigen dialoogvenster voor het toevoegen v
 
 Elke parameter in het script heeft een **Script parametereigenschappen** dialoogvenster u validatie voor deze parameter. Na het toevoegen van validatie moet er treden fouten als u een waarde opgeeft voor een parameter die niet aan de validatie voldoet.
 
-#### <a name="example-firstname"></a>Voorbeeld: Voornaam
+#### <a name="example-firstname"></a>Voorbeeld: *Voornaam*
 
-In dit voorbeeld u zich kunt instellen van de eigenschappen van de tekenreeksparameter *FirstName*. U ziet de optioneel veld voor **aangepaste fout**. Dit veld is handig voor het toevoegen van gebruiker richtlijnen over de specifieke veld en de richtlijnen voor de gebruiker over de interactie met de tekenreeksparameter *FirstName* in dit geval.
+In dit voorbeeld u zich kunt instellen van de eigenschappen van de tekenreeksparameter *FirstName*.
 
 ![Scriptparameters - tekenreeks](./media/run-scripts/RS-parameters-string.png)
+
+
+De sectie validatie van de **Script parametereigenschappen** dialoogvenster bevat de volgende velden voor het gebruik:
+
+- **Minimale lengte** - minimum aantal tekens van de *FirstName* veld.
+- **Maximale lengte**- maximaal aantal tekens van de *FirstName* veld
+- **RegEx** - afkorting voor *reguliere expressie*. Zie voor meer informatie over het gebruik van de reguliere expressie in de volgende sectie *validatie met behulp van reguliere expressie*.
+- **Aangepaste foutpagina** - handig voor het toevoegen van uw eigen aangepaste foutbericht dat eventuele foutberichten voor validatie van systeem vervangt.
+
+#### <a name="using-regular-expression-validation"></a>Met behulp van de validatie van de reguliere expressie
+
+Een reguliere expressie is een compacte vorm van programmeren voor het controleren van een reeks tekens op basis van een gecodeerde validatie. Bijvoorbeeld, u kan controleren of het ontbreken van een investering alfabetisch teken in de *FirstName* veld door het plaatsen van `[^A-Z]` in de *RegEx* veld.
+
+De reguliere expressie verwerken voor dit dialoogvenster wordt ondersteund door .NET Framework. Zie voor instructies over het gebruik van reguliere expressies, [reguliere expressie van .NET](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions). 
+
 
 ## <a name="script-examples"></a>Voorbeelden van scripts
 
 Hier volgen enkele voorbeelden van scripts die u mogelijk wilt gebruiken met deze mogelijkheid.
 
-### <a name="create-a-folder"></a>Maak een map
+### <a name="create-a-new-folder-and-file"></a>Maak een nieuwe map en het bestand
+
+Dit script maakt een nieuwe map en een bestand binnen het opgegeven uw naming invoer.
 
 ``` powershell
-New-Item "c:\scripts" -type folder name
-```
-
-### <a name="create-a-file"></a>Maak een bestand
-
-```powershell
-New-Item "c:\scripts\new_file.txt" -type file name
-```
-
-### <a name="ping-a-given-computer"></a>Een bepaalde computer pingen
-
-Dit script een tekenreeks en gebruikt als een parameter voor een *ping* bewerking.
-
-``` powershell
-Param
-(
- [String][Parameter(Mandatory=$True, Position=1)] $Computername
+Param(
+[Parameter(Mandatory=$True)]
+[string]$FolderName,
+[Parameter(Mandatory=$True)]
+[string]$FileName,
 )
 
-Ping $Computername
+New-Item $FolderName -type directory
+New-Item $FileName -type file
 ```
 
-### <a name="get-battery-status"></a>Batterijstatus ophalen
+### <a name="get-os-version"></a>Ophalen van de versie van besturingssysteem
 
-Dit script maakt gebruik van WMI query uitvoeren op de machine voor de status van de accu.
+Dit script maakt gebruik van WMI query uitvoeren op de machine voor de versie van het besturingssysteem.
 
 ``` powershell
-Write-Output (Get-WmiObject -Class Win32_Battery).BatteryStatus
-
+Write-Output (Get-WmiObject -Class Win32_operatingSystem).Caption
 ```
 
 ## <a name="run-a-script"></a>Een script uitvoeren
 
-Nadat een script is goedgekeurd, kunt u deze kunt uitvoeren met een verzameling die u kiest. Zodra de uitvoering van het script wordt gestart, snel wordt gestart via een systeem met hoge prioriteit en wordt uitgevoerd binnen een uur. De resultaten van het script worden verzameld met behulp van een tragere, status bericht-systeem.
+Nadat een script is goedgekeurd, kan deze kan worden uitgevoerd op basis van een enkel apparaat of een verzameling. Zodra de uitvoering van het script wordt gestart, wordt het snel gestart via een systeem met hoge prioriteit die treedt er een time-out in één uur. De resultaten van het script vervolgens met behulp van een statusberichtsysteem geretourneerd.
+
+Selecteer een verzameling van doelen voor uw script:
 
 1. Klik op **Activa en naleving**op de Configuration Manager-console.
 2. In de activa en naleving werkruimte, klikt u op **Apparaatverzamelingen**.
 3. In de **Apparaatverzamelingen** lijst, klikt u op de verzameling van apparaten waarop u wilt dat het script uit te voeren.
-4. Op de **Start** tabblad, in de **alle systemen** groep, klikt u op **-Script uitvoeren**.
+4. Selecteer een verzameling van uw keuze, klikt u op **-Script uitvoeren**.
 5. Op de **Script** pagina van de **-Script uitvoeren** wizard kiest u een script in de lijst. Alleen goedgekeurde scripts die worden weergegeven.
 6. Klik op **volgende**, en voltooi de wizard.
 
 >[!IMPORTANT]
->Als u een script niet wordt uitgevoerd, bijvoorbeeld omdat een doel-client is uitgeschakeld, klikt u in het één uur periode, moet u deze opnieuw uitvoeren.
+>Als u een script niet wordt uitgevoerd, bijvoorbeeld omdat een doelapparaat is uitgeschakeld tijdens het één uur periode, moet u deze opnieuw uitvoeren.
 
 ### <a name="target-machine-execution"></a>Doel machine worden uitgevoerd
+
 Het script wordt uitgevoerd als de *system* of *computer* account op de betreffende client (s). Dit account heeft beperkte toegang tot het netwerk. Geen toegang hebben tot externe systemen en locaties door het script moet dienovereenkomstig worden ingericht.
 
-## <a name="work-flow-and-monitoring"></a>Werkstroom en controle
+## <a name="script-monitoring"></a>Script bewaking
 
-Hier ziet u hoe Scripts uitvoeren eruit als een werkstroom; Maak, goedkeuren, uitvoeren en bewaken.
+Nadat u hebt gestart om een script uitgevoerd op een verzameling apparaten, moet u de volgende procedure gebruiken voor het bewaken van de bewerking. Vanaf versie 1710 kunt u zijn beide kan een script in realtime controleren als deze wordt uitgevoerd, en u kunt ook teruggaan naar een rapport voor een bepaalde uitvoering van Script uitvoeren. <br>
 
-![Scripts - werkstroom uitvoeren](./media/run-scripts/RS-run-scripts-work-flow.png)
-
-### <a name="script-monitoring"></a>Script bewaking
-
-Nadat u hebt gestart om een script uitgevoerd op een verzameling apparaten, moet u de volgende procedure gebruiken voor het bewaken van de bewerking. Vanaf versie 1710 kunt u zijn beide kan een script in realtime controleren als deze wordt uitgevoerd, en u kunt ook teruggaan naar een rapport voor een bepaalde uitvoering van Script uitvoeren.
+![Controleprogramma voor script - Script uitvoeringsstatus](./media/run-scripts/RS-monitoring-three-bar.png)
 
 1. Klik in de Configuration Manager-console op **bewaking**.
-2. In de **bewaking** werkruimte, klikt u op **Script Status**. ![Controleprogramma voor script - Script uitvoeringsstatus](./media/run-scripts/RS-monitoring-three-bar.png)
+2. In de **bewaking** werkruimte, klikt u op **Script Status**.
 3. In de **Script Status** wanneer u de resultaten voor elk script dat u hebt uitgevoerd op clientapparaten lijst bekijken. De afsluitcode van een script van **0** geeft meestal aan dat het script is uitgevoerd.
 
 ## <a name="see-also"></a>Zie ook

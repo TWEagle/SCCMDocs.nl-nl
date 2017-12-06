@@ -3,7 +3,7 @@ title: Meer informatie over licentieverlening en vertakkingen
 titleSuffix: Configuration Manager
 description: Gebruik dit onderwerp voor meer informatie over de licentievereisten voor de beschikbare installatieopties met de release van oktober 2016 van System Center Configuration Manager, waaronder de huidige vertakking versie 1606, Long-Term Servicing Branch (LTSB) en evaluatie-installatie van de huidige vertakking.
 ms.custom: na
-ms.date: 10/12/2016
+ms.date: 12/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: aaroncz
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 0890b25f4b5b96a8d39b0dcf6f0aa659c07265db
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: bcb25fc6faad3d5f7162ae4ceb200c6de1c1c25b
+ms.sourcegitcommit: 8c6e9355846ff6a73c534c079e3cdae09cf13c45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="licensing-and-branches-for-system-center-configuration-manager"></a>Licenties en vertakkingen voor System Center Configuration Manager
 
@@ -42,7 +42,7 @@ In dit onderwerp verwijst naar de Software Assurance-overeenkomst (of gelijkwaar
 
 |Filialen|Licentieverlening|Details|
 |----------------|---------------------|--------------------|
-|Huidige vertakking | Vereist een actieve Software Assurance-overeenkomst (of equivalente rechten) naar Configuration Manager. </br></br> Zie [Software Assurance en de huidige vertakking](#software-assurance-and-the-current-Branch) in dit onderwerp.| Ondersteund voor gebruik in productieomgevingen die wilt ontvangen van regelmatige kwaliteit en functie-updates van Microsoft. </br></br> De vertakking geeft toegang tot alle functies en verbeteringen. </br></br> Elke update versie wordt ondersteund voor één (1) jaar na de release, op welke datum u naar een nieuwere versie van wordt nog steeds bijwerken moet [ondersteuning](/sccm/core/servers/manage/current-branch-versions-supported).|
+|Huidige vertakking | Vereist een actieve Software Assurance-overeenkomst (of equivalente rechten) naar Configuration Manager. </br></br> Zie [Software Assurance en de huidige vertakking](#software-assurance-and-the-current-Branch) in dit onderwerp.| Ondersteund voor gebruik in productieomgevingen die wilt ontvangen van regelmatige kwaliteit en functie-updates van Microsoft. </br></br> De vertakking geeft toegang tot alle functies en verbeteringen. </br></br> Voor versies van Configuration Manager, uitgebracht vóór 1710, is ondersteuning voor twaalf maanden. Elke versie van de update is vanaf de release 1710, blijft in de ondersteuning voor 18 maanden na de releasedatum algemene beschikbaarheid. Zie [ondersteuning voor versies van System Center Configuration Manager huidige vertakking](/sccm/core/servers/manage/current-branch-versions-supported) voor meer informatie.|
 |Op lange termijn Servicing Branch (LTSB)| Vereist een huidige Software Assurance-overeenkomst met Microsoft op het moment van release (1e oktober 2016) </br></br> Zie [Software Assurance en het LTSB](#software-assurance-and-the-ltsb) in dit onderwerp. | Ondersteund voor gebruik in productieomgevingen. Bedoeld voor gebruik door klanten waarmee hebben dat hun Software Assurance (SA) of een equivalente abonnementen rechten aan Configuration Manager verlopen na oktober 1e 2016. </br></br> De vertakking is beperkt in vergelijking met de huidige vertakking. </br></br> Essentiële updates voor Configuration Manager beschikbaar worden gesteld op de vertakking, maar er zijn geen nieuwe functies beschikbaar worden gesteld. |
 |Evaluatie-installatie van de huidige vertakking| Vereist geen een Software Assurance-overeenkomst met Microsoft. | [Evaluatie-installaties](https://www.microsoft.com/en-us/evalcenter/evaluate-system-center-configuration-manager-and-endpoint-protection) zijn altijd de huidige vertakking en kan worden gebruikt voor 180 dagen. </br></br> De evaluatie-installatie kan worden bijgewerkt naar een volledige installatie van de huidige vertakking. U kunt een evaluatie-installatie niet upgraden naar de vertakking Long-Term onderhoud.|
 
