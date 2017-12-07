@@ -3,7 +3,7 @@ title: Datawarehouse
 titleSuffix: Configuration Manager
 description: Datawarehouse-servicepunt en de database voor System Center Configuration Manager
 ms.custom: na
-ms.date: 8/25/2017
+ms.date: 12/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.latest.revision:
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 2e6ac983e5ca63dacb77f2e26515d7123748d64d
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 4d420ce623c834401383231d00e3f361342f2d2e
+ms.sourcegitcommit: 52b956cfe32c3f06ae68d6ba6fc3244ce5a66325
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 #  <a name="the-data-warehouse-service-point-for-system-center-configuration-manager"></a>Het datawarehouse-servicepunt voor System Center Configuration Manager
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
@@ -27,9 +27,7 @@ ms.lasthandoff: 12/04/2017
 Vanaf versie 1702 dat kunt u de datawarehouse-servicepunt op te slaan en te rapporteren over langetermijnopslag van historische gegevens voor uw Configuration Manager-implementatie.
 
 > [!TIP]
-> De datawarehouse-servicepunt is een voorlopige versie-functie die is geïntroduceerd in versie 1702. Als u wilt inschakelen, Zie [gebruikt functies van evaluatieversies](/sccm/core/servers/manage/pre-release-features).
-
-> Vanaf versie 1706, deze functie is niet langer een voorlopige versie.
+> Deze functie is geïntroduceerd in versie 1702 als een [functie van de voorlopige versie](/sccm/core/servers/manage/pre-release-features). Vanaf versie 1706, deze functie is niet langer een voorlopige versie.
 
 Het datawarehouse ondersteunt maximaal 2 TB aan gegevens, met een tijdstempel voor het bijhouden. Opslag van gegevens wordt gedaan door geautomatiseerde synchronisaties uit de sitedatabase van Configuration Manager met de datawarehouse-database. Deze gegevens zijn toegankelijk is vanaf uw Reporting Services-punt. Gegevens die zijn gesynchroniseerd met de datawarehouse-database wordt drie jaar bewaard. Een ingebouwde taak verwijdert periodiek gegevens die ouder is dan drie jaar.
 

@@ -3,7 +3,7 @@ title: Maak een takenreeks om een besturingssysteem te upgraden
 titleSuffix: Configuration Manager
 description: Takenreeksen in System Center Configuration Manager kunnen een besturingssysteem automatisch een upgrade van Windows 7 of hoger naar Windows 10.
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 12/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.latest.revision: "12"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 2787c8a692321a49cf287fc2f09858690360dc25
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 002acbcff01105e612e8c090606a6aa5d45a014b
+ms.sourcegitcommit: 52b956cfe32c3f06ae68d6ba6fc3244ce5a66325
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="create-a-task-sequence-to-upgrade-an-operating-system-in-system-center-configuration-manager"></a>Maak een takenreeks om een besturingssysteem in System Center Configuration Manager te upgraden
 
@@ -78,7 +78,7 @@ Gebruik takenreeksen in System Center Configuration Manager automatisch bijwerke
 ## <a name="configure-pre-cache-content"></a>Inhoud van de pre-cache configureren
 Vanaf versie 1702, voor beschikbare implementaties van takenreeksen, kunt u de functie vooraf cache gebruiken om clients alleen relevante inhoud downloaden voordat een gebruiker de inhoud installeert hebben.
 > [!TIP]  
-> De vooraf cache is geïntroduceerd in versie 1702, is een functie van de voorlopige versie. Als u wilt inschakelen, Zie [functies van evaluatieversies van updates gebruiken](/sccm/core/servers/manage/pre-release-features).
+> Deze functie is geïntroduceerd in versie 1702 als een [functie van de voorlopige versie](/sccm/core/servers/manage/pre-release-features). Vanaf versie 1706, deze functie is niet langer een voorlopige versie.
 
 Stel dat u wilt implementeren van een takenreeks Windows 10 in-place upgrade slechts een enkele takenreeks voor alle gebruikers wilt en meerdere architecturen en/of talen. Voorafgaand aan versie 1702, als u een beschikbare installatie maakt, en vervolgens klikt de gebruiker op **installeren** in Software Center, de inhoud gedownload op dat moment. Hiermee voegt u extra tijd voordat de installatie is gereed om te starten. Ook wordt alle inhoud waarnaar wordt verwezen in de takenreeks gedownload. Dit omvat het upgradepakket voor besturingssysteem voor alle talen en -architecturen. Als elk ongeveer drie GB groot, kan het downloadpakket behoorlijk groot zijn.
 

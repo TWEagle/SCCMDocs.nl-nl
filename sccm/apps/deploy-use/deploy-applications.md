@@ -3,7 +3,7 @@ title: Toepassingen implementeren
 titleSuffix: Configuration Manager
 description: Maken van een implementatietype of implementatie simuleren voor een toepassing met behulp van System Center Configuration Manager.
 ms.custom: na
-ms.date: 7/31/2017
+ms.date: 12/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: 31c8a2e212de8c112b68d68e108db3463516142f
-ms.sourcegitcommit: b36f8c8b06e4b2e13f8c1500a82af79a071ab4f6
+ms.openlocfilehash: 97d1ac775a3b38f63372f0ab01243dfdfeb4edb5
+ms.sourcegitcommit: 52b956cfe32c3f06ae68d6ba6fc3244ce5a66325
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="deploy-applications-with-system-center-configuration-manager"></a>Implementeren van toepassingen met System Center Configuration Manager
 
@@ -171,15 +171,14 @@ Daarnaast voor een implementatie met hoog risico, zoals een takenreeks die een b
 ## <a name="how-to-check-for-running-executable-files-before-installing-an-application"></a>Hoe moet worden gecontroleerd om uitvoerbare bestanden uit te voeren voordat u een toepassing installeert
 
 >[!Tip]
->Met versie 1702 is dit een functie van de voorlopige versie. Als u wilt inschakelen, Zie [pre-release functies in System Center Configuration Manager](https://docs.microsoft.com/sccm/core/servers/manage/pre-release-features).
-> Vanaf versie 1706, deze functie is niet langer een voorlopige versie.
+> Deze functie is geïntroduceerd in versie 1702 als een [functie van de voorlopige versie](/sccm/core/servers/manage/pre-release-features). Vanaf versie 1706, deze functie is niet langer een voorlopige versie.
 
 In de **eigenschappen** in het dialoogvenster van een implementatie hebt getypt, op de **gedrag installeren** tabblad kunt u een of meer uitvoerbare bestanden die als actief is, de installatie van het implementatietype blokkeren opgeven. De gebruiker moet de lopende uitvoerbaar bestand sluiten (of het automatisch kan worden gesloten voor implementaties met als doel vereist) voordat de implementatie van het type kan worden geïnstalleerd. Configureer dit als volgt:
 
 1. Open de **eigenschappen** in het dialoogvenster voor eender welk implementatietype.
-2. Op de **gedrag installeren** tabblad van de * <deployment type name> * **eigenschappen** in het dialoogvenster, klikt u op **toevoegen**.
+2. Op de **gedrag installeren** tabblad van de  *<deployment type name>*  **eigenschappen** in het dialoogvenster, klikt u op **toevoegen**.
 3. In de **toevoegen of uitvoerbaar bestand bewerken** dialoogvenster en voer de naam van het uitvoerbare bestand dat, als uitgevoerd, blokken van de toepassing installeren. U kunt eventueel ook een beschrijvende naam voor de toepassing te herkennen in de lijst invoeren.
-4. Klik op **OK**, sluit de * <deployment type name> * **eigenschappen** in het dialoogvenster.
+4. Klik op **OK**, sluit de  *<deployment type name>*  **eigenschappen** in het dialoogvenster.
 5. Volgende, wanneer u een toepassing implementeert op de **implementatie-instellingen** pagina van de Wizard Software implementeren, selecteer **automatisch sluit alle actieve uitvoerbare bestanden die u hebt opgegeven op het tabblad voor het gedrag van installatie van het dialoogvenster voor eigenschappen van implementatie type**, gaat u verder met de toepassing implementeren.
 
 Nadat de toepassing client-pc's bereikt, geldt het volgende gedrag:

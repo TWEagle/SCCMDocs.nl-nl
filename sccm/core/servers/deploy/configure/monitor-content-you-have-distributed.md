@@ -3,7 +3,7 @@ title: Inhoud controleren
 titleSuffix: Configuration Manager
 description: Begrijpen hoe gedistribueerde inhoud controleren met behulp van de Configuration Manager-console.
 ms.custom: na
-ms.date: 4/17/2017
+ms.date: 12/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.latest.revision: "5"
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 5b1c0401c0b1ce2aa8765ccfb8898b90cf7a5c93
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 62d783735e64b6f3f11dae9af6ac5a7584d689ef
+ms.sourcegitcommit: 52b956cfe32c3f06ae68d6ba6fc3244ce5a66325
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="monitor-content-you-have-distributed-with-system-center-configuration-manager"></a>Inhoud die u hebt gedistribueerd met System Center Configuration Manager controleren
 
@@ -155,7 +155,8 @@ Gebruik de volgende procedure om de configuratiestatus van een distributiepunten
 Vanaf versie 1610, kunt u de **Clientgegevensbronnen** dashboard voor meer informatie over het gebruik van [Peer-Cache](/sccm/core/plan-design/hierarchy/client-peer-cache) in uw omgeving. Het dashboard wordt gestart om gegevens weer te geven nadat clients downloaden inhoud en het rapport informatie teruggestuurd naar de site. Dit kan tot 24 uur duren.
 
 > [!TIP]  
-> **Client-Peer-Cache** en de **Clientgegevensbronnen** dashboard zijn functies van evaluatieversies geïntroduceerd in versie 1610. U moet de Client-Peer-Cache inschakelen voordat het dashboard van gegevensbronnen van de Client weergegeven in de console wordt. Zie voor het inschakelen van Client-Peer-Cache [functies van evaluatieversies van updates gebruiken](/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease). Het kan tot 24 uur nadat u het inschakelen en starten om gegevens weer te geven duren.
+> **Client-Peer-Cache** en de **Clientgegevensbronnen** dashboard zijn geïntroduceerd in versie 1610 als [functies van evaluatieversies](/sccm/core/servers/manage/pre-release-features). Vanaf versie 1710, zijn deze functies niet langer functies van evaluatieversies. U moet de Client-Peer-Cache inschakelen voordat het dashboard van gegevensbronnen van de Client weergegeven in de console wordt.
+
 
 Ga in de console naar **bewaking** > **distributiestatus** > **Clientgegevensbronnen**. Hier kunt u een bepaalde periode moeten worden toegepast op het dashboard. Klik in de weergave kunt u de grensgroep of het pakket waarvoor u wilt weergeven. Wanneer u informatie bekijkt, kunt u de muisaanwijzer over het oppervlak voor meer informatie over de verschillende inhoud of het beleid bronnen.
 
