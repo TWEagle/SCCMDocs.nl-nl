@@ -70,7 +70,7 @@ Als beperkingen wilt toepassen op een app, moet de app gebruikmaken van de Micro
 
 4.  Selecteer op de pagina **Algemeen** de optie **Automatisch informatie over deze toepassing detecteren uit installatiebestanden**.  
 
-5.  Selecteer **App-pakket voor iOS \*IPA-bestand) in de vervolgkeuzelijst **Type****.  
+5.  Selecteer **App-pakket voor iOS \*IPA-bestand)** in de vervolgkeuzelijst **Type**.  
 
 6.  Kies **Bladeren** selecteren van het app-pakket dat u wilt importeren, en kies vervolgens **volgende**.  
 
