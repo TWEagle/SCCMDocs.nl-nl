@@ -13,11 +13,11 @@ ms.assetid: bc6c3e5f-b9e2-400e-9d9d-446ff93c520c
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 8fca0aa86798023b92c1c16a893f9becf6ac444e
-ms.sourcegitcommit: 5f4a584d4a833b0cc22bd8c47da7dd55aced97fa
+ms.openlocfilehash: 8431ebffc6d1aa463c5622bd67db8a140c0cfe69
+ms.sourcegitcommit: 2dc9c83e57e9734ffc4a93f79cd71285036eeb8b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="what39s-new-in-version-1710-of-system-center-configuration-manager"></a>Wat &#39; s is nieuw in versie 1710 van System Center Configuration Manager
 
@@ -165,7 +165,6 @@ We hebben de VPN-profiel wizard eigenschappen pagina's en om weer te geven van d
 - Wanneer het platform is ingesteld op **Android**, **Android for Work**, of **Windows Phone 8.1**, wordt de **ondersteunde platforms** pagina is niet nodig en is niet weergegeven.
 - De werkstroom op basis van een client van Configuration Manager is nu gecombineerd met de hybride mobiele apparaten (MDM)-client-werkstromen op basis van Windows 10; ze ondersteunen dezelfde instellingen.
 - Elke werkstroom platform bevat alleen de instellingen die geschikt is voor die werkstroom.  De Android werkstroom bevat bijvoorbeeld instellingen voor Android; instellingen voor iOS of Windows 10 Mobile wordt niet meer weergegeven in de Android-werkstroom.
-- Voor Windows 8.1-apparaten, verbindingstypen worden beheerd door Configuration Manager-client (wordt niet ondersteund door Intune) duidelijk zijn gemarkeerd.
 - De automatische VPN-pagina is verouderd en is verwijderd.
 
 Deze wijzigingen van toepassing op nieuwe VPN-profielen.  

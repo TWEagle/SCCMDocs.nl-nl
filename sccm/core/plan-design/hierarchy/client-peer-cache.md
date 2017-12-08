@@ -3,7 +3,7 @@ title: Client-Peer-Cache
 titleSuffix: Configuration Manager
 description: Gebruik voor de inhoudsbron clientlocaties Peer-Cache bij het implementeren van inhoud met System Center Configuration Manager.
 ms.custom: na
-ms.date: 11/20/2017
+ms.date: 12/07/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
@@ -15,11 +15,11 @@ caps.latest.revision: "3"
 author: aaroncz
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 60f70d3e24f6290fb022b9bd8ca1512b0ed3d719
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: cadc62ab21ac8cd43120a5baa79dd635a12b4069
+ms.sourcegitcommit: 2dc9c83e57e9734ffc4a93f79cd71285036eeb8b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="peer-cache-for-configuration-manager-clients"></a>Peer-Cache voor Configuration Manager-clients
 
@@ -36,7 +36,7 @@ Een client-Peer-Cache is een Configuration Manager-client die is ingeschakeld vo
  -  Inhoud te delen als Peer-Cache-bron, een client-Peer-Cache:
     -  Worden moet lid van een domein. Echter, Peer-Cache-bron lid zijn van een client die niet is verbonden met het domein kan inhoud ophalen van een domein.
     -  Moet een lid van de huidige grensgroep van de client waarmee wordt geprobeerd de inhoud. Een client-Peer-Cache in een grensgroep neighbor is niet opgenomen in de groep met beschikbare inhoud bronlocaties wanneer een client terugval gebruikt te zoeken naar inhoud van een neighbor grensgroep. Zie voor meer informatie over de huidige en neighbor grensgroepen [grensgroepen](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups##a-namebkmkboundarygroupsa-boundary-groups).
- - Elk type inhoud dat wordt bewaard in de cache van een Configuration Manager-client kan worden geleverd met andere clients met behulp van Peer-Cache.
+ - Elk type inhoud dat wordt bewaard in de cache van een Configuration Manager-client kan worden geleverd met andere clients met behulp van Peer-Cache zoals Office 365-bestanden en bestanden voor snelle installatie.<!--SMS.500850-->
  -  Peer-Cache niet vervangen en het gebruik van andere oplossingen zoals BranchCache, maar in plaats daarvan werkt side-by-side ermee beschikt u over meer opties voor het uitbreiden van traditionele implementatieoplossingen voor inhoud zoals distributiepunten. Dit is een aangepaste oplossing met een niet afhankelijk van BranchCache, dus als u niet inschakelen of Windows BranchCache gebruiken, het nog steeds werkt.
 
 ### <a name="operations"></a>Bewerkingen
