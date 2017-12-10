@@ -3,7 +3,7 @@ title: Toegang tot SharePoint Online beheren
 titleSuffix: Configuration Manager
 description: Informatie over het gebruiken van System Center Configuration Manager SharePoint Online beleid voor voorwaardelijke toegang voor het beheren van toegang tot OneDrive.
 ms.custom: na
-ms.date: 03/05/2017
+ms.date: 12/09/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: 49cec466-1676-4fe2-a2fe-5004f01d735e
 caps.latest.revision: "11"
 caps.handback.revision: "0"
-author: andredm7
-ms.author: andredm
+author: arob98
+ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: 2c1d7cd3462a54a064ec47d0b375ee4cdb25a4b4
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 99b2aca418b7ce28a4216b38e711b3d38973e2b7
+ms.sourcegitcommit: 372171a5cd8d143d6d47b651018cda0c91cad67c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="manage-sharepoint-online-access-in-system-center-configuration-manager"></a>Toegang tot SharePoint Online in System Center Configuration Manager beheren
 
@@ -164,7 +164,7 @@ Office-bureaubladtoepassingen hebben toegang tot SharePoint Online op pc's met:
 
 4.  Onder **browsertoegang** tot SharePoint Online en OneDrive voor bedrijven, kunt u kiezen om toegang tot Exchange Online alleen via de ondersteunde browsers: Safari (iOS) en Chrome (Android). Toegang via andere browsers wordt geblokkeerd.  Dezelfde platformbeperkingen die u hebt geselecteerd voor Toegang tot toepassingen voor OneDrive zijn ook hier van toepassing.
 
-    Op **Android** -apparaten moeten gebruikers de browsertoegang inschakelen.  Om dit te doen de eindgebruiker wordt de â €inschakelen optie Browser Accessâ€ op het ingeschreven apparaat door moeten als volgt inschakelen:
+    Op **Android** -apparaten moeten gebruikers de browsertoegang inschakelen.  Om dit te doen de eindgebruiker moeten inschakelen de **Browsertoegang inschakelen** optie op het ingeschreven apparaat als volgt:
     1.  Open de app **Bedrijfsportal**.
     2.  Ga naar de **instellingen** pagina van de drie puntjes (â €¦) of de menuknop hardware.
     3.  Druk op de knop **Browsertoegang inschakelen** .

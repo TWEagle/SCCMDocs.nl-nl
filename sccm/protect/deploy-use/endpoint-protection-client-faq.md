@@ -3,7 +3,7 @@ title: Veelgestelde vragen over de Endpoint Protection-client
 titleSuffix: Configuration Manager
 description: Vind antwoorden op veelgestelde vragen over Windows Defender- en Endpoint Protection.
 ms.custom: na
-ms.date: 02/14/2017
+ms.date: 12/09/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e3aaa9d2-a40e-42b1-ad75-5a115351729e
 caps.latest.revision: "15"
-author: NathBarn
-ms.author: nathbarn
+author: arob98
+ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: a3fb0bc39f1606f1a65b5623c9567819b1a0c52e
-ms.sourcegitcommit: 5d46ed593b1cc461ea3f6ff6917bcd272b095ed7
+ms.openlocfilehash: 2656a5c40dbd2916ef36268936a4e2163ebde14d
+ms.sourcegitcommit: 372171a5cd8d143d6d47b651018cda0c91cad67c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="endpoint-protection-client-frequently-asked-questions"></a>Veelgestelde vragen over de Endpoint Protection-client
 
@@ -203,7 +203,7 @@ U kunt alle ongewenste of mogelijk schadelijke items die Windows Defender detect
 
 ##  <a name="what-is-real-time-protection"></a>Wat is realtime-beveiliging?  
 
- Realtime-beveiliging zorgt ervoor dat Windows Defender de computer continu bewaakt en waarschuwt u wanneer mogelijke bedreigingen zoals virussen en spyware, probeert zichzelf te installeren of uit te voeren op uw computer. Omdat deze functie een belangrijk aspect vormt van de manier waarop Windows Defender uw computer beschermt, moet u ervoor zorgen dat realtime-beveiliging altijd is ingeschakeld. Als realtime-beveiliging uitgeschakeld, Windows Defender waarschuwt u en uw computer€ verandert™ â €œAt riskâ€ s status.  
+ Realtime-beveiliging zorgt ervoor dat Windows Defender de computer continu bewaakt en waarschuwt u wanneer mogelijke bedreigingen zoals virussen en spyware, probeert zichzelf te installeren of uit te voeren op uw computer. Omdat deze functie een belangrijk aspect vormt van de manier waarop Windows Defender uw computer beschermt, moet u ervoor zorgen dat realtime-beveiliging altijd is ingeschakeld. Als realtime-beveiliging uitgeschakeld, Windows Defender een melding en wijzigt de status van uw computer in **risico**.  
 
  Wanneer met realtime-beveiliging een dreiging of mogelijke bedreiging wordt gedetecteerd, wordt door Windows Defender een melding weergegeven. U kunt nu kiezen uit de volgende opties:  
 
