@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: 4b638b0325aa5f75d60a008ea60531a818ec76c2
-ms.sourcegitcommit: 1132886e07d0c0a87dcc7eeef4577dd8d8840023
+ms.openlocfilehash: c9b35122f6afbb4fffbbff48b919fd696939c897
+ms.sourcegitcommit: 51cfce302fa8ddf633ad1f379b1161c0617089b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="set-up-android-hybrid-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Hybride apparaatbeheer instellen voor Android met System Center Configuration Manager en Microsoft Intune
 
@@ -60,7 +60,7 @@ De volgende stappen kunt Configuration Manager beheren van Android-apparaten met
 > Een bekend probleem dat voorkomt dat de **beheren ondersteunde apparaten voor gebruikers die alleen in deze groepen als Android for Work** optie niet werkt zoals verwacht. Apparaten van gebruikers in de opgegeven Azure AD-groepen registreren als Android in plaats van Android for Work. Als u wilt Android for Work inschakelen, moet u de **alle ondersteunde apparaten beheren als Android for Work** optie.
 
 
-Nadat u alles hebt ingesteld, moet u uw gebruikers laten weten hoe ze kunnen hun apparaten inschrijven. Zie [Wat u uw eindgebruikers vertelt over het gebruik van Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/what-to-tell-your-end-users-about-using-microsoft-intune). Deze informatie is van toepassing op mobiele apparaten die worden beheerd door Configuration Manager en Microsoft Intune.
+Nadat u alles hebt ingesteld, moet u uw gebruikers laten weten hoe ze kunnen hun apparaten inschrijven. Zie [Wat u uw eindgebruikers vertelt over het gebruik van Microsoft Intune](https://docs.microsoft.com/en-us/intune/end-user-educate). Deze informatie is van toepassing op mobiele apparaten die worden beheerd door Configuration Manager en Microsoft Intune.
 
 Als de binding is voltooid, ziet u de accountnaam en de naam van de organisatie in de Intune-portal. U kunt beide browsers sluiten op dat moment.
 
