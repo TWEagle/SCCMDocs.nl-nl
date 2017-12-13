@@ -3,7 +3,7 @@ title: Query's maken
 titleSuffix: Configuration Manager
 description: Ontdek hoe u kunt maken en importeren van query's in System Center Configuration Manager. Bevat voorbeelden van query's en tips.
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 12/11/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: 868049d3-3209-47ec-b34a-9cc26941893a
 caps.latest.revision: "5"
 caps.handback.revision: "0"
-author: andredm7
-ms.author: andredm
+author: aczechowski
+ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: cbd9710cec365323e754d2109c8c61c29a4c301f
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 32400ebcd834e3b98bf0f1ff6a1f6b41d8e12076
+ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="how-to-create-queries-in-system-center-configuration-manager"></a>Query's maken in System Center Configuration Manager
 
@@ -49,9 +49,9 @@ U kunt in dit onderwerp gebruiken bij het maken of importeren van query's in Sys
     |**Gebruikersbron**|Gebruiken om te zoeken naar gangbare gebruikersinformatie, zoals gebruikersnamen, namen van gebruikersgroepen en namen van beveiligingsgroepen.|  
     |**Implementatie**|Gebruiken om te zoeken naar gangbare kenmerken van een implementatie, zoals de implementatienaam, planning en de verzameling die is geïmplementeerd op.|  
 
-6.  Kies **Query-instructie bewerken** openen de * &lt;querynaam\> * **instructie-eigenschappen** in het dialoogvenster.  
+6.  Kies **Query-instructie bewerken** openen de  *&lt;querynaam\>*  **instructie-eigenschappen** in het dialoogvenster.  
 
-7.  Op de **algemene** tabblad de * &lt;querynaam\> * **instructie-eigenschappen** dialoogvenster geeft u de kenmerken die deze query retourneert en hoe ze worden weergegeven. Kies de **nieuw** pictogram van een nieuw kenmerk toe te voegen. U kunt ook **querytaal weergeven** invoeren of bewerken van de query rechtstreeks in WMI Query Language (WQL). Zie de sectie [Example WQL queries](#BKMK_Example) in dit onderwerp voor voorbeelden van WMI-query's.  
+7.  Op de **algemene** tabblad de  *&lt;querynaam\>*  **instructie-eigenschappen** dialoogvenster geeft u de kenmerken die deze query retourneert en hoe ze worden weergegeven. Kies de **nieuw** pictogram van een nieuw kenmerk toe te voegen. U kunt ook **querytaal weergeven** invoeren of bewerken van de query rechtstreeks in WMI Query Language (WQL). Zie de sectie [Example WQL queries](#BKMK_Example) in dit onderwerp voor voorbeelden van WMI-query's.  
 
     > [!TIP]  
     > U kunt de volgende MSDN-naslagdocumentatie gebruiken bij het maken van uw eigen WQL-query's:  
@@ -60,12 +60,12 @@ U kunt in dit onderwerp gebruiken bij het maken of importeren van query's in Sys
     > -   [WHERE-component](http://go.microsoft.com/fwlink/p/?LinkId=256654)  
     > -   [WQL-operators](http://go.microsoft.com/fwlink/p/?LinkId=256655)  
 
-8.  Op de **Criteria** tabblad van de * &lt;querynaam\> * **instructie-eigenschappen** dialoogvenster geeft u de criteria die worden gebruikt om de resultaten van de query te verfijnen. U kunt bijvoorbeeld alleen bronnen retourneren met een sitecode van **XYZ** in de queryresultaten. U kunt meerdere criteria voor een query configureren.  
+8.  Op de **Criteria** tabblad van de  *&lt;querynaam\>*  **instructie-eigenschappen** dialoogvenster geeft u de criteria die worden gebruikt om de resultaten van de query te verfijnen. U kunt bijvoorbeeld alleen bronnen retourneren met een sitecode van **XYZ** in de queryresultaten. U kunt meerdere criteria voor een query configureren.  
 
     > [!IMPORTANT]  
     > Als u een query zonder criteria maakt, retourneert de query alle apparaten in de verzameling **Alle systemen** .  
 
-9. Op de **Joins** tabblad de * &lt;querynaam\> * **instructie-eigenschappen** in het dialoogvenster kunt u gegevens uit twee verschillende kenmerken combineren in uw queryresultaten. Hoewel de Configuration Manager automatisch query's samenvoegt wanneer u verschillende kenmerken voor het queryresultaat kiest de **Joins** tabblad biedt meer geavanceerde opties. De kenmerkklassen die ondersteuning biedt voor System Center 2012 Configuration Manager worden weergegeven in de volgende tabel:  
+9. Op de **Joins** tabblad de  *&lt;querynaam\>*  **instructie-eigenschappen** in het dialoogvenster kunt u gegevens uit twee verschillende kenmerken combineren in uw queryresultaten. Hoewel de Configuration Manager automatisch query's samenvoegt wanneer u verschillende kenmerken voor het queryresultaat kiest de **Joins** tabblad biedt meer geavanceerde opties. De kenmerkklassen die ondersteuning biedt voor System Center 2012 Configuration Manager worden weergegeven in de volgende tabel:  
 
     |Type samenvoeging|Beschrijving|  
     |---------------|-----------------|  
@@ -76,7 +76,7 @@ U kunt in dit onderwerp gebruiken bij het maken of importeren van query's in Sys
 
      Raadpleeg de SQL Server-documentatie voor meer informatie over het gebruik van samenvoegingsbewerkingen.  
 
-10. Kies **OK** sluiten de * &lt;querynaam\> * **instructie-eigenschappen** in het dialoogvenster.  
+10. Kies **OK** sluiten de  *&lt;querynaam\>*  **instructie-eigenschappen** in het dialoogvenster.  
 
 11. Op de **algemene** tabblad van de **Wizard Query maken**, opgeven of de resultaten van deze query niet beperkt tot de leden van een verzameling of ze zijn beperkt tot de leden van een opgegeven verzameling, of er is een prompt voor een verzameling telkens wanneer de query wordt uitgevoerd.  
 
@@ -160,7 +160,7 @@ Apparaattypen worden opgeslagen in de Configuration Manager-database onder de br
 Select SMS_R_System.ClientEdition from SMS_R_System where SMS_R_System.ClientEdition = <Device ID>  
 ```  
 
-Gebruik een van de volgende waarden voor * &lt;apparaat-ID\>*:  
+Gebruik een van de volgende waarden voor  *&lt;apparaat-ID\>*:  
 
 |Apparaattype|Waarde van AgentEdition|  
 |-----------------|---------------------------|  
@@ -178,6 +178,10 @@ Gebruik een van de volgende waarden voor * &lt;apparaat-ID\>*:
 |Android|11|  
 |Intel System-on-a-Chip|12|  
 |UNIX- en Linux-servers|13|  
+|Apple Mac OS (MDM)|14|
+|Microsoft HoloLens (MDM)|15|
+|De Microsoft Surface Hub (MDM)|16|
+|Android for Work|17|
 
  Een voorbeeld: als u wilt dat de query alleen Mac-computers retourneert, gebruikt u de volgende query:  
 

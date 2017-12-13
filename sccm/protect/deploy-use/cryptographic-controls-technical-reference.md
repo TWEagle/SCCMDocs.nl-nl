@@ -3,21 +3,21 @@ title: Technische naslaginformatie voor cryptografische besturingselementen
 titleSuffix: Configuration Manager
 description: Leer hoe ondertekening en versleuteling beschermen tegen aanvallen kunt van het lezen van gegevens in System Center Configuration Manager.
 ms.custom: na
-ms.date: 12/5/2017
+ms.date: 12/8/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
 ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
-author: arob98
-ms.author: angrobe
+author: aczechowski
+ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: ebaff93d346b53afea8770fbe0634112bcecf82d
-ms.sourcegitcommit: 372171a5cd8d143d6d47b651018cda0c91cad67c
+ms.openlocfilehash: 2c1ed6f4c93f74719ab3fe5d723f7dc01eb1ede7
+ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="cryptographic-controls-technical-reference"></a>Technische naslaginformatie voor cryptografische besturingselementen
 
@@ -277,8 +277,8 @@ System Center Configuration Manager gebruikt ondertekening en encryptie om het b
 
  Indien een beheerpunt eerst een client verifieert door de zelfondertekende client-certificaten te gebruiken, voorziet dit mechanisme minimale veiligheid omdat elke computer zelfondertekende certificaten kan genereren. In dit scenario moet het client-identificatieproces versterkt worden door goedkeuring. Alleen vertrouwde computers moeten goedgekeurd worden, hetzij automatisch door Configuration Manager, hetzij handmatig, door een gebruiker met beheerdersrechten. Zie voor meer informatie, de goedkeuringssectie in [communicatie tussen de eindpunten in System Center Configuration Manager](../../core/plan-design/hierarchy/communications-between-endpoints.md).  
 
-## <a name="to-make-configuration-manager-servers-more-secure"></a>Configuration Manager-servers om veiliger te maken  
-Configuration Manager-servers om veiliger te maken, het volgende doen:
+## <a name="about-ssl-vulnerabilities"></a>Over SSL-beveiligingslekken
+Ter verbetering van de beveiliging van uw Configuration Manager-clients en servers, het volgende doen:
 
 -   Inschakelen van TLS 1.2
 
@@ -286,5 +286,5 @@ Configuration Manager-servers om veiliger te maken, het volgende doen:
 -   SSL 3.0, TLS 1.0 en TLS 1.1 uitschakelen 
 -   De TLS gerelateerde coderingssuites opnieuw rangschikken 
 
-Zie voor meer informatie het volgende KB-artikel: [Het beperken van het gebruik van bepaalde cryptografische algoritmen en protocols in Schannel.dll](https://support.microsoft.com/en-us/kb/245030/). Deze procedures hebben geen invloed op de Configuration Manager-functionaliteit.
+Zie voor meer informatie [het beperken van het gebruik van bepaalde cryptografische algoritmen en protocols in Schannel.dll](https://support.microsoft.com/en-us/kb/245030/) en [prioriteit Schannel Cipher Suites](https://msdn.microsoft.com/en-us/library/windows/desktop/bb870930.aspx). Deze procedures hebben geen invloed op de Configuration Manager-functionaliteit.
 
