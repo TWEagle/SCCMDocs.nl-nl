@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 9ae26c55cf92c954a54311e2e698353bbe359a83
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: ee038d8579d63f2afbf0b677181dd06751403ba0
+ms.sourcegitcommit: 0a6b2c53ff4445b5d4f3638fdb0b489d54e333d3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-service-connection-point-with-system-center-configuration-manager-and-microsoft-intune"></a>Een serviceverbindingspunt maken met System Center Configuration Manager en Microsoft Intune
 
@@ -38,7 +38,7 @@ Wanneer u uw abonnement hebt gemaakt, kunt u de sitesysteemrol serviceaansluitpu
 
 1.  Klik op **Beheer**in de Configuration Manager-console.
 
-2.  In de **beheer** werkruimte Vouw **Sites**, en klik vervolgens op **Servers en sitesysteemrollen**.
+2.  In de **beheer** werkruimte Vouw **siteconfiguratie**, klikt u vervolgens op **Servers en sitesysteemrollen**.
 
 3.  Voeg met de bijbehorende stap de rol **Serviceaansluitpunt** toe aan een nieuwe of bestaande sitesysteemserver:
 
