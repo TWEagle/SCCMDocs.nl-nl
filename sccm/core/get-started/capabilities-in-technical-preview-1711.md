@@ -14,11 +14,11 @@ ms.assetid: 2e68dc12-6776-437a-9138-45cd7d4bf9cf
 author: erikje
 ms.author: erikje
 manager: angrobe
-ms.openlocfilehash: e970dff4ea295694fcc5cf80e238baf2c9d081b5
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: b740c422a71e625ccc110a043028cf986cdffb20
+ms.sourcegitcommit: ed8b2438ef85c9160741ef61f9171be41dd1ae0a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/17/2017
 ---
 # <a name="capabilities-in-technical-preview-1711-for-system-center-configuration-manager"></a>Mogelijkheden van Technical Preview 1711 voor System Center Configuration Manager
 
@@ -109,20 +109,6 @@ U kunt deze functie ook gebruiken bij het implementeren van een app met de wizar
 1. Maken of bewerken van een toepassing.
 2. Implementeer de toepassing naar een client.
 3. De toepassing installeren vanuit Software Center. De interface van de installatie van toepassing moet worden weergegeven. De eindgebruiker moet Volg de installatiewizard van de toepassing en de toepassing is geïnstalleerd.
-
-## <a name="new-compliance-policy-options-for-windows-10"></a>Nieuwe opties voor nalevingsbeleid voor Windows 10
-Het volgende is nieuw nalevingsbeleid, u kunt configureren voor Windows 10-apparaten.
-- **Firewall vereisen**.  Geef op of een apparaat een firewall is ingeschakeld en bewaking van alle netwerken moet hebben.
-- **Gebruikersaccountbeheer vereisen**. Opgeven dat een apparaat moet Gebruikersaccountbeheer is ingeschakeld.
-- **Defender**:
-  - **Windows Defender Antivirus vereisen**.  Vereisen dat een apparaat dat Windows Defender Antivirus is ingeschakeld.
-  - **Versie van Windows Defender Antivirus**.  Geef de minimumversie van spywaredefinities die een apparaat moet zijn geïnstalleerd.
-  - **Huidige Windows Defender Antivirus handtekening vereisen**. Controleer of de handtekening van een apparaten venster Defender Antivirus is bijgewerkt.
-  - **Realtime-beveiliging vereisen**.  Geef op of een apparaat Antivirus realtime bescherming van Windows Defender ingeschakeld moet hebben.
-- **Geldig besturingssysteem builds**.  Geef de minimale en maximale build besturingssysteemvereisten.  
-
-Gebruik de Wizard nalevingsbeleid maken dit beleid configureren en deze nieuwe opties selecteren wanneer u een regel toevoegt aan het beleid dat u configureert.  
-Meer informatie over hoe [maken](/sccm/mdm/deploy-use/create-compliance-policy#create-a-compliance-policy) en [implementeren](/sccm/mdm/deploy-use/create-compliance-policy#deploy-a-compliance-policy) nalevingsbeleid.
 
 
 
