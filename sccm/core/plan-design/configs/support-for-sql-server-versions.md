@@ -3,7 +3,7 @@ title: Ondersteunde versies van SQL Server
 titleSuffix: Configuration Manager
 description: Ophalen van SQL Server-versie en configuratie van vereisten voor het hosten van een System Center Configuration Manager-sitedatabase.
 ms.custom: na
-ms.date: 11/30/2017
+ms.date: 12/18/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.latest.revision: "21"
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 7006d6cd03da53daf0f6cb59cc4ef83e7e800a1e
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: ccc07aa709c0a168a8df7a1bd7944e9399bec13f
+ms.sourcegitcommit: 3dea4342f79909c5064289bd18ed36269812e30c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="supported-sql-server-versions-for-system-center-configuration-manager"></a>Ondersteunde versies van SQL Server voor System Center Configuration Manager
 
@@ -65,23 +65,31 @@ SQL Server transactionele replicatie wordt alleen ondersteund voor het replicere
 
 
 
- Tenzij anders vermeld, worden de volgende versies van SQL Server worden ondersteund met alle actieve versies van System Center Configuration Manager. Als ondersteuning voor een nieuwe SQL Server-versie of servicepack wordt toegevoegd, wordt de Configuration Manager-versie die wordt toegevoegd die ondersteuning bieden voor worden opgemerkt. Op dezelfde manier als ondersteuning is afgeschaft, zoek voor meer informatie over de desbetreffende versies van Configuration Manager.   
+ Tenzij anders vermeld, worden de volgende versies van SQL Server worden ondersteund met alle actieve versies van System Center Configuration Manager. Als ondersteuning voor een nieuwe SQL Server-versie of servicepack wordt toegevoegd, wordt de Configuration Manager-versie die wordt toegevoegd die ondersteuning bieden voor worden opgemerkt. Op dezelfde manier als ondersteuning is afgeschaft, zoekt u informatie over de desbetreffende versies van Configuration Manager.   
 
-Ondersteuning voor een specifieke SQL Server-servicepack bevat cumulatieve updates naar die servicepack, tenzij een cumulatieve update de achterwaartse die basisservice pack-versie. Wanneer er geen versie van het servicepack is vermeld, is de ondersteuning voor die versie van SQL Server zonder service Pack. In de toekomst, als een servicepack voor die versie wordt uitgebracht, wordt een afzonderlijke ondersteuningsverklaring worden gedeclareerd voordat deze nieuwe versie van servicepack wordt ondersteund.
+Ondersteuning voor een specifieke SQL Server-servicepack bevat cumulatieve updates, tenzij ze compatibiliteit met de versie van het basistype service pack opsplitsen. Wanneer er geen versie van het servicepack is vermeld, is ondersteuning voor de versie van SQL Server zonder service Pack. In de toekomst, als een servicepack voor een SQL Server-versie wordt uitgebracht, zal een afzonderlijke ondersteuningsverklaring worden gedeclareerd voordat de nieuwe versie van servicepack wordt ondersteund.
 
 
 > [!IMPORTANT]  
 >  Wanneer u SQL Server Standard voor de database op de centrale beheersite gebruikt, beperkt u het totale aantal clients dat een hiërarchie kan ondersteunen. Zie [Grootte en schaalgetallen](../../../core/plan-design/configs/size-and-scale-numbers.md).
 
+### <a name="sql-server-2017-standard-enterprise"></a>SQL Server 2017: Standard, Enterprise  
+U kunt deze versie van SQL Server, met een minimum van [cumulatieve updateversie 2](https://support.microsoft.com/help/4052574), vanaf met [Configuration Manager versie 1710](https://docs.microsoft.com/en-us/sccm/core/plan-design/changes/whats-new-in-version-1710) voor de volgende sites: 
+
+-   Een centrale beheersite  
+-   Een primaire site  
+-   Een secundaire site  
+<!--SMS.498506-->
+
 ### <a name="sql-server-2016-sp1-standard-enterprise"></a>SQL Server 2016 SP1: Standard, Enterprise  
-U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor het volgende:  
+U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor de volgende sites:  
 
 -   Een centrale beheersite  
 -   Een primaire site  
 -   Een secundaire site  
 
 ### <a name="sql-server-2016-standard-enterprise"></a>SQL Server 2016: Standard, Enterprise  
-U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor het volgende:  
+U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor de volgende sites:  
 
 -   Een centrale beheersite  
 -   Een primaire site  
@@ -89,28 +97,28 @@ U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebru
 
 
 ### <a name="sql-server-2014-sp2-standard-enterprise"></a>SQL Server 2014 SP2: Standard, Enterprise  
-U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor het volgende:  
+U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor de volgende sites:  
 
 -   Een centrale beheersite  
 -   Een primaire site  
 -   Een secundaire site
 
 ### <a name="sql-server-2014-sp1-standard-enterprise"></a>SQL Server 2014 SP1: Standard, Enterprise  
- U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor het volgende:  
+ U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor de volgende sites:  
 
 -   Een centrale beheersite  
 -   Een primaire site  
 -   Een secundaire site
 
 ### <a name="sql-server-2012-sp4-standard-enterprise"></a>SQL Server 2012 SP4: Standard, Enterprise  
- U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor het volgende:  
+ U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor de volgende sites:  
 
 -   Een centrale beheersite  
 -   Een primaire site  
 -   Een secundaire site  
 
 ### <a name="sql-server-2012-sp3-standard-enterprise"></a>SQL Server 2012 SP3: Standard, Enterprise  
- U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor het volgende:  
+ U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor de volgende sites:  
 
 -   Een centrale beheersite  
 -   Een primaire site  
@@ -118,7 +126,7 @@ U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebru
 
 <!-- Support for this service pack version has been dropped by Microsoft    
 ### SQL Server 2012 SP2: Standard, Enterprise   
- You can use this version of SQL Server with no minimum cumulative update version for the following:  
+ You can use this version of SQL Server with no minimum cumulative update version for the following sites:  
 
 -   A central administration site  
 -   A primary site  
@@ -129,40 +137,45 @@ U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebru
   Deze versie van SQL Server wordt niet ondersteund [vanaf versie 1702](/sccm/core/plan-design/changes/removed-and-deprecated-features#deprecated-support-for-sql-server-versions-as-a-site-database).  
  Deze versie van SQL Server blijft ondersteund wanneer u een eerdere versie van Configuration Manager dan 1702 gebruikt.
 
-Wanneer dit wordt ondersteund door uw versie van Configuration Manager, kunt u deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor het volgende:  
+Wanneer dit wordt ondersteund door de versie van Configuration Manager, kunt u deze versie van SQL Server zonder minimale cumulatieve updateversie voor de volgende sites:  
 
 -   Een centrale beheersite  
 -   Een primaire site
 -   Een secundaire site
 
+### <a name="sql-server-2017-express"></a>SQL Server 2017 Express   
+U kunt deze versie van SQL Server, met een minimum van [cumulatieve updateversie 2](https://support.microsoft.com/help/4052574), vanaf met [Configuration Manager versie 1710](https://docs.microsoft.com/en-us/sccm/core/plan-design/changes/whats-new-in-version-1710) voor de volgende sites:
+-   Een secundaire site
+<!--SMS.498506-->
+
 ### <a name="sql-server-2016-express-sp1"></a>SQL Server 2016 snelle SP1  
-U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor het volgende:
+U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor de volgende sites:
 -   Een secundaire site
 
 ### <a name="sql-server-2016-express"></a>SQL Server 2016 Express
-U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor het volgende:
+U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor de volgende sites:
 -   Een secundaire site
 
 
 ### <a name="sql-server-2014-express-sp2"></a>SQL Server 2014 snelle SP2   
-U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor het volgende:  
+U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor de volgende sites:  
 
 -   Een secundaire site  
 
 
 ### <a name="sql-server-2014-express-sp1"></a>SQL Server 2014 Express SP1   
- U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor het volgende:  
+ U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor de volgende sites:  
 
 -   Een secundaire site  
 
 ### <a name="sql-server-2012-express-sp3"></a>SQL Server 2012 Express SP3  
-U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor het volgende:  
+U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor de volgende sites:  
 
 -   Een secundaire site  
 
 <!-- Support for this service pack version has been dropped by Microsoft   
 ### SQL Server 2012 Express SP2   
- You can use this version of SQL Server with no minimum cumulative update version for the following:  
+ You can use this version of SQL Server with no minimum cumulative update version for the following sites:  
 
 -   A secondary site  
 -->
@@ -188,7 +201,7 @@ U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebru
  Configuration Manager vereist **Windows-verificatie** valideren van verbindingen met de database.  
 
  **SQL Server-exemplaar:**  
- U moet een exclusief exemplaar van SQL Server gebruiken voor elke site. Dit kan een **benoemd exemplaar** of het **standaardexemplaar**zijn.  
+ U moet een exclusief exemplaar van SQL Server gebruiken voor elke site. Het exemplaar mag een **benoemd exemplaar** of de **standaardexemplaar**.  
 
  **SQL Server-geheugen:**  
  Reserveer geheugen voor SQL Server met behulp van SQL Server Management Studio en instelling van de **Minimum servergeheugen** onder **Servergeheugenopties**. Zie voor meer informatie over het instellen van een vaste hoeveelheid geheugen [hoe: Instellen van een vaste hoeveelheid geheugen (SQL Server Management Studio)](http://go.microsoft.com/fwlink/p/?LinkId=233759).  
@@ -227,7 +240,7 @@ U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebru
 
 Wanneer de computer met SQL Server niet de lokale systeemaccount gebruikt de SQL Server-service uit te voeren, moet u de SPN-naam van het account dat de SQL Server-service wordt uitgevoerd in Active Directory Domain Services configureren. (Wanneer het systeem-account wordt gebruikt, de SPN-naam wordt automatisch voor u geregistreerd.)
 
-Zie voor meer informatie over de SPN's voor de sitedatabase [beheren van de SPN voor de Sitedatabaseserver](../../../core/servers/manage/modify-your-infrastructure.md#bkmk_SPN) in de [uw infrastructuur van System Center Configuration Manager aanpassen](../../../core/servers/manage/modify-your-infrastructure.md) onderwerp.  
+Zie voor meer informatie over de SPN's voor de sitedatabase [beheren van de SPN voor de Sitedatabaseserver](../../../core/servers/manage/modify-your-infrastructure.md#bkmk_SPN) in de [uw infrastructuur van System Center Configuration Manager aanpassen](../../../core/servers/manage/modify-your-infrastructure.md) artikel.  
 
 Zie voor meer informatie over het wijzigen van het account dat wordt gebruikt door de SQL Server-service [hoe: Het starten van de serviceaccount voor SQL Server (SQL Server Configuration Manager) wijzigen](http://go.microsoft.com/fwlink/p/?LinkId=237661).  
 
@@ -242,7 +255,7 @@ SQL Server Reporting Services is vereist voor het installeren van een reporting 
 Voor communicatie met de SQL Server database engine en voor intersitereplicatie kunt u de standaardconfiguratie van de SQL Server-poort gebruiken of aangepaste poorten opgeven:  
 
 -   **Intersite-communicatie** SQL Server Service Broker dat via TCP-4022 standaard poort gebruiken.  
--   **Intrasite-communicatie** tussen de SQL Server database engine en verschillende Configuration Manager-sitesysteem functies gebruiken standaard poort TCP 1433. De volgende sitesysteemrollen communiceren direct met de SQL Server database:  
+-   **Intrasitecommunicatie** tussen de SQL Server database engine en verschillende Configuration Manager-sitesysteem functies gebruiken standaard poort TCP 1433. De volgende sitesysteemrollen communiceren direct met de SQL Server database:  
 
     -   Beheerpunt  
     -   Computer van de SMS-provider  
