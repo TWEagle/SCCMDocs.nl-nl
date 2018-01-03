@@ -33,11 +33,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-ms.openlocfilehash: ce5239340032db7deb5bcb20d00aba77c9b140e2
-ms.sourcegitcommit: da27d37cc4e4e06cf23758846cdd7acb617f744b
+ms.openlocfilehash: 1129da43f9c50d21f2ce8392721c77a4e614e410
+ms.sourcegitcommit: 92c3f916e6bbd35b6208463ff406e0247664543a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="levels-of-diagnostic-usage-data-collection-for-version-1710-of-system-center-configuration-manager"></a>Niveaus van diagnostische gebruiksgegevens verzamelen van gegevens voor 1710-versie van System Center Configuration Manager
 
@@ -168,7 +168,7 @@ Voor System Center Configuration Manager versie 1710, dit niveau omvat het volge
 
    - Telling van Windows Installer implementatietypen die door verwijderen de instellingen van inhoud
 
-   - Telling van Windows Store voor bedrijven-apps en sync statistieken (inclusief samengevatte typen apps gelicentieerde app-status en aantal offline en online gelicentieerde apps)  
+   - Aantal van de Microsoft Store voor bedrijven-apps en sync-statistieken (inclusief samengevatte typen apps gelicentieerde app-status en aantal offline en online gelicentieerde apps)  
 
    - Type onderhoudsvenster en duur  
 
@@ -519,4 +519,4 @@ Voor System Center Configuration Manager versie 1710, dit niveau omvat het volge
 
 - Type EAS beleidsregels voor voorwaardelijke toegang (blokkeren of in quarantaine) voor apparaten die Intune beheert
 
-- Windows Store voor bedrijven toepassingsgegevens (niet-samengestelde lijst met gesynchroniseerde toepassingen, waaronder AppID, online is of offlinestatus en totaal aantal aangeschafte licentieaantallen)
+- Microsoft Store voor bedrijven toepassingsgegevens (niet-samengestelde lijst met gesynchroniseerde toepassingen, waaronder AppID, online is of offlinestatus en totaal aantal aangeschafte licentieaantallen)

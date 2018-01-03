@@ -3,7 +3,7 @@ title: Toegang tot Skype voor Bedrijven Online beheren
 titleSuffix: Configuration Manager
 description: Informatie over het beleid voor voorwaardelijke toegang gebruiken voor het beheren van toegang tot Skype voor bedrijven Online.
 ms.custom: na
-ms.date: 03/05/2017
+ms.date: 12/22/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,67 +15,66 @@ caps.latest.revision: "6"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: b7886d3e8f181d6d9316c5438dd948b21a658648
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 3c1d0c84dc28fb886048cf8d7ea310c2b4dfc4aa
+ms.sourcegitcommit: 92c3f916e6bbd35b6208463ff406e0247664543a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-skype-for-business-online-access"></a>Toegang tot Skype voor Bedrijven Online beheren
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 
-Gebruik beleid voor voorwaardelijke toegang voor  **Skype voor Bedrijven Online** om toegang tot Skype voor Bedrijven Online in te stellen op basis van door u opgegeven voorwaarden.  
+Beleid voor voorwaardelijke toegang voor Skype voor bedrijven Online gebruiken voor het beheren van toegang tot Skype voor bedrijven Online op basis van door u opgegeven voorwaarden.  
 
 
  Wanneer een gebruiker in de doelgroep probeert Skype voor Bedrijven Online te gebruiken op zijn of haar apparaat, wordt de volgende evaluatie uitgevoerd:![ConditionalAccess&#95;SFBFlow](media/ConditionalAccess_SFBFlow.png)  
 
 ## <a name="prerequisites"></a>Vereisten  
 
--   Schakel moderne verificatie in voor Skype voor Bedrijven Online. Vul dit [Connect-formulier](https://connect.microsoft.com/office/Survey/NominationSurvey.aspx?SurveyID=17299&ProgramID=8715) in om u in te schrijven voor het programma voor moderne verificatie.  
+-   Schakel [moderne verificatie](https://aka.ms/SkypeModernAuth) voor Skype voor bedrijven Online.   
 
--   Al uw eindgebruikers moeten gebruikmaken van Skype voor bedrijven Online. Als u een implementatie hebt met Skype voor bedrijven Online en Skype voor bedrijven on-premises, wordt beleid voor voorwaardelijke toegang niet worden toegepast op eindgebruikers.  
+-   Alle gebruikers moet Skype voor bedrijven Online gebruiken. Als u een implementatie hebt met Skype voor bedrijven Online en Skype voor bedrijven on-premises, geldt beleid voor voorwaardelijke toegang niet voor on-premises gebruikers.  
 
 -   Het apparaat waarvoor u toegang tot Skype voor Bedrijven Online wilt inschakelen, moet:  
 
-    -   Een Android- of iOS-apparaat zijn.  
+    -   Een Android- of iOS-apparaat
 
-    -   Ingeschreven zijn bij Intune.  
+    -   Zijn ingeschreven bij Microsoft Intune
 
-    -   Voldoen aan geïmplementeerd Intune-nalevingsbeleid.  
+    -   Voldoen aan geïmplementeerd Microsoft Intune-nalevingsbeleid
 
- De apparaatstatus wordt opgeslagen in Azure Active Directory, die toegang verleent of blokkeert op basis van de opgegeven voorwaarden.  
-Als niet aan een voorwaarde wordt voldaan, krijgt de gebruiker een van de volgende berichten te zien wanneer deze zich aanmeldt:  
+ Azure Active Directory slaat de status van het apparaat, die verleent of blokkeert de toegang op basis van de door u opgegeven voorwaarden.  
+Als niet aan een voorwaarde wordt voldaan, ziet de gebruiker een van de volgende berichten te zien wanneer deze zich aanmeldt:  
 
--   Als het apparaat niet is ingeschreven bij Intune of niet is geregistreerd bij Azure Active Directory, wordt een bericht weergegeven met instructies over het installeren van de bedrijfsportal-app en het inschrijven.  
+-   Als het apparaat niet is ingeschreven bij Microsoft Intune of niet is geregistreerd in Azure Active Directory, ziet de gebruiker instructies over het installeren van de bedrijfsportal-app en het inschrijven.  
 
--   Als het apparaat niet aan het beleid voldoet, wordt er een bericht weergegeven waarin de gebruiker naar de website van de Intune-bedrijfsportal of de bedrijfsportal-app wordt verwezen, waar informatie te vinden is over het probleem en hoe het kan worden opgelost.  
+-   Als het apparaat niet compatibel is, ziet de gebruiker een bericht waarin ze worden omgeleid naar de bedrijfsportal-website of de bedrijfsportal-app. De bedrijfsportal bevat informatie over het probleem en hoe worden opgelost.  
 
 ## <a name="configure-conditional-access-for-skype-for-business-online"></a>Voorwaardelijke toegang configureren voor Skype voor Bedrijven Online  
 
 ### <a name="step-1-configure-active-directory-security-groups"></a>Stap 1: Active Directory-beveiligingsgroepen configureren  
- Voordat u begint, moet u Azure Active Directory-beveiligingsgroepen configureren voor het beleid voor voorwaardelijke toegang. U kunt deze groepen configureren in het Office 365-beheercentrum. Deze groepen bevatten de gebruikers die deel uitmaken van de doelgroep, of op wie het beleid juist niet van toepassing is. Wanneer een gebruiker deel uitmaakt van de doelgroep voor het beleid, moet elk apparaat dat hij of zij gebruikt, aan het beleid voldoen om toegang te krijgen tot bronnen.  
+ Voordat u begint, moet u Azure Active Directory-beveiligingsgroepen configureren voor het beleid voor voorwaardelijke toegang. Deze groepen configureren in het Office 365-beheercentrum. Deze groepen bevatten de gebruikers wilt richten of uitsluiten van het beleid. Wanneer een gebruiker deel uitmaakt van de doelgroep voor het beleid, moet elk apparaat dat hij of zij gebruikt, aan het beleid voldoen om toegang te krijgen tot bronnen.  
 
  U kunt twee soorten groepen opgeven voor het Skype voor Bedrijven-beleid:  
 
--   Groepen â € gericht ' bevat groepen gebruikers waarop het beleid van toepassing  
+-   **Doelgroepen** bevatten gebruikers waarop het beleid van toepassing is  
 
--   Uitgesloten groepen â €' bevat groepen gebruikers die uitgesloten van het beleid (optioneel zijn)  
-    Als een gebruiker zich in beide groepen bevindt, wordt het beleid niet op de gebruiker toegepast.  
+-   **Uitgesloten groepen** gebruikers moeten worden uitgesloten van het beleid bevatten  
+    Als een gebruiker zich in beide groepen bevindt, zijn deze uitgesloten.  
 
 ### <a name="step-2-configure-and-deploy-a-compliance-policy"></a>Stap 2: Configureer en implementeer een nalevingsbeleid  
- Zorg ervoor dat u een nalevingsbeleid maakt en implementeert op alle apparaten waarop het Skype voor Bedrijven Online-beleid van toepassing is.  
+ Maak en implementeer een nalevingsbeleid op alle apparaten waarop het Skype voor bedrijven Online-beleid is gericht.  
 
- Zie [Nalevingsbeleid voor apparaten beheren in System Center Configuration Manager](../../protect/deploy-use/device-compliance-policies.md) voor meer informatie over het configureren van het nalevingsbeleid.  
+ Zie voor meer informatie over het configureren van het nalevingsbeleid [nalevingsbeleid voor apparaten beheren](../../protect/deploy-use/device-compliance-policies.md).  
 
 > [!NOTE]  
->  Als u geen nalevingsbeleid hebt geïmplementeerd en u daarna het Skype voor Bedrijven Online-beleid inschakelt, krijgen alle apparaten uit de doelgroep toegang als ze zijn ingeschreven bij Intune.  
+>  Als u geen nalevingsbeleid hebt geïmplementeerd en daarna het Skype voor bedrijven Online-beleid inschakelt, zijn alle apparaten toegang toegestaan als ze zijn ingeschreven bij Microsoft Intune.  
 
- Wanneer u klaar bent, gaat u door naar Stap 3.  
 
 ### <a name="step-3-configure-the-skype-for-business-online-policy"></a>Stap 3: Het Skype voor bedrijven Online-beleid configureren  
- Configureer vervolgens het beleid om ervoor te zorgen dat alleen beheerde apparaten en apparaten die aan het beleid voldoen toegang hebben tot Skype voor Bedrijven Online. Dit beleid wordt opgeslagen in Azure Active Directory.  
+ Configureer het beleid om ervoor te zorgen dat alleen beheerde en compatibele apparaten toegang tot Skype voor bedrijven Online. Dit beleid wordt opgeslagen in Azure Active Directory.  
 
 1.  Klik in de [Microsoft Intune-beheerconsole](https://manage.microsoft.com)op **Beleid** > **Voorwaardelijke toegang** > **Skype for Business Online Beleid**voor meer informatie over het configureren van het nalevingsbeleid.  
 
@@ -89,7 +88,7 @@ Als niet aan een voorwaarde wordt voldaan, krijgt de gebruiker een van de volgen
 
     -   Android  
 
-4.  Klik onder **Doelgroepen**op **Wijzigen** om de Active Directory-beveiligingsgroepen te selecteren waarop het beleid van toepassing moet zijn. U kunt ervoor kiezen dit op alle gebruikers of alleen op een bepaalde groep gebruikers toe te passen.  
+4.  Onder **doelgroepen**, klikt u op **wijzigen** selecteren van de Azure Active Directory-beveiligingsgroepen waarop het beleid van toepassing is. U kunt dit beleid op alle gebruikers of alleen op bepaalde groepen gebruikers.  
 
 5.  Klik desgewenst onder **Uitgesloten groepen**op **Wijzigen** om de Active Directory-beveiligingsgroepen te selecteren waarop dit beleid niet van toepassing is.  
 
@@ -102,11 +101,11 @@ Als niet aan een voorwaarde wordt voldaan, krijgt de gebruiker een van de volgen
 
  Selecteer een groep mobiele apparaten en selecteer op het tabblad **Apparaten** een van de volgende **Filters**:  
 
--   **Apparaten die niet zijn geregistreerd bij AAD** â €' deze apparaten hebben geen toegang tot Skype voor bedrijven Online.  
+-   **Apparaten die niet zijn geregistreerd bij AAD** geen toegang tot Skype voor bedrijven Online
 
--   **Apparaten die niet compatibel** â €' deze apparaten hebben geen toegang tot Skype voor bedrijven Online.  
+-   **Apparaten die niet compatibel** geen toegang tot Skype voor bedrijven Online  
 
--   **Apparaten die geregistreerd bij AAD en voldoen aan het beleid zijn** â €' deze apparaten hebben toegang tot Skype voor bedrijven Online.  
+-   **Apparaten die geregistreerd bij AAD en voldoen aan het beleid zijn** hebben toegang tot Skype voor bedrijven Online  
 
 ### <a name="see-also"></a>Zie tevens  
 

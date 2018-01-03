@@ -15,11 +15,11 @@ caps.latest.revision: "9"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: dd62748f853915d71fcbad1964f5a67785aaf3f6
-ms.sourcegitcommit: 1132886e07d0c0a87dcc7eeef4577dd8d8840023
+ms.openlocfilehash: 95808d4fd743d5cc18cacb69bb38bc729acdda25
+ms.sourcegitcommit: 92c3f916e6bbd35b6208463ff406e0247664543a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="set-up-windows-hybrid-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Hybride beheer van Windows-apparaten met System Center Configuration Manager en Microsoft Intune instellen
 
@@ -35,7 +35,7 @@ Gebruik de volgende stappen zodat Windows-Apparaatbeheer voor pc's of mobiele ap
 3.  Klik in het lint op **Platforms configureren**, en selecteer vervolgens het Windows-platform:
     - **Windows** voor Windows-pc's en laptops, voert u de volgende stappen uit:
       1. In de **algemene** en klik op de **Windows-registratie inschakelen** selectievakje.
-      2. Als u een certificaat om de code ondertekenen en implementeren van de bedrijfsportal-app, bladert u naar de **certificaat voor ondertekening van Code**. Gebruikers van apparaten kunnen ook de bedrijfsportal-app installeren vanuit de Windows Store of u kunt de app uit de Windows Store voor bedrijven implementeren zonder de ondertekening van programmacode.
+      2. Als u een certificaat om de code ondertekenen en implementeren van de bedrijfsportal-app, bladert u naar de **certificaat voor ondertekening van Code**. Gebruikers van apparaten kunnen ook de bedrijfsportal-app installeren vanuit de Microsoft Store of u kunt de app uit de Microsoft Store voor bedrijven implementeren zonder de ondertekening van programmacode.
       3. U kunt ook configureren [Windows Hello voor bedrijven-instellingen](windows-hello-for-business-settings.md).
     - **Windows Phone** voor Windows Phone-telefoons en tablets, voert u de volgende stappen uit:
       1. In de **algemene** en klik op de **Windows Phone 8.1 en Windows 10 Mobile** selectievakje. Windows Phone 8.0 niet meer wordt ondersteund.

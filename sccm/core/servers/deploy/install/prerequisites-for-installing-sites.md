@@ -15,11 +15,11 @@ caps.latest.revision: "5"
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 2875a90b1f2ae853563d7716fcfe634efd551fe5
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 07e57a15834d2f29444f47b9503cc04947f36150
+ms.sourcegitcommit: 92c3f916e6bbd35b6208463ff406e0247664543a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="prerequisites-for-installing-system-center-configuration-manager-sites"></a>Vereisten voor het installeren van System Center Configuration Manager-sites
 
@@ -106,7 +106,7 @@ Wanneer u een van de volgende Azure-services met Configuration Manager gebruiken
 Services:  
 -       [Operations Manager-Suite](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite) (OMS)
 -       [Gereedheid voor upgrade](/sccm/core/clients/manage/upgrade/upgrade-analytics)
--       [Windows Store voor bedrijven](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business)
+-       [Microsoft Store voor bedrijven](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business)
 
 Gebruik de volgende stappen uit om dit probleem te verhelpen:
  1.    In de Configuration Manager-console door de Azure service vanuit het knooppunt Azure-services te verwijderen.

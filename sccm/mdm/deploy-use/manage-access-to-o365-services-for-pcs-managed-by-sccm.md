@@ -3,7 +3,7 @@ title: Toegang tot O365-services voor beheerde pc's beheren
 titleSuffix: Configuration Manager
 description: Informatie over het configureren van voorwaardelijke toegang voor pc's die worden beheerd door System Center Configuration Manager.
 ms.custom: na
-ms.date: 03/05/2017
+ms.date: 12/19/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.latest.revision: "15"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: a49e53ca81d8bd01747c41ab9c25de7fd6396f32
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: bf38358d12c2617d924fe59bf7bf7457dfa95143
+ms.sourcegitcommit: 6c2aa79924c0e7fc64ef5e9003498fc00c349db9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-access-to-o365-services-for-pcs-managed-by-system-center-configuration-manager"></a>Toegang beheren tot O365-services voor pc’s die worden beheerd door System Center Configuration Manager
 
@@ -27,13 +27,10 @@ ms.lasthandoff: 10/12/2017
 
 Vanaf versie 1602 van Configuration Manager, kunt u voorwaardelijke toegang configureren voor pc's die worden beheerd door System Center Configuration Manager.  
 
-> [!IMPORTANT]  
-> Dit is een voorlopige versie-functie beschikbaar zijn in de update 1602, update 1606 en update 1610. Functies van evaluatieversies zijn opgenomen in het product voor vroege testdoeleinden in een productieomgeving, maar mogen niet worden beschouwd als gereed voor productie. Zie [Use pre-release features from updates](../../core/servers/manage/install-in-console-updates.md#bkmk_prerelease) (Functies van evaluatieversies gebruiken) voor meer informatie.
-> - Nadat u update 1602 installeert, wordt het onderdeeltype weergegeven als ondanks dat deze voorlopige versie is vrijgegeven.
-> - Als u vervolgens een update van 1602 naar 1606, blijft de functie type worden weergegeven als vrijgegeven zelfs via deze voorlopige versie.
-> - Als u rechtstreeks naar 1606 van versie 1511 bijwerken, wordt het functietype weergegeven als de voorlopige versie.
+> [!Tip]  
+> Deze functie is geïntroduceerd in versie 1602 als een [functie van de voorlopige versie](/sccm/core/servers/manage/pre-release-features). Vanaf versie 1702, deze functie is niet langer een voorlopige versie.
 
-Zie [Toegang tot services beheren in System Center Configuration Manager](../../protect/deploy-use/manage-access-to-services.md) als u informatie zoekt over het configureren van voorwaardelijke toegang voor apparaten die zijn ingeschreven en worden beheerd door Intune, of pc's die zijn lid zijn van een domein en niet worden beoordeeld op naleving.
+Zie voor meer informatie over het configureren van voorwaardelijke toegang voor apparaten zijn ingeschreven en beheerd door Microsoft Intune [toegang tot services in System Center Configuration Manager beheren](../../protect/deploy-use/manage-access-to-services.md). Dat artikel bevat ook informatie over apparaten die zijn van een domein is toegevoegd en op compatibiliteit geëvalueerd.
 
 ## <a name="supported-services"></a>Ondersteunde services  
 
@@ -57,7 +54,7 @@ Zie [Toegang tot services beheren in System Center Configuration Manager](../../
     > Voor Windows-Servers die mogelijk zijn er meerdere gebruikers tegelijk aangemeld, moeten hetzelfde beleid voor voorwaardelijke toegang worden geïmplementeerd op alle gebruikers aangemeld.
 
 ## <a name="configure-conditional-access"></a>Voorwaardelijke toegang configureren  
- Als u voorwaardelijke toegang wilt instellen, moet u eerst een nalevingsbeleid maken en beleid voor voorwaardelijke toegang configureren. Wanneer u beleidsregels voor voorwaardelijke toegang instelt voor pc's, kunt u vereisen dat pc's compatibel zijn met het nalevingsbeleid om toegang te krijgen tot Exchange Online en SharePoint Online-services.  
+ Als u voorwaardelijke toegang instelt, moet u eerst een nalevingsbeleid maken en configureren van beleid voor voorwaardelijke toegang. Wanneer u beleidsregels voor voorwaardelijke toegang voor pc's configureert, kunt u vereisen dat de pc's compatibel met het nalevingsbeleid zijn om toegang tot Exchange Online en SharePoint Online-services.  
 
 ### <a name="prerequisites"></a>Vereisten  
 
@@ -67,36 +64,46 @@ Zie [Toegang tot services beheren in System Center Configuration Manager](../../
 
  De pc’s moeten aan de volgende vereisten voldoen:  
 
--   [Vereisten](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1) voor automatische apparaatregistratie bij Azure Active Directory  
+-   [Vereisten](https://docs.microsoft.com/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup) voor automatische apparaatregistratie bij Azure Active Directory  
 
      U kunt pc's Azure AD registreren via het nalevingsbeleid.  
 
     -   Voor Windows 8.1- en Windows 10-pc’s kunt u een Active Directory-groepsbeleid gebruiken om uw apparaten automatisch te registreren bij Azure AD.  
 
-    -   o   Voor Windows 7-pc's moet u via System Center Configuration Manager het softwarepakket voor apparaatregistratie implementeren op uw Windows 7-pc. De [automatische apparaatregistratie met Azure Active Directory for Windows Domain-Joined apparaten](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1) onderwerp bevat meer informatie.  
+    -   o   Voor Windows 7-pc's moet u via System Center Configuration Manager het softwarepakket voor apparaatregistratie implementeren op uw Windows 7-pc. De [automatische apparaatregistratie met Azure Active Directory for Windows Domain-Joined apparaten](https://docs.microsoft.com/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup) artikel bevat meer informatie.  
 
--   Gebruik van Office 2013 of Office 2016 is vereist en moderne verificatie moet zijn [ingeschakeld](https://support.office.com/en-US/article/Using-Office-365-modern-authentication-with-Office-clients-776c0036-66fd-41cb-8928-5495c0f9168a).  
+-   Gebruik van Office 2013 of Office 2016 is vereist en moderne verificatie moet zijn [ingeschakeld](https://support.office.com/article/Using-Office-365-modern-authentication-with-Office-clients-776c0036-66fd-41cb-8928-5495c0f9168a).  
 
- De stappen die hieronder worden beschreven, zijn van toepassing voor zowel Exchange Online als SharePoint Online  
+ De volgende stappen gelden voor Exchange Online en SharePoint Online  
 
 ### <a name="step-1-configure-compliance-policy"></a>Stap 1. Nalevingsbeleid configureren  
  Maak in de Configuration Manager-Console een nalevingsbeleid met de volgende regels:  
 
--   Registratie in Azure Active Directory vereisen: Deze regel controleert u of het apparaat van de gebruiker lid is van werk plaats naar Azure AD en als dat niet het geval is, wordt het apparaat automatisch geregistreerd bij Azure AD. Automatische inschrijving wordt alleen ondersteund op Windows 8.1. Implementeer een MSI-bestand om automatische inschrijving voor Windows 7-pc's uit te voeren. Zie [Aan de slag met Azure Active Directory-apparaatregistratie](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1)voor meer informatie.  
+-   **Registratie in Azure Active Directory vereisen:** Deze regel controleert u of het apparaat van de gebruiker lid is van werk plaats naar Azure AD en als dat niet het geval is, wordt het apparaat automatisch geregistreerd bij Azure AD. Automatische inschrijving wordt alleen ondersteund op Windows 8.1. Implementeer een MSI-bestand om automatische inschrijving voor Windows 7-pc's uit te voeren. Zie voor meer informatie [automatische apparaatregistratie met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup)  
 
--   **Alle vereiste updates zijn geïnstalleerd met een deadline die ouder zijn dan een bepaald aantal dagen:** Deze regel controleert u of apparaat van de gebruiker alle vereiste updates (opgegeven in de regel vereiste automatische updates) binnen de deadline en respijtperiode door u opgegeven is, en eventuele vereiste updates die nog niet automatisch worden geïnstalleerd.  
+-   **Alle vereiste updates zijn geïnstalleerd met een deadline die ouder zijn dan een bepaald aantal dagen:** Deze regel controleert of het apparaat van de gebruiker alle vereiste updates (opgegeven in de regel vereiste automatische updates) binnen de deadline en respijtperiode die is opgegeven door u en automatisch eventuele vereiste updates installeren.  
 
--   **BitLocker-stationsversleuteling vereisen:** Dit is een controleert u of het primaire station (bijvoorbeeld C:\\) op het apparaat BitLocker versleuteld. Als Bitlocker-versleuteling niet is ingeschakeld op het primaire station, wordt de toegang tot e-mail en SharePoint-services geblokkeerd.  
+-   **BitLocker-stationsversleuteling vereisen:** Deze regel controleert u of het primaire station (bijvoorbeeld C:\\) op het apparaat BitLocker versleuteld. Als Bitlocker-versleuteling niet is ingeschakeld op het primaire apparaat toegang tot e-mail en SharePoint services wordt geblokkeerd.  
 
--   **Antimalware vereisen:** Dit is een controleert u of de antimalwaresoftware (System Center Endpoint Protection of alleen Windows Defender) is ingeschakeld en worden uitgevoerd. Indien dit niet is ingeschakeld, wordt de toegang tot e-mail en SharePoint-services geblokkeerd.  
+-   **Antimalware vereisen:** Deze regel controleert of System Center Endpoint Protection of Windows Defender ingeschakeld en worden uitgevoerd is. Indien dit niet is ingeschakeld, wordt de toegang tot e-mail en SharePoint-services geblokkeerd.  
+
+-   **Gerapporteerd als in orde door Health Attestation-Service:** Deze voorwaarde bevat vier subregels om te controleren van de naleving van het apparaat op basis van het apparaat health attestation-service. Zie voor meer informatie [Health attestation](/sccm/core/servers/manage/health-attestation). 
+
+    - **BitLocker moet zijn ingeschakeld op het apparaat vereisen**
+    - **Beveiligd opstarten moet zijn ingeschakeld op het apparaat vereist** 
+    - **Code-integriteit worden ingeschakeld op het apparaat vereist**
+    - **Vroegtijdig starten Anti-Malware worden ingeschakeld op het apparaat vereist**
+
+>[!Tip]
+> De criteria voor voorwaardelijke toegang voor de health attestation van apparaten is geïntroduceerd in versie 1710, is een voorlopige versie-functie. Zie voor het inschakelen van deze functie [functies van evaluatieversies](/sccm/core/servers/manage/pre-release-features). 
 
 ### <a name="step-2-evaluate-the-effect-of-conditional-access"></a>Stap 2. Het effect van voorwaardelijke toegang evalueren  
- Voer het rapport voor naleving van voorwaardelijke toegang uit. Dit vindt u in de sectie bewaking onder rapporten > compatibiliteit en instellingen beheren. Hiermee wordt de status van naleving voor alle apparaten weergegeven.  Voor apparaten die worden gerapporteerd als niet-compatibel, wordt de toegang tot Exchange Online en SharePoint Online geblokkeerd.  
+ Voer het rapport voor naleving van voorwaardelijke toegang uit. Dit vindt u in de sectie bewaking onder rapporten > compatibiliteit en instellingen beheren. Dit rapport geeft de status van naleving voor alle apparaten.  Apparaten die rapporteren als niet-compatibel in toegang tot Exchange Online en SharePoint Online geblokkeerd.  
 
  ![CA&#95;naleving&#95;rapport](media/CA_compliance_report.png)  
 
 ### <a name="configure-active-directory-security-groups"></a>Active Directory-beveiligingsgroepen configureren  
- U richt de beleidsregels voor voorwaardelijke toegang op gebruikersgroepen, afhankelijk van de soorten beleid. Deze groepen bevatten de gebruikers die deel uitmaken van de doelgroep, of op wie het beleid juist niet van toepassing is. Wanneer een gebruiker deel uitmaakt van de doelgroep voor het beleid, moet elk apparaat dat wordt gebruikt, compatibel zijn om toegang te kunnen krijgen tot de service.  
+ U richt de beleidsregels voor voorwaardelijke toegang op gebruikersgroepen, afhankelijk van de soorten beleid. Deze groepen bevatten de gebruikers die de doelen van beleid of uitgesloten van het beleid. Wanneer een beleid is bedoeld voor een gebruiker, moet elk apparaat dat ze gebruiken compatibel toegang tot de service zijn.  
 
  Active Directory-beveiligingsgebruikersgroepen Deze groepen moeten worden gesynchroniseerd naar Azure Active Directory. U kunt deze groepen ook configureren in het Office 365-beheercentrum of in de Intune-accountportal.  
 
@@ -105,13 +112,13 @@ Zie [Toegang tot services beheren in System Center Configuration Manager](../../
 -   **Doelgroepen** -gebruikersgroepen waarop het beleid wordt toegepast. Dezelfde groep moet worden gebruikt voor naleving en beleid voor voorwaardelijke toegang.  
 
 -   **Uitgesloten groepen** -gebruikersgroepen die uitgesloten van het beleid (optioneel zijn)  
-    Als een gebruiker zich in beide groepen bevindt, wordt het beleid niet op de gebruiker toegepast.  
+    Als een gebruiker zich in beide, zijn deze uitgesloten van het beleid.  
 
      Alleen de doelgroepen van het beleid voor voorwaardelijke toegang worden geëvalueerd.  
 
 ### <a name="step-3--create-a-conditional-access-policy-for-exchange-online-and-sharepoint-online"></a>Stap 3.  Maak een beleid voor voorwaardelijke toegang tot Exchange Online en SharePoint Online.  
 
-1.  Klik op **Activa en naleving**op de Configuration Manager-console.  
+1.  Klik op **Activa en naleving** op de Configuration Manager-console.  
 
 2.  Selecteer **Beleid voor voorwaardelijke toegang inschakelen voor Exchange Online**als u een beleid voor Exchange Online wilt maken.  
 
@@ -136,18 +143,9 @@ Zie [Toegang tot services beheren in System Center Configuration Manager](../../
 
 7.  Klik op **Opslaan** om het beleid te maken en op te slaan  
 
- Eindgebruikers die zijn geblokkeerd vanwege niet-compatibele wordt compatibiliteitsinformatie weergeven in de System Center Configuration Manager Software Center en een nieuwe evaluatie van het beleid wordt gestart wanneer de nalevingsproblemen zijn hersteld.  
+Gebruikers wordt compatibiliteitsinformatie weergeven in Software Center. Als vanwege beleidsschending geblokkeerd, start u een nieuwe beleidsevaluatie na het oplossen van problemen met naleving van.  
 
-<!---
-##  <a name="bkmk_KnownIssues"></a> Known issues  
- You may see the following issues when using this feature:  
 
--   In this 1602 update,  the 5 day compliance is not enforced. Even if compliance check on the end-user's device has happened more than 5 days ago, users still can access Office 365 and SharePoint online.  
-
--   When a device is not compliant with the compliance policy, the reason is not automatically displayed. The end- user must go to the new Software Center to find the reason for non-compliance. The reason is displayed in the Device compliance section of the Software Center.  
-
--   Windows 10 users may see multiple access failures when trying to reach O365 and/or SharePoint online resources. Note that conditional access is not fully supported for Windows 10.  
---->
 ## <a name="see-also"></a>Zie tevens
 
 - [Beveiligen van gegevens en site-infrastructuur met System Center Configuration Manager](../../protect/understand/protect-data-and-site-infrastructure.md)

@@ -15,11 +15,11 @@ caps.latest.revision: "9"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: 166f7c73f2050657a85bd5160f74c40cfd87fd7f
-ms.sourcegitcommit: 922d6d9c91ba2158b938df381277be1b5f1d434a
+ms.openlocfilehash: bfe500c160bf2ddffd060baabb44cda81337e1cc
+ms.sourcegitcommit: 92c3f916e6bbd35b6208463ff406e0247664543a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/02/2018
 ---
 #  <a name="sync-data-from-configuration-manager-to-the-microsoft-operations-management-suite"></a>Gegevens synchroniseren van Configuration Manager naar de Microsoft Operations Management Suite
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/13/2017
 
 U kunt de **Wizard Azure-Services** Configureer de verbinding van Configuration Manager naar de cloudservice Operations Management Suite (OMS). Vanaf versie 1706, vervangt de wizard vorige werkstromen voor het configureren van deze verbinding. Zie voor eerdere versies [synchroniseren van gegevens uit Configuration Manager met Microsoft Operations Management Suite (1702 en eerder)](#Sync-data-from-Configuration-Manager-to-the-Microsoft-Operations-Management-Suite-(1702-and-earlier)).
 
--   De wizard wordt gebruikt voor het configureren van cloudservices voor Configuration Manager, zoals OMS-, Windows Store voor bedrijven (WSfB) en Azure Active Directory (Azure AD).  
+-   De wizard wordt gebruikt voor het configureren van cloudservices voor Configuration Manager, zoals OMS, Microsoft Store voor bedrijven en Azure Active Directory (Azure AD).  
 
 -   Configuration Manager maakt verbinding met OMS voor functies, zoals [logboekanalyse](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite), of [gereedheid voor Upgrade](/sccm/core/clients/manage/upgrade/upgrade-analytics).
 

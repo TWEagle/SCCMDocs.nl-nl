@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 3dce1f322936b38580c29459c1a4746b9b835d27
-ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
+ms.openlocfilehash: 77ce50cf363c9429f9ef38aa2acf5b898bc8052d
+ms.sourcegitcommit: b97aa456b392d817bc9723cbd5c0ce6602e7ae34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/28/2017
 ---
 # <a name="task-sequence-steps-in-system-center-configuration-manager"></a>Stappen voor takenreeksen in System Center Configuration Manager
 
@@ -760,7 +760,7 @@ Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoe
  **Volume**  
  Specifieke informatie over de partitie of het volume dat wordt gemaakt, met inbegrip van de volgende informatie:  
 
--   Naam  
+-   Name  
 
 -   Resterende schijfruimte  
 
@@ -1477,7 +1477,7 @@ Overweeg het volgende wanneer u een takenreeks onderliggende aan een takenreeks 
 
 -   **Merk en Model**: Gebruik deze regelcategorie om waarden voor het merk en model van een computer te beoordelen. Zowel het merk als het model moet resulteren in waar om de regel te laten resulteren in waar.   
 
-    U start in Configuration Manager versie 1610, kunt u een sterretje (*) en vraagtekens (**?**) als jokertekens, waarbij *** komt overeen met meerdere tekens en **?** komt overeen met een enkel teken. Bijvoorbeeld: de tekenreeks ' DELL * 900? ' komt overeen met ABC-DELL-9001 als DELL9009.
+    U start in Configuration Manager versie 1610, kunt u een sterretje (**&#42;**) en vraagtekens (**?**) als jokertekens, waarbij **&#42;** komt overeen met meerdere tekens en **?** komt overeen met een enkel teken. Bijvoorbeeld: de tekenreeks ' DELL * 900? ' komt overeen met ABC-DELL-9001 als DELL9009. 
 
 -   **Takenreeksvariabele**: Gebruik deze regelcategorie om toe te voegen een takenreeksvariabele, voorwaarde en waarde om te evalueren. Deze regel resulteert in waar wanneer de ingestelde waarde voor de variabele voldoet aan de opgegeven voorwaarde.  
 

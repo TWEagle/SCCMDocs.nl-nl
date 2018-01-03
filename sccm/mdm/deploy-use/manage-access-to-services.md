@@ -3,7 +3,7 @@ title: Voorwaardelijke toegang
 titleSuffix: Configuration Manager
 description: Informatie over het gebruik van voorwaardelijke toegang in System Center Configuration Manager voor het beveiligen van e-mail en andere services.
 ms.custom: na
-ms.date: 03/05/2017
+ms.date: 12/22/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.latest.revision: "26"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: 4a14f18007524421058c6caf1ec8947cf34328e4
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: f215e1c22d40e1fe402084b665ae624bc0c21d97
+ms.sourcegitcommit: 92c3f916e6bbd35b6208463ff406e0247664543a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-access-to-services-in-system-center-configuration-manager"></a>Toegang tot services beheren in System Center Configuration Manager
 
@@ -27,9 +27,9 @@ ms.lasthandoff: 10/12/2017
 
 
 ## <a name="conditional-access-in-system-center-configuration-manager"></a>Voorwaardelijke toegang in System Center Configuration Manager
-Gebruik **voorwaardelijke toegang** voor het beveiligen van e-mail en andere services op apparaten die zijn geregistreerd bij Microsoft Intune, afhankelijk van de door u opgegeven voorwaarden.  
+Gebruik voorwaardelijke toegang voor het specificeren voorwaarden voor het beveiligen van e-mail en andere services op apparaten ingeschreven bij Microsoft Intune.  
 
- Voor informatie over **voorwaardelijke toegang op pc's die worden beheerd met System Center Configuration Manager** en beoordeeld op naleving, Zie [toegang beheren tot O365-services voor pc's die worden beheerd door System Center Configuration Manager](../../protect/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm.md).  
+ Zie voor informatie over voorwaardelijke toegang op apparaten die worden beheerd met Configuration Manager-client, [toegang beheren tot O365-services voor pc's die worden beheerd door System Center Configuration Manager](../../protect/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm.md).  
 
 
  Een typische stroom voor voorwaardelijke toegang kan er als volgt uitzien:  
@@ -60,19 +60,19 @@ Gebruik **voorwaardelijke toegang** voor het beveiligen van e-mail en andere ser
 
     -   Of het apparaat jailbroken of geroot is  
 
-    -   Of e-mail op het apparaat wordt beheerd door een Configuration Manager of Intune-beleid  
+    -   Of e-mail op het apparaat wordt beheerd door een Configuration Manager of Microsoft Intune-beleid  
 
-     **Als er geen nalevingsbeleid wordt geïmplementeerd op een apparaat, wordt het apparaat als compatibel wordt beschouwd door alle beleidsregels voor voorwaardelijke toegang van toepassing**.  
+     Een apparaat rapporteert voldoet aan eventuele beleidsregels voor voorwaardelijke toegang van toepassing als u geen een nalevingsbeleid voor het implementeert.
 
--   **Beleid voor voorwaardelijke toegang** worden voor een bepaalde service geconfigureerd en definiëren regels zoals welke Azure Active Directory-beveiligingsgebruikersgroepen of Configuration Manager-gebruikersverzamelingen worden opgenomen of uitgesloten.  
+-   **Beleid voor voorwaardelijke toegang** zijn voor een bepaalde service. Deze beleidsregels definiëren regels zoals welke Azure Active Directory-beveiligingsgebruikersgroepen of Configuration Manager gebruikersverzamelingen als doel in of uitsluiten.  
 
-     U configureert het voorwaardelijke-toegangsbeleid van de On-Premises Exchange vanuit de Configuration Manager-console. Echter, wanneer u een Exchange Online of SharePoint Online-beleid configureert, Hiermee opent u de Intune-beheerconsole waar u het beleid configureert.  
+     U configureert het beleid voor voorwaardelijke toegang Exchange on-premises uit de Configuration Manager-console. Echter, wanneer u een Exchange Online of SharePoint Online-beleid configureert, de Microsoft Intune-beheerconsole wordt geopend om het beleid te configureren.  
 
-     In tegenstelling tot andere Intune of Configuration Manager-beleid implementeert u geen beleidsregels voor voorwaardelijke toegang. In plaats daarvan configureert u deze eenmalig en past u deze toe op alle bedoelde gebruikers.  
+     In tegenstelling tot andere Microsoft Intune of Configuration Manager-beleid implementeert u geen beleidsregels voor voorwaardelijke toegang. In plaats daarvan u deze beleidsregels eenmaal configureren en ze gelden voor alle beoogde gebruikers.  
 
- Wanneer apparaten niet voldoen aan de voorwaarden die u configureert, wordt de gebruiker geleid door de procedure voor het inschrijven van het apparaat en het verhelpen van het probleem dat verhindert dat het apparaat compatibel is.  
+ Wanneer apparaten niet voldoen aan de geconfigureerde voorwaarden, wordt de gebruiker is begeleide echter registratie van het apparaat en het verhelpen van het apparaat compatibiliteitsprobleem.  
 
-**Voordat u** u aan de slag met voorwaardelijke toegang, zorg ervoor dat u de juiste **vereisten** voldaan:  
+Voordat u voorwaardelijke toegang gaat gebruiken moet u controleren of u over de juiste vereisten beschikt:  
 
 ## <a name="requirements-for-exchange-online-using-the-shared-multi-tenant-environment"></a>Vereisten voor Exchange Online (met behulp van de gedeelde omgeving met meerdere tenants)
 Voorwaardelijke toegang tot Exchange Online ondersteunt apparaten met:
@@ -86,11 +86,11 @@ Voorwaardelijke toegang tot Exchange Online ondersteunt apparaten met:
 -   Apparaten moeten zijn toegevoegd aan de werkplek, waardoor wordt het apparaat geregistreerd bij de Azure Active Directory Device Registration Service (AAD DRS).<br />     
 - Pc’s die lid zijn van een domein moeten automatisch via groepsbeleid of MSI bij Azure Active Directory worden geregistreerd.
 
-  In de sectie **Voorwaardelijke toegang voor pc's** in dit onderwerp vindt u een beschrijving van alle vereisten voor het inschakelen van voorwaardelijke toegang voor een pc.<br />     
-  AAD DRS wordt automatisch geactiveerd voor Intune- en Office 365-klanten. Klanten die de ADFS Device Registration Service al hebben geïmplementeerd, zien geen geregistreerde apparaten in hun on-premises Active Directory.
--   U moet een Office 365-abonnement met inbegrip van Exchange Online (zoals E3) gebruiken en gebruikers moeten bovendien een licentie voor Exchange Online.
--   De optionele **Exchange Server-connector** is optioneel en Configuration Manager verbinding met Microsoft Exchange Online en helpt u bij het controleren van apparaatgegevens via de Configuration Manager-console (Zie [mobiele apparaten beheren met System Center Configuration Manager en Exchange](../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md)).
-U hoeft de connector niet te gebruiken om nalevingsbeleid of beleidsregels voor voorwaardelijke toegang te kunnen gebruiken, maar deze is vereist voor het uitvoeren van rapporten die helpen bij het evalueren van de impact van voorwaardelijke toegang.
+  De **voorwaardelijke toegang voor pc's** sectie in dit artikel beschrijft alle vereisten voor het inschakelen van voorwaardelijke toegang voor een PC.<br />     
+  AAD DRS wordt automatisch geactiveerd voor Microsoft Intune en Office 365-klanten. Klanten die de ADFS Device Registration Service al hebben geïmplementeerd, ziet geen geregistreerde apparaten in hun lokale Active Directory.
+-   Office 365-abonnement met inbegrip van Exchange Online (zoals E3) gebruiken. Gebruikers moeten bovendien een licentie voor Exchange Online.
+-   Exchange Server-connector is optioneel en Configuration Manager verbinding met Microsoft Exchange Online. Deze connector kunt u controleren van apparaatgegevens via de Configuration Manager-console. Zie [Mobiele apparaten beheren met System Center Configuration Manager en Exchange](../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md) voor meer informatie.
+U hoeft niet de connector wilt gebruiken voor nalevingsbeleid of beleidsregels voor voorwaardelijke toegang. Uitvoeren van rapporten over de impact van voorwaardelijke toegang vereist dat de connector.
 
 ## <a name="requirements-for-exchange-online-dedicated"></a>Vereisten voor Exchange Online-specifiek
 Voorwaardelijke toegang tot Exchange Online-specifiek ondersteunt apparaten met:
@@ -101,29 +101,30 @@ Voorwaardelijke toegang tot Exchange Online-specifiek ondersteunt apparaten met:
 -   Windows Phone 8 en hoger
 -   Een iOS-apparaat dat gebruikmaakt van een e-mailclient van Exchange ActiveSync (EAS)
 -   Android 4 en hoger.
--   Voor tenants in de **oude Exchange Online Dedicated-omgeving**:    
+-   Voor tenants in de oude Exchange Online Dedicated-omgeving:    
 
-  Moet u de **Exchange Server-connector** die Configuration Manager met Microsoft Exchange On-premises verbindt. Hiermee kunt u uw mobiele apparaten beheren en kan voorwaardelijke toegang worden ingeschakeld (zie [Mobiele apparaten beheren met Configuration Manager en Exchange](../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md)).
--   Voor tenants in de **nieuwe Exchange Online Dedicated-omgeving**:     
-  De optionele **Exchange Server-connector** maakt Configuration Manager verbinding met Microsoft Exchange Online en helpt bij het beheren van apparaatgegevens (Zie [mobiele apparaten beheren met System Center Configuration Manager en Exchange](../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md)). U hoeft de connector niet te gebruiken om nalevingsbeleid of beleidsregels voor voorwaardelijke toegang te kunnen gebruiken, maar deze is vereist voor het uitvoeren van rapporten die helpen bij het evalueren van de impact van voorwaardelijke toegang.  
+  Gebruik de Exchange Server-connector, die Configuration Manager met Microsoft Exchange on-premises verbindt. De connector kunt u mobiele apparaten beheren en kan voorwaardelijke toegang worden ingeschakeld. Zie [Mobiele apparaten beheren met System Center Configuration Manager en Exchange](../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md) voor meer informatie.
+-   Voor tenants in de nieuwe Exchange Online Dedicated-omgeving:     
+  Exchange Server-connector is optioneel, die Configuration Manager verbinding met Microsoft Exchange Online en helpt bij het beheren van apparaatgegevens. Zie [Mobiele apparaten beheren met System Center Configuration Manager en Exchange](../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md) voor meer informatie. U hoeft niet de connector wilt gebruiken voor nalevingsbeleid of beleidsregels voor voorwaardelijke toegang. Uitvoeren van rapporten over de impact van voorwaardelijke toegang vereist dat de connector.  
 
-## <a name="requirements-for-exchange-on-premises"></a>Vereisten voor Exchange On-premises
-Voorwaardelijke toegang tot Exchange On-premises ondersteunt:
+## <a name="requirements-for-exchange-on-premises"></a>Vereisten voor Exchange on-premises
+Voorwaardelijke toegang tot Exchange on-premises ondersteunt:
 -   Windows 8 en hoger (wanneer ingeschreven bij Intune)
 -   Windows Phone 8 en hoger
 -   Systeemeigen e-mail-app voor iOS
 -   Systeemeigen e-mail-app voor Android 4 of hoger
--   Microsoft Outlook-app is niet ondersteund (Android en iOS).
+-   Microsoft Outlook-app is niet ondersteund (Android en iOS)
 
 **Bovendien**:
 
--  Versie van Exchange moet Exchange 2010 of hoger. De CAS-matrix (Client Access Server) voor Exchange-servers wordt ondersteund.
+- Versie van Exchange moet Exchange 2010 of hoger
+- Matrix van Exchange server-Client Access Server (CAS) wordt ondersteund
 
 > [!TIP]
 > Als uw Exchange-omgeving zich in een configuratie met CAS-server, moet u de lokale Exchange-connector om te verwijzen naar een van de CAS-servers configureren.
-- Moet u de **Exchange Server-connector** die Configuration Manager met Microsoft Exchange On-premises verbindt. Hiermee kunt u uw mobiele apparaten beheren en kan voorwaardelijke toegang worden ingeschakeld (zie [Mobiele apparaten beheren met Configuration Manager en Exchange](../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md)).
-  - Gebruik de nieuwste versie van de **on-premises Exchange-Connector**. De on-premises Exchange-connector moet worden geconfigureerd via de Configuration Manager-console. Zie [Mobiele apparaten beheren met Configuration Manager en Exchange](../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md) voor een gedetailleerde uitleg.
-  - De connector moet alleen op de primaire site voor System Center Configuration Manager worden geconfigureerd.</li><li>Deze connector ondersteunt de Exchange CAS-omgeving. <br />        Wanneer u de connector configureert, moet u deze instellen zodat deze communiceert met een van de Exchange CAS-servers.
+- Gebruik de Exchange Server-connector, die Configuration Manager met Microsoft Exchange on-premises verbindt. De connector kunt u mobiele apparaten beheren en kan voorwaardelijke toegang worden ingeschakeld. Zie [Mobiele apparaten beheren met System Center Configuration Manager en Exchange](../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md) voor meer informatie.
+  - Zorg ervoor dat u van de nieuwste versie van de lokale Exchange-connector gebruikmaakt. De lokale Exchange-connector via de Configuration Manager-console configureren. Zie [Mobiele apparaten beheren met Configuration Manager en Exchange](../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md) voor een gedetailleerde uitleg.
+  - Alleen de connector op de primaire site van Configuration Manager configureren
 
 - Exchange ActiveSync kan worden geconfigureerd met verificatie op basis van een certificaat of invoer van gebruikersreferenties
 
@@ -134,9 +135,9 @@ Voorwaardelijke toegang tot SharePoint Online ondersteunt apparaten met:
  -   Android 4.0 en hoger
  -   Samsung KNOX Standard 4.0 of hoger
 
-**Bovendien** moet u moderne verificatie voor Skype voor bedrijven Online inschakelen. Vul dit [Connect-formulier](https://connect.microsoft.com/office/Survey/NominationSurvey.aspx?SurveyID=17299&ProgramID=8715) in om u in te schrijven voor het programma voor moderne verificatie.
+Schakel [moderne verificatie](https://aka.ms/SkypeModernAuth) voor Skype voor bedrijven Online. 
 
-Uw eindgebruikers moeten gebruikmaken van Skype voor Bedrijven Online. Als u een implementatie hebt met Skype voor Bedrijven Online en Skype voor Bedrijven on-premises, wordt beleid voor voorwaardelijke toegang niet toegepast op eindgebruikers die zich in de on-premises-implementatie bevinden.
+Alle gebruikers moet Skype voor bedrijven Online gebruiken. Als u een implementatie hebt met Skype voor bedrijven Online en Skype voor bedrijven on-premises, geldt beleid voor voorwaardelijke toegang niet voor on-premises gebruikers.
 
 ## <a name="requirements-for-sharepoint-online"></a>Vereisten voor SharePoint Online
 Voorwaardelijke toegang tot SharePoint Online ondersteunt apparaten met:
@@ -149,21 +150,21 @@ Voorwaardelijke toegang tot SharePoint Online ondersteunt apparaten met:
  **Bovendien**:
  -   Apparaten moeten zijn toegevoegd aan de werkplek, waardoor wordt het apparaat geregistreerd bij de Azure Active Directory Device Registration Service (AAD DRS).
 
- Pc’s die lid zijn van een domein moeten automatisch via groepsbeleid of MSI bij Azure Active Directory worden geregistreerd. In de sectie **Voorwaardelijke toegang voor pc's** in dit onderwerp vindt u een beschrijving van alle vereisten voor het inschakelen van voorwaardelijke toegang voor een pc.
+ Pc’s die lid zijn van een domein moeten automatisch via groepsbeleid of MSI bij Azure Active Directory worden geregistreerd. De **voorwaardelijke toegang voor pc's** sectie in dit artikel beschrijft alle vereisten voor het inschakelen van voorwaardelijke toegang voor een PC.
 
- AAD DRS wordt automatisch geactiveerd voor Intune- en Office 365-klanten. Klanten die de ADFS Device Registration Service al hebben geïmplementeerd, zien geen geregistreerde apparaten in hun on-premises Active Directory.
+ AAD DRS wordt automatisch geactiveerd voor Microsoft Intune en Office 365-klanten. Klanten die de ADFS Device Registration Service al hebben geïmplementeerd, ziet geen geregistreerde apparaten in hun lokale Active Directory.
  -   Een SharePoint Online-abonnement is vereist en gebruikers moeten bovendien een licentie voor SharePoint Online.
 
  ### <a name="conditional-access-for-pcs"></a>Voorwaardelijke toegang voor pc's
 
- U kunt voorwaardelijke toegang instellen voor pc's waarop Office-bureaubladtoepassingen worden uitgevoerd zodat deze toegang hebben tot **Exchange Online** en **SharePoint Online** als de pc's aan de volgende vereisten voldoen:
- -   De PC moet Windows 7.0 of Windows 8.1 worden uitgevoerd.
- -   De PC moet zijn van een domein gekoppelde of compatibel.
+ U kunt voorwaardelijke toegang configureren voor pc's waarop Office-bureaubladtoepassingen worden uitgevoerd en toegang tot Exchange Online of SharePoint Online. De pc’s moeten aan de volgende vereisten voldoen:
+ -   De PC moet Windows 7.0 of Windows 8.1 worden uitgevoerd
+ -   De PC moet een domein zijn toegevoegd of compatibel
 
- Om hieraan te voldoen, de PC zijn ingeschreven in Intune en voldoen aan het beleid.
+ Om hieraan te voldoen, worden de PC moeten zijn ingeschreven bij Microsoft Intune en voldoen aan het beleid.
 
  U moet pc's die lid zijn van een domein zo instellen dat deze [het apparaat automatisch registreren](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/) bij Azure Active Directory.
- -   [Moderne Office 365-verificatie moet zijn ingeschakeld](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/) en alle nieuwe Office-updates moeten zijn geïnstalleerd.<br />     Moderne verificatie brengt op Active Directory Authentication Library (ADAL) gebaseerde aanmelding naar Windows-clients met Office 2013 en zorgt voor betere beveiliging zoals **meervoudige verificatie**en **verificatie op basis van een certificaat**.
+ -   [Moderne Office 365-verificatie moet zijn ingeschakeld](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/) en alle nieuwe Office-updates moeten zijn geïnstalleerd.<br />     Moderne verificatie maakt op basis van Active Directory Authentication Library ADAL aanmelden met Office 2013 Windows-clients en zorgt voor betere beveiliging zoals multi-factor authentication en verificatie op basis van certificaten.
  -   Met het instellen van ADFS worden er regels van kracht die niet-moderne verificatieprotocollen blokkeren.  
 
 ## <a name="next-steps"></a>Volgende stappen  

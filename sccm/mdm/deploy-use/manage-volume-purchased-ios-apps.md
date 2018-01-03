@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: c5ce168afe8668c67d7a66aaf79fce91d082afd5
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 1411675b11074b610d7370f93eafd7359cfb46ee
+ms.sourcegitcommit: 92c3f916e6bbd35b6208463ff406e0247664543a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-volume-purchased-ios-apps-with-system-center-configuration-manager"></a>Met System Center Configuration Manager iOS-apps beheren die zijn gekocht via het volume-aankoopprogramma
 
@@ -104,7 +104,7 @@ U kunt de gegevens waarover Apple met Configuration Manager op elk gewenst momen
 1.  Kies in de Configuration Manager-console **softwarebibliotheek** > **Toepassingsbeheer** > **licentiegegevens voor Store-Apps**.  
 
 3.  Kies de app die u implementeren wilt, en klikt u op de **Start** tabblad, in de **maken** groep, kiest u **toepassing maken**.
-De Configuration Manager-toepassing die is gemaakt, heeft de Windows Store voor bedrijven-app. U kunt implementeren en bewaken van deze toepassing, net als elke andere Configuration Manager-toepassing.
+De Configuration Manager-toepassing die is gemaakt, heeft de Microsoft Store voor bedrijven-app. U kunt implementeren en bewaken van deze toepassing, net als elke andere Configuration Manager-toepassing.
 
     > [!IMPORTANT]  
     > U moet een implementatiedoel van kiezen **vereist**. Beschikbare installaties worden momenteel niet ondersteund.

@@ -3,7 +3,7 @@ title: Technische Preview-versies
 titleSuffix: Configuration Manager
 description: Meer informatie over de Technical Preview-versie dat we u test-drive nieuwe functionaliteit en mogelijkheden in System Center Configuration Manager.
 ms.custom: na
-ms.date: 12/15/2017
+ms.date: 12/22/2017
 ms.prod: configuration-manager
 ms.reviewer: nab
 ms.suite: na
@@ -15,11 +15,11 @@ caps.latest.revision: "157"
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 31daf18a0b276b691e606ea2737ea1838dd8b211
-ms.sourcegitcommit: ed8b2438ef85c9160741ef61f9171be41dd1ae0a
+ms.openlocfilehash: c9650d202096b223baf9c62fef96c35ba6d245c2
+ms.sourcegitcommit: 92c3f916e6bbd35b6208463ff406e0247664543a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="technical-preview-for-system-center-configuration-manager"></a>Technical Preview voor System Center Configuration Manager
 
@@ -96,9 +96,9 @@ U kunt een basislijnversie gedurende maximaal één jaar na de release installer
 
 
 ##  <a name="BKMK_TPFeedback"></a> Feedback geven  
- Feedback over onze Technical Previews is altijd welkom. Als u feedback wilt geven over de mogelijkheden van elke Preview, volgt u de koppeling naar ons feedbackformulier op de pagina voor het [Configuration Manager-feedbackprogramma](https://connect.microsoft.com/ConfigurationManagervnext/Feedback) op de Microsoft Connect-site.  
+ We ontvangen graag uw feedback over de mogelijkheden van onze technical Previews worden geboden. Zie voor meer informatie [productfeedback](../understand/find-help.md#product-feedback).
 
- En als u ideeën hebt over nieuwe functies die u graag zou zien, kunt u daar ook melding van maken. Als u nieuwe ideeën wilt indienen en wilt stemmen over de ideeën die door anderen zijn ingediend, gaat u naar onze [UserVoice-pagina](http://configurationmanager.uservoice.com).  
+Als u ideeën over nieuwe functies dat zou willen zien hebt, willen we weten dat ook. Als u nieuwe ideeën wilt indienen en wilt stemmen over de ideeën die door anderen zijn ingediend, gaat u naar onze [UserVoice-pagina](http://configurationmanager.uservoice.com).  
 
 <!--   ##  <a name="bdmk_tpknownissues"></a> General changes introduced in Technical Previews    -->
 

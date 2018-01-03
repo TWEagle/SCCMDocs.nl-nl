@@ -14,11 +14,11 @@ ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 189e737eca5dee5bca3f0748cd1b4d944f868565
-ms.sourcegitcommit: 4af1da9c18f5bdff31426cf1d58c7d949372292d
+ms.openlocfilehash: bf07e4fd187a71e6c4270e62cfb9ba2f8b743519
+ms.sourcegitcommit: 92c3f916e6bbd35b6208463ff406e0247664543a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Wat is er nieuw in hybride mobile device management met System Center Configuration Manager en Microsoft Intune
 
@@ -374,9 +374,9 @@ De volgende aanvullende hybridefuncties zijn ook opgenomen in versie 1702 van Co
 
   Zie voor meer informatie over volume-purchased iOS-apps, [volume-purchased iOS-apps beheren](/sccm/mdm/deploy-use/manage-volume-purchased-ios-apps).
 
-- **Ondersteuning voor line-of-business-apps in Windows Store voor bedrijven**
+- **Ondersteuning voor line-of-business-apps in Microsoft Store voor bedrijven**
 
-  U kunt aangepaste LOB-apps vanuit de Windows Store voor bedrijven nu synchroniseren.
+  U kunt aangepaste LOB-apps uit de Microsoft Store voor bedrijven nu synchroniseren.
 
 - **Nieuwe mobiele Threat verdediging controlehulpprogramma 's**
 
