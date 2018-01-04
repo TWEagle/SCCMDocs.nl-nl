@@ -31,7 +31,7 @@
 ## Toepassingen beheren
 ### [Beheertaken](deploy-use/management-tasks-applications.md)
 ### [Gebruikersaffiniteit apparaat](deploy-use/link-users-and-devices-with-user-device-affinity.md)
-### [Apps die zijn gekocht via het volume-aankoopprogramma in de Windows Store voor Bedrijven](deploy-use/manage-apps-from-the-windows-store-for-business.md)
+### [Apps die zijn gekocht via het volume-aankoopprogramma in de Microsoft Store voor Bedrijven](deploy-use/manage-apps-from-the-windows-store-for-business.md)
 ### [Virtuele omgevingen van App-V](deploy-use/create-app-v-virtual-environments.md)
 
 ## Toepassingen bijwerken en buiten gebruik stellen

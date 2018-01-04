@@ -52,7 +52,7 @@
 ### [Configuratiebeleidsregels voor Android-apps](deploy-use/configure-android-apps-with-app-configuration-policies.md)
 ### [Beleidsregels voor het beheer van mobiele toepassingen](deploy-use/protect-apps-using-mam-policies.md)
 ### [Beleidsregels voor beheerde browsers](deploy-use/manage-internet-access-using-managed-browser-policies.md)
-### [Windows Store voor Bedrijven-apps](deploy-use/windows-store-for-business.md)
+### [Apps in de Microsoft Store voor Bedrijven](deploy-use/windows-store-for-business.md)
 
 ## [Een Microsoft Intune-abonnement beheren](deploy-use/manage-intune-subscriptions.md)
 ## [Uw MDM-instantie wijzigen](deploy-use/change-mdm-authority.md)
