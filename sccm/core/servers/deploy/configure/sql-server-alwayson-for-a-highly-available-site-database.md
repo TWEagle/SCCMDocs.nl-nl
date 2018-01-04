@@ -3,7 +3,7 @@ title: SQL Server Always On
 titleSuffix: Configuration Manager
 description: Plan het gebruik van een SQL Server altijd op beschikbaarheidsgroep met SCCM.
 ms.custom: na
-ms.date: 11/20/2017
+ms.date: 12/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.latest.revision: "16"
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 42d5a059e11dffc7890ec78ce7361ebfe905a050
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 7efd0c76a0723a98661b0861eb16298eee524f35
+ms.sourcegitcommit: f1535281b2c3fecff773b722c3f7590bf6ba10a0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="prepare-to-use-sql-server-always-on-availability-groups-with-configuration-manager"></a>Voorbereiden op het gebruik van SQL Server Always On availability groups met Configuration Manager
 
@@ -78,7 +78,7 @@ Zie voor meer informatie [maken van een Database Mirroring-eindpunt voor altijd 
 
 -   Vanaf versie 1706, kunt u een replica met asynchrone doorvoer voor het herstellen van de synchrone replica. Zie [opties voor herstel van site]( /sccm/protect/understand/backup-and-recovery#BKMK_SiteDatabaseRecoveryOption) in het onderwerp back-up en herstel voor meer informatie over om dit te bereiken.
     > [!CAUTION]  
-    > Configuration Manager biedt geen ondersteuning voor failover voor het gebruik van de replica met asynchrone doorvoer als uw sitedatabase.
+    > Configuration Manager biedt geen ondersteuning voor [failover](https://go.microsoft.com/fwlink/?linkid=626885) de replica met asynchrone doorvoer gebruiken als uw sitedatabase.
 Omdat Configuration Manager wordt de status van de replica met asynchrone doorvoer om te bevestigen dat het huidige, is niet gevalideerd en [standaard deze replica kan niet synchroon]( https://msdn.microsoft.com/library/ff877884(SQL.120).aspx(d=robot)#Availability%20Modes), het gebruik van een replica met asynchrone doorvoer als de sitedatabase kunt risico voor de integriteit van uw site en -gegevens.
 
 Elk replicalid van de moet:
