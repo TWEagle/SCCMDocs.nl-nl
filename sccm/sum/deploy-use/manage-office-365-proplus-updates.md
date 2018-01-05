@@ -3,20 +3,20 @@ title: Office 365 ProPlus-updates beheren
 titleSuffix: Configuration Manager
 description: Configuration Manager worden gesynchroniseerd voor Office 365-clientupdates van de WSUS-catalogus naar de siteserver om updates beschikbaar om te implementeren op clients.
 keywords: 
-author: dougeby
-ms.author: dougeby
+author: mestew
+ms.author: mstewart
 manager: angrobe
-ms.date: 10/04/2017
+ms.date: 12/28/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
 ms.technology: configmgr-sum
 ms.assetid: eac542eb-9aa1-4c63-b493-f80128e4e99b
-ms.openlocfilehash: a1ac97e60bc35ee3e98212cf17e33ed2b73301b9
-ms.sourcegitcommit: 986fc2d54f7c5fa965fd4df42f4db4ecce6b79cb
+ms.openlocfilehash: b951e72635806c12bd0ec0dd66e382a767b99b43
+ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="manage-office-365-proplus-with-configuration-manager"></a>Beheren van Office 365 ProPlus met Configuration Manager
 
@@ -30,7 +30,7 @@ Configuration Manager kunt u Office 365 ProPlus-apps in de volgende manieren beh
 
 - [Office 365-updates implementeren](#deploy-office-365-updates): Vanaf versie 1602 van Configuration Manager, kunt u updates voor Office 365-clients beheren met behulp van de werkstroom voor software-update. Wanneer Microsoft publiceert een nieuwe Office 365-clientupdate voor de Office Content Delivery Network (CDN), publiceert Microsoft ook een updatepakket voor Windows Server Update Services (WSUS). Configuration Manager worden gesynchroniseerd met de Office 365-clientupdate van de WSUS-catalogus naar de siteserver, is de update beschikbaar om te implementeren op clients.    
 
-- [Toevoegen van talen voor Office 365-updatebestanden downloads](#add-languages-for-office-365-update-downloads): U kunt ondersteuning voor Configuration Manager-updates voor alle talen die worden ondersteund door Office 365, ongeacht of ze worden ondersteund in Configuration Manager te downloaden vanaf Configuration Manager versie 1610 kan toevoegen.  
+- [Toevoegen van talen voor Office 365-updatebestanden downloads](#add-languages-for-office-365-update-downloads): U kunt ondersteuning voor Configuration Manager voor alle talen die worden ondersteund door Office 365-updates te downloaden vanaf Configuration Manager versie 1610 kan toevoegen. Betekenis Configuration Manager geen ondersteuning voor de taal als Office 365 biedt.  
 
 - [Wijzigen van het kanaal update](#change-the-update-channel-after-you-enable-office-365-clients-to-receive-updates-from-configuration-manager): U kunt Groepsbeleid gebruiken voor het distribueren van een wijziging in het register sleutelwaarde op Office 365-clients om de update-kanaal te wijzigen.
 
@@ -51,12 +51,11 @@ De gegevens die wordt weergegeven in het dashboard voor beheer van Office 365 Cl
 #### <a name="to-display-data-in-the-office-365-client-management-dashboard"></a>Gegevens weergeven in het dashboard voor Office 365-clientbeheer
 1. Hardware-inventarisatie inschakelen als deze nog niet is ingeschakeld. Zie voor meer informatie [hardware-inventaris configureren](\sccm\core\clients\manage\configure-hardware-inventory).
 2. Navigeer in de Configuration Manager-console naar **beheer** > **clientinstellingen** > **Standaardclientinstellingen**.  
-3. Klik op **Eigenschappen** in het tabblad **Start** , in de groep **Eigenschappen**.  
+3. Klik op het tabblad **Start** in de groep **Eigenschappen** op **Eigenschappen**.  
 4. Klik in het dialoogvenster **Standaardclientinstellingen** op **Hardware-inventarisatie**.  
 5. Klik in de lijst **Apparaatinstellingen** op **Klassen instellen**.  
 6. In de **Hardware-Inventarisklassen** dialoogvenster, **Office 365 ProPlus configuraties**.  
-7.  Klik op **OK** om uw wijzigingen op te slaan en het dialoogvenster **Hardware-inventarisklassen** te sluiten.  
-Het dashboard voor beheer van Office 365-Client wordt gestart om gegevens weer te geven als hardware-inventaris wordt gerapporteerd.
+7.  Klik op **OK** om uw wijzigingen op te slaan en het dialoogvenster **Hardware-inventarisklassen** te sluiten. <br/>Het dashboard voor beheer van Office 365-Client wordt gestart om gegevens weer te geven als hardware-inventaris wordt gerapporteerd.
 
 ## <a name="deploy-office-365-apps"></a>Office 365-apps implementeren  
 Vanaf versie 1702, start u het installatieprogramma van Office 365 vanuit het Office 365 Client Management dashboard voor de eerste installatie van de Office 365-App. De wizard kunt u Office 365-installatie-instellingen configureren, bestanden downloaden van inhoud levering bedrijfsnetwerken (CDN), en maken en implementeren van de toepassing van een script voor de bestanden. Nadat Office 365 is geïnstalleerd op clients, zijn Office 365-updates niet van toepassing.
@@ -85,10 +84,9 @@ Voor eerdere versies van Configuration Manager, moet u rekening houden met de vo
     > [!IMPORTANT]    
     > Het XML-configuratiebestand alleen moet bevatten [talen die worden ondersteund door de Office 365 ProPlus-client](https://technet.microsoft.com/library/cc179219&#40;v=office.16&#41;.aspx).
 
-5. Op de **clientproducten** pagina, selecteer de Office 365-pakket dat u gebruikt, selecteer de toepassingen die u wilt opnemen, selecteert u alle aanvullende Office-producten dat moeten worden opgenomen en klik vervolgens op **volgende**.
+5. Op de **clientproducten** pagina, selecteert u het Office 365-pakket dat u gebruikt. Selecteer de toepassingen die u wilt opnemen. Selecteer Extra Office-producten dat moeten worden opgenomen en klik vervolgens op **volgende**.
 6. Op de **clientinstellingen** pagina, kiest u de instellingen die u wilt opnemen en klik op **volgende**.
-7. Op de **implementatie** pagina, kies of u de toepassing implementeren en klik vervolgens op **volgende**.  
-Als u niet voor de implementatie van het pakket in de wizard kiest, gaat u naar stap 9.
+7. Op de **implementatie** pagina, kies of u de toepassing implementeren en klik vervolgens op **volgende**. <br/>Als u niet voor de implementatie van het pakket in de wizard kiest, gaat u naar stap 9.
 8. De rest van de wizardpagina's configureren zoals u zou voor een typische implementatie doen. Zie voor meer informatie [maken en implementeren van een toepassing](/sccm/apps/get-started/create-and-deploy-an-application).
 9. Voltooi de wizard.
 10. U kunt implementeren of bewerken van de toepassing van **softwarebibliotheek** > **overzicht** > **Toepassingsbeheer** > **toepassingen**.    
@@ -96,13 +94,13 @@ Als u niet voor de implementatie van het pakket in de wizard kiest, gaat u naar 
 Nadat u maken en implementeren van Office 365-toepassingen met behulp van het Office 365-installatieprogramma, beheert Configuration Manager de Office-updates niet standaard. Zie voor het inschakelen van Office 365-clients om updates te ontvangen van Configuration Manager [implementeren Office 365-updates met Configuration Manager](#deploy-office-365-updates-with-configuration-manager).
 
 >[!NOTE]
->Nadat u Office 365-apps implementeert, kunt u regels voor automatische implementatie voor het onderhouden van de apps kunt maken. Klik op om een regel voor automatische implementatie voor Office 365-apps **een ADR maakt** van de Office 365 Client Management dashboard en selecteer **Office 365 Client** wanneer u kiest voor het product. Zie voor meer informatie [softwareupdates automatisch implementeren](/sccm/sum/deploy-use/automatically-deploy-software-updates).
+>Nadat u Office 365-apps implementeert, kunt u regels voor automatische implementatie voor het onderhouden van de apps kunt maken. Klik op om een regel voor automatische implementatie voor Office 365-apps **een ADR maakt** vanuit het dashboard clientbeheer voor Office 365. Selecteer **Office 365 Client** wanneer u kiest voor het product. Zie voor meer informatie [softwareupdates automatisch implementeren](/sccm/sum/deploy-use/automatically-deploy-software-updates).
 
 
 ## <a name="deploy-office-365-updates"></a>Office 365-updates implementeren
 Gebruik de volgende stappen voor het implementeren van updates voor Office 365 met Configuration Manager:
 
-1.  [Controleer de vereisten](https://technet.microsoft.com/library/mt628083.aspx) voor het gebruik van Configuration Manager voor het beheren van updates voor Office 365-clients in de **vereisten voor het gebruik van Configuration Manager voor het beheren van Office 365-clientupdates** gedeelte van het onderwerp.  
+1.  [Controleer de vereisten](https://technet.microsoft.com/library/mt628083.aspx) voor het gebruik van Configuration Manager voor het beheren van updates voor Office 365-clients in de **vereisten voor het gebruik van Configuration Manager voor het beheren van Office 365-clientupdates** sectie van het artikel.  
 
 2.  [Configureren van software-updatepunten](../get-started/configure-classifications-and-products.md) synchroniseren van de client Office 365-updates. Stel **Updates** voor de classificatie en selecteer **Office 365 Client** voor het product. Software-updates synchroniseren na het configureren van de software-updatepunten gebruiken de **Updates** classificatie.
 3.  Office 365-clients om updates te ontvangen van Configuration Manager inschakelen. Gebruik Configuration Manager-clientinstellingen of Groepsbeleid om te zorgen dat de client.   
@@ -164,8 +162,7 @@ Gebruik de volgende procedure op het software-updatepunt op de centrale beheersi
 6. Elk object vanaf het eerste queryresultaat open totdat u de categorie met **AdditionalUpdateLanguagesForO365** voor de **PropertyName** eigenschap.
 7. Selecteer **Value2** en klik op **eigenschap bewerken**.  
 ![De eigenschap Value2 bewerken](..\media\3-queryresult.png)
-8. Toevoegen van extra talen voor de **Value2** eigenschap en klikt u op **eigenschap opslaan**.  
-Bijvoorbeeld, pt-pt (voor Portugees - Portugal), af-za (voor Afrikaans - Zuid-Afrika), nn Nee (voor Noors (Nynorsk) - Noorwegen), enzovoort.  
+8. Toevoegen van extra talen voor de **Value2** eigenschap en klikt u op **eigenschap opslaan**. <br/> Bijvoorbeeld, pt-pt (voor Portugees - Portugal), af-za (voor Afrikaans - Zuid-Afrika), nn Nee (voor Noors (Nynorsk) - Noorwegen), enzovoort.  
 ![Talen in Eigenschappeneditor toevoegen](..\media\4-props.png)  
 9. Klik op **sluiten**, klikt u op **sluiten**, klikt u op **eigenschap opslaan**, klikt u op **Object opslaan** (als u op **sluiten** hier de waarden worden verwijderd), klikt u op **sluiten**, en klik vervolgens op **sluiten** om af te sluiten van de Windows Management Instrumentation Tester.
 10. Ga in de Configuration Manager-console naar **softwarebibliotheek** > **overzicht** > **Office 365-clientbeheer** > **Office 365-Updates**.
@@ -176,18 +173,22 @@ Bijvoorbeeld, pt-pt (voor Portugees - Portugal), af-za (voor Afrikaans - Zuid-Af
 ## <a name="change-the-update-channel-after-you-enable-office-365-clients-to-receive-updates-from-configuration-manager"></a>Het kanaal update niet wijzigen nadat u Office 365-clients om updates te ontvangen van Configuration Manager inschakelen
 De update om kanaal te wijzigen nadat u Office 365-clients te ontvangen van updates van Configuration Manager, gebruikt u Groepsbeleid voor het distribueren van een registerwijziging sleutelwaarde Office 365-clients ingeschakeld. Wijzig de **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Office\ClickToRun\Configuration\CDNBaseUrl** registersleutel voor een van de volgende waarden:
 
-- Huidige kanaal:  
+- Maandelijks kanaal <br/>
+<i>(voorheen huidige kanaal) </i>:  
   **CDNBaseUrl** = http &#58;//officecdn.microsoft.com/pr/492350f6-3a01-4f97-b9c0-c7c6ddf67d60
 
-- Uitgestelde kanaal:  
+- Kanaal puntkomma per jaar <br/>
+<i>(voorheen uitgesteld kanaal) </i>:  
   **CDNBaseUrl** = http &#58;//officecdn.microsoft.com/pr/7ffbc6bf-bc32-4f92-8982-f9dd17fd3114
 
-- Eerste Release voor huidige kanaal:  
+- Maandelijks kanaal (doel)<Br/>
+ <i>(voorheen eerste Release voor huidige kanaal) </i>:  
   **CDNBaseUrl** = http &#58;//officecdn.microsoft.com/pr/64256afe-f5d9-4f86-8936-8840a6a4f5be
 
-- Eerste Release voor uitgestelde kanaal:  
+- Puntkomma per jaar kanaal (doel) <br/>
+<i>(voorheen eerste Release voor uitgesteld kanaal) </i>:  
   **CDNBaseUrl** = http &#58;//officecdn.microsoft.com/pr/b8f9b850-328d-4355-9145-c59439a0c4cf
-
+<!--the channel names changed in Sept 2017- https://docs.microsoft.com/en-us/DeployOffice/overview-of-update-channels-for-office-365-proplus?ui=en-US&rs=en-US&ad=US>
 
 
 <!--- You can create an Office 365 app without using the Office 365 Installation Wizard. To do this, you use the Office 2016 Deployment Tool (ODT) to download Office installation source files to a network share, generate Configure.xml that specifies the correct Office version and channel, and so on. Then, create an app for the files using the normal app management process.

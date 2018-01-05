@@ -15,11 +15,11 @@ caps.latest.revision: "6"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: 2ec4f4fdd1e351379922302e81af88e311a37c8e
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: c512cba550e405c866204af981aba75639665de2
+ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="create-android-applications-with-system-center-configuration-manager"></a>Android-toepassingen maken met System Center Configuration Manager
 
@@ -48,7 +48,7 @@ De volgende implementatieacties worden ondersteund:
 |Apparaattype|Ondersteunde bewerkingen|
 |-|-|
 |Android|**Beschikbare**, **vereist** de gebruiker moet toestemming geven om te installeren en verwijderen van zowel.|
-|Android for Work | **Vereist** |
+|Android for Work |**Beschikbare**, **vereist** |
 
 ## <a name="approve-and-deploy-android-for-work-apps"></a>Goedkeuren en implementeren van Android voor bedrijfs-apps
 Als een Configuration Manager-beheerder, kunt u ook apps in goedkeuren de [afspelen voor werk website](https://play.google.com/work), en deze apps implementeren op beheerde Android voor Work-apparaten.
@@ -65,3 +65,5 @@ Volg deze stappen apps in de Play voor werk store goedkeuren en implementeren vo
 8. Ga naar **softwarebibliotheek** > **overzicht** > **Toepassingsbeheer** > **toepassingen**, kiest u een Android voor Work-app en gewoon implementeren.
 
 Als u wilt synchroniseren Play voor zakelijke apps met Configuration Manager, moet u eerst ten minste één app in de Play voor werk website goedkeuren.
+
+Apps die zijn geïmplementeerd als **beschikbaar** weergegeven in de Google Play werk gemarkeerde app in plaats van de bedrijfsportal. Hiermee kunt u apps van een vertrouwde bron (de Google Play werk gemarkeerde app is een vertrouwde bron) implementeren en niet toestaan dat apps uit een niet-vertrouwde bron.
