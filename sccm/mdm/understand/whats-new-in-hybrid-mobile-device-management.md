@@ -14,11 +14,11 @@ ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: bf07e4fd187a71e6c4270e62cfb9ba2f8b743519
-ms.sourcegitcommit: 92c3f916e6bbd35b6208463ff406e0247664543a
+ms.openlocfilehash: af475bbc17fe1514dab626524007134be9b5f608
+ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Wat is er nieuw in hybride mobile device management met System Center Configuration Manager en Microsoft Intune
 
@@ -40,6 +40,12 @@ Elke sectie van dit artikel vindt u hybridefuncties onder drie verschillende cat
 |**Nieuw in Microsoft Intune** | In het algemeen moeten alle functies die worden vermeld in deze categorie samen met alle versies van de Configuration Manager. Deze inclusief System Center 2012 R2 Configuration Manager worden vrijgegeven, aangezien deze functies alleen de Intune-service nodig en niet aanvullende functionaliteit in Configuration Manager hoeven.|
 |**Nieuw in Configuration Manager Technical Preview**| Alle functies die worden vermeld in deze categorie werken alleen met de opgegeven Technical Preview-versie. Als u wilt deze functies uit te proberen, moet u de Technical Preview-versie die is opgegeven in de beschrijving van de functie installeren. Zie voor meer informatie [Technical Preview voor System Center Configuration Manager](../../core/get-started/technical-preview.md).|
 |**Nieuw in Configuration Manager (huidige vertakking)**| Alle functies die worden vermeld in deze categorie werken alleen met de opgegeven versie van Configuration Manager (huidige vertakking), zoals versie 1511 of 1602. Als u een oudere versie van Configuration Manager voor uw hybride implementatie gebruikt, moet u upgraden naar de Configuration Manager (huidige vertakking) versie opgegeven in de beschrijving van de functie. Zie voor meer informatie [upgraden naar System Center Configuration Manager](../../core/servers/deploy/install/upgrade-to-configuration-manager.md).|
+
+## <a name="december-2017"></a>December 2017
+
+### <a name="new-in-microsoft-intune"></a>Nieuw in Microsoft Intune
+
+- **Beschikbare implementaties nu ondersteund voor Android Enterprise** u kunt nu Android Enterprise (voorheen Android for Work) apps implementeren als **beschikbaar**, naast **vereist**. Zie voor meer informatie [maken Android-toepassingen met System Center Configuration Manager](/sccm/mdm/deploy-use/creating-android-applications.md).
 
 
 ## <a name="november-2017"></a>November 2017
