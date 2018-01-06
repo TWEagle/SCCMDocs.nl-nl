@@ -3,7 +3,7 @@ title: Wat is er nieuw in hybride MDM
 titleSuffix: Configuration Manager
 description: Meer informatie over de nieuwe functies voor mobiele apparaten beschikbaar voor hybride implementaties met Configuration Manager en Intune.
 ms.custom: na
-ms.date: 11/29/2017
+ms.date: 01/04/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: af475bbc17fe1514dab626524007134be9b5f608
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+ms.openlocfilehash: 243daf8626e329214ce1b94f109d19773bbc57c5
+ms.sourcegitcommit: 2da6b06818371e93f28e36cadf3a154d50ce5bf4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Wat is er nieuw in hybride mobile device management met System Center Configuration Manager en Microsoft Intune
 
@@ -45,7 +45,8 @@ Elke sectie van dit artikel vindt u hybridefuncties onder drie verschillende cat
 
 ### <a name="new-in-microsoft-intune"></a>Nieuw in Microsoft Intune
 
-- **Beschikbare implementaties nu ondersteund voor Android Enterprise** u kunt nu Android Enterprise (voorheen Android for Work) apps implementeren als **beschikbaar**, naast **vereist**. Zie voor meer informatie [maken Android-toepassingen met System Center Configuration Manager](/sccm/mdm/deploy-use/creating-android-applications.md).
+- **Beschikbare implementaties nu ondersteund voor Android Enterprise**    
+  U kunt nu Android Enterprise (voorheen Android for Work) apps implementeren als **beschikbaar**, naast **vereist**. Zie voor meer informatie [maken Android-toepassingen met System Center Configuration Manager](/sccm/mdm/deploy-use/creating-android-applications).
 
 
 ## <a name="november-2017"></a>November 2017
