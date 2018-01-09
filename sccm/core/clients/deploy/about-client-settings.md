@@ -3,7 +3,7 @@ title: Clientinstellingen
 titleSuffix: Configuration Manager
 description: Kies de instellingen voor client met behulp van de beheerconsole in System Center Configuration Manager.
 ms.custom: na
-ms.date: 12/29/2017
+ms.date: 01/05/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: fe6b3508b7d54dca1d80818c159cfd4b723f7986
-ms.sourcegitcommit: f1535281b2c3fecff773b722c3f7590bf6ba10a0
+ms.openlocfilehash: 230d608c9ebc8126d7d8e18f7211875a2155bb7b
+ms.sourcegitcommit: ac9268e31440ffe91b133c2ba8405d885248d404
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="about-client-settings-in-system-center-configuration-manager"></a>Clientinstellingen in System Center Configuration Manager
 
@@ -552,7 +552,7 @@ Beheert alle clientinstellingen in de Configuration Manager-console van de **cli
     - **Kleurenschema voor Software Center** </br>
         Klik op **Selecteer kleur** voor het definiëren van de primaire kleur die wordt gebruikt door Software Center.
     - **Selecteer een logo voor Software Center** </br>
-        Klik op **Bladeren** om een installatiekopie in Software Center weergeven te selecteren. Het logo moet een JPEG of PNG van 400 x 100 pixels en een maximale grootte van 750 KB.
+        Klik op **Bladeren** om een installatiekopie in Software Center weergeven te selecteren. Het logo moet een JPEG-, PNG of BMP van 400 x 100 pixels en een maximale grootte van 750 KB. De naam van het logo mag geen spaties bevatten. <!--SMS.503731 space in filename, noticed BMP missing as filetype-->
 
 -   Software Center tabblad zichtbaarheid </br>
     De extra instellingen configureren in deze groep **Ja** zichtbaar maken voor de volgende tabbladen in Software Center:

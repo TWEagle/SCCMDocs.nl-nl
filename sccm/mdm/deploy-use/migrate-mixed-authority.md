@@ -11,11 +11,11 @@ ms.prod: configmgr-hybrid
 ms.service: 
 ms.technology: 
 ms.assetid: 6f0201d7-5714-4ba0-b2bf-d1acd0203e9a
-ms.openlocfilehash: 643b33810c2862e2d1c602bfe941c36605ad2631
-ms.sourcegitcommit: 8c6e9355846ff6a73c534c079e3cdae09cf13c45
+ms.openlocfilehash: 59fb06d14002f781e0448a64bb0064b4add2f087
+ms.sourcegitcommit: ac9268e31440ffe91b133c2ba8405d885248d404
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="change-the-mdm-authority-for-specific-users-mixed-mdm-authority"></a>Wijzigen van de MDM-instantie voor specifieke gebruikers (gemengd MDM-instantie) 
 
@@ -49,6 +49,7 @@ Gemigreerde gebruikers en hun apparaten in Intune worden beheerd en andere appar
       
   > [!Important]    
   > Doorgaan met het bewerken van het beleid op tenantniveau is met de Configuration Manager-console. Nadat u [wijzigen van uw MDM-instantie op tenantniveau](change-mdm-authority.md) aan Intune, vervolgens beheert u dit beleid in Intune in Azure. 
+-   Als u certificaten voor ondertekening van programmacode, raden wij aan die u gebruikers in een gefaseerde benadering migreert. Nadat een mobiel apparaat is gemigreerd, kunt u een instantie van certificaataanvraag voor een nieuw certificaat. Dit beperkt het aantal gelijktijdige CA-aanvragen via een gefaseerde benadering voor het migreren van gebruikers (en hun apparaten).
 - Het is raadzaam dat u alle gebruikersaccounts die zijn toegevoegd als apparaatinschrijvingsmanagers in Configuration Manager niet migreert. Later, wanneer u uw MDM-instantie op tenantniveau in Intune wijzigt, migreren deze gebruikersaccounts correct. Als u beheerdersaccount voor apparaatinschrijving gebruiker voordat de wijziging op tenantniveau MDM-instantie migreert, moet u handmatig de gebruiker toevoegen als een beheerfunctie voor apparaatregistratie in Intune in Azure. Echter, apparaten die zijn geregistreerd met behulp van een apparaatinschrijvingsbeheerder kunnen niet worden gemigreerd met succes. U moet contact op met ondersteuning voor het migreren van deze apparaten. Zie voor meer informatie [een apparaatinschrijvingsmanager toevoegt](https://docs.microsoft.com/en-us/intune/device-enrollment-manager-enroll#add-a-device-enrollment-manager).
 - Apparaten die zijn geregistreerd met behulp van een apparaatinschrijvingsbeheerder en apparaten zonder [gebruikersaffiniteit](/sccm/mdm/deploy-use/user-affinity-for-hybrid-managed-devices) worden niet automatisch gemigreerd naar de nieuwe MDM-instantie. Als u wilt overschakelen van de beheerinstantie voor deze MDM-apparaten, Zie [migreren van apparaten zonder gebruikersaffiniteit](#migrate-devices-without-user-affinity).
 
