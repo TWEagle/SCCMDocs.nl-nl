@@ -14,11 +14,11 @@ ms.assetid: ca3b4714-2a16-495e-8a17-1d87991d5556
 author: erikje
 ms.author: erikje
 manager: angrobe
-ms.openlocfilehash: d7819dd71a37bc581b629ac180f657134495f50c
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: cfb14ebb7b4f7eb9a008ad4464978778e57514a6
+ms.sourcegitcommit: d029b373113051634ed030545348a458eb7b25f4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="capabilities-in-technical-preview-1706-for-system-center-configuration-manager"></a>Mogelijkheden van Technical Preview 1706 voor System Center Configuration Manager
 
@@ -340,7 +340,7 @@ Standaard goedkeuren gebruikers niet van een script dat ze hebben gemaakt. Aange
 Zodat gebruikers kunnen hun eigen scripts goedkeuren:
 
 1. Klik op **Beheer**in de Configuration Manager-console.
-2. Vouw **Siteconfiguratie** uit in de werkruimte **Beheer**en klik vervolgens op **Sites**.
+2. Vouw in de werkruimte **Beheer** **Siteconfiguratie**uit en klik vervolgens op **Sites**.
 3. Kies in de lijst met websites, uw site en klik op de **Start** tabblad, in de **Sites** groep, klikt u op **hiërarchie-instellingen**.
 4. Op de **algemene** tabblad van de **eigenschappen van hiërarchie-instellingen** dialoogvenster vak, schakel het selectievakje uit **staan geen script auteurs goed te keuren van hun eigen scripts**.
 
@@ -462,10 +462,10 @@ U kunt Entrust configureren als de certificeringsinstantie (CA) bij het toevoege
 **Bekende probleem**: In de technical preview 1706 zijn PFX-certificaten niet uitgegeven voor Microsoft-certificeringsinstanties. Dit geldt niet voor geïmporteerde PFX-certificaten of SCEP-profielen.
 
 
-## <a name="cisco-ipsec-support-for-macos-vpn-profiles"></a>Cisco (IPsec) ondersteuning voor Mac OS VPN-profielen
+## <a name="cisco-ipsec-support-for-ios-vpn-profiles"></a>Cisco (IPsec) ondersteuning voor iOS VPN-profielen
 <!-- 1321367 -->
 
-U kunt een Mac OS VPN-profiel maken met Cisco (IPsec) als het verbindingstype. Zie voor meer informatie [VPN-profielen maken](https://docs.microsoft.com/en-us/sccm/mdm/deploy-use/create-vpn-profiles#create-vpn-profiles).
+U kunt een iOS VPN-profiel maken met Cisco (IPsec) als het verbindingstype. Zie voor meer informatie [VPN-profielen maken](https://docs.microsoft.com/en-us/sccm/mdm/deploy-use/create-vpn-profiles#create-vpn-profiles).
 
 
 ## <a name="new-windows-configuration-item-settings"></a>Nieuwe configuratie-item-instellingen van Windows

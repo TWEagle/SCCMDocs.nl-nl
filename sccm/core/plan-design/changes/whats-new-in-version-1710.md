@@ -3,7 +3,7 @@ title: Nieuwe versie 1710 | Microsoft Docs
 titleSuffix: Configuration Manager
 description: "Meer informatie over deze wijzigingen en nieuwe mogelijkheden die zijn geïntroduceerd in versie 1710 van System Center Configuration Manager."
 ms.custom: na
-ms.date: 12/08/2017
+ms.date: 1/08/2018
 ms.reviewer: na
 ms.suite: na
 ms.technology: configmgr-other
@@ -13,11 +13,11 @@ ms.assetid: bc6c3e5f-b9e2-400e-9d9d-446ff93c520c
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: c09f401d3221aa8637eea57f91063387b612187d
-ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
+ms.openlocfilehash: ac64ae3b49b94c0b0428d5268bd307823ae68c73
+ms.sourcegitcommit: d029b373113051634ed030545348a458eb7b25f4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="what39s-new-in-version-1710-of-system-center-configuration-manager"></a>Wat &#39; s is nieuw in versie 1710 van System Center Configuration Manager
 
@@ -148,7 +148,7 @@ Deze scenario's omvatten:
 - [Apparaten inschrijven](../../../mdm/deploy-use/enroll-hybrid-windows.md)
 - [Volledige en selectief wissen op afstand bewerkingen uitvoeren](../../../mdm/deploy-use/wipe-lock-reset-devices.md)
 - [Instellingen door middel van configuratie-items en basislijnen beheren](../../../mdm/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client.md)
-- [Nalevingsbeleid voor apparaten beheren](../../../mdm/deploy-use/device-compliance-policies.md)
+- [Nalevingsbeleid voor apparaten beheren](../../../mdm/deploy-use/device-compliance-policies.md) en [voorwaardelijke toegang](../../../protect/deploy-use/create-vpn-profiles.md)
 - De toegang tot bedrijfsbronnen via beheren:
    - [Certificaatprofielen](../../../mdm/deploy-use/create-pfx-certificate-profiles.md)
    - [VPN-profielen](../../../mdm/deploy-use/create-vpn-profiles.md)
@@ -156,6 +156,9 @@ Deze scenario's omvatten:
    - [E-mailprofielen](../../../mdm/deploy-use/create-exchange-activesync-profiles.md)
 - [Configureer Windows Hello voor bedrijven-beleid](../../../mdm/deploy-use/windows-hello-for-business-settings.md)
 - [Toepassingen beheren](../../../mdm/deploy-use/management-tasks-applications.md)
+
+> [!NOTE]
+> Implementatie van .appxbundle-toepassingen die zijn gebouwd voor meerdere architecturen werkt mogelijk niet op deze apparaten en dit scenario wordt niet ondersteund op dit moment.
 
 ### <a name="improved-vpn-profile-experience-in-configuration-manager-console"></a>Verbeterde VPN-profiel ervaring in Configuration Manager-Console 
 <!-- 1318232 -->
