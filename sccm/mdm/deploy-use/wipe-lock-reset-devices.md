@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 55d49c388b4ea60627f72ffe61796c70de6f9416
-ms.sourcegitcommit: a5f8b5cfdabf0298e4302e24210e725a06a9de82
+ms.openlocfilehash: e8121480f3a9d61ba0a04667407a305119d80e12
+ms.sourcegitcommit: ba23ff90709a5fde1a63c650ab0d848f441afc43
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="protect-data-with-remote-wipe-lock-or-passcode-reset-by-using-system-center-configuration-manager"></a>Gegevens beschermen met wissen op afstand, vergrendelen of de wachtwoordcode opnieuw instellen met behulp van System Center Configuration Manager
 
@@ -171,17 +171,17 @@ De gegevens en apps EFS selectief wissen op dit moment ondersteunt zijn:
 ##  <a name="passcode-reset"></a>Wachtwoordcode opnieuw instellen  
 Als een gebruiker de wachtwoordcode vergeet, kunt u helpen door de wachtwoordcode van een apparaat te verwijderen of door een nieuwe en tijdelijke wachtwoordcode op een apparaat af te dwingen. De volgende tabel geeft een lijst hoe de wachtwoordcode opnieuw werkt op verschillende mobiele platforms.  
 
-|Platform|Wachtwoordcode opnieuw instellen|  
-|--------------|--------------------|  
-|iOS|Wordt ondersteund voor het wissen van de wachtwoordcode van een apparaat. Maakt geen nieuwe tijdelijke wachtwoordcode aan.|
-|Mac OS| Niet ondersteund.|
-|Android|Ondersteund, en een tijdelijke wachtwoordcode aangemaakt.|
-|Android for Work | Niet ondersteund.|
-|Windows 10-pc 's|Niet ondersteund.|  
-|Windows 10 mobile|Ondersteund, met uitzondering van Azure AD lid zijn van apparaten.|
-|Windows Phone 8,1|Ondersteund.|  
-|Windows RT 8.1 |Niet ondersteund.|  
-|Windows 8.1-pc 's |Niet ondersteund.|  
+| Platform                              | Wachtwoordcode opnieuw instellen                                                                               |
+|---------------------------------------|----------------------------------------------------------------------------------------------|
+| iOS                                   | Wordt ondersteund voor het wissen van de wachtwoordcode van een apparaat. Maakt geen nieuwe tijdelijke wachtwoordcode aan. |
+| Mac OS                                 | Niet ondersteund.                                                                               |
+| Android                               | Ondersteund in versies eerder dan Android 7.0. Hiermee maakt u een tijdelijke wachtwoordcode.                |
+| Android for Work                      | Niet ondersteund.                                                                               |
+| Windows 10-pc 's                        | Niet ondersteund.                                                                               |
+| Windows 10 mobile                     | Ondersteund, met uitzondering van Azure AD lid zijn van apparaten.  |
+| Windows Phone 8 en Windows Phone 8.1 | Ondersteund.                                                                                   |
+| Windows RT 8.1                        | Niet ondersteund.                                                                               |
+| Windows 8.1-pc 's                       | Niet ondersteund.                                                                               |
 
 > [!Note]    
 > U moet de wachtwoordcode opnieuw instellen van actie uitvoeren vanaf de site op het hoogste niveau in uw omgeving. Bijvoorbeeld, als u een centrale beheersite gebruikt, kunt u alleen de actie uitvoeren op die site. Als u een zelfstandige primaire site, kunt u de actie alleen uitvoeren op die site.

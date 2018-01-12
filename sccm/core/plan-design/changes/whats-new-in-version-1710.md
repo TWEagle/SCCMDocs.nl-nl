@@ -13,11 +13,11 @@ ms.assetid: bc6c3e5f-b9e2-400e-9d9d-446ff93c520c
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: ac64ae3b49b94c0b0428d5268bd307823ae68c73
-ms.sourcegitcommit: d029b373113051634ed030545348a458eb7b25f4
+ms.openlocfilehash: f944d4625e2e67a82098bf3b4373ea5f0ed70619
+ms.sourcegitcommit: 9de3d74030b7c3313c34b5cbe2dbe6e18a48c043
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="what39s-new-in-version-1710-of-system-center-configuration-manager"></a>Wat &#39; s is nieuw in versie 1710 van System Center Configuration Manager
 
@@ -148,7 +148,7 @@ Deze scenario's omvatten:
 - [Apparaten inschrijven](../../../mdm/deploy-use/enroll-hybrid-windows.md)
 - [Volledige en selectief wissen op afstand bewerkingen uitvoeren](../../../mdm/deploy-use/wipe-lock-reset-devices.md)
 - [Instellingen door middel van configuratie-items en basislijnen beheren](../../../mdm/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client.md)
-- [Nalevingsbeleid voor apparaten beheren](../../../mdm/deploy-use/device-compliance-policies.md) en [voorwaardelijke toegang](../../../protect/deploy-use/create-vpn-profiles.md)
+- [Nalevingsbeleid voor apparaten beheren](../../../mdm/deploy-use/device-compliance-policies.md) en [voorwaardelijke toegang](../../../protect/deploy-use/manage-access-to-services.md)
 - De toegang tot bedrijfsbronnen via beheren:
    - [Certificaatprofielen](../../../mdm/deploy-use/create-pfx-certificate-profiles.md)
    - [VPN-profielen](../../../mdm/deploy-use/create-vpn-profiles.md)

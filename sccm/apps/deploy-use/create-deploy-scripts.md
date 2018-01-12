@@ -3,7 +3,7 @@ title: Maken en uitvoeren van scripts
 titleSuffix: Configuration Manager
 description: Maak en Powershell-scripts uitvoeren op clientapparaten.
 ms.custom: na
-ms.date: 11/29/2017
+ms.date: 01/05/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: cc230ff4-7056-4339-a0a6-6a44cdbb2857
 caps.latest.revision: "14"
 caps.handback.revision: "0"
-author: BrucePerlerMS
-ms.author: bruceper
+author: mestew
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 1472f697ae8b82e6268433aa6398fcc10a429994
-ms.sourcegitcommit: 5f4a584d4a833b0cc22bd8c47da7dd55aced97fa
+ms.openlocfilehash: b00dfb875ca032032a9782e9950247eb3fceb124
+ms.sourcegitcommit: 9de3d74030b7c3313c34b5cbe2dbe6e18a48c043
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-and-run-powershell-scripts-from-the-configuration-manager-console"></a>Maken en PowerShell-scripts uitvoeren vanaf de Configuration Manager-console
 
@@ -75,16 +75,16 @@ Scripts moeten worden goedgekeurd door de *script goedkeurder* rol, voordat ze k
 1. Klik in de Configuration Manager-console op **Softwarebibliotheek**.
 2. In de **softwarebibliotheek** werkruimte, klikt u op **Scripts**.
 3. In de **Script** kiest u het script dat u wilt goedkeuren of weigeren en klik op de **Start** tabblad, in de **Script** groep, klikt u op **goedkeuren/weigeren**.
-4. In de **goedkeuren of weigeren van script** dialoogvenster, **goedkeuren** of **weigeren** voor het script en eventueel een opmerking over uw beslissing invoeren.  Als u een script weigeren, kan deze kan niet worden uitgevoerd op clientapparaten. <br>
+4. In de **goedkeuren of weigeren van script** dialoogvenster, **goedkeuren** of **weigeren** voor het script. Voer eventueel een opmerking over uw beslissing.  Als u een script weigeren, kan deze kan niet worden uitgevoerd op clientapparaten. <br>
 ![Script - goedkeuring](./media/run-scripts/RS-approval.png)
-5. Voltooi de wizard. In de **Script** wilt weergeven, ziet u de **goedkeuring staat** kolom wijzigen, afhankelijk van de actie die u hebt gemaakt.
+1. Voltooi de wizard. In de **Script** wilt weergeven, ziet u de **goedkeuring staat** kolom wijzigen, afhankelijk van de actie die u hebt gemaakt.
 
 ### <a name="allow-users-to-approve-their-own-scripts"></a>Toestaan dat gebruikers hun eigen scripts goedkeuren
 
 Deze goedkeuring wordt voornamelijk gebruikt voor de testfase van scripts te ontwikkelen.
 
 1. Klik op **Beheer**in de Configuration Manager-console.
-2. Vouw **Siteconfiguratie** uit in de werkruimte **Beheer**en klik vervolgens op **Sites**.
+2. Vouw in de werkruimte **Beheer** **Siteconfiguratie**uit en klik vervolgens op **Sites**.
 3. Kies in de lijst met websites, uw site en klik op de **Start** tabblad, in de **Sites** groep, klikt u op **hiërarchie-instellingen**.
 4. Op de **algemene** tabblad van de **eigenschappen van hiërarchie-instellingen** dialoogvenster vak, schakel het selectievakje uit **staan geen script auteurs goed te keuren van hun eigen scripts**.
 
@@ -106,7 +106,11 @@ Uitvoeren van Scripts gebruikt beveiligingsbereiken, een bestaande functie van C
     - **Importeren** -importeren van een PowerShell-script in de console. Het script wordt weergegeven in de **Script** veld.
     - **Schakel** -het huidige script verwijdert uit het Script-veld.
     - **Script** -wordt het momenteel geïmporteerde script. U kunt het script in dit veld indien nodig bewerken.
-1. Voltooi de wizard. Het nieuwe script wordt weergegeven in de **Script** lijst met de status van **wachten op goedkeuring**. Voordat u dit script op clientapparaten uitvoert kunt, moet u deze goedkeuren.
+5. Voltooi de wizard. Het nieuwe script wordt weergegeven in de **Script** lijst met de status van **wachten op goedkeuring**. Voordat u dit script op clientapparaten uitvoert kunt, moet u deze goedkeuren. 
+
+> [!IMPORTANT]
+    >  Vermijd het uitvoeren van een apparaat opnieuw te starten of opnieuw opstarten van de Configuration Manager-agent scripts wanneer de functie Scripts uitvoeren. In dat geval kan leiden tot een continue rebooting staat. Indien nodig, zijn er verbeteringen in de functie client melding waarmee opnieuw te starten-apparaten in Configuration Manager versie 1710 wordt gestart. De [in afwachting van opnieuw opstarten kolom](/sccm/core/clients/manage/manage-clients#Restart-clients) kan helpen apparaten identificeren die een herstart nodig. 
+<!--SMS503978--Script reboot warning-->
 
 ## <a name="script-parameters"></a>Scriptparameters
 *(Geïntroduceerd in versie 1710)*  
@@ -191,7 +195,7 @@ Het script wordt uitgevoerd als de *system* of *computer* account op de betreffe
 
 ## <a name="script-monitoring"></a>Script bewaking
 
-Nadat u hebt gestart om een script uitgevoerd op een verzameling apparaten, moet u de volgende procedure gebruiken voor het bewaken van de bewerking. Vanaf versie 1710 kunt u zijn beide kan een script in realtime controleren als deze wordt uitgevoerd, en u kunt ook teruggaan naar een rapport voor een bepaalde uitvoering van Script uitvoeren. <br>
+Nadat u hebt gestart om een script uitgevoerd op een verzameling apparaten, moet u de volgende procedure gebruiken voor het bewaken van de bewerking. Vanaf versie 1710, bent u beide kunnen een script in realtime controleren, zoals deze wordt uitgevoerd en u kunt ook teruggaan naar een rapport voor een bepaalde uitvoering van Script uitvoeren. <br>
 
 ![Controleprogramma voor script - Script uitvoeringsstatus](./media/run-scripts/RS-monitoring-three-bar.png)
 
