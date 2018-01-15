@@ -12,11 +12,11 @@ ms.prod: configuration-manager
 ms.service: 
 ms.technology: configmgr-sum
 ms.assetid: 57184274-5fea-4d79-a2b4-22e08ed26daf
-ms.openlocfilehash: 6aaa15ff4908fe7e71e0b9c14fc021a57ccbb727
-ms.sourcegitcommit: 986fc2d54f7c5fa965fd4df42f4db4ecce6b79cb
+ms.openlocfilehash: becab57c5f04bb67512d665175038f6c477b65b1
+ms.sourcegitcommit: e13bb2c86c40a88e5f4602beb1d31e4adc90e099
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/12/2018
 ---
 #  <a name="BKMK_ManualDeploy"></a> Software-updates handmatig implementeren  
 
@@ -232,10 +232,10 @@ ms.lasthandoff: 11/17/2017
 
     -   **Meldingen voor gebruikers**: Geef op of meldingen van de software-updates weergeven in Software Center op de clientcomputer op de geconfigureerde **tijd Software beschikbaar** en of meldingen voor gebruikers weergegeven op de clientcomputers. Wanneer **Type implementatie** op de pagina Implementatie-instellingen is ingesteld op **Beschikbaar** , kunt u **Verbergen in Software Center en alle meldingen verbergen**niet selecteren.  
 
-    -   **Deadlinegedrag**: * alleen beschikbaar wanneer **Type implementatie** * is ingesteld op **vereist** *op de pagina implementatie-instellingen.*   
+    -   **Deadlinegedrag**: Alleen beschikbaar wanneer **Type implementatie** is ingesteld op **vereist** op de pagina implementatie-instellingen.   
     Geef het gedrag op dat moet worden vertoond als de deadline voor de implementatie van de software-update wordt bereikt. Geef op of de software-updates in de implementatie moeten worden geïnstalleerd. Geef ook op of het systeem na het installeren van software-updates opnieuw moet worden opgestart, ongeacht het geconfigureerde onderhoudsvenster. Zie voor meer informatie over onderhoudsvensters [het gebruik van onderhoudsvensters](../../core/clients/manage/collections/use-maintenance-windows.md).  
 
-    -   **Gedrag voor opnieuw opstarten apparaat**: * alleen beschikbaar wanneer **Type implementatie** * is ingesteld op **vereist** *op de pagina implementatie-instellingen.*    
+    -   **Gedrag voor opnieuw opstarten apparaat**: Alleen beschikbaar wanneer **Type implementatie** is ingesteld op **vereist** op de pagina implementatie-instellingen.    
     Geef op of het onderdrukken van opnieuw opstarten van servers en werkstations nadat software-updates zijn geïnstalleerd en opnieuw opstarten is vereist om de installatie te voltooien.  
 
         > [!IMPORTANT]  
