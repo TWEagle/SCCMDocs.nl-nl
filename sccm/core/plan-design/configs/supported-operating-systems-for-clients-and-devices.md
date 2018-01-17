@@ -15,11 +15,11 @@ caps.latest.revision: "5"
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 412bddaa604c053662a605115acdabe76a2cb03c
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: c740e9b23cb2968463e8843b5f3cdcbaba7c4d91
+ms.sourcegitcommit: 645cd5a324bdd299906efa27eaca5885eafc9e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="supported-operating-systems-for-clients-and-devices-for-system-center-configuration-manager"></a>Ondersteunde besturingssystemen voor clients en apparaten voor System Center Configuration Manager
 
@@ -40,14 +40,14 @@ ms.lasthandoff: 12/04/2017
 **Ondersteunde besturingssystemen:**  
 
 
--  **WindowsServer 2016**: Standard, Datacenter <sup>1</sup>
+-  **Windows Server 2016**: Standard, Datacenter <sup>1</sup>
   - Dit besturingssysteem wordt ondersteund vanaf Configuration Manager versie 1606, met de rollup hotfix van KB3186654 (of de basislijnversie van 1606, die werd gepubliceerd in oktober 2016).  
 
 -   **Windows Server 2012 R2** (x64): Standard, Datacenter <sup>1</sup>    
 
 -   **Windows Storage Server 2012 R2** (x64)    
 
--   **WindowsServer 2012** (x64): Standard, Datacenter <sup>1</sup>    
+-   **Windows Server 2012** (x64): Standard, Datacenter <sup>1</sup>    
 
 -   **Windows Storage Server 2012** (x64)    
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 12/04/2017
 
 -   **Windows 8.1** (x86, x64): Professional, Enterprise    
 
--   **Windows 8** (x86, x64): Professional, Enterprise    
+<!---   **Windows 8** (x86, x64): Professional, Enterprise  -removed Jan 12,2018 sms505863-->
 
 -   **Windows 7 met SP1** (x86, x64): Professional, Enterprise en Ultimate    
 
@@ -111,11 +111,11 @@ De bestanden **WBEMDISP. DLL-bestand** en **WBEMDISP. TLB** moet aanwezig zijn e
 
 -   **Windows Embedded 8.1 Industry** (x86, x64)    
 
--   **Windows Embedded Industry 8** (x86, x64)    
+   <!----   **Windows Embedded 8 Industry** (x86, x64)  -removed Jan 12,2018 sms505863-->
 
 -   **Windows Embedded Standard 8** (x86, x64)    
 
--   **Ingesloten Windows 8 Pro** (x86, x64)    
+<!---   **Windows Embedded 8 Pro** (x86, x64)    -removed Jan 12,2018 sms505863-->
 
 -   **Windows Thin PC** (x86, x64)    
 
@@ -162,7 +162,7 @@ De volgende besturingssystemen zijn gebaseerd op Windows XP Embedded en wordt al
 
 -   Japans  
 
--   Koreaans  
+-   Korean  
 
 -   Portugees (Brazilië)  
 
@@ -191,12 +191,12 @@ De volgende besturingssystemen zijn gebaseerd op Windows XP Embedded en wordt al
 
 -   **Mac OS X 10.11** (El Capitan)  
 
--   **Mac OS X 10,12** (Mac OS Sierra)
+-   **Mac OS X 10.12** (macOS Sierra)
 
 ##  <a name="linux-and-unix-servers"></a>Linux en UNIX-servers  
  U kunt Linux en UNIX-servers beheren met Configuration Manager-client voor Linux en UNIX.  
 
- De pakketten zijn Linux en UNIX-client-installatie worden niet meegeleverd met de Configuration Manager-media. Download de **Clients voor aanvullende besturingssystemen** van de [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkID=525184). Naast de clientinstallatiepakketten bevat de clientdownload het script dat de installatie van de client op elke computer wordt beheerd.  
+ De installatiepakketten voor Linux en UNIX-client worden niet meegeleverd met de Configuration Manager-media. Download de **Clients voor aanvullende besturingssystemen** van de [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkID=525184). Naast de clientinstallatiepakketten bevat de clientdownload het script dat de installatie van de client op elke computer wordt beheerd.  
 
 **Vereisten en beperkingen:**  
 
@@ -214,89 +214,89 @@ De volgende besturingssystemen zijn gebaseerd op Windows XP Embedded en wordt al
 
 |||  
 |-|-|  
-|Versie 6.1 (Power)|CCM-Aix61ppc. &lt;bouwen\>tar|  
-|Versie 7.1 (Power)|CCM-Aix71ppc. &lt;bouwen\>tar|  
+|Versie 6.1 (Power)|ccm-Aix61ppc.&lt;build\>.tar|  
+|Versie 7.1 (Power)|ccm-Aix71ppc.&lt;build\>.tar|  
 
 ### <a name="centos"></a>CentOS  
 
 |||  
 |-|-|  
-|Versie 5 x86|CCM-Universalx86. &lt;bouwen\>tar|  
-|Versie 5 x64|CCM-Universalx64. &lt;bouwen\>tar|  
-|Versie 6 x86|CCM-Universalx86. &lt;bouwen\>tar|  
-|Versie 6 x64|CCM-Universalx64. &lt;bouwen\>tar|  
-|Versie 7 x64|CCM-Universalx64. &lt;bouwen\>tar|  
+|Versie 5 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versie 5 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versie 6 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versie 6 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versie 7 x64|ccm-Universalx64.&lt;build\>.tar|  
 
 ### <a name="debian"></a>Debian  
 
 |||  
 |-|-|  
-|Versie 5 x86|CCM-Universalx86. &lt;bouwen\>tar|  
-|Versie 5 x64|CCM-Universalx64. &lt;bouwen\>tar|  
-|Versie 6 x 86|CCM-Universalx86. &lt;bouwen\>tar|  
-|Versie 6 x64|CCM-Universalx64. &lt;bouwen\>tar|  
-|Versie 7 x86|CCM-Universalx86. &lt;bouwen\>tar|  
-|Versie 7 x64|CCM-Universalx64. &lt;bouwen\>tar|  
-|Versie 8 x86|CCM-Universalx86. &lt;bouwen\>tar|  
-|Versie 8 x64|CCM-Universalx64. &lt;bouwen\>tar|  
+|Versie 5 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versie 5 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versie 6 x 86|ccm-Universalx86.&lt;build\>.tar|  
+|Versie 6 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versie 7 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versie 7 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versie 8 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versie 8 x64|ccm-Universalx64.&lt;build\>.tar|  
 
 ### <a name="hp-ux"></a>HP-UX  
 
 |||  
 |-|-|  
-|Versie 11iv3 IA64|CCM-HpuxB.11.31i64. &lt;bouwen\>tar|  
+|Versie 11iv3 IA64|ccm-HpuxB.11.31i64.&lt;build\>.tar|  
 
 ### <a name="oracle-linux"></a>Oracle Linux  
 
 |||  
 |-|-|  
-|Versie 5 x86|CCM-Universalx86. &lt;bouwen\>tar|  
-|Versie 5 x64|CCM-Universalx64. &lt;bouwen\>tar|  
-|Versie 6 x86|CCM-Universalx86. &lt;bouwen\>tar|  
-|Versie 6 x64|CCM-Universalx64. &lt;bouwen\>tar|  
-|Versie 7 x64|CCM-Universalx64. &lt;bouwen\>tar|  
+|Versie 5 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versie 5 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versie 6 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versie 6 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versie 7 x64|ccm-Universalx64.&lt;build\>.tar|  
 
 ### <a name="red-hat-enterprise-linux-rhel"></a>Red Hat Enterprise Linux (RHEL)  
 
 |||  
 |-|-|  
-|Versie 5 x86|CCM-Universalx86. &lt;bouwen\>tar|  
-|Versie 5 x64|CCM-Universalx64. &lt;bouwen\>tar|  
-|Versie 6 x86|CCM-Universalx86. &lt;bouwen\>tar|  
-|Versie 6 x64|CCM-Universalx64. &lt;bouwen\>tar|  
-|Versie 7 x64|CCM-Universalx64. &lt;bouwen\>tar|  
+|Versie 5 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versie 5 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versie 6 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versie 6 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versie 7 x64|ccm-Universalx64.&lt;build\>.tar|  
 
 ### <a name="solaris"></a>Solaris  
 
 |||  
 |-|-|  
-|Versie 10 x86|CCM-Sol10x86. &lt;bouwen\>tar|  
-|Versie 10 SPARC|CCM-Sol10sparc. &lt;bouwen\>tar|  
-|Versie 11 x86|CCM-Sol11x86. &lt;bouwen\>tar|  
-|Versie 11 SPARC|CCM-Sol11sparc. &lt;bouwen\>tar|  
+|Versie 10 x86|ccm-Sol10x86.&lt;build\>.tar|  
+|Versie 10 SPARC|ccm-Sol10sparc.&lt;build\>.tar|  
+|Versie 11 x86|ccm-Sol11x86.&lt;build\>.tar|  
+|Versie 11 SPARC|ccm-Sol11sparc.&lt;build\>.tar|  
 
 ### <a name="suse-linux-enterprise-server-sles"></a>SUSE Linux Enterprise Server (SLES)  
 
 |||  
 |-|-|  
-|Versie 10 SP1 x86|CCM-Universalx86. &lt;bouwen\>tar|  
-|Versie 10 SP1 x64|CCM-Universalx64. &lt;bouwen\>tar|  
-|Versie 11 SP1 x86|CCM-Universalx86. &lt;bouwen\>tar|  
-|Versie 11 SP1 x64|CCM-Universalx64. &lt;bouwen\>tar|  
-|Versie 12 x64|CCM-Universalx64. &lt;bouwen\>tar|  
+|Versie 10 SP1 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versie 10 SP1 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versie 11 SP1 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versie 11 SP1 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versie 12 x64|ccm-Universalx64.&lt;build\>.tar|  
 
 ### <a name="ubuntu"></a>Ubuntu  
 
 |||  
 |-|-|  
-|Versie 10.04 LTS x86|CCM-Universalx86. &lt;bouwen\>tar|  
-|Versie 10.04 LTS x64|CCM-Universalx64. &lt;bouwen\>tar|  
-|Versie 12.04 LTS x86|CCM-Universalx86. &lt;bouwen\>tar|  
-|Versie 12.04 LTS x64|CCM-Universalx64. &lt;bouwen\>tar|  
-|Versie 14.04 LTS x86|CCM-Universalx86. &lt;bouwen\>tar|  
-|Versie 14.04 LTS x64|CCM-Universalx64. &lt;bouwen\>tar|  
-|Versie 16.04 LTS x86|CCM-Universalx86. &lt;bouwen\>tar|  
-|Versie 16.04 LTS x64|CCM-Universalx64. &lt;bouwen\>tar|  
+|Versie 10.04 LTS x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versie 10.04 LTS x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versie 12.04 LTS x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versie 12.04 LTS x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versie 14.04 LTS x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versie 14.04 LTS x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versie 16.04 LTS x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versie 16.04 LTS x64|ccm-Universalx64.&lt;build\>.tar|  
 
 
 ##  <a name="mobile-devices-enrolled-by-microsoft-intune"></a>Mobiele apparaten die zijn geregistreerd door Microsoft Intune  
@@ -316,7 +316,7 @@ De volgende besturingssystemen zijn gebaseerd op Windows XP Embedded en wordt al
 
 - **Windows 10 Pro** (x86, x64)  
 
-- **Windows 10 Pro, Enterprise** (x86, x64)  
+- **Windows 10 Pro Enterprise** (x86, x64)  
 
 - **Windows 10 IoT Enterprise** (x86, x64)
 
@@ -324,7 +324,7 @@ De volgende besturingssystemen zijn gebaseerd op Windows XP Embedded en wordt al
 
 - **Windows 10 Mobile Enterprise**  
 
-- **Windows 10 Mobile IoT Enterprise**
+- **Windows 10 IoT Mobile Enterprise**
 
 - **Windows 10 Team voor Surface Hub**
 

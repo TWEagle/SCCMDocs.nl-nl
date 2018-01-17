@@ -1,0 +1,88 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentatie voor Microsoft-implementatietoolkit
+metadata:
+  document_id: bfb05467-f6ec-4cb2-b108-254972de2d06
+  title: Documentatie voor Microsoft-implementatietoolkit
+  description: Microsoft Deployment Toolkit biedt een uniforme verzameling hulpprogramma's, processen en richtlijnen voor het automatiseren van desktop- en implementaties.
+  keywords: freeware, hulpprogramma, proces, werkstroom, automation, implementatie, geautomatiseerd, distributie
+  author: arob98
+  ms.author: angrobe
+  manager: angrobe
+  ms.date: 12/27/2017
+  ms.topic: article
+  ms.devlang: na
+  ms.prod: configuration-manager
+  ms.openlocfilehash: 03539d8bd316dead91ee08e596943bab41785a3d
+  ms.sourcegitcommit: 645cd5a324bdd299906efa27eaca5885eafc9e9c
+  ms.translationtype: MT
+  ms.contentlocale: nl-NL
+  ms.lasthandoff: 01/16/2018
+sections:
+- items:
+  - type: markdown
+    text: Microsoft Deployment Toolkit biedt een uniforme verzameling hulpprogramma's, processen en richtlijnen voor het automatiseren van desktop- en implementaties.
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 2
+    items:
+    - href: whats-new-in-mdt.md
+      html: <p>Zie Wat is er nieuw.</p>
+      image:
+        src: https://docs.microsoft.com/media/common/i_whats-new.svg
+      title: Wat is er nieuw
+    - href: release-notes.md
+      html: <p>Gegevens over oplossingen en fouten die zijn opgenomen in deze release.</p>
+      image:
+        src: https://docs.microsoft.com/media/common/i_whats-new.svg
+      title: Release-opmerkingen
+    - href: samples-guide.md
+      html: <p>Configuratie-instellingen voor het voorbeeld voor specifieke implementatiescenario's.</p>
+      image:
+        src: https://docs.microsoft.com/media/common/i_code-samples.svg
+      title: Handleiding voor voorbeelden
+    - href: user-driven-installation-developers-guide.md
+      html: "<p>Pas door gebruikers geïnitieerde installatie voor uw organisatie.</p>"
+      image:
+        src: https://docs.microsoft.com/media/common/i_architecture.svg
+      title: Handleiding voor ontwikkelaars
+- title: Snelstartgidsen
+  items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: lite-touch-installation-guide.md
+      title: Installeren met behulp van opstartbare media
+      image:
+        src: https://docs.microsoft.com/media/common/i_get-started.svg
+    - href: user-driven-installation-guide.md
+      title: "Met de installatie door gebruikers geïnitieerde implementeren"
+      image:
+        src: https://docs.microsoft.com/media/common/i_get-started.svg
+    - href: sccm-guide.md
+      title: Implementeren naar een nieuwe computer
+      image:
+        src: https://docs.microsoft.com/media/common/i_get-started.svg
+- title: Aanvullende bronnen
+  items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: use-the-mdt.md
+      title: Implementaties uitvoeren met behulp van Lite-Touch zonder tussenkomst en Driven installatie implementaties.
+      image:
+        src: https://docs.microsoft.com/media/common/i_api-reference.svg
+    - href: toolkit-reference.md
+      title: Configuratie-instellingen die u kan met implementaties helpen.
+      image:
+        src: https://docs.microsoft.com/media/common/i_download-install.svg
+    - href: troubleshooting-reference.md
+      title: Logboekbestanden, foutcodes en andere details voor probleemoplossing.
+      image:
+        src: https://docs.microsoft.com/media/common/i_support.svg

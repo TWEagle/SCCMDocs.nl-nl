@@ -15,11 +15,11 @@ caps.latest.revision: "44"
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: e7606e087e2540b49e8aa23c09d09831651ee48b
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 03618b541f8f00ccab69fa4ebcef81ffc146010c
+ms.sourcegitcommit: 645cd5a324bdd299906efa27eaca5885eafc9e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="supported-operating-systems-for-system-center-configuration-manager-site-system-servers"></a>Ondersteunde besturingssystemen voor System Center Configuration Manager-sitesysteemservers
 
@@ -29,14 +29,14 @@ ms.lasthandoff: 12/04/2017
 In dit artikel beschrijft de versies van Windows die u gebruiken kunt voor het hosten van een System Center Configuration Manager-site of sitesysteemrol.
 
 
-Gebruik de informatie in dit onderwerp samen met de informatie in de volgende artikelen:
+Gebruik de informatie in dit artikel met de informatie in de volgende artikelen:
 -   [Aanbevolen hardware voor Configuration Manager](../../../core/plan-design/configs/recommended-hardware.md)
 -   [Site- en site-systeemvereisten voor Configuration Manager](../../../core/plan-design/configs/site-and-site-system-prerequisites.md)
 -   [Grootte en schaalgetallen voor Configuration Manager](../../../core/plan-design/configs/size-and-scale-numbers.md)
 
 
 
-## <a name="windows-server-2016-standard-and-datacenter"></a>WindowsServer 2016: Standaard en Datacenter
+## <a name="windows-server-2016-standard-and-datacenter"></a>Windows Server 2016: Standaard en Datacenter
 Vanaf versie 1606 met de rollup hotfix van KB3186654 (of de basislijnversie van 1606, die werd gepubliceerd in oktober 2016) wordt dit besturingssysteem ondersteund voor het volgende:
 
 **Siteservers:**  
@@ -81,11 +81,11 @@ Vanaf versie 1606 met de rollup hotfix van KB3186654 (of de basislijnversie van 
 
 -   SMS_Provider  
 
--   Software-updatepunt  
+-   Sitesysteemrollen toevoegen  
 
 -   Statusmigratiepunt
 
-## <a name="windows-server-2012-r2-x64-standard-and-datacenter"></a>Windows Server 2012 R2 (x 64): Standaard en Datacenter  
+## <a name="windows-server-2012-r2-x64-standard-and-datacenter"></a>Windows Server 2012 R2 (x64): Standaard en Datacenter  
 **Siteservers:**  
 
 -   Centrale beheersite  
@@ -128,11 +128,11 @@ Vanaf versie 1606 met de rollup hotfix van KB3186654 (of de basislijnversie van 
 
 -   SMS_Provider  
 
--   Software-updatepunt  
+-   Sitesysteemrollen toevoegen  
 
 -   Statusmigratiepunt  
 
-## <a name="windows-server-2012-x64-standard-and-datacenter"></a>WindowsServer 2012 (x 64): Standaard en Datacenter  
+## <a name="windows-server-2012-x64-standard-and-datacenter"></a>Windows Server 2012 (x64): Standaard en Datacenter  
 **Siteservers:**  
 
 -   Centrale beheersite  
@@ -175,7 +175,7 @@ Vanaf versie 1606 met de rollup hotfix van KB3186654 (of de basislijnversie van 
 
 -   SMS_Provider  
 
--   Software-updatepunt  
+-   Sitesysteemrollen toevoegen  
 
 -   Statusmigratiepunt  
 
@@ -229,7 +229,7 @@ Vanaf versie 1606 met de rollup hotfix van KB3186654 (of de basislijnversie van 
 
 -   SMS_Provider  
 
--   Software-updatepunt  
+-   Sitesysteemrollen toevoegen  
 
 -   Statusmigratiepunt  
 
@@ -271,16 +271,18 @@ Dit besturingssysteem wordt niet ondersteund voor siteservers of sitesysteemroll
 
     -   Distributiepunten bieden ondersteuning voor diverse configuraties die elk verschillende vereisten hebben. In sommige gevallen kan deze configuratie ondersteuning installatie niet alleen op servers, maar op clientbesturingssystemen worden geïnstalleerd. Zie voor meer informatie over de opties die beschikbaar voor distributiepunten zijn [inhoud en infrastructuur voor System Center Configuration Manager beheren](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
-## <a name="windows-8-x86-x64-professional-and-enterprise"></a>Windows 8 (x86, x64): Professional en Enterprise
-**Sitesysteemservers:**  
+<!--## Windows 8 (x86, x64): Professional and Enterprise
+**Site system servers:**  
 
--   Distributiepunt  
+-   Distribution point  
 
-    -   Distributiepunten voor dit besturingssysteem worden niet ondersteund voor PXE.  
+    -   Distribution points on this operating system are not supported for PXE.  
 
-    -   Distributiepunten voor deze besturingssysteemversie bieden geen ondersteuning voor Multicast.  
+    -   Distribution points on this operating system version do not support Multicast.  
 
-    -   Distributiepunten bieden ondersteuning voor diverse configuraties die elk verschillende vereisten hebben. Deze configuraties ondersteunen installatie in sommige gevallen niet alleen op servers, maar op clientbesturingssystemen worden geïnstalleerd. Zie voor meer informatie over de opties die beschikbaar voor distributiepunten zijn [inhoud en infrastructuur voor System Center Configuration Manager beheren](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+    -   Distribution points support several different configurations that each have different requirements. In some cases, these configurations support installation not only on servers, but on client operating systems. For more information about the options that are available for distribution points, see [Manage content and content infrastructure for System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+   
+    -  - -removed Jan 12,2018 sms505863-->
 
 ## <a name="windows-7-with-sp1-x86-x64-professional-enterprise-and-ultimate"></a>Windows 7 met SP1 (x 86, x 64): Professional, Enterprise en Ultimate  
 **Sitesysteemservers:**  
