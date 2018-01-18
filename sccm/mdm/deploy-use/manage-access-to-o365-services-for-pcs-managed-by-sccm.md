@@ -3,7 +3,7 @@ title: Toegang tot O365-services voor beheerde pc's beheren
 titleSuffix: Configuration Manager
 description: Informatie over het configureren van voorwaardelijke toegang voor pc's die worden beheerd door System Center Configuration Manager.
 ms.custom: na
-ms.date: 12/19/2017
+ms.date: 01/10/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,20 +15,22 @@ caps.latest.revision: "15"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: bf38358d12c2617d924fe59bf7bf7457dfa95143
-ms.sourcegitcommit: 6c2aa79924c0e7fc64ef5e9003498fc00c349db9
+ms.openlocfilehash: e1f50ea65236473f059ded6ef85c37646e929e53
+ms.sourcegitcommit: e121d8d3dd82b9f2dde2cb5206cbee602ab8e107
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="manage-access-to-o365-services-for-pcs-managed-by-system-center-configuration-manager"></a>Toegang beheren tot O365-services voor pc’s die worden beheerd door System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Vanaf versie 1602 van Configuration Manager, kunt u voorwaardelijke toegang configureren voor pc's die worden beheerd door System Center Configuration Manager.  
+In dit artikel wordt beschreven hoe voorwaardelijke toegang configureren voor pc's die worden beheerd door Configuration Manager.  
 
-> [!Tip]  
-> Deze functie is geïntroduceerd in versie 1602 als een [functie van de voorlopige versie](/sccm/core/servers/manage/pre-release-features). Vanaf versie 1702, deze functie is niet langer een voorlopige versie.
+<!--
+ >> [!Tip]  
+> This feature was first introduced in version 1602 as a [pre-release feature](/sccm/core/servers/manage/pre-release-features). Beginning with version 1702, this feature is no longer a pre-release feature.
+-->
 
 Zie voor meer informatie over het configureren van voorwaardelijke toegang voor apparaten zijn ingeschreven en beheerd door Microsoft Intune [toegang tot services in System Center Configuration Manager beheren](../../protect/deploy-use/manage-access-to-services.md). Dat artikel bevat ook informatie over apparaten die zijn van een domein is toegevoegd en op compatibiliteit geëvalueerd.
 
@@ -45,16 +47,16 @@ Zie voor meer informatie over het configureren van voorwaardelijke toegang voor 
 
 ## <a name="supported-windows-servers"></a>Ondersteunde Windows-Servers
 
--   2008 R2
--   2012
--   2012 R2
--   2016
+-   Windows Server 2008 R2
+-   Windows Server 2012
+-   Windows Server 2012 R2
+-   Windows Server 2016
 
     > [!IMPORTANT]
-    > Voor Windows-Servers die mogelijk zijn er meerdere gebruikers tegelijk aangemeld, moeten hetzelfde beleid voor voorwaardelijke toegang worden geïmplementeerd op alle gebruikers aangemeld.
+    > Voor Windows-Servers die mogelijk zijn er meerdere gebruikers tegelijk aangemeld, hetzelfde beleid voor voorwaardelijke toegang op al deze gebruikers te implementeren.
 
 ## <a name="configure-conditional-access"></a>Voorwaardelijke toegang configureren  
- Als u voorwaardelijke toegang instelt, moet u eerst een nalevingsbeleid maken en configureren van beleid voor voorwaardelijke toegang. Wanneer u beleidsregels voor voorwaardelijke toegang voor pc's configureert, kunt u vereisen dat de pc's compatibel met het nalevingsbeleid zijn om toegang tot Exchange Online en SharePoint Online-services.  
+ Als u voorwaardelijke toegang instelt, moet u eerst een nalevingsbeleid maken en configureren van beleid voor voorwaardelijke toegang. Wanneer u beleidsregels voor voorwaardelijke toegang voor pc's configureert, kunt u vereisen dat de pc's compatibel zijn om toegang tot Exchange Online en SharePoint Online-services zijn.  
 
 ### <a name="prerequisites"></a>Vereisten  
 
@@ -81,7 +83,7 @@ Zie voor meer informatie over het configureren van voorwaardelijke toegang voor 
 
 -   **Registratie in Azure Active Directory vereisen:** Deze regel controleert u of het apparaat van de gebruiker lid is van werk plaats naar Azure AD en als dat niet het geval is, wordt het apparaat automatisch geregistreerd bij Azure AD. Automatische inschrijving wordt alleen ondersteund op Windows 8.1. Implementeer een MSI-bestand om automatische inschrijving voor Windows 7-pc's uit te voeren. Zie voor meer informatie [automatische apparaatregistratie met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup)  
 
--   **Alle vereiste updates zijn geïnstalleerd met een deadline die ouder zijn dan een bepaald aantal dagen:** Deze regel controleert of het apparaat van de gebruiker alle vereiste updates (opgegeven in de regel vereiste automatische updates) binnen de deadline en respijtperiode die is opgegeven door u en automatisch eventuele vereiste updates installeren.  
+-   **Alle vereiste updates zijn geïnstalleerd met een deadline die ouder zijn dan een bepaald aantal dagen:** Geef de waarde voor de respijtperiode van de deadline van de implementatie voor de vereiste updates op het apparaat van de gebruiker. Ook automatisch deze regel toe te voegen, worden eventuele vereiste updates geïnstalleerd. Geef de vereiste updates in de **vereiste automatische updates** regel.   
 
 -   **BitLocker-stationsversleuteling vereisen:** Deze regel controleert u of het primaire station (bijvoorbeeld C:\\) op het apparaat BitLocker versleuteld. Als Bitlocker-versleuteling niet is ingeschakeld op het primaire apparaat toegang tot e-mail en SharePoint services wordt geblokkeerd.  
 
@@ -134,7 +136,7 @@ Zie voor meer informatie over het configureren van voorwaardelijke toegang voor 
 
 5.  Stel de vereiste voor Windows-pc’s in op de optie**Apparaten moeten voldoen aan dit beleid**.  
 
-6.  Klik onder **Doelgroepen**op **Wijzigen** om de Active Directory-beveiligingsgroepen te selecteren waarop het beleid van toepassing moet zijn.  
+6.  Onder **doelgroepen**, klikt u op **wijzigen** selecteren van de Azure Active Directory-beveiligingsgroepen waarop het beleid van toepassing is.  
 
     > [!NOTE]  
     >  De dezelfde beveiligingsgroep van de gebruiker moet worden gebruikt voor het implementeren van compliancy beleid en de doelgroep voor beleid voor voorwaardelijke toegang.  

@@ -3,7 +3,7 @@ title: Ingebouwde variabelen voor de takenreeks
 titleSuffix: Configuration Manager
 description: Ingebouwde takenreeksvariabelen bieden informatie over de omgeving waarin de takenreeks wordt uitgevoerd en zijn beschikbaar tijdens de hele takenreeks.
 ms.custom: na
-ms.date: 03/26/2017
+ms.date: 01/12/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: e29efd4de847a861afa75a7a10868cad30e4cf97
-ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
+ms.openlocfilehash: 29b2ae2a9a8ee41d11fbf7e032ef8262411f3dd0
+ms.sourcegitcommit: e121d8d3dd82b9f2dde2cb5206cbee602ab8e107
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="task-sequence-built-in-variables-in-system-center-configuration-manager"></a>Ingebouwde variabelen voor de takenreeks in System Center Configuration Manager
 
@@ -81,8 +81,8 @@ ms.lasthandoff: 12/12/2017
 |SMSTSDriverRequestResolveTimeOut|Gebruik deze variabele om het aantal seconden moet worden gewacht voor HTTP-naamomzetting wanneer voor een aanvraag voor het stuurprogramma tijdens de takenreeksstap voor het automatisch toepassen van stuurprogramma opgeven. Als de verbinding langer dan de time-outinstelling duurt, wordt de aanvraag geannuleerd. De time-out is standaard ingesteld op 60 seconden.|
 |SMSTSDriverRequestSendTimeOut|Gebruik deze variabele om het aantal seconden dat moet worden gebruikt bij het verzenden van een aanvraag voor het stuurprogramma tijdens de takenreeksstap voor het automatisch toepassen van stuurprogramma opgeven. Als de aanvraag langer dan de time-outinstelling duurt, wordt de aanvraag geannuleerd. De time-out is standaard ingesteld op 60 seconden.|
 |SMSTSErrorDialogTimeout|Wanneer een fout optreedt in de taakvolgorde, wordt er een dialoogvenster weergegeven dat door deze variabele na enkele seconden automatisch wordt gesloten. Het dialoogvenster wordt standaard automatisch gesloten na **900** seconden (15 minuten).|  
-| TSDisableProgressUI | Gebruik deze variabele om de voortgang van de takenreeks in verschillende secties van de takenreeks weergeven of verbergen. | 
-|TSErrorOnWarning|Gebruik deze variabele om op te geven of de takenreeksengine een gedetecteerde waarschuwing opvat als een fout tijdens de taakstap voor de installatie van een toepassing. De taakvolgorde stelt de variabele _TSAppInstallStatus in op **Waarschuwing** als een of meer toepassingen of een vereiste afhankelijkheid niet zijn geïnstalleerd omdat niet aan een vereiste is voldaan. Als u de variabele TSErrorOnWarning instelt op **True** en de variabele _TSAppInstallStatus is ingesteld op Waarschuwing, wordt dit beschouwd als een fout. De waarde **False** is de standaardinstelling.| 
+| TSDisableProgressUI | <!-- 1354291 -->Vanaf Configuration Manager versie 1706, gebruik deze variabele om te bepalen wanneer de takenreeks wordt uitgevoerd aan eindgebruikers weergegeven. Deze variabele meerdere keren in een takenreeks uitgevoerd op verschillende tijdstippen weergeven of verbergen instellen. Als u wilt verbergen voortgang van de takenreeks, stel de waarde van deze variabele op **True**. Als u wilt weergeven in voortgang van de takenreeks, stel de waarde van deze variabele op **False**. | 
+| TSErrorOnWarning |Gebruik deze variabele om op te geven of de takenreeksengine een gedetecteerde waarschuwing opvat als een fout tijdens de taakstap voor de installatie van een toepassing. De taakvolgorde stelt de variabele _TSAppInstallStatus in op **Waarschuwing** als een of meer toepassingen of een vereiste afhankelijkheid niet zijn geïnstalleerd omdat niet aan een vereiste is voldaan. Als u de variabele TSErrorOnWarning instelt op **True** en de variabele _TSAppInstallStatus is ingesteld op Waarschuwing, wordt dit beschouwd als een fout. De waarde **False** is de standaardinstelling.| 
 |SMSTSLanguageFolder|Gebruik deze variabele als u de weergavetaal wilt wijzigen van een taalonafhankelijke installatiekopie.|  
 |SMSTSLocalDataDrive|Hiermee wordt aangegeven waar tijdelijke bestanden worden opgeslagen op de doelcomputer terwijl de takenreeks wordt uitgevoerd.<br /><br /> Deze variabele moet worden ingesteld voordat de takenreeks wordt gestart, bijvoorbeeld door een verzamelingsvariabele in te stellen. Zodra de takenreeks start, definieert Configuration Manager de variabele _SMSTSMDataPath zodra de Takenreeks wordt gestart.|  
 |SMSTSMP|Gebruik deze variabele om op te geven van de URL of IP-adres van de Configuration Manager-beheerpunt.|  

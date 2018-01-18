@@ -15,11 +15,11 @@ caps.latest.revision: "3"
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: fab460a18ce3729fbffa0228ad2b861b70b84e12
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: ca1c62fc6034b33380d9075c4f5430954537781f
+ms.sourcegitcommit: e121d8d3dd82b9f2dde2cb5206cbee602ab8e107
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="install-the-system-center-configuration-manager-console"></a>De System Center Configuration Manager-console installeren
 
@@ -44,9 +44,9 @@ Beheerders de System Center Configuration Manager-console gebruiken om de Config
 
 2.  Ga naar een van deze locaties:  
 
-    -   Op de siteserver, gaat u naar  **<* installatiepad voor Configuration Manager site server*> \Tools\ConsoleSetup**.  
+    -   Op de siteserver, gaat u naar  **< *installatiepad voor Configuration Manager site server*> \Tools\ConsoleSetup**.  
 
-    -   Ga naar in de Configuration Manager-bronmedia  **<* bronbestanden Configuration Manager*> \Smssetup\Bin\I386**.  
+    -   Ga naar in de Configuration Manager-bronmedia  **< *bronbestanden Configuration Manager*> \Smssetup\Bin\I386**.  
 
     > [!TIP]  
     >  Start de installatie van de console Configuration Manager vanuit een siteserver in plaats van vanaf de installatiemedia van System Center Configuration Manager als een best practice. De installatiemethode van de site server kopieert de installatiebestanden van de Configuration Manager-console en ondersteunde talenpakketten voor de site naar de **Tools\ConsoleSetup** submap. De Configuration Manager-console altijd vanaf de installatiemedia installeert, installeert de Engelse versie, ongeacht de ondersteunde talen op de siteserver of de taalinstellingen van het besturingssysteem dat op de computer wordt uitgevoerd. Desgewenst kunt u de **ConsoleSetup** map op een andere locatie om de installatie te starten.
@@ -91,8 +91,8 @@ Beheerders de System Center Configuration Manager-console gebruiken om de Config
 
   **Voorbeelden:**
 
-  -  **consolesetup.exe /q TargetDir = 'D:\Program Files\ConfigMgr' EnableSQM = 1 DefaultSiteServerName=MyServer.Contoso.com**  
+  -  **consolesetup.exe /q TargetDir="D:\Program Files\ConfigMgr" EnableSQM=1 DefaultSiteServerName=MyServer.Contoso.com**  
 
-  -  **consolesetup.exe /q LangPackDir C:\Downloads\ConfigMgr TargetDir = 'D:\Program Files\ConfigMgr' Console EnableSQM = 1 DefaultSiteServerName=MyServer.Contoso.com =**  
+  -  **consolesetup.exe /q LangPackDir=C:\Downloads\ConfigMgr TargetDir="D:\Program Files\ConfigMgr Console" EnableSQM=1 DefaultSiteServerName=MyServer.Contoso.com**  
 
   -  **consolesetup.exe / uninstall /q**  
