@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: f680b692f3ae92fb8a5e8b6640ed053ceedba436
-ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
+ms.openlocfilehash: d7073b397cdf7b233f8264bd07019303a77a610f
+ms.sourcegitcommit: 2f6a13d208dcd8aa59c88f107791f9c4388e78e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="create-applications-with-system-center-configuration-manager"></a>Toepassingen maken met System Center Configuration Manager
 
@@ -280,7 +280,7 @@ De volgende tabel bevat voorbeeldscripts (VB Microsoft Visual Basic) waarmee u k
 |**WScript.StdErr.Write "Script is mislukt"**<br /><br /> **WScript.Quit(0)**|Het script retourneert een afsluitcode die gelijk is aan nul, maar de waarde STDERR is niet leeg, wat aangeeft dat het uitvoeren van het script is mislukt. In dit geval is de status van de detectie van de toepassing onbekend.|  
 |**WScript.Quit(0)**|Dit script retourneert een afsluitcode die gelijk is aan nul, wat aangeeft dat het is uitgevoerd. De waarde voor STDOUT is echter leeg, wat aangeeft dat de toepassing niet is geïnstalleerd.|  
 |**WScript.StdOut.Write "de toepassing is geïnstalleerd'**<br /><br /> **WScript.Quit(0)**|Dit script retourneert een afsluitcode die gelijk is aan nul, wat aangeeft dat het is uitgevoerd. De waarde voor STDOUT is niet leeg, wat aangeeft dat de toepassing niet is geïnstalleerd.|  
-|**WScript.StdOut.Write "de toepassing is geïnstalleerd'**<br /><br /> **WScript.StdErr.Write "Voltooid"**<br /><br /> **WScript.Quit(0)**|Dit script retourneert een afsluitcode die gelijk is aan nul, wat aangeeft dat het is uitgevoerd. De waarden voor STDOUT en STDERR zijn niet leeg, wat aangeeft dat de toepassing is geïnstalleerd.|  
+|**WScript.StdOut.Write "de toepassing is geïnstalleerd'**<br /><br /> **WScript.StdErr.Write "Completed"**<br /><br /> **WScript.Quit(0)**|Dit script retourneert een afsluitcode die gelijk is aan nul, wat aangeeft dat het is uitgevoerd. De waarden voor STDOUT en STDERR zijn niet leeg, wat aangeeft dat de toepassing is geïnstalleerd.|  
 
  > [!NOTE]  
  >  De maximale grootte die u voor een script kunt gebruiken, is 32 kilobytes (KB).  
@@ -337,7 +337,16 @@ De volgende tabel bevat voorbeeldscripts (VB Microsoft Visual Basic) waarmee u k
         > [!IMPORTANT]  
         >  Een conflict optreden als de **maximale toegestane uitvoeringstijd** langer is dan het geplande onderhoudsvenster. Als de gebruiker de maximale uitvoeringsduur instelt op een periode die langer is dan de lengte van welk beschikbaar onderhoudsvenster dan ook, wordt het implementatietype niet uitgevoerd.  
 
-2.  **Geschatte installatietijd (minuten)**--Geef de geschatte tijd die de installatie van het implementatietype wordt uitgevoerd. Deze is zichtbaar voor gebruikers van Software Center.  
+    -   **Geschatte installatietijd (minuten)**--Geef de geschatte tijd die de installatie van het implementatietype wordt uitgevoerd. Deze is zichtbaar voor gebruikers van Software Center.  
+
+    -   **Geef specifieke opnieuw opstarten gedrag**--Geef de actie na de installatie. De volgende opties zijn beschikbaar:  
+
+        -   **Bepaal bedrag op basis van retourcodes**--verwerken op basis van de codes die zijn geconfigureerd op het tabblad retourcodes opnieuw is opgestart.  Het Software Center weergegeven **mogelijk opnieuw worden opgestart**.  Als een gebruiker is aangemeld tijdens de installatie wordt ze gevraagd, afhankelijk van de configuratie van de gebruikerservaring van de implementatie.  
+
+        -   **Er is geen specifieke actie**--niet opnieuw opgestart na de installatie is vereist.  Het Software Center rapporteert dat opnieuw opstarten is niet vereist.  
+        -   **Het software-installatieprogramma forceert mogelijk een herstart van het apparaat**--Configuration Manager wordt niet bepalen of opnieuw opstarten initiëren, maar de werkelijke installatie mogelijk doen zonder waarschuwing.  Gebruik deze instelling om te voorkomen dat Configuration Manager rapporteert installatiefout wanneer het installatieprogramma start de computer opnieuw is opgestart.  Het Software Center weergegeven **mogelijk opnieuw worden opgestart**.  
+
+        -   **Configuration Manager-client forceert een herstart van het apparaat verplicht**--Configuration Manager forceert een apparaat opnieuw starten na geslaagde installatie.  Het Software Center rapporteert dat een herstart vereist is.  Als een gebruiker is aangemeld tijdens de installatie wordt ze gevraagd, afhankelijk van de configuratie van de gebruikerservaring van de implementatie.
 
 ## <a name="specify-requirements-for-the-deployment-type"></a>Vereisten voor het implementatietype opgeven  
 
@@ -468,7 +477,7 @@ De volgende tabel bevat voorbeeldscripts (VB Microsoft Visual Basic) waarmee u k
 |**Microsoft Application Virtualization 5**|Hiermee wordt een implementatietype gemaakt vanuit een Microsoft Application Virtualization 5-pakketbestand.|  
 |**Windows Phone-app-pakket (\*XAP-bestand)**|Hiermee wordt een implementatietype gemaakt vanuit een Windows Phone-app-pakketbestand|  
 |**Windows Phone-app-pakket (in de Windows Phone Store)**|Hiermee wordt een implementatietype gemaakt door een koppeling op te geven naar de app in de Windows Phone Store.|  
-|**Windows Mobile-Cabinet**|Maakt een implementatietype van een CAB-bestand (Windows Mobile-cabinet) voor Windows Mobile-apparaten.|  
+|**Windows Mobile Cabinet**|Maakt een implementatietype van een CAB-bestand (Windows Mobile-cabinet) voor Windows Mobile-apparaten.|  
 |**App-pakket voor iOS (\*IPA-bestand)**|Hiermee wordt een implementatietype gemaakt vanuit een iOS-app-pakketbestand.|  
 |**App-pakket voor iOS uit de App Store**|Hiermee wordt een implementatietype gemaakt door een koppeling op te geven naar de iOS-app in de App Store.|  
 |**App-pakket voor Android (\*APK-bestand)**|Hiermee wordt een implementatietype gemaakt vanuit een Android-app-pakketbestand.|  
