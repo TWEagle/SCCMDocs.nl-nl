@@ -15,11 +15,11 @@ caps.latest.revision: "157"
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 692cf74cbae3f176bab254aeec0e63c10929cfcc
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+ms.openlocfilehash: b6a64d4e407c15ec721860a17a3c40769a182c49
+ms.sourcegitcommit: 3373a07ff88f1ca6d5bdea128a3d9dffc58c1dfb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="technical-preview-for-system-center-configuration-manager"></a>Technical Preview voor System Center Configuration Manager
 
@@ -68,6 +68,7 @@ De volgende producten en technologieën worden ondersteund door deze vertakking 
 
 -   Alleen de volgende versies van SQL Server worden ondersteund:  
 
+    -   SQL Server 2017 (met cumulatieve update 2 en hoger) met ingang van Configuration Manager versie 1710
     -   SQL Server 2016 (zonder servicepack en hoger)
     -   SQL Server 2014 (met Service Pack 1 of hoger)
     -   SQL Server 2012 (met Service Pack 3 of hoger)
@@ -77,20 +78,20 @@ De volgende producten en technologieën worden ondersteund door deze vertakking 
 
       -   Windows 10  
       -   Windows 8.1  
-      -   Windows 8  
       -   Windows 7  
 
 ##  <a name="bkmk_install"></a> De Technical Preview installeren en bijwerken  
  De System Center Configuration Manager Technical Preview is verschillend van de huidige release van System Center Configuration Manager.  
 
- Voor het gebruik van de technical preview, moet u eerst installeren een **basislijnversie** van de technical preview-build. Wanneer u een basislijnversie hebt geïnstalleerd, gebruikt u **in-console updates** om de installatie bij te werken naar de meest recente preview-versie. Normaal gesproken wordt er elke maand een nieuwe versie van de Technical Preview beschikbaar.
+ Voor het gebruik van de technical preview, moet u eerst installeren een **basislijnversie** van de technical preview-build. Wanneer u een basislijnversie hebt, gebruikt u vervolgens **updates in de console** om uw installatie up-to-date blijven met de meest recente preview-versie. Normaal gesproken wordt er elke maand een nieuwe versie van de Technical Preview beschikbaar.
 
 Elke preview-versie wordt ondersteund totdat drie opeenvolgende versies beschikbaar zijn. Dit betekent dat wanneer versie 1708 uitgebracht, versie 1704 niet langer worden ondersteund is, maar versie 1705, 1706 en 1707 bleef worden ondersteund. Wanneer u een basislijn valt niet worden ondersteund, is het nog steeds ondersteund voor het installeren van een nieuwe technische Preview-site totdat een nieuwe basislijnversie beschikbaar, is zolang u die installatie naar een ondersteunde versie bijwerken. Bijwerken naar de meest recente versie en Herhaal dit proces totdat u de meest recente versie van de technical preview kunt installeren.
 
 > [!TIP]  
 >  Wanneer u een update installeert voor de Technical Preview, werkt u de preview-installatie bij naar die nieuwe Technische Preview-versie.    De installatie van een preview-versie biedt nooit de optie voor het bijwerken naar een Current Branch-installatie of het ontvangen van updates van de Current Branch-release.  
 
-**Basislijnversies van de Technical Preview activeren:**  
+**Basislijnversies van de Technical Preview activeren:**
+   
 U kunt een basislijnversie gedurende maximaal één jaar na de release installeren. Wanneer u een nieuwe technische preview-site installeert, is het echter aangeraden te gebruiken van de meest recente basislijnversie die beschikbaar is.
 -  **Technische Preview 1711** -de Configuration Manager Technical Preview 1711 is beschikbaar als zowel een in de console-update en als nieuwe basislijnversie. Basislijnversies downloaden [via het TechNet Evaluation Center](http://www.microsoft.com/evalcenter/evaluate-system-center-configuration-manager-and-endpoint-protection-technical-preview).
 
@@ -130,19 +131,19 @@ Hieronder vindt u de mogelijkheden die in eerdere versies van de Configuration M
 
  |Mogelijkheid |Technische Preview-versie |Huidige versie van het filiaal|  
  |----------------|---------------------|--------------------|
- |Takenreeksstap uitvoeren<!-- 1261338 --> | [Technische Preview 1711](capabilities-in-technical-preview-1711.md) |[Versie 1710](/sccm/osd/understand/task-sequence-steps#child-task-sequence)    |
- |Interactie van de gebruiker toestaan bij het installeren van een toepassing<!-- 1356976 --> | [Technische Preview 1711](capabilities-in-technical-preview-1711.md) |![Niet toegevoegd](media/Red_X.gif)    |
- |Windows 10-telemetrie voor Windows Analytics Apparaatstatus<!--1356148 --> | [Technische Preview 1710](capabilities-in-technical-preview-1710.md#limit-windows-10-enhanced-telemetry-to-only-send-data-relevant-to-windows-analytics-device-health) |[Versie 1710](/sccm/core/plan-design/changes/whats-new-in-version-1710#reporting)    |
- |Verbeteringen voor pictogrammen voor Software Center<!-- 1356194 --> | [Technische Preview 1710](capabilities-in-technical-preview-1710.md#software-center-no-longer-distorts-icons-larger-than-250x250) |[Versie 1710](/sccm/apps/plan-design/plan-for-and-configure-application-management#supplemental-procedures-to-install-and-configure-the-application-catalog-and-software-center)    |
- |Controleren op naleving van Software Center voor naast beheerde apparaten<!-- 1356374 -->|[Technische Preview 1710](capabilities-in-technical-preview-1710.md#check-compliance-from-software-center-for-co-managed-devices)|[Versie 1710](/sccm/core/clients/manage/co-management-overview)    |
- |Beperkte ondersteuning voor CNG-certificaten<!-- 1356191 -->| [Technische Preview 1710](capabilities-in-technical-preview-1710.md#limited-support-for-cng-certificates)|[Versie 1710](/sccm/core/plan-design/network/cng-certificates-overview)    |
- |Ondersteuning voor misbruik Guard<!--1355468 --> | [Technische Preview 1710](capabilities-in-technical-preview-1710.md#support-for-exploit-guard) |[Versie 1710](/sccm/protect/deploy-use/create-deploy-exploit-guard-policy)    |
- |Verbeterde beschrijvingen van in afwachting van opnieuw opstarten<!-- 1356283  -->| [Technische Preview 1710](capabilities-in-technical-preview-1710.md)|[Versie 1710](/sccm/core/clients/manage/manage-clients)    |
- |Device Guard beleidswijzigingen<!-- 1355092  -->| [Technische Preview 1710](capabilities-in-technical-preview-1710.md)|[Versie 1710](/sccm/protect/deploy-use/use-device-guard-with-configuration-manager)    |
- |Windows Defender toepassing Guard beleid configureren en implementeren<!-- 1351960  -->| [Technische Preview 1710](capabilities-in-technical-preview-1710.md)|[Versie 1710](/sccm/protect/deploy-use/create-deploy-application-guard-policy)    |
- |Verbeteringen voor het implementeren van PowerShell-scripts uit Configuration Manager<!-- 1236459 -->| [Technische Preview 1710](capabilities-in-technical-preview-1710.md#improvements-for-deploying-powershell-scripts-from-configuration-manager) | [Versie 1710](/sccm/apps/deploy-use/create-deploy-scripts)
- |Verbeterde VPN-profiel ervaring in Configuration Manager-Console<!-- 1313282 --> | [Technische Preview 1709](capabilities-in-technical-preview-1709.md) |[Versie 1710](/sccm/protect/deploy-use/create-vpn-profiles)    |
- |CO-beheer voor Windows 10-apparaten|[Technische Preview 1709](capabilities-in-technical-preview-1709.md#co-management-for-windows-10-devices)|[Versie 1710](/sccm/core/clients/manage/co-management-overview.md)|
+ |Takenreeksstap uitvoeren<!-- 1261338 --> | [Tech Preview 1711](capabilities-in-technical-preview-1711.md) |[Versie 1710](/sccm/osd/understand/task-sequence-steps#child-task-sequence)    |
+ |Interactie van de gebruiker toestaan bij het installeren van een toepassing<!-- 1356976 --> | [Tech Preview 1711](capabilities-in-technical-preview-1711.md) |![Niet toegevoegd](media/Red_X.gif)    |
+ |Windows 10-telemetrie voor Windows Analytics Apparaatstatus<!--1356148 --> | [Tech Preview 1710](capabilities-in-technical-preview-1710.md#limit-windows-10-enhanced-telemetry-to-only-send-data-relevant-to-windows-analytics-device-health) |[Versie 1710](/sccm/core/plan-design/changes/whats-new-in-version-1710#reporting)    |
+ |Verbeteringen voor pictogrammen voor Software Center<!-- 1356194 --> | [Tech Preview 1710](capabilities-in-technical-preview-1710.md#software-center-no-longer-distorts-icons-larger-than-250x250) |[Versie 1710](/sccm/apps/plan-design/plan-for-and-configure-application-management#supplemental-procedures-to-install-and-configure-the-application-catalog-and-software-center)    |
+ |Controleren op naleving van Software Center voor naast beheerde apparaten<!-- 1356374 -->|[Tech Preview 1710](capabilities-in-technical-preview-1710.md#check-compliance-from-software-center-for-co-managed-devices)|[Versie 1710](/sccm/core/clients/manage/co-management-overview)    |
+ |Beperkte ondersteuning voor CNG-certificaten<!-- 1356191 -->| [Tech Preview 1710](capabilities-in-technical-preview-1710.md#limited-support-for-cng-certificates)|[Versie 1710](/sccm/core/plan-design/network/cng-certificates-overview)    |
+ |Ondersteuning voor misbruik Guard<!--1355468 --> | [Tech Preview 1710](capabilities-in-technical-preview-1710.md#support-for-exploit-guard) |[Versie 1710](/sccm/protect/deploy-use/create-deploy-exploit-guard-policy)    |
+ |Verbeterde beschrijvingen van in afwachting van opnieuw opstarten van computer<!-- 1356283  -->| [Tech Preview 1710](capabilities-in-technical-preview-1710.md)|[Versie 1710](/sccm/core/clients/manage/manage-clients)    |
+ |Device Guard beleidswijzigingen<!-- 1355092  -->| [Tech Preview 1710](capabilities-in-technical-preview-1710.md)|[Versie 1710](/sccm/protect/deploy-use/use-device-guard-with-configuration-manager)    |
+ |Windows Defender toepassing Guard beleid configureren en implementeren<!-- 1351960  -->| [Tech Preview 1710](capabilities-in-technical-preview-1710.md)|[Versie 1710](/sccm/protect/deploy-use/create-deploy-application-guard-policy)    |
+ |Verbeteringen voor het implementeren van PowerShell-scripts uit Configuration Manager<!-- 1236459 -->| [Tech Preview 1710](capabilities-in-technical-preview-1710.md#improvements-for-deploying-powershell-scripts-from-configuration-manager) | [Versie 1710](/sccm/apps/deploy-use/create-deploy-scripts)
+ |Verbeterde VPN-profiel ervaring in Configuration Manager-Console<!-- 1313282 --> | [Tech Preview 1709](capabilities-in-technical-preview-1709.md) |[Versie 1710](/sccm/protect/deploy-use/create-vpn-profiles)    |
+ |CO-beheer voor Windows 10-apparaten|[Tech Preview 1709](capabilities-in-technical-preview-1709.md#co-management-for-windows-10-devices)|[Versie 1710](/sccm/core/clients/manage/co-management-overview.md)|
  
 
 ## <a name="capabilities-delivered-in-previous-technical-previews"></a>Mogelijkheden die in vorige technical Previews worden geboden
@@ -152,16 +153,16 @@ Hier volgen de specifieke mogelijkheden die in eerdere versies van de Configurat
 
  |Mogelijkheid |Technische Preview-versie |  
  |----------------|---------------------|
- |Management insights<!-- 1353967 --> |[Technische Preview 1708](capabilities-in-technical-preview-1708.md#management-insights)|
- |Surface apparaat dashboard<!-- 1355788 --> |[Technische Preview 1707](capabilities-in-technical-preview-1707.md#surface-device-dashboard)|
- |Beschikbaarheid van de site server-rol<!-- 1128774 --> |[Technische Preview 1706](capabilities-in-technical-preview-1706.md#site-server-role-high-availability) |
- |Ondersteuning voor PXE-netwerk opstarten voor IPv6<!-- 1269793 --> |[Technische Preview 1706](capabilities-in-technical-preview-1706.md#pxe-network-boot-support-for-ipv6)|
- |Apparaat Health Attestation beoordeling van van nalevingsbeleid voor voorwaardelijke toegang<!-- 1235616 -->|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#device-health-attestation-assessment-for-compliance-policies-for-conditional-access)|
- |Azure Active Directory gebruiken<!-- 1322145? --> | [Technische Preview 1702](capabilities-in-technical-preview-1702.md#azurediscovery) |
- |Nalevingsbeoordeling voor Windows Update voor bedrijven-updates<!-- 1235390 --> | [Technische Preview 1702](capabilities-in-technical-preview-1702.md#compliance-assessment-for-windows-update-for-business-updates) |
- |Toegang tot de gegevens van de OData-eindpunt<!-- 1321523 --> |[Technische Preview 1612](capabilities-in-technical-preview-1612.md#odata-endpoint-data-access)|
- |Verbeteringen in Asset Intelligence<!-- 1307390 --> |[Technische Preview 1608](capabilities-in-technical-preview-1608.md#improvements-to-asset-intelligence)|
- |Eindgebruikers kunnen apps installeren vanuit de bedrijfsportal<!-- 1037233? --> |[Technische Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_End)|
+ |Management insights<!-- 1353967 --> |[Tech Preview 1708](capabilities-in-technical-preview-1708.md#management-insights)|
+ |Surface apparaat dashboard<!-- 1355788 --> |[Tech Preview 1707](capabilities-in-technical-preview-1707.md#surface-device-dashboard)|
+ |Beschikbaarheid van de site server-rol<!-- 1128774 --> |[Tech Preview 1706](capabilities-in-technical-preview-1706.md#site-server-role-high-availability) |
+ |Ondersteuning voor PXE-netwerk opstarten voor IPv6<!-- 1269793 --> |[Tech Preview 1706](capabilities-in-technical-preview-1706.md#pxe-network-boot-support-for-ipv6)|
+ |Apparaat Health Attestation beoordeling van van nalevingsbeleid voor voorwaardelijke toegang<!-- 1235616 -->|[Tech Preview 1706](capabilities-in-technical-preview-1706.md#device-health-attestation-assessment-for-compliance-policies-for-conditional-access)|
+ |Azure Active Directory gebruiken<!-- 1322145? --> | [Tech Preview 1702](capabilities-in-technical-preview-1702.md#azurediscovery) |
+ |Nalevingsbeoordeling voor Windows Update voor bedrijven-updates<!-- 1235390 --> | [Tech Preview 1702](capabilities-in-technical-preview-1702.md#compliance-assessment-for-windows-update-for-business-updates) |
+ |Toegang tot de gegevens van de OData-eindpunt<!-- 1321523 --> |[Tech Preview 1612](capabilities-in-technical-preview-1612.md#odata-endpoint-data-access)|
+ |Verbeteringen in Asset Intelligence<!-- 1307390 --> |[Tech Preview 1608](capabilities-in-technical-preview-1608.md#improvements-to-asset-intelligence)|
+ |Eindgebruikers kunnen apps installeren vanuit de bedrijfsportal<!-- 1037233? --> |[Tech Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_End)|
 
 
 
