@@ -15,18 +15,18 @@ caps.latest.revision: "26"
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 3848d0d6a9f3b5d778879c598bf859fb1e8a7ac7
-ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
+ms.openlocfilehash: a67d75f27cbc2d53cc5d8c418e25232d88b4f067
+ms.sourcegitcommit: db9978135d7a6455d83dbe4a5175af2bdeaeafd8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="manage-windows-as-a-service-using-system-center-configuration-manager"></a>Windows als een service beheren met System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 
- In System Center Configuration Manager, u kunt de status van Windows als een Service in uw omgeving weergeven, onderhoudsplannen om implementatieringen te vormen maken en zorg ervoor dat Windows 10 huidige vertakking systemen worden bijgewerkt wanneer er nieuwe builds worden vrijgegeven en waarschuwingen weergeven wanneer Windows 10-clients het einde van de ondersteuningsperiode voor hun build van Current Branch (CB) of Current Branch for Business (CBB) naderen.  
+ In System Center Configuration Manager heeft, kunt u de status van Windows als een Service in uw omgeving weergeven, onderhoudsplannen maken voor implementatieringen te vormen en ervoor te zorgen dat Windows 10 huidige vertakking systemen worden bijgewerkt wanneer er nieuwe builds worden vrijgegeven en weergeven waarschuwt wanneer Windows 10-clients het einde van de ondersteuningsperiode voor hun build van Current Branch (CB) of Current Branch for Business (CBB) naderen.  
 
  Zie  [Windows 10-onderhoudsopties voor updates en upgrades](https://technet.microsoft.com/library/mt598226\(v=vs.85\).aspx)voor meer informatie over Windows 10-onderhoudsopties.  
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 12/12/2017
     -   **Besturingssysteem Build**: De build besturingssysteem opgegeven. Bijvoorbeeld: **10.0.10240** (RTM) of **10.0.10586** (versie 1511)  
 
 -   Het serviceaansluitpunt moet zijn geïnstalleerd en geconfigureerd voor de modus **Permanente onlineverbinding** om de gegevens te bekijken op het Windows 10-onderhoudsdashboard. Wanneer u in de offlinemodus bevindt bent, wordt u op het dashboard niet zien totdat u Configuration Manager-onderhoudsupdates ontvangt.   
-     Zie voor meer informatie [over het service connection point](../../core/servers/deploy/configure/about-the-service-connection-point.md).  
+      Zie voor meer informatie [over het service connection point](../../core/servers/deploy/configure/about-the-service-connection-point.md).  
 
 
 -   Op de computer waarop de Configuration Manager-console moet Internet Explorer 9 of hoger worden geïnstalleerd.  
@@ -280,3 +280,6 @@ Gebruik de volgende procedure om de eigenschappen van een onderhoudsplan te wijz
 
     > [!NOTE]  
     >  U kunt recente waarschuwingen met betrekking tot software-updates weergegeven in het knooppunt **Software-updates** in de werkruimte **Softwarebibliotheek** .  
+
+**Voor meer informatie:** <br/>
+[Grondbeginselen van Configuration Manager als een service en Windows als een service](/sccm/core/understand/configuration-manager-and-windows-as-service.md)

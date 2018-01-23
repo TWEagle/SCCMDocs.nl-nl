@@ -3,7 +3,7 @@ title: Technische Preview-versies
 titleSuffix: Configuration Manager
 description: Meer informatie over de Technical Preview-versie dat we u test-drive nieuwe functionaliteit en mogelijkheden in System Center Configuration Manager.
 ms.custom: na
-ms.date: 12/22/2017
+ms.date: 01/19/2018
 ms.prod: configuration-manager
 ms.reviewer: nab
 ms.suite: na
@@ -15,11 +15,11 @@ caps.latest.revision: "157"
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: b6a64d4e407c15ec721860a17a3c40769a182c49
-ms.sourcegitcommit: 3373a07ff88f1ca6d5bdea128a3d9dffc58c1dfb
+ms.openlocfilehash: 975bd66bb86efb133ccd7017295e8108558f633d
+ms.sourcegitcommit: db9978135d7a6455d83dbe4a5175af2bdeaeafd8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="technical-preview-for-system-center-configuration-manager"></a>Technical Preview voor System Center Configuration Manager
 
@@ -27,9 +27,9 @@ ms.lasthandoff: 01/19/2018
 
 **Welkom bij de System Center Configuration Manager Technical Preview**. In dit artikel bevat informatie over de zich ontwikkelende preview-versie die introduceert nieuwe functionaliteit en mogelijkheden bieden die we aan werken. Elke versie van de technical preview introduceert nieuwe functies die niet zijn opgenomen in de huidige vertakking van Configuration Manager op het moment dat de technische preview-versie beschikbaar wordt gesteld. Deze functies worden uiteindelijk misschien opgenomen in een update van de huidige release, maar voordat we de functies voltooien en toevoegen, willen we u de mogelijkheid bieden ze uit te proberen en ons feedback te geven.  
 
- Omdat dit een Technical Preview is, kan het zijn dat de details en functionaliteit nog worden gewijzigd.  
+ Omdat deze release een technical preview is, nog details en functionaliteit worden gewijzigd.  
 
- In dit artikel bevat informatie die van toepassing op alle versies van de Technical Preview. Het bevat ook elke nieuwe mogelijkheid (of functie) samen met de technische Preview-versie waarin de mogelijkheid eerst wordt weergegeven, zoals versie 1712 voor December van 2017. Deze mogelijkheden worden beschreven in afzonderlijke onderwerpen elke preview-versie.  
+ In dit artikel bevat informatie die van toepassing op alle versies van de Technical Preview. Het bevat ook elke nieuwe mogelijkheid (of functie) samen met de technische Preview-versie waarin de mogelijkheid eerst wordt weergegeven, zoals versie 1801 voor januari van 2018. Deze mogelijkheden worden beschreven in afzonderlijke onderwerpen elke preview-versie.  
 
  Zie voor meer informatie over wat er nieuw in de huidige vertakking van Configuration Manager [wat is er nieuw in System Center Configuration Manager](/sccm/core/plan-design/changes/what-has-changed-from-configuration-manager-2012).
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 01/19/2018
 ##  <a name="bkmk_reqs"></a> Voorwaarden en beperkingen voor de Technical Preview  
 
 > [!IMPORTANT]     
->  Een licentie voor een Technical Preview wordt alleen gegeven voor gebruik in een testomgeving.  Microsoft biedt wellicht geen ondersteuningsdiensten en bepaalde functies zijn mogelijk niet beschikbaar in de Preview-software. Bovendien de Preview-software mogelijk lager of andere standaarden voor de beveiliging, privacy, toegankelijkheid, beschikbaarheid en betrouwbaarheid ten opzichte commerciële software opgegeven.  
+>  Een licentie voor een Technical Preview wordt alleen gegeven voor gebruik in een testomgeving.  Microsoft kan geen ondersteuningsdiensten en bepaalde functies zijn mogelijk niet beschikbaar in de preview-software. Bovendien de preview-software mogelijk lager of andere standaarden voor de beveiliging, privacy, toegankelijkheid, beschikbaarheid en betrouwbaarheid ten opzichte commerciële software opgegeven.  
 
  Gebruik de informatie in de meeste productvereisten de [ondersteunde configuraties voor System Center Configuration Manager](../../core/plan-design/configs/supported-configurations.md). De volgende uitzonderingen zijn van toepassing op de Technical Preview-versies:  
 
@@ -111,15 +111,15 @@ Hieronder vindt u de mogelijkheden die in de meest recente Configuration Manager
 
 <!-- This is the full list of new features in the latest TP release -->
 
-### <a name="technical-preview-version-1712"></a>Technical Preview versie 1712
-- [Vervangen van toepassingen niet automatisch bijgewerkt](capabilities-in-technical-preview-1712.md#do-not-automatically-upgrade-superseded-applications)<!-- 1351266 --> 
-- [Installeer meerdere toepassingen in Software Center](capabilities-in-technical-preview-1712.md#install-multiple-applications-in-software-center)<!-- 1357126 --> 
-- [Wijziging in de Configuration Manager-client installeren](capabilities-in-technical-preview-1712.md#change-in-the-configuration-manager-client-install)<!-- 1356195 --> 
-- [Wijzig in het dashboard Surface apparaat](capabilities-in-technical-preview-1712.md#change-to-the-surface-device-dashboard)<!-- 1355788 --> 
-- [Verbeteringen aan beheer van Office 365 Client dashboard](capabilities-in-technical-preview-1712.md#improvements-to-office-365-client-management-dashboard)<!-- 1357281 --> 
-- [Verbeteringen in de Configuration Manager-console](capabilities-in-technical-preview-1712.md#improvements-to-the-configuration-manager-console)<!-- 1357280,1357282 --> 
-- [Verbeteringen in de implementatie van besturingssysteem](capabilities-in-technical-preview-1712.md#improvements-to-operating-system-deployment)<!-- SMS 500897 --> 
-- [App-integratie voor Windows 10 Feedback Hub](capabilities-in-technical-preview-1712.md#windows-10-feedback-hub-app-integration)<!-- NA -->
+### <a name="technical-preview-version-1801"></a>Technical Preview versie 1801
+- [Gefaseerde implementaties maken](capabilities-in-technical-preview-1801.md#create-phased-deployments)<!-- 1357405 --> 
+- [Mede management reporting](capabilities-in-technical-preview-1801.md#co-management-reporting)<!-- 1356648 --> 
+- [Verbeteringen aan automatische implementatie regel evaluatieplanning](capabilities-in-technical-preview-1801.md#improvements-to-automatic-deployment-rule-evaluation-schedule)<!-- 1357133 --> 
+- [Opnieuw toewijzen van distributiepunt](capabilities-in-technical-preview-1801.md#reassign-distribution-point)<!-- 1306937 --> 
+- [Verbeteringen in de hardware-inventaris](capabilities-in-technical-preview-1801.md#improvements-to-hardware-inventory)<!-- 1357389 --> 
+- [Verbeteringen in de clientinstellingen voor Software Center](capabilities-in-technical-preview-1801.md#improvements-to-client-settings-for-software-center)<!-- 1355146 --> 
+- [Nieuwe instellingen voor Windows Defender toepassing Guard](capabilities-in-technical-preview-1801.md#new-settings-for-windows-defender-application-guard)<!-- 1356256 --> 
+- [Verbeteringen aan het uitvoeren van Scripts](capabilities-in-technical-preview-1801.md#improvements-to-run-scripts)<!-- 1236459 --> 
 
 
 
@@ -127,10 +127,20 @@ Hieronder vindt u de mogelijkheden die in de meest recente Configuration Manager
 ## <a name="capabilities-delivered-in-recent-supported-technical-previews"></a>Mogelijkheden die in recente ondersteunde technical Previews worden geboden
 Hieronder vindt u de mogelijkheden die in eerdere versies van de Configuration Manager technical preview-versie die nog steeds worden ondersteund. 
 
-<!-- This is the full list of new features in the past three TP releases. Each month, add features from the list above to the top of this table. Then remove the bottom of this list (and/or move individual items not in CB to the third table below). -->
+<!-- This is the full list of new features in the past three TP releases. 
+Each month, add features from the list above to the top of this table. 
+Then remove the bottom of this list and/or move individual items not in CB to the third table below.
+-->
 
  |Mogelijkheid |Technische Preview-versie |Huidige versie van het filiaal|  
  |----------------|---------------------|--------------------|
+ |Vervangen van toepassingen niet automatisch bijgewerkt<!-- 1351266 --> | [Tech Preview 1712](capabilities-in-technical-preview-1712.md#do-not-automatically-upgrade-superseded-applications)  |![Niet toegevoegd](media/Red_X.gif)    | 
+ |Meerdere toepassingen in Software Center installeren<!-- 1357126 --> | [Tech Preview 1712](capabilities-in-technical-preview-1712.md#install-multiple-applications-in-software-center)  |![Niet toegevoegd](media/Red_X.gif)    |
+ |Wijziging in de Configuration Manager-client installeren<!-- 1356195 --> | [Tech Preview 1712](capabilities-in-technical-preview-1712.md#change-in-the-configuration-manager-client-install)  |![Niet toegevoegd](media/Red_X.gif)    | 
+ |Wijzig in het dashboard Surface apparaat<!-- 1355788 --> | [Tech Preview 1712](capabilities-in-technical-preview-1712.md#change-to-the-surface-device-dashboard)  |![Niet toegevoegd](media/Red_X.gif)    | 
+ |Verbeteringen aan beheer van Office 365 Client-dashboard<!-- 1357281 --> | [Tech Preview 1712](capabilities-in-technical-preview-1712.md#improvements-to-office-365-client-management-dashboard)  |![Niet toegevoegd](media/Red_X.gif)    | 
+ |Verbeteringen in de Configuration Manager-console<!-- 1357280,1357282 --> | [Tech Preview 1712](capabilities-in-technical-preview-1712.md#improvements-to-the-configuration-manager-console)  |![Niet toegevoegd](media/Red_X.gif)    | 
+ |Verbeteringen in de implementatie van besturingssysteem<!-- SMS 500897 --> | [Tech Preview 1712](capabilities-in-technical-preview-1712.md#improvements-to-operating-system-deployment)  |![Niet toegevoegd](media/Red_X.gif)    | 
  |Takenreeksstap uitvoeren<!-- 1261338 --> | [Tech Preview 1711](capabilities-in-technical-preview-1711.md) |[Versie 1710](/sccm/osd/understand/task-sequence-steps#child-task-sequence)    |
  |Interactie van de gebruiker toestaan bij het installeren van een toepassing<!-- 1356976 --> | [Tech Preview 1711](capabilities-in-technical-preview-1711.md) |![Niet toegevoegd](media/Red_X.gif)    |
  |Windows 10-telemetrie voor Windows Analytics Apparaatstatus<!--1356148 --> | [Tech Preview 1710](capabilities-in-technical-preview-1710.md#limit-windows-10-enhanced-telemetry-to-only-send-data-relevant-to-windows-analytics-device-health) |[Versie 1710](/sccm/core/plan-design/changes/whats-new-in-version-1710#reporting)    |
@@ -142,17 +152,20 @@ Hieronder vindt u de mogelijkheden die in eerdere versies van de Configuration M
  |Device Guard beleidswijzigingen<!-- 1355092  -->| [Tech Preview 1710](capabilities-in-technical-preview-1710.md)|[Versie 1710](/sccm/protect/deploy-use/use-device-guard-with-configuration-manager)    |
  |Windows Defender toepassing Guard beleid configureren en implementeren<!-- 1351960  -->| [Tech Preview 1710](capabilities-in-technical-preview-1710.md)|[Versie 1710](/sccm/protect/deploy-use/create-deploy-application-guard-policy)    |
  |Verbeteringen voor het implementeren van PowerShell-scripts uit Configuration Manager<!-- 1236459 -->| [Tech Preview 1710](capabilities-in-technical-preview-1710.md#improvements-for-deploying-powershell-scripts-from-configuration-manager) | [Versie 1710](/sccm/apps/deploy-use/create-deploy-scripts)
- |Verbeterde VPN-profiel ervaring in Configuration Manager-Console<!-- 1313282 --> | [Tech Preview 1709](capabilities-in-technical-preview-1709.md) |[Versie 1710](/sccm/protect/deploy-use/create-vpn-profiles)    |
- |CO-beheer voor Windows 10-apparaten|[Tech Preview 1709](capabilities-in-technical-preview-1709.md#co-management-for-windows-10-devices)|[Versie 1710](/sccm/core/clients/manage/co-management-overview.md)|
  
 
 ## <a name="capabilities-delivered-in-previous-technical-previews"></a>Mogelijkheden die in vorige technical Previews worden geboden
 Hier volgen de specifieke mogelijkheden die in eerdere versies van de Configuration Manager technical preview-versie. Deze mogelijkheden blijven beschikbaar in latere versies, maar nog niet beschikbaar in een current branch-release. 
 
-<!-- This is the list of individual features that are still in TP (not in CB). Note there is no third column in this table! Each month review and remove from this list for anything that's now available in CB. Copy from the bottom of the list above any individual feature that is still in TP and add to the top of this list (then remove the third column) -->
+<!-- This is the list of individual features that are still in TP (not in CB). 
+**Note there is no third column in this table!**
+Copy from the bottom of the list above any individual feature that is still in TP and add to the top of this list (then remove the third column)
+With each CB release, review and remove from this list for anything that's now available in CB. 
+-->
 
  |Mogelijkheid |Technische Preview-versie |  
  |----------------|---------------------|
+ |Verbeterde VPN-profiel ervaring in Configuration Manager-Console<!-- 1313282 --> | [Tech Preview 1709](capabilities-in-technical-preview-1709.md) |
  |Management insights<!-- 1353967 --> |[Tech Preview 1708](capabilities-in-technical-preview-1708.md#management-insights)|
  |Surface apparaat dashboard<!-- 1355788 --> |[Tech Preview 1707](capabilities-in-technical-preview-1707.md#surface-device-dashboard)|
  |Beschikbaarheid van de site server-rol<!-- 1128774 --> |[Tech Preview 1706](capabilities-in-technical-preview-1706.md#site-server-role-high-availability) |
@@ -163,8 +176,6 @@ Hier volgen de specifieke mogelijkheden die in eerdere versies van de Configurat
  |Toegang tot de gegevens van de OData-eindpunt<!-- 1321523 --> |[Tech Preview 1612](capabilities-in-technical-preview-1612.md#odata-endpoint-data-access)|
  |Verbeteringen in Asset Intelligence<!-- 1307390 --> |[Tech Preview 1608](capabilities-in-technical-preview-1608.md#improvements-to-asset-intelligence)|
  |Eindgebruikers kunnen apps installeren vanuit de bedrijfsportal<!-- 1037233? --> |[Tech Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_End)|
-
-
 
 
 
