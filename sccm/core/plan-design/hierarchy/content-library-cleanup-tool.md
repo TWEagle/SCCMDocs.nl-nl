@@ -29,7 +29,7 @@ ms.lasthandoff: 01/04/2018
 
 Het hulpprogramma is alleen van invloed op de inhoud op het distributiepunt dat u opgeeft wanneer u het hulpprogramma uitvoert. Inhoud van het hulpprogramma niet verwijderen uit de Inhoudsbibliotheek op de siteserver.
 
-U vindt **ContentLibraryCleanup.exe** in de *%CM_Installation_Path%\cd.latest\SMSSETUP\TOOLS\ContentLibraryCleanup\* map op de siteserver op een centrale beheersite of primaire site.
+U vindt **ContentLibraryCleanup.exe** in de \*%CM_Installation_Path%\cd.latest\SMSSETUP\TOOLS\ContentLibraryCleanup\* map op de siteserver op een centrale beheersite of primaire site.
 
 ## <a name="requirements"></a>Vereisten  
  Het hulpprogramma kan alleen worden uitgevoerd voor één distributiepunt tegelijk.  
