@@ -14,11 +14,11 @@ ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 243daf8626e329214ce1b94f109d19773bbc57c5
-ms.sourcegitcommit: 2da6b06818371e93f28e36cadf3a154d50ce5bf4
+ms.openlocfilehash: 04ed2ac1abe54c3b8c7c86f210b35f5f52d80ef6
+ms.sourcegitcommit: c432624b8816f59d51a3c8ef68960ed4099d9124
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Wat is er nieuw in hybride mobile device management met System Center Configuration Manager en Microsoft Intune
 
@@ -40,6 +40,17 @@ Elke sectie van dit artikel vindt u hybridefuncties onder drie verschillende cat
 |**Nieuw in Microsoft Intune** | In het algemeen moeten alle functies die worden vermeld in deze categorie samen met alle versies van de Configuration Manager. Deze inclusief System Center 2012 R2 Configuration Manager worden vrijgegeven, aangezien deze functies alleen de Intune-service nodig en niet aanvullende functionaliteit in Configuration Manager hoeven.|
 |**Nieuw in Configuration Manager Technical Preview**| Alle functies die worden vermeld in deze categorie werken alleen met de opgegeven Technical Preview-versie. Als u wilt deze functies uit te proberen, moet u de Technical Preview-versie die is opgegeven in de beschrijving van de functie installeren. Zie voor meer informatie [Technical Preview voor System Center Configuration Manager](../../core/get-started/technical-preview.md).|
 |**Nieuw in Configuration Manager (huidige vertakking)**| Alle functies die worden vermeld in deze categorie werken alleen met de opgegeven versie van Configuration Manager (huidige vertakking), zoals versie 1511 of 1602. Als u een oudere versie van Configuration Manager voor uw hybride implementatie gebruikt, moet u upgraden naar de Configuration Manager (huidige vertakking) versie opgegeven in de beschrijving van de functie. Zie voor meer informatie [upgraden naar System Center Configuration Manager](../../core/servers/deploy/install/upgrade-to-configuration-manager.md).|
+
+
+## <a name="january-2018"></a>2018 januari
+
+### <a name="new-in-microsoft-intune"></a>Nieuw in Microsoft Intune
+
+- **Vergrendelen op afstand beschikbaar in de bedrijfsportal-app voor Windows 10**<!--676506-->    
+  Eindgebruikers kunnen hun apparaten uit de bedrijfsportal-app nu op afstand vergrendelen voor Windows 10. Dit wordt niet weergegeven voor het lokale apparaat dat actief wordt gebruikt.
+
+- **Eenvoudiger oplossen van problemen met naleving voor de bedrijfsportal-app voor Windows 10**<!--676546-->    
+  Eindgebruikers met Windows-apparaten zich te tikken de niet-naleving reden hiervoor in de bedrijfsportal-app. Indien mogelijk wordt duurt dit ze rechtstreeks naar de juiste locatie in de app instellingen om het probleem te verhelpen.
 
 ## <a name="december-2017"></a>December 2017
 
@@ -114,6 +125,11 @@ We hebben toegevoegd **eigendomstype** naar het scherm Apparaatdetails op de bed
 
 
 ### <a name="new-in-microsoft-intune"></a>Nieuw in Microsoft Intune  
+
+- **Helpt uw gebruikers hulp zich bij de bedrijfsportal-app voor Android**<!-- 1573324, 1573150, 1558616, 1564878 -->      
+  De bedrijfsportal-app voor Android is instructies voor eindgebruikers om te begrijpen, en indien mogelijk automatisch oplossen op nieuwe gebruiksvoorbeelden toegevoegd.
+    - Eindgebruikers wordt geleid naar de [Azure Active Directory-portal](https://account.activedirectory.windowsazure.com/r/#/profile) een apparaat verwijderen als het maximum aantal apparaten die ze kunnen toevoegen is bereikt.
+    - Eindgebruikers krijgen stappen volgen om u te helpen [activeringsfoutmelding los op Samsung Knox apparaten](https://go.microsoft.com/fwlink/?linkid=859718) of [Energiebesparing modus uit te schakelen](https://docs.microsoft.com/intune-user-help/power-saving-mode-android). Als geen van deze oplossingen het probleem is opgelost, we leveren een uitleg van hoe [logboeken naar Microsoft verzenden](https://docs.microsoft.com/intune-user-help/send-logs-to-microsoft-android).
 
 - **Apparaat setup voortgangsindicator in Android-bedrijfsportal**<!--1565657-->    
   De bedrijfsportal-app voor Android ziet u een voortgangsindicator voor installatie van apparaat wanneer een gebruiker inschrijving van het apparaat. De indicator bevat nieuwe statussen, beginnen met ' Uw apparaat instellen...', vervolgens 'Registreren van uw apparaat...', vervolgens 'Is voltooid voor het registreren van uw apparaat...' vervolgens 'Instellen... van uw apparaat is voltooid'.  
@@ -471,7 +487,7 @@ Het is raadzaam om in aanmerking komende Windows Phone 8.1-apparaten upgraden na
 Beheerde apps en de bedrijfsportal-app voor Android moeten Android 4.4 en hoger voor toegang tot bedrijfsresources. Apparaten die niet worden bijgewerkt voordat het begin van oktober niet langer toegang tot de bedrijfsportal of deze apps. Door December moeten alle ingeschreven apparaten verplicht worden gesteld in December, wat leidt tot verlies van toegang tot bedrijfsbronnen. Als u van beveiligingsbeleid app zonder MDM gebruikmaakt, apps ontvangt geen updates en de kwaliteit van hun ervaring zal afnemen.
 
 
-### <a name="system-center-2012-configuration-sp1-and-system-center-2012-r2-configuration-manager-rtm-support-for-hybrid-mobile-device-management-ending-on-april-10-2017"></a>System Center 2012 Configuration SP1 en System Center 2012 R2 Configuration Manager (RTM): Ondersteuning voor hybride mobile device management eindigt op 10 April 2017
+### <a name="system-center-2012-configuration-sp1-and-system-center-2012-r2-configuration-manager-rtm-support-for-hybrid-mobile-device-management-ending-on-april-10-2017"></a>System Center 2012 Configuration SP1 and System Center 2012 R2 Configuration Manager (RTM): Ondersteuning voor hybride mobile device management eindigt op 10 April 2017
 *11 januari 2017*
 
 Ondersteuning voor System Center 2012 Configuration Manager SP1 en System Center 2012 R2 Configuration Manager RTM beëindigd op 12 juli 2016. Vervolgens kunt u ondersteuning voor deze verbinding maken met de Microsoft Intune-service voor hybride MDM op 10 April 2017 eindigt releases. Na deze datum functioneert hybride MDM deze uitgaven. Beheerde apparaten wordt in wezen worden beheerd, zoals de Intune-Connector niet meer verbinding met de Intune-service maken wordt. Configuration Manager-gegevens (zoals beleidsregels en toepassingen) niet stromen naar Intune en beheerd apparaat wordt niet gegevensstroom naar beneden op Configuration Manager totdat u een upgrade wordt uitgevoerd.
