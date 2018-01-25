@@ -14,12 +14,12 @@ ms.assetid: 35e237b6-9f7b-4189-90e7-8eca92ae7d3d
 caps.latest.revision: "21"
 author: mestew
 ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: ccc07aa709c0a168a8df7a1bd7944e9399bec13f
-ms.sourcegitcommit: 3dea4342f79909c5064289bd18ed36269812e30c
+manager: dougeby
+ms.openlocfilehash: 2dcf7ab67c0f57d442f6ab0a0ea9f0f476fe8415
+ms.sourcegitcommit: bc86be110c8d2a7a076e17f433d8c5ffd51a7d04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="supported-sql-server-versions-for-system-center-configuration-manager"></a>Ondersteunde versies van SQL Server voor System Center Configuration Manager
 
@@ -148,7 +148,7 @@ U kunt deze versie van SQL Server, met een minimum van [cumulatieve updateversie
 -   Een secundaire site
 <!--SMS.498506-->
 
-### <a name="sql-server-2016-express-sp1"></a>SQL Server 2016 snelle SP1  
+### <a name="sql-server-2016-express-sp1"></a>SQL Server 2016 Express SP1  
 U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor de volgende sites:
 -   Een secundaire site
 
@@ -157,7 +157,7 @@ U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebru
 -   Een secundaire site
 
 
-### <a name="sql-server-2014-express-sp2"></a>SQL Server 2014 snelle SP2   
+### <a name="sql-server-2014-express-sp2"></a>SQL Server 2014 Express SP2   
 U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor de volgende sites:  
 
 -   Een secundaire site  
@@ -191,6 +191,9 @@ U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebru
  Het exemplaar van SQL Server die wordt gebruikt voor de site en de sitedatabase moet de volgende sortering gebruiken op elke site: **SQL_Latin1_General_CP1_CI_AS**.  
 
  Configuration Manager ondersteunt twee uitzonderingen op deze sortering om te voldoen aan de normen die zijn gedefinieerd in GB18030 voor gebruik in China. Voor meer informatie, zie [Internationale ondersteuning in System Center Configuration Manager](../../../core/plan-design/hierarchy/international-support.md).  
+
+ **Het compatibiliteitsniveau van database:** </br>
+ Configuration Manager vereist dat het compatibiliteitsniveau voor de sitedatabase niet minder zijn dan de laagste ondersteunde versie van SQL Server voor uw versie van Configuration Manager. Bijvoorbeeld: vanaf versie 1702, moet u hebt een [compatibiliteitsniveau van de database](https://docs.microsoft.com/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database) groter dan of gelijk zijn aan 110. <!-- SMS.506266--> 
 
  **SQL Server-functies:**  
  Alleen het onderdeel **Database-engineservices** is vereist voor elke siteserver.  
