@@ -7,20 +7,21 @@ ms.date: 01/12/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-osd
+ms.technology:
+- configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7c888a6f-8e37-4be5-8edb-832b218f266d
-caps.latest.revision: "26"
-caps.handback.revision: "0"
+caps.latest.revision: 
+caps.handback.revision: 
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 695d21eb065f4d89143644dad28bfdb711392ab9
-ms.sourcegitcommit: e121d8d3dd82b9f2dde2cb5206cbee602ab8e107
+ms.openlocfilehash: 158817547d40f09fb8bd30ebedd5aea6420a8571
+ms.sourcegitcommit: aee9ac45c15f27d8cf827890edcae94c03f5fd5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="task-sequence-steps-in-system-center-configuration-manager"></a>Stappen voor takenreeksen in System Center Configuration Manager
 
@@ -535,7 +536,7 @@ Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoe
 
  -   **Configuration Manager-clientcache**: Gebruik deze optie voor het opslaan van de inhoud in de clientcache. De client fungeert als peer-cachebron voor andere peer-cacheclients. Zie voor meer informatie [voorbereiden Windows PE-peer-cache om WAN-verkeer te beperken](../get-started/prepare-windows-pe-peer-cache-to-reduce-wan-traffic.md).  
 
- -   **Aangepast pad**  
+ -    **Aangepast pad**: Met deze optie de engine voor takenreeksen eerst downloadt het pakket aan de takenreeks met de werkmap vervolgens verplaatst naar dit pad dat u opgeeft. De engine voor takenreeksen voegt het pad tussen de pakket-ID. 
    
 **Pad opslaan als een variabele**  
  U kunt het pad opslaan als een variabele die u in een andere takenreeksstap kunt gebruiken. Configuration Manager voegt een numeriek achtervoegsel aan de variabelenaam toe. Bijvoorbeeld, als u een variabele van % opgeven*mycontent*% als aangepaste variabele, is de hoofdmap waar de inhoud alle waarnaar wordt verwezen door de takenreeks worden opgeslagen. Deze inhoud kan meerdere pakketten bevatten. Wanneer u naar de variabele verwijst, voegt u een numeriek achtervoegsel. Bijvoorbeeld: voor het eerste pakket verwijzen naar %*mycontent01*%. Als u verwijst naar de variabele in de volgende stappen zoals **besturingssysteem bijwerken**, gebruikt u %*mycontent02*% of %*mycontent03*%, waarbij het nummer overeenkomt met de volgorde die de **pakketinhoud downloaden** stap hier worden de pakketten.  
