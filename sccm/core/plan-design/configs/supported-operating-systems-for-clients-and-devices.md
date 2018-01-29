@@ -7,19 +7,20 @@ ms.date: 8/30/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 87f4e041-67df-4c61-aa98-7444faffe565
-caps.latest.revision: "5"
+caps.latest.revision: 
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: c740e9b23cb2968463e8843b5f3cdcbaba7c4d91
-ms.sourcegitcommit: 645cd5a324bdd299906efa27eaca5885eafc9e9c
+ms.openlocfilehash: a0f2c2c0885982bb25606f117031a36c2dcd2e60
+ms.sourcegitcommit: ac20475ae9c1ea5ca3632cb6a44440c316f171f4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="supported-operating-systems-for-clients-and-devices-for-system-center-configuration-manager"></a>Ondersteunde besturingssystemen voor clients en apparaten voor System Center Configuration Manager
 
@@ -192,6 +193,8 @@ De volgende besturingssystemen zijn gebaseerd op Windows XP Embedded en wordt al
 -   **Mac OS X 10.11** (El Capitan)  
 
 -   **Mac OS X 10.12** (macOS Sierra)
+
+-   **Mac OS X 10.13** (macOS High Sierra)
 
 ##  <a name="linux-and-unix-servers"></a>Linux en UNIX-servers  
  U kunt Linux en UNIX-servers beheren met Configuration Manager-client voor Linux en UNIX.  
