@@ -36,8 +36,10 @@
 ###  [What's new in version 1606](plan-design/changes/whats-new-in-version-1606.md)
 ###  [What's new in version 1602](plan-design/changes/whats-new-in-version-1602.md)
 -->
-###  [Verwijderde en afgeschafte functies](plan-design/changes/removed-and-deprecated-features.md)
-
+###  [Verwijderd en afgeschaft](plan-design/changes/deprecated/removed-and-deprecated.md)
+#### [Verwijderde en afgeschafte functies](plan-design/changes/deprecated/removed-and-deprecated-cmfeatures.md)
+#### [Verwijderde en afgeschafte functies voor siteservers](plan-design/changes/deprecated/removed-and-deprecated-server.md)
+#### [Verwijderde en afgeschafte functies voor clients](plan-design/changes/deprecated/removed-and-deprecated-client.md)
 ##   [Ondersteunde configuraties](plan-design/configs/supported-configurations.md)
 ###  [Grootte en schaalgetallen](plan-design/configs/size-and-scale-numbers.md)
 ###  [Vereisten voor sites en sitesystemen](plan-design/configs/site-and-site-system-prerequisites.md)
@@ -341,7 +343,7 @@
 ###  [Hardware-inventaris voor Linux en UNIX](clients/manage/inventory/hardware-inventory-for-linux-and-unix.md)
 ###  [Beveiliging en privacy voor hardware-inventarisatie](clients/manage/inventory/security-and-privacy-for-hardware-inventory.md)
 
-##   Software-inventaris
+##   Software-inventarisatie
 ###  [Inleiding tot software-inventarisatie](clients/manage/inventory/introduction-to-software-inventory.md)
 ###  [Software-inventaris configureren](clients/manage/inventory/configure-software-inventory.md)
 ###  [Resource Explorer gebruiken om software-inventaris weer te geven](clients/manage/inventory/use-resource-explorer-to-view-software-inventory.md)
