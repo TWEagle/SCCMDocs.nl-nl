@@ -7,19 +7,20 @@ ms.date: 8/25/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1392797b-76cb-46b4-a3e4-8f349ccaa078
-caps.latest.revision: "5"
+caps.latest.revision: 
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 2c87cf0e63e4b95f5b94b6cda9e2aa40c4389184
-ms.sourcegitcommit: 8c6e9355846ff6a73c534c079e3cdae09cf13c45
+ms.openlocfilehash: cb1b81fc0765e6754c7dea9ce421e41fcd58a70e
+ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="site-and-site-system-prerequisites-for-system-center-configuration-manager"></a>Site- en site-systeemvereisten voor System Center Configuration Manager
 
@@ -61,7 +62,7 @@ ms.lasthandoff: 12/06/2017
 
 -   .NET framework 3.5 SP1 (of hoger)  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
 -   Externe differentiële compressie  
 
@@ -82,7 +83,7 @@ ms.lasthandoff: 12/06/2017
 
 -   .NET framework 3.5 SP1 (of hoger)  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
 -   Externe differentiële compressie  
 
@@ -123,7 +124,7 @@ ms.lasthandoff: 12/06/2017
 
 -   .NET framework 3.5 SP1 (of hoger)  
 
--   .NET framework 4.5.2:  
+-   .NET Framework 4.5.2:  
 
     -   ASP.NET 4.5  
 
@@ -158,7 +159,7 @@ ms.lasthandoff: 12/06/2017
 
 -   .NET framework 3.5 SP1 (of hoger)  
 
--   .NET framework 4.5.2:  
+-   .NET Framework 4.5.2:  
 
     -   ASP.NET 4.5:  
 
@@ -193,12 +194,12 @@ ms.lasthandoff: 12/06/2017
 ###  <a name="bkmk_2012AIpreq"></a>Asset Intelligence-synchronisatiepunt  
 **Windows Server-functies en onderdelen:**  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
 ###  <a name="bkmk_2012crppreq"></a>Certificaatregistratiepunt  
 **Windows Server-functies en onderdelen:**  
 
--   .NET framework 4.5.2:  
+-   .NET Framework 4.5.2:  
 
     -   HTTP-activering  
 
@@ -272,7 +273,7 @@ ms.lasthandoff: 12/06/2017
 
 -   .NET framework 3.5 (of hoger)  
 
--   .NET framework 4.5.2:  
+-   .NET Framework 4.5.2:  
 
      Wanneer deze sitesysteemrol wordt geïnstalleerd, installeert Configuration Manager automatisch .NET Framework 4.5.2. Deze installatie kunt plaatsen van de server opnieuw opstarten status in behandeling. Wanneer opnieuw opstarten is in behandeling voor de .NET Framework, .NET-toepassingen mislukken pas nadat de server opnieuw is opgestart en de installatie is voltooid.  
 
@@ -312,7 +313,7 @@ ms.lasthandoff: 12/06/2017
 
 -   .NET framework 3.5 (of hoger)  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
      Wanneer deze sitesysteemrol wordt geïnstalleerd, installeert Configuration Manager automatisch .NET Framework 4.5.2. Deze installatie kunt plaatsen van de server opnieuw opstarten status in behandeling. Wanneer opnieuw opstarten is in behandeling voor de .NET Framework, .NET-toepassingen mislukken pas nadat de server opnieuw is opgestart en de installatie is voltooid.  
 
@@ -358,7 +359,7 @@ De standaard IIS-configuratie is vereist bij de volgende toevoegingen:
 ###  <a name="bkmk_2012MPpreq"></a>Beheerpunt  
 **Windows Server-functies en onderdelen:**  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
 -   BITS-serveruitbreidingen (en automatisch geselecteerde opties) of Background Intelligent Transfer Services (BITS) (en automatisch geselecteerde opties)  
 
@@ -381,7 +382,7 @@ De standaard IIS-configuratie is vereist bij de volgende toevoegingen:
 ###  <a name="bkmk_2012RSpoint"></a>Reporting services-punt  
 **Windows Server-functies en onderdelen:**  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
 **SQL Server Reporting Services:**  
 
@@ -394,7 +395,7 @@ De standaard IIS-configuratie is vereist bij de volgende toevoegingen:
 ###  <a name="bkmk_SCPpreq"></a>Serviceverbindingspunt  
 **Windows Server-functies en onderdelen:**  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
      Wanneer deze sitesysteemrol wordt geïnstalleerd, installeert Configuration Manager automatisch .NET Framework 4.5.2. Deze installatie kunt plaatsen van de server opnieuw opstarten status in behandeling. Wanneer opnieuw opstarten is in behandeling voor de .NET Framework, .NET-toepassingen mislukken pas nadat de server opnieuw is opgestart en de installatie is voltooid.  
 
@@ -409,7 +410,7 @@ De standaard IIS-configuratie is vereist bij de volgende toevoegingen:
 
 -   .NET framework 3.5 SP1 (of hoger)  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
 De standaard IIS-configuratie is vereist.
 
@@ -423,7 +424,7 @@ De standaard IIS-configuratie is vereist.
 De standaard IIS-configuratie is vereist.  
 
 ##  <a name="bkmk_2008"></a>Vereisten voor Windows Server 2008 R2 en WindowsServer 2008  
-Windows Server 2008 en Windows Server 2008 R2 zijn nu uitgebreide ondersteuning en zijn niet langer in het algemeen worden ondersteund, zoals beschreven in de [Microsoft Support Lifecycle](https://support.microsoft.com/lifecycle). Zie voor meer informatie over toekomstige ondersteuning voor deze besturingssystemen als sitesysteemservers met Configuration Manager [verwijderd en afgeschafte functies voor System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
+Windows Server 2008 en Windows Server 2008 R2 zijn nu uitgebreide ondersteuning en zijn niet langer in het algemeen worden ondersteund, zoals beschreven in de [Microsoft Support Lifecycle](https://support.microsoft.com/lifecycle). Zie voor meer informatie over toekomstige ondersteuning voor deze besturingssystemen als sitesysteemservers met Configuration Manager [verwijderd en afgeschafte serverbesturingssystemen](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-server#deprecated-server-operating-systems).  
 
 **De volgende van toepassing op alle .NET Framework-vereisten:**  
 
@@ -434,11 +435,11 @@ Windows Server 2008 en Windows Server 2008 R2 zijn nu uitgebreide ondersteuning 
 -   U kunt de WCF-activering configureren als onderdeel van de functie .NET Framework Windows op de sitesysteemserver. Bijvoorbeeld in Windows Server 2008 R2 uitvoeren de **Wizard Functies toevoegen** aanvullende functies te installeren op de server. Op de **onderdelen selecteren** pagina uit, vouw **.NET Framework 3.5.1-onderdelen**, vouw **WCF-activering**, en schakel vervolgens de selectievakjes voor beide **HTTP-activering** en **niet-HTTP-activering** inschakelen van deze opties.  
 
 ###  <a name="bkmk_2008sspreq"></a>Siteserver: centrale beheersite en primaire site  
-**.NET framework:**  
+**.NET Framework:**  
 
 -   .NET framework 3.5 SP1 (of hoger)  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
 **Windows-onderdeel:**  
 
@@ -457,11 +458,11 @@ Windows Server 2008 en Windows Server 2008 R2 zijn nu uitgebreide ondersteuning 
 -   Centrale beheersites en primaire sites moeten de x86- en x64 versies van het betreffende herdistribueerbare bestand.  
 
 ###  <a name="bkmk_2008secpreq"></a>Siteserver: secundaire site  
-**.NET framework:**  
+**.NET Framework:**  
 
 -   .NET framework 3.5 SP1 (of hoger)  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
 **Visual C++ Redistributable:**  
 
@@ -496,9 +497,9 @@ Windows Server 2008 en Windows Server 2008 R2 zijn nu uitgebreide ondersteuning 
 -   Zie voor meer informatie over deze vereiste [vereisten voor de infrastructuur voor besturingssysteemimplementatie](/sccm/osd/plan-design/infrastructure-requirements-for-operating-system-deployment).  
 
 ###  <a name="bkmk_2008acwspreq"></a>Application Catalog-websitepunt  
-**.NET framework:**  
+**.NET Framework:**  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
 **IIS-configuratie:**
 
@@ -525,11 +526,11 @@ De standaard IIS-configuratie is vereist bij de volgende toevoegingen:
     -   Compatibiliteit met IIS 6-metabase  
 
 ###  <a name="bkmk_2008ACwsitepreq"></a>Application Catalog-webservicepunt  
-**.NET framework:**  
+**.NET Framework:**  
 
 -   .NET framework 3.5 SP1 (of hoger)  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
 **Activering van Windows Communication Foundation (WCF):**  
 
@@ -558,14 +559,14 @@ De standaard IIS-configuratie is vereist bij de volgende toevoegingen:
 -   Wanneer deze sitesysteemrol CO-locaties met een andere sitesysteemrol met deze zelfde vereiste is, wordt deze geheugenvereiste voor de computer niet verhogen, maar blijft minimaal 5%.  
 
 ###  <a name="bkmk_2008AIpreq"></a>Asset Intelligence-synchronisatiepunt  
-**.NET framework:**  
+**.NET Framework:**  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
 ###  <a name="bkmk_2008crppreq"></a>Certificaatregistratiepunt  
-**.NET framework:**  
+**.NET Framework:**  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
 -   HTTP-activering  
 
@@ -633,14 +634,14 @@ Wanneer u een aangepaste configuratie voor IIS gebruikt, kunt u de opties die ni
 
 
 ###  <a name="bkmk_2008EPPpreq"></a>Endpoint Protection-punt  
-**.NET framework:**  
+**.NET Framework:**  
 
 -   .NET framework 3.5 SP1 (of hoger)  
 
 ###  <a name="bkmk_2008Enrollpreq"></a>Inschrijvingspunt  
-**.NET framework:**  
+**.NET Framework:**  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
      Wanneer deze sitesysteemrol wordt geïnstalleerd, als de server nog niet over een ondersteunde versie van .NET Framework is geïnstalleerd, installeert Configuration Manager automatisch .NET Framework 4.5.2. Deze installatie kunt plaatsen van de server opnieuw opstarten status in behandeling. Wanneer opnieuw opstarten is in behandeling voor de .NET Framework, .NET-toepassingen mislukken pas nadat de server opnieuw is opgestart en de installatie is voltooid.  
 
@@ -667,9 +668,9 @@ De standaard IIS-configuratie is vereist bij de volgende toevoegingen:
 -   Wanneer deze sitesysteemrol CO-locaties met een andere sitesysteemrol met deze zelfde vereiste is, wordt deze geheugenvereiste voor de computer niet verhogen, maar blijft minimaal 5%.  
 
 ###  <a name="bkmk_2008EnrollProxpreq"></a>Proxypunt voor inschrijving  
-**.NET framework:**  
+**.NET Framework:**  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
      Wanneer deze sitesysteemrol wordt geïnstalleerd, als de server nog niet over een ondersteunde versie van .NET Framework is geïnstalleerd, installeert Configuration Manager automatisch .NET Framework 4.5.2. Deze installatie kunt plaatsen van de server opnieuw opstarten status in behandeling. Wanneer opnieuw opstarten is in behandeling voor de .NET Framework, .NET-toepassingen mislukken pas nadat de server opnieuw is opgestart en de installatie is voltooid.  
 
@@ -705,9 +706,9 @@ De standaard IIS-configuratie is vereist bij de volgende toevoegingen:
     -   Compatibiliteit met IIS 6-metabase  
 
 ###  <a name="bkmk_2008MPpreq"></a>Beheerpunt  
-**.NET framework:**  
+**.NET Framework:**  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
 **IIS-configuratie:**
 
@@ -746,9 +747,9 @@ Wanneer u een aangepaste configuratie voor IIS gebruikt, kunt u de opties die ni
 -   BITS-serveruitbreidingen (en automatisch geselecteerde opties), of Background Intelligent Transfer Services (BITS) (en automatisch geselecteerde opties)  
 
 ###  <a name="bkmk_2008RSpoint"></a>Reporting services-punt  
-**.NET framework:**  
+**.NET Framework:**  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
 **SQL Server Reporting Services:**  
 
@@ -759,9 +760,9 @@ Wanneer u een aangepaste configuratie voor IIS gebruikt, kunt u de opties die ni
 -   Bovendien kan het exemplaar dat u gebruikt met andere System Center-producten worden gedeeld, zolang de System Center-producten geen beperkingen voor het delen van het exemplaar van SQL Server.  
 
 ###  <a name="bkmk_2008SCPpreq"></a>Serviceverbindingspunt  
-**.NET framework:**  
+**.NET Framework:**  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
      Wanneer deze sitesysteemrol wordt geïnstalleerd, als de server nog niet over een ondersteunde versie van .NET Framework is geïnstalleerd, installeert Configuration Manager automatisch .NET Framework 4.5.2. Deze installatie kunt plaatsen van de server opnieuw opstarten status in behandeling. Wanneer opnieuw opstarten is in behandeling voor de .NET Framework, .NET-toepassingen mislukken pas nadat de server opnieuw is opgestart en de installatie is voltooid.  
 
@@ -772,11 +773,11 @@ Wanneer u een aangepaste configuratie voor IIS gebruikt, kunt u de opties die ni
 -   De sitesysteemrol vereist de x64 versie.  
 
 ###  <a name="bkmk_2008SUPpreq"></a>Software-updatepunt  
-**.NET framework:**  
+**.NET Framework:**  
 
 -   .NET framework 3.5 SP1 (of hoger)  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
 **IIS-configuratie:**
 

@@ -6,19 +6,20 @@ ms.date: 05/02/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 3ae68fa6-8b30-45dd-9d12-50bb67cb4a9d
-caps.latest.revision: "51"
+caps.latest.revision: 
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: fb8b7dd27d890750fb93f02d38c0fd9d6c0feca6
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 6e0da4f8c42bb0b2275566eba35b1e06b2028c1b
+ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="what39s-changed-in-system-center-configuration-manager-from-system-center-2012-configuration-manager"></a>Wat &#39; s gewijzigd in System Center Configuration Manager van System Center 2012 Configuration Manager
 
@@ -81,7 +82,7 @@ Houd er rekening mee Out-of-Band-beheer in System Center 2012 Configuration Mana
 ##  <a name="bkmk_out"></a> Afgeschafte functies  
  Sommige mogelijkheden, zoals systeemeigen [ondersteuning voor Intel Active Management Technology (AMT)](#bkmk_AMT) op computers worden verwijderd uit de Configuration Manager-console. Andere mogelijkheden, zoals Network Access Protection worden volledig verwijderd. Bovendien worden sommige oudere Microsoft-producten, zoals Windows Vista, Windows Server 2008 en SQL Server 2008 niet meer ondersteund.  
 
- Zie voor een lijst met afgeschafte functies [verwijderd en afgeschafte functies voor System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
+ Zie voor een lijst met afgeschafte functies [verwijderd en afgeschaft items voor System Center Configuration Manager](../../../core/plan-design/changes/deprecated/removed-and-deprecated.md).  
 
  Zie voor meer informatie over ondersteunde producten, besturingssystemen en configuraties [ondersteunde configuraties voor System Center Configuration Manager](../../../core/plan-design/configs/supported-configurations.md).  
 
@@ -98,7 +99,7 @@ Let op de volgende wijzigingen aan de implementatie van besturingssysteem:
 
 -   Windows PE Peer Cache is nu beschikbaar wanneer u besturingssystemen implementeert. Computers met een takenreeks om een besturingssysteem te implementeren kunnen Windows PE-Peer-Cache gebruiken om inhoud te verkrijgen van een lokale peer (een peer-cachebron), in plaats van inhoud downloaden vanaf een distributiepunt. Dit helpt het Wide Area Network-verkeer (WAN) te beperken indien er sprake is van meerdere filialen terwijl er geen lokaal distributiepunt bestaat. Zie [Windows PE-Peer-Cache voorbereiden om WAN-verkeer te beperken in System Center Configuration Manager](/sccm/osd/get-started/prepare-windows-pe-peer-cache-to-reduce-wan-traffic) voor meer informatie.  
 
--   U kunt nu de status van Windows als een service in uw omgeving weergeven. U kunt ook maken onderhoudsplannen om implementatieringen te vormen en ervoor te zorgen dat de huidige vertakking computers Windows 10 worden bijgewerkt wanneer er nieuwe builds worden vrijgegeven. Bovendien kunt u waarschuwingen weergeven wanneer Windows 10-clients het einde van de ondersteuningsperiode voor hun build van Current Branch (CB) of Current Branch for Business (CBB) naderen. Zie [Windows als een service beheren met System Center Configuration Manager](../../../osd/deploy-use/manage-windows-as-a-service.md) voor meer informatie.  
+-   U kunt nu de status van Windows als een service in uw omgeving weergeven. U kunt ook maken onderhoudsplannen om implementatieringen te vormen en ervoor te zorgen dat de huidige vertakking computers Windows 10 worden bijgewerkt wanneer er nieuwe builds worden vrijgegeven. Bovendien kunt u waarschuwingen weergeven wanneer Windows 10-clients het einde van de ondersteuningsperiode voor hun build van Current Branch (CB) of Current Branch for Business (CBB) naderen. Zie [Windows als service beheren met System Center Configuration Manager](../../../osd/deploy-use/manage-windows-as-a-service.md) voor meer informatie.  
 
 ## <a name="application-management"></a>Toepassingsbeheer  
 

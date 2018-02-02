@@ -7,19 +7,20 @@ ms.date: 01/04/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c8534a1e-57b8-4688-b6e6-299d82cfcec9
-caps.latest.revision: "1"
+caps.latest.revision: 
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 90542085af2a1e5cf0701c5eac6d2625c23eb8c6
-ms.sourcegitcommit: db9978135d7a6455d83dbe4a5175af2bdeaeafd8
+ms.openlocfilehash: 40894c4ebb562e5c979f1226349ff91c38516618
+ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="keep-windows-10-up-to-date-in-the-enterprise-using-configuration-manager"></a>Windows 10 in de onderneming met Configuration Manager up-to-date te houden
 
@@ -33,7 +34,7 @@ System Center Configuration Manager biedt uitgebreide controle over de functie-u
 | ------------- |-------------|
 |[Overzicht van Configuration Manager als een service](/sccm/core/plan-design/changes/whats-new-incremental-versions)|Biedt een korte samenvatting van de belangrijkste punten voor het nieuwe servicemodel voor Configuration Manager (huidige vertakking)|
 |[Ondersteuningslevenscyclus](/sccm/core/servers/manage/current-branch-versions-supported)|Worden de nieuwe ondersteuning en het servicemodel.|
-|[Verwijderde en afgeschafte functies](/sccm/core/plan-design/changes/removed-and-deprecated-features)|Biedt vroege kennisgeving over toekomstige wijzigingen die invloed kunnen zijn op uw gebruik van Configuration Manager.|
+|[Verwijderde en afgeschafte items](/sccm//core/plan-design/changes/deprecated/removed-and-deprecated)|Biedt vroege kennisgeving over toekomstige wijzigingen die invloed kunnen zijn op uw gebruik van Configuration Manager.|
 |[Configuration Manager als een service](/sccm/core/servers/manage/updates)|Legt uit de eenvoudige methode in de console van het toepassen van functie-updates voor Configuration Manager.|
 |[Beschikbare updates downloaden](/core/servers/manage/install-in-console-updates#get-available-updates)|Legt uit de twee modi die u kunt nieuwe Configuration Manager functie-updates.|
 |[Controlelijst voor bijwerken](/sccm/core/servers/manage/install-in-console-updates#bkmk_beforeinstall)|Biedt update versiespecifiek controlelijsten, indien van toepassing.| 

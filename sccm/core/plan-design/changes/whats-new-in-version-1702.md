@@ -6,18 +6,19 @@ ms.custom: na
 ms.date: 05/02/2017
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 409e26e1-7716-4f1d-a0ee-34feabf20792
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: aa8d80cf9c036e63dc74ffe78bc8d5b060d6053e
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: cf46bb32994ddb8a1fa3b9de0dbffc94228ad7fd
+ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="what39s-new-in-version-1702-of-system-center-configuration-manager"></a>Wat &#39; s is nieuw in versie 1702 van System Center Configuration Manager
 
@@ -35,13 +36,13 @@ Update 1702 voor de huidige vertakking van System Center Configuration Manager i
 De volgende secties bevatten informatie over wijzigingen en nieuwe mogelijkheden die zijn geïntroduceerd in versie 1702 van Configuration Manager.  
 
 ## <a name="deprecated-features-and-operating-systems"></a>Afgeschafte functies en -besturingssystemen
-Meer informatie over ondersteuning voor wijzigingen voordat ze worden geïmplementeerd in [verwijderde en afgeschafte functies](/sccm/core/plan-design/changes/removed-and-deprecated-features).
+Meer informatie over ondersteuning voor wijzigingen voordat ze worden geïmplementeerd in [verwijderde en afgeschafte items](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated).
 
 Versie 1702 geen ondersteuning meer voor de volgende producten:
-- **SQL Server 2008 R2**, voor site-databaseservers. Afschaffing van ondersteuning is [eerst aangekondigd](/sccm/core/plan-design/changes/removed-and-deprecated-features#deprecated-support-for-sql-server-versions-as-a-site-database) op 10 juli 2015. Deze versie van SQL Server blijft ondersteund wanneer u een Configuration Manager versie voorafgaand aan versie 1702 gebruikt.
-- **Windows Server 2008 R2**, voor sitesysteemservers en de meeste sitesysteemrollen. Afschaffing van ondersteuning is [eerst aangekondigd](/sccm/core/plan-design/changes/removed-and-deprecated-features#deprecated-operating-systems) op 10 juli 2015. Deze versie van Windows blijft ondersteund wanneer u een Configuration Manager versie voorafgaand aan versie 1702 gebruikt.  
-- **Windows Server 2008**, voor sitesysteemservers en de meeste sitesysteemrollen. Afschaffing van ondersteuning is [eerst aangekondigd](/sccm/core/plan-design/changes/removed-and-deprecated-features#deprecated-operating-systems) op 10 juli 2015.
-- **Windows XP Embedded**, als een client-besturingssysteem. Afschaffing is [eerst aangekondigd](/sccm/core/plan-design/changes/removed-and-deprecated-features#deprecated-operating-systems) op 10 juli 2015. Deze versie van Windows blijft ondersteund wanneer u een Configuration Manager versie voorafgaand aan versie 1702 gebruikt.
+- **SQL Server 2008 R2**, voor site-databaseservers. Afschaffing van ondersteuning is [eerst aangekondigd](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-server#deprecated-support-for-sql-server-versions-as-a-site-database) op 10 juli 2015. Deze versie van SQL Server blijft ondersteund wanneer u een Configuration Manager versie voorafgaand aan versie 1702 gebruikt.
+- **Windows Server 2008 R2**, voor sitesysteemservers en de meeste sitesysteemrollen. Afschaffing van ondersteuning is [eerst aangekondigd](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-server#deprecated-server-operating-systems) op 10 juli 2015. Deze versie van Windows blijft ondersteund wanneer u een Configuration Manager versie voorafgaand aan versie 1702 gebruikt.  
+- **Windows Server 2008**, voor sitesysteemservers en de meeste sitesysteemrollen. Afschaffing van ondersteuning is [eerst aangekondigd](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-server#deprecated-server-operating-systems) op 10 juli 2015.
+- **Windows XP Embedded**, als een client-besturingssysteem. Afschaffing is [eerst aangekondigd](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-client#deprecated-client-operating-systems) op 10 juli 2015. Deze versie van Windows blijft ondersteund wanneer u een Configuration Manager versie voorafgaand aan versie 1702 gebruikt.
 
 
 
@@ -66,7 +67,7 @@ De volgende zijn verbeteringen voor het gebruik van zoeken in de Configuration M
 
  U vindt de **Feedback** optie:
  -  In het lint, aan de linkerkant van het tabblad Start van elk knooppunt.  
-    ![Lint](./media/feedback-home.png)
+    ![Ribbon](./media/feedback-home.png)
 
  -  Wanneer u met de rechtermuisknop op een object in de console.   
      ![De optie kopiëren en klik op](./media/feedback-option.png)   

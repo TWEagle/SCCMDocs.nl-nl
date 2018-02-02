@@ -17,11 +17,11 @@ caps.handback.revision:
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 158817547d40f09fb8bd30ebedd5aea6420a8571
-ms.sourcegitcommit: aee9ac45c15f27d8cf827890edcae94c03f5fd5e
+ms.openlocfilehash: 5320d7747f7e2c6164da8c1801e631b749935d6d
+ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="task-sequence-steps-in-system-center-configuration-manager"></a>Stappen voor takenreeksen in System Center Configuration Manager
 
@@ -60,7 +60,7 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **installatiekopieën**,
 > [!NOTE]  
 >  Deze takenreeksactie wordt de installatiekopie beschouwd als een gegevensbestand. Deze actie wordt niet elke instelling als u wilt de opstartinstallatiekopie als een besturingssysteem.  
 
- **Bestemming**  
+ **Destination**  
  Configureer een van de volgende opties:
 
 -   **Volgende beschikbare partitie**: De volgende sequentiële partitie gebruiken die een **besturingssysteem toepassen** of **gegevensinstallatiekopie toepassen** actie in deze takenreeks niet al is geselecteerd.  
@@ -192,7 +192,7 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **stuurprogramma's**, en
 
  Als u geen Windows setup-antwoordbestand opgeeft, wordt een antwoordbestand automatisch gegenereerd door deze takenreeksactie.  
 
- **Bestemming**  
+ **Destination**  
  Configureer een van de volgende opties:  
 
 -   **Volgende beschikbare partitie**: De volgende sequentiële partitie gebruiken die een **besturingssysteem toepassen** of **gegevensinstallatiekopie toepassen** actie in deze takenreeks niet al is geselecteerd. 
@@ -1313,7 +1313,7 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **installatiekopieën**,
  Klik op **Bladeren**, schakelt u het clientinstallatiepakket voor Configuration Manager wilt gebruiken bij deze stap.  
 
  **Gebruik pre-productieclientpakket indien beschikbaar**  
- Als er een pre-productieclientpakket beschikbaar is, wordt de takenreeks dit pakket gebruikt in plaats van het productieclientpakket. De pre-productieclient is een nieuwere versie voor het testen in de productieomgeving. Klik op **Bladeren**, selecteer vervolgens het installatiepakket van de pre-productieclient wilt gebruiken bij deze stap.  
+ Als er een pre-productieclientpakket beschikbaar is en de computer lid van de testverzameling is, de takenreeks dit pakket gebruikt in plaats van het productieclientpakket. De pre-productieclient is een nieuwere versie voor het testen in de productieomgeving. Klik op **Bladeren**, selecteer vervolgens het installatiepakket van de pre-productieclient wilt gebruiken bij deze stap.  
 
  **Installatie-eigenschappen**  
  Sitetoewijzing en de standaardconfiguratie worden automatisch opgegeven door de takenreeksactie. U kunt dit veld gebruiken om eventuele aanvullende installatie-eigenschappen op te geven die worden gebruikt bij installatie van de client. Als u meerdere installatie-eigenschappen wilt invoeren, scheidt u deze met een spatie.  

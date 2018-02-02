@@ -7,19 +7,20 @@ ms.date: 12/18/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 35e237b6-9f7b-4189-90e7-8eca92ae7d3d
-caps.latest.revision: "21"
+caps.latest.revision: 
 author: mestew
 ms.author: mstewart
 manager: dougeby
-ms.openlocfilehash: 2dcf7ab67c0f57d442f6ab0a0ea9f0f476fe8415
-ms.sourcegitcommit: bc86be110c8d2a7a076e17f433d8c5ffd51a7d04
+ms.openlocfilehash: 82df06873449d538b7efbe414a451d746d48e11f
+ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="supported-sql-server-versions-for-system-center-configuration-manager"></a>Ondersteunde versies van SQL Server voor System Center Configuration Manager
 
@@ -134,7 +135,7 @@ U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebru
 -->
 
 ### <a name="sql-server-2008-r2-sp3-standard-enterprise-datacenter"></a>SQL Server 2008 R2 SP3: Standard, Enterprise, Datacenter     
-  Deze versie van SQL Server wordt niet ondersteund [vanaf versie 1702](/sccm/core/plan-design/changes/removed-and-deprecated-features#deprecated-support-for-sql-server-versions-as-a-site-database).  
+  Deze versie van SQL Server wordt niet ondersteund [vanaf versie 1702](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-server#deprecated-support-for-sql-server-versions-as-a-site-database).  
  Deze versie van SQL Server blijft ondersteund wanneer u een eerdere versie van Configuration Manager dan 1702 gebruikt.
 
 Wanneer dit wordt ondersteund door de versie van Configuration Manager, kunt u deze versie van SQL Server zonder minimale cumulatieve updateversie voor de volgende sites:  

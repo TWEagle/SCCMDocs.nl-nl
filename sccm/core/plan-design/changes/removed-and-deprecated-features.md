@@ -7,20 +7,21 @@ ms.date: 08/16/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: d8c8b44c-1e8a-42b6-bab4-23c72a0a6169
-caps.latest.revision: "15"
-caps.handback.revision: "0"
+caps.latest.revision: 
+caps.handback.revision: 
 author: mestew
 ms.author: mstewart
 manager: angrobe
 ms.openlocfilehash: 95df27d4bf21a2cb1b6d613415a3eff4c3a73552
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.sourcegitcommit: aee9ac45c15f27d8cf827890edcae94c03f5fd5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/31/2018
 ---
 # <a name="removed-and-deprecated-features-for-system-center-configuration-manager"></a>Verwijderde en afgeschafte functies voor System Center Configuration Manager
 
@@ -75,9 +76,9 @@ Zie voor meer informatie:
 |Windows Server 2003 R2|10 juli 2015|Versie 1511|  
 |Windows Vista|10 juli 2015|Versie 1511|  
 |Mac OS X 10.6 10.8|10 juli 2015|Versie 1511|  
-|Windows Mobile 6.0 6.5|10 juli 2015|Versie 1511|  
+|Windows Mobile 6.0 - 6.5|10 juli 2015|Versie 1511|  
 |Nokia Symbian Belle|10 juli 2015|Versie 1511|  
-|Windows CE 5.0 6.0|10 juli 2015|Versie 1511|  
+|Windows CE 5.0 - 6.0|10 juli 2015|Versie 1511|  
 
 
 ## <a name="deprecated-support-for-sql-server-versions-as-a-site-database"></a>Afgeschafte ondersteuning voor versies van SQL Server als een sitedatabase  
@@ -99,7 +100,7 @@ Als u moet de versie van SQL Server wilt bijwerken, raden wij de volgende method
 |-|-|-|  
 |Network Access Protection (NAP) – zoals gevonden in System Center 2012 Configuration Manager|10 juli 2015|Versie 1511|  
 |Buiten-Bandbeheer – zoals gevonden in System Center 2012 Configuration Manager|16 oktober 2015|Versie 1511|
-|Takenreeksen: <br /> -OSDPreserveDriveLetter  <br /><br /> Tijdens de implementatie van een besturingssysteem bepaalt standaard Windows Setup nu de beste stationsletter te gebruiken (meestal C:). Als u opgeven van een ander station moet worden gebruikt wilt, kunt u de locatie van de takenreeksstap besturingssysteem toepassen. Ga naar de **selecteert u de locatie waar u wilt toepassen van dit besturingssysteem** optie **logische stationsletter opgeven**, en kies het station dat u wilt gebruiken. |20 juni 2016 |Versie 1606 |
+|Takenreeksen: <br /> - OSDPreserveDriveLetter  <br /><br /> Tijdens de implementatie van een besturingssysteem bepaalt standaard Windows Setup nu de beste stationsletter te gebruiken (meestal C:). Als u opgeven van een ander station moet worden gebruikt wilt, kunt u de locatie van de takenreeksstap besturingssysteem toepassen. Ga naar de **selecteert u de locatie waar u wilt toepassen van dit besturingssysteem** optie **logische stationsletter opgeven**, en kies het station dat u wilt gebruiken. |20 juni 2016 |Versie 1606 |
 |Takenreeksen: <br /> -Schijf naar dynamische schijf converteren <br /> -Implementatiehulpprogramma's installeren |18 november 2016|Ondersteuning voor deze taak takenreeksen eindigt met de eerste update die na 1 juni 2017 uitgebracht.|
 |Software Center heeft een nieuwe, moderne vormgeving. In de komende maanden wordt de vorige versie van het Software Center niet langer beschikbaar.<br><br>U kunt clients zo instellen dat er gebruik van het nieuwe Software Center doordat de client-instelling, **Computeragent** > **nieuwe Software Center gebruiken**.<br><br>Zie voor meer informatie over Software Center [plannen en configureren van Toepassingsbeheer in System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/plan-design/plan-for-and-configure-application-management).|December 13 mei 2016|Ondersteuning voor de vorige versie van Software Center eindigt met de eerste update die na 1 januari 2018 uitgebracht.|
 |Met de komst van de nieuwe ervaring met Software Center in versie 1511 weergegeven apps die nu alleen in de Toepassingscatalogus (voor gebruikers beschikbare apps eerst) in Software Center. </br></br>Met deze primaire functionaliteit van de Application Catalog nu opgenomen in Software Center kan wordt de Application Catalog webgebaseerde ervaring niet langer beschikbaar in de komende maanden.|11 augustus 2017| Ondersteuning voor de Application Catalog website gebruikerservaring op de eerste update die na 1 juni 2018 wordt uitgebracht eindigt|

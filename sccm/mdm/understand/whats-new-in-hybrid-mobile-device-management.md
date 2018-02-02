@@ -7,18 +7,19 @@ ms.date: 01/04/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-hybrid
+ms.technology:
+- configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 04ed2ac1abe54c3b8c7c86f210b35f5f52d80ef6
-ms.sourcegitcommit: c432624b8816f59d51a3c8ef68960ed4099d9124
+ms.openlocfilehash: aca30a199e38b2d4ed38a458694d98010b5e2496
+ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Wat is er nieuw in hybride mobile device management met System Center Configuration Manager en Microsoft Intune
 
@@ -45,6 +46,9 @@ Elke sectie van dit artikel vindt u hybridefuncties onder drie verschillende cat
 ## <a name="january-2018"></a>2018 januari
 
 ### <a name="new-in-microsoft-intune"></a>Nieuw in Microsoft Intune
+
+- **Nieuwe functionaliteit voor de actie 'Los' voor Android-apparaten**<!--1583480-->    
+  De bedrijfsportal-app voor Android is de actie 'Los' voor uitbreidbare **bijwerken apparaatinstellingen** om op te lossen [apparaat versleuteling problemen](https://docs.microsoft.com/intune-user-help/encrypt-your-device-android).
 
 - **Vergrendelen op afstand beschikbaar in de bedrijfsportal-app voor Windows 10**<!--676506-->    
   Eindgebruikers kunnen hun apparaten uit de bedrijfsportal-app nu op afstand vergrendelen voor Windows 10. Dit wordt niet weergegeven voor het lokale apparaat dat actief wordt gebruikt.

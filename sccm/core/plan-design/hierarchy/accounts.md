@@ -7,20 +7,21 @@ ms.date: 2/9/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 72d7b174-f015-498f-a0a7-2161b9929198
-caps.latest.revision: "7"
-caps.handback.revision: "0"
+caps.latest.revision: 
+caps.handback.revision: 
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 518be0c1cb4c361d8802ed70779d192725eb8feb
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+ms.openlocfilehash: 1b8248cbbade7d46d1a1ad41edd704b5ad8d49aa
+ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="accounts-used-in-system-center-configuration-manager"></a>Accounts die worden gebruikt System Center Configuration Manager
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 01/04/2018
 Gebruik de volgende informatie om de Windows-groepen en de accounts die worden gebruikt in System Center Configuration Manager, hoe ze worden gebruikt en eventuele vereisten te identificeren.  
 
 ## <a name="windows-groups-that-configuration-manager-creates-and-uses"></a>Windows-groepen die worden gemaakt en gebruikt met Configuration Manager  
- Configuration Manager automatisch maakt en in veel gevallen automatisch onderhoudt, worden de volgende Windows-groepen.  
+ Configuration Manager automatisch maakt en in veel gevallen automatisch onderhoudt, worden de volgende Windows-groepen:  
 
 > [!NOTE]  
 >  Als u Configuration Manager maakt een groep op een computer die lid is van een domein, is de groep een lokale beveiligingsgroep. Als de computer een domeincontroller is, is de groep een lokale domeingroep die wordt gedeeld onder alle domeincontrollers in het domein.  
@@ -72,7 +73,7 @@ De volgende tabel bevat aanvullende informatie voor deze groep:
 |------------|----------------------|  
 |Type en locatie|Deze groep is een lokale beveiligingsgroep gemaakt op elke computer die een SMS-Provider heeft.<br /><br /> Wanneer u een site verwijdert, wordt deze groep niet automatisch verwijderd. Dit moet handmatig worden verwijderd.|  
 |Lidmaatschap|Het groepslidmaatschap wordt automatisch beheerd door Configuration Manager. Elke beheerder in een hiërarchie en de account van de siteservercomputer is standaard lid van de SMS Admins-groep op elke computer van de SMS Provider in een site.|  
-|Machtigingen|SMS Admins-rechten en machtigingen zijn ingesteld in de WMI Control MMC-module. Standaard wordt de groep SMS Admins krijgt **Account inschakelen** en **extern activeren** voor de naamruimte Root\SMS. Geverifieerde gebruikers hebben **methoden uitvoeren**, **providerobjecten**, en **Account inschakelen**.<br /><br /> Gebruikers met beheerdersrechten die een externe Configuration Manager-console gebruiken vereisen Remote Activation DCOM-machtigingen voor zowel de siteservercomputer als de computer van de SMS-Provider. Het wordt aanbevolen deze rechten toe te kennen aan de SMS Admins om het beheer te vereenvoudigen in plaats van deze rechten rechtstreeks aan gebruikers of groepen toe te kennen. Zie voor meer informatie de sectie [DCOM-machtigingen configureren voor externe Configuration Manager-consoles](../../../core/servers/manage/modify-your-infrastructure.md#BKMK_ConfigDCOMforRemoteConsole) in het onderwerp [Uw infrastructuur van System Center Configuration Manager aanpassen](../../../core/servers/manage/modify-your-infrastructure.md).|  
+|Machtigingen|SMS Admins-rechten en machtigingen zijn ingesteld in de WMI Control MMC-module. Standaard wordt de groep SMS Admins krijgt **Account inschakelen** en **extern activeren** voor de naamruimte Root\SMS. Geverifieerde gebruikers hebben **methoden uitvoeren**, **providerobjecten**, en **Account inschakelen**.<br /><br /> Gebruikers met beheerdersrechten die een externe Configuration Manager-console gebruiken vereisen Remote Activation DCOM-machtigingen voor zowel de siteservercomputer als de computer van de SMS-Provider. Het wordt aanbevolen deze rechten toe te kennen aan de SMS Admins om het beheer te vereenvoudigen in plaats van deze rechten rechtstreeks aan gebruikers of groepen toe te kennen. Zie voor meer informatie de [configureren van DCOM-machtigingen voor externe Configuration Manager-consoles](../../../core/servers/manage/modify-your-infrastructure.md#BKMK_ConfigDCOMforRemoteConsole) sectie het [uw infrastructuur van System Center Configuration Manager aanpassen](../../../core/servers/manage/modify-your-infrastructure.md) artikel.|  
 
 ### <a name="smssitesystemtositeserverconnectionmpltsitecode"></a>SMS_SiteSystemToSiteServerConnection_MP_&lt;sitecode\>  
  Deze groep Configuration Manager-beheerpunten die extern van de siteserver zijn gebruiken voor verbinding met de sitedatabase. Deze groep biedt een beheerpunt toegang tot het Postvak IN op de siteserver en de sitedatabase.  
@@ -163,7 +164,7 @@ De volgende tabel bevat aanvullende informatie voor deze groep:
 
  Het account moet de machtigingen **Lezen** en **Schrijven** hebben op de netwerkshare waar de vastgelegde installatiekopie is opgeslagen.  
 
- Als het wachtwoord voor het account is gewijzigd in Windows, moet u de takenreeks bijwerken met het nieuwe wachtwoord. Configuration Manager-client wordt het nieuwe wachtwoord ontvangen wanneer het clientbeleid op de volgende keer downloadt.  
+ Als het wachtwoord voor het account is gewijzigd in Windows, moet u de takenreeks bijwerken met het nieuwe wachtwoord. De Configuration Manager-client ontvangt het nieuwe wachtwoord wanneer het clientbeleid op de volgende keer downloadt.  
 
  Als u dit account gebruikt, kunt u één domeingebruikersaccount maken met minimale machtigingen voor toegang tot de vereiste netwerkbronnen en dit gebruiken voor alle takenreeksaccounts.  
 
@@ -245,6 +246,8 @@ De volgende tabel bevat aanvullende informatie voor deze groep:
 
 ### <a name="reporting-services-point-account"></a>Account van Reporting Services-punt  
  SQL Server Reporting Services gebruikt de **Account voor Reporting Services-punt** voor het ophalen van de gegevens voor Configuration Manager-rapporten uit de sitedatabase. Het Windows-gebruikersaccount en wachtwoord die u opgeeft, worden versleuteld en opgeslagen in de SQL Server Reporting Services-database.  
+>[!NOTE]
+>Het account dat u opgeeft moet lokaal machtigingen op de computer die als host fungeert voor de Reporting Services-database hebt aangemeld.
 
 ### <a name="remote-tools-permitted-viewer-accounts"></a>Accounts van toegestane van externe hulpprogramma's  
  De accounts die u opgeeft als **toegestane viewers** voor extern beheer zijn een lijst van gebruikers die zijn gemachtigd externe hulpprogramma's te gebruiken op clients.  
@@ -306,7 +309,7 @@ Dit account moet een lokale beheerder op de computer waarop WSUS is geïnstallee
 ### <a name="task-sequence-editor-domain-joining-account"></a>Takenreekseditoraccount voor domeinlidmaatschap  
  Het **takenreekseditoraccount voor domeinlidmaatschap** wordt gebruikt in een takenreeks om een zojuist gerepliceerde computer lid te maken van een domein. Dit account is nodig als u de stap **Lid maken van domein of werkgroep** aan een takenreeks toevoegt en daarna **Lid maken van domein** selecteert. Dit account kan ook worden ingesteld als u de stap toevoegt **netwerkinstellingen toepassen** aan een taak, maar dit is niet vereist.  
 
- Voor dit account is het recht **Lid worden van domein** vereist in het domein waarvan de computer lid wordt.  
+ Deze account vereist de **lid worden van domein** rechts in het domein waarvan de computer lid is.  
 
 > [!TIP]  
 >  Als u dit account nodig hebt voor uw takenreeksen, kunt u één domeingebruikersaccount maken met minimale machtigingen voor toegang tot de benodigde netwerkbronnen en ervan gebruik maken voor alle takenreeksaccounts.  
@@ -339,8 +342,8 @@ Dit account moet een lokale beheerder op de computer waarop WSUS is geïnstallee
 >   
 >  Maak nooit de account de beheerder van een domein.  
 >   
->  Nooit zwervende profielen voor dit account instellen. Wanneer de takenreeks wordt uitgevoerd, zal deze het zwervend profiel voor het account downloaden. Dit betekent dat het profiel kwetsbaar voor toegang op de lokale computer.  
+>  Nooit zwervende profielen voor dit account instellen. Wanneer de takenreeks wordt uitgevoerd, downloadt u het zwervende profiel voor het account. Dit maakt het profiel kwetsbaar voor toegang op de lokale computer.  
 >   
 >  Beperk het bereik van het account. Maak voor elke taakreeks bijvoorbeeld verschillende uitvoeren-als accounts voor takenreeksen, zodat, wanneer één account gevaar loopt, alleen de clientcomputers waartoe het account toegang heeft gevaar lopen.  
 >   
->  Als de opdrachtregel beheerderstoegang op de computer vereist, kunt u het maken van een lokale beheerdersaccount uitsluitend voor de Takenreeks Run As-Account op alle computers die de takenreeks wordt uitgevoerd. Het account verwijderen als u niet langer.  
+>  Als de opdrachtregel beheerderstoegang op de computer vereist, kunt u het maken van een lokale beheerdersaccount uitsluitend voor de Takenreeks Run As-Account op alle computers waarop de takenreeks wordt uitgevoerd. Het account verwijderen als u niet langer.  

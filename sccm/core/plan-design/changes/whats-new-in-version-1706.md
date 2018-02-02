@@ -6,18 +6,19 @@ ms.custom: na
 ms.date: 08/11/2017
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ac034143-003e-4629-aac2-99eaffef4db1
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: fddb31279587df5306c07a9f23dfc4dace418ea7
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: fb6c377edee5cbf387398ed2166ca2cca0cdb765
+ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="what39s-new-in-version-1706-of-system-center-configuration-manager"></a>Wat &#39; s is nieuw in versie 1706 van System Center Configuration Manager
 
@@ -36,7 +37,7 @@ De volgende secties bevatten informatie over wijzigingen en nieuwe mogelijkheden
 
 <!--
 ## Deprecated features and operating systems
-Learn about support changes before they are implemented in [removed and deprecated features](/sccm/core/plan-design/changes/removed-and-deprecated-features).
+Learn about support changes before they are implemented in [removed and deprecated items](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated).
 
 Version 1706 drops support for the following products:
 -->
@@ -146,7 +147,7 @@ Zie voor meer informatie over instellingen voor alle Windows 10, [het maken van 
 
  **Ondersteund op:**
  * Windows Phone 8+
- * Windows 8.1 +
+ * Windows 8.1+
  * iOS 6+
 <br></br>
 * **Blok USB-foutopsporing op apparaat**. U beschikt niet over deze instellingen configureren, zoals USB-foutopsporing is al uitgeschakeld op Android voor Work-apparaten.

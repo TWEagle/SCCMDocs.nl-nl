@@ -7,19 +7,20 @@ ms.date: 06/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 17905b4c-3895-4ad4-a69c-5e0d0fc5a8c3
-caps.latest.revision: "44"
+caps.latest.revision: 
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 03618b541f8f00ccab69fa4ebcef81ffc146010c
-ms.sourcegitcommit: 645cd5a324bdd299906efa27eaca5885eafc9e9c
+ms.openlocfilehash: 18df431f0fd1b355b1ad629a10126907187ddbbd
+ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="supported-operating-systems-for-system-center-configuration-manager-site-system-servers"></a>Ondersteunde besturingssystemen voor System Center Configuration Manager-sitesysteemservers
 
@@ -180,7 +181,7 @@ Vanaf versie 1606 met de rollup hotfix van KB3186654 (of de basislijnversie van 
 -   Statusmigratiepunt  
 
 ## <a name="windows-server-2008-r2-with-sp1-x64-standard-enterprise-and-datacenter"></a>Windows Server 2008 R2 met SP1 (x 64): Standard, Enterprise en Datacenter  
- Windows Server 2008 R2 is nu uitgebreide ondersteuning en niet langer in het algemeen worden ondersteund, zoals beschreven in [Microsoft Support Lifecycle](https://support.microsoft.com/lifecycle). Zie voor meer informatie over toekomstige ondersteuning voor deze besturingssystemen als sitesysteemservers met Configuration Manager [verwijderd en afgeschafte functies voor System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
+ Windows Server 2008 R2 is nu uitgebreide ondersteuning en niet langer in het algemeen worden ondersteund, zoals beschreven in [Microsoft Support Lifecycle](https://support.microsoft.com/lifecycle). Zie voor meer informatie over toekomstige ondersteuning voor deze besturingssystemen als sitesysteemservers met Configuration Manager [afgeschafte serverbesturingssystemen](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-server#deprecated-server-operating-systems).  
 
  Met ingang van Configuration Manager versie 1702 kan dit besturingssysteem wordt niet ondersteund voor siteservers of de meeste sitesysteemrollen, maar is zichtbaar voor de sitesysteemrol distributiepunt ondersteunde (inclusief pull-distributiepunten en voor PXE en multicast).
 
@@ -234,7 +235,7 @@ Vanaf versie 1606 met de rollup hotfix van KB3186654 (of de basislijnversie van 
 -   Statusmigratiepunt  
 
 ## <a name="windows-server-2008-with-sp2-x86-x64-standard-enterprise-and-datacenter"></a>WindowsServer 2008 met SP2 (x 86, x 64): Standard, Enterprise en Datacenter  
- Windows Server 2008 is nu uitgebreide ondersteuning en niet langer in het algemeen worden ondersteund, zoals beschreven in [Microsoft Support Lifecycle](https://support.microsoft.com/lifecycle). Zie voor meer informatie over toekomstige ondersteuning voor deze besturingssystemen als sitesysteemservers met Configuration Manager [verwijderd en afgeschafte functies voor System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
+ Windows Server 2008 is nu uitgebreide ondersteuning en niet langer in het algemeen worden ondersteund, zoals beschreven in [Microsoft Support Lifecycle](https://support.microsoft.com/lifecycle). Zie voor meer informatie over toekomstige ondersteuning voor deze besturingssystemen als sitesysteemservers met Configuration Manager [afgeschafte serverbesturingssystemen](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-server#deprecated-server-operating-systems).  
 
 Dit besturingssysteem wordt niet ondersteund voor siteservers of sitesysteemrollen met uitzondering van het distributiepunt en pull-distributiepunt. U kunt blijven gebruiken van dit besturingssysteem als een distributiepunt totdat afschaffing van deze ondersteuning wordt aangekondigd of de periode voor uitgebreide ondersteuning van dit besturingssysteem is verstreken. Zie voor meer informatie [installatie van System Center Configuration Manager CB en LTSB mislukt op Windows Server 2008](https://support.microsoft.com/help/4015095).
 
