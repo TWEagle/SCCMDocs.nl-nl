@@ -10,20 +10,23 @@ ms.prod: configuration-manager
 ms.service: 
 ms.technology: 
 ms.assetid: d6bbc787-83a5-44b4-ad64-016e5da7413f
-ms.openlocfilehash: 4b582d5fbd9e2e916c439b149e117f1a65da98bf
-ms.sourcegitcommit: 5f4a584d4a833b0cc22bd8c47da7dd55aced97fa
+ms.openlocfilehash: 0cc11a05013fd9c25ee98ec35adcbe822d8a21fb
+ms.sourcegitcommit: 389c4e5b4e9953b74c13b1689195f99c526fa737
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="co-management-for-windows-10-devices"></a>CO-beheer voor Windows 10-apparaten    
 <!-- 1350871 -->
 Veel klanten willen beheren van Windows 10-apparaten op dezelfde manier beheren van mobiele apparaten met behulp van een vereenvoudigde en lagere kosten, cloud-gebaseerde oplossing. Echter, het overschakelen van traditionele management naar moderne management kan lastig zijn. In de eerdere Windows 10-updates, kunt u al een Windows 10-apparaat toevoegen met on-premises Active Directory (AD) en Azure AD cloud-gebaseerd op hetzelfde moment (hybride Azure AD). Beginnen met Configuration Manager versie 1710, mede management maakt gebruik van deze verbetering en kunt u gelijktijdig Windows 10 versie 1709 (ook wel bekend als de vallen auteurs Update) om apparaten te beheren met behulp van zowel Configuration Manager en Intune. Het is een oplossing waarmee een verbinding met traditionele naar moderne management biedt en u een pad voor de overgang met behulp van een gefaseerde benadering. 
 
-Er zijn twee belangrijkste paden naar CO management bereiken.  Een is Configuration Manager ingerichte mede management waarbij Windows 10-apparaten worden beheerd door Configuration Manager en hybride Azure AD lid ophalen ingeschreven bij Intune. De andere is Intune ingericht op apparaten die zijn ingeschreven bij Intune en vervolgens worden geïnstalleerd met het bereik van de client Configuration Manager een CO-management-status.  
+Er zijn twee belangrijkste paden naar CO management bereiken.  Een is Configuration Manager ingerichte mede management waarbij Windows 10-apparaten worden beheerd door Configuration Manager en hybride Azure AD lid ophalen ingeschreven bij Intune. De andere is Intune ingericht op apparaten die zijn ingeschreven bij Intune en vervolgens worden geïnstalleerd met het bereik van de client Configuration Manager een CO-management-status.
 
 ## <a name="prerequisites"></a>Vereisten
 U moet beschikken over de volgende vereisten voordat u kunt CO-beheer inschakelen. Er zijn algemene vereisten en andere vereisten gelden voor apparaten met Configuration Manager-client en apparaten die geen van de client is geïnstalleerd.
+
+> [!IMPORTANT]
+> Windows 10 mobile-apparaten bieden geen ondersteuning voor CO-beheer.
 
 ### <a name="general-prerequisites"></a>Algemene vereisten
 Hieronder vindt u algemene vereisten voor het inschakelen van CO-beheer:  

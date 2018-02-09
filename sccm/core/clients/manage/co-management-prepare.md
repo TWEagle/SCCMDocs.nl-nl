@@ -10,14 +10,17 @@ ms.prod: configuration-manager
 ms.service: 
 ms.technology: 
 ms.assetid: 101de2ba-9b4d-4890-b087-5d518a4aa624
-ms.openlocfilehash: d605dd4770be6878b08f4ac61da6ab27e3b6d61f
-ms.sourcegitcommit: ac9268e31440ffe91b133c2ba8405d885248d404
+ms.openlocfilehash: 902787f173c714fd2a73cc657aad758bd79ce3c8
+ms.sourcegitcommit: 389c4e5b4e9953b74c13b1689195f99c526fa737
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="prepare-windows-10-devices-for-co-management"></a>Windows 10-apparaten voor het beheer van CO voorbereiden
 U kunt CO-beheer op Windows 10-apparaten die zijn toegevoegd aan AD en Azure AD en ingeschreven in Intune en een client in Configuration Manager inschakelen. Voor de nieuwe Windows 10-apparaten, en voor apparaten die al zijn ingeschreven in Intune, de Configuration Manager-client installeren voordat ze samen beheerd worden kunnen. Voor Windows 10-apparaten die al Configuration Manager-clients, kunt u de apparaten inschrijven bij Intune en mede-beheer in de Configuration Manager-console inschakelen.
+
+> [!IMPORTANT]
+> Windows 10 mobile-apparaten bieden geen ondersteuning voor CO-beheer.
 
 ## <a name="command-line-to-install-configuration-manager-client"></a>Vanaf de opdrachtregel voor het installeren van Configuration Manager-client
 U moet een app maken in Intune voor Windows 10-apparaten die nog geen Configuration Manager-clients. Wanneer u de app in de volgende secties maakt, gebruikt u de volgende opdrachtregel:
@@ -43,7 +46,7 @@ Bijvoorbeeld, als u had de volgende waarden:
 
 Gebruikt u de volgende opdrachtregel:
 
-ccmsetup.msi CCMSETUPCMD = "/ mp:https: / &#47;contoso.cloudapp.net/CCM_Proxy_MutualAuth/72057594037928100 CCMHOSTNAME=contoso.cloudapp.net/CCM_Proxy_MutualAuth/72057594037928100 SMSSiteCode = PS1 SMSMP = https: / &#47; sccmmp.corp.contoso.com AADTENANTID = 72F988BF-86F1-41AF-91AB-2D7CD011XXXX AADTENANTNAME = contoso AADCLIENTAPPID = bef323b3-042f-41a6-907a-f9faf0d1XXXX AADRESOURCEURI = https: / &#47; ConfigMgrServer'
+ccmsetup.msi CCMSETUPCMD="/mp:https:/&#47;contoso.cloudapp.net/CCM_Proxy_MutualAuth/72057594037928100    CCMHOSTNAME=contoso.cloudapp.net/CCM_Proxy_MutualAuth/72057594037928100 SMSSiteCode=PS1 SMSMP=https:/&#47;sccmmp.corp.contoso.com AADTENANTID=72F988BF-86F1-41AF-91AB-2D7CD011XXXX AADTENANTNAME=contoso  AADCLIENTAPPID=bef323b3-042f-41a6-907a-f9faf0d1XXXX AADRESOURCEURI=https:/&#47;ConfigMgrServer”
 
 > [!Tip]
 > U vindt de opdrachtregelparameters voor uw site met behulp van de volgende stappen uit:     

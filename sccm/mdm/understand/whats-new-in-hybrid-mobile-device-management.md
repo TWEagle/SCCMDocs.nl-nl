@@ -3,7 +3,7 @@ title: Wat is er nieuw in hybride MDM
 titleSuffix: Configuration Manager
 description: Meer informatie over de nieuwe functies voor mobiele apparaten beschikbaar voor hybride implementaties met Configuration Manager en Intune.
 ms.custom: na
-ms.date: 01/04/2018
+ms.date: 02/06/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: aca30a199e38b2d4ed38a458694d98010b5e2496
-ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
+ms.openlocfilehash: c724d9eafde6aa9abc0d3f9bfa867418046b2ecb
+ms.sourcegitcommit: 389c4e5b4e9953b74c13b1689195f99c526fa737
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Wat is er nieuw in hybride mobile device management met System Center Configuration Manager en Microsoft Intune
 
@@ -46,6 +46,16 @@ Elke sectie van dit artikel vindt u hybridefuncties onder drie verschillende cat
 ## <a name="january-2018"></a>2018 januari
 
 ### <a name="new-in-microsoft-intune"></a>Nieuw in Microsoft Intune
+
+- **Goedkeuren van de bedrijfsportal-app voor Android for Work**<!--1797090 -->    
+  Als uw organisatie Android for Work gebruikt, moet u handmatig goedkeuren van de bedrijfsportal-app voor Android zodat blijft ontvangen van automatische updates van de beheerde Google Play store.
+
+- **Beleid voor voorwaardelijke toegang voor Intune is alleen beschikbaar vanuit de Azure-portal**  <!-- 1737088 1634311 -->    
+  Vanaf deze release, moet u configureren en beheren van uw beleid voor voorwaardelijke toegang in de [Azure-portal](https://portal.azure.com) van **Azure Active Directory** > **voorwaardelijke toegang** . Voor uw gemak u kunt ook toegang tot deze blade van Intune in de Azure portal op **Intune** > **voorwaardelijke toegang**.
+
+- **Updates voor naleving e-mailberichten**<!--1637547 -->    
+  Wanneer een e-mailbericht wordt verzonden naar een niet-compatibel apparaat rapporteren, wordt informatie over de niet-compatibel apparaat zijn opgenomen. 
+
 
 - **Nieuwe functionaliteit voor de actie 'Los' voor Android-apparaten**<!--1583480-->    
   De bedrijfsportal-app voor Android is de actie 'Los' voor uitbreidbare **bijwerken apparaatinstellingen** om op te lossen [apparaat versleuteling problemen](https://docs.microsoft.com/intune-user-help/encrypt-your-device-android).
