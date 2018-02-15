@@ -7,24 +7,25 @@ ms.date: 8/24/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0cf4bacb-6b6d-4d4f-8640-b13fe15873de
-caps.latest.revision: "8"
-caps.handback.revision: "0"
+caps.latest.revision: 
+caps.handback.revision: 
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 0cc1915a73ed55403eca27021b77aab1fd1ddb03
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 91e86bd578403d17ec7e4cc9dc6284c51a57053e
+ms.sourcegitcommit: 37e990d191028160486dbca286d2ea945bd5c8c3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="support-for-windows-features-and-networks-in-system-center-configuration-manager"></a>Ondersteuning voor Windows-onderdelen en -netwerken in System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 Dit onderwerp vindt u System Center Configuration Manager-ondersteuning voor algemene Windows- en netwerkfuncties.  
 
@@ -66,10 +67,11 @@ Deze clients cache ook de inhoud. Op deze wijze hoeven opeenvolgende clients in 
 |Windows Server 2008 R2|Standaard ondersteund|  
 |Windows Server 2012|Standaard ondersteund|  
 |Windows Server 2012 R2|Standaard ondersteund|  
+|Windows Server 2016|Standaard ondersteund|  
 
  Zie [BranchCache voor Windows](http://go.microsoft.com/fwlink/p/?LinkId=177945) in de Windows Server-documentatie voor meer informatie.  
 
-##  <a name="bkmk_Workgroups"></a>Computers in werkgroepen  
+##  <a name="bkmk_Workgroups"></a> Computers in werkgroepen  
 Configuration Manager biedt ondersteuning voor clients in werkgroepen.  
 
 -   Configuration Manager ondersteunt het verplaatsen van een client van een werkgroep naar een domein of van een domein naar een werkgroep. Zie voor meer informatie [Configuration Manager-clients installeren op Computers in werkgroepen](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientWorkgroup) in de [clients implementeren op Windows-computers in System Center Configuration Manager](../../../core/clients/deploy/deploy-clients-to-windows-computers.md) onderwerp.  
@@ -110,7 +112,7 @@ Configuration Manager biedt geen ondersteuning voor het volgende via DirectAcces
 ##  <a name="bkmk_dualboot"></a> Dual-bootcomputers  
  Configuration Manager kan niet meer dan één besturingssysteem op één computer beheren. Als er meer dan één besturingssysteem op een computer die moet worden beheerd is, past u de detectie- en installatiemethoden die worden gebruikt om ervoor te zorgen dat de Configuration Manager client alleen wordt geïnstalleerd op het besturingssysteem dat moet worden beheerd.  
 
-##  <a name="bkmk_IPv6"></a>Internet Protocol versie 6  
+##  <a name="bkmk_IPv6"></a> Internet Protocol versie 6  
  Configuration Manager ondersteunt naast Internet Protocol versie 4 (IPv4), Internet Protocol versie 6 (IPv6) met de volgende uitzonderingen:  
 
 |Functie| Uitzondering op IPv6-ondersteuning|  
