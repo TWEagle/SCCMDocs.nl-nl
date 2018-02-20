@@ -15,11 +15,11 @@ ms.assetid: 4884a2d3-13ce-44e5-88c4-a66dc7ec6014
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 83648c791117dd537968e8c0b0d71203f14f1075
-ms.sourcegitcommit: e15516983883a4dd002c4bdd114147b04b811021
+ms.openlocfilehash: 1b5e8f744573680ab55fcfff26622e312206ca1a
+ms.sourcegitcommit: fbd4a9d2fa8ed4ddd3a0fecc4a2ec4fc0ccc3d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="capabilities-in-technical-preview-1802-for-system-center-configuration-manager"></a>Mogelijkheden van Technical Preview 1802 voor System Center Configuration Manager
 
@@ -406,7 +406,7 @@ In deze release die Configuration Manager-client wordt ondersteund op Windows 10
 
 ## <a name="changes-to-phased-deployments"></a>Wijzigingen in gefaseerde implementaties
 <!-- 1357405 -->
-Gefaseerde implementaties automatiseren een gecoördineerde, geordende rollout van software zonder dat er meerdere implementaties. De wizard gefaseerde implementatie kan worden voltooid voor takenreeksen in de beheerconsole en implementaties worden gemaakt in deze Technical Preview-versie. Echter, de productiefase niet automatisch wordt gestart als is voldaan aan de criteria voor succes van de testfase. De productiefase kan handmatig worden gestart met een SQL-instructie.   
+Gefaseerde implementaties automatiseren een gecoördineerde, geordende rollout van software in meerdere verzamelingen. De wizard gefaseerde implementatie kan worden voltooid voor takenreeksen in de beheerconsole en implementaties worden gemaakt in deze Technical Preview-versie. Echter, de tweede fase niet automatisch wordt gestart als is voldaan aan de criteria voor succes van de eerste fase. De tweede fase kan handmatig worden gestart met een SQL-instructie.   
 
 ### <a name="try-it-out"></a>Probeer het nu!  
   Probeer de taken uitvoeren. Verzend **Feedback** van de **Start** tabblad van het lint laat ons weten hoe het is gegaan.
@@ -414,14 +414,14 @@ Gefaseerde implementaties automatiseren een gecoördineerde, geordende rollout v
 **Een gefaseerde implementatie voor een takenreeks maken** </br>
 1. In de **softwarebibliotheek** werkruimte Vouw **besturingssystemen**, en selecteer **Takenreeksen**.
 2. Met de rechtermuisknop op een bestaande takenreeks en selecteert u **gefaseerde implementatie maken**. 
-3. Op de **algemene** tabblad, geef de gefaseerde implementatie een naam, beschrijving (optioneel) en selecteer **automatisch maken standaard test en productie fasen**. 
-4. Vul de **verzameling testfase** en **Productieverzameling** velden. Selecteer **volgende**.
+3. Op de **algemene** tabblad, geef de gefaseerde implementatie een naam, beschrijving (optioneel) en selecteer **automatisch maken van een standaard twee fase implementatie**. 
+4. Vul de **eerste verzameling** en **tweede collectie** velden. Selecteer **volgende**.
 5. Op de **instellingen** tabblad, kiest u een optie voor elk van de schema-instellingen en selecteer **volgende** wanneer u klaar. 
 6. Op de **fasen** tabblad, een van de fasen Bewerk indien nodig en klik vervolgens op **volgende**.
 7. Bevestig uw selecties op de **samenvatting** tabblad en klik vervolgens op **volgende** om door te gaan.
-8. Wanneer de succescriteria voor de testfase is bereikt en volg de instructies voor de productiefase beginnen met een SQL-instructie.
+8. Wanneer de succescriteria voor de eerste fase is bereikt en volg de instructies voor het starten van de tweede fase met een SQL-instructie.
  
-**Productiefase beginnen met een SQL-instructie**
+**Tweede fase beginnen met een SQL-instructie**
 1. Identificeer de PhasedDeploymentID voor de implementatie die u hebt gemaakt met de volgende SQL-query:<br/> `Select * from PhasedDeployment`
 2. Voer de volgende instructie voor het starten van de productiefase bevindt:<br/> `UPDATE PhasedDeployment SET EvaluatePhasedDeployment = 1, Action = 3 WHERE PhasedDeploymentID = <Phased Deployment ID>`
 

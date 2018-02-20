@@ -3,36 +3,37 @@ title: Lokale infrastructuur bijwerken
 titleSuffix: Configuration Manager
 description: Informatie over het upgraden van de infrastructuur, zoals SQL Server en het besturingssysteem van de site van site-systemen.
 ms.custom: na
-ms.date: 06/05/2017
+ms.date: 02/15/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8ca970dd-e71c-404f-9435-d36e773a0db2
-caps.latest.revision: "7"
-caps.handback.revision: "0"
+caps.latest.revision: 
+caps.handback.revision: 
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 3296fe01ebe7d3343a174ffd18483156683b69f7
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 8e17ffad2b972119c92e449bef8f086b950b106c
+ms.sourcegitcommit: fbd4a9d2fa8ed4ddd3a0fecc4a2ec4fc0ccc3d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="upgrade-on-premises-infrastructure-that-supports-system-center-configuration-manager"></a>Lokale infrastructuur bijwerken die ondersteuning biedt voor System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Gebruik de informatie in dit onderwerp voor hulp bij het upgraden van de infrastructuur van de server waarop System Center Configuration Manager wordt uitgevoerd.  
+Gebruik de informatie in dit artikel om u te helpen u bij het bijwerken van de infrastructuur van de server waarop System Center Configuration Manager wordt uitgevoerd.  
 
  - Als u upgraden vanaf een eerdere versie van Configuration Manager naar System Center Configuration Manager wilt, raadpleegt u [upgraden naar System Center Configuration Manager](/sccm/core/servers/deploy/install/upgrade-to-configuration-manager).
 
 - Als u uw infrastructuur voor System Center Configuration Manager bijwerken naar een nieuwe versie wilt, Zie [Updates voor System Center Configuration Manager](/sccm/core/servers/manage/updates).
 
-##  <a name="BKMK_SupConfigUpgradeSiteSrv"></a>Werk het besturingssysteem van de site-systemen  
+##  <a name="BKMK_SupConfigUpgradeSiteSrv"></a> Werk het besturingssysteem van de site-systemen  
  Configuration Manager ondersteunt de in-place upgrade van het besturingssysteem van de servers die als host fungeren van een siteserver en externe servers die als host fungeren van elke sitesysteemrol in de volgende situaties:  
 
 -   In-place upgrade naar een hoger Windows Server-servicepack als het resulterende servicepackniveau van Windows ondersteund door Configuration Manager blijft.  
@@ -43,26 +44,25 @@ Gebruik de informatie in dit onderwerp voor hulp bij het upgraden van de infrast
     - Wanneer u Configuration Manager versie 1602 of hoger, wordt ook ondersteund voor een upgrade van Windows Server 2008 R2 naar Windows Server 2012 R2 ([Zie aanvullende informatie](#bkmk_from2008r2).
 
     > [!WARNING]  
-    >  Voordat u de upgrade naar Windows Server 2012 R2 uitvoert, *dient u WSUS 3.2 te verwijderen* van de server.  
-    >   
-    >  Voor informatie over deze kritieke stap, Zie de sectie 'New and changed functionality' in [overzicht van Windows Server Update Services](https://technet.microsoft.com/library/hh852345.aspx) in de documentatie van Windows Server.  
+    >  Voordat u naar een ander besturingssysteem bijwerkt *moet u WSUS verwijderen* van de server. U kunt de SUSDB houden en koppel deze opnieuw als WSUS is geïnstalleerd. Voor informatie over deze kritieke stap, Zie de sectie 'New and changed functionality' in [overzicht van Windows Server Update Services](https://technet.microsoft.com/library/hh852345.aspx) in de documentatie van Windows Server.  
 
 Gebruik de upgradeprocedures geleverd door het besturingssysteem dat u een upgrade uitvoert voor het bijwerken van een server.  Zie de volgende:
   -  [Opties voor Windows Server 2012 R2 upgraden](https://technet.microsoft.com/library/dn303416.aspx) in de documentatie van Windows Server.  
   - [Upgrade en conversie-opties voor Windows Server 2016](https://technet.microsoft.com/windows-server-docs/get-started/supported-upgrade-paths) in de documentatie van Windows Server.
 
-### <a name="bkmk_2016"></a>Upgrade van WindowsServer 2012 of WindowsServer 2012 R2-2016
+### <a name="bkmk_2016"></a>  Upgrade van WindowsServer 2012 of WindowsServer 2012 R2-2016
 Wanneer u Windows Server 2012 of Windows Server 2012 R2 naar Windows Server 2016, de volgende van toepassing upgraden:
 
 
 **Voor de upgrade:**  
 -   De System Center Endpoint Protection (SCEP)-client verwijderen. Windows Server 2016 heeft ingebouwde Windows-Defender die de SCEP-client vervangt. De aanwezigheid van de SCEP-client kunt voorkomen dat een upgrade naar Windows Server 2016.
+-   De WSUS-rol van de server verwijderen als deze is geïnstalleerd. U kunt de SUSDB houden en koppel deze opnieuw als WSUS is geïnstalleerd.
 
 **Na de upgrade:**
 -   Zorg ervoor dat Windows Defender is ingeschakeld, instellen voor automatisch starten en wordt uitgevoerd.
 -   Zorg ervoor dat de volgende Configuration Manager-services worden uitgevoerd:
   -     SMS EXECUTIVE
-  -     SMS SITE COMPONENT MANAGER
+  -     SMS_SITE_COMPONENT_MANAGER
 
 
 -   Zorg ervoor dat de **Windows Process Activation** en **WWW/W3svc** services zijn ingeschakeld, worden ingesteld voor automatisch starten en de volgende sitesysteemrollen (deze services worden uitgeschakeld tijdens de upgrade) worden uitgevoerd:
@@ -90,10 +90,10 @@ Na de upgrade van de siteserver of een server die als host fungeert voor een exe
   -   Op afstand inschakelen
 5. Sla de machtigingen voor toegang voor de Configuration Manager-console herstellen.
 
-### <a name="bkmk_2012r2"></a>WindowsServer 2012 naar Windows Server 2012 R2
+### <a name="bkmk_2012r2"></a> Windows Server 2012 to Windows Server 2012 R2
 
 **Voor de upgrade:**
--  In tegenstelling tot de andere ondersteunde scenario's, is dit scenario geen extra overwegingen vóór upgrade vereist.
+-   De WSUS-rol van de server verwijderen als deze is geïnstalleerd. U kunt de SUSDB houden en koppel deze opnieuw als WSUS is geïnstalleerd.
 
 **Na de upgrade:**
   - Zorg ervoor dat de Windows Deployment Service is gestart en worden uitgevoerd voor de volgende sitesysteemrollen (deze service is gestopt tijdens de upgrade):
@@ -113,7 +113,7 @@ Na de upgrade van de siteserver of een server die als host fungeert voor een exe
 
   Na het terugzetten van ontbrekende vereiste onderdelen, start opnieuw op de server een keer om ervoor te zorgen services zijn gestart en operationele.
 
-### <a name="bkmk_from2008r2"></a>Upgrade van Windows Server 2008 R2 naar Windows Server 2012 R2
+### <a name="bkmk_from2008r2"></a>  Upgrade van Windows Server 2008 R2 naar Windows Server 2012 R2
 Dit besturingssysteem upgradescenario heeft de volgende voorwaarden:  
 
 **Voor de upgrade:**
@@ -144,11 +144,11 @@ Dit besturingssysteem upgradescenario heeft de volgende voorwaarden:
 De volgende upgradescenario's van Windows Server veelgestelde over, maar niet ondersteund door Configuration Manager:  
 
 -   Windows Server 2008 naar Windows Server 2012 of hoger  
--   Windows Server 2008 R2 naar WindowsServer 2012
+-   Windows Server 2008 R2 to Windows Server 2012
 
 
 
-##  <a name="BKMK_SupConfigUpgradeClient"></a>Werk het besturingssysteem van Configuration Manager-clients  
+##  <a name="BKMK_SupConfigUpgradeClient"></a> Werk het besturingssysteem van Configuration Manager-clients  
  Configuration Manager ondersteunt een in-place upgrade van het besturingssysteem voor Configuration Manager-clients in de volgende situaties:  
 
 -   In-place upgrade naar een hoger Windows servicepack als het resulterende servicepackniveau ondersteund door Configuration Manager blijft.  
@@ -157,7 +157,7 @@ De volgende upgradescenario's van Windows Server veelgestelde over, maar niet on
 
 -   Upgrades van build-naar-build onderhoud van Windows 10.  Zie [Windows als een service beheren met System Center Configuration Manager](../../../osd/deploy-use/manage-windows-as-a-service.md) voor meer informatie.  
 
-##  <a name="BKMK_SupConfigUpgradeDBSrv"></a>SQL Server op de Sitedatabaseserver bijwerken  
+##  <a name="BKMK_SupConfigUpgradeDBSrv"></a> SQL Server op de Sitedatabaseserver bijwerken  
   Configuration Manager ondersteunt een in-place upgrade van SQL Server vanuit een ondersteunde versie van SQL op de Sitedatabaseserver. De SQL Server upgradescenario's in deze sectie worden ondersteund door Configuration Manager en vereisten voor elk scenario bevatten.
 
  Zie voor meer informatie over de versies van SQL Server die worden ondersteund door Configuration Manager [ondersteuning voor SQL Server-versies voor System Center Configuration Manager](../../../core/plan-design/configs/support-for-sql-server-versions.md).  

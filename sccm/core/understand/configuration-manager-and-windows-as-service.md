@@ -16,11 +16,11 @@ caps.latest.revision:
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 40894c4ebb562e5c979f1226349ff91c38516618
-ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
+ms.openlocfilehash: 6d93be3ec04396c9980b039617c673985090cdc6
+ms.sourcegitcommit: fbd4a9d2fa8ed4ddd3a0fecc4a2ec4fc0ccc3d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="keep-windows-10-up-to-date-in-the-enterprise-using-configuration-manager"></a>Windows 10 in de onderneming met Configuration Manager up-to-date te houden
 
@@ -36,7 +36,7 @@ System Center Configuration Manager biedt uitgebreide controle over de functie-u
 |[Ondersteuningslevenscyclus](/sccm/core/servers/manage/current-branch-versions-supported)|Worden de nieuwe ondersteuning en het servicemodel.|
 |[Verwijderde en afgeschafte items](/sccm//core/plan-design/changes/deprecated/removed-and-deprecated)|Biedt vroege kennisgeving over toekomstige wijzigingen die invloed kunnen zijn op uw gebruik van Configuration Manager.|
 |[Configuration Manager als een service](/sccm/core/servers/manage/updates)|Legt uit de eenvoudige methode in de console van het toepassen van functie-updates voor Configuration Manager.|
-|[Beschikbare updates downloaden](/core/servers/manage/install-in-console-updates#get-available-updates)|Legt uit de twee modi die u kunt nieuwe Configuration Manager functie-updates.|
+|[Beschikbare updates downloaden](/sccm/core/servers/manage/install-in-console-updates.md#get-available-updates)|Legt uit de twee modi die u kunt nieuwe Configuration Manager functie-updates.|
 |[Controlelijst voor bijwerken](/sccm/core/servers/manage/install-in-console-updates#bkmk_beforeinstall)|Biedt update versiespecifiek controlelijsten, indien van toepassing.| 
 |[Nieuwe updates voor Configuration Manager-functie installeren](/sccm/core/servers/manage/install-in-console-updates#bkmk_install)|De eenvoudige installatiestappen aangegeven voor functie-updates.|
 |[Ondersteuning voor Windows 10](/sccm/core/plan-design/configs/support-for-windows-10)|Biedt ondersteuning voor een matrix voor Windows 10 (en ADK)-versies.|

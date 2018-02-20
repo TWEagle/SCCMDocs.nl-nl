@@ -18,11 +18,11 @@ author: mestew
 ms.author: mstewart
 manager: dougeby
 robots: noindex,nofollow
-ms.openlocfilehash: e077c83277e7ca2633ca29633327398b96e5e712
-ms.sourcegitcommit: e15516983883a4dd002c4bdd114147b04b811021
+ms.openlocfilehash: cfc54c1beb92d0102897f77ce3c287cc0ef9e0f4
+ms.sourcegitcommit: fbd4a9d2fa8ed4ddd3a0fecc4a2ec4fc0ccc3d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="use-the-product-lifecycle-dashboard-to-manage-microsoft-lifecycle-policy-in-system-center-configuration-manager"></a>Gebruik het Dashboard van de levenscyclus Product voor het beheren van Microsoft Support Lifecycle-beleid in System Center Configuration Manager
 
@@ -40,6 +40,9 @@ Zie voor meer informatie over het levenscyclusbeleid van Microsoft Product [Micr
 - De Asset Intelligence-synchronisatiepunt moet worden geconfigureerd en gesynchroniseerd. Zie voor meer informatie [Asset Intelligence configureren in System Center Configuration Manager](/sccm/core/clients/manage/asset-intelligence/configuring-asset-intelligence).
 
 De gegevens in het dashboard is afhankelijk van het Asset Intelligence-synchronisatiepunt geïnstalleerd hebben. Het dashboard maakt gebruik van de Asset Intelligence-catalogus als metagegevens voor producttitels. De metagegevens wordt vergeleken met inventarisgegevens in uw hiërarchie. 
+
+>[!NOTE]
+>Als u het Asset Intelligence-servicepunt voor het eerst configureert, moet u [Asset Intelligence-hardware-inventarisklassen inschakelen](/sccm/core/clients/manage/asset-intelligence/configuring-asset-intelligence#BKMK_EnableAssetIntelligence). Het dashboard van de levenscyclus is afhankelijk van de Asset Intelligence-hardware-inventarisklassen en wordt niet weergave van gegevens tot clients hebt gescand op hardware-inventaris geretourneerd.  
 
 ## <a name="use-the-microsoft-product-lifecycle-dashboard"></a>Gebruik het dashboard van de levenscyclus van Microsoft-producten
 
