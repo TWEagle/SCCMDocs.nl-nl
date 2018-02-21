@@ -5,22 +5,23 @@ description: Configuration Manager worden gesynchroniseerd voor Office 365-clien
 keywords: 
 author: mestew
 ms.author: mstewart
-manager: angrobe
-ms.date: 12/28/2017
+manager: dougeby
+ms.date: 02/16/2018
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
-ms.technology: configmgr-sum
+ms.technology:
+- configmgr-sum
 ms.assetid: eac542eb-9aa1-4c63-b493-f80128e4e99b
-ms.openlocfilehash: b951e72635806c12bd0ec0dd66e382a767b99b43
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+ms.openlocfilehash: aedfec9d423c52b1d6864cd8a10dd5c498fb3b0a
+ms.sourcegitcommit: 1378532fac2620ddcfd31061982f344a290c2e67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="manage-office-365-proplus-with-configuration-manager"></a>Beheren van Office 365 ProPlus met Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 Configuration Manager kunt u Office 365 ProPlus-apps in de volgende manieren beheren:
 
@@ -30,7 +31,7 @@ Configuration Manager kunt u Office 365 ProPlus-apps in de volgende manieren beh
 
 - [Office 365-updates implementeren](#deploy-office-365-updates): Vanaf versie 1602 van Configuration Manager, kunt u updates voor Office 365-clients beheren met behulp van de werkstroom voor software-update. Wanneer Microsoft publiceert een nieuwe Office 365-clientupdate voor de Office Content Delivery Network (CDN), publiceert Microsoft ook een updatepakket voor Windows Server Update Services (WSUS). Configuration Manager worden gesynchroniseerd met de Office 365-clientupdate van de WSUS-catalogus naar de siteserver, is de update beschikbaar om te implementeren op clients.    
 
-- [Toevoegen van talen voor Office 365-updatebestanden downloads](#add-languages-for-office-365-update-downloads): U kunt ondersteuning voor Configuration Manager voor alle talen die worden ondersteund door Office 365-updates te downloaden vanaf Configuration Manager versie 1610 kan toevoegen. Betekenis Configuration Manager geen ondersteuning voor de taal als Office 365 biedt.  
+- [Toevoegen van talen voor Office 365-updatebestanden downloads](#add-languages-for-office-365-update-downloads): U kunt ondersteuning voor Configuration Manager voor alle talen die worden ondersteund door Office 365-updates te downloaden vanaf Configuration Manager versie 1610 kan toevoegen. Betekenis Configuration Manager geen ondersteuning voor de taal als Office 365 biedt. U moet vóór de Configuration Manager versie 1610 downloaden en implementeren van updates in de dezelfde talen op Office 365-clients geconfigureerd. 
 
 - [Wijzigen van het kanaal update](#change-the-update-channel-after-you-enable-office-365-clients-to-receive-updates-from-configuration-manager): U kunt Groepsbeleid gebruiken voor het distribueren van een wijziging in het register sleutelwaarde op Office 365-clients om de update-kanaal te wijzigen.
 
@@ -70,8 +71,8 @@ Voor eerdere versies van Configuration Manager, moet u rekening houden met de vo
 - De computer die het Office 365-installatieprogramma uitvoert, moet toegang tot Internet hebben.  
 - De gebruiker die het Office 365-installatieprogramma uitvoert moet beschikken over **lezen** en **schrijven** toegang tot de locatie van inhoud share is opgegeven in de wizard.
 - Als er een fout bij het 404 downloaden, Kopieer de volgende bestanden naar de map % temp % van de gebruiker:
-  - [releasehistory.XML](http://officecdn.microsoft.com/pr/wsus/releasehistory.cab)
-  - [o365client_32bit.XML](http://officecdn.microsoft.com/pr/wsus/ofl.cab)  
+  - [releasehistory.xml](http://officecdn.microsoft.com/pr/wsus/releasehistory.cab)
+  - [o365client_32bit.xml](http://officecdn.microsoft.com/pr/wsus/ofl.cab)  
 
 
 ### <a name="to-deploy-office-365-apps-to-clients-from-the-office-365-client-management-dashboard"></a>Office 365-apps implementeren op clients vanuit het dashboard voor Office 365-clientbeheer
@@ -98,6 +99,8 @@ Nadat u maken en implementeren van Office 365-toepassingen met behulp van het Of
 
 
 ## <a name="deploy-office-365-updates"></a>Office 365-updates implementeren
+Vanaf Configuration Manager versie 1706 Office 365-clientupdates hebt verplaatst naar de **Office 365-clientbeheer** >**Office 365-Updates** knooppunt. Dit heeft geen invloed op de configuratie van de regel voor automatische implementatie. 
+
 Gebruik de volgende stappen voor het implementeren van updates voor Office 365 met Configuration Manager:
 
 1.  [Controleer de vereisten](https://technet.microsoft.com/library/mt628083.aspx) voor het gebruik van Configuration Manager voor het beheren van updates voor Office 365-clients in de **vereisten voor het gebruik van Configuration Manager voor het beheren van Office 365-clientupdates** sectie van het artikel.  
@@ -118,7 +121,7 @@ Gebruik de volgende stappen voor het implementeren van updates voor Office 365 m
 4. [De Office 365-updates implementeren](deploy-software-updates.md) aan clients.   
 
 > [!Important]
-> U moet downloaden en implementeren van updates in de dezelfde talen op Office 365-clients geconfigureerd. Bijvoorbeeld, Stel dat u hebt een Office 365-client die is geconfigureerd met het en-us en nl-nl talen. Op de siteserver u downloaden en implementeren van alleen en-us inhoud voor een Office 365-update van toepassing. Wanneer de gebruiker wordt de installatie vanuit Software Center voor deze update is gestart, wordt de update hangen tijdens het downloaden van de inhoud.   
+> U moet vóór de Configuration Manager versie 1610 downloaden en implementeren van updates in de dezelfde talen op Office 365-clients geconfigureerd. Bijvoorbeeld, Stel dat u hebt een Office 365-client die is geconfigureerd met het en-us en nl-nl talen. Op de siteserver u downloaden en implementeren van alleen en-us inhoud voor een Office 365-update van toepassing. Wanneer de gebruiker wordt de installatie vanuit Software Center voor deze update is gestart, wordt de update tijdens het downloaden van de inhoud voor nl-nl vastloopt.   
 
 ## <a name="restart-behavior-and-client-notifications-for-office-365-updates"></a>Opnieuw opstarten van gedrag en client meldingen voor updates voor Office 365
 Wanneer u een update op een Office 365-client implementeert, zijn de meldingen van gedrag en de client opnieuw opstarten verschillend afhankelijk van welke versie van Configuration Manager die u hebt. De volgende tabel bevat informatie over de eindgebruikerservaring wanneer de client een Office 365-update ontvangt:
@@ -175,19 +178,19 @@ De update om kanaal te wijzigen nadat u Office 365-clients te ontvangen van upda
 
 - Maandelijks kanaal <br/>
 <i>(voorheen huidige kanaal) </i>:  
-  **CDNBaseUrl** = http &#58;//officecdn.microsoft.com/pr/492350f6-3a01-4f97-b9c0-c7c6ddf67d60
+  **CDNBaseUrl** = http&#58;//officecdn.microsoft.com/pr/492350f6-3a01-4f97-b9c0-c7c6ddf67d60
 
 - Kanaal puntkomma per jaar <br/>
 <i>(voorheen uitgesteld kanaal) </i>:  
-  **CDNBaseUrl** = http &#58;//officecdn.microsoft.com/pr/7ffbc6bf-bc32-4f92-8982-f9dd17fd3114
+  **CDNBaseUrl** = http&#58;//officecdn.microsoft.com/pr/7ffbc6bf-bc32-4f92-8982-f9dd17fd3114
 
 - Maandelijks kanaal (doel)<Br/>
  <i>(voorheen eerste Release voor huidige kanaal) </i>:  
-  **CDNBaseUrl** = http &#58;//officecdn.microsoft.com/pr/64256afe-f5d9-4f86-8936-8840a6a4f5be
+  **CDNBaseUrl** = http&#58;//officecdn.microsoft.com/pr/64256afe-f5d9-4f86-8936-8840a6a4f5be
 
 - Puntkomma per jaar kanaal (doel) <br/>
 <i>(voorheen eerste Release voor uitgesteld kanaal) </i>:  
-  **CDNBaseUrl** = http &#58;//officecdn.microsoft.com/pr/b8f9b850-328d-4355-9145-c59439a0c4cf
+  **CDNBaseUrl** = http&#58;//officecdn.microsoft.com/pr/b8f9b850-328d-4355-9145-c59439a0c4cf
 <!--the channel names changed in Sept 2017- https://docs.microsoft.com/en-us/DeployOffice/overview-of-update-channels-for-office-365-proplus?ui=en-US&rs=en-US&ad=US>
 
 
