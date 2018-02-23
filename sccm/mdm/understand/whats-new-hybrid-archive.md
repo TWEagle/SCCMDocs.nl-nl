@@ -3,27 +3,28 @@ title: Archiveren van wat nieuw hybride MDM is
 titleSuffix: Configuration Manager
 description: Archief van afgelopen functies voor mobiele apparaten beschikbaar voor hybride implementaties met System Center Configuration Manager en Intune.
 ms.custom: na
-ms.date: 06/30/2017
+ms.date: 02/21/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-hybrid
+ms.technology:
+- configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4c27b161-9eb7-4cdd-b469-d8eb27e71aea
-author: dougeby
-ms.author: dougeby
-manager: angrobe
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 23b43e85a0ad698a377f51ce4b0d70fe197e9344
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: d6b67cd820a618d6a96424362ff282cbf232f092
+ms.sourcegitcommit: 45ff3ffa040eada5656b17f47dcabd3c637bdb60
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="past-hybrid-features-with-system-center-configuration-manager-and-microsoft-intune"></a>Afgelopen hybride functies met System Center Configuration Manager en Microsoft Intune
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 Dit artikel bevat informatie op het mobiele apparaat van afgelopen management (MDM)-functies die beschikbaar zijn voor hybride implementaties met System Center Configuration Manager en Microsoft Intune.  
 
@@ -33,7 +34,61 @@ Dit artikel bevat informatie op het mobiele apparaat van afgelopen management (M
 
 |Functie categorieën|
 |-|  
-|**Nieuw in Microsoft Intune** -In het algemeen alle functies die worden vermeld in deze categorie moeten samenwerken met alle versies van de Configuration Manager met inbegrip van System Center 2012 R2 Configuration Manager-versies, aangezien deze functies alleen de Intune-service nodig en niet aanvullende functionaliteit in Configuration Manager hoeven.<br /><br /> **Nieuw in Configuration Manager Technical Preview** -alle functies vermeld in deze categorie alleen werken met de opgegeven Technical Preview-versie. Als u wilt deze functies uit te proberen, moet u de Technical Preview-versie die is opgegeven in de beschrijving van de functie installeren. Zie voor meer informatie [Technical Preview voor System Center Configuration Manager](../../core/get-started/technical-preview.md).<br /><br /> **Nieuw in Configuration Manager (huidige vertakking)** -alle functies vermeld in deze categorie alleen werken met de opgegeven versie van Configuration Manager (huidige vertakking), zoals versie 1511 of 1602. Als u een oudere versie van Configuration Manager voor uw hybride implementatie gebruikt, moet u upgraden naar de Configuration Manager (huidige vertakking) versie opgegeven in de beschrijving van de functie. Zie voor meer informatie [upgraden naar System Center Configuration Manager](../../core/servers/deploy/install/upgrade-to-configuration-manager.md).|  
+|**Nieuw in Microsoft Intune** : In het algemeen alle functies die worden vermeld in deze categorie moet werken met alle versies van de Configuration Manager met inbegrip van System Center 2012 R2 Configuration Manager-versies, omdat deze alleen functies vereist de Intune service- en vereisen geen aanvullende functionaliteit in Configuration Manager.<br /><br /> **Nieuw in Configuration Manager Technical Preview** -alle functies vermeld in deze categorie alleen werken met de opgegeven Technical Preview-versie. Als u wilt deze functies uit te proberen, moet u de Technical Preview-versie die is opgegeven in de beschrijving van de functie installeren. Zie voor meer informatie [Technical Preview voor System Center Configuration Manager](../../core/get-started/technical-preview.md).<br /><br /> **Nieuw in Configuration Manager (huidige vertakking)** -alle functies vermeld in deze categorie alleen werken met de opgegeven versie van Configuration Manager (huidige vertakking), zoals versie 1511 of 1602. Als u een oudere versie van Configuration Manager voor uw hybride implementatie gebruikt, moet u upgraden naar de Configuration Manager (huidige vertakking) versie opgegeven in de beschrijving van de functie. Zie voor meer informatie [upgraden naar System Center Configuration Manager](../../core/servers/deploy/install/upgrade-to-configuration-manager.md).|  
+
+
+
+## <a name="february-2017"></a>Februari 2017
+
+### <a name="new-in-microsoft-intune"></a>Nieuw in Microsoft Intune
+
+- **De bedrijfsportalwebsite modernisering**
+
+  De bedrijfsportalwebsite ondersteunt apps die zijn gericht op gebruikers die geen beheerde apparaten. De website wordt uitgelijnd met andere Microsoft-producten en services met behulp van een nieuw tegengestelde kleurenschema, dynamische illustraties en een 'hamburger menu"met de helpdesk contactgegevens en informatie over het bestaande beheerde apparaten. De startpagina is geordend, zodat de apps die beschikbaar voor gebruikers met een carrousels voor aanbevolen en onlangs bijgewerkt apps zijn benadrukken. U kunt vinden voor en na installatiekopieën beschikbaar zijn op de [UI updates](https://docs.microsoft.com/intune/whats-new-app-ui) pagina.
+
+- **Nieuw adres door MDM-server voor Windows-apparaten**
+
+  Het adres van de MDM-server voor het inschrijven van Windows en Windows Phone-apparaten is gewijzigd van manage.microsoft.com in enrollment.manage.microsoft.com. Uw gebruiker enrollment.manage.microsoft.com gebruiken als het adres van de MDM-server als gevraagd om deze tijdens het inschrijven van een Windows waarschuwen of en Windows Phone-apparaat. Deze update moet ook een CNAME in DNS die enterpriseenrollment.contoso.com omleidt naar manage.microsoft.com worden vervangen door een CNAME in DNS die enterpriseenrollment.contoso.com omleidt naar EnterpriseEnrollment-s.manage.microsoft.com. Ga naar http://aka.ms/intuneenrollsvrchange voor meer informatie over deze wijziging.
+
+### <a name="new-in-configuration-manager-technical-preview-1702"></a>Nieuw in Configuration Manager Technical Preview 1702
+
+- **Android voor Work-ondersteuning**
+
+  U kunt nu Android-apparaten met Android for Work in hybride MDM-omgevingen met behulp van Configuration Manager Technical Preview 1702 beheren. Ondersteunde Android-apparaten kunnen nu worden ingeschreven als Android voor Work-apparaten die u maakt een work-profiel op het apparaat waarop de apps die zijn goedgekeurd in de Play voor werk kunnen worden geïmplementeerd. U kunt ook configureren en implementeren van configuratie-items, beleidsregels voor naleving en brontoegangsprofielen voor deze apparaten. Zie voor meer informatie [Android voor ondersteuning van werk](/sccm/core/get-started/capabilities-in-technical-preview-1702#android-for-work-support).
+
+- **Instellingen voor naleving van niet-compatibele Apps**
+
+  U kunt nu regels van de niet-compatibele apps voor Android en iOS-apps in een nalevingsbeleid maken. Als apparaten de opgegeven toepassingen geïnstalleerd zijn, moet deze zijn gemarkeerd als 'niet-compatibele' en geen toegang meer tot bedrijfsbronnen op basis van beleid voor voorwaardelijke toegang in plaats. Zie voor meer informatie [voorwaardelijke toegang apparaat naleving beleid verbeteringen](/sccm/core/get-started/capabilities-in-technical-preview-1702#conditional-access-device-compliance-policy-improvements).
+
+- **PFX-certificaat maken en distributie en het S/MIME-ondersteuning**
+
+  U kunt nu maken en implementeren van PFX-certificaten voor gebruikers in een hybride omgeving. Deze certificaten kunnen vervolgens worden gebruikt voor S/MIME-e-versleuteling en ontsleuteling door apparaten waarop de gebruiker is ingeschreven. Zie voor meer informatie [maken PFX-certificaten met S MIME ondersteunen](/sccm/core/get-started/capabilities-in-technical-preview-1702#create-pfx-certificates-with-s-mime-support).
+
+- **Ondersteuning voor extra iOS-configuratie-instellingen**
+   
+    U hebt nu 42 aanvullende iOS-instellingen die u als onderdeel van een configuratie-item configureren kunt. De meeste instellingen (35 in alle) zijn voor onder supervisie iOS-apparaten toegevoegd. Zie voor meer informatie [nieuwe instellingen voor naleving voor iOS-apparaten](/sccm/core/get-started/capabilities-in-technical-preview-1702#new-compliance-settings-for-ios-devices).
+
+
+
+## <a name="january-2017"></a>Januari 2017
+
+### <a name="new-in-microsoft-intune"></a>Nieuw in Microsoft Intune
+
+- **Ondersteuning voor android 7.1.1**
+
+  Intune nu volledig ondersteund en Android 7.1.1 beheert.
+
+- **Probleem waarbij iOS-apparaten zijn niet actief of de beheerconsole niet kan communiceren met deze oplossen**
+
+  Wanneer apparaten van gebruikers contact met Intune kwijtraken, kunt u ze nieuwe mogelijke problemen en oplossingen om u te helpen weer toegang tot bedrijfsbronnen op te geven. Zie [apparaten zijn niet actief of de beheerconsole kan niet communiceren met hen](https://docs.microsoft.com/intune/troubleshoot/troubleshoot-device-enrollment-in-intune#devices-are-inactive-or-the-admin-console-cannot-communicate-with-them).
+
+### <a name="new-in-configuration-manager-technical-preview-1701"></a>Nieuw in Configuration Manager Technical Preview 1701
+
+- **Android en iOS-versies worden niet meer targetable in wizards voor hybride MDM maken**
+
+  Vanaf Technical Preview 1701 voor hybride mobile device management (MDM) is hoeft niet langer te gericht op specifieke versies van Android en iOS bij het maken van nieuwe beleidsregels en profielen voor Intune-beheerde apparaten. Met deze wijziging kunnen hybride implementaties ondersteuning bieden sneller op nieuwe versies van Android en iOS zonder een nieuwe release van Configuration Manager of een uitbreiding. Zie voor meer informatie, [Android en iOS-versies worden niet meer in wizards voor het maken van targetable](/sccm/core/get-started/capabilities-in-technical-preview-1701#android-and-ios-versions-are-no-longer-targetable-in-creation-wizards-for-hybrid-mdm).
+
+
 
 ## <a name="december-2016"></a>December 2016
 
@@ -326,7 +381,7 @@ De volgende Intune-functies die zijn geïntroduceerd in juni 2016 werken in hybr
 
 - **Voorwaardelijke toegang voor de browser**
 
-  U kunt beleid voor voorwaardelijke toegang instellen voor Exchange Online en SharePoint Online, zodat deze alleen toegankelijk zijn via ondersteunde webbrowsers op beheerde en compatibele iOS en Android-apparaten. Eindgebruikers die proberen aan te melden bij Outlook Web Access (OWA) en SharePoint-sites met iOS- en Android-apparaten wordt gevraagd hun apparaat inschrijven bij Intune en eventuele problemen te lossen niet-naleving voordat ze kunnen aanmelding worden voltooid. Zie voor meer informatie.
+  U kunt beleid voor voorwaardelijke toegang instellen voor Exchange Online en SharePoint Online, zodat deze alleen toegankelijk zijn via ondersteunde webbrowsers op beheerde en compatibele iOS en Android-apparaten. Eindgebruikers die proberen aan te melden bij Outlook Web Access (OWA) en SharePoint-sites met iOS- en Android-apparaten wordt gevraagd hun apparaat inschrijven bij Intune en eventuele problemen te lossen niet-naleving voordat ze kunnen aanmelding worden voltooid. Zie
 
   * [Toegang tot e-mail beperken bij Exchange Online en nieuwe Exchange Online Dedicated met Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/restrict-access-to-exchange-online-with-microsoft-intune)
   * [Toegang tot SharePoint Online beperken met Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/restrict-access-to-sharepoint-online-with-microsoft-intune)
@@ -560,3 +615,24 @@ Geen nieuwe hybridefuncties zijn geïntroduceerd in juni 2016 voor Configuration
 - **iOS-Activeringsvergrendeling**
 
   Vanaf versie 1602 van Configuration Manager (huidige vertakking), kunt u iOS-Activeringsvergrendeling, een functie van de app Zoek mijn iPhone voor iOS 7.1 en hoger apparaten beheren. Activeringsvergrendeling is automatisch ingeschakeld wanneer de app Zoek mijn iPhone op een apparaat wordt gebruikt.  Zie voor meer informatie [beheren iOS-Activeringsvergrendeling overslaan voor System Center Configuration Manager](/sccm/mdm/deploy-use/manage-ios-activation-lock#bypass-activation-lock).  
+
+
+
+## <a name="notices"></a>Aankondigingen
+
+### <a name="system-center-2012-configuration-sp1-and-system-center-2012-r2-configuration-manager-rtm-support-for-hybrid-mobile-device-management-ending-on-april-10-2017"></a>System Center 2012 Configuration SP1 and System Center 2012 R2 Configuration Manager (RTM): Ondersteuning voor hybride mobile device management eindigt op 10 April 2017
+*11 januari 2017*
+
+Ondersteuning voor System Center 2012 Configuration Manager SP1 en System Center 2012 R2 Configuration Manager RTM beëindigd op 12 juli 2016. Vervolgens kunt u ondersteuning voor deze verbinding maken met de Microsoft Intune-service voor hybride MDM op 10 April 2017 eindigt releases. Na deze datum functioneert hybride MDM deze uitgaven. Beheerde apparaten wordt in wezen worden beheerd, zoals de Intune-Connector niet meer verbinding met de Intune-service maken wordt. Configuration Manager-gegevens (zoals beleidsregels en toepassingen) niet stromen naar Intune en beheerd apparaat wordt niet gegevensstroom naar beneden op Configuration Manager totdat u een upgrade wordt uitgevoerd.
+
+Als u een hybride implementatie met Configuration Manager 2012 SP1 of R2 RTM uitvoert, wordt u aangeraden vóór 10 April 2017 te upgraden naar Configuration Manager (huidige vertakking) of het meest recente ondersteunde servicepack voor Configuration Manager 2012 (R2 SP1 of SP2) om te voorkomen dat onderbreking van de service.
+
+Aanvullende bronnen:
+-   [Upgraden naar System Center Configuration Manager (huidige vertakking)](/sccm/core/servers/deploy/install/upgrade-to-configuration-manager)
+-   [Upgrade naar System Center 2012 R2 Configuration Manager SP1](https://technet.microsoft.com/library/jj822981.aspx#BKMK_PlanningR2SP1Upgrade)
+-   [Upgrade naar System Center 2012 Configuration Manager SP2](https://technet.microsoft.com/library/jj822981.aspx#BKMK_PlanningSP2Upgrade)
+
+### <a name="windows-phone-8-company-portal-upload-deprecated"></a>Windows Phone 8-bedrijfsportal uploaden afgeschaft
+*25 oktober 2016*
+
+De mogelijkheid voor het uploaden van een ondertekende bedrijfsportal-app is verwijderd uit de Configuration Manager-console, zoals ondersteuning voor Intune wordt afgeschaft voor Windows 8, Windows Phone 8 en Windows RT en ondersteuning voor de Windows Phone 8-bedrijfsportal wordt beëindigd in November.  Windows 8, Windows Phone 8 en Windows RT-apparaten die al zijn ingeschreven wordt nog steeds ondersteund, maar de registratie van extra apparaten via deze platforms worden niet ondersteund.

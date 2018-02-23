@@ -7,23 +7,24 @@ ms.date: 7/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 33bcf8b3-a6b6-4fc9-bb59-70a9621b2b0d
-caps.latest.revision: "9"
+caps.latest.revision: 
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: bfe500c160bf2ddffd060baabb44cda81337e1cc
-ms.sourcegitcommit: 92c3f916e6bbd35b6208463ff406e0247664543a
+ms.openlocfilehash: 5cb0ffd29f1b3de110101093a6644335a8167108
+ms.sourcegitcommit: 45ff3ffa040eada5656b17f47dcabd3c637bdb60
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/23/2018
 ---
 #  <a name="sync-data-from-configuration-manager-to-the-microsoft-operations-management-suite"></a>Gegevens synchroniseren van Configuration Manager naar de Microsoft Operations Management Suite
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 U kunt de **Wizard Azure-Services** Configureer de verbinding van Configuration Manager naar de cloudservice Operations Management Suite (OMS). Vanaf versie 1706, vervangt de wizard vorige werkstromen voor het configureren van deze verbinding. Zie voor eerdere versies [synchroniseren van gegevens uit Configuration Manager met Microsoft Operations Management Suite (1702 en eerder)](#Sync-data-from-Configuration-Manager-to-the-Microsoft-Operations-Management-Suite-(1702-and-earlier)).
 
@@ -67,7 +68,7 @@ Vereisten voor het configureren van een verbinding met OMS is ongewijzigd ten op
 ## <a name="sync-data-from-configuration-manager-to-the-microsoft-operations-management-suite-1702-and-earlier"></a>Gegevens synchroniseren van Configuration Manager naar de Microsoft Operations Management Suite (1702 en lager)
 
 
-*Van toepassing op: System Center Configuration Manager (1702 en eerdere versies)*
+Van toepassing op: System Center Configuration Manager (1702 en eerdere versies)*
 
 U kunt de Microsoft Operations Management Suite (OMS)-Connector gegevens synchroniseren gebruiken zoals uw verzamelingen van System Center Configuration Manager met OMS Log Analytics in Microsoft Azure. Hierdoor kan de gegevens van uw Configuration Manager-implementatie zichtbaar in OMS.
 > [!TIP]
@@ -109,7 +110,7 @@ Vanaf versie 1702, kunt u de OMS-connector verbinding maken met een OMS-werkruim
 Nadat u hebt de Configuration Manager met OMS gekoppeld, kunt u toevoegen of verwijderen van verzamelingen en bekijk de eigenschappen van de OMS-verbinding.
 
 ### <a name="verify-the-oms-connector-properties"></a>Controleer de eigenschappen van de OMS-connector
-1.  In de Configuration Manager-console gaat u naar **beheer** > **Cloudservices**, en selecteer vervolgens **OMS Connector** openen de **OMS verbinding ** pagina**.
+1.  Ga in de Configuration Manager-console naar **beheer** > **Cloudservices**, en selecteer vervolgens **OMS Connector** openen de **OMS Verbindingspagina**.
 2.  Er zijn twee tabbladen in deze pagina:
   - **Azure Active Directory:**   
     Op dit tabblad ziet uw **Tenant**, **Client-ID**, **Client geheime sleutelverloop**, en kunt u controleren of uw geheime sleutel van de client is verlopen.
@@ -117,7 +118,7 @@ Nadat u hebt de Configuration Manager met OMS gekoppeld, kunt u toevoegen of ver
   - **Eigenschappen van OMS-verbinding:**  
     Op dit tabblad ziet uw **Azure-abonnement**, **Azure-resourcegroep**, **Operations Management Suite-werkruimte**, en een lijst met **apparaatverzamelingen waarbij Operations Management Suite kunt krijgen tot gegevens voor**. Gebruik de **toevoegen** en **verwijderen** knoppen om te wijzigen welke verzamelingen zijn toegestaan.
 
-### <a name="fairfaxconfig"></a> De OMS-connector gebruiken met de cloud Azure Government
+### <a name="fairfaxconfig"> </a> Gebruik de OMS-connector met de cloud Azure Government
 
 
 1.  Op elke computer die de Configuration Manager-console die is geïnstalleerd, het volgende configuratiebestand om te verwijzen naar de cloud van de overheid te bewerken:  ***&lt;CM-installatiepad > \AdminConsole\bin\Microsoft.configurationManagmenet.exe.config***
@@ -126,21 +127,21 @@ Nadat u hebt de Configuration Manager met OMS gekoppeld, kunt u toevoegen of ver
 
     Wijzig de waarde voor de naam van de instelling *FairFaxArmResourceID* moet gelijk zijn aan 'https://management.usgovcloudapi.net/'
 
-   - **Oorspronkelijke:** &lt;Instellingsnaam = serializeAs 'FairFaxArmResourceId' = 'Tekenreeks' >   
+   - **Original:** &lt;setting name="FairFaxArmResourceId" serializeAs="String">   
       &lt;waarde > &lt; /value >   
-      &lt;/ instelling >
+      &lt;/setting>
 
    - **Bewerkt:**     
-      &lt;naam van de instelling serializeAs 'FairFaxArmResourceId' = 'Tekenreeks' = > &lt;waarde > https://management.usgovcloudapi.net/ &lt; /value >  
-      &lt;/ instelling >
+      &lt;setting name="FairFaxArmResourceId" serializeAs="String"> &lt;value>https://management.usgovcloudapi.net/&lt;/value>  
+      &lt;/setting>
 
   Wijzig de waarde voor de naam van de instelling *FairFaxAuthorityResource* moet gelijk zijn aan 'https://login.microsoftonline.us/'
 
-  - **Oorspronkelijke:** &lt;Instellingsnaam = serializeAs 'FairFaxAuthorityResource' = 'Tekenreeks' >   
+  - **Original:** &lt;setting name="FairFaxAuthorityResource" serializeAs="String">   
     &lt;waarde > &lt; /value >
 
     - **Bewerkt:** &lt;Instellingsnaam = serializeAs 'FairFaxAuthorityResource' = 'Tekenreeks' >   
-    &lt;waarde > https://login.microsoftonline.us/ &lt; /value >
+    &lt;value>https://login.microsoftonline.us/&lt;/value>
 
 2.  Nadat u het bestand met de twee wijzigingen hebt opgeslagen, wordt de Configuration Manager-console op dezelfde computer opnieuw opstarten en vervolgens die console gebruiken om de OMS-connector te installeren. Gebruik de informatie in om de connector installeert, [synchroniseren van gegevens uit Configuration Manager met de Microsoft Operations Management Suite](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite), en selecteer de **Operations Management Suite-werkruimte** dat zich op de Microsoft Azure Government cloud.
 

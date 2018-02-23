@@ -13,11 +13,11 @@ ms.service:
 ms.technology:
 - configmgr-sum
 ms.assetid: eac542eb-9aa1-4c63-b493-f80128e4e99b
-ms.openlocfilehash: aedfec9d423c52b1d6864cd8a10dd5c498fb3b0a
-ms.sourcegitcommit: 1378532fac2620ddcfd31061982f344a290c2e67
+ms.openlocfilehash: 2f765df84b94524cf56f6d1d9e051157f1a325ef
+ms.sourcegitcommit: 45ff3ffa040eada5656b17f47dcabd3c637bdb60
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="manage-office-365-proplus-with-configuration-manager"></a>Beheren van Office 365 ProPlus met Configuration Manager
 
@@ -134,7 +134,7 @@ Wanneer u een update op een Office 365-client implementeert, zijn de meldingen v
 |1706|De client ontvangt een pop- en in-app-meldingen, evenals een dialoogvenster aftelling voordat u de update installeert.|
 
 > [!Important]
-> In Configuration Manager versie 1706, noteert u de volgende details:
+> U start in Configuration Manager versie 1706, houd rekening met de volgende details:
 >
 >- Een pictogram wordt weergegeven in het systeemvak op de taakbalk voor vereiste apps waarbij de deadline binnen 48 uur in de toekomst en inhoud van de update is gedownload. 
 >- Een dialoogvenster aftelling worden weergegeven voor vereiste apps waarbij de deadline binnen 7.5 uur in de toekomst en de update is gedownload. De gebruiker kan het dialoogvenster aftelling maximaal drie keer vóór de deadline uitstellen. Als uitgesteld, wordt de aftelling na twee uur opnieuw weergegeven. Als dat niet het uitgesteld, er een aftelling 30 minuten en update wordt geïnstalleerd wanneer de aftelling is verlopen.
