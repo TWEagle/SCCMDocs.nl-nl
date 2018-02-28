@@ -15,15 +15,15 @@ ms.assetid: 4884a2d3-13ce-44e5-88c4-a66dc7ec6014
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 1b5e8f744573680ab55fcfff26622e312206ca1a
-ms.sourcegitcommit: fbd4a9d2fa8ed4ddd3a0fecc4a2ec4fc0ccc3d0c
+ms.openlocfilehash: 162c47d867e78498650da685327c0fe296aa2eda
+ms.sourcegitcommit: b1fa7be6a6fa5bb7c49e90c0e28a21ba8b41c842
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="capabilities-in-technical-preview-1802-for-system-center-configuration-manager"></a>Mogelijkheden van Technical Preview 1802 voor System Center Configuration Manager
 
-Van toepassing op: System Center Configuration Manager (Technical Preview)*
+*Van toepassing op: System Center Configuration Manager (Technical Preview)*
 
 Dit artikel bevat de functies die beschikbaar in de Technical Preview voor System Center Configuration Manager, versie 1802 zijn. U kunt deze versie om te werken en nieuwe mogelijkheden toevoegen aan uw Configuration Manager technical preview-site installeren. 
 
@@ -318,9 +318,9 @@ Windows Automatische piloot is een oplossing voor onboarding en nieuwe Windows 1
 
 
 
-## <a name="improvements-to-configuration-manager-policies-for-windows-device-exploit-guard"></a>Verbeteringen in Configuration Manager-beleid voor Windows-apparaat misbruiken Guard
+## <a name="improvements-to-configuration-manager-policies-for-windows-defender-exploit-guard"></a>Verbeteringen in Configuration Manager-beleid voor Windows Defender misbruiken Guard
 <!-- 1356220 -->
-Extra instellingen voor de kwetsbaarheid voor aanvallen vermindering en beheerd map toegang onderdelen zijn toegevoegd voor Windows Device misbruiken Guard in Configuration Manager.
+Extra instellingen voor de kwetsbaarheid voor aanvallen vermindering en beheerd map access components hebt toegevoegd in Configuration Manager voor [Windows Defender misbruiken Guard](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-exploit-guard/windows-defender-exploit-guard).
 
 **Nieuwe instellingen voor toegang tot de map van beheerd**<br/>
 Er zijn twee extra opties wanneer u toegang tot de map van beheerd configureert: **Alleen schijfsectoren blokkeren** en **Audit schijfsectoren alleen**. Deze twee instellingen beheerd maptoegang worden ingeschakeld voor opstartsectoren alleen toestaan en kunnen niet de bescherming van specifieke mappen of de standaardmappen beveiligd. 

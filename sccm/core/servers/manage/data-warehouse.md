@@ -3,7 +3,7 @@ title: Datawarehouse
 titleSuffix: Configuration Manager
 description: Datawarehouse-servicepunt en de database voor System Center Configuration Manager
 ms.custom: na
-ms.date: 02/21/2018
+ms.date: 02/26/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,14 +16,14 @@ caps.latest.revision:
 author: mestew
 ms.author: mstewart
 manager: dougeby
-ms.openlocfilehash: a660b291eb7ae1e009330085d20c3908996c43f3
-ms.sourcegitcommit: 45ff3ffa040eada5656b17f47dcabd3c637bdb60
+ms.openlocfilehash: 954ec65bae15e087d6cf5afbcc8e0da1ebf83533
+ms.sourcegitcommit: be939893f0ceca4add8655ae2c24e42aa16aec38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/27/2018
 ---
 #  <a name="the-data-warehouse-service-point-for-system-center-configuration-manager"></a>De datawarehouse-servicepunt voor System Center Configuration Manager
-Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 Begin met versie 1702 kunt u de datawarehouse-service wijst op te slaan en te rapporteren over langetermijnopslag van historische gegevens voor uw Configuration Manager-implementatie.
 
@@ -47,6 +47,7 @@ Wanneer de sitesysteemrol wordt geïnstalleerd, installeert en configureert u de
 ## <a name="prerequisites-for-the-data-warehouse-service-point"></a>Vereisten voor de data warehouse-servicepunt
 - De sitesysteemrol van de datawarehouse wordt alleen ondersteund op de bovenste site van uw hiërarchie. (Een centrale beheersite of zelfstandige primaire site).
 - De computer waarop u de sitesysteemrol installeert, vereist .NET Framework 4.5.2 of hoger.
+- Verleen de **Account voor Reporting Services-punt** de **db_datareader** machtiging op de datawarehouse-database. 
 - Het computeraccount van de computer waarop u de sitesysteemrol installeert, wordt gebruikt om gegevens te synchroniseren met de datawarehouse-database. Deze account vereist de volgende machtigingen:  
   - **Beheerder** op de computer die als host fungeert voor de datawarehouse-database.
   - **DB_Creator** machtiging op de datawarehouse-database.
@@ -82,41 +83,30 @@ Wanneer u de rol installeert, maakt Configuration Manager de datawarehouse-datab
 
 **Algemene** pagina:
 -   **Configuration Manager-datawarehouse verbindingsinstellingen voor database**:
- - **SQL Server FQDN-naam**:  
- Geef de FQDN-naam (Fully qualified domain name) van de server die als host fungeert voor de datawarehouse-service point-database.
- - **SQL Server-instantienaam, indien van toepassing**:   
- Als u niet een standaardexemplaar van SQL Server gebruikt, moet u het exemplaar opgeven.
- - **Databasenaam**:   
- Geef een naam voor de datawarehouse-database. Naam van de database kan niet groter zijn dan 10 tekens. (De lengte van de ondersteunde worden verhoogd in een toekomstige release).
- Configuration Manager maakt de datawarehouse-database met deze naam. Als u de naam van een database die al bestaat op het exemplaar van SQL server opgeeft, wordt in Configuration Manager dat de database gebruikt.
- - **SQL Server-poort gebruikt voor verbinding**:   
- Geef het nummer van de TCP/IP-poort die wordt gebruikt door de SQL Server die als host fungeert voor de datawarehouse-database. Deze poort wordt gebruikt door de datawarehouse-synchronisatieservice verbinding maken met de datawarehouse-database.  
+     - **SQL Server FQDN-naam**: Geef de FQDN-naam (Fully qualified domain name) van de server die als host fungeert voor de datawarehouse-service point-database.
+     - **SQL Server-instantienaam, indien van toepassing**: Als u niet een standaardexemplaar van SQL Server gebruikt, moet u het exemplaar opgeven.
+     - **Databasenaam**: Geef een naam voor de datawarehouse-database. Naam van de database kan niet groter zijn dan 10 tekens. (De lengte van de ondersteunde worden verhoogd in een toekomstige release).
+     Configuration Manager maakt de datawarehouse-database met deze naam. Als u de naam van een database die al bestaat op het exemplaar van SQL server opgeeft, wordt in Configuration Manager dat de database gebruikt.
+     - **SQL Server-poort gebruikt voor verbinding**: Geef het nummer van de TCP/IP-poort die wordt gebruikt door de SQL Server die als host fungeert voor de datawarehouse-database. Deze poort wordt gebruikt door de datawarehouse-synchronisatieservice verbinding maken met de datawarehouse-database.  
 
 **Synchronisatieplanning** pagina:   
 - **Synchronisatieplanning**:
- - **Begintijd**:  
- Geef de tijd die u wilt dat de datawarehouse-synchronisatie te starten.
- - **Terugkeerpatroon**:
-    - **Dagelijkse**: Geef op dat de synchronisatie wordt uitgevoerd elke dag.
-    - **Wekelijkse**: Geef een enkele dag elke week en wekelijkse terugkeerpatronen voor synchronisatie.
+    - **Begintijd**: Geef de tijd die u wilt dat de datawarehouse-synchronisatie te starten.
+    - **Terugkeerpatroon**:
+         - **Dagelijkse**: Geef op dat de synchronisatie wordt uitgevoerd elke dag.
+         - **Wekelijkse**: Geef een enkele dag elke week en wekelijkse terugkeerpatronen voor synchronisatie.
 
 ## <a name="reporting"></a>Rapporten
 Nadat u een gegevenspunt van de datawarehouse-service hebt geïnstalleerd, worden diverse rapporten beschikbaar zijn op de reporting services-punt is geïnstalleerd op dezelfde site. Als u het gegevenspunt van de datawarehouse-service installeren voordat u een reporting services-punt installeert, worden de rapporten worden automatisch toegevoegd wanneer u later de reporting services-punt installeert.
 
 De sitesysteemrol van de datawarehouse bevat de volgende rapporten, waarvoor een categorie van **Data Warehouse**:
- - **Toepassingsimplementatie - historische**:   
- Details weergeven voor de implementatie van de toepassing voor een bepaalde toepassing en de machine.
+ - **Toepassingsimplementatie - historische**: Details weergeven voor de implementatie van de toepassing voor een bepaalde toepassing en de machine.
  - **Endpoint Protection en Software-Update naleving - historische**: Computers weergeven die software-updates ontbreekt.  
- - **Algemene Hardware-inventarisatie - historische**:   
- Alle hardware-inventaris voor een specifieke computer weer.
- - **Algemene Software-inventarisatie - historische**:   
- Alle software-inventaris voor een specifieke machine weergeven.
- - **Overzicht van de Health netwerkinfrastructuur - historische**:  
- Geeft een overzicht van de status van uw Configuration Manager-infrastructuur
- - **Lijst met Malware gedetecteerd - historische**:    
- Weergave kwaadaardige software die is aangetroffen in de organisatie.
- - **Software distribueren samenvatting - historische**:   
- Een samenvatting van softwaredistributie voor een specifieke advertentie en de machine.
+ - **Algemene Hardware-inventarisatie - historische**: Alle hardware-inventaris voor een specifieke computer weer.
+ - **Algemene Software-inventarisatie - historische**: Alle software-inventaris voor een specifieke machine weergeven.
+ - **Overzicht van de Health netwerkinfrastructuur - historische**: Geeft een overzicht van de status van uw Configuration Manager-infrastructuur
+ - **Lijst met Malware gedetecteerd - historische**:   Weergave kwaadaardige software die is aangetroffen in de organisatie.
+ - **Software distribueren samenvatting - historische**: Een samenvatting van softwaredistributie voor een specifieke advertentie en de machine.
 
 
 ## <a name="expand-an-existing-stand-alone-primary-into-a-hierarchy"></a>Een bestaande zelfstandige primaire uitbreiden naar een hiërarchie
@@ -139,26 +129,23 @@ Gebruik de volgende stappen uit de datawarehouse-database verplaatsen naar een n
 4.  Nadat de sitesysteemrol is geïnstalleerd, wordt de verplaatsing is voltooid.
 
 ## <a name="troubleshooting-data-warehouse-issues"></a>Het oplossen van problemen met de datawarehouse
-**Logboekbestanden**:  
+**Logboekbestanden**  
 Gebruik de volgende logboeken voor het onderzoeken van problemen met de installatie van het gegevenspunt van de datawarehouse-service of de synchronisatie van gegevens:
  - *DWSSMSI.log* en *DWSSSetup.log* -deze Logboeken gebruiken voor het onderzoeken van fouten bij het installeren van het gegevenspunt van de datawarehouse-service.
  - *Microsoft.ConfigMgrDataWarehouse.log* : dit logboek gebruikt voor het onderzoeken van gegevenssynchronisatie tussen de sitedatabase naar de datawarehouse-database.
 
 **Fout bij instellen**  
  Installatie van het gegevenspunt van de datawarehouse-service mislukt op een externe sitesysteemserver als het datawarehouse is de eerste sitesysteemrol die op die computer installeert.  
-  - **Oplossing**:   
-    Zorg ervoor dat de computer die u installeert de datawarehouse-service al hosts ten minste één andere sitesysteemrollen wijst.  
+  - **Oplossing**: Zorg ervoor dat de computer die u installeert de datawarehouse-service al hosts ten minste één andere sitesysteemrollen wijst.  
 
 
 **Bekende synchronisatieproblemen**:   
 Synchronisatie mislukt met het volgende bericht in *Microsoft.ConfigMgrDataWarehouse.log*: **'is mislukt voor het vullen van de schema-objecten'**  
- - **Oplossing**:  
-    Zorg ervoor dat het computeraccount van de computer die als host fungeert voor de sitesysteemrol is een **db_owner** op de datawarehouse-database.
+ - **Oplossing**: Zorg ervoor dat het computeraccount van de computer die als host fungeert voor de sitesysteemrol is een **db_owner** op de datawarehouse-database.
 
 Rapporten datawarehouse niet worden geopend wanneer de datawarehouse-database en reporting service-punt zich op verschillende systemen.  
 
- - **Oplossing**:  
-    Verleen de **Account voor Reporting Services-punt** de **db_datareader** machtiging op de datawarehouse-database.
+ - **Oplossing**: Verleen de **Account voor Reporting Services-punt** de **db_datareader** machtiging op de datawarehouse-database.
 
 Wanneer u een rapport met inventarisatiegegevens datawarehouse opent, wordt de volgende fout geretourneerd:
 

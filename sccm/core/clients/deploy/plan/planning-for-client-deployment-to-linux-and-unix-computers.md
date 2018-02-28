@@ -7,20 +7,21 @@ ms.date: 08/30/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-client
+ms.technology:
+- configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 44153689-70e8-42ad-9ae8-17ae35f6a2e3
-caps.latest.revision: "9"
-caps.handback.revision: "0"
+caps.latest.revision: 
+caps.handback.revision: 
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: d96a8aedd046e3a8dcd12e711ae19f53a901fceb
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 9df979fe98dc4d4ead18ff3cfb276612681c9bce
+ms.sourcegitcommit: b1fa7be6a6fa5bb7c49e90c0e28a21ba8b41c842
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="planning-for-client-deployment-to-linux-and-unix-computers-in-system-center-configuration-manager"></a>Clientimplementatie op Linux- en UNIX-computers in System Center Configuration Manager plannen
 
@@ -46,13 +47,13 @@ U kunt de System Center Configuration Manager-client installeren op computers me
 
  Gebruik de informatie in dit artikel om te plannen voor het implementeren van Configuration Manager-client voor Linux en UNIX.  
 
-##  <a name="BKMK_ClientDeployPrereqforLnU"></a>Vereisten voor de clientimplementatie op Linux en UNIX-Servers  
+##  <a name="BKMK_ClientDeployPrereqforLnU"></a> Vereisten voor de clientimplementatie op Linux en UNIX-Servers  
  Gebruik de volgende informatie om te bepalen aan welke vereisten moet worden voldaan om de client voor Linux en UNIX te implementeren.  
 
-###  <a name="BKMK_ClientDeployExternalforLnU"></a>Afhankelijkheden extern aan Configuration Manager:  
+###  <a name="BKMK_ClientDeployExternalforLnU"></a> Afhankelijkheden extern aan Configuration Manager:  
  In de volgende tabellen worden de vereiste UNIX- en Linux-besturingssystemen en pakketafhankelijkheden beschreven.  
 
- **Red Hat Enterprise Linux Server versie 5.1 (Tikanga)**  
+ **Red Hat Enterprise Linux Server release 5.1 (Tikanga)**  
 
 |Vereist pakket|Beschrijving|Minimale versie|  
 |----------------------|-----------------|---------------------|  
@@ -60,7 +61,7 @@ U kunt de System Center Configuration Manager-client installeren op computers me
 |Openssl|OpenSSL-bibliotheken; Secure Network Communications-protocol|0.9.8b-8.3.el5|  
 |PAM|Pluggable Authentication Modules|0.99.6.2-3.14.el5|  
 
- **Red Hat Enterprise Linux Server versie 6**  
+ **Red Hat Enterprise Linux Server release 6**  
 
 |Vereist pakket|Beschrijving|Minimale versie|  
 |----------------------|-----------------|---------------------|  
@@ -68,6 +69,13 @@ U kunt de System Center Configuration Manager-client installeren op computers me
 |Openssl|OpenSSL-bibliotheken; Secure Network Communications-protocol|1.0.0-4|  
 |PAM|Pluggable Authentication Modules|1.1.1-4|  
 
+ **Red Hat Enterprise Linux Server release 7**  
+
+|Vereist pakket|Beschrijving|Minimale versie|  
+|----------------------|-----------------|---------------------|  
+|glibc|Standaardbibliotheken voor C|2.17|  
+|Openssl|OpenSSL-bibliotheken; Secure Network Communications-protocol|1.0.1|  
+|PAM|Pluggable Authentication Modules|1.1.1-4|  
 
  **Solaris 10 SPARC**  
 
@@ -188,15 +196,15 @@ U kunt de System Center Configuration Manager-client installeren op computers me
 
  Voor meer informatie over poorten op de client voor communicatie en aanvragen, zie [De client voor Linux en UNIX configureren om beheerpunten te zoeken](../../../../core/clients/deploy/deploy-clients-to-unix-and-linux-servers.md#BKMK_ConfigClientMP).  
 
-##  <a name="BKMK_PlanningforCommunicationsforLnU"></a>Planning voor de communicatie tussen de Forest vertrouwt voor Linux en UNIX-Servers  
+##  <a name="BKMK_PlanningforCommunicationsforLnU"></a> Planning voor de communicatie tussen de Forest vertrouwt voor Linux en UNIX-Servers  
  Linux en UNIX-servers die u met Configuration Manager beheert werken als werkgroepclients en vereisen soortgelijke configuraties als Windows-clients die zich in een werkgroep. Voor meer informatie over communicatie van computers in werkgroepen, zie de sectie [Communicatie tussen Active Directory-forests](../../../../core/plan-design/hierarchy/communications-between-endpoints.md#Plan_Com_X-Forest) in het onderwerp [De communicatie tussen de eindpunten in System Center Configuration Manager](../../../../core/plan-design/hierarchy/communications-between-endpoints.md).  
 
-###  <a name="BKMK_ServiceLocationforLnU"></a>Servicelocatie door de client voor Linux en UNIX  
+###  <a name="BKMK_ServiceLocationforLnU"></a> Servicelocatie door de client voor Linux en UNIX  
  De taak om een sitesysteemserver te zoeken die clients van services voorzien, wordt een servicelocatie genoemd. In tegenstelling tot een Windows-client gebruikt de client voor Linux en UNIX geen Active Directory voor de servicelocatie. Configuration Manager-client voor Linux en UNIX biedt bovendien geen ondersteuning voor een clienteigenschap die het domeinachtervoegsel van een beheerpunt specificeert. In plaats daarvan leert de client over aanvullende sitesysteemservers die services aan clients leveren via een bekend beheerpunt dat u toewijst wanneer u de clientsoftware installeert.  
 
  Zie de sectie [Servicelocatiebepaling en hoe het toegewezen beheerpunt voor clients wordt bepaald](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md#BKMK_Plan_Service_Location) in het onderwerp [Begrijpen hoe clients siteresources en -services vinden voor System Center Configuration Manager voor meer informatie over servicelocatie](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
 
-##  <a name="BKMK_SecurityforLnU"></a>Planning voor beveiliging en certificaten voor Linux en UNIX-Servers  
+##  <a name="BKMK_SecurityforLnU"></a> Planning voor beveiliging en certificaten voor Linux en UNIX-Servers  
  Voor een veilige en geverifieerde communicatie met Configuration Manager-sites communicatiemodel Configuration Manager-client voor Linux en UNIX hetzelfde gebruiken als Configuration Manager-client voor Windows.  
 
  Wanneer u de client voor Linux en UNIX installeert, kunt u de client een PKI-certificaat dat deze via HTTPS te communiceren met Configuration Manager-sites kan toewijzen. Als u geen PKI-certificaat toewijst, maakt de client een zelfondertekend certificaat en communiceert deze alleen via HTTP.  
@@ -209,21 +217,21 @@ U kunt de System Center Configuration Manager-client installeren op computers me
 
  Zie voor meer informatie over het gebruik van certificaten in Configuration Manager [PKI-certificaatvereisten voor System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).  
 
-###  <a name="BKMK_AboutCertsforLnU"></a>Over certificaten voor gebruik door Linux en UNIX-Servers  
+###  <a name="BKMK_AboutCertsforLnU"></a> Over certificaten voor gebruik door Linux en UNIX-Servers  
  Configuration Manager-client voor Linux en UNIX gebruikt een zelfondertekend certificaat of een X.509 PKI-certificaat net als clients met Windows-computers. Er zijn geen wijzigingen in de PKI-vereisten voor sitesystemen van Configuration Manager bij het beheren van Linux en UNIX-clients.  
 
  De certificaten die u kunt voor Linux gebruiken en UNIX-clients die met sitesystemen van Configuration Manager communiceren moet de indeling van een Public Key Certificate Standard (PKCS #12) en het wachtwoord bekendmaken, zodat u dit naar de client opgeven kunt wanneer u het PKI-certificaat opgeeft.  
 
  Configuration Manager-client voor Linux en UNIX ondersteunt één PKI-certificaat en biedt geen ondersteuning voor meerdere certificaten. Daarom de criteria voor certificaatselectie voor u te configureren voor een Configuration Manager site is niet van toepassing.  
 
-###  <a name="BKMK_ConfigCertsforLnU"></a>Configureren van certificaten voor Linux en UNIX-Servers  
+###  <a name="BKMK_ConfigCertsforLnU"></a> Configureren van certificaten voor Linux en UNIX-Servers  
  Voor het configureren van een Configuration Manager-client voor Linux en UNIX-servers voor het gebruik van HTTPS-communicatie, moet u de client voor het gebruik van een PKI-certificaat op het moment dat u de client installeert. U kunt een certificaat niet vóór de installatie van de clientsoftware inrichten.  
 
  Wanneer u een client installeert die gebruikmaakt van een PKI-certificaat, gebruikt u de opdrachtregelparameter -**UsePKICert** om de naam en locatie op te geven van een PKCS#12-bestand dat het PKI-certificaat bevat. Daarnaast moet u de opdrachtregelparameter **-certpw** gebruiken om een wachtwoord voor het certificaat op te geven.  
 
  Als u **-UsePKICert** niet opgeeft, genereert de client een zelfondertekend certificaat en probeert de client alleen via HTPP met de sitesysteemservers te communiceren.  
 
-##  <a name="BKMK_NoSHA-256"></a>Doen over Linux- en UNIX-besturingssystemen die geen SHA-256 ondersteunen  
+##  <a name="BKMK_NoSHA-256"></a> Doen over Linux- en UNIX-besturingssystemen die geen SHA-256 ondersteunen  
  De volgende Linux en UNIX-besturingssystemen die worden ondersteund als clients voor Configuration Manager zijn uitgebracht met versies van OpenSSL die SHA-256 niet ondersteunen:  
 
 -   Solaris Version 10 (SPARC/x86)  
