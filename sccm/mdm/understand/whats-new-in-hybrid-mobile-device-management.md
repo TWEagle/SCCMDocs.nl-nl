@@ -3,7 +3,7 @@ title: Wat is er nieuw in hybride MDM
 titleSuffix: Configuration Manager
 description: Meer informatie over de nieuwe functies voor mobiele apparaten beschikbaar voor hybride implementaties met Configuration Manager en Intune.
 ms.custom: na
-ms.date: 02/21/2018
+ms.date: 03/01/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,13 +15,13 @@ ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 47bed8655772d0371ce53c1609956a6ed60eb89c
-ms.sourcegitcommit: 45ff3ffa040eada5656b17f47dcabd3c637bdb60
+ms.openlocfilehash: 3b48c5296caecd66b5abb6d40578af2009ef0f11
+ms.sourcegitcommit: 6e4fca19083b5dbdcd841012f6e1051bb7c00eb8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Wat is er nieuw in hybride mobile device management met System Center Configuration Manager en Microsoft Intune
+# <a name="whats-new-in-hybrid-mobile-device-management-with-configuration-manager-and-microsoft-intune"></a>Wat is er nieuw in hybride mobile device management met Configuration Manager en Microsoft Intune
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
@@ -42,6 +42,15 @@ Elke sectie van dit artikel vindt u hybridefuncties onder drie verschillende cat
 |**Nieuw in Configuration Manager Technical Preview**| Alle functies die worden vermeld in deze categorie werken alleen met de opgegeven Technical Preview-versie. Als u wilt deze functies uit te proberen, moet u de Technical Preview-versie die is opgegeven in de beschrijving van de functie installeren. Zie voor meer informatie [Technical Preview voor System Center Configuration Manager](../../core/get-started/technical-preview.md).|
 |**Nieuw in Configuration Manager (huidige vertakking)**| Alle functies die worden vermeld in deze categorie werken alleen met de opgegeven versie van Configuration Manager (huidige vertakking), zoals versie 1511 of 1602. Als u een oudere versie van Configuration Manager voor uw hybride implementatie gebruikt, moet u upgraden naar de Configuration Manager (huidige vertakking) versie opgegeven in de beschrijving van de functie. Zie voor meer informatie [upgraden naar System Center Configuration Manager](../../core/servers/deploy/install/upgrade-to-configuration-manager.md).|
 
+
+
+## <a name="february-2018"></a>2018 februari
+
+### <a name="new-in-microsoft-intune"></a>Nieuw in Microsoft Intune
+
+- **Mac OS bedrijfsportal ondersteuning voor inschrijvingen die gebruikmaken van de Apparaatinschrijvingsbeheerder**  
+    Gebruikers kunnen nu de Apparaatinschrijvingsbeheerder gebruiken bij het inschrijven met de Mac OS-bedrijfsportal.
+    <!-- 1352411 -->
 
 
 ## <a name="january-2018"></a>2018 januari
