@@ -4,17 +4,18 @@ titleSuffix: Microsoft Deployment Toolkit
 description: 'Informatie over het gebruik van de Microsoft Deployment Toolkit 2013. '
 ms.date: 09/09/2016
 ms.prod: configuration-manager
-ms.technology: configmgr-osd
+ms.technology:
+- configmgr-osd
 ms.topic: article
 ms.assetid: 10a846c2-e63c-4c2b-8210-7485bfe7e47f
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: 1af6032dabf122d67b8bc5d003fe63b8e8ec7a9b
-ms.sourcegitcommit: 645cd5a324bdd299906efa27eaca5885eafc9e9c
+manager: dougeby
+ms.openlocfilehash: c55df0fe9aab04d4688f022caebc9412b3f511c8
+ms.sourcegitcommit: be939893f0ceca4add8655ae2c24e42aa16aec38
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="using-the-microsoft-deployment-toolkit"></a>Met behulp van de Microsoft Deployment Toolkit  
  Microsoft® Deployment Toolkit (MDT) 2013 kunt u de implementatie van computers in uw organisatie te automatiseren. Dit document biedt richtlijnen voor het plannen, maken en implementeren van Windows®-besturingssystemen en toepassingen die gebruikmaken van MDT 2013.  
@@ -56,10 +57,10 @@ ms.lasthandoff: 01/16/2018
 |[Voorbereiden van Windows Deployment Services](#PreparingWindowsDeploymentServices)|Biedt richtlijnen voor het voorbereiden van Windows Deployment Services voor gebruik in de LTI ZTI en UDI implementatieprocessen, met inbegrip van installatiekopieën maken en configureren voor integratie met implementaties van LTI, ZTI en UDI initiëren.|  
 |[Planning voor toepassingsimplementatie](#PlanningforApplicationDeployment)|Biedt richtlijnen voor het implementeren van toepassingen met behulp van MDT, Configuration Manager en Microsoft Application Virtualization (App-V), met inbegrip van de implementatie van toepassingen met de installatiekopie van het besturingssysteem of nadat de installatiekopie wordt geïmplementeerd.|  
 
-##  <a name="PlanningMdtDeployments"></a>Plannen van MDT-implementaties  
+##  <a name="PlanningMdtDeployments"></a> Plannen van MDT-implementaties  
  Het planningsproces helpt bij het voorbereiden van implementaties in een productieomgeving. Het proces wordt gestart met conceptuele ontwerpen, die worden bewezen en verfijnd in een testomgeving. Het resultaat van het planningsproces is een reeks Ontwerpdocumenten waarmee u kunt een MDT-implementatie-infrastructuur te bouwen en uitvoeren van geautomatiseerde besturingssysteem en implementaties van toepassingen in een productieomgeving.  
 
-###  <a name="OverviewoftheMDTDeploymentProcess"></a>Overzicht van de MDT-implementatieproces  
+###  <a name="OverviewoftheMDTDeploymentProcess"></a> Overzicht van de MDT-implementatieproces  
  Het doel van MDT is voor het automatiseren van de implementatie van Windows-besturingssystemen en toepassingen voor desktop draagbaar, en server-computers in de omgeving. Op een hoog niveau automatiseert MDT het implementatieproces door de Setup-bestanden zonder toezicht configureren voor Windows en de benodigde bestanden te verpakken in een geconsolideerd installatiekopiebestand dat u vervolgens op referentie-en doelcomputers implementeert.  
 
  Afbeelding 1 ziet u de op hoog niveau implementatieprocessen LTI ZTI en UDI.  
@@ -86,7 +87,7 @@ ms.lasthandoff: 01/16/2018
 
 5.  De vastgelegde installatiekopieën van de referentiecomputers implementeren met de doelcomputers.  
 
-###  <a name="PlanningChecklist"></a>Controlelijst voor planning  
+###  <a name="PlanningChecklist"></a> Controlelijst voor planning  
   Tabel 3 bevat een planning controlelijst in de vorm van een lijst met vragen die u gebruiken kunt om u te helpen bij het planningsproces. Gebruik de informatie in voor elke vraag de **overzicht** kolom om te zoeken naar antwoorden op basis van de vereisten van uw organisatie.  
 
 #### <a name="table-3-planning-checklist"></a>Tabel 3. Controlelijst voor planning  
@@ -97,7 +98,7 @@ ms.lasthandoff: 01/16/2018
 |U implementeert via het netwerk, met verwisselbare media, of beide? Wilt u multicast-implementaties gebruiken?|Als u via het netwerk implementeert, controleert u of er voldoende bandbreedte tussen de implementatieshares, distributiepunten en de doelcomputers en regionale distributiepunten bieden. Zie voor meer informatie [een methode-implementatie kiezen](#ChoosingaDeploymentMethod) en [netwerkvereisten evalueren](#EvaluatingNetworkRequirements).|  
 |Wat is uw strategie voor imaging en de bron-bestand?|Zie voor meer informatie [referentiecomputers in implementaties van MDT met behulp van](#UsingReferenceComputersinMDTDeployments).|  
 |Implementeert u een volledige set van besturingssysteembestanden of een aangepaste installatiekopie?|Zie voor meer informatie [referentiecomputers in implementaties van MDT met behulp van](#UsingReferenceComputersinMDTDeployments).|  
-|Hoe zorgt u productcodes en licenties|Kleine organisaties mogelijk toewijzen aan elke gebruiker een specifieke productcode. Grotere organisaties gebruik Key Management Service (KMS) of Multiple Activation Key (MAK) te activeren. Zie voor meer informatie [productactivering en informatie van de sleutel](http://www.microsoft.com/licensing/existing-customers/product-activation.aspx).|  
+|Hoe zorgt u productcodes en licenties|Kleine organisaties mogelijk toewijzen aan elke gebruiker een specifieke productcode. Grotere organisaties gebruik Key Management Service (KMS) of Multiple Activation Key (MAK) te activeren. Zie voor meer informatie [productactivering en informatie van de sleutel](https://licensingapps.microsoft.com/product-activation).|  
 |U wilt toestaan dat gebruikers hun eigen besturingssysteem, toepassingen, landinstellingen, tijdzone en beheerderswachtwoord kiezen?|Gebruikers kunnen deze informatie tijdens de implementatie selecteren of u de informatie tevoren kunt configureren. Zie voor meer informatie [LTI te kiezen, ZTI en UDI implementaties](#ChoosingLTIZTIorUDIDeployments).|  
 |Wordt gebruikers hun huidige computer op plaats vernieuwen, instellingen migreren naar een nieuwe installatie van het besturingssysteem of ophalen van een nieuwe computer?|Zie voor meer informatie [implementatiescenario's te identificeren](#IdentifyingDeploymentScenarios).|  
 |Welke gebruikers kunnen worden welke toepassingen te installeren?|Zie voor meer informatie [plannen voor toepassingsimplementatie](#PlanningforApplicationDeployment).|  
@@ -108,7 +109,7 @@ ms.lasthandoff: 01/16/2018
 |Implementeert u ander-product-edities (zoals Professional, Ultimate of Business)?|Zie voor meer informatie [schatten van de MDT-opslagvereisten](#EstimatingMDTStorageRequirements).|  
 |Wat voor soort implementaties wordt uitgevoerd (bijvoorbeeld een nieuwe computer implementeert, een bestaande computer vervangen)?|Zie voor meer informatie [implementatiescenario's te identificeren](#IdentifyingDeploymentScenarios).|  
 
-###  <a name="EstimatingMDTStorageRequirements"></a>Het schatten van de MDT-opslagvereisten  
+###  <a name="EstimatingMDTStorageRequirements"></a> Het schatten van de MDT-opslagvereisten  
  Implementaties van LTI opslaan de installatiekopieën, toepassingen en andere bestanden in implementatieshares. Implementaties van ZTI en UDI Bewaar deze bestanden op de Configuration Manager-distributiepunten. Om te bepalen van uw opslag moeten, schatten opslagvereisten voor:  
 
 -   Computers met MDT, zoals beschreven in [schatting opslagvereisten voor Computers waarop MDT](#EstimateStorageRequirementsforComputersRunningMDT)  
@@ -121,14 +122,14 @@ ms.lasthandoff: 01/16/2018
 
 -   Back-ups van bestaande computers voorafgaand aan de implementatie voor Computer vernieuwen implementatiescenario, zoals beschreven in [schatting opslagvereisten voor back-up van Target-Computer](#EstimateStorageRequirementsforTargetComputerBackup)  
 
-####  <a name="EstimateStorageRequirementsforComputersRunningMDT"></a>Opslagvereisten voor Computers met MDT schatten  
+####  <a name="EstimateStorageRequirementsforComputersRunningMDT"></a> Opslagvereisten voor Computers met MDT schatten  
  De computer met MDT heeft de volgende opslagvereisten:  
 
 -   Ten minste 4 gigabyte (GB) aan vrije ruimte is op het station met de map % TEMP % als u een media afbeeldingen maakt vereist. Anders is 1 GB vrije ruimte vereist op het station met de map % TEMP %.  
 
 -   1 GB vrije ruimte is op het station met programmabestanden van de MDT vereist.  
 
-####  <a name="EstimateStorageRequirementsforMDTDeploymentShares"></a>Opslagvereisten voor de MDT-Implementatieshares schatten  
+####  <a name="EstimateStorageRequirementsforMDTDeploymentShares"></a> Opslagvereisten voor de MDT-Implementatieshares schatten  
  Zorg ervoor dat voldoende ruimte beschikbaar voor het opslaan van de installatiekopieën van besturingssystemen, taalpakketten en apparaatstuurprogramma's in de Workbench-implementatie gebruikt. U kunt deze installatiekopieën opslaan in de MDT-implementatieshares gemaakt in de implementatie-Workbench.  
 
  Bepaal de opslagvereisten voor elk van de volgende items in de implementatieshare:  
@@ -149,19 +150,19 @@ ms.lasthandoff: 01/16/2018
 
 -   **Processortype.** Een afzonderlijke installatiekopie is vereist voor 32-bits en 64-bits versies van Windows.  
 
-####  <a name="EstimateStorageRequirementsforConfigurationManagerDistributionPoints"></a>Opslagvereisten voor Configuration Manager-distributiepunten schatten  
+####  <a name="EstimateStorageRequirementsforConfigurationManagerDistributionPoints"></a> Opslagvereisten voor Configuration Manager-distributiepunten schatten  
  De opslagvereisten voor distributiepunten van Configuration Manager met behulp van dezelfde berekeningen beschreven in te schatten [schatting opslagvereisten voor MDT Implementatieshares](#EstimateStorageRequirementsforMDTDeploymentShares). Als de afbeeldingen worden gedistribueerd naar meerdere distributiepunten, zijn de opslagvereisten van toepassing op elk distributiepunt.  
 
  Zie voor meer informatie over het plannen van Configuration Manager-distributiepunten de sectie 'Distributiepunt' in de sectie 'Planning Configuration Manager Site Systems voor implementaties van besturingssystemen,' in de Configuration Manager Documentatiebibliotheek met Configuration Manager is geïnstalleerd.  
 
-####  <a name="EstimateStorageRequirementsforUserStateMigrationData"></a>Opslagvereisten voor migratie van Gebruikersstatusgegevens schatten  
+####  <a name="EstimateStorageRequirementsforUserStateMigrationData"></a> Opslagvereisten voor migratie van Gebruikersstatusgegevens schatten  
  Schat de hoeveelheid opslagruimte die nodig is voor migratie van gegevens van de gebruikersstatus die Windows User State Migration Tool (USMT) opgeslagen tijdens het implementatieproces door:  
 
 -   Om te bepalen of de migratie van gebruikersstatusgegevens lokaal opslaan op de doelcomputers of het netwerk gedeelde mappen zoals beschreven in [bepalen waar naar Statusmigratiegegevens opslaan](#DetermineWheretoStoreUserStateMigrationData)  
 
 -   Bepalen van de opslagvereisten voor de migratie van gebruikersstatusgegevens zoals beschreven in [opslagvereisten voor migratie van Gebruikersstatusgegevens bepalen](#DetermineStorageRequirementsforUserStateMigrationData)  
 
-#####  <a name="DetermineWheretoStoreUserStateMigrationData"></a>Bepalen waar u de migratiegegevens van de gebruikersstatus Store  
+#####  <a name="DetermineWheretoStoreUserStateMigrationData"></a> Bepalen waar u de migratiegegevens van de gebruikersstatus Store  
  Na het vaststellen van de opslagvereisten voor de migratie van gebruikersstatusgegevens bepalen waar de gegevens wordt opgeslagen. Migratie van gebruikersstatusgegevens opslaan op deze locaties:  
 
 -   Op de lokale computer om de tijd om Windows te implementeren en te beperken als netwerkgebruik (aanbevolen)  
@@ -175,7 +176,7 @@ ms.lasthandoff: 01/16/2018
 
  Maak een share op een server die tijdens de planning voor de USMT-bestanden opslaan die is aangewezen. Waarden gevonden in CustomSettings.ini MDT gebruikt om de gebruiker staat store-map te zoeken.  
 
-#####  <a name="DetermineStorageRequirementsforUserStateMigrationData"></a>Opslagvereisten voor migratie van Gebruikersstatusgegevens bepalen  
+#####  <a name="DetermineStorageRequirementsforUserStateMigrationData"></a> Opslagvereisten voor migratie van Gebruikersstatusgegevens bepalen  
  Voer de volgende taken voor een schatting van de gebruiker staat migratie-opslagvereisten voor planning doeleinden:  
 
 -   Scanstate.exe uitvoeren in het USMT met de **/p** optie voor het schatten van de grootte van de migratiegegevens van de gebruiker. Met behulp van de **/p** optie, kunt u de benodigde schijfruimte schatten zonder het daadwerkelijk uitvoeren van de migratie.  
@@ -184,7 +185,7 @@ ms.lasthandoff: 01/16/2018
 
  Berekenen van de totale capaciteit is vereist voor de gemiddelde grootte van de migratie van gebruikersstatusgegevens vermenigvuldigen met het aantal dagen om de gegevens te behouden en deze vervolgens te vermenigvuldigen die resulteren door het aantal gebruikers tijdens de bewaarperiode worden gemigreerd. Bijvoorbeeld, als de grootte van de migratie gemiddelde gebruikersstatus 3 GB, gegevens moeten worden opgeslagen voor vijf dagen, 100 gebruikers per dag worden gemigreerd en de totale opslagvereiste is 1500 GB (3 GB x 5 dagen × 100 gebruikers per dag).  
 
-####  <a name="EstimateStorageRequirementsforTargetComputerBackup"></a>Schatting opslagvereisten voor back-up van Target-Computer  
+####  <a name="EstimateStorageRequirementsforTargetComputerBackup"></a> Schatting opslagvereisten voor back-up van Target-Computer  
  Als optionele stap in het implementatieproces voor het scenario Computer vernieuwen, kunt u een back-up van een doelcomputer uitvoeren voordat u het beoogde besturingssysteem implementeert.  
 
  U kunt het back-upproces uitvoeren in MDT met het hulpprogramma Imagex.exe. Het back-upproces wordt een installatiekopie van het schijfvolume waarop migratiegegevens van de gebruikersstatus is opgeslagen. Het doel van deze back-up is voor het herstellen van de statusmigratiegegevens, niet op de doelcomputer te herstellen vanaf de installatiekopie.  
@@ -194,7 +195,7 @@ ms.lasthandoff: 01/16/2018
 > [!NOTE]
 >  Standaard de MDT-back-upproces geen back-up meerdere partities. Als u back-up van meerdere partities wilt, wijzigen van het implementatieproces MDT of gebruik een andere back-methode.  
 
-###  <a name="PlanningforApplicationDeployment"></a>Planning voor toepassingsimplementatie  
+###  <a name="PlanningforApplicationDeployment"></a> Planning voor toepassingsimplementatie  
  Toepassingen kunnen worden geïmplementeerd als onderdeel van de installatiekopie van het besturingssysteem of nadat het besturingssysteem is geïmplementeerd op de doelcomputer. Voorbereid voor implementatie, moet u deze taken uitvoeren:  
 
 -   **De portfolio van een toepassing maken.** Toepassing portfolio's bevatten een lijst met toepassingen en de compatibiliteitsstatus van elke toepassing. U kunt de portfolio van deze toepassing maken met behulp van software-inventarisatie-software, zoals de functie Application Compatibility Toolkit (ACT), de activa en naleving in Configuration Manager.  
@@ -209,7 +210,7 @@ ms.lasthandoff: 01/16/2018
 
 -   **Identificeer de toepassingen waarvoor een herstart van het besturingssysteem.** Toepassingen die het besturingssysteem opnieuw moet worden opgestart na de installatie van nodig aanvullende configuratie. Zie voor meer informatie [configureren van de Computer opnieuw opstarten na installatie van de toepassing](#ConfiguretheComputertoRestartAfterApplicationInstallation).  
 
-###  <a name="DefiningOperatingSystemComponentsandSettings"></a>Onderdelen van besturingssysteem en instellingen definiëren  
+###  <a name="DefiningOperatingSystemComponentsandSettings"></a> Onderdelen van besturingssysteem en instellingen definiëren  
  Als onderdeel van het tot stand brengen van een gestandaardiseerde configuratie, bepalen welke onderdelen van het besturingssysteem om op te nemen en de instellingen voor deze onderdelen. Deze beslissing neemt optionele componenten in alle besturingssystemen, server-functies in Windows Server-besturingssystemen en onderdelen in Windows Preinstallation Environment (Windows PE) op te nemen. U kunt bijvoorbeeld besluiten te onnodige onderdelen voor Windows-besturingssysteem verwijderen uit de implementaties desktopcomputers en draagbare computers om de voetafdruk van de beveiliging van deze computers te verkleinen.  
 
  Bepaal voor elke installatiekopie, het:  
@@ -222,14 +223,14 @@ ms.lasthandoff: 01/16/2018
 
 -   **Configuratie-instellingen.** Identificeer de configuratie-instellingen voor onderdelen die zijn opgenomen in de afbeeldingen. Selecteer de configuratie-instellingen die voldoen aan de bedrijfsbehoeften en beveiligingseisen vereisten van de organisatie. Zie voor meer informatie over de beveiliging van de doel-computer [doel computerbeveiliging Planning](#PlanningTargetComputerSecurity).  
 
-###  <a name="ChoosingaDeploymentMethod"></a>Een methode-implementatie kiezen  
+###  <a name="ChoosingaDeploymentMethod"></a> Een methode-implementatie kiezen  
  Doelcomputers hebben doorgaans, snelle, permanente verbindingen met de implementatie-infrastructuur. Sommige doelcomputers mogelijk echter verbinding met een intranet op afstand of helemaal niet. MDT bevat de volgende methoden voor het implementeren van besturingssystemen en toepassingen die gebruikmaken van LTI op basis van de verbinding met het netwerk:  
 
 -   **Share-implementatie.** Deze methode gebruikt een gedeelde netwerkmap waarin alle implementatie-bestanden zich bevinden. De doelcomputer wordt Windows PE gestart en maakt vervolgens verbinding met de implementatieshare om uit te voeren van de implementatie. Selecteer deze methode als de doelcomputers snelle, permanente verbindingen met de implementatie-infrastructuur zijn.  
 
--   **-Media.** Deze methode maakt u een installatiekopie die u gebruiken kunt om implementaties van verwisselbare media zoals dvd's of USB-flashstations (UFD). Windows PE kunt u de computer opstart vanaf de media. Selecteer deze methode als de doelcomputers extern kunnen worden verbonden of niet kunnen geen verbinding op alle.  
+-   **Media.** Deze methode maakt u een installatiekopie die u gebruiken kunt om implementaties van verwisselbare media zoals dvd's of USB-flashstations (UFD). Windows PE kunt u de computer opstart vanaf de media. Selecteer deze methode als de doelcomputers extern kunnen worden verbonden of niet kunnen geen verbinding op alle.  
 
-###  <a name="EvaluatingNetworkRequirements"></a>Netwerkvereisten evalueren  
+###  <a name="EvaluatingNetworkRequirements"></a> Netwerkvereisten evalueren  
  Vanwege de grootte van de installatiekopieën die wordt gedistribueerd naar de doelcomputers (500 MB [Megabytes] tot 4 GB), moeten een snelle, permanente verbinding met de servers die worden gebruikt in het implementatieproces zijn. Deze servers moeten zich op aangrenzende subnetten met de doelcomputers snelle verbinding met de computers.  
 
 > [!NOTE]
@@ -247,7 +248,7 @@ ms.lasthandoff: 01/16/2018
 
  Naast de netwerkcapaciteit, moet u de juiste netwerkprotocollen en -verkeer inschakelen. Bijvoorbeeld, als u wilt de LTI ZTI en UDI implementatie met behulp van Windows Deployment Services en multicast-implementaties te starten, moet u multicast-verkeer tussen de MDT-infrastructuur en doel van de computers inschakelen.  
 
-###  <a name="UsingReferenceComputersinMDTDeployments"></a>Met behulp van referentiecomputers in MDT-implementaties  
+###  <a name="UsingReferenceComputersinMDTDeployments"></a> Met behulp van referentiecomputers in MDT-implementaties  
  Het implementatieproces van MDT gebruikt de referentiecomputer als een basislijn voor de configuratie van de doelcomputers als de implementatie voltooid is. Configureren van de referentiecomputer om te voldoen aan de vereisten voor bedrijven, technische en beveiliging van de organisatie. Na het configureren van de referentiecomputer, een installatiekopie van de referentiecomputer die u vervolgens met de doelcomputers implementeren kunt.  
 
  Alleen in zeldzame gevallen wordt het mogelijk om de installatiekopieën van het Windows distributiemedium zijn op de referentie- en doelcomputers computers te implementeren. Maak in plaats daarvan aangepaste installatiekopieën die Windows-besturingssysteem, taal, packs, toepassingen, stuurprogramma's, software-updates en andere software bevatten.  
@@ -259,7 +260,7 @@ ms.lasthandoff: 01/16/2018
 > [!NOTE]
 >  Virtuele machines normaal gesproken geen dezelfde prestaties als fysieke computers, zodat het maken van de referentie-installatiekopieën langer kan duren.  
 
-###  <a name="ChoosingThickThinorHybridImages"></a>Dikte, Thin, kiezen of hybride installatiekopieën  
+###  <a name="ChoosingThickThinorHybridImages"></a> Dikte, Thin, kiezen of hybride installatiekopieën  
  Als onderdeel van het planningsproces bepalen welke typen installatiekopieën die u maakt. De typen installatiekopieën die kunt u vallen in deze categorieën:  
 
 -   **Thick afbeeldingen.** Thick afbeeldingen zijn monolithische afbeeldingen die core toepassingen, taalpakketten en andere bestanden bevatten. Onderdeel van het proces installatiekopie ontwikkeling geïnstalleerd core toepassingen en taalpakketten op de referentiecomputer voordat u de schijfinstallatiekopie vastlegt.  
@@ -290,7 +291,7 @@ Tabel 4 geeft een lijst van de voordelen en nadelen van de dikke thin en hybride
 
  Als de grootte van afbeeldingsbestanden toeneemt, hogere kosten. Grote afbeeldingen hebben meer bijwerken, testen, distributie, netwerk- en opslagkosten die zijn gekoppeld. Zelfs als er slechts een klein deel van de installatiekopie wordt bijgewerkt, kan de volledige afbeelding moet worden gedistribueerd.  
 
-###  <a name="IdentifyingDeploymentScenarios"></a>Implementatiescenario's identificeren  
+###  <a name="IdentifyingDeploymentScenarios"></a> Implementatiescenario's identificeren  
  Tabel 5 ziet u de implementatiescenario's en een korte beschrijving van elke.  
 
 #### <a name="table-5-deployment-scenarios"></a>Tabel 5. Implementatiescenario 's  
@@ -312,14 +313,14 @@ Tabel 4 geeft een lijst van de voordelen en nadelen van de dikke thin en hybride
 
  Als onderdeel van het implementatiescenario vervangen Computer wissen partities op de schijf van de oorspronkelijke computer. De standaardnotatie werkt zoals uitgevoerd door de Windows-besturingssystemen niet met een beveiligde wissen van de schijf zoals gedefinieerd door het Amerikaanse Ministerie van defensie standaard 5520.22M. Indien nodig, Voer u veilig wissen van harde schijven in doelcomputers via hulpprogramma's van andere leveranciers.  
 
-###  <a name="PlanningforBitLockerDriveEncryption"></a>Planning voor BitLocker-stationsversleuteling  
+###  <a name="PlanningforBitLockerDriveEncryption"></a> Planning voor BitLocker-stationsversleuteling  
  BitLocker is opgenomen in Windows dus voeg planningsbeslissingen voor BitLocker in uw omgeving. BitLocker beslissing die moet u ervoor is de opslag van de herstelsleutels. U kunt BitLocker-herstelsleutels in opslaan:  
 
--   `A local folder.`Selecteer deze optie voor het opslaan van de herstelsleutel op UFD die elke gebruiker beheert.  
+-   `A local folder.` Selecteer deze optie voor het opslaan van de herstelsleutel op UFD die elke gebruiker beheert.  
 
 -   **Een netwerkmap.** Selecteer deze optie om de herstelsleutels centraal op te slaan in een gedeelde netwerkmap, netwerkbeheerders beheren.  
 
--   **Actieve Directory® Domain Services (AD DS).** Selecteer deze optie voor het opslaan van de herstelsleutel in AD DS, Active Directory-beheerders beheren.  
+-   **Active Directory® Domain Services (AD DS).** Selecteer deze optie voor het opslaan van de herstelsleutel in AD DS, Active Directory-beheerders beheren.  
 
  Ook, voor de gebruikers hun computers starten nadat BitLocker is ingeschakeld maakt gebruik van methoden kiezen. Gebruikers kunnen hun computers met een van de volgende manieren starten:  
 
@@ -330,9 +331,9 @@ Tabel 4 geeft een lijst van de voordelen en nadelen van de dikke thin en hybride
 
 -   **USB-FLASHSTATION.** Bij deze methode worden de vereiste versleutelingssleutels opgeslagen op een USB-Flashstation, wat aanwezig moet zijn op de computer wanneer de computer wordt gestart. Dit is de aanbevolen methode als de doelcomputer TPM niet ondersteunt.  
 
- Zie voor meer informatie over BitLocker [overzicht van BitLocker-](http://windows.microsoft.com/windows-vista/BitLocker-Drive-Encryption-Overview).  
+ Zie voor meer informatie over BitLocker [overzicht van BitLocker-](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-device-encryption-overview-windows-10).  
 
-###  <a name="EvaluatingTargetComputerReadiness"></a>Evaluatie van de gereedheid van de doel-Computer  
+###  <a name="EvaluatingTargetComputerReadiness"></a> Evaluatie van de gereedheid van de doel-Computer  
  Als onderdeel van het planningsproces gereedheid van de doel-computer voor de implementatie van het beoogde besturingssysteem, stuurprogramma's, toepassingen en andere onderdelen te evalueren. Denk na over de gereedheid van de computer doel met geautomatiseerde hardware en software-inventaris's, zoals de Configuration Manager of de Microsoft Assessment and Planning (MAP) Toolkit.  
 
  Evalueert de gereedheid van de doel-computer voor implementatie door:  
@@ -343,7 +344,7 @@ Tabel 4 geeft een lijst van de voordelen en nadelen van de dikke thin en hybride
 
 -   Identificeren van de verschillen in het implementatieproces 32-bits en 64-bits computers, zoals beschreven in [identificeren verschillen in 64-bits en 32-bits-implementaties](#IdentifyDifferencesin64-bitand32-bitDeployments)  
 
-###  <a name="VerifyTargetComputerReadinessforRunningMDTScripts"></a>Controleren of de gereedheid van de doel-Computer voor het uitvoeren van Scripts MDT  
+###  <a name="VerifyTargetComputerReadinessforRunningMDTScripts"></a> Controleren of de gereedheid van de doel-Computer voor het uitvoeren van Scripts MDT  
  Voordat u de rest van de MDT-scripts, ZTIPrereq.vbs om ervoor te zorgen dat de doelcomputer voldoet aan de vereisten voor het uitvoeren van de resterende MDT-scripts worden uitgevoerd. Script-vereisten zijn:  
 
 -   Windows Script Host (WSH) versie 5,6 of later geïnstalleerd en actief  
@@ -353,7 +354,7 @@ Tabel 4 geeft een lijst van de voordelen en nadelen van de dikke thin en hybride
     > [!NOTE]
     >  De versie van MSXML moet versie 3.0. Versie 4.0 en 6.0 zijn niet compatibel met de MDT-scripts.  
 
-###  <a name="VerifyAdequateTargetComputerResources"></a>Controleer of bronnen van de Computer voldoende doel  
+###  <a name="VerifyAdequateTargetComputerResources"></a> Controleer of bronnen van de Computer voldoende doel  
  Nadat de ZTIPrereq.vbs bepaalt of de computer voldoet aan de vereisten voor het uitvoeren van de resterende scripts, ZTIValidate.wsf Hiermee wordt bepaald of de doelcomputer de juiste software en hardware-systeembronnen voor het implementeren van het beoogde besturingssysteem . Deze vereisten zijn onder andere:  
 
 -   De doelcomputer WSH 5.6 of later is geïnstalleerd  
@@ -388,7 +389,7 @@ Tabel 4 geeft een lijst van de voordelen en nadelen van de dikke thin en hybride
 
  Bepalen of een bestaande computers onvoldoende systeembronnen met behulp van Configuration Manager of een ander hulpprogramma voor software-inventaris. Upgrade de resources op deze doelcomputers vóór de implementatie van Windows, indien nodig.  
 
-###  <a name="IdentifyDifferencesin64-bitand32-bitDeployments"></a>Verschillen in 64-bits en 32-bits implementaties bepalen  
+###  <a name="IdentifyDifferencesin64-bitand32-bitDeployments"></a> Verschillen in 64-bits en 32-bits implementaties bepalen  
  De meeste functies en onderdelen die zijn gevonden in de 32-bits versies van Windows zijn hetzelfde als in 64-bits versies van Windows. Echter, de volgende verschillen in aanmerking nemen bij het implementeren van 64-bits versies van Windows:  
 
 -   Voor implementaties van LTI, moet de versie van Windows PE overeenkomen met de versie van Windows wordt geïmplementeerd. Als een 64-bits versie van Windows implementeert, gebruikt u een 64-bits versie van Windows PE.  
@@ -407,27 +408,25 @@ Tabel 4 geeft een lijst van de voordelen en nadelen van de dikke thin en hybride
 
 -   64-bits versies van Windows 64-bits apparaatstuurprogramma's nodig hebt. U kunt 32-bits stuurprogramma niet gebruiken in 64-bits versies van Windows.  
 
-###  <a name="PlanningPerformanceandPowerManagement"></a>Plannen van prestaties en energiebeheer  
+###  <a name="PlanningPerformanceandPowerManagement"></a> Plannen van prestaties en energiebeheer  
  Windows bevat een aantal functies waarmee het gebruik van energiebeheer van computers en de prestaties te verbeteren. U kunt deze verbeteringen als onderdeel van de configuratie-instellingen die u implementeert op de doelcomputers met MDT kunt opnemen.  
 
  Controleer de volgende bronnen om te identificeren van configuratie-instellingen voor prestaties en energiebeheer om op te nemen bij het uitvoeren van uw computer doelimplementaties:  
 
--   [Windows-ontwikkelaarscentrum voor prestaties analyse](http://msdn.microsoft.com/performance/default.aspx)  
+-   [Hulpprogramma's voor analyse voor Windows-prestaties](https://docs.microsoft.com/windows-hardware/test/wpt/)  
 
--   [Hulpprogramma's voor analyse voor Windows-prestaties](http://msdn.microsoft.com/performance/cc825801.aspx)  
+-   [Duurzame Computing: Instellingen voor energiebeheer in uw organisatie met groepsbeleid afdwingen](https://technet.microsoft.com/magazine/dd252731.aspx)  
 
--   [Duurzame Computing: Instellingen voor energiebeheer in uw organisatie met groepsbeleid afdwingen](http://technet.microsoft.com/magazine/dd252731.aspx)  
+-   [Draagbare accu levensduur oplossingen voor Windows 7](https://msdn.microsoft.com/windows/hardware/gg487547)  
 
--   [Draagbare accu levensduur oplossingen voor Windows 7](http://msdn.microsoft.com/windows/hardware/gg487547)  
+-   [Power beleid voor configuratie en implementatie in Windows](https://msdn.microsoft.com/windows/hardware/gg463243.aspx)  
 
--   [Power beleid voor configuratie en implementatie in Windows](http://msdn.microsoft.com/windows/hardware/gg463243.aspx)  
-
-###  <a name="PlanningTargetComputerSecurity"></a>Planning van beveiliging voor Target-Computer  
+###  <a name="PlanningTargetComputerSecurity"></a> Planning van beveiliging voor Target-Computer  
  Bij het plannen van de configuratie van de Windows-besturingssystemen voor de doelcomputers, zorg ervoor dat het doel computers voldoen aan de vereisten in uw organisatie zijn geïmplementeerd. Microsoft heeft ontwikkeld beveiliging Solution Accelerators waarmee u uw doelcomputers in een beveiligde configuratie implementeren.  
 
- De beveiliging Solution Accelerators bevatten richtlijnen en hulpmiddelen voor het beveiligde Windows. Zie voor meer informatie over het implementeren van de doelcomputers in een beveiligde configuratie met behulp van deze oplossing accelerators [beveiliging Solution Accelerators](http://technet.microsoft.com/solutionaccelerators/cc835245.aspx).  
+ De beveiliging Solution Accelerators bevatten richtlijnen en hulpmiddelen voor het beveiligde Windows. Zie voor meer informatie over het implementeren van de doelcomputers in een beveiligde configuratie met behulp van deze oplossing accelerators [beveiliging Solution Accelerators](https://technet.microsoft.com/solutionaccelerators/cc835245.aspx).  
 
-###  <a name="ChoosingLTIZTIorUDIDeployments"></a>LTI ZTI en UDI implementaties kiezen  
+###  <a name="ChoosingLTIZTIorUDIDeployments"></a> LTI ZTI en UDI implementaties kiezen  
  Implementaties van LTI, ZTI en UDI gebruiken dezelfde algemene set van scripts en configuratiebestanden (zoals CustomSettings.ini) voor het implementeren van de doelcomputers. Tabel 6 vergelijkt implementaties van LTI, ZTI en UDI.  
 
 #### <a name="table-6-comparison-of-lti-zti-and-udi-deployments"></a>Tabel 6. Vergelijking van LTI, ZTI en UDI implementaties  
@@ -462,7 +461,7 @@ Tabel 4 geeft een lijst van de voordelen en nadelen van de dikke thin en hybride
 |Volledig|-Er wordt geen interactie met de gebruiker of implementatie technicus is vereist.<br /><br /> -Het risico van introductie van fouten in de configuratie wordt verminderd.<br /><br /> -Gebruikers en implementatie technici hoeft niet te weten van alle configuratiegegevens vóór het starten van de MDT-implementatieproces.|-Meer tijd nodig is om de configuratie-informatie die nodig zijn voor volledig geautomatiseerde implementatie.<br /><br /> -Referenties voor toegang tot netwerkbronnen en die wel verhoogde machtigingen worden opgeslagen in de configuratiebestanden die moeten worden beveiligd.|  
 |Gedeeltelijk|-Minder tijd nodig om voor te bereiden voor implementatie, omdat de configuratie-informatie kan interactief worden opgegeven.|-Interactie met een technicus van de gebruiker of implementatie is nodig.<br /><br /> -Het risico van introductie van fouten in de configuratie is toegenomen.<br /><br /> -Gebruikers en implementatie technici moeten referenties waarvoor verhoogde machtigingen hebben.<br /><br /> -Gebruikers en implementatie technici moeten weten Sommige configuratiegegevens vóór het starten van de MDT-implementatieproces.|  
 
-###  <a name="ReviewingKnownIssuesLimitationsandRecommendationsforMDT"></a>Bekende problemen, beperkingen en aanbevelingen voor MDT controleren  
+###  <a name="ReviewingKnownIssuesLimitationsandRecommendationsforMDT"></a> Bekende problemen, beperkingen en aanbevelingen voor MDT controleren  
  Lees de bekende problemen, beperkingen, en aanbevelingen voor:  
 
 -   Algemene problemen met MDT zoals beschreven in [revisie algemene bekende problemen, beperkingen en aanbevelingen voor MDT](#ReviewGeneralKnownIssuesLimitationsandRecommendationsforMDT)  
@@ -483,7 +482,7 @@ Tabel 4 geeft een lijst van de voordelen en nadelen van de dikke thin en hybride
 
 -   Opslaan en herstellen van gebruikersgegevens, zoals beschreven in [revisie bekende problemen, beperkingen en aanbevelingen voor het opslaan en terugzetten van gebruikersgegevens](#ReviewKnownIssuesLimitationsandRecommendationsforSavingandRestoringUserInformation)  
 
-####  <a name="ReviewGeneralKnownIssuesLimitationsandRecommendationsforMDT"></a>Bekijk algemene bekende problemen, beperkingen en aanbevelingen voor MDT  
+####  <a name="ReviewGeneralKnownIssuesLimitationsandRecommendationsforMDT"></a> Bekijk algemene bekende problemen, beperkingen en aanbevelingen voor MDT  
  Hier volgen een lijst met bekende algemene problemen, beperkingen en aanbevelingen die betrekking op MDT hebben:  
 
 -   MDT biedt ondersteuning voor de Windows Assessment and Deployment Kit (Windows ADK) voor Windows 8.1, Windows PE-versie 5.0, System Center 2012 R2 Configuration Manager.  
@@ -496,7 +495,7 @@ Tabel 4 geeft een lijst van de voordelen en nadelen van de dikke thin en hybride
 
 -   Wanneer u een Run As-account opgeeft, moet u een gebruiker die lid is van de groep Administrators op de server. Anders wordt het account niet voldoende bevoegdheden voor toegang tot netwerkverbindingen tot stand gebracht door beheerders hebben.  
 
--   Bij het maken van de implementatieshares op computers waarvoor 8.3-bestandsnamen uitgeschakeld (Zie het Microsoft Support-artikel [het maken van een naam op NTFS-partities uitschakelen de 8.3](http://support.microsoft.com/kb/121007/)), de implementatie-Workbench is mislukt voor het genereren van de Windows PE afbeelding. Als 8.3-bestandsnamen zijn uitgeschakeld, schakelt u ze door in te stellen de **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem\NtfsDisable8dot3NameCreation** registerwaarde op **0**.  
+-   Bij het maken van de implementatieshares op computers waarvoor 8.3-bestandsnamen uitgeschakeld (Zie het Microsoft Support-artikel [het maken van een naam op NTFS-partities uitschakelen de 8.3](https://support.microsoft.com/kb/121007/)), de implementatie-Workbench is mislukt voor het genereren van de Windows PE afbeelding. Als 8.3-bestandsnamen zijn uitgeschakeld, schakelt u ze door in te stellen de **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem\NtfsDisable8dot3NameCreation** registerwaarde op **0**.  
 
 -   Vermijd het maken van een submap en een bestand met dezelfde naam in een map. Bijvoorbeeld, in de map bestanden moet u niet een submap Item een naam en maak een bestand met de naam Item.  
 
@@ -512,9 +511,9 @@ Tabel 4 geeft een lijst van de voordelen en nadelen van de dikke thin en hybride
 
 -   De USMT mislukt als u een pad tussen aanhalingstekens die ook op een backslash eindigen (\\). Om problemen te voorkomen, gewoon uitgeschakeld laten de afsluitende backslash bij het opgeven van een map. De volgende paden, bijvoorbeeld, wordt een fout opgetreden:  
 
-    -   ' D:\\'  
+    -   "D:\\"  
 
-    -   ' D:\folder\\'  
+    -   "D:\folder\\"  
 
      Deze paden wordt echter niet tot een fout opgetreden:  
 
@@ -526,7 +525,7 @@ Tabel 4 geeft een lijst van de voordelen en nadelen van de dikke thin en hybride
 
     -   D:\folder  
 
-    -   'D:\folder'  
+    -   “D:\folder”  
 
     -   ' D:\\\ '  
 
@@ -536,7 +535,7 @@ Tabel 4 geeft een lijst van de voordelen en nadelen van de dikke thin en hybride
 
 -   Tijdens implementaties van LTI op nieuwe computers, een aantal pagina's (zoals de **landinstelling** en **toetsenbord landinstelling** pagina's) worden niet tekst correct weergegeven als vereiste lettertypen zijn niet geïnstalleerd in Windows PE. In het scenario met een Computer vernieuwen weergegeven dezelfde problemen als vereiste lettertypen niet zijn geïnstalleerd in het besturingssysteem wordt vervangen.  
 
--   Sommige toetsenbordindelingen mogelijk taalpakketten of invoermethode-editors MDT niet automatisch in de Windows PE-installatiekopie voor opstarten opgenomen worden. MDT controleert niet of de toetsenbordindeling geldig is. Zie voor meer informatie het Microsoft Support-artikel [ondersteuning voor Input Method Editor (IME) toevoegen aan Windows PE 2.0](http://support.microsoft.com/kb/926181).  
+-   Sommige toetsenbordindelingen mogelijk taalpakketten of invoermethode-editors MDT niet automatisch in de Windows PE-installatiekopie voor opstarten opgenomen worden. MDT controleert niet of de toetsenbordindeling geldig is. Zie voor meer informatie het Microsoft Support-artikel [ondersteuning voor Input Method Editor (IME) toevoegen aan Windows PE 2.0](https://support.microsoft.com/kb/926181).  
 
 -   Maximaal twee WINS-serveradressen kan worden toegevoegd bij het configureren van instellingen voor statisch IP-configuratie voor een netwerkadapter. Als meer dan twee WINS-serveradressen worden toegevoegd met MDT, worden alleen de eerste twee WINS-serveradressen gebruikt.  
 
@@ -616,12 +615,12 @@ Tabel 4 geeft een lijst van de voordelen en nadelen van de dikke thin en hybride
 
 -   Eigenschappen die niet zijn geconfigureerd voor kiezen, zelfs als aanwezig is in het antwoordbestand, het land/regio, netnummer, interlokale toegang en nummer inspreken regels bevatten. Dit probleem omzeilen, kiezen regels configureren door het maken en testen van een REG-bestand in een testomgeving en REG-bestand vervolgens importeren als een aangepaste taak tijdens de takenreeks wordt uitgevoerd.  
 
-####  <a name="ReviewGeneralKnownIssuesLimitationsandRecommendationsThatRelatetoWindows"></a>Bekende problemen, beperkingen en aanbevelingen die gerelateerd zijn aan Windows controleren  
+####  <a name="ReviewGeneralKnownIssuesLimitationsandRecommendationsThatRelatetoWindows"></a> Bekende problemen, beperkingen en aanbevelingen die gerelateerd zijn aan Windows controleren  
  Hier volgt een lijst met bekende problemen, beperkingen en aanbevelingen die gerelateerd zijn aan Windows:  
 
 -   Mislukt de implementatie op computers die zijn geconfigureerd voor een andere taal dan Engels, wanneer de Windows Media Player Network delen Service® wordt uitgevoerd. Stop als tijdelijke oplossing, de Windows Media Player Network Sharing Service tot nadat de implementatie is voltooid.  
 
--   AD DS kunt u back-up BitLocker en TPM-gegevens. Herstelgegevens omvat het herstelwachtwoord voor elke versleutelde waarde, het wachtwoord en de benodigde informatie om herstelgegevens koppelen aan computers en volumes. Een andere optie is het besparen van een pakket op met de sleutels die worden gebruikt om gegevens naast het herstelwachtwoord vereist voor toegang tot deze sleutels te versleutelen. Zie voor meer informatie [Active Directory configureren om Back-up van Windows BitLocker-stationsversleuteling en Trusted Platform Module herstelinformatie](http://www.microsoft.com/downloads/details.aspx?FamilyID=3a207915-dfc3-4579-90cd-86ac666f61d4) in het Microsoft Download Center.  
+-   AD DS kunt u back-up BitLocker en TPM-gegevens. Herstelgegevens omvat het herstelwachtwoord voor elke versleutelde waarde, het wachtwoord en de benodigde informatie om herstelgegevens koppelen aan computers en volumes. Een andere optie is het besparen van een pakket op met de sleutels die worden gebruikt om gegevens naast het herstelwachtwoord vereist voor toegang tot deze sleutels te versleutelen. Zie voor meer informatie [BitLocker Veelgestelde vragen over de AD DS](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-frequently-asked-questions#bkmk-adds) in het Microsoft Download Center.  
 
 -   Als u BitLocker inschakelt, worden als verborgen, alleen-lezen systeembestanden sleutelbestanden gegenereerd. Stel om ze te bekijken, de Windows Verkenner-optie voor het weergeven van verborgen bestanden en systeembestanden.  
 
@@ -645,7 +644,7 @@ Tabel 4 geeft een lijst van de voordelen en nadelen van de dikke thin en hybride
 
 -   MDT ondersteunt Windows language pack selecties tijdens de implementatie voor alle scenario's als de taalpakketten die zijn geconfigureerd in de implementatie-Workbench. Het is mogelijk meerdere taalpakketten selecteren bij het implementeren van Enterprise of Ultimate-edities van besturingssystemen. Als andere edities van Windows worden geïmplementeerd, kan slechts één taalpakket vanwege licentiebeperkingen Windows worden geselecteerd.  
 
-####  <a name="ReviewGeneralKnownIssuesLimitationsandRecommendationsThatRelatetoDisksandPartitioning"></a>Bekijk bekende problemen, beperkingen en aanbevelingen die betrekking op schijven en partitioneren hebben  
+####  <a name="ReviewGeneralKnownIssuesLimitationsandRecommendationsThatRelatetoDisksandPartitioning"></a> Bekijk bekende problemen, beperkingen en aanbevelingen die betrekking op schijven en partitioneren hebben  
  Hier volgt een lijst met bekende problemen, beperkingen en aanbevelingen die betrekking op de schijf en partitionering hebben:  
 
 -   LTI biedt geen ondersteuning voor de implementatie van het beoogde besturingssysteem logische stations of dynamische schijven.  
@@ -688,7 +687,7 @@ Tabel 4 geeft een lijst van de voordelen en nadelen van de dikke thin en hybride
 
 -   Tijdens het configureren van de **schijf formatteren en partitioneren** taak en voeg een primaire partitie tussenliggende, waarmee ongewenste resultaten wanneer de grootte van een logische partitie is niet altijd de uitgebreide en logische partities samen opgeven geconfigureerd met een percentage. Met andere woorden, een primaire partitie tussen een uitgebreide en logische partitie niet toevoegen.  
 
-####  <a name="ReviewGeneralKnownIssuesLimitationsandRecommendationsThatRelatetoBitLocker"></a>Bekende problemen, beperkingen en aanbevelingen die betrekking op BitLocker hebben controleren  
+####  <a name="ReviewGeneralKnownIssuesLimitationsandRecommendationsThatRelatetoBitLocker"></a> Bekende problemen, beperkingen en aanbevelingen die betrekking op BitLocker hebben controleren  
  Hier volgt een lijst met bekende problemen, beperkingen en aanbevelingen die betrekking op BitLocker hebben:  
 
 -   Windows Server kan vastlopen als de installatiekopie van het besturingssysteem gebruikt voor het uitvoeren van de implementatie geen het optionele BitLocker-onderdeel heeft. Deze situatie kan zich in de volgende scenario's:  
@@ -709,12 +708,12 @@ Tabel 4 geeft een lijst van de voordelen en nadelen van de dikke thin en hybride
 
     -   Implementeren van de computer waarop geen opstartmedia; Gebruik bijvoorbeeld een implementatie (Pre-Boot Execution Environment).  
 
-####  <a name="ReviewKnownIssuesLimitationsandRecommendationsforLTIDeployments"></a>Bekende problemen, beperkingen en aanbevelingen voor implementaties van LTI controleren  
+####  <a name="ReviewKnownIssuesLimitationsandRecommendationsforLTIDeployments"></a> Bekende problemen, beperkingen en aanbevelingen voor implementaties van LTI controleren  
  Hier volgt een lijst met bekende problemen, beperkingen en aanbevelingen die gerelateerd zijn aan implementaties van LTI:  
 
 -   Als een gebruiker is aangemeld bij de computer met een domeinaccount en als de computer al een verbinding tot stand gebracht heeft en kan het netwerk geen referenties opgegeven voor toegang tot netwerkbronnen (de USMT opslaan locatie en de back-uplocatie computer zijn) valideren een andere share op dezelfde server.  
 
-####  <a name="ReviewKnownIssuesLimitationsandRecommendationsforZTIDeploymentsUsingConfigurationManager"></a>Bekende problemen, beperkingen en aanbevelingen voor implementaties van ZTI met Configuration Manager controleren  
+####  <a name="ReviewKnownIssuesLimitationsandRecommendationsforZTIDeploymentsUsingConfigurationManager"></a> Bekende problemen, beperkingen en aanbevelingen voor implementaties van ZTI met Configuration Manager controleren  
  Hier volgt een lijst met bekende problemen, beperkingen en aanbevelingen die gerelateerd zijn aan implementaties van ZTI met Configuration Manager:  
 
 -   Bij het implementeren van een niet-Engelstalige doelbesturingssysteem installatiemethode gevraagd de taal van de gebruiker, omdat de sjabloon voor het bestand Unattend.XML instellingen voor Amerikaans-Engels bevat (en-us). U kunt dit probleem omzeilen, moet u een van de volgende taken uitvoeren:  
@@ -729,12 +728,12 @@ Tabel 4 geeft een lijst van de voordelen en nadelen van de dikke thin en hybride
 
 -   Tijdens het installeren van de server-rollen kan Configuration Manager een prompt weer voor dll-bestanden die nodig zijn om de functie-installatie te voltooien. Als dit gebeurt, Geef een geldige locatie voor de vereiste bestanden. Om te voorkomen dat deze stap, moet u een stap toevoegen eerder in de takenreeks waarmee de vereiste DLL-bestanden worden gekopieerd naar de map van de Windows Setup-bestanden in het register opgegeven. De locatie van deze map is gedefinieerd in de **bronpad** registerwaarde **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup**.  
 
-####  <a name="ReviewKnownIssuesLimitationsandRecommendationsforUDIDeployments"></a>Bekende problemen, beperkingen en aanbevelingen voor UDI implementaties controleren  
+####  <a name="ReviewKnownIssuesLimitationsandRecommendationsforUDIDeployments"></a> Bekende problemen, beperkingen en aanbevelingen voor UDI implementaties controleren  
  Hier volgt een lijst met bekende problemen, beperkingen en aanbevelingen die betrekking op UDI implementaties hebben:  
 
 -   Toepassingen zijn uitgeschakeld en kunnen niet automatisch worden geïnstalleerd. Dit probleem zich voordoet wanneer de toepassing is goedkeuring door beheerder vereist, maar nog niet is goedgekeurd. Als de **goedkeuring door beheerder vereisen als gebruikers deze toepassing aanvragen**selectievakje is ingeschakeld voor de toepassing, controleert u of de toepassing is goedgekeurd.  
 
-     Zie voor meer informatie over de goedkeuring door beheerder vereisen en het verlenen van goedkeuring [toepassingen implementeren in Configuration Manager](http://technet.microsoft.com/library/gg682082.aspx).  
+     Zie voor meer informatie over de goedkeuring door beheerder vereisen en het verlenen van goedkeuring [toepassingen implementeren in Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications).  
 
 -   Wanneer u het implementatiescenario MDT vernieuwen Computer uitvoert met een USB-harde schijf is gekoppeld, taak reeks fouten optreden, omdat de taaksequencer Configuration Manager de map _SMSTaskSequence op het USB-station geplaatst. Standaard plaatst de taaksequencer Configuration Manager de map _SMSTaskSequence op het station met de meeste beschikbare vrije schijfruimte, wat leiden problemen later in het implementatieproces tot kan als het USB-station wordt verwijderd.  
 
@@ -750,7 +749,7 @@ Tabel 4 geeft een lijst van de voordelen en nadelen van de dikke thin en hybride
 
     5.  Voltooi de Wizard UDI.  
 
-####  <a name="ReviewKnownIssuesLimitationsandRecommendationsforRunningTaskSequencesonTargetComputers"></a>Bekijk bekende problemen, beperkingen en aanbevelingen voor het uitvoeren van Takenreeksen op doelcomputers  
+####  <a name="ReviewKnownIssuesLimitationsandRecommendationsforRunningTaskSequencesonTargetComputers"></a> Bekijk bekende problemen, beperkingen en aanbevelingen voor het uitvoeren van Takenreeksen op doelcomputers  
  Hier volgt een lijst met bekende problemen, beperkingen en aanbevelingen voor het uitvoeren van takenreeksen op doelcomputers in MDT:  
 
 -   Voor implementaties van LTI, moet u ervoor zorgen dat Gebruikersaccountbeheer (UAC) is uitgeschakeld voor het ingebouwde lokale beheerdersaccount op de doelcomputers, totdat de takenreeks is voltooid. Uitvoeren van takenreeksen op computers met Gebruikersaccountbeheer is ingeschakeld voor het lokale administratoraccount zorgt ervoor dat takenreeksen mislukken.  
@@ -758,9 +757,9 @@ Tabel 4 geeft een lijst van de voordelen en nadelen van de dikke thin en hybride
     > [!NOTE]
     >  UAC moet alleen voor het ingebouwde lokale Administrator-account is uitgeschakeld en ingeschakeld voor alle andere accounts. Standaard ingebouwde lokale Administrator-account is uitgesloten van UAC omdat de **User Account Control: Goedkeuring Beheermodus voor het ingebouwde administratoraccount** (uitgeschakeld) instelling is ingeschakeld.  
 
-     Voor meer informatie over [UAC-Groepsbeleid-instellingen, Zie UAC instellingen voor Groepsbeleid en registerinstellingen voor de sleutel](http://technet.microsoft.com/library/dd835564\(WS.10\).aspx).  
+     Voor meer informatie over [UAC-Groepsbeleid-instellingen, Zie UAC instellingen voor Groepsbeleid en registerinstellingen voor de sleutel](https://technet.microsoft.com/library/dd835564\(WS.10\).aspx).  
 
-####  <a name="ReviewKnownIssuesLimitationsandRecommendationsforSavingandRestoringUserInformation"></a>Lees de bekende problemen, beperkingen en aanbevelingen voor het opslaan en terugzetten van gebruikersgegevens  
+####  <a name="ReviewKnownIssuesLimitationsandRecommendationsforSavingandRestoringUserInformation"></a> Lees de bekende problemen, beperkingen en aanbevelingen voor het opslaan en terugzetten van gebruikersgegevens  
  Hier volgt een lijst met bekende problemen, beperkingen en aanbevelingen voor het opslaan en terugzetten van gebruikersgegevens in MDT:  
 
 -   Voor implementaties van LTI, Voeg niet een van de volgende USMT opdrachtregelparameters voor de **ScanStateArgs** of **LoadStateArgs** eigenschappen, omdat deze het opslaan en herstellen van de informatie over de status van de gebruiker mislukt:  
@@ -771,13 +770,13 @@ Tabel 4 geeft een lijst van de voordelen en nadelen van de dikke thin en hybride
 
     -   **/ versleutelen**  
 
-    -   **/ Key**  
+    -   **/key**  
 
-    -   **/ KeyFile**  
+    -   **/keyfile**  
 
     -   **/VSC**  
 
-    -   **/ l**  
+    -   **/l**  
 
     -   **/I**  
 
@@ -803,7 +802,7 @@ Tabel 4 geeft een lijst van de voordelen en nadelen van de dikke thin en hybride
 > [!NOTE]
 >  Als u niet bekend met UDI bent, Raadpleeg de UDI voorwaarden en terminologie in 'UDI concepten' de *Microsoft Deployment Toolkit Reference*. Uzelf vertrouwd te maken met deze voorwaarden en terminologie, krijgt u meer lukken bij het toepassen van de rest van deze handleiding voor uw organisatie.  
 
-##  <a name="InstallingorUpgradingtoMDT"></a>Installeren of upgraden van MDT  
+##  <a name="InstallingorUpgradingtoMDT"></a> Installeren of upgraden van MDT  
  Als u wilt voorbereiden voor het uitvoeren van implementaties met MDT, moet u de volgende taken uitvoeren:  
 
 1.  Lees de bekende problemen, beperkingen en aanbevelingen voor het voorbereiden van schijven op de doelcomputers in MDT, zoals beschreven in [bekende problemen controleren, beperkingen en aanbevelingen voor het installeren of upgraden naar MDT](#ReviewingKnownIssuesLimitationsandRecommendationsforInstallingorUpgradingtoMDT).  
@@ -821,7 +820,7 @@ Tabel 4 geeft een lijst van de voordelen en nadelen van de dikke thin en hybride
 > [!NOTE]
 >  Windows PowerShell™ versie 2.0 of later moet worden geïnstalleerd op elke computer waarop de MDT is geïnstalleerd voor het beheren van implementaties van LTI of ZTI.  
 
-###  <a name="ReviewingKnownIssuesLimitationsandRecommendationsforInstallingorUpgradingtoMDT"></a>Bekende problemen, beperkingen en aanbevelingen controleren voor het installeren of upgraden naar MDT  
+###  <a name="ReviewingKnownIssuesLimitationsandRecommendationsforInstallingorUpgradingtoMDT"></a> Bekende problemen, beperkingen en aanbevelingen controleren voor het installeren of upgraden naar MDT  
  Hier volgt een lijst met bekende problemen, beperkingen en aanbevelingen voor het installeren van MDT:  
 
 -   Zorg ervoor dat het schijfvolume dat de tijdelijke map die gebruikmaakt van de implementatie-Workbench bevat ten minste 20 GB aan beschikbare schijfruimte.  
@@ -834,7 +833,7 @@ Tabel 4 geeft een lijst van de voordelen en nadelen van de dikke thin en hybride
 
      Zorg ervoor dat het schijfvolume dat is opgegeven in de **TEMP_DIR** register subsleutels of in de omgevingsvariabele % TEMP % voldoende schijfruimte beschikbaar is.  
 
-###  <a name="PreparingthePrerequisiteInfrastructureforAllMDTDeploymentMethods"></a>De vereiste infrastructuur voorbereiden voor alle methoden van de MDT-implementatie  
+###  <a name="PreparingthePrerequisiteInfrastructureforAllMDTDeploymentMethods"></a> De vereiste infrastructuur voorbereiden voor alle methoden van de MDT-implementatie  
  MDT is installatie van de volgende software vereist voor LTI, ZTI en UDI:  
 
 -   Microsoft .NET Framework versie 3.5 met SP1  
@@ -849,7 +848,7 @@ Tabel 4 geeft een lijst van de voordelen en nadelen van de dikke thin en hybride
 
 -   [De implementatieomgeving UDI voorbereiden](#PreparingtheUDIDeploymentEnvironment)  
 
-###  <a name="InstallingaNewInstanceofMDT"></a>Een nieuw exemplaar van MDT installeren  
+###  <a name="InstallingaNewInstanceofMDT"></a> Een nieuw exemplaar van MDT installeren  
  Met alle de vereiste software installeren, de volgende stappen voor het installeren van MDT uitvoeren (MicrosoftDeploymentToolkit_*platform.* MSI, waarbij *platform* x86 of x64):  
 
 1.  Dubbelklik op **MicrosoftDeploymentToolkit2012_x64.msi** (voor 64-bits besturingssystemen) of **MicrosoftDeploymentToolkit2012_x86.msi** (voor 32-bits besturingssystemen).  
@@ -871,14 +870,14 @@ Tabel 4 geeft een lijst van de voordelen en nadelen van de dikke thin en hybride
 
  Na voltooiing, is MDT geïnstalleerd in de doelmap die u hebt geselecteerd in de wizard.  
 
-###  <a name="UpgradingtoMDT"></a>Een upgrade naar MDT  
+###  <a name="UpgradingtoMDT"></a> Een upgrade naar MDT  
  MDT automatisch wordt verwijderd vorige versies voordat u installeert, met inbegrip van de volgende versies:  
 
 -   MDT 2012 Update 1  
 
  Naast de upgrade van de MDT-installatie bijwerken eventuele bestaande implementatieshares. Zie voor meer informatie over dit proces [upgraden van een bestaande Share in de implementatie in de Implementatieworkbench](#UpgradeanExistingDeploymentShareintheDeploymentWorkbench).  
 
-##  <a name="PerformingLTIDeployments"></a>Implementaties van LTI uitvoeren  
+##  <a name="PerformingLTIDeployments"></a> Implementaties van LTI uitvoeren  
  U uitvoeren implementaties van LTI met behulp van alleen MDT en de ondersteunende onderdelen. U kunt implementaties van LTI uitvoeren via een netwerk of van verwisselbare media. Deze flexibiliteit maakt implementaties van LTI geschikt is voor een breed scala aan organisaties.  
 
  Implementaties van LTI door uitvoeren:  
@@ -893,7 +892,7 @@ Tabel 4 geeft een lijst van de voordelen en nadelen van de dikke thin en hybride
 
 -   Vastgelegde installatiekopieën implementeren op doelcomputers, zoals beschreven in [vastgelegd installatiekopieën implementeren naar de doelcomputers LTI](#DeployingCapturedImagestoTargetComputersinLTI)  
 
-###  <a name="PreparingtheLTIDeploymentEnvironment"></a>De implementatieomgeving LTI voorbereiden  
+###  <a name="PreparingtheLTIDeploymentEnvironment"></a> De implementatieomgeving LTI voorbereiden  
  Na het voorbereiden van de vereiste infrastructuur voor MDT, moet u de LTI implementatie-omgeving voorbereiden.  
 
 ##### <a name="to-prepare-the-lti-deployment-environment"></a>De implementatie LTI omgeving voorbereiden  
@@ -906,7 +905,7 @@ Tabel 4 geeft een lijst van de voordelen en nadelen van de dikke thin en hybride
 
 4.  De software die het implementatieproces LTI vereist zoals beschreven in [verkrijgen van de Software die het implementatieproces LTI moet](#ObtaintheSoftwareThattheLTIDeploymentProcessRequiresh).  
 
-####  <a name="PreparethePrerequisiteLTIInfrastructure"></a>De vereiste LTI-infrastructuur voorbereiden  
+####  <a name="PreparethePrerequisiteLTIInfrastructure"></a> De vereiste LTI-infrastructuur voorbereiden  
  Implementaties van LTI is vereist dat een juist geconfigureerde infrastructuur bestaat vóór MDT installeren en uitvoeren van implementaties. Zorg ervoor dat uw nieuwe of bestaande infrastructuur is speciaal geoptimaliseerd voor de implementaties van besturingssystemen.  
 
 > [!NOTE]
@@ -918,14 +917,14 @@ Tabel 4 geeft een lijst van de voordelen en nadelen van de dikke thin en hybride
 
 -   ' Stap 1: De vereiste Software verkrijgen'  
 
-####  <a name="InstallorUpgradetoMDTforLTIDeployments"></a>Installeren of upgraden van MDT voor implementaties van LTI  
+####  <a name="InstallorUpgradetoMDTforLTIDeployments"></a> Installeren of upgraden van MDT voor implementaties van LTI  
  Als u implementaties van LTI, moet u ten minste één exemplaar van MDT uitvoert in uw omgeving hebben. Als uw bestaande omgeving:  
 
 -   Er zijn geen computers die momenteel met MDT of een eerdere versie van MDT, installeer vervolgens een of meer nieuwe exemplaren van MDT zoals beschreven in [een nieuw exemplaar van MDT installeren](#InstallingaNewInstanceofMDT)  
 
 -   Een of meer computers waarop een vorige versie van MDT, vervolgens een upgrade die exemplaren naar MDT zoals beschreven in [upgraden naar MDT](#UpgradingtoMDT).  
 
-####  <a name="InstallComponentsThatMDTandLTIRequire"></a>Waarvoor MDT en de LTI-onderdelen installeren  
+####  <a name="InstallComponentsThatMDTandLTIRequire"></a> Waarvoor MDT en de LTI-onderdelen installeren  
  De implementatie-Workbench is de beheerconsole voor LTI. De meeste van de LTI-beheertaken worden uitgevoerd in de implementatie-Workbench. MDT bevat ook een Windows PowerShell-provider voor de automatisering van LTI beheertaken via de Windows PowerShell-opdrachtshell met MDT-cmdlets.  
 
 > [!NOTE]
@@ -935,7 +934,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
 ### <a name="table-10-deployment-workbench-nodes"></a>Tabel 10. Implementatie-Workbench knooppunten  
 
-|**Knooppunt** |**Beschrijving** |  
+|**Node** |**Beschrijving** |  
 |--------------|---------------------|  
 |**Informatie Center** |Biedt toegang tot documentatie over geeft belangrijk nieuws over MDT en geeft een lijst van de onderdelen die nodig zijn voor het gebruik van de implementatie-Workbench.|  
 |**Implementatieshares** |De shares implementatie die dit exemplaar van de implementatie-Workbench beheert. Elke implementatieshare omvat besturingssystemen, toepassingen, pakketten besturingssysteem, takenreeksen en out-of-box stuurprogramma's in de implementatieshare ingevuld.|  
@@ -968,7 +967,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
  MDT maakt gebruik van de Windows ADK voor Windows 8.1 waaronder USMT.  
 
-####  <a name="ObtaintheSoftwareThattheLTIDeploymentProcessRequiresh"></a>De Software voor het implementatieproces LTI verkrijgen  
+####  <a name="ObtaintheSoftwareThattheLTIDeploymentProcessRequiresh"></a> De Software voor het implementatieproces LTI verkrijgen  
  Verzamel de software die LTI gaat implementeren. LTI worden geïmporteerd in of deze software installeren op implementatieshares. De software die kan worden geïmplementeerd omvat:  
 
 -   Bronbestanden van het besturingssysteem of afbeeldingsbestanden voor elk besturingssysteem op de referentie- en doelcomputers computers kunnen worden geïmplementeerd  
@@ -993,7 +992,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
 -   Aanmeldingsscherm voor de doelcomputers niet worden ingeschakeld met behulp van Groepsbeleid of lokaal beveiligingsbeleid  
 
-###  <a name="PreparingforLTIDeploymenttotheReferenceComputer"></a>Implementatie van de LTI op de referentiecomputer voorbereiden  
+###  <a name="PreparingforLTIDeploymenttotheReferenceComputer"></a> Implementatie van de LTI op de referentiecomputer voorbereiden  
  Voor veel van de LTI implementatiescenario's de beste manier is om te maken van een referentiecomputer, zoals beschreven in [Thick kiezen, dun of hybride installatiekopieën](#ChoosingThickThinorHybridImages), en vervolgens een installatiekopie van die computer. Later in het implementatieproces van LTI implementeert u de vastgelegde kopie van de referentiecomputer met de juiste doelcomputers.  
 
 > [!NOTE]
@@ -1046,7 +1045,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
 6.  Werk de implementatieshare voor het maken van de Windows PE-installatiekopieën gebruikt voor het starten van implementatie van de LTI, zoals beschreven in [Update Deployment Share in de Implementatieworkbench](#UpdateaDeploymentShareintheDeploymentWorkbench).  
 
-###  <a name="DeployingToandCapturinganImageoftheReferenceComputerinLTI"></a>Om te implementeren en een installatiekopie van de referentiecomputer in LTI vastleggen  
+###  <a name="DeployingToandCapturinganImageoftheReferenceComputerinLTI"></a> Om te implementeren en een installatiekopie van de referentiecomputer in LTI vastleggen  
  Nadat u hebt geconfigureerd de implementatieshare, de implementatieshare bijgewerkt en gemaakt van de Windows PE-installatiekopieën die de LTI-scripts bevatten, start u de referentiecomputer met de Windows PE-installatiekopie en voltooi de Wizard implementatie. De takenreeks die u eerder in het proces gemaakt wordt het beoogde besturingssysteem, stuurprogramma's, besturingssysteempakketten en toepassingen op de referentiecomputer distribueren en vervolgens een installatiekopie van de referentiecomputer vast te leggen.  
 
 ##### <a name="to-deploy-to-and-capture-an-image-of-the-reference-computer"></a>Om te implementeren op een installatiekopie van de referentiecomputer  
@@ -1057,7 +1056,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
 3.  De vastgelegde referentiesysteemkopie toevoegen aan het knooppunt besturingssystemen in de Workbench-implementatie, zoals beschreven in [de vastgelegde installatiekopie van de referentiecomputer toevoegen aan de implementatie-Workbench](#AddtheCapturedImageoftheReferenceComputertotheDeploymentWorkbench).  
 
-####  <a name="CreatetheLTIBootableMedia"></a>De LTI opstartbare Media maken  
+####  <a name="CreatetheLTIBootableMedia"></a> De LTI opstartbare Media maken  
  U moet bieden een methode voor het starten van de computer met de aangepaste versie van Windows PE die u hebt gemaakt wanneer u de implementatieshare is bijgewerkt. De implementatie-Workbench maakt u de bestanden LiteTouchPE_x86.iso en LiteTouchPE_x86.wim (voor 32-bits doelcomputers) of de bestanden LiteTouchPE_x64.iso en LiteTouchPE_x64.wim-bestanden (voor 64-bits doelcomputers) in de *deployment_share*Map \Boot (waarbij *deployment_share* de gedeelde netwerkmap gebruikt als de implementatieshare is). Maak de juiste LTI opstartbare media van een van deze installatiekopieën.  
 
 ###### <a name="to-create-the-lti-bootable-media"></a>De LTI opstartbare media maken  
@@ -1073,7 +1072,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
     -   Als de referentiecomputer een virtuele machine is, start u de virtuele machine rechtstreeks vanuit het ISO-bestand of vanaf een CD of DVD van het ISO-bestand.  
 
-####  <a name="CompletetheDeploymentWizard"></a>Voltooi de implementatiewizard  
+####  <a name="CompletetheDeploymentWizard"></a> Voltooi de implementatiewizard  
  Start de referentiecomputer met de LTI opstartbare media die u eerder in het proces hebt gemaakt. De opstartbare media LTI wordt Windows PE gestart op de referentiecomputer en start het implementatieproces. Aan het einde van het proces, het beoogde besturingssysteem wordt geïmplementeerd op de referentiecomputer en een installatiekopie van de referentiecomputer wordt vastgelegd.  
 
 > [!NOTE]
@@ -1105,7 +1104,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
  De referentiecomputer is nu geïmplementeerd en het vastgelegde WIM-bestand van de referentiecomputer wordt opgeslagen in de locatie die u hebt opgegeven op de **opgeven of een installatiekopie vastleggen** wizardpagina.  
 
-####  <a name="AddtheCapturedImageoftheReferenceComputertotheDeploymentWorkbench"></a>De vastgelegde installatiekopie van de referentiecomputer toevoegen aan de implementatie-Workbench  
+####  <a name="AddtheCapturedImageoftheReferenceComputertotheDeploymentWorkbench"></a> De vastgelegde installatiekopie van de referentiecomputer toevoegen aan de implementatie-Workbench  
  Als u wilt implementeren de vastgelegde installatiekopie van de referentiecomputer op de doelcomputer, toevoegen de vastgelegde installatiekopie aan de lijst met besturingssystemen in het knooppunt besturingssystemen in de implementatie-Workbench. De Wizard importeren besturingssysteem kopieert de bestanden van het besturingssysteem naar de *deployment_share*\Operating systemen\\*operating_system* map (waarbij *deployment_ delen* is de implementatiesharemap eerder in het proces hebt gemaakt en *operating_system* is de naam van het besturingssysteem die is toegevoegd aan de implementatieshare).  
 
  Toevoegen van de vastgelegde installatiekopie van de referentiecomputer met het voltooien van het importproces besturingssysteem zoals beschreven in [eerder vastgelegde installatiekopie importeren van een referentiecomputer](#ImportaPreviouslyCapturedImageofaReferenceComputer), waarbij u ervoor zorgt dat u de configuratie van de specifiek volgt de instellingen op de wizardpagina's die worden vermeld in de tabel 12 en u de waarden op de andere wizardpagina's die geschikt voor uw organisatie zijn selecteren.  
@@ -1118,7 +1117,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
  De Wizard importeren besturingssysteem is voltooid. De vastgelegde installatiekopie van de referentiecomputer is toegevoegd aan de lijst met besturingssystemen in het Informatiedeelvenster en wordt gekopieerd naar de implementatieshare.  
 
-###  <a name="PreparingforLTIDeploymenttoTargetComputers"></a>Voorbereiden voor implementatie van de LTI op doelcomputers  
+###  <a name="PreparingforLTIDeploymenttoTargetComputers"></a> Voorbereiden voor implementatie van de LTI op doelcomputers  
  Aan de installatiekopieën van de referentiecomputer vastgelegd, installatiekopieën van het te implementeren met de doelcomputers. In voorbereiding, maakt u er een of meer takenreeksen voor de implementatie van de vastgelegde installatiekopieën, zorg ervoor dat de benodigde implementatie resources bestaan en aanpassen van het implementatieproces.  
 
 ##### <a name="to-prepare-for-deployment-to-the-target-computers"></a>Om voor te bereiden voor implementatie naar de doelcomputers  
@@ -1139,7 +1138,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
      Afhankelijk van de doelcomputers in uw organisatie een combinatie van de implementaties van scenario's mogelijk nodig. Zie voor meer informatie over de implementatiescenario's voor MDT [implementatiescenario's te identificeren](#IdentifyingDeploymentScenarios).  
 
-####  <a name="PreparefortheNewComputerDeploymentScenariotoTargetComputersUsingLTI"></a>Voorbereiden voor de nieuwe Computer implementatiescenario op doelcomputers met LTI  
+####  <a name="PreparefortheNewComputerDeploymentScenariotoTargetComputersUsingLTI"></a> Voorbereiden voor de nieuwe Computer implementatiescenario op doelcomputers met LTI  
  In de nieuwe Computer implementatiescenario, wordt een nieuwe installatie van een Windows-besturingssysteem geïmplementeerd op een nieuwe computer. Er is geen gebruiker migratie-informatie opslaan en terugzetten en er zijn geen bestaande bestandssystemen te behouden. De standaard Clienttakenreeks of Standard-Server, Takenreeks sjablonen gebruiken om de vastgelegde installatiekopie van de referentiecomputer naar de doelcomputer.  
 
 ###### <a name="to-prepare-for-the-new-computer-deployment-scenario"></a>Voorbereiden voor het implementatiescenario voor de nieuwe Computer  
@@ -1181,7 +1180,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
     -   [Media-afbeeldingen in de implementatie-Workbench genereren](#GenerateMediaImagesintheDeploymentWorkbench)  
 
-####  <a name="PrepareforaRefreshComputerDeploymentScenariotoTargetComputersUsingLTI"></a>Voorbereiden voor een implementatiescenario van vernieuwen Computer naar de doelcomputers met LTI  
+####  <a name="PrepareforaRefreshComputerDeploymentScenariotoTargetComputersUsingLTI"></a> Voorbereiden voor een implementatiescenario van vernieuwen Computer naar de doelcomputers met LTI  
  In het implementatiescenario Computer vernieuwen voor een computer wordt vernieuwd, dat wil zeggen, opnieuw wordt een installatiekopie gemaakt voor de installatiekopie normalisatie of om een probleem te verhelpen. U moet opslaan en herstellen van de informatie over migratie, omdat de bestaande bestandssystemen op de doelcomputer niet behouden blijven. De standaard Clienttakenreeks of Standard-Server, Takenreeks sjablonen gebruiken om de vastgelegde installatiekopie van de referentiecomputer naar de doelcomputer.  
 
 ###### <a name="to-prepare-for-the-refresh-computer-deployment-scenario"></a>Voorbereiden voor het implementatiescenario Computer vernieuwen  
@@ -1223,7 +1222,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
     -   [Media-afbeeldingen in de implementatie-Workbench genereren](#GenerateMediaImagesintheDeploymentWorkbench)  
 
-####  <a name="PrepareforaReplaceComputerDeploymentScenariotoTargetComputersUsingLTI"></a>Voorbereiden voor een implementatiescenario van vervangen Computer naar de doelcomputers met LTI  
+####  <a name="PrepareforaReplaceComputerDeploymentScenariotoTargetComputersUsingLTI"></a> Voorbereiden voor een implementatiescenario van vervangen Computer naar de doelcomputers met LTI  
  In het implementatiescenario vervangen Computer één computer wordt vervangen door een andere computer. De bestaande statusmigratiegegevens wordt opgeslagen van de oorspronkelijke computer naar een gedeelde netwerkmap of verwisselbare media. Vervolgens wordt een nieuwe installatie van Windows op een nieuwe computer geïmplementeerd. Ten slotte wordt de gebruikersstatusgegevens teruggezet naar de nieuwe computer omdat het bestandssysteem op de nieuwe computer zijn opgemaakt als onderdeel van de nieuwe installatie van Windows. Gebruik de:  
 
 -   Standaard Clienttakenreeks vervangen sjabloon migratiegegevens van de gebruiker van de bestaande doelcomputer opslaan  
@@ -1284,7 +1283,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
     -   [Media-afbeeldingen in de implementatie-Workbench genereren](#GenerateMediaImagesintheDeploymentWorkbench)  
 
-###  <a name="DeployingCapturedImagestoTargetComputersinLTI"></a>Implementatie van installatiekopieën naar de doelcomputers LTI vastgelegd  
+###  <a name="DeployingCapturedImagestoTargetComputersinLTI"></a> Implementatie van installatiekopieën naar de doelcomputers LTI vastgelegd  
  De implementatie van de vastgelegde installatiekopieën op de doelcomputers verschilt enigszins LTI. Voor elk van de implementatiescenario's in uw organisatie zoals beschreven in de vastgelegde installatiekopie van de referentiecomputer, implementeren op doelcomputers:  
 
 -   [Vastgelegde installatiekopieën implementeren op doelcomputers in de nieuwe Computer implementatiescenario met LTI](#DeployCapturedImagestoTargetComputersintheNewComputerDeploymentScenarioUsingLTI)  
@@ -1295,7 +1294,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
  Afhankelijk van de doelcomputers in uw organisatie mogelijk een combinatie van de implementatiescenario's nodig. Zie voor meer informatie over de implementatiescenario's voor MDT [implementatiescenario's te identificeren](#IdentifyingDeploymentScenarios).  
 
-####  <a name="DeployCapturedImagestoTargetComputersintheNewComputerDeploymentScenarioUsingLTI"></a>Vastgelegde installatiekopieën implementeren op doelcomputers in de nieuwe Computer implementatiescenario met LTI  
+####  <a name="DeployCapturedImagestoTargetComputersintheNewComputerDeploymentScenarioUsingLTI"></a> Vastgelegde installatiekopieën implementeren op doelcomputers in de nieuwe Computer implementatiescenario met LTI  
  Start de doelcomputer met de LTI opstartbare media die u eerder in het proces of van Windows Deployment Services gemaakt. De opstartbare media LTI wordt Windows PE gestart op de doelcomputer en implementatie start. Aan het einde van het proces worden de vastgelegde installatiekopie van de referentiecomputer wordt geïmplementeerd op de doelcomputers.  
 
 ###### <a name="to-complete-the-deployment-wizard"></a>De Wizard implementatie voltooid  
@@ -1322,7 +1321,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
  De doelcomputers worden nu geïmplementeerd.  
 
-####  <a name="DeployCapturedImagestoTargetComputersinaRefreshComputerDeploymentScenarioUsingLTI"></a>Vastgelegde installatiekopieën implementeren op doelcomputers in een vernieuwing Computer implementatiescenario met LTI  
+####  <a name="DeployCapturedImagestoTargetComputersinaRefreshComputerDeploymentScenarioUsingLTI"></a> Vastgelegde installatiekopieën implementeren op doelcomputers in een vernieuwing Computer implementatiescenario met LTI  
  Start de Wizard implementatie op het bestaande besturingssysteem op de doelcomputer te starten de **standaard** takenreeks of **Standard van SQL Server** eerder in het proces hebt gemaakt voor de takenreeks. De Wizard implementatie slaat migratiegegevens van de gebruiker van de bestaande doelcomputer op de locatie die u opgeeft. Migratiegegevens van de gebruiker wordt later in de takenreeks teruggezet naar de doelcomputer.  
 
 ###### <a name="to-complete-the-deployment-wizard"></a>De Wizard implementatie voltooid  
@@ -1351,7 +1350,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
  De doelcomputer wordt nu geïmplementeerd.  
 
-####  <a name="DeployCapturedImagestoTargetComputersinaReplaceComputerDeploymentScenarioUsingLTI"></a>Vastgelegde installatiekopieën implementeren op doelcomputers in een vervangen Computer implementatiescenario met LTI  
+####  <a name="DeployCapturedImagestoTargetComputersinaReplaceComputerDeploymentScenarioUsingLTI"></a> Vastgelegde installatiekopieën implementeren op doelcomputers in een vervangen Computer implementatiescenario met LTI  
  Het implementatiescenario vervangen Computer vereist dat u de Wizard implementatie twee keer uitgevoerd. Voer de wizard de eerste keer om vast te leggen van de migratiegegevens van de gebruiker van de doelcomputer bestaande (oude computer). Voer deze opnieuw om de vastgelegde installatiekopie van de referentiecomputer naar de nieuwe doelcomputer (nieuwe computer) en het herstellen van de gebruikersstatus opgeslagen eerder in het proces.  
 
  Zorg ervoor dat de migratiegegevens van de gebruikersstatus is opgeslagen in een consistente en beveiligde locatie zodat de gegevens kunnen gemakkelijk worden terugzetten later in de LTI-proces.  
@@ -1362,7 +1361,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
 2.  Implementeer de vastgelegde installatiekopie van de referentiecomputer met de nieuwe doelcomputer, zoals beschreven in [de installatiekopie vastgelegd van de referentiecomputer implementeren op de nieuwe doel-Computer met behulp van LTI](#DeploytheCapturedImageoftheReferenceComputertotheNewTargetComputerUsingLTI).  
 
-#####  <a name="SavetheUserStateMigrationDatafromtheExistingTargetComputerUsingLTI"></a>Migratiegegevens van de gebruikersstatus opslaan van de bestaande doelcomputer met behulp van LTI  
+#####  <a name="SavetheUserStateMigrationDatafromtheExistingTargetComputerUsingLTI"></a> Migratiegegevens van de gebruikersstatus opslaan van de bestaande doelcomputer met behulp van LTI  
  Start de Wizard uitvoeren op het bestaande besturingssysteem op de doelcomputer te starten van de standaard vervangen Clienttakenreeks-sjabloon die eerder in het proces hebt gemaakt. De Wizard implementatie slaat migratiegegevens van de gebruiker van de bestaande doelcomputer op de locatie die u opgeeft.  
 
 ###### <a name="to-complete-the-deployment-wizard"></a>De Wizard implementatie voltooid  
@@ -1391,7 +1390,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
  Migratiegegevens van de gebruiker van de bestaande doelcomputer wordt opgeslagen.  
 
-#####  <a name="DeploytheCapturedImageoftheReferenceComputertotheNewTargetComputerUsingLTI"></a>De vastgelegde installatiekopie van de referentiecomputer met de nieuwe doelcomputer met behulp van LTI implementeren  
+#####  <a name="DeploytheCapturedImageoftheReferenceComputertotheNewTargetComputerUsingLTI"></a> De vastgelegde installatiekopie van de referentiecomputer met de nieuwe doelcomputer met behulp van LTI implementeren  
  Start de doelcomputer met de LTI opstartbare media die u eerder in het proces of van Windows Deployment Services gemaakt. De opstartbare media LTI wordt Windows PE gestart op de doelcomputer en implementatie van de LTI initieert. Aan het einde van het proces worden de vastgelegde installatiekopie van de referentiecomputer wordt geïmplementeerd op de doelcomputer.  
 
 ###### <a name="to-deploy-the-captured-image-of-the-reference-computer"></a>De vastgelegde installatiekopie van de referentiecomputer te implementeren  
@@ -1417,7 +1416,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
 4.  In de **implementatieoverzicht** in het dialoogvenster, klikt u op **voltooien**.  
 
-##  <a name="ManagingLTIDeploymentsintheDeploymentWorkBench"></a>Het beheren van implementaties van LTI in de Workbench-implementatie  
+##  <a name="ManagingLTIDeploymentsintheDeploymentWorkBench"></a> Het beheren van implementaties van LTI in de Workbench-implementatie  
  Implementatieshares zijn de opslagplaats voor alle implementatie-bestanden die worden gebruikt in de implementatie van de LTI. U kunt een implementatieshare opslaan op een lokaal station in een gedeelde netwerkmap, of in een zelfstandige gedistribueerd bestandssysteem (DFS); Dit heeft geen zich bevinden op een specifieke computer. Implementatieshares bevatten besturingssystemen, toepassingen, pakketten besturingssysteem en stuurprogramma's.  
 
  Implementaties van LTI in de implementatie-Workbench door beheren:  
@@ -1446,7 +1445,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
 -   De sectie 'Het beheren van MDT met behulp van Windows PowerShell', in het document MDT *Microsoft Deployment Toolkit voorbeelden Guide*  
 
-###  <a name="ManagingDeploymentSharesintheDeploymentWorkbench"></a>Implementatieshares in de Workbench-implementatie beheren  
+###  <a name="ManagingDeploymentSharesintheDeploymentWorkbench"></a> Implementatieshares in de Workbench-implementatie beheren  
  De implementatie-Workbench MDT gebruikt voor het beheren van de implementatieshares in uw organisatie. U configureert de implementatieshares door:  
 
 -   Maken van een nieuwe implementatieshare zoals beschreven in [maken van een nieuwe Deployment Share in de Workbench-implementatie](#CreateaNewDeploymentShareintheDeploymentWorkbench)  
@@ -1467,19 +1466,19 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
  U kunt daarnaast voor het beheren van implementatieshares in de implementatie-Workbench implementatieshares MDT Windows PowerShell-cmdlets gebruiken beheren. Zie voor meer informatie over het beheren van implementatieshares MDT Windows PowerShell-cmdlets gebruiken in de volgende secties onder de sectie 'MDT Windows PowerShell-Cmdlets' in het document MDT Toolkit-verwijzing:  
 
--   **Voeg MDTPersistentDrive**  
+-   **Add-MDTPersistentDrive**  
 
 -   **Get-MDTDeploymentShareStatistics**  
 
 -   **Get-MDTPersistentDrive**  
 
--   **Verwijder MDTPersistentDrive**  
+-   **Remove-MDTPersistentDrive**  
 
--   **Restore MDTPersistentDrive**  
+-   **Restore-MDTPersistentDrive**  
 
--   **Update MDTDeploymentShare**  
+-   **Update-MDTDeploymentShare**  
 
-####  <a name="CreateaNewDeploymentShareintheDeploymentWorkbench"></a>Maak een nieuwe Implementatieshare in de Workbench-implementatie  
+####  <a name="CreateaNewDeploymentShareintheDeploymentWorkbench"></a> Maak een nieuwe Implementatieshare in de Workbench-implementatie  
  Voer de volgende stappen uit voor het maken van een nieuwe implementatieshare:  
 
 1.  Klik op **Start**, en wijs vervolgens **alle programma's**. Wijs **Microsoft Deployment Toolkit**, en klik vervolgens op **implementatie-Workbench**.  
@@ -1496,7 +1495,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
     |Op deze wizardpagina|Voer deze handeling uit|  
     |-------------------------|-------------|  
-    |**Pad** |In **implementatie sharepad**, type **pad** (waarbij *pad* is het volledig gekwalificeerde pad naar een bestaande map op een lokaal station of een gedeelde netwerkmap eerder hebt gemaakt in de het implementatieproces van) en klik vervolgens op **volgende**.<br /><br /> U kunt ook op **Bladeren** vinden van de bestaande map op een lokale schijf of een netwerkshare gedeelde map.|  
+    |**Path** |In **implementatie sharepad**, type **pad** (waarbij *pad* is het volledig gekwalificeerde pad naar een bestaande map op een lokaal station of een gedeelde netwerkmap eerder hebt gemaakt in de het implementatieproces van) en klik vervolgens op **volgende**.<br /><br /> U kunt ook op **Bladeren** vinden van de bestaande map op een lokale schijf of een netwerkshare gedeelde map.|  
     |**Delen** |Deze pagina wordt alleen weergegeven als u een pad naar een map op een lokaal station op de wizardpagina pad opgegeven.<br /><br /> -In **sharenaam**, type **sharenaam** (waarbij *sharenaam* is de sharenaam voor de map op een lokaal station op de wizardpagina pad opgegeven).<br /><br /> -Noteer de volledig gekwalificeerde naar UNC pad naar de share wordt gemaakt die direct hieronder de **sharenaam** vak en klik vervolgens op **volgende**.<br /><br /> De wizard geeft de lokale groep Iedereen volledige beheertoegang krijgen op het niveau van de bestandsshare. Op basis van de beveiligingsvereisten van uw, mag u de beveiliging van de share te beperken.|  
     |**Beschrijvende naam** |In **Deployment share beschrijving**, type **beschrijving** (waarbij *beschrijving* is een beschrijvende naam die voor de implementatie opgegeven op het vorige wizardpagina's delen), en klik vervolgens op **volgende**.|  
     |**Toestaan dat de installatiekopie vast te leggen** |Selecteer of wis de **vragen als een installatiekopie moet worden vastgelegd** op basis van vereisten uit en klik vervolgens op **volgende**.<br /><br /> Dit selectievakje configureert u de Wizard implementatie als wilt toestaan dat de gebruiker eventueel een installatiekopie van de doelcomputer en meestal de referentiecomputer is. Als het selectievakje is:<br /><br /> -Geselecteerd, kan het pad voor het opslaan van de installatiekopie en de naam van de installatiekopie worden geconfigureerd in de Wizard implementatie<br /><br /> -Uitgeschakeld, een installatiekopie is niet vastleggen of de installatiekopie vast te leggen informatie moet worden ingesteld in de MDT-configuratiebestand of de database<br /><br /> Standaard is dit selectievakje geselecteerd.|  
@@ -1507,7 +1506,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
  Heeft voltooid, wordt de share van de nieuwe implementatie gemaakt in de doelmap die u hebt geselecteerd in de wizard en wordt weergegeven in de implementatie-Workbench.  
 
-####  <a name="OpenanExistingDeploymentShareintheDeploymentWorkbench"></a>Open een bestaande Implementatieshare in de Workbench-implementatie  
+####  <a name="OpenanExistingDeploymentShareintheDeploymentWorkbench"></a> Open een bestaande Implementatieshare in de Workbench-implementatie  
  De implementatie-Workbench kunt een bestaande implementatieshare met de Wizard openen implementatie delen openen. Start de Wizard Open Deployment Share door:  
 
 -   Met de rechtermuisknop op het knooppunt Implementatieshares en vervolgens te klikken op**Open Implementatieshare**  
@@ -1532,18 +1531,18 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
     |Op deze wizardpagina|Voer deze handeling uit|  
     |-------------------------|-------------|  
-    |**Pad** |a. In **implementatie sharepad**, type **share_path** (waarbij *share_path* is het volledig gekwalificeerde pad naar de share van de bestaande implementatie).<br /><br /> U kunt ook klikken op Bladeren om te zoeken naar de lokale of een gedeelde netwerkmap.<br /><br /> b. Selecteer de **Upgrade van de inhoud van de implementatieshare (indien nodig)**selectievakje. Als het selectievakje is:<br /><br /> -De Wizard openen implementatie delen upgrades geselecteerd, share van de implementatie<br /><br /> -Uitgeschakeld, wordt de Open wizard implementatietype maken niet bijgewerkt wanneer de implementatieshare<br /><br /> c. Klik op **Volgende**.|  
+    |**Path** |a. In **implementatie sharepad**, type **share_path** (waarbij *share_path* is het volledig gekwalificeerde pad naar de share van de bestaande implementatie).<br /><br /> U kunt ook klikken op Bladeren om te zoeken naar de lokale of een gedeelde netwerkmap.<br /><br /> b. Selecteer de **Upgrade van de inhoud van de implementatieshare (indien nodig)**selectievakje. Als het selectievakje is:<br /><br /> -De Wizard openen implementatie delen upgrades geselecteerd, share van de implementatie<br /><br /> -Uitgeschakeld, wordt de Open wizard implementatietype maken niet bijgewerkt wanneer de implementatieshare<br /><br /> c. Klik op **Volgende**.|  
     |**Samenvatting** |Lees de informatie in de **Details** vak en klik vervolgens op **volgende**.|  
     |**Bevestiging** |U kunt uitvoer opslaan voor het opslaan van de uitvoer van de wizard om een bestand te klikken. U kunt ook klikken op Script weergeven om de Windows PowerShell-scripts gebruikt voor het uitvoeren van taken van de wizard weer te geven.<br /><br /> Klik op **Voltooien**.|  
 
-####  <a name="UpgradeanExistingDeploymentShareintheDeploymentWorkbench"></a>Upgrade van een bestaande Implementatieshare in de Workbench-implementatie  
+####  <a name="UpgradeanExistingDeploymentShareintheDeploymentWorkbench"></a> Upgrade van een bestaande Implementatieshare in de Workbench-implementatie  
  MDT kunt upgraden van een bestaande implementatieshare door:  
 
 -   Openen van een bestaande implementatieshare die niet al wordt vermeld in de Implementatieworkbench zoals beschreven in [Upgrade-implementatie Shares niet reeds wordt vermeld in de Workbench-implementatie](#UpgradeDeploymentSharesNotAlreadyListedintheDeploymentWorkbench)  
 
 -   Upgraden van een bestaande implementatieshare die wordt vermeld in de Workbench-implementatie, zoals beschreven in [Upgrade-implementatie Shares al wordt vermeld in de Workbench-implementatie](#UpgradeDeploymentSharesAlreadyListedintheDeploymentWorkbench)  
 
-#####  <a name="UpgradeDeploymentSharesNotAlreadyListedintheDeploymentWorkbench"></a>Upgrade-Implementatieshares nog niet wordt vermeld in de Workbench-implementatie  
+#####  <a name="UpgradeDeploymentSharesNotAlreadyListedintheDeploymentWorkbench"></a> Upgrade-Implementatieshares nog niet wordt vermeld in de Workbench-implementatie  
  Upgrade-implementatieshares niet wordt vermeld in de Workbench-implementatie met de Open Deployment Share-Wizard. Start de wizard door:  
 
 -   Met de rechtermuisknop op de implementatieshare en vervolgens te klikken op **Open Deployment Share**  
@@ -1568,7 +1567,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
     |**Op deze wizardpagina** |**Dit doet** |  
     |-----------------------------|-----------------|  
-    |**Pad** |-In **implementatie sharepad**, type **share_path** (waarbij *share_path* is het volledig gekwalificeerde pad naar de share van de bestaande implementatie).<br /><br /> U kunt ook op Bladeren om te zoeken naar de lokale of een gedeelde netwerkmap.<br /><br /> : Selecteer de **Upgrade van de inhoud van de implementatieshare (indien nodig)** selectievakje en klik vervolgens op **volgende**.|  
+    |**Path** |-In **implementatie sharepad**, type **share_path** (waarbij *share_path* is het volledig gekwalificeerde pad naar de share van de bestaande implementatie).<br /><br /> U kunt ook op Bladeren om te zoeken naar de lokale of een gedeelde netwerkmap.<br /><br /> : Selecteer de **Upgrade van de inhoud van de implementatieshare (indien nodig)** selectievakje en klik vervolgens op **volgende**.|  
     |**Samenvatting** |Lees de informatie in de **Details** vak en klik vervolgens op **volgende**.|  
     |**Bevestiging** |Klik op **uitvoer opslaan** naar de uitvoer van de wizard naar een bestand opslaan of klik op **Script weergeven** om weer te geven van de Windows PowerShell-scripts gebruikt voor het uitvoeren van taken van de wizard.<br /><br /> Klik op voltooien.|  
 
@@ -1576,7 +1575,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
  Eventuele bestaande installaties van eerdere versies van MDT moeten worden bijgewerkt naar MDT, naast het upgraden van bestaande implementatieshares. Zie voor meer informatie over het bijwerken van eerdere installaties naar MDT [upgraden naar MDT](#UpgradingtoMDT).  
 
-#####  <a name="UpgradeDeploymentSharesAlreadyListedintheDeploymentWorkbench"></a>Upgrade-Implementatieshares al wordt vermeld in de Workbench-implementatie  
+#####  <a name="UpgradeDeploymentSharesAlreadyListedintheDeploymentWorkbench"></a> Upgrade-Implementatieshares al wordt vermeld in de Workbench-implementatie  
  Upgrade bestaande implementatieshares al wordt vermeld in de Workbench-implementatie met de Wizard implementatie Share upgraden. Start de wizard door:  
 
 -   Met de rechtermuisknop op de implementatieshare en vervolgens te klikken op **Implementatieshare bijwerken**  
@@ -1606,7 +1605,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
  Nadat de wizard is voltooid, wordt de share van de bestaande implementatie wordt bijgewerkt en kan nu kan worden geopend in de implementatie-Workbench.  
 
-####  <a name="ConfigureaDeploymentShareintheDeploymentWorkbench"></a>Een Implementatieshare in de implementatie-Workbench configureren  
+####  <a name="ConfigureaDeploymentShareintheDeploymentWorkbench"></a> Een Implementatieshare in de implementatie-Workbench configureren  
  U kunt de eigenschappen van implementatieshares onder het knooppunt Implementatieshares weergeven in de Workbench-implementatie met behulp van de **eigenschappen** acties zoals beschreven in [-eigenschappen weergeven in de implementatie-Workbench](#ViewItemPropertiesintheDeploymentWorkbench).  
 
  Een toepassing in de Implementatieworkbench configureren door de volgende taken in de **toepassingseigenschappen** in het dialoogvenster:  
@@ -1623,7 +1622,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
 -   Configureer de instellingen op de **onderdelen van Windows PE x64** tabblad zoals beschreven in [configureren van het tabblad Deployment Share eigenschappen Windows PE x64 onderdelen](#ConfiguretheDeploymentSharePropertiesWindowsPEx64ComponentsTab).  
 
-#####  <a name="ConfiguretheDeploymentSharePropertiesGeneralTab"></a>Tabblad Algemeen van Deployment Share eigenschappen configureren  
+#####  <a name="ConfiguretheDeploymentSharePropertiesGeneralTab"></a> Tabblad Algemeen van Deployment Share eigenschappen configureren  
  De eigenschappen van implementatieshare opgeslagen op de **algemene** tabblad zijn voornamelijk geconfigureerd wanneer u de Wizard Nieuw implementatietype uitvoert. U kunt de eigenschappen van implementatieshare bijwerken op de **algemene** tabblad via de **deployment_share eigenschappen** in het dialoogvenster (waarbij *deployment_share* is de naam van de implementatieshare in de Workbench-implementatie).  
 
 ###### <a name="to-configure-the-general-tab"></a>Voor het configureren van het tabblad Algemeen  
@@ -1654,7 +1653,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
  De implementatieshare configuratie-instellingen worden opgeslagen en de implementatieshare wordt weergegeven in het detailvenster van de implementatie-Workbench.  
 
-#####  <a name="ConfiguretheDeploymentSharePropertiesRulesTab"></a>Het tabblad regels van Deployment Share eigenschappen configureren  
+#####  <a name="ConfiguretheDeploymentSharePropertiesRulesTab"></a> Het tabblad regels van Deployment Share eigenschappen configureren  
  De eigenschappen van implementatieshare opgeslagen op de **regels** tabblad zijn voornamelijk geconfigureerd wanneer u de Wizard Nieuw implementatietype uitvoert. Deze instellingen zich bevinden in CustomSettings.ini dat zich in de map van de implementatieshare-besturingselement bevindt. Zie voor meer informatie over de instellingen die op dit tabblad kunt u het document MDT *Toolkit verwijzing*.  
 
 ###### <a name="to-configure-the-rules-tab"></a>Voor het configureren van het tabblad regels  
@@ -1680,7 +1679,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
  De implementatieshare configuratie-instellingen worden opgeslagen en de implementatieshare wordt weergegeven in het detailvenster van de implementatie-Workbench.  
 
-#####  <a name="ConfiguretheDeploymentSharePropertiesWindowsPEx86SettingsTab"></a>Configureren van de implementatie Share eigenschappen Windows PE x86 tabblad instellingen  
+#####  <a name="ConfiguretheDeploymentSharePropertiesWindowsPEx86SettingsTab"></a> Configureren van de implementatie Share eigenschappen Windows PE x86 tabblad instellingen  
  De eigenschappen van implementatieshare opgeslagen op de **instellingen voor Windows PE x86** tabblad zijn voornamelijk geconfigureerd wanneer u de Wizard Nieuw implementatietype uitvoert.  
 
 ###### <a name="to-configure-the-windows-pe-x86-settings-tab"></a>Het tabblad Windows PE x86 instellingen configureren  
@@ -1715,7 +1714,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
  De implementatieshare configuratie-instellingen worden opgeslagen en de implementatieshare wordt weergegeven in het detailvenster van de implementatie-Workbench.  
 
-#####  <a name="ConfiguretheDeploymentSharePropertiesWindowsPEx86ComponentsTab"></a>Configureren van de implementatie Share eigenschappen Windows PE x86 tabblad onderdelen  
+#####  <a name="ConfiguretheDeploymentSharePropertiesWindowsPEx86ComponentsTab"></a> Configureren van de implementatie Share eigenschappen Windows PE x86 tabblad onderdelen  
  De eigenschappen van implementatieshare opgeslagen op de **onderdelen van Windows PE x86** tabblad zijn voornamelijk geconfigureerd wanneer u de Wizard Nieuw implementatietype uitvoert.  
 
 ###### <a name="to-configure-the-windows-pe-x86-components-tab"></a>Het tabblad Windows PE x86 onderdelen configureren  
@@ -1744,11 +1743,11 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
     |**Alle stuurprogramma's voor massaopslag in de geselecteerde groep opnemen** |Selecteer voor het configureren van de Wizard Update Deployment Share zodanig dat alle stuurprogramma's voor massaopslag in het profiel selectie gekozen. Als het selectievakje is:<br /><br /> -Geselecteerd, bevat de Wizard Update Deployment Share alle stuurprogramma's voor massaopslag in het profiel selectie is opgegeven in de **selectie profiel** vak in de Windows PE-installatiekopieën<br /><br /> -Uitgeschakeld, de Wizard Update Deployment Share niet neemt alle stuurprogramma's voor massaopslag in het profiel selectie is opgegeven in de **selectie profiel** vak in de Windows PE-installatiekopieën<br /><br /> Dit selectievakje is alleen beschikbaar als u selecteert **bevatten alleen stuurprogramma's van de volgende typen**.|  
     |**Bevat alle klasse system-stuurprogramma's in de geselecteerde groep** |Selecteer het configureren van de Wizard Update Deployment Share zodanig dat alle klasse system-stuurprogramma's in het profiel voor uw selectie. Als het selectievakje is:<br /><br /> -Geselecteerd, bevat de Wizard Update Deployment Share alle klasse system-stuurprogramma's in de selectie-profiel dat is opgegeven in de **selectie profiel** vak in de Windows PE-installatiekopieën<br /><br /> -Uitgeschakeld, de Wizard Update Deployment Share niet bevat alle systeemklasse stuurprogramma's in de selectie-profiel dat is opgegeven in de **selectie profiel** vak in de Windows PE-installatiekopieën<br /><br /> Dit selectievakje is alleen beschikbaar als u selecteert **bevatten alleen stuurprogramma's van de volgende typen**.|  
     |**ADO** |Selecteer optioneel ADO-onderdelen toevoegen aan de Windows PE-installatiekopieën. Deze onderdelen zijn vereist voor toegang tot Microsoft SQL Server® databases, zoals de MDT-database. Als het selectievakje is:<br /><br /> -Geselecteerd, worden de ADO-onderdelen toegevoegd aan de Windows PE-installatiekopieën<br /><br /> -Uitgeschakeld, worden de onderdelen ADO niet toegevoegd aan de Windows PE-installatiekopieën|  
-    |**Optionele lettertypen** |Selecteer het configureren van de Wizard Update Deployment Share zodanig dat de volgende lettertypen:<br /><br /> -Chinees (ZH-CN)<br /><br /> -Chinees (ZH-HK)<br /><br /> -Chinees (ZH-TW)<br /><br /> -Japans (JA-JP)<br /><br /> -Koreaans (KO-KR)<br /><br /> Voeg deze lettertypen bij het uitvoeren van een LTI-implementatie van installatiekopieën van Windows Server en de Setup-bestanden zijn Japans, Koreaans of Chinees. Als het selectievakje voor een bijbehorende lettertype is:<br /><br /> -Geselecteerd, bevat de Wizard Update Deployment Share het lettertype in de Windows PE-installatiekopieën<br /><br /> -Uitgeschakeld, bevat de Wizard Update Deployment Share het lettertype in de Windows PE-installatiekopieën<br /><br /> Lettertypen toe te voegen aan Windows PE-opstartinstallatiekopieën neemt de grootte van de installatiekopieën. Alleen indien nodig, kunt u lettertypen toevoegen.|  
+    |**Optionele lettertypen** |Selecteer het configureren van de Wizard Update Deployment Share zodanig dat de volgende lettertypen:<br /><br /> - Chinese (ZH-CN)<br /><br /> -Chinees (ZH-HK)<br /><br /> -Chinees (ZH-TW)<br /><br /> -Japans (JA-JP)<br /><br /> -Koreaans (KO-KR)<br /><br /> Voeg deze lettertypen bij het uitvoeren van een LTI-implementatie van installatiekopieën van Windows Server en de Setup-bestanden zijn Japans, Koreaans of Chinees. Als het selectievakje voor een bijbehorende lettertype is:<br /><br /> -Geselecteerd, bevat de Wizard Update Deployment Share het lettertype in de Windows PE-installatiekopieën<br /><br /> -Uitgeschakeld, bevat de Wizard Update Deployment Share het lettertype in de Windows PE-installatiekopieën<br /><br /> Lettertypen toe te voegen aan Windows PE-opstartinstallatiekopieën neemt de grootte van de installatiekopieën. Alleen indien nodig, kunt u lettertypen toevoegen.|  
 
  De implementatieshare configuratie-instellingen worden opgeslagen en de implementatieshare wordt weergegeven in het detailvenster van de implementatie-Workbench.  
 
-#####  <a name="ConfiguretheDeploymentSharePropertiesWindowsPEx64SettingsTab"></a>Configureren van de implementatie Share eigenschappen Windows PE x64 tabblad instellingen  
+#####  <a name="ConfiguretheDeploymentSharePropertiesWindowsPEx64SettingsTab"></a> Configureren van de implementatie Share eigenschappen Windows PE x64 tabblad instellingen  
  De eigenschappen van implementatieshare opgeslagen op het tabblad Windows PE x64 instellingen zijn voornamelijk geconfigureerd wanneer u de Wizard Nieuw implementatietype uitvoert.  
 
 ###### <a name="to-configure-the-windows-pe-x64-settings-tab"></a>Het tabblad Windows PE x64 instellingen configureren  
@@ -1783,7 +1782,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
  De implementatieshare configuratie-instellingen worden opgeslagen en de implementatieshare wordt weergegeven in het detailvenster van de implementatie-Workbench.  
 
-#####  <a name="ConfiguretheDeploymentSharePropertiesWindowsPEx64ComponentsTab"></a>Configureren van de implementatie Share eigenschappen Windows PE x64 tabblad onderdelen  
+#####  <a name="ConfiguretheDeploymentSharePropertiesWindowsPEx64ComponentsTab"></a> Configureren van de implementatie Share eigenschappen Windows PE x64 tabblad onderdelen  
  De eigenschappen van implementatieshare opgeslagen op de **onderdelen van Windows PE x64** tabblad zijn voornamelijk geconfigureerd wanneer u de Wizard Nieuw implementatietype uitvoert.  
 
 ###### <a name="to-configure-the-windows-pe-x64-components-tab"></a>Het tabblad Windows PE x64 onderdelen configureren  
@@ -1812,16 +1811,16 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
     |**Alle stuurprogramma's voor massaopslag in de geselecteerde groep opnemen** |Selecteer het configureren van de Wizard Update Deployment Share zodanig dat alle stuurprogramma's voor massaopslag in het profiel voor uw selectie. Als het selectievakje is:<br /><br /> -Geselecteerd, bevat de Wizard Update Deployment Share alle stuurprogramma's voor massaopslag in het profiel selectie is opgegeven in de **selectie profiel** vak in de Windows PE-installatiekopieën<br /><br /> -Uitgeschakeld, de Wizard Update Deployment Share niet neemt alle stuurprogramma's voor massaopslag in het profiel selectie is opgegeven in de **selectie profiel** vak in de Windows PE-installatiekopieën<br /><br /> Dit selectievakje is alleen beschikbaar als u selecteert **bevatten alleen stuurprogramma's van de volgende typen**.|  
     |**Bevat alle klasse system-stuurprogramma's in de geselecteerde groep** |Selecteer voor het configureren van de Wizard Update Deployment Share zodanig dat alle klasse system-stuurprogramma's in het profiel selectie gekozen. Als het selectievakje is:<br /><br /> -Geselecteerd, bevat de Wizard Update Deployment Share alle klasse system-stuurprogramma's in de selectie-profiel dat is opgegeven in de **selectie profiel** vak in de Windows PE-installatiekopieën<br /><br /> -Uitgeschakeld, de Wizard Update Deployment Share niet bevat alle systeemklasse stuurprogramma's in de selectie-profiel dat is opgegeven in de **selectie profiel** vak in de Windows PE-installatiekopieën<br /><br /> Dit selectievakje is alleen beschikbaar als u selecteert **bevatten alleen stuurprogramma's van de volgende typen**.|  
     |**ADO** |Selecteer de optionele ADO-onderdelen toevoegen aan de Windows PE-installatiekopieën. Deze onderdelen zijn vereist voor toegang tot SQL Server-databases, zoals de MDT-database. Als dit selectievakje is:<br /><br /> -Geselecteerd, worden de ADO-onderdelen toegevoegd aan de Windows PE-installatiekopieën<br /><br /> -Uitgeschakeld, worden de onderdelen ADO niet toegevoegd aan de Windows PE-installatiekopieën|  
-    |**Optionele lettertypen** |Gebruik de Wizard Update Deployment Share zodanig dat de volgende lettertypen configureren:<br /><br /> -Chinees (ZH-CN)<br /><br /> -Chinees (ZH-HK)<br /><br /> -Chinees (ZH-TW)<br /><br /> -Japans (JA-JP)<br /><br /> -Koreaans (KO-KR)<br /><br /> Deze lettertypen toevoegen bij het uitvoeren van een LTI-implementatie van installatiekopieën van Windows Server wanneer de Setup-bestanden Japans, Koreaans of Chinees. Als het selectievakje voor een bijbehorende lettertype is:<br /><br /> -Geselecteerd, bevat de Wizard Update Deployment Share het lettertype in de Windows PE-installatiekopieën<br /><br /> -Uitgeschakeld, bevat de Wizard Update Deployment Share het lettertype in de Windows PE-installatiekopieën<br /><br /> Lettertypen toe te voegen aan Windows PE-opstartinstallatiekopieën neemt de grootte van de installatiekopieën. Alleen indien nodig, kunt u lettertypen toevoegen.|  
+    |**Optionele lettertypen** |Gebruik de Wizard Update Deployment Share zodanig dat de volgende lettertypen configureren:<br /><br /> - Chinese (ZH-CN)<br /><br /> -Chinees (ZH-HK)<br /><br /> -Chinees (ZH-TW)<br /><br /> -Japans (JA-JP)<br /><br /> -Koreaans (KO-KR)<br /><br /> Deze lettertypen toevoegen bij het uitvoeren van een LTI-implementatie van installatiekopieën van Windows Server wanneer de Setup-bestanden Japans, Koreaans of Chinees. Als het selectievakje voor een bijbehorende lettertype is:<br /><br /> -Geselecteerd, bevat de Wizard Update Deployment Share het lettertype in de Windows PE-installatiekopieën<br /><br /> -Uitgeschakeld, bevat de Wizard Update Deployment Share het lettertype in de Windows PE-installatiekopieën<br /><br /> Lettertypen toe te voegen aan Windows PE-opstartinstallatiekopieën neemt de grootte van de installatiekopieën. Alleen indien nodig, kunt u lettertypen toevoegen.|  
 
  De implementatieshare configuratie-instellingen worden opgeslagen en de implementatieshare wordt weergegeven in het detailvenster van de implementatie-Workbench.  
 
-####  <a name="CopyaDeploymentShare"></a>Kopiëren van een Share-implementatie  
+####  <a name="CopyaDeploymentShare"></a> Kopiëren van een Share-implementatie  
  Implementatieshares lokaal of netwerk gedeelde mappen. U kunt een kopie van de share van een implementatie met behulp van een proces kopiëren van bestanden, zoals in Windows Verkenner. Wanneer u een share van de implementatie kopieert naar een andere computer, zorg ervoor dat u de map met de juiste machtigingen delen.  
 
  Na het kopiëren van de implementatieshare, opent u het in de implementatie-Workbench. Zie voor meer informatie over het openen van de implementatieshares [opent u een bestaande implementatie-Share in de implementatie-Workbench](#OpenanExistingDeploymentShareintheDeploymentWorkbench).  
 
-####  <a name="CloseaDeploymentShareintheDeploymentWorkbench"></a>Sluit een Share in de Implementatieworkbench-implementatie  
+####  <a name="CloseaDeploymentShareintheDeploymentWorkbench"></a> Sluit een Share in de Implementatieworkbench-implementatie  
 
 > [!NOTE]
 >  Sluit een implementatieshare niet verwijderen van de lokale of gedeelde netwerkmap of verwijdert u de inhoud van de lokale of een gedeelde netwerkmap: Alleen verwijdert deze de implementatieshare in de lijst met implementatieshares in het knooppunt Implementatieshares in de implementatie-Workbench.  
@@ -1834,7 +1833,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
 -   Klik op de implementatieshare en klik vervolgens in het deelvenster Acties op **sluit Deployment Share**.  
 
-####  <a name="UpdateaDeploymentShareintheDeploymentWorkbench"></a>Bijwerken van een Share in de Implementatieworkbench-implementatie  
+####  <a name="UpdateaDeploymentShareintheDeploymentWorkbench"></a> Bijwerken van een Share in de Implementatieworkbench-implementatie  
  Bijwerken van een implementatieshare maakt de Windows PE-opstartinstallatiekopieën (WIM- en ISO-bestanden) om te kunnen starten van de implementatie van de LTI.  
 
 ###### <a name="to-update-a-deployment-share-in-the-deployment-workbench"></a>Bijwerken van een share in de Implementatieworkbench-implementatie  
@@ -1862,7 +1861,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 > [!NOTE]
 >  Eventueel een opstartbaar apparaat, zoals een USB-Flashstation of een USB-harde schijf, van de ISO-bestand maken zodat u de doelcomputer starten van het apparaat, kunt zoals beschreven in [opstartbare apparaten maken van opstartinstallatiekopieën van MDT](#CreateBootableDevicesfromMDTBootImages).  
 
-####  <a name="CreateBootableDevicesfromMDTBootImages"></a>Opstartbare apparaten van de MDT-opstartinstallatiekopieën maken  
+####  <a name="CreateBootableDevicesfromMDTBootImages"></a> Opstartbare apparaten van de MDT-opstartinstallatiekopieën maken  
  Starten van doelcomputers met een opstartbaar apparaat (zoals een USB-Flashstation of een USB-hardeschijf) is vaak sneller en eenvoudiger dan vanaf computers met Windows Deployment Services- of cd's.  
 
 > [!NOTE]
@@ -1878,19 +1877,19 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
     -   **Selecteer schijf N**  
 
-    -   **opschonen**  
+    -   **clean**  
 
     -   **maken van primaire partitie**  
 
     -   **Selecteer partitie 1**  
 
-    -   **actieve**  
+    -   **Actieve**  
 
     -   **Formatteer fs fat32 =**  
 
-    -   **toewijzen**  
+    -   **assign**  
 
-    -   **afsluiten**  
+    -   **exit**  
 
 4.  Kopieer de inhoud van LiteTouchPE_x86.iso (voor 32-bits doelcomputers) of de bestanden LiteTouchPE_x64.iso (voor 64-bits doelcomputers) op het apparaat met een van de volgende taken uitvoeren:  
 
@@ -1900,7 +1899,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
         xcopy <d>:\*.* <e>:\*.* /s /e /f  
         ```  
 
-         Waar *d* is de stationsletter van de CD en *e* de stationsletter van het apparaat.  
+         waar *d* is de stationsletter van de CD en *e* de stationsletter van het apparaat.  
 
     -   U kunt ook het ISO-bestand met een virtueel CD-programma koppelen en kopieer vervolgens de inhoud op het apparaat met de opdracht:  
 
@@ -1910,7 +1909,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
          waar *d* is de stationsletter van de CD en *e* de stationsletter van het apparaat.  
 
-###  <a name="ConfiguringOperatingSystemsintheDeploymentWorkbench"></a>Configureren van besturingssystemen in de Workbench-implementatie  
+###  <a name="ConfiguringOperatingSystemsintheDeploymentWorkbench"></a> Configureren van besturingssystemen in de Workbench-implementatie  
  De implementatie-Workbench MDT gebruikt voor het beheren van de besturingssystemen die u op de referentie- en doelcomputers computers in uw organisatie kunt implementeren. Configureer de besturingssystemen in de implementatie-Workbench door:  
 
 -   Importeren van een besturingssysteem, zoals beschreven in [importeren van een besturingssysteem in de Workbench-implementatie](#ImportanOperatingSystemintotheDeploymentWorkbench)  
@@ -1931,9 +1930,9 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
 -   **Get-MDTOperatingSystemCatalog**  
 
--   **Importeren MDTOperatingSystem**  
+-   **Import-MDTOperatingSystem**  
 
-####  <a name="ImportanOperatingSystemintotheDeploymentWorkbench"></a>Importeren van een besturingssysteem in de Workbench-implementatie  
+####  <a name="ImportanOperatingSystemintotheDeploymentWorkbench"></a> Importeren van een besturingssysteem in de Workbench-implementatie  
  U kunt besturingssystemen importeren in de Workbench-implementatie met behulp van de opties in de tabel 31. U kunt deze importeren in de Wizard besturingssysteem importeren in de Implementatieworkbench beheren.  
 
 ### <a name="table-31-options-for-importing-operating-systems-into-the-deployment-workbench"></a>Tabel 31. Opties voor het importeren van besturingssystemen in de Workbench-implementatie  
@@ -1963,7 +1962,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
 
 -   Bestaand WIM-installatiekopieën in Windows Deployment Services zoals beschreven in [importeren van een besturingssysteem van een bestaande installatiekopie van Windows Deployment Services](#ImportanOperatingSystemfromanExistingWindowsDeploymentServicesImage)  
 
-#####  <a name="ImportanOperatingSystemfromWindowsDistributionMedia"></a>Importeren van een besturingssysteem vanaf Media voor Windows-distributie  
+#####  <a name="ImportanOperatingSystemfromWindowsDistributionMedia"></a> Importeren van een besturingssysteem vanaf Media voor Windows-distributie  
  MDT kunt u besturingssystemen in de implementatie-Workbench vanaf Windows distributiemedia, waaronder de product-dvd's, cd's of mappen met de distributiebestanden importeren. Importeren van het besturingssysteem gebruikt de Wizard importeren besturingssysteem in de implementatie-Workbench.  
 
 ###### <a name="to-import-an-operating-system-from-windows-distribution-media"></a>Voor het importeren van een besturingssysteem vanaf media voor Windows-distributie  
@@ -1980,13 +1979,13 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
     |-----------------------------|-----------------|  
     |**Type besturingssysteem** |Klik op **volledige set van bronbestanden**, en klik vervolgens op **volgende**.|  
     |**Bron** |In **bronmap**, type ***source_folder*** (waarbij *source_folder* is het volledig gekwalificeerde pad naar de map met de bronbestanden van het besturingssysteem), en vervolgens Klik op **volgende**.<br /><br /> U kunt ook op Bladeren om te zoeken naar de bronmap.|  
-    |**Bestemming** |In **directory doelnaam**, type ***destination_folder*** (waarbij *destination_folder* is de naam van de map in de share van de implementatie met de besturingssysteem-bronbestanden) en klik vervolgens op **volgende**.|  
+    |**Destination** |In **directory doelnaam**, type ***destination_folder*** (waarbij *destination_folder* is de naam van de map in de share van de implementatie met de besturingssysteem-bronbestanden) en klik vervolgens op **volgende**.|  
     |**Samenvatting** |Klik op **Volgende**.|  
     |**Bevestiging** |Klik op **uitvoer opslaan** naar de uitvoer van de wizard naar een bestand opslaan of klik op **Script weergeven** om weer te geven van de Windows PowerShell-scripts gebruikt voor het uitvoeren van taken van de wizard.<br /><br /> Klik op **Voltooien**.|  
 
      De Wizard importeren besturingssysteem is voltooid. Het besturingssysteem is toegevoegd aan de lijst met besturingssystemen in het detailvenster van de implementatie-Workbench.  
 
-#####  <a name="ImportaPreviouslyCapturedImageofaReferenceComputer"></a>Eerder vastgelegde installatiekopie van een referentiecomputer importeren  
+#####  <a name="ImportaPreviouslyCapturedImageofaReferenceComputer"></a> Eerder vastgelegde installatiekopie van een referentiecomputer importeren  
  MDT kunt u eerder vastgelegde installatiekopieën van verwijzing computers of andere aangepaste installatiekopieën importeren in de implementatie-Workbench. Importeren van het besturingssysteem gebruikt de Wizard importeren besturingssysteem in de implementatie-Workbench.  
 
 ###### <a name="to-import-an-operating-system-from-a-previously-captured-image-of-a-reference-computer"></a>Voor het importeren van een besturingssysteem vanaf een eerder vastgelegde installatiekopie van een referentiecomputer  
@@ -2006,7 +2005,7 @@ Tabel 10 geeft een lijst van de knooppunten op het hoogste niveau in de Workbenc
     |**Type besturingssysteem** |Klik op **bestand met aangepaste installatiekopie**, en klik vervolgens op **volgende**.|  
     |**Bron** |In **bronbestand**, type ***source_file*** (waarbij *source_file* is het volledig gekwalificeerde pad naar het WIM-bestand met de bronbestanden van het besturingssysteem), en klik vervolgens op **Volgende**.<br /><br /> U kunt ook op **Bladeren** vinden van de bron-WIM-installatiekopie.|  
     |**Setup** |Selecteer een van de volgende opties op basis van uw vereisten en klik vervolgens op **volgende**:<br /><br /> **-Setup-bestanden niet nodig zijn**. Selecteer deze optie wanneer er geen Setup-bestanden nodig zijn voor een afbeelding.<br /><br /> **-Kopiëren Windows 7, Windows Server 2008 R2 of hoger setup-bestanden uit het opgegeven pad**. Selecteer deze optie om de Setup-bestanden kopiëren van een map met de Windows setup-bestanden wanneer deze bestanden niet beschikbaar in een ander besturingssysteem in de implementatie-Workbench zijn. In **Setup-bronmap**, of klik op **Bladeren** naar de map met de Setup-bestanden.<br /><br /> Is de standaardoptie **Setup en de Sysprep-bestanden niet nodig zijn**.|  
-    |**Bestemming** |In **directory doelnaam**, type ***destination_folder*** (waarbij *destination_folder* is de naam van de map in de share van de implementatie met de besturingssysteem-bronbestanden) en klik vervolgens op **volgende**.|  
+    |**Destination** |In **directory doelnaam**, type ***destination_folder*** (waarbij *destination_folder* is de naam van de map in de share van de implementatie met de besturingssysteem-bronbestanden) en klik vervolgens op **volgende**.|  
     |**Samenvatting** |Klik op **Volgende**.|  
     |**Bevestiging** |Klik op **uitvoer opslaan** naar de uitvoer van de wizard naar een bestand opslaan of klik op **Script weergeven** om weer te geven van de Windows PowerShell-scripts gebruikt voor het uitvoeren van taken van de wizard.<br /><br /> Klik op **Voltooien**.|  
 
@@ -2025,7 +2024,7 @@ ZTI ERROR – Non-zero return code by LTIApply, rc = 31.
 imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_description>  
 ```  
 
-#####  <a name="ImportanOperatingSystemfromanExistingWindowsDeploymentServicesImage"></a>Importeren van een besturingssysteem van een bestaande installatiekopie van Windows Deployment Services  
+#####  <a name="ImportanOperatingSystemfromanExistingWindowsDeploymentServicesImage"></a> Importeren van een besturingssysteem van een bestaande installatiekopie van Windows Deployment Services  
  MDT kunt u bestaande WIM-installatiekopieën in Windows Deployment Services importeren in de implementatie-Workbench. Importeren van het besturingssysteem gebruikt de Wizard importeren besturingssysteem in de implementatie-Workbench.  
 
 ###### <a name="to-import-an-operating-system-from-an-existing-image-in-windows-deployment-services"></a>Voor het importeren van een besturingssysteem vanaf een bestaande installatiekopie van Windows Deployment Services  
@@ -2045,13 +2044,13 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     |**Op deze wizardpagina** |**Dit doet** |  
     |-----------------------------|-----------------|  
     |**Type besturingssysteem** |Klik op **bestand met aangepaste installatiekopie**, en klik vervolgens op **volgende**.|  
-    |**WDS-Server** |In **servernaam**, type ***servernaam*** (waarbij *servernaam* is de naam van de Windows Deployment Services-server met de bestaande WIM-installatiekopieën), en klik vervolgens op Volgende.|  
+    |**WDS Server** |In **servernaam**, type ***servernaam*** (waarbij *servernaam* is de naam van de Windows Deployment Services-server met de bestaande WIM-installatiekopieën), en klik vervolgens op Volgende.|  
     |**Samenvatting** |Klik op **Volgende**.|  
     |**Bevestiging** |Klik op **uitvoer opslaan** om de uitvoer van de wizard naar een bestand opslaan of klik op Script weergeven om de Windows PowerShell-scripts gebruikt voor het uitvoeren van taken van de wizard weer te geven.<br /><br /> Klik op **Voltooien**.|  
 
  De Wizard importeren besturingssysteem is voltooid. Het besturingssysteem is toegevoegd aan de lijst met besturingssystemen in het detailvenster, maar is niet gekopieerd naar de implementatieshare. De implementatie-Workbench verlaat de installatiekopie van het besturingssysteem op de Windows Deployment Services-server, maar de installatiekopie is nu beschikbaar voor LTI.  
 
-####  <a name="ViewOperatingSystemPropertiesintheDeploymentWorkbench"></a>Operationele Systeemeigenschappen weergeven in de Workbench-implementatie  
+####  <a name="ViewOperatingSystemPropertiesintheDeploymentWorkbench"></a> Operationele Systeemeigenschappen weergeven in de Workbench-implementatie  
  U de eigenschappen van het besturingssysteem onder het knooppunt van het besturingssysteem weergeven in de implementatie-Workbench door middel de **eigenschappen** acties zoals beschreven in [-eigenschappen weergeven in de Implementatieworkbench](#ViewItemPropertiesintheDeploymentWorkbench).  
 
 35 tabel bevat de configuratie-instellingen van de **algemene** tabblad van het besturingssysteem **eigenschappen** in het dialoogvenster en biedt een beschrijving van elke instelling.  
@@ -2065,35 +2064,35 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 |**Beschrijving** |De beschrijving van het besturingssysteem bevat, bijvoorbeeld, Windows 8 ENTERPRISE.|  
 |**Type besturingssysteem** |Het type besturingssysteem bevat, bijvoorbeeld Windows Image-based Setup.|  
 |**Platform** |Bevat de processorarchitectuur van het besturingssysteem, bijvoorbeeld x64.|  
-|**Talen (s)** |Bevat de talen die zijn opgenomen in het besturingssysteem, bijvoorbeeld en-US.|  
+|**Languages(s)** |Bevat de talen die zijn opgenomen in het besturingssysteem, bijvoorbeeld en-US.|  
 |**Setup bevat** |Bevat **True** of **False**, waarmee wordt aangegeven of het besturingssysteem de bestanden die nodig zijn bevat voor het uitvoeren van setup.|  
-|**Pad** |Bevat het pad naar het besturingssysteem ten opzichte van de hoofdmap van de implementatieshare.|  
+|**Path** |Bevat het pad naar het besturingssysteem ten opzichte van de hoofdmap van de implementatieshare.|  
 |**-Afbeeldingsbestand** |Bevat de naam van het pad en de bestandsnaam van het besturingssysteem ten opzichte van de hoofdmap van de implementatieshare.|  
 |**Installatiekopie-index** |Een numerieke waarde die aangeeft van de installatiekopie-index voor de installatiekopie bevat, bijvoorbeeld: 1.|  
 |**Procesnaam** |Naam van de installatiekopie bevat, bijvoorbeeld, Windows 8 ENTERPRISE.|  
 |**Afbeeldingsgrootte (MB)** |Bevat de grootte van de afbeelding in megabytes — bijvoorbeeld 7921 7,921 MB of GB 7.921 aangeeft.|  
 |**HAL** |Het type HAL voor de installatiekopie bevat — bijvoorbeeld acpiapic.|  
 
-####  <a name="CopyanOperatingSystemintheDeploymentWorkbench"></a>Kopiëren van een besturingssysteem in de Workbench-implementatie  
+####  <a name="CopyanOperatingSystemintheDeploymentWorkbench"></a> Kopiëren van een besturingssysteem in de Workbench-implementatie  
  Kopiëren en plakken van besturingssystemen en mappen onder het knooppunt van het besturingssysteem in de Workbench-implementatie met behulp van de **kopiëren** en **plakken** acties zoals beschreven in [kopiëren Items in de implementatie Workbench](#CopyItemsintheDeploymentWorkbench).  
 
-####  <a name="MoveanOperatingSystemintheDeploymentWorkbench"></a>Verplaatsen van een besturingssysteem in de Workbench-implementatie  
+####  <a name="MoveanOperatingSystemintheDeploymentWorkbench"></a> Verplaatsen van een besturingssysteem in de Workbench-implementatie  
  Besturingssystemen en mappen onder het knooppunt besturingssystemen in de implementatie-Workbench door middel verplaatsen de **Knippen** en **plakken** acties zoals beschreven in [Items verplaatsen in de Workbench-implementatie ](#MoveItemsintheDeploymentWorkbench).  
 
-####  <a name="RenameanOperatingSystemintheDeploymentWorkbench"></a>Wijzig de naam van een besturingssysteem in de Workbench-implementatie  
+####  <a name="RenameanOperatingSystemintheDeploymentWorkbench"></a> Wijzig de naam van een besturingssysteem in de Workbench-implementatie  
  Wijzig de naam van besturingssystemen en mappen onder het knooppunt besturingssystemen in de implementatie-Workbench door middel de **naam** actie, zoals beschreven in [Wijzig de naam van Items in de implementatie-Workbench](#RenameItemsintheDeploymentWorkbench).  
 
-####  <a name="DeleteanOperatingSystemfromtheDeploymentWorkbench"></a>Verwijderen van een besturingssysteem van de Implementatieworkbench  
+####  <a name="DeleteanOperatingSystemfromtheDeploymentWorkbench"></a> Verwijderen van een besturingssysteem van de Implementatieworkbench  
  Verwijderen van besturingssystemen en mappen onder het knooppunt besturingssystemen in de Workbench-implementatie met behulp van de Wizard geselecteerde Items verwijderen zoals beschreven [Verwijderingsitems uit de implementatie-Workbench](#DeleteItemsfromtheDeploymentWorkbench). De Wizard geselecteerde Items verwijderen kunt verwijderen van afzonderlijke besturingssysteembestanden of de hele mapstructuren.  
 
-####  <a name="ManageFoldersforOperatingSystemsintheDeploymentWorkbench"></a>Mappen te beheren voor besturingssystemen in de Workbench-implementatie  
+####  <a name="ManageFoldersforOperatingSystemsintheDeploymentWorkbench"></a> Mappen te beheren voor besturingssystemen in de Workbench-implementatie  
  U kunt de mappen onder het knooppunt besturingssystemen in de Workbench-implementatie te maken van hiërarchische groeperingen van besturingssystemen beheren. Voor meer informatie over:  
 
 -   Mappen beheren, Zie [mappen beheren in de Workbench-implementatie](#ManageFoldersintheDeploymentWorkbench)  
 
 -   Selectie profielen, Zie [selectie profielen beheren](#ManageSelectionProfiles)  
 
-###  <a name="ConfiguringApplicationsintheDeploymentWorkbench"></a>Toepassingen configureren in de Workbench-implementatie  
+###  <a name="ConfiguringApplicationsintheDeploymentWorkbench"></a> Toepassingen configureren in de Workbench-implementatie  
  De implementatie-Workbench MDT gebruikt voor het beheren van de geïmplementeerde toepassingen op de referentie- en doelcomputers computers in uw organisatie. Configureer de toepassingen in de implementatie-Workbench door:  
 
 -   Een nieuwe toepassing maken, zoals beschreven in [een nieuwe toepassing maken in de Workbench-implementatie](#CreateaNewApplicationintheDeploymentWorkbench)  
@@ -2124,7 +2123,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   **Importeren MDTApplication**  
 
-####  <a name="CreateaNewApplicationintheDeploymentWorkbench"></a>Een nieuwe toepassing maken in de Workbench-implementatie  
+####  <a name="CreateaNewApplicationintheDeploymentWorkbench"></a> Een nieuwe toepassing maken in de Workbench-implementatie  
  U kunt nieuwe toepassingen maken in de Workbench-implementatie met een van de opties in de tabel 36. U kunt besturingssystemen importeren in de Workbench-implementatie met de Wizard Nieuwe toepassing.  
 
 ### <a name="table-36-options-for-creating-a-new-application"></a>Tabel 36. Opties voor het maken van een nieuwe toepassing  
@@ -2151,7 +2150,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Implementatie van afhankelijkheden voor toepassingen zoals beschreven in [een nieuwe toepassing maken voor de afhankelijkheden voor toepassingen implementeren](#CreateaNewApplicationforDeployingApplicationDependencies)  
 
-#####  <a name="CreateaNewApplicationThatIsDeployedfromtheDeploymentShare"></a>Maak een nieuwe toepassing die Is geïmplementeerd in de Implementatieshare  
+#####  <a name="CreateaNewApplicationThatIsDeployedfromtheDeploymentShare"></a> Maak een nieuwe toepassing die Is geïmplementeerd in de Implementatieshare  
  MDT kunt u de Wizard Nieuwe toepassing in de Workbench-implementatie gebruiken om te maken van nieuwe toepassingen die worden geïmplementeerd vanaf de implementatieshare. De Wizard Nieuwe toepassing kopieert de bronbestanden voor dit type van de implementatieshare-toepassingen.  
 
 ###### <a name="to-create-a-new-application-that-is-deployed-from-the-deployment-share"></a>Een nieuwe toepassing die is geïmplementeerd maken van de implementatieshare  
@@ -2173,14 +2172,14 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     |**Toepassingstype** |Klik op **toepassing met de bronbestanden van**, en klik vervolgens op **volgende**.|  
     |**Details** |-In **Publisher**, type ***publisher_name*** (waarbij *publisher_name* is de naam van de uitgever van de toepassing).<br /><br /> -In **toepassingsnaam**, type ***$application_name*** (waarbij *toepassingsnaam* is de beschrijvende naam van de toepassing).<br /><br /> -In **versie**, type **versie** (waarbij *versie* is de versie van de toepassing).<br /><br /> -In **taal**, type **taal** (waarbij *taal* is de taal van de toepassing).<br /><br /> -Klik **volgende**.|  
     |**Bron** |a. In **bronmap**, type ***source_folder*** (waarbij *source_folder* is het volledig gekwalificeerde pad naar de map met de bronbestanden van de toepassing).<br /><br /> U kunt ook op **Bladeren** vinden van de bronmap.<br /><br /> b. Selecteer of wis de **Verplaats de bestanden voor de implementatie delen in plaats van ze te kopiëren** selectievakje op basis van uw vereisten en klik vervolgens op **volgende**.<br /><br /> Dit selectievakje wordt bepaald of de wizard kopieert of verplaatst van de bronbestanden van de toepassing naar de implementatieshare. Als het selectievakje is:<br /><br /> -Geselecteerd, verplaatst de wizard de bronbestanden naar de implementatieshare<br /><br /> -Uitgeschakeld, kopieert de wizard de bronbestanden voor de implementatieshare<br /><br /> Standaard is dit selectievakje niet geselecteerd.|  
-    |**Bestemming** |In **Geef de naam van de map die moet worden gemaakt**, type ***destination_folder*** (waarbij *destination_folder* is de naam van de map in de implementatieshare waarin de bronbestanden van de toepassing), en klik vervolgens op **volgende**.|  
+    |**Destination** |In **Geef de naam van de map die moet worden gemaakt**, type ***destination_folder*** (waarbij *destination_folder* is de naam van de map in de implementatieshare waarin de bronbestanden van de toepassing), en klik vervolgens op **volgende**.|  
     |**Opdrachtdetails** |-In **opdrachtregel**, type ***command_line*** (waarbij *command_line* is de opdrachtregel om te worden uitgevoerd voor het starten van de installatie van de toepassing, met inbegrip van een opdrachtregel parameters).<br /><br /> -In **werkmap**, type ***working_directory*** (waarbij *working_directory* is het volledig gekwalificeerde of relatieve pad voor de map die is aangewezen als de werkset map voor de toepassing).<br /><br /> -Klik **volgende**.|  
     |**Samenvatting** |Klik op **Volgende**.|  
     |**Bevestiging** |Klik op **uitvoer opslaan** naar de uitvoer van de wizard naar een bestand opslaan of klik op **Script weergeven** om weer te geven van de Windows PowerShell-scripts gebruikt voor het uitvoeren van taken van de wizard.<br /><br /> Klik op **Voltooien**.|  
 
  De Wizard Nieuwe toepassing is voltooid. De toepassing is toegevoegd aan de lijst met besturingssystemen in het detailvenster in de implementatie-Workbench.  
 
-#####  <a name="CreateaNewApplicationThatIsDeployedfromAnotherNetworkSharedFolder"></a>Maak een nieuwe toepassing die wordt geïmplementeerd vanaf een andere gedeelde netwerkmap  
+#####  <a name="CreateaNewApplicationThatIsDeployedfromAnotherNetworkSharedFolder"></a> Maak een nieuwe toepassing die wordt geïmplementeerd vanaf een andere gedeelde netwerkmap  
  MDT kunt voor het maken van nieuwe toepassingen die u via een gedeelde netwerkmap dan de implementatieshare implementeert. Maak een nieuwe toepassing met behulp van de Wizard Nieuwe toepassing in de implementatie-Workbench. De Wizard Nieuwe toepassing heeft niet de bronbestanden voor dit type toepassing kopiëren.  
 
 ###### <a name="to-create-a-new-application-that-is-deployed-from-a-network-shared-folder-other-than-the-deployment-share"></a>Maken van een nieuwe toepassing die vanuit een gedeelde netwerkmap dan de implementatieshare is geïmplementeerd  
@@ -2205,7 +2204,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  De Wizard Nieuwe toepassing is voltooid. De toepassing is toegevoegd aan de lijst met besturingssystemen in het detailvenster van de implementatie-Workbench.  
 
-#####  <a name="CreateaNewApplicationforDeployingApplicationDependencies"></a>Een nieuwe toepassing maken voor het implementeren van afhankelijkheden voor toepassingen  
+#####  <a name="CreateaNewApplicationforDeployingApplicationDependencies"></a> Een nieuwe toepassing maken voor het implementeren van afhankelijkheden voor toepassingen  
  MDT kunt voor het maken van nieuwe toepassingen die worden gebruikt voor het implementeren van alleen de afhankelijkheden voor een toepassing in plaats van de toepassing zelf te installeren. Maak een nieuwe toepassing met behulp van de Wizard Nieuwe toepassing in de implementatie-Workbench. De Wizard Nieuwe toepassing biedt bronbestanden niet kopiëren naar de implementatieshare.  
 
 ###### <a name="to-create-a-new-application-for-deploying-application-dependencies"></a>Een nieuwe toepassing voor het implementeren van afhankelijkheden voor toepassingen maken  
@@ -2231,7 +2230,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  De Wizard Nieuwe toepassing is voltooid. De toepassing is toegevoegd aan de lijst met besturingssystemen in het detailvenster van de implementatie-Workbench.  
 
-####  <a name="ViewandConfigureanApplicationintheDeploymentWorkbench"></a>Weergeven en configureren van een toepassing in de Workbench-implementatie  
+####  <a name="ViewandConfigureanApplicationintheDeploymentWorkbench"></a> Weergeven en configureren van een toepassing in de Workbench-implementatie  
  Bekijk de eigenschappen van toepassingen onder het knooppunt toepassingen in de implementatie-Workbench door middel de **eigenschappen** acties zoals beschreven in [-eigenschappen weergeven in de Implementatieworkbench](#ViewItemPropertiesintheDeploymentWorkbench). Configureren van een toepassing in de implementatie-Workbench door het uitvoeren van de volgende stappen in de **toepassingseigenschappen** in het dialoogvenster:  
 
 -   Eigenschappen configureren op de **algemene** tabblad zoals beschreven in [configureren Toepassingstabblad eigenschappen van de algemene](#ConfiguretheApplicationPropertiesGeneralTab).  
@@ -2242,7 +2241,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   De eigenschappen te configureren op de **Office-producten** tabblad zoals beschreven in [Toepassingstabblad eigenschappen van de Office-producten configureren](#ConfiguretheApplicationPropertiesOfficeProductsTab).  
 
-#####  <a name="ConfiguretheApplicationPropertiesGeneralTab"></a>Tabblad algemene eigenschappen van de toepassing configureren  
+#####  <a name="ConfiguretheApplicationPropertiesGeneralTab"></a> Tabblad algemene eigenschappen van de toepassing configureren  
  De toepassingseigenschappen die is opgeslagen op de **algemene** tabblad zijn voornamelijk geconfigureerd wanneer de Wizard Nieuwe toepassing wordt uitgevoerd. De toepassingseigenschappen van de bijwerken op de **algemene** tabblad via de ***$application_name*** **eigenschappen** in het dialoogvenster (waarbij *toepassingsnaam* is de naam van de toepassing in de Workbench-implementatie).  
 
 ###### <a name="to-configure-the-general-tab-for-application-properties"></a>Het tabblad Algemeen voor de toepassingseigenschappen configureren  
@@ -2268,8 +2267,8 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     |**Weergavenaam** |(Optioneel) Bevat de naam die wordt weergegeven in de Wizard implementatie in plaats van de waarde in **naam**. Als geen waarde is opgegeven, de waarde in **naam** wordt weergegeven in de Wizard implementatie.|  
     |**Korte naam** |Bevat de naam van de map waarin de toepassing zich bevindt.|  
     |**Versie** |Het versienummer van de toepassing bevat.<br /><br /> Geef het versienummer in dit vak. het is niet gevalideerd met het versienummer van de werkelijke toepassing, maar is uitsluitend ter informatie bedoeld.|  
-    |**Uitgever** |De naam van de uitgever van de toepassing bevat.<br /><br /> Voert u de uitgever in dit vak. het is niet gevalideerd met het versienummer van de werkelijke toepassing, maar is uitsluitend ter informatie bedoeld.|  
-    |**Taal** |De taal van de toepassing bevat.<br /><br /> Geef de taal in dit vak. het is niet gevalideerd met de taal van de werkelijke toepassing, maar is uitsluitend ter informatie bedoeld.|  
+    |**Publisher** |De naam van de uitgever van de toepassing bevat.<br /><br /> Voert u de uitgever in dit vak. het is niet gevalideerd met het versienummer van de werkelijke toepassing, maar is uitsluitend ter informatie bedoeld.|  
+    |**taal** |De taal van de toepassing bevat.<br /><br /> Geef de taal in dit vak. het is niet gevalideerd met de taal van de werkelijke toepassing, maar is uitsluitend ter informatie bedoeld.|  
     |**Bronmap** |Hiermee configureert u de map waarin de bron van de toepassingsbestanden zich bevindt.|  
     |**De GUID van toepassing** |Bevat de GUID voor de toepassing.|  
     |**Deze toepassing in de Wizard implementatie verbergen** |Selecteer om te bepalen wanneer deze toepassing wordt weergegeven in de Wizard implementatie. Als het selectievakje is:<br /><br /> -Geselecteerd, wordt de implementatiewizard niet weergegeven deze toepassing.<br /><br /> -De Wizard implementatie optie is uitgeschakeld, wordt deze toepassing weergegeven.<br /><br /> Dit selectievakje is standaard uitgeschakeld.<br /><br /> Deze instelling wordt ook weergegeven in de **verbergen** kolom in het detailvenster van de implementatie-Workbench.|  
@@ -2277,7 +2276,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  De toepassing configuratie-instellingen worden opgeslagen en de wijzigingen worden weergegeven in het detailvenster van de implementatie-Workbench.  
 
-#####  <a name="ConfiguretheApplicationPropertiesDetailsTab"></a>Tabblad Details eigenschappen van de toepassing configureren  
+#####  <a name="ConfiguretheApplicationPropertiesDetailsTab"></a> Tabblad Details eigenschappen van de toepassing configureren  
  De configuratie-instellingen van toepassing opgeslagen op de **Details** tabblad zijn in eerste instantie geconfigureerd wanneer de Wizard Nieuwe toepassing wordt uitgevoerd. De toepassingseigenschappen van de bijwerken op de **Details** tabblad via de ***$application_name*** **eigenschappen** in het dialoogvenster (waarbij *toepassingsnaam* is de naam van de toepassing in de Workbench-implementatie).  
 
 ###### <a name="to-configure-the-details-tab-for-application-properties"></a>Het tabblad met Details voor de toepassingseigenschappen configureren  
@@ -2309,7 +2308,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  De toepassing configuratie-instellingen worden opgeslagen en de wijzigingen worden weergegeven in het detailvenster van de implementatie-Workbench.  
 
-#####  <a name="ConfiguretheApplicationPropertiesDependenciesTab"></a>Tabblad Afhankelijkheden eigenschappen van de toepassing configureren  
+#####  <a name="ConfiguretheApplicationPropertiesDependenciesTab"></a> Tabblad Afhankelijkheden eigenschappen van de toepassing configureren  
  MDT controleert de afhankelijkheden van een toepassing voordat de toepassing te installeren. MDT op deze manier zorgt ervoor dat alle afhankelijkheden voor toepassingen zijn geïnstalleerd voordat de toepassing te installeren.  
 
 > [!NOTE]
@@ -2338,11 +2337,11 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     |**Toevoegen** |Een nieuwe toepassingsafhankelijkheid toegevoegd aan de lijst met afhankelijkheden die met behulp van de **Selecteer een item** in het dialoogvenster. U kunt alle toepassingen die al bestaan in de implementatieshare toevoegen.|  
     |**Verwijderen** |Verwijdert de toepassingsafhankelijkheid van een in de lijst met afhankelijkheden.|  
     |**Omhoog** |Hiermee verplaatst u een toepassingsafhankelijkheid hoger in de volgorde van de geïnstalleerde afhankelijkheden.<br /><br /> Afhankelijkheden voor toepassingen worden geïnstalleerd vanaf de bovenkant van de lijst naar de onderkant.|  
-    |**Omlaag** |Hiermee verplaatst u een toepassingsafhankelijkheid lager in de volgorde van de geïnstalleerde afhankelijkheden.<br /><br /> Afhankelijkheden voor toepassingen worden geïnstalleerd vanaf de bovenkant van de lijst naar de onderkant.|  
+    |**Down** |Hiermee verplaatst u een toepassingsafhankelijkheid lager in de volgorde van de geïnstalleerde afhankelijkheden.<br /><br /> Afhankelijkheden voor toepassingen worden geïnstalleerd vanaf de bovenkant van de lijst naar de onderkant.|  
 
  De toepassing configuratie-instellingen worden opgeslagen en de wijzigingen worden weergegeven in het detailvenster van de implementatie-Workbench.  
 
-#####  <a name="ConfiguretheApplicationPropertiesOfficeProductsTab"></a>Toepassingstabblad eigenschappen van de Office-producten configureren  
+#####  <a name="ConfiguretheApplicationPropertiesOfficeProductsTab"></a> Toepassingstabblad eigenschappen van de Office-producten configureren  
  De toepassingseigenschappen die is opgeslagen op de **Office-producten** tabblad zijn voornamelijk geconfigureerd wanneer de Wizard Nieuwe toepassing wordt uitgevoerd. De toepassingseigenschappen van de bijwerken op de **Office-producten** tabblad via de ***$application_name*** **eigenschappen** in het dialoogvenster (waarbij *toepassingsnaam*  is de naam van de toepassing in de Workbench-implementatie).  
 
 > [!NOTE]
@@ -2375,33 +2374,33 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     |**Alleen de cache** |Selecteer om te bepalen of de implementatie-Workbench Config.xml voor Microsoft Office Setup de lokale installatie bron (LIS)-cache op de doelcomputer installeren tijdens de installatie, maar niet Installeer Microsoft Office configureert. Als het selectievakje is:<br /><br /> -Geselecteerd, is het bestand Config.xml geconfigureerd voor het kopiëren van de cache LIS tijdens de installatie van Microsoft Office, maar Microsoft Office-producten niet installeren<br /><br /> -Uitgeschakeld, de cache LIS wordt gekopieerd en Microsoft Office-producten worden geïnstalleerd tijdens de installatie van Microsoft Office|  
     |**Altijd opnieuw opstarten onderdrukken** |Selecteer om te bepalen of de implementatie-Workbench Config.xml voor Microsoft Office Setup om te voorkomen dat de doelcomputer opnieuw te starten tijdens de installatie configureert. Als het selectievakje is:<br /><br /> -Geselecteerd, wordt het bestand Config.xml geconfigureerd om te voorkomen dat een herstart van de doelcomputer tijdens de installatie van Microsoft Office<br /><br /> -Uitgeschakeld, de doelcomputer kan opnieuw worden gestart tijdens de installatie van Microsoft Office|  
     |**Toevoegen** |Klik om Microsoft Office-taalpakketten toevoegen.|  
-    |**Config.xml bewerken** |Klik om te wijzigen van de inhoud van het bestand Config.xml die de implementatie-Workbench genereert.|  
+    |**Edit Config.xml** |Klik om te wijzigen van de inhoud van het bestand Config.xml die de implementatie-Workbench genereert.|  
 
  De toepassing configuratie-instellingen worden opgeslagen en de wijzigingen worden weergegeven in het detailvenster van de implementatie-Workbench.  
 
-####  <a name="CopyanApplicationintheDeploymentWorkbench"></a>Een toepassing in de implementatie-Workbench kopiëren  
+####  <a name="CopyanApplicationintheDeploymentWorkbench"></a> Een toepassing in de implementatie-Workbench kopiëren  
  Kopiëren en plakken van toepassingen en mappen onder het knooppunt toepassingen in de Workbench-implementatie met behulp van de **kopie** en **plakken** acties zoals beschreven in [kopiëren Items in de implementatie Workbench](#CopyItemsintheDeploymentWorkbench).  
 
-####  <a name="MoveanApplicationintheDeploymentWorkbench"></a>Een toepassing in de Implementatieworkbench verplaatsen  
+####  <a name="MoveanApplicationintheDeploymentWorkbench"></a> Een toepassing in de Implementatieworkbench verplaatsen  
  Verplaatsen van toepassingen en mappen onder het knooppunt toepassingen in de Workbench-implementatie met behulp van de **Knippen** en **plakken** acties zoals beschreven in [Items in de implementatie-Workbenchverplaatsen](#MoveItemsintheDeploymentWorkbench).  
 
-####  <a name="RenameanApplicationintheDeploymentWorkbench"></a>Wijzig de naam van een toepassing in de Workbench-implementatie  
+####  <a name="RenameanApplicationintheDeploymentWorkbench"></a> Wijzig de naam van een toepassing in de Workbench-implementatie  
  Wijzig de naam van toepassingen en mappen onder het knooppunt toepassingen in de Workbench-implementatie met behulp van de **naam** actie, zoals beschreven in [Wijzig de naam van Items in de implementatie-Workbench](#RenameItemsintheDeploymentWorkbench).  
 
-####  <a name="DeleteanApplicationfromtheDeploymentWorkbench"></a>Een toepassing verwijderen uit de Workbench-implementatie  
+####  <a name="DeleteanApplicationfromtheDeploymentWorkbench"></a> Een toepassing verwijderen uit de Workbench-implementatie  
  Verwijderen van toepassingen en mappen onder het knooppunt toepassingen in de Workbench-implementatie met behulp van de Wizard geselecteerde Items verwijderen zoals beschreven [Verwijderingsitems uit de implementatie-Workbench](#DeleteItemsfromtheDeploymentWorkbench). De Wizard geselecteerde Items verwijderen kunt verwijderen van afzonderlijke toepassingen of de hele mapstructuren.  
 
 > [!NOTE]
 >  U moet een toepassing niet verwijderen als andere toepassingen ervan afhankelijk zijn. De implementatie-Workbench worden echter geen afgedwongen voor deze aanbeveling.  
 
-####  <a name="ManageFoldersforApplicationsintheDeploymentWorkbench"></a>Mappen te beheren voor toepassingen in de Workbench-implementatie  
+####  <a name="ManageFoldersforApplicationsintheDeploymentWorkbench"></a> Mappen te beheren voor toepassingen in de Workbench-implementatie  
  U kunt de mappen onder het knooppunt toepassingen in de Workbench-implementatie te maken van hiërarchische groepen van toepassingen beheren. Voor meer informatie over:  
 
 -   Mappen beheren, Zie [mappen beheren in de Workbench-implementatie](#ManageFoldersintheDeploymentWorkbench)  
 
 -   Selectie profielen, Zie [selectie profielen beheren](#ManageSelectionProfiles)  
 
-####  <a name="EnableorDisableanApplicationintheDeploymentWorkbench"></a>In- of uitschakelen van een toepassing in de Workbench-implementatie  
+####  <a name="EnableorDisableanApplicationintheDeploymentWorkbench"></a> In- of uitschakelen van een toepassing in de Workbench-implementatie  
  Controle of toepassingen beschikbaar zijn voor andere wizards en dialoogvensters dialoogvensters in de Workbench-implementatie met behulp van de **inschakelen van deze toepassing** selectievakje op het **algemene** tabblad van de toepassing **Eigenschappen** in het dialoogvenster.  
 
 > [!TIP]
@@ -2409,13 +2408,13 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Zie voor meer informatie over het inschakelen of uitschakelen van toepassingen in de implementatie-Workbench [configureren Toepassingstabblad eigenschappen van de algemene](#ConfiguretheApplicationPropertiesGeneralTab).  
 
-####  <a name="PreventanApplicationfromBeingVisibleintheDeploymentWizard"></a>Voorkomen dat een toepassing wordt weergegeven in de implementatiewizard  
+####  <a name="PreventanApplicationfromBeingVisibleintheDeploymentWizard"></a> Voorkomen dat een toepassing wordt weergegeven in de implementatiewizard  
  Voorkomen dat een toepassing niet zichtbaar is in de Wizard implementatie door het selecteren van de **verbergen van deze toepassing in de Wizard implementatie** selectievakje op het **algemene** tabblad van de toepassing  **Eigenschappen** in het dialoogvenster zoals beschreven in [configureren Toepassingstabblad eigenschappen van de algemene](#ConfiguretheApplicationPropertiesGeneralTab).  
 
 > [!NOTE]
 >  De status van de **verbergen van deze toepassing in de Wizard implementatie** selectievakje wordt weergegeven in de **verbergen** kolom in het detailvenster van de **toepassing** knooppunt.  
 
-####  <a name="ConfiguretheComputertoRestartAfterApplicationInstallation"></a>De Computer opnieuw opstarten na installatie van de toepassing configureren  
+####  <a name="ConfiguretheComputertoRestartAfterApplicationInstallation"></a> De Computer opnieuw opstarten na installatie van de toepassing configureren  
  De doelcomputer opnieuw opstarten na de installatie van een toepassing door de **de computer opnieuw opstarten na de installatie van deze toepassing** selectievakje op het **Details** tabblad van de toepassing  **Eigenschappen** in het dialoogvenster. Dit selectievakje inschakelt, wordt de Wizard implementatie opnieuw opstarten van de doelcomputer na de installatie van de toepassing, en ga verder met de volgende stap in de takenreeks wordt uitgevoerd.  
 
 > [!CAUTION]
@@ -2423,7 +2422,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Zie voor meer informatie over het configureren van MDT om de doelcomputer opnieuw na de installatie van een toepassing te [tabblad Details eigenschappen van de toepassing configureren](#ConfiguretheApplicationPropertiesDetailsTab).  
 
-####  <a name="CustomizeApplicationInstallationinTaskSequences"></a>De installatie van de toepassing in Takenreeksen aanpassen  
+####  <a name="CustomizeApplicationInstallationinTaskSequences"></a> De installatie van de toepassing in Takenreeksen aanpassen  
  Toepassingen toevoegen in het knooppunt toepassingen in een share via de implementatie-Workbench-implementatie is de eenvoudigste methode voor het implementeren van de meeste toepassingen. MDT takenreeksen toepassingen implementeren met behulp van de **toepassing installeren** type takenreeks van de taak. Sommige van de taak reeks sjablonen in MDT, hebben de **toepassingen installeren** takenreeksstap de **11statusherstelfase** groep, die is gebaseerd op de **toepassing installeren**type takenreeks van de taak.  
 
  De **toepassing installeren** takenreekstype staat voor de installatie van een of meer toepassingen in een enkel takenreeksstap met behulp van een van de configuratieopties die worden vermeld in de tabel 44.  
@@ -2441,7 +2440,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Een nieuwe takenreeksstap maken op basis van de **toepassing installeren** type takenreeks zoals beschreven in de taak [stap in een nieuwe Takenreeks maken voor toepassingen installeren](#CreateaNewTaskSequenceStepforInstallingApplications)  
 
-#####  <a name="ConfigureanExistingInstallApplicationsTaskSequenceStep"></a>Een bestaande installatie van toepassingen-Takenreeksstap configureren  
+#####  <a name="ConfigureanExistingInstallApplicationsTaskSequenceStep"></a> Een bestaande installatie van toepassingen-Takenreeksstap configureren  
  Configureren van een bestaande **toepassingen installeren** takenreeksstap door het wijzigen van de configuratie-instellingen op de **eigenschappen** tabblad van de takenreeksstap.  
 
 ###### <a name="to-configure-an-existing-install-applications-task-sequence-step"></a>Voor het configureren van een takenreeksstap voor bestaande toepassingen installeren  
@@ -2475,7 +2474,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  De bijgewerkte takenreeks weergegeven in het detailvenster van de implementatie-Workbench.  
 
-#####  <a name="CreateaNewTaskSequenceStepforInstallingApplications"></a>Maken van een Takenreeksstap voor het installeren van toepassingen  
+#####  <a name="CreateaNewTaskSequenceStepforInstallingApplications"></a> Maken van een Takenreeksstap voor het installeren van toepassingen  
  In de meeste gevallen de bestaande **toepassingen installeren** takenreeksstap is voldoende voor het installeren van toepassingen naar de doelcomputers. Er zijn echter gevallen waarin de bestaande **toepassingen installeren** takenreeksstap mogelijk niet voldoende voor de vereisten van uw organisatie of zult u een toepassing te installeren op een andere volgorde in de taak volgorde.  
 
  Bijvoorbeeld, wordt het installatieproces voor sommige apparaatstuurprogramma's meer uitgevoerd als de installatie van een toepassing dan de standaardinstallatie-proces voor een traditionele apparaatstuurprogramma. U kunt deze apparaatstuurprogramma's installeren door het maken van een nieuwe takenreeksstap op basis van de **toepassing installeren** type takenreeks van de taak.  
@@ -2489,7 +2488,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 2.  Configureren voor het implementeren van een of meer toepassingen, zoals beschreven in de nieuwe takenreeksstap [configureren van een bestaande installeren toepassingen Takenreeksstap](#ConfigureanExistingInstallApplicationsTaskSequenceStep).  
 
-###  <a name="ConfiguringPackagesintheDeploymentWorkbench"></a>Configureren van pakketten in de Workbench-implementatie  
+###  <a name="ConfiguringPackagesintheDeploymentWorkbench"></a> Configureren van pakketten in de Workbench-implementatie  
  Pakketten in MDT zijn besturingssysteemsoftware is geïnstalleerd op de doelcomputers en opgeslagen in CAB- of MSU-bestanden, zoals beveiligingsupdates, servicepacks, functiepakketten of taalpakketten. De pakketten worden geïmplementeerd voor de referentie- en doelcomputers computers in uw organisatie met behulp van de implementatie-Workbench beheren. U kunt pakketten configureren in de Workbench-implementatie in een implementatieshare pakketten knooppunt door:  
 
 -   Een nieuw pakket importeren, zoals beschreven in [importeren van een nieuw pakket in de Workbench-implementatie](#ImportaNewPackageintotheDeploymentWorkbench)  
@@ -2518,7 +2517,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   **Importeren MDTPackage**  
 
-####  <a name="ImportaNewPackageintotheDeploymentWorkbench"></a>Een nieuw pakket importeren in de Workbench-implementatie  
+####  <a name="ImportaNewPackageintotheDeploymentWorkbench"></a> Een nieuw pakket importeren in de Workbench-implementatie  
  Pakketten in de implementatie-Workbench importeren met behulp van de Wizard importeren besturingssysteem pakketten. Start de Wizard importeren besturingssysteem pakketten met een van de volgende methoden:  
 
 -   Klik op het knooppunt pakketten of een map onder het knooppunt pakketten in de consolestructuur. Klik vervolgens in het deelvenster Acties op **importeren OS pakketten**.  
@@ -2541,13 +2540,13 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
     |**Op deze wizardpagina** |**Dit doet** |  
     |-----------------------------|-----------------|  
-    |**Map opgeven** |In **pakketbronmap**, type ***pad*** (waarbij *pad* is het volledig gekwalificeerde pad naar de map waarin het pakket dat u wilt importeren), en klik vervolgens op  **Volgende**.<br /><br /> U kunt ook klikken op **Bladeren** naar de map op een lokale schijf of een netwerkshare gedeelde map.|  
+    |**Specify Directory** |In **pakketbronmap**, type ***pad*** (waarbij *pad* is het volledig gekwalificeerde pad naar de map waarin het pakket dat u wilt importeren), en klik vervolgens op  **Volgende**.<br /><br /> U kunt ook klikken op **Bladeren** naar de map op een lokale schijf of een netwerkshare gedeelde map.|  
     |**Samenvatting** |Bekijk de informatie in de **Details** vak en klik vervolgens op **volgende**.|  
     |**Bevestiging** |U kunt klikken op **uitvoer opslaan** de uitvoer van de wizard opslaan in een bestand. U kunt ook klikken op **Script weergeven** om weer te geven van de Windows PowerShell-scripts gebruikt voor het uitvoeren van taken van de wizard.<br /><br /> Klik op voltooien.|  
 
  De Wizard importeren besturingssysteem pakketten is voltooid. Het pakket wordt toegevoegd aan de lijst met pakketten in het detailvenster van de implementatie-Workbench.  
 
-####  <a name="ModifyanExistingPackageintheDeploymentWorkbench"></a>Een bestaand pakket in de Workbench-implementatie wijzigen  
+####  <a name="ModifyanExistingPackageintheDeploymentWorkbench"></a> Een bestaand pakket in de Workbench-implementatie wijzigen  
  Wijzigen van pakketten in het knooppunt pakketten in de Workbench-implementatie met behulp van de **eigenschappen** acties zoals beschreven in [-eigenschappen weergeven in de implementatie-Workbench](#ViewItemPropertiesintheDeploymentWorkbench). Eigenschappen van het pakket zijn voornamelijk geconfigureerd wanneer u de Wizard importeren besturingssysteem pakketten uitvoert. Eigenschappen van het pakket bijwerken op de **algemene** tabblad via de ***naam_van_pakket*** **eigenschappen** in het dialoogvenster (waarbij *naam_van_pakket* is de naam van de toepassing in de Workbench-implementatie).  
 
 ###### <a name="to-modify-an-existing-package"></a>Een bestaand pakket wijzigen  
@@ -2573,7 +2572,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     |**Weergavenaam** |(Optioneel) Bevat de naam die wordt weergegeven in de Wizard implementatie in plaats van de waarde in **naam**. Als geen waarde is opgegeven, de waarde in **naam** wordt weergegeven in de Wizard implementatie.|  
     |**Type** |Type van het pakket, waaronder doorgaans de volgende typen op hoog niveau pakketten:<br /><br /> -Taalpakketten<br /><br /> -Hotfix patches<br /><br /> -Functiepakketten<br /><br /> Het pakkettype in dit tekstvak automatisch wordt bepaald door de Implementatieworkbench en kan niet worden gewijzigd.|  
     |**Processorarchitectuur** |Doel-processor-architectuur voor het pakket; het kan ook x86, amd64 of ia64.<br /><br /> De architectuur van de processor in dit vak wordt automatisch bepaald door de Implementatieworkbench en kan niet worden gewijzigd.|  
-    |**Taal** |De taal van de toepassing bevat.<br /><br /> De taal in dit vak wordt automatisch bepaald door de Implementatieworkbench en kan niet worden gewijzigd.|  
+    |**taal** |De taal van de toepassing bevat.<br /><br /> De taal in dit vak wordt automatisch bepaald door de Implementatieworkbench en kan niet worden gewijzigd.|  
     |**Sleutelwoord** |Gebruikt voor het identificeren van de versie van het taalpakket.<br /><br /> Het sleutelwoord in dit tekstvak automatisch wordt bepaald door de Implementatieworkbench en kan niet worden gewijzigd.|  
     |**Openbare-sleuteltoken** |Bevat de openbare-sleuteltoken die gebruikmaakt van MDT naar het bestand unattended.xml bijgewerkt.<br /><br /> Het openbare-sleuteltoken in dit tekstvak automatisch wordt bepaald door de Implementatieworkbench en kan niet worden gewijzigd.|  
     |**Versie** |Het versienummer van het pakket bevat.<br /><br /> Het versienummer in dit tekstvak automatisch wordt bepaald door de Implementatieworkbench en kan niet worden gewijzigd.|  
@@ -2585,26 +2584,26 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  De configuratie-instellingen van het pakket worden opgeslagen en de wijzigingen worden weergegeven in het detailvenster van de implementatie-Workbench.  
 
-####  <a name="CopyaPackageintheDeploymentWorkbench"></a>Een pakket in de Implementatieworkbench kopiëren  
+####  <a name="CopyaPackageintheDeploymentWorkbench"></a> Een pakket in de Implementatieworkbench kopiëren  
  U kunt kopiëren en plakken van pakketten en -mappen onder het knooppunt pakketten in de implementatie-Workbench door middel de **kopie** en **plakken** acties zoals beschreven in [kopiëren Items in de Workbench-implementatie ](#CopyItemsintheDeploymentWorkbench).  
 
-####  <a name="MoveaPackageintheDeploymentWorkbench"></a>Verplaatsen van een pakket in de Workbench-implementatie  
+####  <a name="MoveaPackageintheDeploymentWorkbench"></a> Verplaatsen van een pakket in de Workbench-implementatie  
  U kunt pakketten en -mappen onder het knooppunt pakketten in de implementatie-Workbench door middel verplaatsen de **Knippen** en **plakken** acties zoals beschreven in [Items in de implementatie-Workbenchverplaatsen](#MoveItemsintheDeploymentWorkbench).  
 
-####  <a name="RenameaPackageintheDeploymentWorkbench"></a>Wijzig de naam van een pakket in de Workbench-implementatie  
+####  <a name="RenameaPackageintheDeploymentWorkbench"></a> Wijzig de naam van een pakket in de Workbench-implementatie  
  U kunt de naam pakketten en -mappen onder het knooppunt pakketten in de implementatie-Workbench door middel de **wijzigen** actie, zoals beschreven in [Wijzig de naam van Items in de implementatie-Workbench](#RenameItemsintheDeploymentWorkbench).  
 
-####  <a name="DeleteaPackagefromtheDeploymentWorkbench"></a>Een pakket verwijderen uit de Workbench-implementatie  
+####  <a name="DeleteaPackagefromtheDeploymentWorkbench"></a> Een pakket verwijderen uit de Workbench-implementatie  
  U kunt pakketten en -mappen onder het knooppunt toepassingen in de Workbench-implementatie met behulp van de Wizard geselecteerde Items verwijderen zoals beschreven verwijderen [Verwijderingsitems uit de implementatie-Workbench](#DeleteItemsfromtheDeploymentWorkbench). De Wizard geselecteerde Items verwijderen kunt u afzonderlijke pakket of de hele mapstructuren verwijderen.  
 
-####  <a name="ManageFoldersforPackagesintheDeploymentWorkbench"></a>Mappen te beheren voor pakketten in de Workbench-implementatie  
+####  <a name="ManageFoldersforPackagesintheDeploymentWorkbench"></a> Mappen te beheren voor pakketten in de Workbench-implementatie  
  U kunt de mappen onder het knooppunt pakketten in de implementatie-Workbench hiërarchische groeperingen van besturingssysteempakketten maken beheren. Voor meer informatie over:  
 
 -   Mappen beheren, Zie [mappen beheren in de Workbench-implementatie](#ManageFoldersintheDeploymentWorkbench)  
 
 -   Selectie profielen, Zie [selectie profielen beheren](#ManageSelectionProfiles)  
 
-####  <a name="EnableorDisableaPackageintheDeploymentWorkbench"></a>In- of uitschakelen van een pakket in de Workbench-implementatie  
+####  <a name="EnableorDisableaPackageintheDeploymentWorkbench"></a> In- of uitschakelen van een pakket in de Workbench-implementatie  
  U kunt bepalen of pakketten beschikbaar voor andere wizards en dialoogvensters in de implementatie-Workbench door te selecteren zijn de **inschakelen (goedkeuren) dit pakket** selectievakje op het **algemene** tabblad van het pakket **Eigenschappen** in het dialoogvenster.  
 
 > [!TIP]
@@ -2612,10 +2611,10 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Zie voor meer informatie over het inschakelen of uitschakelen van pakketten in de implementatie-Workbench [configureren van pakketten in de implementatie-Workbench](#ConfiguringPackagesintheDeploymentWorkbench).  
 
-####  <a name="PreventaPackagefromBeingVisibleintheDeploymentWizard"></a>Voorkomen dat een pakket worden zichtbaar in de implementatiewizard  
+####  <a name="PreventaPackagefromBeingVisibleintheDeploymentWizard"></a> Voorkomen dat een pakket worden zichtbaar in de implementatiewizard  
  U kunt voorkomen dat een pakket wordt weergegeven in de Wizard implementatie door te selecteren de **verbergen van deze toepassing in de Wizard implementatie** selectievakje op het **algemene** tabblad van de toepassing  **Eigenschappen** in het dialoogvenster. Zie voor meer informatie over het voorkomen van pakketten wordt weergegeven in de Wizard implementatie [configureren van pakketten in de implementatie-Workbench](#ConfiguringPackagesintheDeploymentWorkbench).  
 
-####  <a name="CustomizePackageInstallationinTaskSequences"></a>Pakketinstallatie in Takenreeksen aanpassen  
+####  <a name="CustomizePackageInstallationinTaskSequences"></a> Pakketinstallatie in Takenreeksen aanpassen  
  Toevoegen van pakketten in een implementatieshare pakketten knooppunt via de implementatie-Workbench is de eenvoudigste methode voor het implementeren van de meeste pakketten. MDT takenreeksen implementeren van pakketten met behulp van de **Offline Updates installeren** type takenreeks van de taak. Sommige van de taak reeks sjablonen in MDT, hebben de **Patches toepassen** takenreeksstap de **Preinstall/vernieuwen alleen**groep, die is gebaseerd op de **installeren Updates Offline** type takenreeks van de taak.  
 
  De **Offline Updates installeren** takenreekstype kunt u een of meer pakketten installeren in een enkel takenreeksstap met behulp van de selectie-profielen, waarmee een of meer pakketten kan alleen worden geïmplementeerd als een eenheid. Zie voor meer informatie over het beheren van de selectie profielen, [selectie profielen beheren](#ManageSelectionProfiles).  
@@ -2628,7 +2627,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Op takenreeksstappen toe te voegen language packs zoals beschreven in [taalpakketten Takenreeksstappen toevoegen](#AddLanguagePackstoTaskSequenceSteps)  
 
-#####  <a name="ConfigureanExistingApplyPatchesTaskSequenceStep"></a>Een bestaande toepassen Patches-Takenreeksstap configureren  
+#####  <a name="ConfigureanExistingApplyPatchesTaskSequenceStep"></a> Een bestaande toepassen Patches-Takenreeksstap configureren  
  U configureert een bestaande **Patches toepassen** takenreeksstap door het wijzigen van de configuratie-instellingen op de **eigenschappen** tabblad van de takenreeksstap.  
 
 ###### <a name="to-configure-an-existing-apply-patches-task-sequence-step"></a>Een bestaande Patches toepassen takenreeksstap configureren  
@@ -2659,7 +2658,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  De bijgewerkte takenreeks weergegeven in het detailvenster van de implementatie-Workbench.  
 
-#####  <a name="CreateaNewTaskSequenceStepforInstallingPackages"></a>Maken van een Takenreeksstap voor het installeren van pakketten  
+#####  <a name="CreateaNewTaskSequenceStepforInstallingPackages"></a> Maken van een Takenreeksstap voor het installeren van pakketten  
  In de meeste gevallen de bestaande **Patches toepassen** takenreeksstap voldoende is voor het installeren van pakketten naar de doelcomputers. Er zijn echter gevallen waarin de bestaande **Patches toepassen** takenreeksstap mogelijk niet voldoende is voor uw vereisten of mogelijk moet u een pakket op een andere plaats in de takenreeks installeren.  
 
  De pakketten wordt bijvoorbeeld mogelijk moeten worden geïnstalleerd in een bepaalde volgorde of afhankelijkheden, zoals het installeren van een servicepack voor het installeren van hotfixes hebt. Maak eerst de mappen en selectie profielen voor elke groep met pakketten die u wilde niet afzonderlijk te installeren. Vervolgens installeert u de groepen van pakketten door het maken van een nieuwe takenreeksstap voor elke groep op basis van de **Offline Updates installeren**– type takenreeksstap.  
@@ -2673,7 +2672,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 2.  Configureren van de nieuwe takenreeksstap voor het implementeren van een of meer pakketten door het selecteren van het gewenste profiel met de pakketten worden geïnstalleerd, zoals beschreven in [configureren van een bestaande installeren toepassingen Takenreeksstap](#ConfigureanExistingInstallApplicationsTaskSequenceStep).  
 
-#####  <a name="AddLanguagePackstoTaskSequenceSteps"></a>Taalpakketten toevoegen aan de stappen voor Takenreeksen  
+#####  <a name="AddLanguagePackstoTaskSequenceSteps"></a> Taalpakketten toevoegen aan de stappen voor Takenreeksen  
  Taalpakketten zijn een van de typen pakketten beschikbaar zijn in MDT en een meertalige Windows-omgeving inschakelen. Windows is nu taalonafhankelijk en alle resources van taal en landinstellingen worden toegevoegd aan Windows via taalpakketten (Lp.cab-bestanden). Door een of meer taalpakketten toe te voegen aan Windows kunnen deze talen worden ingeschakeld wanneer het besturingssysteem installeert. Als gevolg hiervan kunnen dezelfde Windows-installatiekopie kan worden geïmplementeerd voor regio's met een andere taal en landinstellingen, verminderen van ontwikkeling en implementatie.  
 
  Zie de volgende verwijzingen voor meer informatie over taalpakketten in Windows:  
@@ -2684,7 +2683,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Zie voor meer informatie over taalpakketten voor Windows 'Beheren Language Packs voor Windows' in de Windows ADK.  
 
-###  <a name="ConfiguringDeviceDriversintheDeploymentWorkbench"></a>Apparaatstuurprogramma's in de Implementatieworkbench configureren  
+###  <a name="ConfiguringDeviceDriversintheDeploymentWorkbench"></a> Apparaatstuurprogramma's in de Implementatieworkbench configureren  
  Stuurprogramma's voor de referentie- en doelcomputers computers in Windows PE en het doelbesturingssysteem integreren tenzij deze onderdelen zijn opgenomen in Windows PE of het beoogde besturingssysteem. De implementatie-Workbench helpt centraliseren en stuurprogramma Apparaatbeheer en -integratie voor LTI automatiseren door een centrale opslagplaats voor stuurprogramma's, waarbij u ervoor zorgt dat de juiste apparaatstuurprogramma's worden geïmplementeerd. De implementatie-Workbench automatiseert ook de injectie van de juiste apparaatstuurprogramma's in Windows PE-installatiekopieën die de implementatie-Workbench genereert. MDT biedt ondersteuning voor verschillende strategieën voor het beheer van apparaten-stuurprogramma. Zie voor meer informatie over apparaat stuurprogramma management strategieën [het beheren van apparaatstuurprogramma's](#ManagingDeviceDrivers).  
 
  Apparaatstuurprogramma's in de Workbench-implementatie in een implementatieshare Out of Box knooppunt door configureren:  
@@ -2709,11 +2708,11 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  U kunt apparaatstuurprogramma's met behulp van de MDT Windows PowerShell-cmdlets beheren maar ook voor het beheren van apparaatstuurprogramma's in de implementatie-Workbench. Zie voor meer informatie over het beheren van apparaatstuurprogramma's MDT Windows PowerShell-cmdlets gebruiken in de volgende secties onder de sectie 'MDT Windows PowerShell-Cmdlets' in het document MDT *Toolkit verwijzing*:  
 
--   **Importeren MDTDriver**  
+-   **Import-MDTDriver**  
 
 -   **Get-MDTDeploymentShareStatistics**  
 
-####  <a name="ImportDeviceDriversintotheDeploymentWorkbench"></a>Apparaatstuurprogramma's importeren in de Workbench-implementatie  
+####  <a name="ImportDeviceDriversintotheDeploymentWorkbench"></a> Apparaatstuurprogramma's importeren in de Workbench-implementatie  
  Apparaatstuurprogramma's importeren in de Workbench-implementatie met de Wizard importeren stuurprogramma's. Start de Wizard voor het stuurprogramma's van importeren met behulp van een van de volgende methoden:  
 
 -   Klik op het knooppunt Out-of-Box stuurprogramma's of een map onder het knooppunt Out-of-Box stuurprogramma's in de consolestructuur. Klik vervolgens in het deelvenster Acties op **stuurprogramma's importeren**.  
@@ -2738,20 +2737,20 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
     |Op deze wizardpagina|Voer deze handeling uit|  
     |-------------------------|-------------|  
-    |**Map opgeven** |a. In **stuurprogramma bronmap**, type **pad** (waarbij *pad* is het volledig gekwalificeerde pad naar de map waarin de apparaatstuurprogramma's die u wilt importeren).<br /><br /> U kunt ook klikken op **Bladeren** naar de map op een lokale schijf of een netwerkshare gedeelde map.<br /><br /> b. Selecteer of wis de **stuurprogramma's importeert, zelfs als ze duplicaten zijn van een bestaand stuurprogramma** selectievakje op basis van de vereisten van uw organisatie.<br /><br /> Als het selectievakje is:<br /><br /> -Geselecteerd, importeert de de stuurprogramma's zelfs als dezelfde stuurprogramma's al bestaat<br /><br /> -Uitgeschakeld, worden niet geïmporteerd stuurprogramma's als dezelfde stuurprogramma's bestaat<br /><br /> In de meeste gevallen Schakel dit selectievakje in als dit dus de grootte van de implementatieshare neemt en stuurprogrammabeheer complexere maakt.<br /><br /> c. Klik op **Volgende**.|  
+    |**Specify Directory** |a. In **stuurprogramma bronmap**, type **pad** (waarbij *pad* is het volledig gekwalificeerde pad naar de map waarin de apparaatstuurprogramma's die u wilt importeren).<br /><br /> U kunt ook klikken op **Bladeren** naar de map op een lokale schijf of een netwerkshare gedeelde map.<br /><br /> b. Selecteer of wis de **stuurprogramma's importeert, zelfs als ze duplicaten zijn van een bestaand stuurprogramma** selectievakje op basis van de vereisten van uw organisatie.<br /><br /> Als het selectievakje is:<br /><br /> -Geselecteerd, importeert de de stuurprogramma's zelfs als dezelfde stuurprogramma's al bestaat<br /><br /> -Uitgeschakeld, worden niet geïmporteerd stuurprogramma's als dezelfde stuurprogramma's bestaat<br /><br /> In de meeste gevallen Schakel dit selectievakje in als dit dus de grootte van de implementatieshare neemt en stuurprogrammabeheer complexere maakt.<br /><br /> c. Klik op **Volgende**.|  
     |**Samenvatting** |Klik op **Volgende**.|  
     |**Bevestiging** |U kunt klikken op **uitvoer opslaan** de uitvoer van de wizard opslaan in een bestand. U kunt ook klikken op **Script weergeven** om weer te geven van de Windows PowerShell-scripts gebruikt voor het uitvoeren van taken van de wizard.<br /><br /> Klik op **Voltooien**.|  
 
  De Wizard importeren stuurprogramma's is voltooid. De apparaatstuurprogramma's worden toegevoegd aan de lijst met apparaatstuurprogramma's in het detailvenster van de implementatie-Workbench.  
 
-####  <a name="ModifyExistingDeviceDriversintheDeploymentWorkbench"></a>Bestaande apparaatstuurprogramma's in de Workbench-implementatie wijzigen  
+####  <a name="ModifyExistingDeviceDriversintheDeploymentWorkbench"></a> Bestaande apparaatstuurprogramma's in de Workbench-implementatie wijzigen  
  Apparaatstuurprogramma's in het knooppunt Out-of-Box stuurprogramma's in de implementatie-Workbench door middel wijzigen de **eigenschappen** actie, zoals beschreven in [-eigenschappen weergeven in de Implementatieworkbench](#ViewItemPropertiesintheDeploymentWorkbench). Apparaatstuurprogramma's in de Implementatieworkbench configureren door de volgende stappen uitvoeren in het apparaatstuurprogramma **eigenschappen** in het dialoogvenster:  
 
 1.  Eigenschappen configureren op de **algemene** tabblad zoals beschreven in [configureren apparaat stuurprogramma tabblad Eigenschappen van de algemene](#ConfiguretheDeviceDriverPropertiesGeneralTab).  
 
 2.  Eigenschappen weergeven op de **Details** tabblad zoals beschreven in [apparaat stuurprogramma tabblad Eigenschappen van de Details weergeven](#ViewtheDeviceDriverPropertiesDetailsTab).  
 
-#####  <a name="ConfiguretheDeviceDriverPropertiesGeneralTab"></a>Tabblad Algemeen van apparaat stuurprogramma eigenschappen configureren  
+#####  <a name="ConfiguretheDeviceDriverPropertiesGeneralTab"></a> Tabblad Algemeen van apparaat stuurprogramma eigenschappen configureren  
  De eigenschappen van het apparaat stuurprogramma opgeslagen op de **algemene** tabblad zijn voornamelijk geconfigureerd wanneer u de Wizard importeren apparaat stuurprogramma's worden uitgevoerd. De eigenschappen van de apparaat-stuurprogramma bijwerken op de **algemene** tabblad via de ***driver_name*** **eigenschappen** in het dialoogvenster (waarbij *driver_name* de naam van het stuurprogramma in de implementatie-Workbench is).  
 
 ###### <a name="to-modify-existing-device-drivers-properties-on-the-general-tab"></a>Eigenschappen van bestaande apparaten stuurprogramma's op het tabblad Algemeen wijzigen  
@@ -2780,7 +2779,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  De apparaat-stuurprogramma configuratie-instellingen worden opgeslagen en de wijzigingen worden weergegeven in het detailvenster van de implementatie-Workbench.  
 
-#####  <a name="ViewtheDeviceDriverPropertiesDetailsTab"></a>Het apparaat stuurprogramma eigenschappen-tabblad met Details weergeven  
+#####  <a name="ViewtheDeviceDriverPropertiesDetailsTab"></a> Het apparaat stuurprogramma eigenschappen-tabblad met Details weergeven  
  De eigenschappen van het apparaat stuurprogramma opgeslagen op de **Details** tabblad worden geconfigureerd wanneer u de Wizard importeren apparaat stuurprogramma's uitvoeren. De informatie over de **Details** tabblad is alleen-lezen en kan niet worden gewijzigd. De eigenschappen voor het stuurprogramma van apparaten bekijken op de **Details** tabblad via de ***driver_name*** **eigenschappen** in het dialoogvenster (waarbij *driver_name* is de naam van het stuurprogramma in de Workbench-implementatie).  
 
 ###### <a name="to-view-existing-device-drivers-properties-on-the-details-tab"></a>Eigenschappen van bestaande apparaten stuurprogramma's op het tabblad Details weergeven  
@@ -2804,7 +2803,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
     |**Instelling** |**Beschrijving** |  
     |-----------------|---------------------|  
-    |**Fabrikant** |Bevat de naam van de fabrikant van het stuurprogramma.|  
+    |**Manufacturer** |Bevat de naam van de fabrikant van het stuurprogramma.|  
     |**Versie** |Bevat het versienummer van het apparaatstuurprogramma.|  
     |**Datum van stuurprogramma** |Bevat de datum van het apparaatstuurprogramma.|  
     |**Stuurprogrammatype (klasse)** |Bevat de klasse van het apparaatstuurprogramma, zoals de systeem- of opstartvolume.|  
@@ -2814,26 +2813,26 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     |**Ondersteunde PnP-id 's** |Bevat een lijst met de plug en play-id's die ondersteuning biedt voor het apparaatstuurprogramma.|  
     |**Dit stuurprogramma is WHQL ondertekend** |Selecteer om aan te geven of het apparaatstuurprogramma door de Windows Hardware Quality Labs (WHQL) is ondertekend. Voor apparaatstuurprogramma's die slagen voor de tests WHQL, maakt Microsoft een digitaal ondertekend certificeringsinstantie-bestand dat installatie kan op 64-bits versies van Windows en voorkomt dat 32-bits versies van Windows een waarschuwing dat het stuurprogramma niet is weergeven gecertificeerd door het selectievakje is Microsoft.If:<br /><br /> -Geselecteerd, is het apparaatstuurprogramma ondertekend door de WHQL<br /><br /> -Uitgeschakeld, is het apparaatstuurprogramma niet ondertekend door de WHQL|  
 
-####  <a name="CopyDeviceDriversintheDeploymentWorkbench"></a>Apparaatstuurprogramma's in de implementatie-Workbench kopiëren  
+####  <a name="CopyDeviceDriversintheDeploymentWorkbench"></a> Apparaatstuurprogramma's in de implementatie-Workbench kopiëren  
  U kunt kopiëren en plakken van apparaatstuurprogramma's en -mappen onder het knooppunt Out-of-Box stuurprogramma's in de implementatie-Workbench door middel de **kopie** en **plakken** acties zoals beschreven in [kopiëren Items in de Implementatie-Workbench](#CopyItemsintheDeploymentWorkbench).  
 
-####  <a name="MoveDeviceDriversintheDeploymentWorkbench"></a>Apparaatstuurprogramma's in de implementatie-Workbench verplaatsen  
+####  <a name="MoveDeviceDriversintheDeploymentWorkbench"></a> Apparaatstuurprogramma's in de implementatie-Workbench verplaatsen  
  U kunt apparaatstuurprogramma's en mappen onder het knooppunt Out-of-Box stuurprogramma's in de implementatie-Workbench door middel verplaatsen de **Knippen** en **plakken** acties zoals beschreven in [Items verplaatsen in de implementatie Workbench](#MoveItemsintheDeploymentWorkbench).  
 
-####  <a name="RenameDeviceDriversintheDeploymentWorkbench"></a>Wijzig de naam van apparaatstuurprogramma's in de Workbench-implementatie  
+####  <a name="RenameDeviceDriversintheDeploymentWorkbench"></a> Wijzig de naam van apparaatstuurprogramma's in de Workbench-implementatie  
  U kunt de naam stuurprogramma's en mappen onder het knooppunt Out-of-Box stuurprogramma's in de implementatie-Workbench door middel de **wijzigen** actie, zoals beschreven in [Wijzig de naam van Items in de implementatie-Workbench](#RenameItemsintheDeploymentWorkbench).  
 
-####  <a name="DeleteDeviceDriversfromtheDeploymentWorkbench"></a>Apparaatstuurprogramma's van de implementatie-Workbench verwijderen  
+####  <a name="DeleteDeviceDriversfromtheDeploymentWorkbench"></a> Apparaatstuurprogramma's van de implementatie-Workbench verwijderen  
  U kunt apparaatstuurprogramma's en mappen onder het knooppunt Out-of-Box stuurprogramma's in de Workbench-implementatie met behulp van de Wizard geselecteerde Items verwijderen zoals beschreven verwijderen [Verwijderingsitems uit de implementatie-Workbench](#DeleteItemsfromtheDeploymentWorkbench). De Wizard geselecteerde Items verwijderen kunt u afzonderlijke pakketten of structuren van de hele map verwijderen.  
 
-####  <a name="ManageFoldersforDeviceDriversintheDeploymentWorkbench"></a>Mappen te beheren voor apparaatstuurprogramma's in de Workbench-implementatie  
+####  <a name="ManageFoldersforDeviceDriversintheDeploymentWorkbench"></a> Mappen te beheren voor apparaatstuurprogramma's in de Workbench-implementatie  
  U kunt de mappen onder het knooppunt Out-of-Box stuurprogramma's in de Workbench-implementatie te maken van hiërarchische groeperingen van apparaatstuurprogramma's beheren. Voor meer informatie over:  
 
 -   Mappen beheren, Zie [mappen beheren in de Workbench-implementatie](#ManageFoldersintheDeploymentWorkbench)  
 
 -   Selectie profielen, Zie [selectie profielen beheren](#ManageSelectionProfiles)  
 
-####  <a name="EnableorDisableDeviceDriversintheDeploymentWorkbench"></a>In- of uitschakelen van apparaatstuurprogramma's in de Workbench-implementatie  
+####  <a name="EnableorDisableDeviceDriversintheDeploymentWorkbench"></a> In- of uitschakelen van apparaatstuurprogramma's in de Workbench-implementatie  
  U kunt bepalen of stuurprogramma's beschikbaar voor andere wizards en dialoogvensters in de implementatie-Workbench door te selecteren zijn de **dit stuurprogramma inschakelen** selectievakje op het **algemene** tabblad van het apparaatstuurprogramma **Eigenschappen** in het dialoogvenster.  
 
 > [!CAUTION]
@@ -2841,12 +2840,12 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Zie voor meer informatie over het inschakelen of uitschakelen van apparaatstuurprogramma's in de implementatie-Workbench [bestaande apparaatstuurprogramma's in de Workbench-implementatie wijzigen](#ModifyExistingDeviceDriversintheDeploymentWorkbench).  
 
-####  <a name="DeploySpecificDeviceDriverstoTargetComputersinLTI"></a>Specifieke apparaatstuurprogramma's implementeren naar de doelcomputers LTI  
+####  <a name="DeploySpecificDeviceDriverstoTargetComputersinLTI"></a> Specifieke apparaatstuurprogramma's implementeren naar de doelcomputers LTI  
  Standaard implementaties van LTI alle apparaatstuurprogramma's in Windows PE opneemt en deze implementeren naar de doelcomputers. Vervolgens gebruikt het doelbesturingssysteem Plug en Play-id's om te bepalen welke apparaatstuurprogramma's die nodig zijn voor de apparaten op de doelcomputers.  
 
  Als u wilt dit standaardgedrag wijzigen, configureert u het implementatieproces LTI om specifieke stuurprogramma's installeren op doelcomputers, zoals beschreven in [besturingselement apparaat stuurprogramma implementaties van LTI](#ControlDeviceDriverDeploymentsforLTI). Zie voor meer informatie over strategieën voor het beheer van apparaten stuurprogramma selecteren de [strategie voor apparaatstuurprogramma's Management](#SelecttheDeviceDriverManagementStrategy).  
 
-###  <a name="ConfiguringTaskSequencesintheDeploymentWorkbench"></a>Takenreeksen configureren in de Workbench-implementatie  
+###  <a name="ConfiguringTaskSequencesintheDeploymentWorkbench"></a> Takenreeksen configureren in de Workbench-implementatie  
  Takenreeksen in MDT bevatten de stappen die u tijdens de LTI te worden uitgevoerd. Takenreeksen in MDT gebruiken de engine dezelfde taak als Configuration Manager. Configuration Manager is echter niet vereist voor het uitvoeren van de LTI-implementaties. De implementatie-Workbench gebruiken voor het beheren van de takenreeksen die wordt gebruikt voor het uitvoeren van implementaties voor de referentie- en doelcomputers computers in uw organisatie.  
 
  Takenreeksen configureren in de Workbench-implementatie in een implementatieshare pakketten knooppunt door:  
@@ -2873,11 +2872,11 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  U kunt takenreeksen met MDT Windows PowerShell-cmdlets beheren maar ook voor het beheren van takenreeksen in de implementatie-Workbench. Zie voor meer informatie over het beheren van takenreeksen met MDT Windows PowerShell-cmdlets in de volgende secties onder de sectie 'MDT Windows PowerShell-Cmdlets' in het document MDT *Toolkit verwijzing*:  
 
--   **Importeren MDTTaskSequence**  
+-   **Import-MDTTaskSequence**  
 
 -   **Get-MDTDeploymentShareStatistics**  
 
-####  <a name="CreateaNewTaskSequenceintheDeploymentWorkbench"></a>Een nieuwe Takenreeks maken in de Workbench-implementatie  
+####  <a name="CreateaNewTaskSequenceintheDeploymentWorkbench"></a> Een nieuwe Takenreeks maken in de Workbench-implementatie  
  Met behulp van de Wizard Nieuwe Takenreeks in de Workbench-implementatie te maken van nieuwe takenreeksen. Start de nieuwe taak Wizard Takenreeks met een van de volgende methoden:  
 
 -   Klik op het knooppunt Takenreeksen of een map onder het knooppunt Takenreeksen in de consolestructuur en klik vervolgens in het deelvenster Acties op **nieuwe Takenreeks**.  
@@ -2924,7 +2923,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     |**Algemene instellingen** |-In **volgorde-ID van de taak**, type ***task_sequence_id*** (waarbij *task_sequence_id* is de unieke id voor de takenreeks die u maakt).<br /><br /> Hoewel u de naam van de takenreeks en de opmerkingen later wijzigen kunt, kunt u de id van de takenreeks niet wijzigen Maak een schematische naam moet worden gebruikt bij het maken van de takenreeks-id's die nuttige informatie over elke takenreeks bieden voordat het maken van takenreeksen. Een schematische naam voorbeeld is *versie editie-niveau Label*, waarbij *versie* is de versie van het besturingssysteem (Win8, Win2012) *Edition* is het besturingssysteem editie (Enterprise, Standard, Ultimate) *niveau* is het servicepackniveau (SP1, SP2), en *Label* wordt een beschrijving in waarmee de aanpassingen.<br /><br /> -In **takenreeksnaam**, type ***task_sequence_name*** (waarbij *task_sequence_name* is een beschrijvende naam voor de takenreeks die u maakt).<br /><br /> -In **Task sequence opmerkingen**, type ***task_sequence_comment*** (waarbij *task_sequence_comment* is tekst die het doel of het gebruik van de takenreeks wordt uitgevoerd beschrijft).<br /><br /> -Klik **volgende**.|  
     |**Sjabloon selecteren** |In **de volgende taak reeks sjablonen beschikbaar zijn. Selecteer de gateway die u wilt gebruiken als uitgangspunt**, selecteer ***task_sequence***, en klik vervolgens op **volgende**.|  
     |**Besturingssysteem selecteren** |In **de volgende installatiekopieën van besturingssystemen zijn beschikbaar voor deze takenreeks worden geïmplementeerd. Selecteer een te gebruiken**, selecteer ***operating_system*** (waarbij *operating_system* is het besturingssysteem in het knooppunt besturingssystemen in de Implementatieworkbench die u implementeren wilt op de bron- of doelentiteit computer), en klik vervolgens op **volgende**.|  
-    |**Productcode opgeven** |a. Klik op een van de volgende opties op basis van de vereisten van uw organisatie:<br /><br /> - **Geef een productcode op dit moment geen**. Selecteer deze optie als u een productcode is niet vereist bij het implementeren van Windows. Wanneer u de productcode wordt opgegeven in de Wizard implementatie; of bij het gebruik van de volumelicenties die zijn geactiveerd via KMS.<br /><br /> -                                          **Geef een meervoudige activeringscode (MAK) voor het activeren van dit besturingssysteem**. Selecteer deze optie bij het implementeren van Windows met behulp van MAK-productcodes in de implementatie. MAK-productcodes worden gebruikt door Microsoft Volume Licensing-klanten.<br /><br /> -                                          **Geef de productcode op voor dit besturingssysteem**. Selecteer deze optie bij het implementeren van handelsproductcode opgeeft.<br /><br /> Zie voor meer informatie over volumeactivering en productcodes in MDT [overzicht van volumeactivering](http://technet.microsoft.com/library/hh831612.aspx).<br /><br /> b. Klik op **Volgende**.|  
+    |**Productcode opgeven** |a. Klik op een van de volgende opties op basis van de vereisten van uw organisatie:<br /><br /> - **Geef een productcode op dit moment geen**. Selecteer deze optie als u een productcode is niet vereist bij het implementeren van Windows. Wanneer u de productcode wordt opgegeven in de Wizard implementatie; of bij het gebruik van de volumelicenties die zijn geactiveerd via KMS.<br /><br /> -                                          **Geef een meervoudige activeringscode (MAK) voor het activeren van dit besturingssysteem**. Selecteer deze optie bij het implementeren van Windows met behulp van MAK-productcodes in de implementatie. MAK-productcodes worden gebruikt door Microsoft Volume Licensing-klanten.<br /><br /> -                                          **Geef de productcode op voor dit besturingssysteem**. Selecteer deze optie bij het implementeren van handelsproductcode opgeeft.<br /><br /> Zie voor meer informatie over volumeactivering en productcodes in MDT [overzicht van volumeactivering](https://technet.microsoft.com/library/hh831612.aspx).<br /><br /> b. Klik op **Volgende**.|  
     |**OS-instellingen** |-In **volledige naam**, type ***user_full_name*** (waarbij *user_full_name* is de naam van de gebruiker van de doelcomputer).<br /><br /> -In **organisatie**, type ***organisatienaam*** (waarbij *organisatienaam* is de naam van de organisatie).<br /><br /> -In **startpagina van Internet Explorer**, type ***home_url*** (waarbij *home_url* is de Uniform Resource Locator [URL] van de website moet de standaardsite bij het starten van Internet Verkenner).<br /><br /> -Klik **volgende**.|  
     |**Beheerderswachtwoord** |In **beheerderswachtwoord** en **Controleer of de Administrator-wachtwoord**, type ***wachtwoord*** (waarbij *wachtwoord* is het wachtwoord moet toegewezen aan het ingebouwde beheerdersaccount op de referentie- of -computer), en klik vervolgens op **volgende**.|  
     |**Samenvatting** |Klik op **Volgende**.|  
@@ -2932,7 +2931,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  De Wizard Nieuwe Takenreeks is voltooid. Het pakket wordt toegevoegd aan de lijst met pakketten in het detailvenster van de implementatie-Workbench.  
 
-####  <a name="ModifyanExistingTaskSequenceintheDeploymentWorkbench"></a>Een bestaande Takenreeks in de Workbench-implementatie wijzigen  
+####  <a name="ModifyanExistingTaskSequenceintheDeploymentWorkbench"></a> Een bestaande Takenreeks in de Workbench-implementatie wijzigen  
  Takenreeksen in het knooppunt Takenreeksen in de implementatie-Workbench door middel wijzigen de **eigenschappen** acties zoals beschreven in [-eigenschappen weergeven in de Implementatieworkbench](#ViewItemPropertiesintheDeploymentWorkbench). Takenreeksen configureren in de implementatie-Workbench door het uitvoeren van de volgende stappen uit in de takenreeks **eigenschappen** in het dialoogvenster:  
 
 1.  Eigenschappen configureren op de **algemene** tabblad zoals beschreven in [configureren taak Sequence tabblad Eigenschappen van de algemene](#ConfiguretheTaskSequencePropertiesGeneralTab).  
@@ -2941,7 +2940,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 3.  Eigenschappen configureren op de **OS-Info** tabblad zoals beschreven in [taak Sequence tabblad Eigenschappen van de OS-Info configureren](#ConfiguretheTaskSequencePropertiesOSInfoTab).  
 
-#####  <a name="ConfiguretheTaskSequencePropertiesGeneralTab"></a>Tabblad Algemeen van taak reeks eigenschappen configureren  
+#####  <a name="ConfiguretheTaskSequencePropertiesGeneralTab"></a> Tabblad Algemeen van taak reeks eigenschappen configureren  
  De eigenschappen van takenreeks opgeslagen op de **algemene** tabblad zijn voornamelijk geconfigureerd wanneer u de Wizard Nieuwe Takenreeks uitvoert. Bijwerken van de eigenschappen van takenreeks op de **algemene** tabblad via de ***task_sequence_name*** **eigenschappen** in het dialoogvenster (waarbij *task_sequence_name*  is de naam van de takenreeks wordt uitgevoerd in de Workbench-implementatie).  
 
 ###### <a name="to-modify-existing-task-sequence-properties-on-the-general-tab"></a>Wijzigen van bestaande eigenschappen van takenreeks op het tabblad Algemeen  
@@ -2973,7 +2972,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  De taak sequence configuratie-instellingen worden opgeslagen en de wijzigingen worden weergegeven in het detailvenster van de implementatie-Workbench.  
 
-#####  <a name="ConfiguretheTaskSequencePropertiesTaskSequenceTab"></a>Taak Sequence tabblad Eigenschappen van de taak Sequence configureren  
+#####  <a name="ConfiguretheTaskSequencePropertiesTaskSequenceTab"></a> Taak Sequence tabblad Eigenschappen van de taak Sequence configureren  
  De eigenschappen van takenreeks opgeslagen op de **Takenreeks** tabblad zijn voornamelijk geconfigureerd wanneer u de Wizard Nieuwe Takenreeks uitvoert. U kunt echter de eigenschappen van takenreeks bijwerken op de **Takenreeks** tabblad via de ***task_sequence_name*** **eigenschappen** in het dialoogvenster (waarbij  *task_sequence_name* is de naam van de takenreeks wordt uitgevoerd in de Workbench-implementatie).  
 
  De **Takenreeks** tabblad bevat gebieden en andere besturingselementen die u gebruikt voor:  
@@ -2984,7 +2983,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 -   Stap-opties configureren zoals beschreven in [opties voor de taak Sequence stap configureren](#ConfiguretheTaskSequenceStepOptions)  
 
-######  <a name="ConfiguretheTaskSequenceStepsandStepSequence"></a>Configureer de Takenreeksstappen en stap reeks  
+######  <a name="ConfiguretheTaskSequenceStepsandStepSequence"></a> Configureer de Takenreeksstappen en stap reeks  
  De **Takenreeks** tabblad bevat een hiërarchische weergave van de takenreeksstappen en de volgorde. Takenreeksstappen worden ingedeeld in een hiërarchische mappenstructuur op basis van de fasen van de implementatie.  
 
  U kunt een of meer takenreeksstappen indelen door een groep te maken. U kunt meerdere groepen en takenreeksstappen voor het maken van een hiërarchie van groepen en takenreeksstappen indelen. Takenreeksgroepen stap kunt u de verwerking van een of meer takenreeksstappen als eenheid.  
@@ -3003,7 +3002,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     |**Instellingen** |-Netwerkinstellingen toepassen<br /><br /> -Netwerkinstellingen vastleggen<br /><br /> -Herstellen van domein|  
     |**Rollen** |-Functies en onderdelen installeren<br /><br /> -Functies en onderdelen verwijderen<br /><br /> -DHCP configureren<br /><br /> -DNS configureren<br /><br /> -ADDS configureren<br /><br /> -DHCP autoriseren|  
 
--   **Verwijder**. Selecteer de gemarkeerde takenreeksstap of -groep verwijderen.  
+-   **Remove**. Selecteer de gemarkeerde takenreeksstap of -groep verwijderen.  
 
     > [!IMPORTANT]
     >  Als u een takenreeksgroep verwijdert, ook u alle stappen van de takenreeks wordt uitgevoerd in de groep.  
@@ -3040,7 +3039,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 -   Pakketten, Zie [pakketinstallatie aanpassen in Takenreeksen](#CustomizePackageInstallationinTaskSequences)  
 
-######  <a name="ConfiguretheTaskSequenceStepProperties"></a>De eigenschappen van Takenreeks stap configureren  
+######  <a name="ConfiguretheTaskSequenceStepProperties"></a> De eigenschappen van Takenreeks stap configureren  
  Op de **eigenschappen** tabblad configureren van de eigenschappen voor takenreeksgroepen of afzonderlijke stappen. De configuratie-instellingen voor:  
 
 -   Takenreeksgroepen zijn hetzelfde voor alle groepen  
@@ -3079,7 +3078,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 6.  Op de **eigenschappen** tabblad, configureert u de takenreeksgroep of afzonderlijke stap op basis van de vereisten van uw organisatie en klik vervolgens op **OK**.  
 
-######  <a name="ConfiguretheTaskSequenceStepOptions"></a>Opties voor de taak Sequence stap configureren  
+######  <a name="ConfiguretheTaskSequenceStepOptions"></a> Opties voor de taak Sequence stap configureren  
  Op de **opties** tabblad u instellingen configureren die bepalen hoe de takenreeksstap wordt uitgevoerd. Deze instellingen kunnen u de stap uitschakelen, geeft u de retourcodes voor de stap die geslaagd geven, bepalen of de stap in het geval er een fout en eventuele voorwaarden voor het uitvoeren van de stap moet worden voortgezet.  
 
  De configuratie-instellingen op de **opties** tabblad voor:  
@@ -3117,7 +3116,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     |**Doorgaan bij fout** |Selecteer om te bepalen of de takenreeks moet worden voortgezet wanneer de takenreeksgroep of -stap een fout optreedt. Als het selectievakje is:<br /><br /> -Geselecteerd, voortgezet de takenreeks als de groep of de stap een fout optreedt<br /><br /> -Uitgeschakeld, de takenreeks kan niet worden voortgezet als de groep of de stap een fout optreedt<br /><br /> Dit selectievakje is standaard geselecteerd.|  
     |**Keuzelijst voorwaarde** |Bevat een voorwaardelijke criteria voor het uitvoeren van deze stap. Als u geen criteria zijn opgegeven, wordt de stap wordt uitgevoerd. Voeg criteria om te bepalen wanneer de groep van taken moeten (of niet) worden uitgevoerd. Gebruik de **toevoegen**, **verwijderen**, en **bewerken** knoppen om te wijzigen van de voorwaarden waaronder de groep van taken wordt uitgevoerd.<br /><br /> De criteria kunnen worden gebaseerd op:<br /><br /> -Een **als** instructie<br /><br /> -Een takenreeksvariabele<br /><br /> -De versie van het beoogde besturingssysteem.<br /><br /> -Een query Windows Management Instrumentation (WMI) Query Language (WQL) in een WMI-naamruimte<br /><br /> Eventuele voorwaarden die zijn geconfigureerd voor een groep van invloed op alle taken binnen een groep.<br /><br /> Zie voor meer informatie over de voorwaarden in takenreeksstappen [taak Sequence stap voorwaarden configureren](#ConfigureTaskSequenceStepConditions).|  
 
-#####  <a name="ConfiguretheTaskSequencePropertiesOSInfoTab"></a>Configureer het tabblad taak reeks eigenschappen OS-Info  
+#####  <a name="ConfiguretheTaskSequencePropertiesOSInfoTab"></a> Configureer het tabblad taak reeks eigenschappen OS-Info  
  De eigenschappen van takenreeks opgeslagen op de **OS-Info** tabblad zijn voornamelijk geconfigureerd wanneer u de Wizard Nieuwe Takenreeks uitvoert. Bijwerken van de eigenschappen van takenreeks op de **OS-Info** tabblad via de ***task_sequence_name*** **eigenschappen** in het dialoogvenster (waarbij *task_sequence_name*  is de naam van de takenreeks wordt uitgevoerd in de Workbench-implementatie).  
 
 ###### <a name="to-modify-existing-task-sequence-properties-on-the-os-info-tab"></a>Wijzigen van bestaande eigenschappen van takenreeks op het tabblad OS-Info  
@@ -3139,38 +3138,38 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     |**Instelling** |**Beschrijving** |  
     |-----------------|---------------------|  
     |**Beschrijving van besturingssystemen** |Bevat de naam van het besturingssysteem die u hebt opgegeven bij het maken van de takenreeks wordt uitgevoerd, bijvoorbeeld Windows 8 ENTERPRISE.<br /><br /> De informatie in dit tekstvak automatisch wordt gegenereerd door de Implementatieworkbench en kan niet worden gewijzigd.|  
-    |**Bouwen** |Het buildnummer van het besturingssysteem bevat.<br /><br /> De informatie in dit tekstvak automatisch wordt gegenereerd door de Implementatieworkbench en kan niet worden gewijzigd.|  
+    |**Build** |Het buildnummer van het besturingssysteem bevat.<br /><br /> De informatie in dit tekstvak automatisch wordt gegenereerd door de Implementatieworkbench en kan niet worden gewijzigd.|  
     |**Platform** |Bevat de processorarchitectuur van het besturingssysteem, bijvoorbeeld x86.<br /><br /> De informatie in dit tekstvak automatisch wordt gegenereerd door de Implementatieworkbench en kan niet worden gewijzigd.|  
-    |**Unattend.xml bewerken** |Klik om te wijzigen van de inhoud van het Unattended.xml-bestand dat de implementatie-Workbench voor Windows genereert.<br /><br /> De implementatie-Workbench kan geen bestanden catalogiseren voor bepaalde Windows-installatiekopieën met verschillende architectuurtypen maken. De volgende lijst beschrijft de architectuurtypen met de implementatie-Workbench en catalogussen die u voor elke architectuur maken kunt:<br /><br /> -                                          **Implementatie-Workbench uitgevoerd op x86**. Maakt catalogussen voor x86- en x64 Windows-installatiekopieën<br /><br /> -                                          **Implementatie-Workbench uitgevoerd op x64**. Maakt catalogussen alleen voor x64 Windows-installatiekopieën<br /><br /> De Wizard besturingssysteem catalogus ophalen mogelijk weergegeven als een besturingssysteem nog niet is een catalogus. Er verschijnt een voortgangsbalk weergegeven in de Wizard besturingssysteem catalogus ophalen, maar er geen gebruikersinteractie is vereist. De wizard duurt enkele minuten duren.|  
+    |**Edit Unattend.xml** |Klik om te wijzigen van de inhoud van het Unattended.xml-bestand dat de implementatie-Workbench voor Windows genereert.<br /><br /> De implementatie-Workbench kan geen bestanden catalogiseren voor bepaalde Windows-installatiekopieën met verschillende architectuurtypen maken. De volgende lijst beschrijft de architectuurtypen met de implementatie-Workbench en catalogussen die u voor elke architectuur maken kunt:<br /><br /> -                                          **Implementatie-Workbench uitgevoerd op x86**. Maakt catalogussen voor x86- en x64 Windows-installatiekopieën<br /><br /> -                                          **Implementatie-Workbench uitgevoerd op x64**. Maakt catalogussen alleen voor x64 Windows-installatiekopieën<br /><br /> De Wizard besturingssysteem catalogus ophalen mogelijk weergegeven als een besturingssysteem nog niet is een catalogus. Er verschijnt een voortgangsbalk weergegeven in de Wizard besturingssysteem catalogus ophalen, maar er geen gebruikersinteractie is vereist. De wizard duurt enkele minuten duren.|  
 
  De taak sequence configuratie-instellingen worden opgeslagen en de wijzigingen worden weergegeven in het detailvenster van de implementatie-Workbench.  
 
-####  <a name="CopyTaskSequencesintheDeploymentWorkbench"></a>Takenreeksen in de implementatie-Workbench kopiëren  
+####  <a name="CopyTaskSequencesintheDeploymentWorkbench"></a> Takenreeksen in de implementatie-Workbench kopiëren  
  U kunt kopiëren en plakken van takenreeksen en mappen onder het knooppunt Takenreeksen in de implementatie-Workbench door middel de **kopie** en **plakken** acties zoals beschreven in [kopiëren Items in de Implementatie-Workbench](#CopyItemsintheDeploymentWorkbench).  
 
-####  <a name="MoveTaskSequencesintheDeploymentWorkbench"></a>Takenreeksen in de implementatie-Workbench verplaatsen  
+####  <a name="MoveTaskSequencesintheDeploymentWorkbench"></a> Takenreeksen in de implementatie-Workbench verplaatsen  
  Takenreeksen en mappen onder het knooppunt Takenreeksen in de implementatie-Workbench verplaatsen met behulp van de **Knippen** en **plakken** acties zoals beschreven in [Items verplaatsen in de Workbench-implementatie ](#MoveItemsintheDeploymentWorkbench).  
 
-####  <a name="RenameTaskSequencesintheDeploymentWorkbench"></a>Wijzig de naam van Takenreeksen in de Workbench-implementatie  
+####  <a name="RenameTaskSequencesintheDeploymentWorkbench"></a> Wijzig de naam van Takenreeksen in de Workbench-implementatie  
  Wijzig de naam van takenreeksen en mappen onder het knooppunt Takenreeksen in de Workbench-implementatie met behulp van de **wijzigen** actie, zoals beschreven in [Wijzig de naam van Items in de implementatie-Workbench](#RenameItemsintheDeploymentWorkbench).  
 
-####  <a name="DeleteTaskSequencesfromtheDeploymentWorkbench"></a>Takenreeksen die gebruikmaken van de implementatie-Workbench verwijderen  
+####  <a name="DeleteTaskSequencesfromtheDeploymentWorkbench"></a> Takenreeksen die gebruikmaken van de implementatie-Workbench verwijderen  
  Takenreeksen en mappen onder het knooppunt Takenreeksen in de Workbench-implementatie met behulp van de Wizard geselecteerde Items verwijderen zoals beschreven verwijderen [Verwijderingsitems uit de implementatie-Workbench](#DeleteItemsfromtheDeploymentWorkbench). De Wizard geselecteerde Items verwijderen kunt u afzonderlijke takenreeksen of structuren van de hele map verwijderen.  
 
-####  <a name="ManageFoldersforTaskSequencesintheDeploymentWorkbench"></a>Mappen te beheren voor Takenreeksen in de Workbench-implementatie  
+####  <a name="ManageFoldersforTaskSequencesintheDeploymentWorkbench"></a> Mappen te beheren voor Takenreeksen in de Workbench-implementatie  
  U kunt de mappen onder het knooppunt Takenreeksen in de Workbench-implementatie te maken van hiërarchische groeperingen van takenreeksen beheren. Voor meer informatie over:  
 
 1.  Mappen beheren, Zie [mappen beheren in de Workbench-implementatie](#ManageFoldersintheDeploymentWorkbench)  
 
 2.  Selectie profielen, Zie [selectie profielen beheren](#ManageSelectionProfiles)  
 
-####  <a name="EnableorDisableaTaskSequenceintheDeploymentWorkbench"></a>In- of uitschakelen van een Takenreeks in de Workbench-implementatie  
+####  <a name="EnableorDisableaTaskSequenceintheDeploymentWorkbench"></a> In- of uitschakelen van een Takenreeks in de Workbench-implementatie  
  U kunt bepalen of takenreeksen beschikbaar voor andere wizards en dialoogvensters in de implementatie-Workbench door middel zijn de **inschakelen van deze takenreeks** selectievakje op het **algemene** tabblad van het pakket  **Eigenschappen** in het dialoogvenster zoals beschreven in [Takenreeksen configureren in de implementatie-Workbench](#ConfiguringTaskSequencesintheDeploymentWorkbench).  
 
-####  <a name="PreventaTaskSequencefromBeingVisibleintheDeploymentWizard"></a>Voorkomen dat een Takenreeks niet zichtbaar is in de implementatiewizard  
+####  <a name="PreventaTaskSequencefromBeingVisibleintheDeploymentWizard"></a> Voorkomen dat een Takenreeks niet zichtbaar is in de implementatiewizard  
  U kunt voorkomen dat een takenreeks niet zichtbaar is in de Wizard implementatie met behulp de **verbergen deze takenreeks in de Wizard implementatie** selectievakje op de **algemene** tabblad van de toepassing  **Eigenschappen** in het dialoogvenster zoals beschreven in [Takenreeksen configureren in de implementatie-Workbench](#ConfiguringTaskSequencesintheDeploymentWorkbench).  
 
-####  <a name="ModifytheUnattendedSetupAnswerFileAssociatedwiththeTaskSequence"></a>Het antwoordbestand voor installatie zonder toezicht die zijn gekoppeld aan de Takenreeks wijzigen  
+####  <a name="ModifytheUnattendedSetupAnswerFileAssociatedwiththeTaskSequence"></a> Het antwoordbestand voor installatie zonder toezicht die zijn gekoppeld aan de Takenreeks wijzigen  
  Het antwoordbestand voor installatie zonder toezicht (Unattend.xml) voor een takenreeks op basis van de configuratie-instellingen die u in de Workbench-implementatie en in de Wizard implementatie opgeeft MDT automatisch bijgewerkt. Er zijn echter situaties waarin u moet mogelijk het antwoordbestand voor installatie zonder toezicht voor een takenreeks rechtstreeks te wijzigen zoals wanneer u een configuratieparameter die niet wordt weergegeven in de implementatie-Workbench of in de Wizard implementatie wijzigen. Het antwoordbestand voor installatie zonder toezicht voor een takenreeks rechtstreeks wijzigen door te klikken op **Unattend.xml bewerken** op de **OS-Info** tabblad van de takenreeks **eigenschappen** in het dialoogvenster.  
 
  Meer informatie:  
@@ -3179,7 +3178,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 -   Unattend.XML, Zie de *Windows Assessment and Deployment Kit User Guide* in de Windows ADK  
 
-###  <a name="PerformingCommonManagementTasksintheDeploymentWorkbench"></a>Algemene uitvoeren beheertaken in de Workbench-implementatie  
+###  <a name="PerformingCommonManagementTasksintheDeploymentWorkbench"></a> Algemene uitvoeren beheertaken in de Workbench-implementatie  
  De Workbench-implementatie kunt u veel van de algemene beheertaken uitvoeren. Hoewel sommige management uniek voor elk type item is, gelden de volgende taken voor alle items in de Workbench-implementatie:  
 
 -   Het beheren van mappen, zoals beschreven in [mappen beheren in de Workbench-implementatie](#ManageFoldersintheDeploymentWorkbench)  
@@ -3194,7 +3193,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 -   Verwijderen van items zoals beschreven in [Verwijderingsitems uit de Workbench-implementatie](#DeleteItemsfromtheDeploymentWorkbench)  
 
-####  <a name="ManageFoldersintheDeploymentWorkbench"></a>Mappen in de Workbench-implementatie te beheren  
+####  <a name="ManageFoldersintheDeploymentWorkbench"></a> Mappen in de Workbench-implementatie te beheren  
  U mappen te organiseren, toepassingen, besturingssystemen, stuurprogramma's en andere items in de Workbench-implementatie gebruiken. Mappen kunnen u hiërarchieën voor het ordenen van items zoals subsets van items die u in de selectie-profielen opnemen kunt maken.  
 
 > [!NOTE]
@@ -3216,7 +3215,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 -   In- of uitschakelen van een map, zoals beschreven in [in- of uitschakelen van een map in de Workbench-implementatie](#EnableorDisableaFolderintheDeploymentWorkbench)  
 
-#####  <a name="CreateaNewFolderintheDeploymentWorkbench"></a>Maak een nieuwe map in de Workbench-implementatie  
+#####  <a name="CreateaNewFolderintheDeploymentWorkbench"></a> Maak een nieuwe map in de Workbench-implementatie  
  Mappen maken in de Workbench-implementatie met de Wizard Nieuwe map. Start de Wizard Nieuwe map met een van de volgende methoden:  
 
 -   Klik op een knooppunt of een map in de consolestructuur. Klik vervolgens in het deelvenster Acties op **nieuwe map**.  
@@ -3247,7 +3246,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  Nadat de Wizard Nieuwe map is voltooid, wordt de nieuwe map weergegeven in de implementatieshare in de implementatie-Workbench.  
 
-#####  <a name="ModifyanExistingFolderintheDeploymentWorkbench"></a>Een bestaande map in de Workbench-implementatie wijzigen  
+#####  <a name="ModifyanExistingFolderintheDeploymentWorkbench"></a> Een bestaande map in de Workbench-implementatie wijzigen  
  Wijzigen van bestaande mappen in de Workbench-implementatie met de **eigenschappen** acties zoals beschreven in [-eigenschappen weergeven in de Implementatieworkbench](#ViewItemPropertiesintheDeploymentWorkbench). Eigenschappen van de map zijn voornamelijk geconfigureerd wanneer u de Wizard Nieuwe map uitvoert. Bijwerken van de eigenschappen van de map op de **algemene** tabblad via de ***mapnaam*** **eigenschappen** in het dialoogvenster (waarbij *mapnaam* is de naam van de map in de Workbench-implementatie).  
 
 ###### <a name="to-modify-an-existing-folder"></a>Een bestaande map wijzigen  
@@ -3274,22 +3273,22 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  De map configuratie-instellingen worden opgeslagen en de wijzigingen worden weergegeven in het detailvenster van de implementatie-Workbench.  
 
-#####  <a name="CopyaFolderintheDeploymentWorkbench"></a>Een map in de implementatie-Workbench kopiëren  
+#####  <a name="CopyaFolderintheDeploymentWorkbench"></a> Een map in de implementatie-Workbench kopiëren  
  U kunt kopiëren en plakken van mappen in de implementatie-Workbench door middel de **kopie** en **plakken** acties zoals beschreven in [kopiëren Items in de implementatie-Workbench](#CopyItemsintheDeploymentWorkbench).  
 
-#####  <a name="MoveaFolderintheDeploymentWorkbench"></a>Een map in de Implementatieworkbench verplaatsen  
+#####  <a name="MoveaFolderintheDeploymentWorkbench"></a> Een map in de Implementatieworkbench verplaatsen  
  U kunt mappen in de implementatie-Workbench door middel verplaatsen de **Knippen** en **plakken** acties zoals beschreven in [Items verplaatsen in de Implementatieworkbench](#MoveItemsintheDeploymentWorkbench).  
 
-#####  <a name="RenameaFolderintheDeploymentWorkbench"></a>Wijzig de naam van een map in de Workbench-implementatie  
+#####  <a name="RenameaFolderintheDeploymentWorkbench"></a> Wijzig de naam van een map in de Workbench-implementatie  
  U kunt mappen in de Workbench-implementatie met de naam de **naam** actie, zoals beschreven in [Wijzig de naam van Items in de implementatie-Workbench](#RenameItemsintheDeploymentWorkbench).  
 
-#####  <a name="DeleteaFolderfromtheDeploymentWorkbench"></a>Een map van de Implementatieworkbench verwijderen  
+#####  <a name="DeleteaFolderfromtheDeploymentWorkbench"></a> Een map van de Implementatieworkbench verwijderen  
  U kunt een map in de Workbench-implementatie met behulp van de Wizard geselecteerde Items verwijderen zoals beschreven verwijderen [Verwijderingsitems uit de implementatie-Workbench](#DeleteItemsfromtheDeploymentWorkbench). De Wizard geselecteerde Items verwijderen kunt u afzonderlijke mappen of de gehele hiërarchie van mappen verwijderen.  
 
-#####  <a name="EnableorDisableaFolderintheDeploymentWorkbench"></a>In- of uitschakelen van een map in de Workbench-implementatie  
+#####  <a name="EnableorDisableaFolderintheDeploymentWorkbench"></a> In- of uitschakelen van een map in de Workbench-implementatie  
  U kunt bepalen of mappen beschikbaar voor andere wizards en dialoogvensters in de implementatie-Workbench door middel zijn de **inschakelen van deze map** selectievakje op het **algemene** tabblad van de map  **Eigenschappen** in het dialoogvenster. Zie voor meer informatie over in- of uitschakelen van de mappen in de implementatie-Workbench [wijzigen van een bestaande map in de Implementatieworkbench](#ModifyanExistingFolderintheDeploymentWorkbench).  
 
-####  <a name="ViewItemPropertiesintheDeploymentWorkbench"></a>Eigenschappen weergeven in de Workbench-implementatie  
+####  <a name="ViewItemPropertiesintheDeploymentWorkbench"></a> Eigenschappen weergeven in de Workbench-implementatie  
  U kunt de eigenschappen van besturingssystemen, stuurprogramma's en andere items uit de Workbench-implementatie met behulp van een van de volgende manieren bekijken:  
 
 -   Klik op een item in het detaildeelvenster. Klik vervolgens in het deelvenster Acties op **eigenschappen**.  
@@ -3314,7 +3313,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  De ***item*** **eigenschappen** in het dialoogvenster wordt weergegeven (waarbij *item* is de naam van het geselecteerde item).  
 
-####  <a name="CopyItemsintheDeploymentWorkbench"></a>Items in de Implementatieworkbench kopiëren  
+####  <a name="CopyItemsintheDeploymentWorkbench"></a> Items in de Implementatieworkbench kopiëren  
  Gebruik de implementatie-Workbench om te kopiëren van besturingssystemen, stuurprogramma's en andere items binnen een implementatieshare of tussen twee implementaties shares. Wanneer u een item kopieert, maakt de implementatie-Workbench een koppeling naar het oorspronkelijke item in plaats van een afzonderlijke kopie van het item te maken. Dit vermindert de grootte van de implementatieshare. Als u maken van een duplicaat van een item wilt, importeert u het item opnieuw in de doelmap.  
 
  Wanneer u een item tussen implementatieshares en een item met dezelfde kopieert:  
@@ -3329,7 +3328,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 2.  Slepen en neerzetten functionaliteit, zoals beschreven in [functionaliteit voor kopiëren gebruikt voor Items slepen en neerzetten](#CopyItemsUsingDragandDropFunctionality)  
 
-#####  <a name="CopyItemsUsingtheCutandPasteActions"></a>Items met de knippen en plakken acties kopiëren  
+#####  <a name="CopyItemsUsingtheCutandPasteActions"></a> Items met de knippen en plakken acties kopiëren  
  U kunt kopiëren een item met de **Knippen** en **plakken** acties in de implementatie-Workbench. Kopieer het item op de bronlocatie die met een van de volgende methoden:  
 
 -   Klik op een item in het detaildeelvenster. Klik vervolgens in het deelvenster Acties op **kopie**.  
@@ -3362,7 +3361,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  De nieuwe kopie van het item wordt weergegeven in het detailvenster van de implementatie-Workbench.  
 
-#####  <a name="CopyItemsUsingDragandDropFunctionality"></a>Items kopiëren met behulp van slepen en neerzetten  
+#####  <a name="CopyItemsUsingDragandDropFunctionality"></a> Items kopiëren met behulp van slepen en neerzetten  
  U kunt items kopiëren door een item op de bronlocatie naar de doellocatie te slepen.  
 
 ###### <a name="to-copy-items-in-the-deployment-workbench-using-drag-and-drop-functionality"></a>Om te kopiëren items in de Workbench-implementatie met behulp van slepen en neerzetten  
@@ -3375,14 +3374,14 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  Het item wordt gekopieerd naar de doellocatie in het detailvenster van de implementatie-Workbench.  
 
-####  <a name="MoveItemsintheDeploymentWorkbench"></a>Verplaatsen van Items in de Workbench-implementatie  
+####  <a name="MoveItemsintheDeploymentWorkbench"></a> Verplaatsen van Items in de Workbench-implementatie  
  Gebruik de implementatie-Workbench om te verplaatsen van besturingssystemen, stuurprogramma's en andere items binnen een implementatieshare of tussen twee implementaties shares. U kunt objecten verplaatsen door gebruik te maken:  
 
 -   **Knippen** en **plakken** acties zoals beschreven in [verplaatsen gebruikt voor Items knippen en plakken acties](#MoveItemsUsingtheCutandPasteActions)  
 
 -   Slepen en neerzetten functionaliteit, zoals beschreven in [slepen en neerzetten-functionaliteit gebruikt voor Items verplaatsen](#MoveItemsUsingDragandDropFunctionality)  
 
-#####  <a name="MoveItemsUsingtheCutandPasteActions"></a>Items met de knippen en plakken acties verplaatsen  
+#####  <a name="MoveItemsUsingtheCutandPasteActions"></a> Items met de knippen en plakken acties verplaatsen  
  Kunt u een item met de **Knippen** en **plakken** in de implementatie-Workbench. Het item knippen op de bronlocatie die met een van de volgende methoden:  
 
 -   Klik op een item in het detaildeelvenster. Klik vervolgens in het deelvenster Acties op **eigenschappen**.  
@@ -3405,7 +3404,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  De **itemeigenschappen** in het dialoogvenster wordt weergegeven (waarbij *item* is de naam van het geselecteerde item).  
 
-#####  <a name="MoveItemsUsingDragandDropFunctionality"></a>Items met behulp van slepen en neerzetten verplaatsen  
+#####  <a name="MoveItemsUsingDragandDropFunctionality"></a> Items met behulp van slepen en neerzetten verplaatsen  
  U kunt objecten verplaatsen door ze op de bronlocatie naar de doellocatie te slepen.  
 
 ###### <a name="to-move-items-in-the-deployment-workbench-using-drag-and-drop-functionality"></a>Verplaatsen van items in de Workbench-implementatie met behulp van slepen en neerzetten  
@@ -3418,7 +3417,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  Het item wordt verplaatst naar de doellocatie.  
 
-####  <a name="RenameItemsintheDeploymentWorkbench"></a>Namen van Items in de Workbench-implementatie wijzigen  
+####  <a name="RenameItemsintheDeploymentWorkbench"></a> Namen van Items in de Workbench-implementatie wijzigen  
  U kunt besturingssystemen, stuurprogramma's en andere items in de implementatie-Workbench wijzigen met behulp van een van de volgende methoden:  
 
 -   Klik op een item in het detaildeelvenster. Klik vervolgens in het deelvenster Acties op **naam**.  
@@ -3441,7 +3440,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  De nieuwe naam van het item wordt weergegeven in het detailvenster van de implementatie-Workbench.  
 
-####  <a name="DeleteItemsfromtheDeploymentWorkbench"></a>Items verwijderen uit de Workbench-implementatie  
+####  <a name="DeleteItemsfromtheDeploymentWorkbench"></a> Items verwijderen uit de Workbench-implementatie  
  U kunt besturingssystemen, stuurprogramma's en andere items verwijderen uit de Workbench-implementatie met behulp van de Wizard geselecteerde Items verwijderen. Start de geselecteerde Items Wizard verwijderen met behulp van een van de volgende methoden:  
 
 -   Klik op een item in het detaildeelvenster. Klik vervolgens in het deelvenster Acties op **verwijderen**.  
@@ -3486,7 +3485,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  Nadat de Wizard geselecteerde Items verwijderen is voltooid, wordt het item en andere betrokken items verwijderd uit de Implementatieworkbench en de implementatieshare.  
 
-###  <a name="PerformingAdvancedConfigurationTasksintheDeploymentWorkbench"></a>Geavanceerde configuratietaken uitvoeren in de Workbench-implementatie  
+###  <a name="PerformingAdvancedConfigurationTasksintheDeploymentWorkbench"></a> Geavanceerde configuratietaken uitvoeren in de Workbench-implementatie  
  De implementatie-Workbench bevat geavanceerde configuratie-opties die de functies van eenvoudige implementaties van LTI uitbreiden. Deze configuratieopties bieden meer gedetailleerd selectie van de inhoud die u wilt opnemen in de implementatie, ondersteuning voor implementaties in grotere organisaties en ondersteuning voor implementaties van zelfstandige media zonder te hoeven verbinding maken met een implementatieshare.  
 
  Geavanceerde configuratie-taken die u kunt uitvoeren, zijn onder andere:  
@@ -3499,7 +3498,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 -   Het beheren van de MDT-database, zoals beschreven in [beheren van de MDT-DB](#ManagetheMDTDB)  
 
-####  <a name="ManageSelectionProfiles"></a>Selectie profielen beheren  
+####  <a name="ManageSelectionProfiles"></a> Selectie profielen beheren  
  Selectie met profielen kunt u een of meer om mappen te selecteren in de implementatie-Workbench die een of meer items in de Workbench-implementatie, met inbegrip van toepassingen, stuurprogramma's, besturingssystemen, besturingssysteempakketten en takenreeksen bevatten.  
 
  SE selectie profielen items groeperen en gebruik vervolgens deze groeperingen van artikelen:  
@@ -3543,7 +3542,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 -   Identificeer de verschillen tussen de selectie bevat en groepen zoals beschreven in [identificeren van de relatie tussen de profielen van de selectie en groepen](#IdentifytheRelationshipBetweenSelectionProfilesandGroups).  
 
-#####  <a name="CreateaNewSelectionProfileintheDeploymentWorkbench"></a>Maken van een nieuw profiel van de selectie in de Workbench-implementatie  
+#####  <a name="CreateaNewSelectionProfileintheDeploymentWorkbench"></a> Maken van een nieuw profiel van de selectie in de Workbench-implementatie  
  Selectie profielen maken in de Workbench-implementatie met de Wizard voor het profiel van nieuwe selectie. De nieuwe selectie Wizard profiel starten met een van de volgende methoden:  
 
 -   Klik op het knooppunt profielen selectie in de consolestructuur. Klik vervolgens in het deelvenster Acties op **nieuwe selectie profiel**.  
@@ -3575,7 +3574,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  De Wizard profiel van nieuwe selectie is voltooid. De selectie-profiel wordt toegevoegd aan de lijst met profielen voor selectie in het detailvenster van de implementatie-Workbench.  
 
-#####  <a name="ModifyanExistingSelectionProfileintheDeploymentWorkbench"></a>Een bestaand profiel voor selectie in de Workbench-implementatie wijzigen  
+#####  <a name="ModifyanExistingSelectionProfileintheDeploymentWorkbench"></a> Een bestaand profiel voor selectie in de Workbench-implementatie wijzigen  
  Wijzigen van bestaande selectie van profielen aan de implementatie-Workbench selectie profielen knooppunt met de **eigenschappen** acties zoals beschreven in [-eigenschappen weergeven in de Implementatieworkbench](#ViewItemPropertiesintheDeploymentWorkbench). De selectie profieleigenschappen zijn voornamelijk geconfigureerd wanneer u de Wizard profiel van nieuwe selectie uitvoert. U kunt echter de profieleigenschappen selectie bijwerken op de **algemene** tabblad van de ***profielnaam*** **eigenschappen** in het dialoogvenster (waarbij *profielnaam*  is de naam van het profiel selectie in de Workbench-implementatie).  
 
 ###### <a name="to-configure-the-general-tab-for-package-properties"></a>Het tabblad Algemeen voor de eigenschappen van pakket configureren  
@@ -3602,19 +3601,19 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  De selectie profiel configuratie-instellingen worden opgeslagen, de wijzigingen worden weergegeven in het detailvenster van de Implementatieworkbench en de *deployment_share*\Control\SelectionProfiles.xml-bestand (waarbij  *deployment_share* is de naam van de implementatieshare) wordt bijgewerkt met de configuratie-instellingen van de selectie-profiel.  
 
-#####  <a name="CopyaSelectionProfileintheDeploymentWorkbench"></a>Een profiel voor een selectie in de implementatie-Workbench kopiëren  
+#####  <a name="CopyaSelectionProfileintheDeploymentWorkbench"></a> Een profiel voor een selectie in de implementatie-Workbench kopiëren  
  U kunt kopiëren en plakken van profielen voor selectie in de implementatie-Workbench door middel de **kopie** en **plakken** acties zoals beschreven in [kopiëren Items in de implementatie-Workbench](#CopyItemsintheDeploymentWorkbench).  
 
-#####  <a name="MoveaSelectionProfileintheDeploymentWorkbench"></a>Een profiel voor een selectie in de implementatie-Workbench verplaatsen  
+#####  <a name="MoveaSelectionProfileintheDeploymentWorkbench"></a> Een profiel voor een selectie in de implementatie-Workbench verplaatsen  
  Kunt u profielen voor selectie in de implementatie-Workbench door middel de **Knippen** en **plakken** acties zoals beschreven in [Items verplaatsen in de Implementatieworkbench](#MoveItemsintheDeploymentWorkbench).  
 
-#####  <a name="RenameaSelectionProfileintheDeploymentWorkbench"></a>Wijzig de naam van een profiel selecteren in de Workbench-implementatie  
+#####  <a name="RenameaSelectionProfileintheDeploymentWorkbench"></a> Wijzig de naam van een profiel selecteren in de Workbench-implementatie  
  U kunt de selectie-profielen in de implementatie-Workbench door middel naam de **wijzigen** actie, zoals beschreven in [Wijzig de naam van Items in de implementatie-Workbench](#RenameItemsintheDeploymentWorkbench).  
 
-#####  <a name="DeleteaSelectionProfilefromtheDeploymentWorkbench"></a>Een profiel voor een selectie van de Implementatieworkbench verwijderen  
+#####  <a name="DeleteaSelectionProfilefromtheDeploymentWorkbench"></a> Een profiel voor een selectie van de Implementatieworkbench verwijderen  
  U kunt een profiel selecteren in de Workbench-implementatie met behulp van de Wizard geselecteerde Items verwijderen zoals beschreven verwijderen [Verwijderingsitems uit de implementatie-Workbench](#DeleteItemsfromtheDeploymentWorkbench). De Wizard geselecteerde Items verwijderen kunt u afzonderlijke selectie profielen verwijderen.  
 
-#####  <a name="IdentifytheRelationshipBetweenSelectionProfilesandGroups"></a>Identificeren van de relatie tussen de selectie van profielen en groepen  
+#####  <a name="IdentifytheRelationshipBetweenSelectionProfilesandGroups"></a> Identificeren van de relatie tussen de selectie van profielen en groepen  
  Selectie profielen gebruiken om groepen van implementatie-Workbench items, zoals besturingssystemen, apparaatstuurprogramma's of toepassingen te maken. Gebruik de selectie-profielen om apparaatstuurprogramma's opgeven, het definiëren van de inhoud die u wilt opnemen in een share van de gekoppelde implementatie, het definiëren van de inhoud op te nemen voor media-implementaties en andere taken.  
 
  De relatie tussen items en mappen in een selectie-profiel wordt opgeslagen in de volgende bestanden in de *deployment_share*\Control map (waarbij *deployment_share* is de locatie van de implementatie share):  
@@ -3675,7 +3674,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
      Zie voor meer informatie over deze eigenschappen in de bijbehorende secties in het document MDT *Toolkit verwijzing*.  
 
-####  <a name="ManageLinkedDeploymentShares"></a>Gekoppelde Implementatieshares kunt beheren  
+####  <a name="ManageLinkedDeploymentShares"></a> Gekoppelde Implementatieshares kunt beheren  
  Gekoppelde implementatieshares in MDT kunnen u een logische verbinding tussen twee implementatieshares: een bron- en een doel-implementatieshare. Een profiel voor een selectie bepaalt de items moeten worden gekoppeld. U kunt kiezen of samenvoegen of vervangen van inhoud in de doel-implementatieshare bij het maken van de koppeling tussen de implementatieshares.  
 
  Gekoppelde implementatieshares gebruikt, kunt u eenvoudig repliceren een hele implementatieshare of delen van een implementatieshare naar een andere implementatieshare. Op deze manier kunt u wijzigingen aanbrengen in een implementatie van de share en andere implementatieshares op basis van de selectie-profielen die u hebt gekozen bij het maken van de gekoppelde implementatieshares vervolgens eenvoudig bijwerken.  
@@ -3698,11 +3697,11 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  U kunt maar ook voor het beheren van gekoppelde deployement shares in de Implementatieworkbench gekoppelde implementatieshares MDT Windows PowerShell-cmdlets gebruiken beheren. Voor meer informatie over het beheren van de gekoppelde implementatie met MDT Windows PowerShell-cmdlets deelt, Zie de volgende secties onder de sectie 'MDT Windows PowerShell-Cmdlets' in het document MDT *Toolkit verwijzing*:  
 
--   **Update MDTLinkedDS**  
+-   **Update-MDTLinkedDS**  
 
 -   **Get-MDTDeploymentShareStatistics**  
 
-#####  <a name="CreateaNewLinkedDeploymentShareintheDeploymentWorkbench"></a>Maken van een nieuwe gekoppelde Implementatieshare in de Workbench-implementatie  
+#####  <a name="CreateaNewLinkedDeploymentShareintheDeploymentWorkbench"></a> Maken van een nieuwe gekoppelde Implementatieshare in de Workbench-implementatie  
  Nieuwe gekoppelde implementatieshares in de Workbench-implementatie met behulp van de Wizard Nieuwe gekoppelde Deployment Share maken. Start de gekoppelde implementatiewizard nieuwe Share met een van de volgende methoden:  
 
 -   Klik op het knooppunt gekoppelde Implementatieshare in de consolestructuur. Klik vervolgens in het deelvenster Acties op **nieuwe gekoppelde Implementatieshare**.  
@@ -3733,7 +3732,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  De gekoppelde implementatiewizard nieuwe Share is voltooid en de gekoppelde implementatieshare is toegevoegd aan de lijst met gekoppelde implementaties shares in het detailvenster van de implementatie-Workbench.  
 
-#####  <a name="ModifyanExistingLinkedDeploymentShareintheDeploymentWorkbench"></a>Een bestaande Implementatieshare in de gekoppelde in de Workbench-implementatie wijzigen  
+#####  <a name="ModifyanExistingLinkedDeploymentShareintheDeploymentWorkbench"></a> Een bestaande Implementatieshare in de gekoppelde in de Workbench-implementatie wijzigen  
  Wijzigen van bestaande gekoppelde deployment share aan de implementatie-Workbench gekoppelde Implementatieshares knooppunt met de **eigenschappen** acties zoals beschreven in [-eigenschappen weergeven in de Implementatieworkbench](#ViewItemPropertiesintheDeploymentWorkbench). De gekoppelde eigenschappen van implementatieshare worden geconfigureerd wanneer u de gekoppelde Wizard Nieuw implementatietype uitvoert. U kunt echter de gekoppelde eigenschappen van implementatieshare bijwerken op de **algemene** tabblad van de ***linked_deployment_share*** **eigenschappen** in het dialoogvenster (waarbij *linked_deployment_share* is de naam van de share van de gekoppelde implementatie in de Workbench-implementatie).  
 
 ###### <a name="to-modify-an-existing-linked-deployment-share"></a>Een bestaande implementatieshare in de gekoppelde wijzigen  
@@ -3766,19 +3765,19 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  De gekoppelde implementatie delen configuratie-instellingen worden opgeslagen. De wijzigingen worden weergegeven in het detailvenster in de implementatie-Workbench.  
 
-#####  <a name="CopyaLinkedDeploymentShareintheDeploymentWorkbench"></a>Een gekoppelde Implementatieshare in de implementatie-Workbench kopiëren  
+#####  <a name="CopyaLinkedDeploymentShareintheDeploymentWorkbench"></a> Een gekoppelde Implementatieshare in de implementatie-Workbench kopiëren  
  U kunt kopiëren en plakken van gekoppelde implementatieshares in de implementatie-Workbench door middel de **kopie** en **plakken** acties zoals beschreven in [kopiëren Items in de implementatie-Workbench](#CopyItemsintheDeploymentWorkbench).  
 
-#####  <a name="MoveaLinkedDeploymentShareintheDeploymentWorkbench"></a>Verplaatsen van een gekoppelde Implementatieshare in de Workbench-implementatie  
+#####  <a name="MoveaLinkedDeploymentShareintheDeploymentWorkbench"></a> Verplaatsen van een gekoppelde Implementatieshare in de Workbench-implementatie  
  U kunt verplaatsen gekoppelde implementatieshares in de implementatie-Workbench door middel de **Knippen** en **plakken** acties zoals beschreven in [Items verplaatsen in de Implementatieworkbench](#MoveItemsintheDeploymentWorkbench).  
 
-#####  <a name="RenameaLinkedDeploymentShareintheDeploymentWorkbench"></a>Wijzig de naam van een gekoppelde Implementatieshare in de Workbench-implementatie  
+#####  <a name="RenameaLinkedDeploymentShareintheDeploymentWorkbench"></a> Wijzig de naam van een gekoppelde Implementatieshare in de Workbench-implementatie  
  U kunt de naam gekoppelde implementatieshares in de implementatie-Workbench door middel de **naam** actie, zoals beschreven in [Wijzig de naam van Items in de implementatie-Workbench](#RenameItemsintheDeploymentWorkbench).  
 
-#####  <a name="DeleteaLinkedDeploymentSharefromtheDeploymentWorkbench"></a>Een gekoppelde Implementatieshare verwijderen uit de Workbench-implementatie  
+#####  <a name="DeleteaLinkedDeploymentSharefromtheDeploymentWorkbench"></a> Een gekoppelde Implementatieshare verwijderen uit de Workbench-implementatie  
  U kunt een gekoppelde verwijderen implementatie deelt in de Workbench-implementatie met behulp van de Wizard geselecteerde Items verwijderen zoals beschreven [Verwijderingsitems uit de implementatie-Workbench](#DeleteItemsfromtheDeploymentWorkbench). De Wizard geselecteerde Items verwijderen kunt u afzonderlijke gekoppelde implementatieshares verwijderen.  
 
-#####  <a name="ReplicateLinkedDeploymentSharesintheDeploymentWorkbench"></a>Gekoppelde Implementatieshares in de Implementatieworkbench repliceren  
+#####  <a name="ReplicateLinkedDeploymentSharesintheDeploymentWorkbench"></a> Gekoppelde Implementatieshares in de Implementatieworkbench repliceren  
  De gekoppelde implementatie gemaakt van shares in de Workbench-implementatie met behulp van de repliceren naar de gekoppelde implementaties delen Wizard kunt u de inhoud van de implementatieshare bron repliceren. Zorg ervoor dat er voldoende opslagruimte voor de share van de gekoppelde implementatie voorafgaand aan de repliceren gekoppelde implementaties delen wizard bestaat als de wizard niet controleert of er voldoende opslagruimte bestaat voordat het repliceren van de inhoud.  
 
 > [!NOTE]
@@ -3802,7 +3801,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
     |**Op deze wizardpagina** |**Dit doet** |  
     |-----------------------------|-----------------|  
-    |**Voortgang** |De voortgang van het replicatieproces weergeven.|  
+    |**Progress** |De voortgang van het replicatieproces weergeven.|  
     |**Bevestiging** |U kunt klikken op **uitvoer opslaan** de uitvoer van de wizard opslaan in een bestand. U kunt ook klikken op **Script weergeven** om weer te geven van de Windows PowerShell-scripts gebruikt voor het uitvoeren van taken van de wizard.<br /><br /> Klik op **Voltooien**.|  
 
 > [!NOTE]
@@ -3810,7 +3809,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  De repliceren naar de gekoppelde implementaties Share wizard is voltooid. De mappen en de inhoud die u hebt opgegeven in het profiel selectie in de gekoppelde implementatieshare worden gerepliceerd van de implementatieshare van bron naar de share van de doel-implementatie. Afhankelijk van de configuratie van de gekoppelde implementatieshare worden de mappen en de inhoud op de doel-implementatieshare samengevoegd of vervangen.  
 
-####  <a name="ManageLTIDeploymentMedia"></a>Media voor implementatie van LTI beheren  
+####  <a name="ManageLTIDeploymentMedia"></a> Media voor implementatie van LTI beheren  
  Media in LTI kunt u implementaties van LTI uitsluitend vanaf lokale media uitvoeren zonder verbinding met een implementatieshare. U kunt het medium opslaan op een DVD, USB harde schijf of ander draagbaar apparaat. Nadat u de media maakt, genereren opstartbare WIM-installatiekopieën, waardoor de implementatie worden uitgevoerd vanuit een draagbaar medium zijn apparaten lokaal beschikbaar op de doelcomputer.  
 
  U bepalen welke items moeten worden opgenomen op de media in een selectie-profiel dat u opgeeft wanneer u de media maakt. De implementatie-Workbench bevat Windows PE automatisch in de media WIM-installatiekopie, zodat Windows PE wordt gestart vanuit de beschikbare media op de doelcomputer. Wanneer Windows PE wordt gestart, wordt de implementatiewizard automatisch gestart, evenals.  
@@ -3833,11 +3832,11 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  Maar ook voor het beheren van media voor implementatie in de Workbench-implementatie kunt u de media voor implementatie met behulp van de MDT Windows PowerShell-cmdlets beheren. Zie voor meer informatie over het beheren van media voor implementatie van MDT Windows PowerShell-cmdlets gebruiken in de volgende secties onder de sectie 'MDT Windows PowerShell-Cmdlets' in het document MDT *Toolkit verwijzing*:  
 
--   **Update MDTMedia**  
+-   **Update-MDTMedia**  
 
 -   **Get-MDTDeploymentShareStatistics**  
 
-#####  <a name="CreateNewDeploymentMediaintheDeploymentWorkbench"></a>Maken van nieuwe Media voor implementatie in de Workbench-implementatie  
+#####  <a name="CreateNewDeploymentMediaintheDeploymentWorkbench"></a> Maken van nieuwe Media voor implementatie in de Workbench-implementatie  
  Nieuwe media voor implementatie in de Workbench-implementatie met de nieuwe Wizard Takenreeksmedia maken. Start de Wizard Nieuwe Media met een van de volgende methoden:  
 
 -   Klik op de Media-knooppunt in de consolestructuur. Klik vervolgens in het deelvenster Acties op **nieuwe Media**.  
@@ -3868,7 +3867,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  De Wizard Nieuwe Media is voltooid. De media worden toegevoegd aan de lijst met media in het detailvenster van de implementatie-Workbench. De *media_path*\Content\Deploy map wordt gemaakt (waar *media_path* is de naam van de pad van de media die u hebt opgegeven in de wizard), en sommige base mappen worden gemaakt. De mappen en de inhoud die u hebt opgegeven in het profiel voor selectie worden gekopieerd naar de map implementeren wanneer de Wizard Update Media-inhoud wordt uitgevoerd.  
 
-#####  <a name="ModifyExistingMediaintheDeploymentWorkbench"></a>Bestaande Media in de Workbench-implementatie wijzigen  
+#####  <a name="ModifyExistingMediaintheDeploymentWorkbench"></a> Bestaande Media in de Workbench-implementatie wijzigen  
  Wijzigen van bestaande media in het knooppunt Media in de Workbench-implementatie met behulp van de **eigenschappen** acties zoals beschreven in [-eigenschappen weergeven in de Implementatieworkbench](#ViewItemPropertiesintheDeploymentWorkbench). Media configureren in de implementatie-Workbench door het uitvoeren van de volgende stappen uit in de media **eigenschappen** in het dialoogvenster:  
 
 -   Eigenschappen configureren op de **algemene** tabblad zoals beschreven in [configureren mediatabblad eigenschappen van de algemene](#ConfiguretheMediaPropertiesGeneralTab).  
@@ -3883,7 +3882,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 -   Configureer de instellingen op de **onderdelen van Windows PE x64** tabblad zoals beschreven in [configureren van het tabblad Media eigenschappen Windows PE x64 onderdelen](#ConfiguretheMediaPropertiesWindowsPEx64ComponentsTab).  
 
-######  <a name="ConfiguretheMediaPropertiesGeneralTab"></a>Tabblad Algemeen van Media-eigenschappen configureren  
+######  <a name="ConfiguretheMediaPropertiesGeneralTab"></a> Tabblad Algemeen van Media-eigenschappen configureren  
  De media-eigenschappen op de **algemene** tabblad worden geconfigureerd wanneer u de Wizard Nieuwe Media worden uitgevoerd. U kunt echter de gekoppelde eigenschappen van implementatieshare bijwerken op de **algemene** tabblad van de ***media*** **eigenschappen** in het dialoogvenster (waarbij *media*is de naam van de media in de Workbench-implementatie).  
 
 ###### <a name="to-modify-existing-media-properties-on-the-general-tab"></a>Wijzigen van bestaande media-eigenschappen op het tabblad Algemeen  
@@ -3904,7 +3903,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
     |**Instelling** |**Beschrijving** |  
     |-----------------|---------------------|  
-    |**Media-id** |Bevat de id van de media.<br /><br /> De id in dit tekstvak automatisch wordt gegenereerd door de Implementatieworkbench en kan niet worden gewijzigd.|  
+    |**Media identifier** |Bevat de id van de media.<br /><br /> De id in dit tekstvak automatisch wordt gegenereerd door de Implementatieworkbench en kan niet worden gewijzigd.|  
     |**Opmerkingen** |Bevat informatie over de media.|  
     |**Het pad Media** |Bevat de volledig gekwalificeerde UNC-pad naar de doelmap voor de bronbestanden van media en de gegenereerde afbeeldingen.|  
     |**Selectie profiel** |Bevat de selectie profiel waarmee de inhoud die moet worden opgenomen in het WIM-bestand en de ISO-bestanden die de implementatie-Workbench genereert.|  
@@ -3914,7 +3913,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  De media-configuratie-instellingen worden opgeslagen. De wijzigingen worden weergegeven in het detailvenster van de implementatie-Workbench en de inhoud in de *media_folder* map wordt bijgewerkt (waarbij *media_folder* is de naam van de map die u hebt opgegeven voor de media).  
 
-######  <a name="ConfiguretheMediaPropertiesRulesTab"></a>Het tabblad regels van Media-eigenschappen configureren  
+######  <a name="ConfiguretheMediaPropertiesRulesTab"></a> Het tabblad regels van Media-eigenschappen configureren  
  De media-eigenschappen op de **regels** tabblad worden geconfigureerd wanneer u de Wizard Nieuwe Media worden uitgevoerd. U kunt echter de gekoppelde eigenschappen van implementatieshare bijwerken op de **regels** tabblad van de ***media*** **eigenschappen** in het dialoogvenster (waarbij *media*is de naam van de media in de Workbench-implementatie).  
 
 ###### <a name="to-modify-existing-media-properties-on-the-rules-tab"></a>Bestaande media-eigenschappen op het tabblad regels wijzigen  
@@ -3940,7 +3939,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  De media-configuratie-instellingen worden opgeslagen. De wijzigingen worden weergegeven in het detailvenster van de implementatie-Workbench en de inhoud in de *media_folder* map (waarbij *media_folder* is de naam van de map die u hebt opgegeven voor de Media) wordt bijgewerkt.  
 
-######  <a name="ConfiguretheMediaPropertiesWindowsPEx86SettingsTab"></a>Configureren van de Media-eigenschappen van Windows PE x86 tabblad instellingen  
+######  <a name="ConfiguretheMediaPropertiesWindowsPEx86SettingsTab"></a> Configureren van de Media-eigenschappen van Windows PE x86 tabblad instellingen  
  De media-eigenschappen op de **instellingen voor Windows PE x86** tabblad worden geconfigureerd wanneer u de Wizard Nieuwe Media worden uitgevoerd. U kunt echter de gekoppelde eigenschappen van implementatieshare bijwerken op de **Windows PE x86** tabblad van de ***media*** **eigenschappen** in het dialoogvenster (waarbij *media* is de naam van de media in de Workbench-implementatie).  
 
 ###### <a name="to-configure-the-windows-pe-x86-settings-tab"></a>Het tabblad Windows PE x86 instellingen configureren  
@@ -3975,7 +3974,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  De media-configuratie-instellingen worden opgeslagen en het medium wordt weergegeven in het detailvenster van de implementatie-Workbench.  
 
-######  <a name="ConfiguretheMediaPropertiesWindowsPEx86ComponentsTab"></a>Configureren van de Media-eigenschappen van Windows PE x86 tabblad onderdelen  
+######  <a name="ConfiguretheMediaPropertiesWindowsPEx86ComponentsTab"></a> Configureren van de Media-eigenschappen van Windows PE x86 tabblad onderdelen  
  De media-eigenschappen op de **onderdelen van Windows PE x86** tabblad worden geconfigureerd wanneer u de Wizard Nieuwe Media worden uitgevoerd. U kunt echter de gekoppelde eigenschappen van implementatieshare bijwerken op de **onderdelen van Windows PE x86** tabblad van de ***media*** **eigenschappen** in het dialoogvenster (waarbij  *Media* is de naam van de media in de Workbench-implementatie).  
 
 ###### <a name="to-configure-the-windows-pe-x86-components-tab"></a>Het tabblad Windows PE x86 onderdelen configureren  
@@ -4004,11 +4003,11 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     |**Alle stuurprogramma's voor massaopslag in de geselecteerde groep opnemen** |Selecteer voor het configureren van de Media Wizard inhoud bijwerken zodat alle stuurprogramma's voor massaopslag in het profiel selectie gekozen. Als het selectievakje is:<br /><br /> -Geselecteerd, bevat de Wizard voor Media inhoud alle stuurprogramma's voor massaopslag in het profiel selectie is opgegeven in de **selectie profiel** vak in de Windows PE-installatiekopieën<br /><br /> -Uitgeschakeld, de Wizard voor Media inhoud niet neemt alle stuurprogramma's voor massaopslag in het profiel selectie is opgegeven in de **selectie profiel** vak in de Windows PE-installatiekopieën<br /><br /> Dit selectievakje is alleen beschikbaar als u selecteert **bevatten alleen stuurprogramma's van de volgende typen**.|  
     |**Bevat alle klasse system-stuurprogramma's in de geselecteerde groep** |Selecteer het configureren van de Media Wizard inhoud bijwerken om op te nemen van alle klasse system-stuurprogramma's in het profiel voor uw selectie. Als het selectievakje is:<br /><br /> -Geselecteerd, bevat de Wizard voor Media inhoud alle klasse system-stuurprogramma's in de selectie-profiel dat is opgegeven in de **selectie profiel** vak in de Windows PE-installatiekopieën<br /><br /> -Uitgeschakeld, de Wizard voor Media inhoud niet bevat alle systeemklasse stuurprogramma's in de selectie-profiel dat is opgegeven in de **selectie profiel** vak in de Windows PE-installatiekopieën<br /><br /> Dit selectievakje is alleen beschikbaar als u selecteert **bevatten alleen stuurprogramma's van de volgende typen**.|  
     |**ADO** |Selecteer optioneel ADO-onderdelen toevoegen aan de Windows PE-installatiekopieën. Deze onderdelen zijn vereist voor toegang tot SQL Server-databases, zoals de MDT-database. Als het selectievakje is:<br /><br /> -Geselecteerd, worden de ADO-onderdelen toegevoegd aan de Windows PE-installatiekopieën<br /><br /> -Uitgeschakeld, worden de onderdelen ADO niet toegevoegd aan de Windows PE-installatiekopieën<br /><br /> Dit selectievakje is standaard geselecteerd.|  
-    |**Optionele lettertypen** |Selecteer de Media Wizard inhoud bijwerken om op te nemen van de volgende lettertypen configureren:<br /><br /> -Chinees (ZH-CN)<br /><br /> -Chinees (ZH-HK)<br /><br /> -Chinees (ZH-TW)<br /><br /> -Japans (JA-JP)<br /><br /> -Koreaans (KO-KR)<br /><br /> Voeg deze lettertypen bij het uitvoeren van een LTI-implementatie van installatiekopieën van Windows Server en de Setup-bestanden zijn Japans, Koreaans of Chinees. Als het selectievakje voor een bijbehorende lettertype is:<br /><br /> -Geselecteerd, bevat de Wizard voor Media inhoud het lettertype in de Windows PE-installatiekopieën<br /><br /> -Uitgeschakeld, neemt de Wizard voor Media inhoud niet het lettertype in de Windows PE-installatiekopieën<br /><br /> Lettertypen toe te voegen aan Windows PE-opstartinstallatiekopieën neemt de grootte van de installatiekopieën. Alleen indien nodig, kunt u lettertypen toevoegen.|  
+    |**Optionele lettertypen** |Selecteer de Media Wizard inhoud bijwerken om op te nemen van de volgende lettertypen configureren:<br /><br /> - Chinese (ZH-CN)<br /><br /> -Chinees (ZH-HK)<br /><br /> -Chinees (ZH-TW)<br /><br /> -Japans (JA-JP)<br /><br /> -Koreaans (KO-KR)<br /><br /> Voeg deze lettertypen bij het uitvoeren van een LTI-implementatie van installatiekopieën van Windows Server en de Setup-bestanden zijn Japans, Koreaans of Chinees. Als het selectievakje voor een bijbehorende lettertype is:<br /><br /> -Geselecteerd, bevat de Wizard voor Media inhoud het lettertype in de Windows PE-installatiekopieën<br /><br /> -Uitgeschakeld, neemt de Wizard voor Media inhoud niet het lettertype in de Windows PE-installatiekopieën<br /><br /> Lettertypen toe te voegen aan Windows PE-opstartinstallatiekopieën neemt de grootte van de installatiekopieën. Alleen indien nodig, kunt u lettertypen toevoegen.|  
 
  De media-configuratie-instellingen worden opgeslagen en het medium wordt weergegeven in het detailvenster van de implementatie-Workbench.  
 
-######  <a name="ConfiguretheMediaPropertiesWindowsPEx64SettingsTab"></a>Configureren van de Media-eigenschappen van Windows PE x64 tabblad instellingen  
+######  <a name="ConfiguretheMediaPropertiesWindowsPEx64SettingsTab"></a> Configureren van de Media-eigenschappen van Windows PE x64 tabblad instellingen  
  De media-eigenschappen op de **instellingen voor Windows PE x64** tabblad worden geconfigureerd wanneer u de Wizard Nieuwe Media worden uitgevoerd. U kunt echter de gekoppelde eigenschappen van implementatieshare bijwerken op de **instellingen voor Windows PE x64** tabblad van de ***media*** **eigenschappen** in het dialoogvenster (waarbij  *Media* is de naam van de media in de Workbench-implementatie).  
 
 ###### <a name="to-configure-the-windows-pe-x64-settings-tab"></a>Het tabblad Windows PE x64 instellingen configureren  
@@ -4043,7 +4042,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  De media-configuratie-instellingen worden opgeslagen en het medium wordt weergegeven in het detailvenster van de implementatie-Workbench.  
 
-######  <a name="ConfiguretheMediaPropertiesWindowsPEx64ComponentsTab"></a>Configureren van de Media-eigenschappen van Windows PE x64 tabblad onderdelen  
+######  <a name="ConfiguretheMediaPropertiesWindowsPEx64ComponentsTab"></a> Configureren van de Media-eigenschappen van Windows PE x64 tabblad onderdelen  
  De media-eigenschappen op de **onderdelen van Windows PE x64** tabblad worden geconfigureerd wanneer u de Wizard Nieuwe Media worden uitgevoerd. U kunt echter de gekoppelde eigenschappen van implementatieshare bijwerken op de **onderdelen van Windows PE x64** tabblad van de ***media*** **eigenschappen** in het dialoogvenster (waarbij  *Media* is de naam van de media in de Workbench-implementatie).  
 
 ###### <a name="to-configure-the-windows-pe-x64-components-tab"></a>Het tabblad Windows PE x64 onderdelen configureren  
@@ -4072,20 +4071,20 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     |**Alle stuurprogramma's voor massaopslag in de geselecteerde groep opnemen** |Selecteer het configureren van de Media Wizard inhoud bijwerken zodat alle stuurprogramma's voor massaopslag in het profiel voor uw selectie. Als het selectievakje is:<br /><br /> -Geselecteerd, bevat de Wizard voor Media inhoud alle stuurprogramma's voor massaopslag in het profiel selectie is opgegeven in de **selectie profiel**vak in de Windows PE-installatiekopieën<br /><br /> -Uitgeschakeld, de Wizard voor Media inhoud niet neemt alle stuurprogramma's voor massaopslag in het profiel selectie is opgegeven in de **selectie profiel** vak in de Windows PE-installatiekopieën<br /><br /> Dit selectievakje is alleen beschikbaar als u selecteert **bevatten alleen stuurprogramma's van de volgende typen**.|  
     |**Bevat alle klasse system-stuurprogramma's in de geselecteerde groep** |Selecteer voor het configureren van de Media Wizard inhoud bijwerken om op te nemen van alle klasse system-stuurprogramma's in het profiel selectie gekozen. Als het selectievakje is:<br /><br /> -Geselecteerd, bevat de Wizard voor Media inhoud alle klasse system-stuurprogramma's in de selectie-profiel dat is opgegeven in de **selectie profiel** vak in de Windows PE-installatiekopieën<br /><br /> -Uitgeschakeld, de Wizard voor Media inhoud niet bevat alle systeemklasse stuurprogramma's in de selectie-profiel dat is opgegeven in de **selectie profiel** vak in de Windows PE-installatiekopieën<br /><br /> Dit selectievakje is alleen beschikbaar als u selecteert **bevatten alleen stuurprogramma's van de volgende typen**.|  
     |**ADO** |Selecteer de optionele ADO-onderdelen toevoegen aan de Windows PE-installatiekopieën. Deze onderdelen zijn vereist voor toegang tot SQL Server-databases, zoals de MDT-database. Als dit selectievakje is:<br /><br /> -Geselecteerd, worden de ADO-onderdelen toegevoegd aan de Windows PE-installatiekopieën<br /><br /> -Uitgeschakeld, worden de onderdelen ADO niet toegevoegd aan de Windows PE-installatiekopieën<br /><br /> Dit selectievakje is standaard geselecteerd.|  
-    |**Optionele lettertypen** |Gebruik voor het configureren van de Media Wizard inhoud bijwerken als u wilt de volgende lettertypen opnemen:<br /><br /> -Chinees (ZH-CN)<br /><br /> -Chinees (ZH-HK)<br /><br /> -Chinees (ZH-TW)<br /><br /> -Japans (JA-JP)<br /><br /> -Koreaans (KO-KR)<br /><br /> Deze lettertypen toevoegen bij het uitvoeren van een LTI-implementatie van installatiekopieën van Windows Server wanneer de Setup-bestanden Japans, Koreaans of Chinees. Als het selectievakje voor een bijbehorende lettertype is:<br /><br /> -Geselecteerd, bevat de Wizard voor Media inhoud het lettertype in de Windows PE-installatiekopieën<br /><br /> -Uitgeschakeld, neemt de Wizard voor Media inhoud niet het lettertype in de Windows PE-installatiekopieën<br /><br /> Lettertypen toe te voegen aan Windows PE-opstartinstallatiekopieën neemt de grootte van de installatiekopieën. Alleen indien nodig, kunt u lettertypen toevoegen.|  
+    |**Optionele lettertypen** |Gebruik voor het configureren van de Media Wizard inhoud bijwerken als u wilt de volgende lettertypen opnemen:<br /><br /> - Chinese (ZH-CN)<br /><br /> -Chinees (ZH-HK)<br /><br /> -Chinees (ZH-TW)<br /><br /> -Japans (JA-JP)<br /><br /> -Koreaans (KO-KR)<br /><br /> Deze lettertypen toevoegen bij het uitvoeren van een LTI-implementatie van installatiekopieën van Windows Server wanneer de Setup-bestanden Japans, Koreaans of Chinees. Als het selectievakje voor een bijbehorende lettertype is:<br /><br /> -Geselecteerd, bevat de Wizard voor Media inhoud het lettertype in de Windows PE-installatiekopieën<br /><br /> -Uitgeschakeld, neemt de Wizard voor Media inhoud niet het lettertype in de Windows PE-installatiekopieën<br /><br /> Lettertypen toe te voegen aan Windows PE-opstartinstallatiekopieën neemt de grootte van de installatiekopieën. Alleen indien nodig, kunt u lettertypen toevoegen.|  
 
  De media-configuratie-instellingen worden opgeslagen en het medium wordt weergegeven in het detailvenster van de implementatie-Workbench.  
 
-#####  <a name="CopyMediaintheDeploymentWorkbench"></a>Media in de implementatie-Workbench kopiëren  
+#####  <a name="CopyMediaintheDeploymentWorkbench"></a> Media in de implementatie-Workbench kopiëren  
  U kunt kopiëren en plakken van media in de implementatie-Workbench door middel de **kopie** en **plakken** acties zoals beschreven in [kopiëren Items in de implementatie-Workbench](#CopyItemsintheDeploymentWorkbench).  
 
-#####  <a name="MoveMediaintheDeploymentWorkbench"></a>Media in de implementatie-Workbench verplaatsen  
+#####  <a name="MoveMediaintheDeploymentWorkbench"></a> Media in de implementatie-Workbench verplaatsen  
  U kunt media in de implementatie-Workbench door middel verplaatsen de **Knippen** en **plakken** acties zoals beschreven in [Items verplaatsen in de Implementatieworkbench](#MoveItemsintheDeploymentWorkbench).  
 
-#####  <a name="DeleteMediafromtheDeploymentWorkbench"></a>Media verwijderen uit de Workbench-implementatie  
+#####  <a name="DeleteMediafromtheDeploymentWorkbench"></a> Media verwijderen uit de Workbench-implementatie  
  U kunt media in de Workbench-implementatie met behulp van de Wizard geselecteerde Items verwijderen zoals beschreven verwijderen [Verwijderingsitems uit de implementatie-Workbench](#DeleteItemsfromtheDeploymentWorkbench). De Wizard geselecteerde Items verwijderen kunt u afzonderlijke media verwijderen.  
 
-#####  <a name="GenerateMediaImagesintheDeploymentWorkbench"></a>Media-afbeeldingen in de implementatie-Workbench genereren  
+#####  <a name="GenerateMediaImagesintheDeploymentWorkbench"></a> Media-afbeeldingen in de implementatie-Workbench genereren  
  U kunt media-afbeeldingen van de media-inhoud in de Workbench-implementatie met behulp van de Wizard Update Media-inhoud genereren. De Bijwerkwizard van de Media-inhoud wordt gemaakt van installatiekopieën van het WIM-bestand van de mediainhoud die u gebruiken kunt voor zelfstandige implementaties van LTI vanaf media uitvoeren. Zorg ervoor dat er voldoende opslagruimte voor de map met de media-inhoud voorafgaand aan de Wizard Update Media-inhoud bestaat, zoals de wizard niet controleert of er voldoende opslagruimte bestaat vóór het genereren van de media-inhoud.  
 
 > [!NOTE]
@@ -4109,7 +4108,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
     |**Op deze wizardpagina** |**Dit doet** |  
     |-----------------------------|-----------------|  
-    |**Voortgang** |De voortgang van het replicatieproces weergeven.|  
+    |**Progress** |De voortgang van het replicatieproces weergeven.|  
     |**Bevestiging** |U kunt klikken op **uitvoer opslaan** de uitvoer van de wizard opslaan in een bestand. U kunt ook klikken op **Script weergeven** om weer te geven van de Windows PowerShell-scripts gebruikt voor het uitvoeren van taken van de wizard.<br /><br /> Klik op **Voltooien**.|  
 
 > [!NOTE]
@@ -4127,7 +4126,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  U kunt ook maken met een opstartbaar apparaat met een kopie van de *media_folder*\Content map (waar *media_folder* is de naam van de map die u hebt opgegeven voor de media) zodat u kunt een doel starten de computer via een USB-Flashstation of een USB-harde schijf. Zie voor meer informatie [opstartbare apparaten maken van Media voor implementatie van](#CreateBootableDevicesfromDeploymentMedia).  
 
-#####  <a name="CreateBootableDevicesfromDeploymentMedia"></a>Opstartbare apparaten maken van Media voor implementatie  
+#####  <a name="CreateBootableDevicesfromDeploymentMedia"></a> Opstartbare apparaten maken van Media voor implementatie  
  Mogelijk moet u installatiekopieën implementeren op doelcomputers via een opstartbaar apparaat (zoals een USB-Flashstation of een USB-hardeschijf) wanneer de doelcomputer geen een snelle, permanente verbinding met een implementatieshare.  
 
 > [!NOTE]
@@ -4143,34 +4142,34 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
     -   **Selecteer schijf *N***  
 
-    -   **opschonen**  
+    -   **clean**  
 
     -   **maken van primaire partitie**  
 
     -   **Selecteer partitie 1**  
 
-    -   **actieve**  
+    -   **Actieve**  
 
     -   **Formatteer fs ntfs =**  
 
-    -   **toewijzen**  
+    -   **assign**  
 
-    -   **afsluiten**  
+    -   **exit**  
 
 4.  Kopieer de inhoud van de *media_folder*\Content map (waarbij *media_folder* is de naam van de map die u hebt opgegeven in de media) op het apparaat.  
 
-####  <a name="ManagetheMDTDB"></a>Beheren van de MDT-DB  
+####  <a name="ManagetheMDTDB"></a> Beheren van de MDT-DB  
  De MDT-DB verbetert de configuratie die CustomSettings.ini voor zowel LTI als ZTI-implementaties bevat. De MDT-database kunt u voor het centraal beheren van configuratie-instellingen voor de doelcomputers. Hoewel u grootschalige implementaties met behulp van het CustomSettings.ini-bestand uitvoeren kunt, verkleint de MDT-DB de moeite noodzaak voor het beheren van dergelijke implementaties.  
 
  Zie voor meer informatie over het beheren van de MDT-database, uitvoeren van implementaties met behulp van de MDT-database.  
 
  U kunt de MDT-database met behulp van de MDT Windows PowerShell-cmdlets beheren maar ook voor het beheren van de MDT-database in de implementatie-Workbench. Zie voor meer informatie over het beheren van de MDT-DB MDT Windows PowerShell-cmdlets gebruiken in de volgende secties onder de sectie 'MDT Windows PowerShell-Cmdlets' in het document MDT *Toolkit verwijzing*:  
 
--   **Nieuwe MDTDatabase**  
+-   **New-MDTDatabase**  
 
--   **Update MDTDatabaseSchema**  
+-   **Update-MDTDatabaseSchema**  
 
-###  <a name="ConfiguringLTITaskSequenceStepsintheDeploymentWorkbench"></a>Configureren van de Takenreeks LTI stappen in de Workbench-implementatie  
+###  <a name="ConfiguringLTITaskSequenceStepsintheDeploymentWorkbench"></a> Configureren van de Takenreeks LTI stappen in de Workbench-implementatie  
  Configureer LTI taakreeksen stappen in de implementatie-Workbench door:  
 
 -   LTI taak sequence stap voorwaarden configureren zoals beschreven in [taak Sequence stap voorwaarden configureren](#ConfigureTaskSequenceStepConditions)  
@@ -4183,7 +4182,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 -   Configureren van de **Bios controleren** takenreeksstap naar een lijst met systeemversies incompatibel basic input/output (BIOS) bevatten, zoals beschreven in [controleren BIOS stap in de Takenreeks configureren voor de lijst van niet-compatibele BIOS Versies](#ConfiguretheCheckBIOSTaskSequenceStepfortheListofIncompatibleBIOSVersions)  
 
-####  <a name="ConfigureTaskSequenceStepConditions"></a>Taak Sequence stap voorwaarden configureren  
+####  <a name="ConfigureTaskSequenceStepConditions"></a> Taak Sequence stap voorwaarden configureren  
  In bepaalde scenario's, kunt u een takenreeksstap op basis van de gedefinieerde criteria voorwaardelijk uitgevoerd. Taak sequence stap voorwaarden configureren op de **opties** tabblad van een takenreeksstap. Voeg elke combinatie van deze voorwaarden om te bepalen of de takenreeksstap moet worden uitgevoerd. U kunt bijvoorbeeld de waarden van een takenreeksvariabele en een registerinstelling om te bepalen of een takenreeksstap moet worden uitgevoerd.  
 
  Configureer voorwaardelijke takenreeksstappen door een combinatie van de volgende acties uitvoeren:  
@@ -4204,7 +4203,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 -   Toevoegen van de test voor verschillende eigenschappen van een takenreeksstap stap groepsvoorwaarde bestand, zoals beschreven in [een Test bestandseigenschappen toevoegen aan taak Sequence stap voorwaarden](#AddaTestforFilePropertiestoTaskSequenceStepConditions).  
 
-#####  <a name="AddIFStatementstoTaskSequenceStepConditions"></a>Toevoegen als instructies aan taak stap voorwaarden sequentiëren  
+#####  <a name="AddIFStatementstoTaskSequenceStepConditions"></a> Toevoegen als instructies aan taak stap voorwaarden sequentiëren  
  Alle taak takenreeks voorwaarden zijn een of meer `IF` instructies die de basis voor het maken van voorwaardelijke taak stappen. Een takenreeksstap stap groepsvoorwaarde kan slechts één bevatten `IF` instructie, maar u kunt meerdere nesten `IF` instructies onder het hoogste niveau `IF` instructie complexere voorwaarden maken.  
 
  Testen van een instructie op basis van de voorwaarden die worden vermeld in de tabel 77, dat u configureert in de `IF` **instructie-eigenschappen** in het dialoogvenster.  
@@ -4225,7 +4224,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 2.  In de  **`If` instructie-eigenschappen** in het dialoogvenster, klikt u op ***voorwaarde*** (waarbij *voorwaarde* is een van de voorwaarden die worden vermeld in de tabel 77), en klik vervolgens op  **OK**.  
 
-#####  <a name="AddTaskSequenceVariablestoTaskSequenceStepConditions"></a>Takenreeksvariabelen taak Sequence stap voorwaarden toevoegen  
+#####  <a name="AddTaskSequenceVariablestoTaskSequenceStepConditions"></a> Takenreeksvariabelen taak Sequence stap voorwaarden toevoegen  
  Voorwaarden op basis van een takenreeksvariabele (inclusief mappen die MDT definieert) maken. Deze variabelen worden ook de omgevingsvariabelen die beschikbaar zijn in het besturingssysteem.  
 
  Voor het configureren van een voorwaarde op basis van een takenreeksvariabele, geef de volgende informatie in de **Takenreeksstap variabele groepsvoorwaarde** in het dialoogvenster:  
@@ -4246,7 +4245,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 4.  In de **Takenreeksvariabelevoorwaarde** het dialoogvenster de **vak waarde**, type ***waarde*** (waarbij de waarde is de *waarde* van de taak variabele), en klik vervolgens op **OK**.  
 
-#####  <a name="AddOperatingSystemVersionstoTaskSequenceStepConditions"></a>Versies van besturingssystemen aan taak Sequence stap voorwaarden toevoegen  
+#####  <a name="AddOperatingSystemVersionstoTaskSequenceStepConditions"></a> Versies van besturingssystemen aan taak Sequence stap voorwaarden toevoegen  
  Maken van de voorwaarden op basis van de besturingssysteemversie door op te geven van de volgende informatie in de **Takenreeksstap OS groepsvoorwaarde** in het dialoogvenster:  
 
 -   **Architectuur**. De naam van de instructie ingesteld waarop het besturingssysteem is ontworpen, x86 of x64  
@@ -4265,8 +4264,8 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 4.  In de **Takenreeksstap OS groepsvoorwaarde** het dialoogvenster de **vak voorwaarde**, klikt u op ***voorwaarde*** (waarbij *voorwaarde* is de logische bewerking moet worden gebruikt in de voorwaarde), en klik vervolgens op **OK**.  
 
-#####  <a name="AddWMIQueriestoTaskSequenceStepConditions"></a>WMI-query's aan taak Sequence stap voorwaarden toevoegen  
- U kunt de WMI-query's in een takenreeksstap groepsvoorwaarde. WMI is de primaire beheerserver-technologie voor Windows-besturingssystemen en kunt u consistent en uniform beheer, beheren en bewaken van systemen in de hele onderneming. WMI kunt op basis van industrienormen, u een query, wijzigen en configuratie-instellingen op desktop- en systemen, toepassingen, netwerken en andere enterprise-onderdelen bewaken. U kunt ook scripts die gebruikmaken van de WMI scripting-bibliotheek voor het werken met WMI en maken van een breed scala aan Systeembeheer en bewakingsscripts schrijven. Zie voor meer informatie over WMI de [WMI Scripting Primer](http://www.microsoft.com/technet/scriptcenter/guide/sas_wmi_overview.mspx?mfr=true).  
+#####  <a name="AddWMIQueriestoTaskSequenceStepConditions"></a> WMI-query's aan taak Sequence stap voorwaarden toevoegen  
+ U kunt de WMI-query's in een takenreeksstap groepsvoorwaarde. WMI is de primaire beheerserver-technologie voor Windows-besturingssystemen en kunt u consistent en uniform beheer, beheren en bewaken van systemen in de hele onderneming. WMI kunt op basis van industrienormen, u een query, wijzigen en configuratie-instellingen op desktop- en systemen, toepassingen, netwerken en andere enterprise-onderdelen bewaken. U kunt ook scripts die gebruikmaken van de WMI scripting-bibliotheek voor het werken met WMI en maken van een breed scala aan Systeembeheer en bewakingsscripts schrijven. Zie voor meer informatie over WMI de [WMI Scripting Primer](https://technet.microsoft.com/library/ee156560.aspx).  
 
  Geef de volgende informatie in voor het configureren van een voorwaarde op basis van een WMI-voorwaarde de **Takenreeksstap WMI groepsvoorwaarde** in het dialoogvenster:  
 
@@ -4282,7 +4281,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 3.  In de **Takenreeksstap WMI groepsvoorwaarde** het dialoogvenster de **vak WQL-query**, typt u het script query worden uitgevoerd en klik vervolgens op **OK**.  
 
-#####  <a name="AddRegistrySettingstoTaskSequenceStepConditions"></a>Registerinstellingen aan taak Sequence stap voorwaarden toevoegen  
+#####  <a name="AddRegistrySettingstoTaskSequenceStepConditions"></a> Registerinstellingen aan taak Sequence stap voorwaarden toevoegen  
  Registerinstellingen evalueren tijdens de takenreeks; op basis van de gedefinieerde criteria, kies of u aanvullende processen uitvoeren. Het register bevat twee fundamentele onderdelen: sleutels en waarden.  
 
 -   Registersleutels zijn vergelijkbaar met mappen. Elke sleutel mag subsleutels die op zijn beurt meer subsleutels bevatten kunnen, die allemaal waarden kunnen bevatten. Sleutels wordt verwezen met de syntaxis is vergelijkbaar met Windows-padnamen met backslashes (\\) om aan te geven niveaus van hiërarchie. Bijvoorbeeld: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows** verwijst naar de subsleutel **Windows** van de subsleutel **Microsoft** van de sleutel **Software** van de substructuur **HKEY_LOCAL_MACHINE**.  
@@ -4303,7 +4302,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 -   **Sleutel**. De waarde van de registersleutel moet worden gebruikt in de voorwaarde  
 
--   **Voorwaarde**. Een logische operator, zoals `AND` of`OR`  
+-   **Voorwaarde**. Een logische operator, zoals `AND` of `OR`  
 
 -   **Waardenaam**. De naam van de waarde moet worden gebruikt in de voorwaarde  
 
@@ -4333,7 +4332,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 7.  In de **registerinstelling** het dialoogvenster de **vak waarde**, typt u de waarde voor welke test zal optreden en klik vervolgens op **OK**.  
 
-#####  <a name="AddaTestforInstalledSoftwaretoTaskSequenceStepConditions"></a>Een Test van geïnstalleerde Software toevoegen aan voorwaarden taak Sequence-stap  
+#####  <a name="AddaTestforInstalledSoftwaretoTaskSequenceStepConditions"></a> Een Test van geïnstalleerde Software toevoegen aan voorwaarden taak Sequence-stap  
  U kunt de geïnstalleerde software op basis van de productinformatie in het Microsoft Installer (MSI)-bestand evalueren. U kunt deze informatie overeen met een specifiek product met behulp van de productcode en de code voor de upgrade of u kunt deze overeenkomen met elke versie van dit product met alleen de code van de upgrade.  
 
 ###### <a name="to-add-an-installed-software-condition-to-a-task-sequence-step"></a>Een installatie van Software-voorwaarde toevoegen aan een takenreeksstap  
@@ -4350,7 +4349,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 4.  In de **geïnstalleerde Software** in het dialoogvenster, klikt u op **OK**.  
 
-#####  <a name="AddaTestforFolderPropertiestoTaskSequenceStepConditions"></a>Een Test voor eigenschappen van mappen toevoegen aan voorwaarden taak Sequence-stap  
+#####  <a name="AddaTestforFolderPropertiestoTaskSequenceStepConditions"></a> Een Test voor eigenschappen van mappen toevoegen aan voorwaarden taak Sequence-stap  
  U kunt de mappen op basis van eigenschappen van mappen evalueren. Test voor de tijdstempel onder een aantal voorwaarden naast het evalueren van het pad naar de map moet worden getest.  
 
  Geef voor het configureren van een voorwaarde op basis van de eigenschap van een map de volgende informatie op de **mapeigenschappen** in het dialoogvenster:  
@@ -4373,7 +4372,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 4.  In de **mapeigenschappen** in het dialoogvenster, klikt u op **OK**.  
 
-#####  <a name="AddaTestforFilePropertiestoTaskSequenceStepConditions"></a>Een Test bestandseigenschappen aan taak Sequence stap voorwaarden toevoegen  
+#####  <a name="AddaTestforFilePropertiestoTaskSequenceStepConditions"></a> Een Test bestandseigenschappen aan taak Sequence stap voorwaarden toevoegen  
  U kunt bestanden op basis van de bestandseigenschappen evalueren. Test voor de versie en een tijdstempel onder een aantal voorwaarden naast het evalueren van het pad van het bestand moet worden getest.  
 
  Geef voor het configureren van een voorwaarde op basis van een eigenschap van het bestand de volgende informatie op de **bestandseigenschappen**in het dialoogvenster:  
@@ -4400,7 +4399,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 5.  In de **bestandseigenschappen** in het dialoogvenster, klikt u op **OK**.  
 
-####  <a name="ConfigureDiskTaskSequenceSteps"></a>Takenreeksstappen schijf configureren  
+####  <a name="ConfigureDiskTaskSequenceSteps"></a> Takenreeksstappen schijf configureren  
  U kunt takenreeksen op de om Schijfinstellingen te configureren op de doelcomputer. Configureer de Schijfinstellingen in de implementatie-Workbench of in de Configuration Manager-console.  
 
  Als u wilt configureren takenreeksstappen die schijf-gerelateerde functies uitvoeren, moet u de volgende stappen uitvoeren:  
@@ -4409,7 +4408,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 -   Configureer **BitLocker inschakelen** task sequence stap typen, zoals beschreven in [configureren inschakelen BitLocker Takenreeksstappen](#ConfigureEnableBitLockerTaskSequenceSteps)  
 
-#####  <a name="ConfigureFormatandPartitionDiskTaskSequenceSteps"></a>Indeling en partitie schijf taak configureren stappen sequentiëren  
+#####  <a name="ConfigureFormatandPartitionDiskTaskSequenceSteps"></a> Indeling en partitie schijf taak configureren stappen sequentiëren  
  Takenreeksstappen op basis van de **schijf formatteren en partitioneren** stap takenreekstype toestaan meerdere partities worden gemaakt en worden doorgaans gebruikt voor het maken van secundaire partities voor het opslaan van gegevens. Aangepaste schijfpartities worden alleen ondersteund in scenario's voor nieuwe Computer.  
 
 > [!NOTE]
@@ -4458,9 +4457,9 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     |**Dit een opstartpartitie maken** |Selecteer het configureren van de takenreeksstap voor het configureren van de partitie als de opstartpartitie van de doelcomputer. Als het selectievakje is:<br /><br /> -Geselecteerd, is de partitie geconfigureerd als de opstartpartitie<br /><br /> -Uitgeschakeld, is de partitie niet geconfigureerd als de opstartpartitie|  
     |**Bestandssysteem** |Het bestandssysteem voor de indeling, wat kan bevat **NTFS** of **FAT32**.|  
     |**Snelle formattering** |Selecteer het configureren van de takenreeksstap voor het uitvoeren van een snelle formattering partitie formatteren. Als het selectievakje is:<br /><br /> -Geselecteerd, wordt de partitie-indeling uitgevoerd met het proces Snelformatteren<br /><br /> -Uitgeschakeld, wordt de partitie-indeling uitgevoerd met de standaardnotatie-proces|  
-    |**Variabele** |Bevat de naam van een takenreeksvariabele gebruikt voor het opslaan van de stationsletter die is toegewezen aan de partitie.<br /><br /> MDT maakt automatisch een extra partitie voor nieuwe computers bij het implementeren van Windows of wanneer BitLocker is aangevraagd.|  
+    |**variabele** |Bevat de naam van een takenreeksvariabele gebruikt voor het opslaan van de stationsletter die is toegewezen aan de partitie.<br /><br /> MDT maakt automatisch een extra partitie voor nieuwe computers bij het implementeren van Windows of wanneer BitLocker is aangevraagd.|  
 
-#####  <a name="ConfigureEnableBitLockerTaskSequenceSteps"></a>Schakel BitLocker Takenreeksstappen configureren  
+#####  <a name="ConfigureEnableBitLockerTaskSequenceSteps"></a> Schakel BitLocker Takenreeksstappen configureren  
  Gebruik deze taak om in te schakelen de **BitLocker** taak. BitLocker is een volledige schijfversleuteling-functie die deel uitmaken van Windows is ontworpen om gegevens te beveiligen doordat versleuteling voor de hele volumes. Standaard wordt de Advanced Encryption Standard (AES), ook wel bekend als *Rijndael*, een blokcodering vastgesteld als een versleutelingsstandaard door de Amerikaanse overheid.  
 
  De AES-algoritme in de modus met een 128-bits sleutel Cipher-block Chaining wordt vaak gecombineerd met de diffuser plaats voor extra beveiliging. BitLocker is alleen beschikbaar in de Enterprise en Ultimate-edities van Windows.  
@@ -4481,28 +4480,28 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
     -   BDEInstall TPM =  
 
-    -   BdeInstallSuppress = Nee  
+    -   BdeInstallSuppress=NO  
 
-    -   BDeWaitForEncryption = False  
+    -   BDeWaitForEncryption=False  
 
-    -   BDEDriveSize = 2000  
+    -   BDEDriveSize=2000  
 
-    -   BDEDriveLetter = S:  
+    -   BDEDriveLetter=S:  
 
-    -   BDEKeyLocation = C:  
+    -   BDEKeyLocation=C:  
 
-    -   SkipBitLocker = YES  
+    -   SkipBitLocker=YES  
 
- Zie voor meer informatie over het inschakelen van BitLocker [BitLocker Frequently Asked Questions](http://technet.microsoft.com/library/hh831507.aspx).  
+ Zie voor meer informatie over het inschakelen van BitLocker [BitLocker Frequently Asked Questions](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-frequently-asked-questions).  
 
-####  <a name="ConfigureNetworkTaskSequenceSteps"></a>Takenreeksstappen netwerk configureren  
+####  <a name="ConfigureNetworkTaskSequenceSteps"></a> Takenreeksstappen netwerk configureren  
  U kunt takenreeksen in de Workbench-implementatie voor het configureren van de netwerkinstellingen op de doelcomputer. Als u wilt configureren takenreeksstappen die netwerk-gerelateerde functies uitvoeren, moet u de volgende stappen uitvoeren:  
 
 -   Configureer **netwerkinstellingen vastleggen** takenreeksstappen zoals beschreven in [configureren vastleggen netwerk instellingen Takenreeksstappen](#ConfigureCaptureNetworkSettingsTaskSequenceSteps)  
 
 -   Configureer **netwerkinstellingen toepassen** takenreeksstappen zoals beschreven in [configureren toepassing netwerk instellingen Takenreeksstappen](#ConfigureApplyNetworkSettingsTaskSequenceSteps)  
 
-#####  <a name="ConfigureCaptureNetworkSettingsTaskSequenceSteps"></a>Vastleggen netwerk instellingen Takenreeksstappen configureren  
+#####  <a name="ConfigureCaptureNetworkSettingsTaskSequenceSteps"></a> Vastleggen netwerk instellingen Takenreeksstappen configureren  
  Takenreeksstappen op basis van de **netwerkinstellingen vastleggen** takenreeksstap kunt u de configuratie van netwerkinstellingen vastleggen voor alle netwerkadapters op de doelcomputer die statisch geconfigureerde IP-adressen voor Implementatiescenario's voor Computer vernieuwen.  
 
  De LTI taak reeks sjablonen voorzien van MDT omvatten geen een takenreeksstap op basis van de **netwerkinstellingen vastleggen** task sequence staptype. Voeg een takenreeksstap op basis van Computer vernieuwen implementatiescenario's voor de **netwerkinstellingen vastleggen** staptype volgorde in de fase voor het vastleggen van status van de taak.  
@@ -4534,7 +4533,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     |**Naam** |Bevat de naam van de takenreeksstap die wordt weergegeven in de hiërarchie van de reeks taak|  
     |**Beschrijving** |Beschrijvende informatie over de takenreeksstap|  
 
-#####  <a name="ConfigureApplyNetworkSettingsTaskSequenceSteps"></a>Configureer de Takenreeksstappen van netwerk-instellingen toepassen  
+#####  <a name="ConfigureApplyNetworkSettingsTaskSequenceSteps"></a> Configureer de Takenreeksstappen van netwerk-instellingen toepassen  
  Takenreeksstappen op basis van de **netwerkinstellingen toepassen** stap takenreekstype toestaan dat de configuratie van de netwerkinstellingen voor elke netwerkadapter in de doelcomputer. De netwerkinstellingen die met dit type takenreeks stap configureert u zijn dezelfde instellingen geconfigureerd in de eigenschappen van een netwerkadapter.  
 
  Configureer de bijbehorende netwerkinstellingen voor elke netwerkadapter in de doelcomputer. Als geen configuratie-instellingen zijn opgegeven, de **netwerkinstellingen toepassen** type takenreeks stap configureert u de takenreeksstap die op zijn beurt configureert de netwerkadapters op de doelcomputer dynamische Host-configuratie gebruiken Protocol (DHCP) voor de configuratie.  
@@ -4580,8 +4579,8 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     |**Naam** |Bevat de naam van de netwerkadapter die wordt weergegeven in het vak op de **netwerkinstellingen toepassen** task sequence staptype **eigenschappen** tabblad.|  
     |**Een IP-adres automatisch ophalen** |Selecteer het configureren van de takenreeksstap voor het configureren van het IP-adres van de netwerkadapter op de doelcomputer met behulp van DHCP.|  
     |**Gebruik de volgende IP-adres** |Selecteer voor het configureren van de takenreeksstap voor het configureren van het IP-adres van de netwerkadapter op de doelcomputer met behulp van de waarden die u opgeeft in de **netwerkinstellingen** en **Gatewayinstellingen** vakken.|  
-    |**Netwerkinstellingen** |Bevat een lijst met IP-adressen en subnetmaskers worden geconfigureerd voor de netwerkadapter. Klik op een van de volgende om de IP-adressen en subnetmaskers in deze lijst te wijzigen:<br /><br /> -                                          **Voeg**. Een combinatie van IP-adres en subnet masker toevoegen aan de keuzelijst met invoervak.<br /><br /> -                                          **Eigenschappen**. Wijzig de IP-adres en subnetmasker voor een bestaande vermelding.<br /><br /> -                                          **Verwijder**. Verwijder een bestaande vermelding.<br /><br /> Dit selectievakje is ingeschakeld als u selecteert **het volgende IP-adres**.|  
-    |**Gateway-instellingen** |Bevat een lijst van de gateway IP-adressen en routering metrische gegevens over kosten voor de netwerkadapter moet worden geconfigureerd. Klik op een van de volgende opties om het IP-adres van de gateway en routering kosten metrische gegevens in deze lijst te wijzigen:<br /><br /> -                                          **Voeg**. Het IP-adres toevoegen en de kosten van metrische gegevens voor een gateway naar de keuzelijst met invoervak.<br /><br /> -                                          **Eigenschappen**. Wijzigen van het IP-adres en de kosten van metrische gegevens voor een gateway een bestaande vermelding.<br /><br /> -                                          **Verwijder**. Verwijder een bestaande vermelding.<br /><br /> Dit selectievakje is ingeschakeld als u selecteert **het volgende IP-adres**.|  
+    |**Netwerkinstellingen** |Bevat een lijst met IP-adressen en subnetmaskers worden geconfigureerd voor de netwerkadapter. Klik op een van de volgende om de IP-adressen en subnetmaskers in deze lijst te wijzigen:<br /><br /> -                                          **Add**. Een combinatie van IP-adres en subnet masker toevoegen aan de keuzelijst met invoervak.<br /><br /> -                                          **Eigenschappen**. Wijzig de IP-adres en subnetmasker voor een bestaande vermelding.<br /><br /> -                                          **Delete**. Verwijder een bestaande vermelding.<br /><br /> Dit selectievakje is ingeschakeld als u selecteert **het volgende IP-adres**.|  
+    |**Gateway-instellingen** |Bevat een lijst van de gateway IP-adressen en routering metrische gegevens over kosten voor de netwerkadapter moet worden geconfigureerd. Klik op een van de volgende opties om het IP-adres van de gateway en routering kosten metrische gegevens in deze lijst te wijzigen:<br /><br /> -                                          **Add**. Het IP-adres toevoegen en de kosten van metrische gegevens voor een gateway naar de keuzelijst met invoervak.<br /><br /> -                                          **Eigenschappen**. Wijzigen van het IP-adres en de kosten van metrische gegevens voor een gateway een bestaande vermelding.<br /><br /> -                                          **Delete**. Verwijder een bestaande vermelding.<br /><br /> Dit selectievakje is ingeschakeld als u selecteert **het volgende IP-adres**.|  
 
     83 tabel geeft een lijst van de configuratie-instellingen voor de **DNS** tabblad van de **netwerkinstellingen** in het dialoogvenster. Configureer de instellingen in de tabel 83 op basis van de vereisten van uw organisatie en klik vervolgens op **OK**.  
 
@@ -4591,7 +4590,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     |-----------------|---------------------|  
     |**DNS-server automatisch ophalen** |Selecteer het configureren van de takenreeksstap voor het configureren van de DNS-instellingen van de netwerkadapter op de doelcomputer met behulp van DHCP.|  
     |**Gebruik de volgende DNS-Servers** |Selecteer voor het configureren van de takenreeksstap voor het configureren van de DNS-instellingen van de netwerkadapter op de doelcomputer met behulp van de opgegeven waarden in de **DNS-serveradressen in volgorde van gebruik** vak.|  
-    |**DNS-serveradressen in volgorde van gebruik** |Bevat een lijst met IP-adressen van DNS-servers worden geconfigureerd voor de netwerkadapter. Klik op een van de volgende lijst met DNS-servers wijzigen:<br /><br /> -                                          **Voeg**. Het DNS-Server IP-adres toevoegen aan de keuzelijst met invoervak.<br /><br /> -                                          **Eigenschappen**. Wijzig de DNS-server IP-adres voor een bestaande vermelding.<br /><br /> -                                          **Verwijder**. Verwijder een bestaande vermelding.|  
+    |**DNS-serveradressen in volgorde van gebruik** |Bevat een lijst met IP-adressen van DNS-servers worden geconfigureerd voor de netwerkadapter. Klik op een van de volgende lijst met DNS-servers wijzigen:<br /><br /> -                                          **Add**. Het DNS-Server IP-adres toevoegen aan de keuzelijst met invoervak.<br /><br /> -                                          **Eigenschappen**. Wijzig de DNS-server IP-adres voor een bestaande vermelding.<br /><br /> -                                          **Delete**. Verwijder een bestaande vermelding.|  
     |**DNS-achtervoegsel** |DNS-achtervoegsel voor de domeinnaam moet worden toegevoegd aan alle DNS-query's bevat.|  
     |**Het adres van deze verbinding in DNS registreren** |Selecteer het configureren van de netwerkadapter voor het registreren van het netwerkadapters IP-adres van de primaire DNS-server. Als het selectievakje is:<br /><br /> -Geselecteerd, wordt het IP-adres van de netwerkadapter geregistreerd in DNS<br /><br /> -Uitgeschakeld, is het IP-adres van de netwerkadapter niet geregistreerd in DNS<br /><br /> Standaard is dit selectievakje geselecteerd.|  
     |**Achtervoegsel van deze verbinding gebruiken voor DNS-registratie** |Selecteer het configureren van de netwerkadapter voor het registreren van de netwerkadapter IP-adres met het achtervoegsel dat wordt vermeld in **DNS-achtervoegsel**. Als het selectievakje is:<br /><br /> -Geselecteerd, het IP-adres van de netwerkadapter wordt geregistreerd met het achtervoegsel dat wordt vermeld in **DNS-achtervoegsel**<br /><br /> -Uitgeschakeld, het IP-adres van de netwerkadapter wordt niet geregistreerd met het achtervoegsel dat wordt vermeld in **DNS-achtervoegsel**<br /><br /> Standaard is dit selectievakje niet geselecteerd.|  
@@ -4602,13 +4601,13 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
     |Instelling|**Beschrijving** |  
     |-------------|---------------------|  
-    |**WINS-serveradressen in volgorde van gebruik** |Bevat een lijst met IP-adressen van WINS-servers worden geconfigureerd voor de netwerkadapter. Klik op een van de volgende lijst met WINS-servers wijzigen:<br /><br /> -                                          **Voeg**. Het IP-adres van de WINS-server toevoegen aan het vak.<br /><br /> -                                          **Eigenschappen**. Wijzig de WINS-server IP-adres voor een bestaande vermelding.<br /><br /> -                                          **Verwijder**. Verwijder een bestaande vermelding.|  
+    |**WINS-serveradressen in volgorde van gebruik** |Bevat een lijst met IP-adressen van WINS-servers worden geconfigureerd voor de netwerkadapter. Klik op een van de volgende lijst met WINS-servers wijzigen:<br /><br /> -                                          **Add**. Het IP-adres van de WINS-server toevoegen aan het vak.<br /><br /> -                                          **Eigenschappen**. Wijzig de WINS-server IP-adres voor een bestaande vermelding.<br /><br /> -                                          **Delete**. Verwijder een bestaande vermelding.|  
     |**LMHOSTS-lookup inschakelen** |Selecteer het configureren van de netwerkadapter zodat zoekacties in de Lmhosts-bestand op de doelcomputer. Als het selectievakje is:<br /><br /> -Geselecteerd, wordt het Lmhosts-bestand gebruikt voor naamomzetting van netwerk-BIOS (NetBIOS) op de netwerkadapter<br /><br /> -Uitgeschakeld, wordt het Lmhosts-bestand niet gebruikt voor de omzetting van NetBIOS-naam op de netwerkadapter<br /><br /> Standaard is dit selectievakje niet geselecteerd.|  
     |**Standaard** |Selecteer het configureren van de netwerkadapter voor het gebruik van de standaard NetBIOS via TCP/IP-instellingen van het beoogde besturingssysteem. De overige opties zijn **NetBIOS via TCP/IP inschakelen** en **NetBIOS via TCP/IP uitschakelen**.|  
     |**NetBIOS via TCP/IP inschakelen** |Schakel NetBIOS via TCP/IP inschakelen voor de netwerkadapter. De overige opties zijn **standaard** en **NetBIOS via TCP/IP uitschakelen**.|  
     |**NetBIOS via TCP/IP uitschakelen** |Schakel NetBIOS via TCP/IP uitschakelen voor de netwerkadapter. De overige opties zijn **standaard** en **NetBIOS via TCP/IP inschakelen**.|  
 
-####  <a name="ConfigureServerRoleTaskSequenceStepsforLTI"></a>Server-rol Takenreeksstappen voor LTI configureren  
+####  <a name="ConfigureServerRoleTaskSequenceStepsforLTI"></a> Server-rol Takenreeksstappen voor LTI configureren  
  LTI kan helpen bij de implementatie van serverfuncties in Windows Server automatiseren. Configureer LTI takenreeksstappen voor het implementeren van de ondersteunde serverrollen, waaronder:  
 
 -   AD DS  
@@ -4619,7 +4618,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  Het proces voor het configureren van de takenreeksstappen van server-rol is vergelijkbaar voor de LTI en ZTI. Zie voor meer informatie over het configureren van server-rol takenreeksstappen voor LTI [configureren van Server-rol Takenreeksstappen](#ConfiguringServerRoleTaskSequenceSteps).  
 
-####  <a name="ConfiguretheCheckBIOSTaskSequenceStepfortheListofIncompatibleBIOSVersions"></a>De Takenreeksstap BIOS controle configureren voor de lijst met niet-compatibele BIOS-versies  
+####  <a name="ConfiguretheCheckBIOSTaskSequenceStepfortheListofIncompatibleBIOSVersions"></a> De Takenreeksstap BIOS controle configureren voor de lijst met niet-compatibele BIOS-versies  
  De standaardvolgorde van de taak voor een takenreeks bevat de **BIOS controleren** taak de **niet vervangen** groep in de **validatie** groep. De **BIOS controleren** taak voert het script ZTIBIOSCheck.wsf, waarmee de BIOS-versie van de doelcomputers op basis van de lijst van niet-compatibele BIOS-versies in het bestand ZTIBIOSCheck.xml wordt gecontroleerd.  
 
  Het bestand ZTIBIOSCheck.xml bevat de lijst met BIOS-versies die niet compatibel met het beoogde besturingssysteem in de build besturingssysteem wijzigen. Wijzig ZTIBIOSCheck.xml voor elke takenreeks die is gemaakt in de implementatie-Workbench. Het bestand ZTIBIOSCheck.xml bevindt zich in de *deployment_share*\Scripts map (waarbij *deployment_share* is de naam van de map die de hoofdmap van de implementatieshare is).  
@@ -4649,7 +4648,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 5.  Werk ZTIBIOSCheck.xml zodanig dat het BIOS op basis van de kenmerken in de vorige stappen opgehaald.  
 
-##  <a name="RunningtheDeploymentWizard"></a>De implementatiewizard uitvoert voor  
+##  <a name="RunningtheDeploymentWizard"></a> De implementatiewizard uitvoert voor  
  Voer de Wizard implementatie voor het initiëren van de implementatie van Windows naar de doelcomputers. Start de Wizard implementatie handmatig of met behulp van Windows Deployment Services. Elk implementatiescenario (Computer vervangen, nieuwe Computer of Computer vernieuwen) maakt gebruik van een ander proces. Start de implementatie van Windows Deployment Services, een netwerkshare van lokale stations of met een DVD. Het implementatieproces vraagt om een configuratie-instellingen niet is opgegeven.  
 
  De implementatiewizard voorafgaand aan de Wizard implementatie wordt uitgevoerd en is verantwoordelijk voor het initialiseren van de omgeving. De Wizard implementatie geeft wizardpagina's op basis van het implementatiescenario dat u hebt geselecteerd en de configuratieopties die u hebt opgegeven in CustomSettings.ini. De logica voor het weergeven (of niet worden weergegeven) een wizardpagina voor elke pagina van de wizard in de volgende stappen wordt vermeld.  
@@ -4662,7 +4661,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
     ### <a name="table-86-folders-to-remove-before-initiating-the-deployment-wizard"></a>Tabel 86. Mappen die u wilt verwijderen voordat u begint de implementatiewizard  
 
-    |**Map** |**Beschrijving** |  
+    |**Folder** |**Beschrijving** |  
     |----------------|---------------------|  
     |*target_drive:*\MININT|Deze map blijft behouden door middel van het implementatieproces en bevat informatie over de implementatie status (zoals informatie over migratie van gebruikersstatus en logboekbestanden).|  
     |*target_drive:\\_SMSTaskSequence* |Deze map bevat statusinformatie die specifiek zijn voor de Taaksequencer.|  
@@ -4709,8 +4708,8 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     |**Eigenschap** |**Voorwaarde** |  
     |------------------|-------------------|  
     |**UserID_isDirty** |Gelijk zijn aan de waarde TRUE|  
-    |**Gebruikers-id** |Gelijk aan ""|  
-    |**DeploymentType** |Is niet gelijk aan vervangen|  
+    |**UserID** |Gelijk aan ""|  
+    |**deploymentType** |Is niet gelijk aan vervangen|  
     |**DeploymentMethod** |Is niet gelijk aan MEDIA|  
 
      U gebruikt deze referenties voor toegang tot gedeelde netwerkmappen gebruikt tijdens de implementatie. Deze gedeelde mappen bevatten onder andere mappen die worden gebruikt voor het opslaan van de gebruiker migratie gegevens- of image-ups van de doelcomputer.  
@@ -4740,8 +4739,8 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     |------------------|-------------------|  
     |**SkipComputerName** |Is niet gelijk aan Ja|  
     |**SkipDomainMembership** |Is niet gelijk aan Ja|  
-    |**DeploymentType** |Is niet gelijk aan StateRestore of vervangen of aangepast|  
-    |**DeploymentType** |Is niet gelijk aan vervangen|  
+    |**deploymentType** |Is niet gelijk aan StateRestore of vervangen of aangepast|  
+    |**deploymentType** |Is niet gelijk aan vervangen|  
 
     ### <a name="table-92-specify-computer-membership-configuration"></a>Tabel 92. Lidmaatschap van de configuratie van Computer opgeven  
 
@@ -4761,7 +4760,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     |**Eigenschap** |Voorwaarde|  
     |------------------|---------------|  
     |**SkipUserData** |**Is niet gelijk aan Ja** |  
-    |**DeploymentType** |Niet gelijk is aan vernieuwen of vervangen of StateRestore|  
+    |**deploymentType** |Niet gelijk is aan vernieuwen of vervangen of StateRestore|  
     |**ImageFlags** |Bevat geen SERVER|  
     |**IsServerOS** |Is niet gelijk aan de waarde TRUE|  
 
@@ -4784,7 +4783,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     |**Eigenschap** |**Voorwaarde** |  
     |------------------|-------------------|  
     |**SkipUserData** |Is niet gelijk aan Ja|  
-    |**DeploymentType** |Gelijk zijn aan NEWCOMPUTER|  
+    |**deploymentType** |Gelijk zijn aan NEWCOMPUTER|  
     |**ImageFlags** |Bevat geen SERVER|  
     |**IsServerOS** |Is niet gelijk aan de waarde TRUE|  
     |**FindTaskSequenceStep** |Takenreeks bevat **Offline gebruiker 11statusregistratiefase** en **ZTIUserState.wsf** |  
@@ -4807,7 +4806,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     |**Eigenschap** |**Voorwaarde** |  
     |------------------|-------------------|  
     |**SkipUserData** |Is niet gelijk aan Ja|  
-    |**DeploymentType** |Gelijk is aan NEWCOMPUTER of StateRestore en niet gelijk is aan aangepaste|  
+    |**deploymentType** |Gelijk is aan NEWCOMPUTER of StateRestore en niet gelijk is aan aangepaste|  
     |**ImageFlags** |Bevat geen SERVER|  
     |**IsServerOS** |Is niet gelijk aan de waarde TRUE|  
 
@@ -4827,7 +4826,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     |**Eigenschap** |**Voorwaarde** |  
     |------------------|-------------------|  
     |**SkipComputerBackup** |Is niet gelijk aan Ja|  
-    |**DeploymentType** |Niet gelijk zijn aan NEWCOMPUTER en niet gelijk zijn aan aangepaste en niet gelijk zijn aan STATERESTORE en gelijk zijn aan vernieuwen of gelijk aan vervangen|  
+    |**deploymentType** |Niet gelijk zijn aan NEWCOMPUTER en niet gelijk zijn aan aangepaste en niet gelijk zijn aan STATERESTORE en gelijk zijn aan vernieuwen of gelijk aan vervangen|  
 
     ### <a name="table-100-computer-backup-options"></a>Tabel 100. Back-upopties van computer  
 
@@ -4851,7 +4850,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     |**Eigenschap** |**Voorwaarde** |  
     |------------------|-------------------|  
     |**SkipProductKey** |Niet gelijk aan Ja.|  
-    |**DeploymentType** |Niet gelijk is aan vervangen en niet gelijk is aan aangepaste en niet gelijk is aan StateRestore.|  
+    |**deploymentType** |Niet gelijk is aan vervangen en niet gelijk is aan aangepaste en niet gelijk is aan StateRestore.|  
 
     ### <a name="table-102-product-key-options"></a>102 van de tabel. Product Sleutelopties  
 
@@ -4873,7 +4872,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     |**Eigenschap** |**Voorwaarde** |  
     |------------------|-------------------|  
     |**SkipPackageDisplay** |Is niet gelijk aan Ja|  
-    |**DeploymentType** |Is niet gelijk aan vervangen of aangepast|  
+    |**deploymentType** |Is niet gelijk aan vervangen of aangepast|  
     |**ImageBuild** |Het eerste teken in de eigenschap is gelijk aan 6 (dit geeft aan dat de Windows 7, Windows 8 of Windows 8.1-build) en er zijn actieve pakketten weer te geven voor de gebruiker.|  
 
      U kunt meer dan één taal selecteren voor Ultimate, Enterprise en alle edities van Windows Server. Selecteer slechts één taal voor alle andere Windows-edities.  
@@ -4887,7 +4886,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     |**Eigenschap** |**Voorwaarde** |  
     |------------------|-------------------|  
     |**SkipLocaleSelection** |Niet gelijk aan Ja.|  
-    |**DeploymentType** |Niet gelijk aan vervangen of aangepast.|  
+    |**deploymentType** |Niet gelijk aan vervangen of aangepast.|  
     |**ImageBuild** |Het eerste teken in de eigenschap is gelijk aan 6 (dit geeft aan dat de Windows 7, Windows 8 of Windows 8.1-build).|  
 
     ### <a name="table-105-locale-and-time-options"></a>105 van de tabel. Landinstellingen- en tijdopties  
@@ -4932,7 +4931,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     |**Eigenschap** |**Voorwaarde** |  
     |------------------|-------------------|  
     |**SkipApplications** |Is niet gelijk aan Ja|  
-    |**DeploymentType** |Is niet gelijk aan vervangen|  
+    |**deploymentType** |Is niet gelijk aan vervangen|  
     |**IsThereAtLeastOneApplicationPresent** |Meer dan één|  
 
 17. Op de **beheerderswachtwoord** pagina in de **beheerderswachtwoord** en **Administrator-wachtwoord bevestigen** vakken, type ***wachtwoord***(waarbij *wachtwoord* is het wachtwoord voor de lokale ingebouwde beheerdersaccount op de doelcomputer), en klik vervolgens op **volgende**.  
@@ -4944,7 +4943,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     |**Eigenschap** |**Voorwaarde** |  
     |------------------|-------------------|  
     |**SkipAdminPassword** |Is niet gelijk aan Ja|  
-    |**DeploymentType** |Is niet gelijk aan vervangen of aangepast|  
+    |**deploymentType** |Is niet gelijk aan vervangen of aangepast|  
     |**TaskSequenceTemplate** |LTIOEM niet gelijk zijn. XML|  
 
 18. Op de **lokale beheerders** pagina in de **beheerdersaccounts**in het vak ***admin_accounts*** (waarbij *admin_accounts* zijn de accounts die u wilt toevoegen aan de lokale ingebouwde beheerdersaccount op de doelcomputer), en klik vervolgens op **volgende**.  
@@ -4956,7 +4955,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     |**Eigenschap** |**Voorwaarde** |  
     |------------------|-------------------|  
     |**SkipAdminAccounts** |Is niet gelijk aan Ja|  
-    |**DeploymentType** |Niet gelijk zijn aan vervangen en niet gelijk is aan aangepaste|  
+    |**deploymentType** |Niet gelijk zijn aan vervangen en niet gelijk is aan aangepaste|  
     |**JoinDomain** |Niet gelijk aan ""|  
 
     > [!NOTE]
@@ -4971,7 +4970,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     |**Eigenschap** |**Voorwaarde** |  
     |------------------|-------------------|  
     |**SkipCapture** |Is niet gelijk aan Ja|  
-    |**DeploymentType** |Niet gelijk is aan vernieuwen of niet gelijk zijn aan vervangen|  
+    |**deploymentType** |Niet gelijk is aan vernieuwen of niet gelijk zijn aan vervangen|  
     |**JoinDomain** |Gelijk aan ""|  
 
     ### <a name="table-112-capture-image-options"></a>Tabel 112. Opties voor de installatiekopie vastleggen  
@@ -4992,7 +4991,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     |**Eigenschap** |**Voorwaarde** |  
     |------------------|-------------------|  
     |**SkipBitLocker** |Niet gelijk aan Ja.|  
-    |**DeploymentType** |Gelijk zijn aan vervangen of aangepast.|  
+    |**deploymentType** |Gelijk zijn aan vervangen of aangepast.|  
     |**DoCapture** |Niet gelijk aan Ja of niet gelijk zijn aan voorbereiden.|  
     |**ImageBuild** |Het eerste teken in de eigenschap is gelijk aan 6 (waarmee wordt aangegeven met een besturingssysteem dat is Windows Vista of hoger).|  
     |**ImageFlags** |Gelijk zijn aan ENTERPRISE of ULTIMATE.|  
@@ -5002,7 +5001,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     |**Optie** |**Selecteer deze optie om** |  
     |----------------|-------------------------------|  
     |**BitLocker inschakelen voor deze computer** |Het nieuwe besturingssysteem kan implementeren zonder BitLocker te activeren.|  
-    |**BitLocker inschakelen** |Activeren van BitLocker en TPM versie 1.2 of hoger gebruiken. Selecteer een van de volgende opties voor het gebruik van TPM:<br /><br /> -TPM om alleen te gebruiken, selecteert u **BitLocker inschakelen met alleen TPM**.<br /><br /> -Schakel als u de TPM met een PINCODE **BitLocker inschakelen met behulp van TPM en een PINCODE**; in de **pincode** in het vak ***pincode*** (waarbij *pincode* wordt de BitLocker-PINCODE voor de doelcomputer).<br /><br /> De opgegeven waarde kan worden numerieke alleen of alfanumeriek afhankelijk van de waarde van de **BDEAllowAlphaNumericPin** eigenschap.<br /><br /> -Schakel als u de TPM met een opstartsleutel **BitLocker inschakelen met behulp van de TPM en een opstartsleutel**; in het vak, selecteer het station waarop de opstartsleutel zich bevindt.<br /><br /> -Schakel als u een externe opstartsleutel **BitLocker inschakelen met behulp van een externe opstartsleutel**; in het vak, selecteer het station waarop de externe opstartsleutel zich bevindt.<br /><br /> -Voor het opslaan van de herstelsleutel in AD DS onder **kiezen waar de herstelsleutel wordt opgeslagen**, klikt u op **In Active Directory**.<br /><br /> -Moet worden gemaakt onder een herstelsleutel **kiezen waar de herstelsleutel wordt opgeslagen**, klikt u op **maakt een herstelsleutel geen**.<br /><br /> -Voor het configureren van het implementatieproces te wachten tot de codering is voltooid op alle stations voordat u doorgaat, selecteer de **wacht totdat BitLocker-versleuteling voltooid voor alle stations voordat u doorgaat** selectievakje.|  
+    |**Enable BitLocker** |Activeren van BitLocker en TPM versie 1.2 of hoger gebruiken. Selecteer een van de volgende opties voor het gebruik van TPM:<br /><br /> -TPM om alleen te gebruiken, selecteert u **BitLocker inschakelen met alleen TPM**.<br /><br /> -Schakel als u de TPM met een PINCODE **BitLocker inschakelen met behulp van TPM en een PINCODE**; in de **pincode** in het vak ***pincode*** (waarbij *pincode* wordt de BitLocker-PINCODE voor de doelcomputer).<br /><br /> De opgegeven waarde kan worden numerieke alleen of alfanumeriek afhankelijk van de waarde van de **BDEAllowAlphaNumericPin** eigenschap.<br /><br /> -Schakel als u de TPM met een opstartsleutel **BitLocker inschakelen met behulp van de TPM en een opstartsleutel**; in het vak, selecteer het station waarop de opstartsleutel zich bevindt.<br /><br /> -Schakel als u een externe opstartsleutel **BitLocker inschakelen met behulp van een externe opstartsleutel**; in het vak, selecteer het station waarop de externe opstartsleutel zich bevindt.<br /><br /> -Voor het opslaan van de herstelsleutel in AD DS onder **kiezen waar de herstelsleutel wordt opgeslagen**, klikt u op **In Active Directory**.<br /><br /> -Moet worden gemaakt onder een herstelsleutel **kiezen waar de herstelsleutel wordt opgeslagen**, klikt u op **maakt een herstelsleutel geen**.<br /><br /> -Voor het configureren van het implementatieproces te wachten tot de codering is voltooid op alle stations voordat u doorgaat, selecteer de **wacht totdat BitLocker-versleuteling voltooid voor alle stations voordat u doorgaat** selectievakje.|  
 
     > [!NOTE]
     >  De standaardinstelling voor BitLocker is uitgeschakeld.  
@@ -5014,7 +5013,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  De Wizard wordt gesloten en implementatie van het nieuwe besturingssysteem wordt gestart.  
 
-##  <a name="PerformingZTIDeploymentsUsingConfigurationManager"></a>Uitvoeren van ZTI implementaties met Configuration Manager  
+##  <a name="PerformingZTIDeploymentsUsingConfigurationManager"></a> Uitvoeren van ZTI implementaties met Configuration Manager  
  U uitvoeren implementaties van ZTI met behulp van Configuration Manager en MDT binnen een AD DS-domein, een Windows-werkgroep, of via verwisselbare media. Implementaties van ZTI door uitvoeren:  
 
 -   Voorbereiden van de implementatieomgeving ZTI zoals beschreven in [de implementatieomgeving ZTI voorbereiden voor Configuration Manager](#PreparingtheZTIDeploymentEnvironmentforConfigurationManager)  
@@ -5027,7 +5026,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 -   Vastgelegde installatiekopieën implementeren op de doelcomputer in ZTI zoals beschreven in [implementeren vastgelegd installatiekopieën naar doel Computers met behulp van Configuration Manager](#DeployingCapturedImagestoTargetComputersUsingConfigurationManager)  
 
-###  <a name="PreparingtheZTIDeploymentEnvironmentforConfigurationManager"></a>De implementatie van ZTI omgeving voorbereiden voor Configuration Manager  
+###  <a name="PreparingtheZTIDeploymentEnvironmentforConfigurationManager"></a> De implementatie van ZTI omgeving voorbereiden voor Configuration Manager  
  Nadat u de vereiste infrastructuur hebt voorbereid voor MDT, bent u klaar voor de MDT-implementatie-omgeving voorbereiden voor ZTI.  
 
 ##### <a name="to-prepare-the-mdt-deployment-environment-for-zti-deployments"></a>De MDT-implementatie-omgeving voor implementaties van ZTI voorbereiden  
@@ -5040,7 +5039,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 4.  Integratie van de Configuration Manager-console met MDT inschakelen zoals beschreven in [inschakelen Configuration Manager-Console-integratie voor Configuration Manager](#EnableConfigurationManagerConsoleIntegrationforConfigurationManager).  
 
-####  <a name="PreparethePrerequisiteZTIInfrastructureforUsewithConfigurationManager"></a>De vereiste ZTI infrastructuur voorbereiden voor gebruik met Configuration Manager  
+####  <a name="PreparethePrerequisiteZTIInfrastructureforUsewithConfigurationManager"></a> De vereiste ZTI infrastructuur voorbereiden voor gebruik met Configuration Manager  
  Implementaties van ZTI met Configuration Manager vereist een juist geconfigureerde infrastructuur met Configuration Manager voordat MDT installeren en uitvoeren van implementaties. Zorg ervoor dat uw nieuwe of bestaande Configuration Manager-infrastructuur is speciaal geoptimaliseerd voor de functie van de implementatie van besturingssystemen.  
 
 > [!NOTE]
@@ -5048,11 +5047,11 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  Meer informatie:  
 
--   Hardware- en softwarevereisten voor Configuration Manager, Zie [ondersteunde configuraties voor Configuration Manager](http://technet.microsoft.com/library/gg682077.aspx)  
+-   Hardware- en softwarevereisten voor Configuration Manager, Zie [ondersteunde configuraties voor Configuration Manager](https://docs.microsoft.com/sccm/core/plan-design/configs/supported-configurations)  
 
 -   Configureren van een Configuration Manager-infrastructuur ter ondersteuning van implementaties van ZTI, Zie de sectie ' stap 1: De vereiste infrastructuur voorbereiden', in het document MDT *introductiehandleiding voor Microsoft System Center 2012 R2 Configuration Manager*.  
 
-####  <a name="InstallorUpgradetoMDTfortheZTIDeploymentProcessUsingConfigurationManager"></a>Installeren of upgraden van MDT voor het gebruik van Configuration Manager ZTI-implementatieproces  
+####  <a name="InstallorUpgradetoMDTfortheZTIDeploymentProcessUsingConfigurationManager"></a> Installeren of upgraden van MDT voor het gebruik van Configuration Manager ZTI-implementatieproces  
  De eerste stap bij het uitvoeren van implementaties van ZTI is dat ten minste één exemplaar van MDT uitvoert in uw omgeving. Installeer MDT op elke computer waarop de Configuration Manager-console die is geïnstalleerd en die u wilt gebruiken om te maken of bewerken van takenreeksen die MDT genereert. Als uw bestaande omgeving:  
 
 -   Er zijn geen computers die momenteel met MDT of een eerdere versie van MDT, een of meer nieuwe exemplaren van MDT installeren zoals is beschreven in [installeren van een nieuw exemplaar van MDT](#InstallingaNewInstanceofMDT).  
@@ -5070,7 +5069,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
         > [!NOTE]
         >  Als u een upgrade uitgevoerd van een eerdere versie van Configuration Manager, kunt u takenreeksen ZTI voor MDT die zijn gemaakt in de vorige versie van Configuration Manager als ze zijn gemaakt met dezelfde versie van MDT.  
 
-####  <a name="ObtaintheSoftwareThattheZTIDeploymentProcessUsingConfigurationManagerRequires"></a>De software voor het gebruik van Configuration Manager ZTI-implementatieproces  
+####  <a name="ObtaintheSoftwareThattheZTIDeploymentProcessUsingConfigurationManagerRequires"></a> De software voor het gebruik van Configuration Manager ZTI-implementatieproces  
  Verzamel de software nodig tijdens het implementatieproces ZTI voor Configuration Manager. Deze software worden geïmporteerd of toegevoegd aan implementatieshares, tenzij deze al in de implementatieshare voorkomt.  
 
 > [!NOTE]
@@ -5088,7 +5087,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 -   USMT-bronbestanden gebruikt voor het maken van een softwarepakket dat is geïmplementeerd op de doelcomputers voor het vastleggen van gegevens van de migratie van gebruikersstatus  
 
-####  <a name="EnableConfigurationManagerConsoleIntegrationforConfigurationManager"></a>Integratie van Configuration Manager-Console voor Configuration Manager inschakelen  
+####  <a name="EnableConfigurationManagerConsoleIntegrationforConfigurationManager"></a> Integratie van Configuration Manager-Console voor Configuration Manager inschakelen  
  Voordat u de Configuration Manager-integratiefuncties van MDT gebruiken kunt, moet u de Wizard Configuration Manager-integratie configureren uitvoert. Deze wizard kopieert de juiste Configuration Manager-integratie bestanden naar de *configuratie Manager_root* (waarbij *configuratie Manager_root* is de map waarin de Configuration Manager console is geïnstalleerd).  
 
  De wizard voegt ook WMI-klassen voor de nieuwe aangepaste acties in MDT. U kunt deze klassen toevoegen door het compileren van een Managed Object Format (MOF) bestand met de nieuwe klassedefinities.  
@@ -5113,7 +5112,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  Wanneer de wizard is voltooid, wordt de Configuration Manager-console is geconfigureerd voor MDT-integratie.  
 
-###  <a name="PreparingforZTIDeploymenttotheReferenceComputerUsingConfigurationManager"></a>Implementatie op de referentiecomputer met Configuration Manager ZTI voorbereiden  
+###  <a name="PreparingforZTIDeploymenttotheReferenceComputerUsingConfigurationManager"></a> Implementatie op de referentiecomputer met Configuration Manager ZTI voorbereiden  
  Ongeacht de ZTI-implementatiescenario die u uitvoert, altijd eerst een referentiecomputer maken en vervolgens een installatiekopie van de computer vastleggen. Verderop in het implementatieproces ZTI implementeert u de vastgelegde kopie van de referentiecomputer met de juiste doelcomputers.  
 
  Maak een referentiecomputer voor elke installatiekopie die u wilt maken voor implementatie naar de doelcomputers. Zie voor meer informatie over het bepalen van het aantal installatiekopieën vereist zijn in uw organisatie (en vervolgens het aantal vereiste referentiecomputers) [schatting opslagvereisten voor Configuration Manager-distributiepunten](#EstimateStorageRequirementsforConfigurationManagerDistributionPoints). Zie voor meer informatie over het gebruik van referentiecomputers in MDT implementaties [referentiecomputers in implementaties van MDT met behulp van](#UsingReferenceComputersinMDTDeployments).  
@@ -5153,7 +5152,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     > [!NOTE]
     >  De meeste productienetwerken hebben meerdere distributiepunten. Wanneer u deze stap uitvoert in een productieomgeving, selecteer de juiste distributiepunten voor het netwerk.  
 
-###  <a name="DeployingToandCapturinganImageoftheReferenceComputerUsingConfigurationManager"></a>Om te implementeren en een installatiekopie van de referentiecomputer met Configuration Manager vastleggen  
+###  <a name="DeployingToandCapturinganImageoftheReferenceComputerUsingConfigurationManager"></a> Om te implementeren en een installatiekopie van de referentiecomputer met Configuration Manager vastleggen  
  Nadat de distributiepunten worden bijgewerkt, adverteren van de takenreeks wordt uitgevoerd op de referentiecomputer en start de referentiecomputer met opstartbare Windows PE-installatiekopie die eerder in het proces hebt gemaakt. De takenreeks dat eerder hebt gemaakt wordt het beoogde besturingssysteem, stuurprogramma's, besturingssysteempakketten en toepassingen op de referentiecomputer distribueren en vervolgens een installatiekopie van de referentiecomputer vast te leggen.  
 
 ##### <a name="to-deploy-to-and-capture-an-image-of-the-reference-computer"></a>Om te implementeren op een installatiekopie van de referentiecomputer  
@@ -5170,7 +5169,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 6.  Bewaken desgewenst het implementatieproces zijn geregistreerd met het knooppunt controle in de implementatie-Workbench of met de **Get-MDTMonitorData** cmdlet.  
 
-###  <a name="PreparingforZTIDeploymenttoTargetComputersUsingConfigurationManager"></a>Implementatie van ZTI op doelcomputers met Configuration Manager voorbereiden  
+###  <a name="PreparingforZTIDeploymenttoTargetComputersUsingConfigurationManager"></a> Implementatie van ZTI op doelcomputers met Configuration Manager voorbereiden  
  Nadat de installatiekopieën van de referentiecomputer wordt vastgelegd, kunt u deze met de doelcomputers implementeren. Maken van een of meer takenreeksen voor de implementatie van de vastgelegde installatiekopieën, zorg ervoor dat de benodigde implementatie resources bestaan en aanpassen van het implementatieproces MDT in voorbereiding voor het implementeren van de vastgelegde installatiekopieën op de doelcomputers.  
 
 ##### <a name="to-prepare-for-zti-deployment-to-target-computers"></a>Om voor te bereiden voor implementatie naar de doelcomputers ZTI  
@@ -5191,7 +5190,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  Afhankelijk van de doelcomputers in uw organisatie een combinatie van deze implementaties scenario's mogelijk nodig. Zie voor meer informatie over MDT implementatiescenario's [implementatiescenario's te identificeren](#IdentifyingDeploymentScenarios).  
 
-####  <a name="PreparefortheZTINewComputerDeploymentScenariotoTargetComputersUsingConfigurationManager"></a>Voorbereiden voor de nieuwe Computer ZTI-implementatiescenario op doelcomputers met Configuration Manager  
+####  <a name="PreparefortheZTINewComputerDeploymentScenariotoTargetComputersUsingConfigurationManager"></a> Voorbereiden voor de nieuwe Computer ZTI-implementatiescenario op doelcomputers met Configuration Manager  
  In het implementatiescenario voor de nieuwe Computer implementeert u een nieuwe installatie van een Windows-besturingssysteem naar een nieuwe computer. Er is geen gebruiker migratie-informatie opslaan en terugzetten en er zijn geen bestaande bestandssystemen te behouden. De sjabloon Clienttakenreeks gebruiken voor het implementeren van de vastgelegde installatiekopie van de referentiecomputer op de doelcomputer.  
 
 ###### <a name="to-prepare-for-the-new-computer-deployment-scenario-to-target-computers"></a>Voorbereiden voor het implementatiescenario voor de nieuwe Computer naar de doelcomputers  
@@ -5232,7 +5231,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     > [!NOTE]
     >  De meeste productienetwerken hebben meerdere distributiepunten. Wanneer u deze stap uitvoert in een productieomgeving, selecteer de juiste distributiepunten voor het netwerk.  
 
-####  <a name="PreparefortheZTIRefreshComputerDeploymentScenariotoTargetComputersUsingConfigurationManager"></a>Voorbereiden voor het implementatiescenario ZTI vernieuwen Computer naar de doelcomputers met Configuration Manager  
+####  <a name="PreparefortheZTIRefreshComputerDeploymentScenariotoTargetComputersUsingConfigurationManager"></a> Voorbereiden voor het implementatiescenario ZTI vernieuwen Computer naar de doelcomputers met Configuration Manager  
  Een computer wordt in het implementatiescenario Computer vernieuwen vernieuwd, waaronder computers die moeten worden siteservercomputer voor installatiekopie normalisatie of om een probleem te verhelpen. Er is migratie gebruikersgegevens opslaan en terugzetten, maar er zijn geen bestaande bestandssystemen te behouden. De sjabloon Clienttakenreeks gebruiken voor het implementeren van de vastgelegde installatiekopie van de referentiecomputer op de doelcomputer.  
 
 ###### <a name="to-prepare-for-the-refresh-computer-deployment-scenario-to-target-computers"></a>Voorbereiden voor het implementatiescenario Computer vernieuwen op doelcomputers  
@@ -5275,7 +5274,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     > [!NOTE]
     >  De meeste productienetwerken hebben meerdere distributiepunten. Wanneer u deze stap uitvoert in een productieomgeving, selecteer de juiste distributiepunten voor het netwerk.  
 
-####  <a name="PreparefortheZTIReplaceComputerDeploymentScenariotoTargetComputersUsingConfigurationManager"></a>Voorbereiden voor het implementatiescenario ZTI vervangen Computer naar de doelcomputers met Configuration Manager  
+####  <a name="PreparefortheZTIReplaceComputerDeploymentScenariotoTargetComputersUsingConfigurationManager"></a> Voorbereiden voor het implementatiescenario ZTI vervangen Computer naar de doelcomputers met Configuration Manager  
  In het implementatiescenario vervangen Computer één computer wordt vervangen door een andere computer. Een computerkoppeling record maken die wordt gekoppeld aan de bestaande doelcomputer en de nieuwe doelcomputer. De bestaande gegevens migreren wordt van de bestaande doelcomputer opgeslagen. Vervolgens wordt een nieuwe installatie van Windows op een nieuwe computer geïmplementeerd. Ten slotte wordt de gebruikersstatusgegevens teruggezet naar de nieuwe computer. Er zijn geen bestaande bestandssystemen te behouden.  
 
 > [!IMPORTANT]
@@ -5340,7 +5339,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     > [!NOTE]
     >  De meeste productienetwerken hebben meerdere distributiepunten. Wanneer u deze stap uitvoert in een productieomgeving, selecteer de juiste distributiepunten voor het netwerk.  
 
-###  <a name="DeployingCapturedImagestoTargetComputersUsingConfigurationManager"></a>Vastgelegde installatiekopieën implementeren op doelcomputers met Configuration Manager  
+###  <a name="DeployingCapturedImagestoTargetComputersUsingConfigurationManager"></a> Vastgelegde installatiekopieën implementeren op doelcomputers met Configuration Manager  
  De implementatie van de vastgelegde installatiekopieën op de doelcomputers is enigszins verschillen voor elk MDT implementatiescenario met behulp van ZTI. De vastgelegde installatiekopie van de referentiecomputer implementeren op doelcomputers voor elk implementatiescenario respectieve in uw organisatie.  
 
 ##### <a name="to-deploy-the-capture-image-of-the-reference-computer-to-the-target-computers"></a>De vastgeleginstallatiekopie van de referentiecomputer implementeren op de doelcomputers  
@@ -5374,7 +5373,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
      Afhankelijk van de doelcomputers in uw organisatie een combinatie van implementaties scenario's mogelijk nodig. Zie voor meer informatie over de implementatiescenario's voor MDT [implementatiescenario's te identificeren](#IdentifyingDeploymentScenarios).  
 
-####  <a name="DeployCapturedImagestoTargetComputersintheZTINewComputerDeploymentScenarioUsingConfigurationManager"></a>Vastgelegde installatiekopieën implementeren op doelcomputers in de ZTI nieuwe Computer implementatiescenario met Configuration Manager  
+####  <a name="DeployCapturedImagestoTargetComputersintheZTINewComputerDeploymentScenarioUsingConfigurationManager"></a> Vastgelegde installatiekopieën implementeren op doelcomputers in de ZTI nieuwe Computer implementatiescenario met Configuration Manager  
  Start de doelcomputer met opstartbare media voor de takenreeks die eerder in het proces of van Windows Deployment Services gemaakt. Beide methoden wordt Windows PE gestart op de doelcomputer en start het implementatieproces ZTI. Aan het einde van het proces worden de vastgelegde installatiekopie van de referentiecomputer wordt geïmplementeerd op de doelcomputer.  
 
 ###### <a name="to-deploy-the-capture-images-to-the-target-computers-in-the-zti-new-computer-deployment-scenario-using-configuration-manager"></a>De Vastleginstallatiekopieën implementeren op de doelcomputers in de ZTI nieuwe Computer implementatiescenario met Configuration Manager  
@@ -5422,7 +5421,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 2.  Implementeer de vastgelegde installatiekopie van de referentiecomputer met de nieuwe doelcomputer, zoals beschreven in [implementeert de installatiekopie vastgelegd op de nieuwe doelcomputer met migratiegegevens van de gebruiker van de bestaande Computer met behulp van Configuration Manager](#DeploytheCapturedImagetotheNewTargetComputerwiththeUserStateMigrationDatafromtheExistingComputerUsingConfigurationManager).  
 
-#####  <a name="SavetheUserStateMigrationDatafromtheExistingTargetComputerUsingConfigurationManager"></a>Migratiegegevens van de gebruikersstatus opslaan van de bestaande doelcomputer met Configuration Manager  
+#####  <a name="SavetheUserStateMigrationDatafromtheExistingTargetComputerUsingConfigurationManager"></a> Migratiegegevens van de gebruikersstatus opslaan van de bestaande doelcomputer met Configuration Manager  
  Start het implementatieproces ZTI door het uitvoeren van de Configuration Manager-aankondiging voor het vastleggen van de statusmigratiegegevens die u eerder in het proces hebt gemaakt. Deze takenreeks wordt uitgevoerd in het huidige besturingssysteem op de bestaande doelcomputer.  
 
 ###### <a name="to-deploy-the-capture-images-to-the-target-computers-in-the-replace-computer-deployment-scenario-using-configuration-manager"></a>De Vastleginstallatiekopieën implementeren op de doelcomputers in vervangen Computer implementatie Scenario met behulp van Configuration Manager  
@@ -5435,7 +5434,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  De takenreeks wordt uitgevoerd in het huidige besturingssysteem voor het vastleggen van gegevens van de migratie van gebruikersstatus. Migratiegegevens van de gebruiker van de bestaande doelcomputer wordt aan het einde van de takenreeks opgeslagen met de Configuration Manager-statusmigratiepunt.  
 
-#####  <a name="DeploytheCapturedImagetotheNewTargetComputerwiththeUserStateMigrationDatafromtheExistingComputerUsingConfigurationManager"></a>De vastgelegde installatiekopie implementeren op de nieuwe doelcomputer met de migratiegegevens van de gebruikersstatus van een bestaande Computer met Configuration Manager  
+#####  <a name="DeploytheCapturedImagetotheNewTargetComputerwiththeUserStateMigrationDatafromtheExistingComputerUsingConfigurationManager"></a> De vastgelegde installatiekopie implementeren op de nieuwe doelcomputer met de migratiegegevens van de gebruikersstatus van een bestaande Computer met Configuration Manager  
  Start de doelcomputer met de ZTI opstartbare media die eerder in het proces of van Windows Deployment Services gemaakt. De opstartbare media ZTI wordt Windows PE gestart op de doelcomputer en de ZTI initieert. Aan het einde van het implementatieproces de vastgelegde installatiekopie van de referentiecomputer wordt geïmplementeerd op de doelcomputer en de gegevens van de migratie van gebruikersstatus is hersteld van de Configuration Manager-statusmigratiepunt.  
 
 ###### <a name="deployment-scenario-for-deploying-the-captured-image"></a>implementatiescenario's voor het implementeren van de vastgelegde installatiekopie  
@@ -5463,7 +5462,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
      De nieuwe doelcomputer wordt geïmplementeerd met de status van de gebruiker van de bestaande doelcomputer automatisch teruggezet naar de nieuwe doelcomputer.  
 
-##  <a name="ManagingZTIDeploymentsInTheConfigurationManagerConsole"></a>Het beheren van implementaties van ZTI in de Configuration Manager-Console  
+##  <a name="ManagingZTIDeploymentsInTheConfigurationManagerConsole"></a> Het beheren van implementaties van ZTI in de Configuration Manager-Console  
  U beheren implementaties van ZTI met Configuration Manager via de Configuration Manager-console. Gebruikt u de implementatie-Workbench in implementaties van ZTI alleen voor het configureren van de MDT-database. De wizards gebruikt voor het configureren van ZTI zijn geïntegreerd in de Configuration Manager-console.  
 
  Implementaties van ZTI in de Configuration Manager-console door te beheren:  
@@ -5494,7 +5493,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 -   Configureren van ZTI takenreeksstappen die server rol gerelateerde acties uitvoeren, zoals beschreven in [configureren ZTI Server rol Takenreeksstappen in Configuration Manager](#ConfiguringZTIServerRoleTaskSequenceStepsinConfigurationManager)  
 
-###  <a name="CreatingaZTITaskSequenceUsingMDTTaskSequenceTemplatesinConfigurationManager"></a>Maken van een Takenreeks van ZTI met MDT taaksjablonen van Takenreeksen in Configuration Manager  
+###  <a name="CreatingaZTITaskSequenceUsingMDTTaskSequenceTemplatesinConfigurationManager"></a> Maken van een Takenreeks van ZTI met MDT taaksjablonen van Takenreeksen in Configuration Manager  
  Gebruik de MDT Wizard Takenreeks maken in de Configuration Manager-console voor het maken van takenreeksen in Configuration Manager waarmee zijn geïntegreerd met MDT. MDT bevat taak reeks sjablonen die u gebruiken kunt om de referentie- en doelcomputers computers te implementeren.  
 
  Maak takenreeksen ZTI met behulp van de MDT taak reeks sjablonen door:  
@@ -5505,24 +5504,24 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 -   Maken van takenreeksen ZTI zoals beschreven in [maken ZTI Takenreeksen met de MDT Wizard Takenreeks maken in Configuration Manager](#CreateZTITaskSequencesUsingtheCreateMDTTaskSequenceWizardinConfigurationManager)  
 
-####  <a name="IdentifytheTaskSequenceTemplatesinMDTinConfigurationManager"></a>Identificeren van de taak reeks sjablonen in MDT in Configuration Manager  
+####  <a name="IdentifytheTaskSequenceTemplatesinMDTinConfigurationManager"></a> Identificeren van de taak reeks sjablonen in MDT in Configuration Manager  
   Tabel 121 lijsten van de takenreeks sjablonen in MDT voor Configuration Manager, de bestandsnaam op voor elke sjabloon en een beschrijving van de sjabloon. De sjabloonbestanden bevinden zich in de *install_folder*\SCCM map (waarbij *install_folder* de map waarin de MDT is geïnstalleerd).  
 
 ### <a name="table-121-task-sequence-templates-included-in-mdt-for-configuration-manager"></a>Tabel 121. Taak reeks sjablonen in MDT voor Configuration Manager  
 
 |**Sjabloon** |**Bestandsnaam** |**Deze sjabloon selecteren** |  
 |------------------|-------------------|---------------------------------|  
-|Clienttakenreeks|SCCM_Client.XML|Client-besturingssystemen implementeren op doelcomputers voor alle scenario's, behalve het implementatiescenario MDT vervangen Computer.|  
-|Clienttakenreeks vervangen|SCCM_ClientReplace.XML|Migratie van gebruikersstatusgegevens van doelcomputers voor het implementatiescenario vervangen Computer MDT vastgelegd.|  
-|De aangepaste Takenreeks Microsoft-implementatie|SCCM_Custom.XML|Een takenreeks maken die kunnen worden aangepast om te voldoen aan de behoeften van uw organisatie.|  
-|Standard van SQL Server, Takenreeks|SCCM_Server.XML|Server-besturingssystemen implementeren op doelcomputers voor alle scenario's.|  
-|Gebruiker gestuurd installatie Takenreeks|SCCM_UDI.XML|Besturingssystemen implementeren op doelcomputers via UDI.|  
-|Gebruiker gestuurd installatie vervangen Takenreeks|SCCM_UDIReplace.XML|Migratie van gebruikersstatusgegevens van doelcomputers voor de MDT vervangen Computer implementatiescenario met UDI vastgelegd.|  
+|Clienttakenreeks|SCCM_Client.xml|Client-besturingssystemen implementeren op doelcomputers voor alle scenario's, behalve het implementatiescenario MDT vervangen Computer.|  
+|Clienttakenreeks vervangen|SCCM_ClientReplace.xml|Migratie van gebruikersstatusgegevens van doelcomputers voor het implementatiescenario vervangen Computer MDT vastgelegd.|  
+|De aangepaste Takenreeks Microsoft-implementatie|SCCM_Custom.xml|Een takenreeks maken die kunnen worden aangepast om te voldoen aan de behoeften van uw organisatie.|  
+|Standard van SQL Server, Takenreeks|SCCM_Server.xml|Server-besturingssystemen implementeren op doelcomputers voor alle scenario's.|  
+|Gebruiker gestuurd installatie Takenreeks|SCCM_UDI.xml|Besturingssystemen implementeren op doelcomputers via UDI.|  
+|Gebruiker gestuurd installatie vervangen Takenreeks|SCCM_UDIReplace.xml|Migratie van gebruikersstatusgegevens van doelcomputers voor de MDT vervangen Computer implementatiescenario met UDI vastgelegd.|  
 
 > [!NOTE]
 >  Gebruik altijd de MDT Wizard Takenreeks maken om de taak reeks sjablonen te importeren. Hoewel u de taak reeks sjablonen handmatig importeren kunt, wordt doen dit niet aanbevolen.  
 
-####  <a name="IdentifythePackagesandImagesThattheMDTTaskSequenceTemplatesinConfigurationManagerRequire"></a>De pakketten identificeren en dat de MDT voor in Configuration Manager-sjablonen takenreeksen voor afbeeldingen nodig  
+####  <a name="IdentifythePackagesandImagesThattheMDTTaskSequenceTemplatesinConfigurationManagerRequire"></a> De pakketten identificeren en dat de MDT voor in Configuration Manager-sjablonen takenreeksen voor afbeeldingen nodig  
  122 tabel bevat de pakketten en afbeeldingen die door de taak reeks sjablonen in MDT vereist. Deze pakketten en installatiekopieën moeten bestaan (of worden gemaakt) voor de takenreeksen in Configuration Manager correct functioneren.  
 
 ### <a name="table-122-packages-and-images-required-by-the-task-sequence-templates-included-in-mdt-for-configuration-manager"></a>Tabel 122. Pakketten en installatiekopieën die zijn vereist voor de taak reeks sjablonen in MDT voor Configuration Manager  
@@ -5560,7 +5559,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 -   **Apparaatstuurprogrammapakket**. Stuurprogrammapakketten Configuration Manager gebruikt om de verspreiding van stuurprogramma's naar distributiepunten. U kunt opgeven dat categorieën voor apparaatstuurprogramma's in een **stuurprogramma's automatisch toepassen** stap takenreekstype te beperken welke stuurprogramma's zijn geïnstalleerd, of kunt u alle apparaatstuurprogramma's met behulp van een **stuurprogrammapakket toepassen** taak staptype van reeks. Zie de sectie, 'Hoe te installeren apparaat stuurprogramma's naar Computers door gebruik van Takenreeksen,' in de Documentatiebibliotheek van Configuration Manager, die deel uitmaakt van de configuratie voor meer informatie over het opnemen van apparaatstuurprogramma's in de installatiekopie van besturingssysteem Manager.  
 
-####  <a name="CreateZTITaskSequencesUsingtheCreateMDTTaskSequenceWizardinConfigurationManager"></a>Maken van Takenreeksen ZTI met behulp van de Wizard Takenreeks MDT maken in Configuration Manager  
+####  <a name="CreateZTITaskSequencesUsingtheCreateMDTTaskSequenceWizardinConfigurationManager"></a> Maken van Takenreeksen ZTI met behulp van de Wizard Takenreeks MDT maken in Configuration Manager  
  De MDT Wizard Takenreeks maken in Configuration Manager vervangt door de pakketten en installatiekopieën die zijn geselecteerd voor de tijdelijke aanduidingen in de reeks taaksjablonen. Na het voltooien van de wizard verwijst nieuwe takenreeks de juiste pakketten en afbeeldingen.  
 
 > [!NOTE]
@@ -5586,14 +5585,14 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     |-----------------------------|-----------------|  
     |**Sjabloon kiezen** |-In **de volgende SCCM taak reeks sjablonen zijn beschikbaar**, selecteer ***task_sequence_template*** (waarbij *task_sequence_template* is de taak sequence sjabloon worden geselecteerd uit de tabel 121).<br /><br /> -Klik **volgende**.|  
     |**Sjabloon kiezen: Algemeen** |-In **takenreeksnaam**, type ***task_sequence_name*** (waarbij *task_sequence_name* is de naam van de takenreeks weergegeven in de Configuration Manager-console).<br /><br /> -In **Task sequence opmerkingen**, type ***Opmerking*** (waarbij *Opmerking* is beschrijvende tekst die het doel van de takenreeks beschrijft).<br /><br /> -Klik **volgende**.|  
-    |**Sjabloon kiezen: Meer informatie** |a. Selecteer **lid van een werkgroep**.<br /><br /> b. De andere mogelijkheid is **toevoegen aan een domein**. Als u deze optie selecteert in **werkgroep**, type ***werkgroepnaam*** (waarbij *werkgroepnaam* is de naam van de werkgroep).<br /><br /> c. Selecteer **toevoegen aan een domein**.<br /><br /> De andere mogelijkheid is **lid van een werkgroep**. Als u deze optie selecteert, voert u de volgende stappen uit:<br /><br /> -In **domein**, type ***domeinnaam*** (waarbij *domeinnaam* is de naam van de werkgroep).<br /><br /> -Klik **ingesteld**.<br /><br /> De **Windows-gebruikersaccount** dialoogvenster wordt weergegeven.<br /><br /> -Selecteer in de **Windows-gebruikersaccount** het dialoogvenster **gebruikersnaam**, type ***volumegebruiker*** (waarbij *gebruikersnaam* is de naam van de gebruiker account waarmee de computer toevoegen aan het domein en *domeinnaam* is de naam van het domein waarin de gebruikersaccount zich bevindt. Dit account moet lid zijn van de groep Domeinadministrators in het domein of zijn voldoende gemachtigd).<br /><br /> -In **wachtwoord** en **wachtwoord bevestigen**, type ***wachtwoord*** (waarbij *wachtwoord* is het wachtwoord voor het gebruikersaccount), en klik vervolgens op **OK**.<br /><br /> d. In **gebruikersnaam**, type ***gebruikersnaam*** (waarbij *gebruikersnaam* is de naam van de geregistreerde gebruiker die wordt weergegeven in de eigenschappen van de Windows-besturingssysteem).<br /><br /> e. In **organisatienaam**, type ***organisatienaam*** (waarbij *organisatienaam* is de naam van de geregistreerde organisatienaam die wordt weergegeven in de Windows-besturingssysteem Eigenschappen).<br /><br /> f. In **productcode**, type ***productcode*** (waarbij *productcode* de productcode voor besturingssysteem).<br /><br /> g. Klik op **Volgende**.|  
+    |**Sjabloon kiezen: Details** |a. Selecteer **lid van een werkgroep**.<br /><br /> b. De andere mogelijkheid is **toevoegen aan een domein**. Als u deze optie selecteert in **werkgroep**, type ***werkgroepnaam*** (waarbij *werkgroepnaam* is de naam van de werkgroep).<br /><br /> c. Selecteer **toevoegen aan een domein**.<br /><br /> De andere mogelijkheid is **lid van een werkgroep**. Als u deze optie selecteert, voert u de volgende stappen uit:<br /><br /> -In **domein**, type ***domeinnaam*** (waarbij *domeinnaam* is de naam van de werkgroep).<br /><br /> -Klik **ingesteld**.<br /><br /> De **Windows-gebruikersaccount** dialoogvenster wordt weergegeven.<br /><br /> -Selecteer in de **Windows-gebruikersaccount** het dialoogvenster **gebruikersnaam**, type ***volumegebruiker*** (waarbij *gebruikersnaam* is de naam van de gebruiker account waarmee de computer toevoegen aan het domein en *domeinnaam* is de naam van het domein waarin de gebruikersaccount zich bevindt. Dit account moet lid zijn van de groep Domeinadministrators in het domein of zijn voldoende gemachtigd).<br /><br /> -In **wachtwoord** en **wachtwoord bevestigen**, type ***wachtwoord*** (waarbij *wachtwoord* is het wachtwoord voor het gebruikersaccount), en klik vervolgens op **OK**.<br /><br /> d. In **gebruikersnaam**, type ***gebruikersnaam*** (waarbij *gebruikersnaam* is de naam van de geregistreerde gebruiker die wordt weergegeven in de eigenschappen van de Windows-besturingssysteem).<br /><br /> e. In **organisatienaam**, type ***organisatienaam*** (waarbij *organisatienaam* is de naam van de geregistreerde organisatienaam die wordt weergegeven in de Windows-besturingssysteem Eigenschappen).<br /><br /> f. In **productcode**, type ***productcode*** (waarbij *productcode* de productcode voor besturingssysteem).<br /><br /> g. Klik op **Volgende**.|  
     |**Sjabloon kiezen: Instellingen vastleggen** |a. Selecteer **deze takenreeks wordt nooit gebruikt voor het vastleggen en image**.<br /><br /> De andere mogelijkheid is **deze takenreeks kan worden gebruikt voor het vastleggen en image**.<br /><br /> b. Selecteer **deze takenreeks kan worden gebruikt voor het vastleggen en image**.<br /><br /> De andere mogelijkheid is **deze takenreeks wordt nooit gebruikt voor het vastleggen en image**. Als u deze optie selecteert, voert u de volgende stappen uit:<br /><br /> -In **vastleggen bestemming**, type ***unc_path*** (waarbij *unc_path* is het volledig gekwalificeerde UNC-pad voor de locatie van het WIM-bestand, inclusief de naam van het WIM-bestand).<br /><br /> -Klik **ingesteld**.<br /><br /> De **Windows-gebruikersaccount** dialoogvenster wordt weergegeven.<br /><br /> -Selecteer in de **Windows-gebruikersaccount** het dialoogvenster **gebruikersnaam**, type ***volumegebruiker*** (waarbij *gebruikersnaam* is de naam van de gebruiker account dat beschikt over schrijfmachtiging naar de map die is opgegeven in **vastleggen bestemming** en *domeinnaam* is de naam van het domein waarin de gebruikersaccount zich bevindt).<br /><br /> -In **wachtwoord** en **wachtwoord bevestigen**, type ***wachtwoord*** (waarbij *wachtwoord* is het wachtwoord voor het gebruikersaccount), en klik vervolgens op **OK**.<br /><br /> c. Klik op **Volgende**.|  
     |**Opstartinstallatiekopie** |a. Selecteer **opgeven van een bestaande installatiekopie**.<br /><br /> De andere mogelijkheid is **maken van een nieuwe opstartinstallatiekopie-pakket**. Als u deze optie selecteert, voert u de volgende stappen uit:<br /><br /> -Klik **Bladeren**.<br /><br /> De **pakket selecteren** dialoogvenster wordt weergegeven.<br /><br /> -In **pakket selecteren** in het dialoogvenster, klikt u op ***naam_van_pakket*** (waarbij *naam_van_pakket* is de naam van de bestaande installatiekopie), en klik vervolgens op **OK**.<br /><br /> b. Selecteer **maken van een nieuwe opstartinstallatiekopie-pakket**. De andere mogelijkheid is **maken van een nieuwe opstartinstallatiekopie-pakket**. Als u deze optie selecteert in **pakketbron gemaakt**, type ***unc_path*** (waarbij *unc_path* is het volledig gekwalificeerde UNC-pad voor de locatie van de map waarin de pakketbron worden opgeslagen).<br /><br /> De Configuration Manager-serviceaccount moet gemachtigd zijn om te wijzigen van de inhoud van deze UNC-pad om de opstartinstallatiekopieën te werken. Zorg ervoor dat de Configuration Manager-serviceaccount de juiste machtigingen op deze gedeelde netwerkmap heeft.<br /><br /> U kunt ook klikken op **Bladeren** vinden het UNC-pad.<br /><br /> c. Klik op **Volgende**.|  
     |**Opstartinstallatiekopie: Algemene instellingen** |Deze pagina van de wizard wordt alleen weergegeven als u selecteert **maken van een nieuwe opstartinstallatiekopie-pakket** op de **opstartinstallatiekopie** wizardpagina.<br /><br /> a. In **naam**, type ***naam_van_pakket*** (waarbij *naam_van_pakket* is de naam om te krijgen tot het opstartinstallatiekopie-pakket).<br /><br /> b. In **versie**, type ***versie*** (waarbij *versie* is het versienummer moet worden toegewezen aan het opstartinstallatiekopie-pakket).<br /><br /> c. In **opmerkingen**, type ***commentaartekst*** (waarbij *commentaartekst* beschrijvende informatie over het opstartinstallatiekopie-pakket is).<br /><br /> d. Klik op **Volgende**.|  
     |**Opstartinstallatiekopie: Onderdelen** |Deze pagina van de wizard wordt alleen weergegeven als u selecteert **maken van een nieuwe opstartinstallatiekopie-pakket** op de **opstartinstallatiekopie** wizardpagina.<br /><br /> a. In **Platform**, klikt u op ***platform*** (waarbij *platform* is de platformarchitectuur voor de installatiekopie: x86 of X64).<br /><br /> b. Selecteer of schakel het selectievakje ADO uit als u wilt dat ADO-onderdelen toevoegen aan de opstartinstallatiekopie, die nodig is voor toegang tot SQL Server-databases, zoals de MDT-DB. Standaard is dit selectievakje geselecteerd. Als het selectievakje is:<br /><br /> -Geselecteerd, zijn de ADO-onderdelen toegevoegd aan de installatiekopie<br /><br /> -Uitgeschakeld, worden de onderdelen ADO niet toegevoegd aan de opstartinstallatiekopie<br /><br /> Uitvoeren van scripts, Hypertext Markup Language-toepassing (HTA), XML en WMI-ondersteuning worden altijd toegevoegd aan de installatiekopie.<br /><br /> c. Selecteer of wis de ***lettertype*** selectievakje (lettertype is waar de naam van het lettertype dat moet worden toegevoegd, kan dit Chinees [ZH-CN], Chinees [ZH-HK], [ZH-TW] Chinees, Japans [JA-JP] of [KO-KR] Koreaans) ondersteuning voor de optionele lettertypen toevoegen.<br /><br /> d. Klik op **Volgende**.|  
     |**Opstartinstallatiekopie: Aanpassing** |a. Selecteer of wis de **prestart-opdrachtbestanden toevoegen voor het inschakelen van de Wizard implementatie voor deze media opstart** selectievakje. Als dit selectievakje is:<br /><br /> -Geselecteerd, worden de prestart-opdrachtbestanden toegevoegd aan de opstartinstallatiekopie. In **opdrachtregel**, typt u het script prestart-opdracht uit te voeren, die standaard ingesteld op ZTIMediaHook.wsf. In **map voor de prestart-opdrachtbestanden**, type ***unc_path*** (waarbij *unc_path* is het volledig gekwalificeerde UNC-pad naar een beschrijfbare map).<br /><br /> U kunt ook op **Bladeren** naar de map waarin de prestart-opdracht-bestanden zich bevinden.<br /><br /> -De prestart-opdrachtbestanden, dat is uitgeschakeld, zijn niet toegevoegd aan de installatiekopie.<br /><br /> b. Selecteer of wis de **extra bestanden toevoegen aan de nieuwe opstartinstallatiekopie** selectievakje. Als dit selectievakje is:<br /><br /> -Geselecteerd, worden de extra bestanden toegevoegd aan de installatiekopie. In **pad**, type ***pad*** (waarbij *pad* is het volledig gekwalificeerde of relatieve lokaal of UNC-pad naar een beschrijfbare map).<br /><br /> U kunt ook op **Bladeren** naar de map waarin de extra bestanden zich bevinden.<br /><br /> -De extra bestanden, dat is uitgeschakeld, zijn niet toegevoegd aan de installatiekopie.<br /><br /> c. In **een aangepaste achtergrond bitmapbestand (UNC-pad) gebruiken**, type ***unc_path*** (waarbij *unc_path* is het volledig gekwalificeerde UNC-pad naar het bitmapbestand die u gebruiken wilt als de achtergrond).<br /><br /> U kunt ook op **Bladeren** vinden het bitmapbestand.<br /><br /> d. Selecteer of wis de **inschakelen van opdrachtondersteuning (F8)** selectievakje. Als dit selectievakje is:<br /><br /> e. Klik op **Volgende**.|  
     |**Opstartinstallatiekopie: Aanpassing** |a. Selecteer **Geef een bestaande Microsoft Deployment Toolkit bestanden pakket**.<br /><br /> De andere mogelijkheid is **Maak een nieuw pakket van Microsoft-implementatietoolkit bestanden**. Als u deze optie selecteert, voert u de volgende stappen uit:<br /><br /> -Klik **Bladeren**.<br /><br /> De **pakket selecteren** dialoogvenster wordt weergegeven.<br /><br /> -Selecteer in de **pakket selecteren** in het dialoogvenster, klikt u op **naam_van_pakket** (waar *naam_van_pakket* is de naam van het bestaande pakket), en klik vervolgens op **OK**.<br /><br /> b. Selecteer **Maak een nieuw pakket van Microsoft-implementatietoolkit bestanden**.<br /><br /> De andere mogelijkheid is **Geef een bestaande Microsoft Deployment Toolkit bestanden pakket**. Als u deze optie selecteert in **pakketbron gemaakt**, type ***unc_path*** (waarbij *unc_path* is het volledig gekwalificeerde UNC-pad voor de locatie van de map waarin de pakketbron worden opgeslagen).<br /><br /> U kunt ook klikken op **Bladeren** vinden het UNC-pad.<br /><br /> c. Klik op **Volgende**.|  
-    |**MDT pakket: MDT-Details** |Deze pagina van de wizard wordt alleen weergegeven als u selecteert **Maak een nieuw pakket van Microsoft-implementatietoolkit bestanden** op de **MDT pakket** wizardpagina.<br /><br /> a. In **naam**, type ***naam_van_pakket*** (waarbij *naam_van_pakket* is de naam om te krijgen tot het pakket Microsoft Deployment Toolkit-bestanden).<br /><br /> b. In **versie**, type ***versie*** (waarbij *versie* is het versienummer moet worden toegewezen aan het pakket Microsoft Deployment Toolkit-bestanden).<br /><br /> c. In **taal**, type ***taal*** (waarbij *taal* is de taal van het pakket Microsoft Deployment Toolkit-bestanden).<br /><br /> d. In **fabrikant**, type ***fabrikant*** (waarbij *fabrikant* is van de fabrikant van het pakket Microsoft Deployment Toolkit-bestanden).<br /><br /> e. In **opmerkingen**, type ***commentaartekst*** (waarbij *commentaartekst* is beschrijvende informatie over het pakket Microsoft Deployment Toolkit-bestanden).<br /><br /> f. Klik op **Volgende**.|  
+    |**MDT pakket: MDT Details** |Deze pagina van de wizard wordt alleen weergegeven als u selecteert **Maak een nieuw pakket van Microsoft-implementatietoolkit bestanden** op de **MDT pakket** wizardpagina.<br /><br /> a. In **naam**, type ***naam_van_pakket*** (waarbij *naam_van_pakket* is de naam om te krijgen tot het pakket Microsoft Deployment Toolkit-bestanden).<br /><br /> b. In **versie**, type ***versie*** (waarbij *versie* is het versienummer moet worden toegewezen aan het pakket Microsoft Deployment Toolkit-bestanden).<br /><br /> c. In **taal**, type ***taal*** (waarbij *taal* is de taal van het pakket Microsoft Deployment Toolkit-bestanden).<br /><br /> d. In **fabrikant**, type ***fabrikant*** (waarbij *fabrikant* is van de fabrikant van het pakket Microsoft Deployment Toolkit-bestanden).<br /><br /> e. In **opmerkingen**, type ***commentaartekst*** (waarbij *commentaartekst* is beschrijvende informatie over het pakket Microsoft Deployment Toolkit-bestanden).<br /><br /> f. Klik op **Volgende**.|  
     |**Installatiekopie van het besturingssysteem** |Op deze wizardpagina kunt u selecteren (maken) OS opstartinstallatiekopiepakketten of OS-pakketten installeren. Pakketten voor OS-installatiekopie worden gemaakt van de WIM-bestanden van de distributiemedia of van aangepaste WIM-bestanden die u hebt gemaakt. Installatiepakketten besturingssysteem bevatten alle benodigde bestanden voor het installeren van het besturingssysteem, zoals de inhoud van een Windows-DVD.<br /><br /> De volgorde van ZTI taaksjablonen Configureer altijd dat de **Besturingssysteeminstallatiekopie toepassen** takenreeksstap voor het implementeren van de installatiekopie-index die gelijk is aan **1**. Als u implementeren van een afbeelding met een andere index wilt, wijzigt u de configuratie van de **Besturingssysteeminstallatiekopie toepassen** takenreeksstap.<br /><br /> Ook als u een SKU die verschilt van de standaard SKU selecteert, verwijder de volgende sectie uit Unattend.xml in het pakket instellingen:<br /><br /> `<MetaData>    <Key>/image/index</Key>    <Value>1</Value> </MetaTag>`<br /><br /> a. Selecteer **Geef een bestaande OS-installatiekopie**.<br /><br /> De overige opties zijn **maken van een nieuwe installatiekopie van het besturingssysteem, geeft u een bestaande OS-installatiepakket**, of **Maak een nieuw besturingssysteem installatiepakket**. Als u deze optie selecteert, voert u de volgende stappen uit:<br /><br /> -Klik **Bladeren**.<br /><br /> De **pakket selecteren** dialoogvenster wordt weergegeven.<br /><br /> -In **pakket selecteren** in het dialoogvenster, klikt u op ***naam_van_pakket*** (waarbij *naam_van_pakket* is de naam van het bestaande pakket), en klik vervolgens op **OK**.<br /><br /> b. Selecteer **maken van een installatiekopie van het nieuwe besturingssysteem**. Selecteer **maken van een installatiekopie van het nieuwe besturingssysteem**.<br /><br /> De overige opties zijn **Geef een bestaande OS-installatiekopie**,**Geef een bestaande OS-installatiepakket**, of **Maak een nieuw besturingssysteem installatiepakket**. Als u deze optie selecteert, voert u de volgende stappen uit:<br /><br /> -In **OS-installatiekopie (WIM) bestandslocatie**, type ***unc_path*** (waarbij *unc_path* is het volledig gekwalificeerde UNC-pad voor de locatie van de map waarin het WIM-bestand zich bevindt, (inclusief de naam van het WIM-bestand).<br /><br /> U kunt ook klikken op **Bladeren** het WIM-bestand te zoeken.<br /><br /> -In **pakketbronmap worden gemaakt**, type ***unc_path*** (waarbij *unc_path* is het volledig gekwalificeerde UNC-pad voor de locatie van de map waarin de pakketbron wordt worden opgeslagen). In **pakketbronmap worden gemaakt**, type ***unc_path*** (waarbij *unc_path* is het volledig gekwalificeerde UNC-pad voor de locatie van de map waarin de pakketbron wordt worden opgeslagen).<br /><br /> U kunt ook klikken op **Bladeren** vinden het UNC-pad.<br /><br /> c. Selecteer **Geef een bestaande OS-installatiepakket**.<br /><br /> De overige opties zijn **Geef een bestaande OS-installatiekopie**, **maken van een installatiekopie van het nieuwe besturingssysteem**, of **Maak een nieuw besturingssysteem installatiepakket**. Als u deze optie selecteert, voert u de volgende stappen uit:<br /><br /> -Klik **Bladeren**.<br /><br /> De **pakket selecteren** dialoogvenster wordt weergegeven.<br /><br /> -Selecteer in de **pakket selecteren** in het dialoogvenster, klikt u op ***naam_van_pakket*** (waar *naam_van_pakket* is de naam van het bestaande pakket), en klik vervolgens op **OK**.<br /><br /> d. Selecteer **Maak een nieuw besturingssysteem installatiepakket**.<br /><br /> e. De overige opties zijn **Geef een bestaande OS-installatiekopie**, **maken van een installatiekopie van het nieuwe besturingssysteem**, of **Geef een bestaande OS-installatiepakket**. De overige opties zijn **Geef een bestaande OS-installatiekopie**, **maken van een installatiekopie van het nieuwe besturingssysteem**, of **Geef een bestaande OS-installatiepakket**.<br /><br /> De inhoud van de OS-installatie worden gekopieerd van het opgegeven UNC-locatie naar de pakketbronmap die worden gebruikt om het pakket te maken.<br /><br /> Als u deze optie selecteert, voert u de volgende stappen uit:<br /><br /> -In **OS-installatielocatie map**, type ***unc_path*** (waarbij *unc_path* is het volledig gekwalificeerde UNC-pad voor de locatie van de map waarin zich de pakketbron opgeslagen).<br /><br /> U kunt ook klikken op **Bladeren** vinden het UNC-pad.<br /><br /> -In **pakketbronmap worden gemaakt**, type ***unc_path*** (waarbij *unc_path* is het volledig gekwalificeerde UNC-pad voor de locatie van de map waarin de pakketbron wordt worden opgeslagen).<br /><br /> U kunt ook klikken op **Bladeren** vinden het UNC-pad.<br /><br /> f. Klik op **Volgende**.|  
     |**Installatiekopie van het besturingssysteem: Details van de afbeelding** |Deze pagina van de wizard wordt alleen weergegeven als u selecteert **maken van een installatiekopie van het nieuwe besturingssysteem** op de **installatiekopie van het besturingssysteem** wizardpagina.<br /><br /> a. In **naam**, type ***naam_van_pakket*** (waarbij *naam_van_pakket* is de naam om te krijgen tot het pakket).<br /><br /> b. In **versie**, type ***versie*** (waarbij *versie* is het versienummer moet worden toegewezen aan het pakket).<br /><br /> c. In **opmerkingen**, type ***commentaartekst*** (waarbij *commentaartekst* beschrijvende informatie over het pakket is).<br /><br /> d. Klik op **Volgende**.|  
     |**Installatiekopie van het besturingssysteem: Installatiebron** |Deze pagina van de wizard wordt alleen weergegeven als u selecteert **Maak een nieuw besturingssysteem installatiepakket** op de **installatiekopie van het besturingssysteem** wizardpagina.<br /><br /> a. In **naam**, type ***naam_van_pakket*** (waarbij *naam_van_pakket* is de naam om te krijgen tot het pakket).<br /><br /> b. In **versie**, type ***versie*** (waarbij *versie* is het versienummer moet worden toegewezen aan het pakket).<br /><br /> c. In **opmerkingen**, type ***commentaartekst*** (waarbij *commentaartekst* beschrijvende informatie over het pakket is).<br /><br /> d. Klik op **Volgende**.|  
@@ -5608,7 +5607,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
      De **samenvatting** pagina van de wizard wordt een statusbalk waarin de voortgang van de taken die zijn gedefinieerd in de wizard. De Wizard maken Takenreeks MDT wordt gesloten wanneer de takenreeks wordt gemaakt.  
 
-###  <a name="ManagingOperatingSystemsinConfigurationManager"></a>Het beheren van besturingssystemen in Configuration Manager  
+###  <a name="ManagingOperatingSystemsinConfigurationManager"></a> Het beheren van besturingssystemen in Configuration Manager  
  Beheren van besturingssystemen in het knooppunt besturingssystemen in de werkruimte softwarebibliotheek. De besturingssystemen worden opgenomen en beheerd in de volgende knooppunten onder het knooppunt besturingssystemen:  
 
 -   **Installatieprogramma's besturingssystemen**. Dit knooppunt bevat besturingssystemen die worden gebruikt voor het implementeren van de referentiecomputer en zijn gebaseerd op het bestand install.wim vanaf de oorspronkelijke Besturingssysteemmedia.  
@@ -5617,7 +5616,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  Zie voor meer informatie over het beheren van besturingssystemen in de Configuration Manager-console, de sectie 'Configureren van Configuration Manager voor implementaties van besturingssystemen,' in de Documentatiebibliotheek van Configuration Manager, die is geïnstalleerd met Configuration Manager.  
 
-###  <a name="ManagingDeviceDriversinConfigurationManager"></a>Het beheren van apparaatstuurprogramma's in Configuration Manager  
+###  <a name="ManagingDeviceDriversinConfigurationManager"></a> Het beheren van apparaatstuurprogramma's in Configuration Manager  
  Beheren van apparaatstuurprogramma's in de Configuration Manager-console in Configuration Manager door:  
 
 -   De apparaatstuurprogramma's importeren in Configuration Manager zoals beschreven in [importeren stuurprogramma's in Configuration Manager](#ImportDriversintoConfigurationManager)  
@@ -5628,13 +5627,13 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 -   Specifieke apparaatstuurprogramma's naar de doelcomputers voor implementaties van ZTI implementeert, zoals beschreven in [specifieke stuurprogramma implementeren op doelcomputers in Configuration Manager](#DeploySpecificDeviceDriverstoTargetComputersinConfigurationManager)  
 
-####  <a name="ImportDriversintoConfigurationManager"></a>Stuurprogramma's importeren in Configuration Manager  
+####  <a name="ImportDriversintoConfigurationManager"></a> Stuurprogramma's importeren in Configuration Manager  
  Om te importeren stuurprogramma's in Configuration Manager, gebruikt u de Wizard Nieuw stuurprogramma importeren. Zie de sectie 'Hoe om te importeren Windows-stuurprogramma's in de catalogus voor apparaatstuurprogramma,' in de Documentatiebibliotheek van Configuration Manager, dat geïnstalleerd is met Configuration Manager voor informatie over deze wizard.  
 
-####  <a name="CreateaNewConfigurationManagerDriverPackage"></a>Een nieuwe Configuration Manager-stuurprogrammapakket maken  
+####  <a name="CreateaNewConfigurationManagerDriverPackage"></a> Een nieuwe Configuration Manager-stuurprogrammapakket maken  
  Een stuurprogrammapakket bevat de inhoud die is gekoppeld aan een of meer apparaatstuurprogramma's. U moet apparaatstuurprogramma's toevoegt aan een stuurprogrammapakket en ze te kopiëren naar een distributiepunt voordat Configuration Manager-clients te kunnen installeren. Zie de sectie 'Hoe te maken van een nieuw stuurprogrammapakket,' in de Configuration Manager Documentation Library, die is geïnstalleerd met Configuration Manager voor informatie over het maken van een nieuw stuurprogrammapakket.  
 
-####  <a name="AddDeviceDriverstoOperatingSystemandBootImagesinConfigurationManager"></a>Apparaatstuurprogramma's toevoegt aan het besturingssysteem en opstartinstallatiekopieën in Configuration Manager  
+####  <a name="AddDeviceDriverstoOperatingSystemandBootImagesinConfigurationManager"></a> Apparaatstuurprogramma's toevoegt aan het besturingssysteem en opstartinstallatiekopieën in Configuration Manager  
  Wanneer u apparaatstuurprogramma's aan de stuurprogrammacatalogus hebt toegevoegd, kunt u ze toevoegen aan bestaande besturingssystemen en opstartinstallatiekopieën. De stuurprogrammacatalogus helpt de kosten en complexiteit van het implementeren van een besturingssysteem in een omgeving met verschillende soorten computers en apparaten beheren. Het opslaan van apparaatstuurprogramma's in de stuurprogrammacatalogus en niet bij elke afzonderlijke besturingssysteemkopie aanzienlijk minder u moet installatiekopieën van besturingssystemen.  
 
  Zie de sectie 'Hoe te beheren de stuurprogramma-catalogus in Configuration Manager,' in de Documentatiebibliotheek van Configuration Manager, dat geïnstalleerd is met Configuration Manager voor informatie over het beheren van de stuurprogrammacatalogus.  
@@ -5645,22 +5644,22 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 -   Apparaatstuurprogramma's toevoegen uit de stuurprogrammacatalogus aan bestaande opstartinstallatiekopieën, zoals beschreven in [apparaatstuurprogramma's toevoegen aan een opstartinstallatiekopie in Configuration Manager](#AddDeviceDriverstoaBootImageinConfigurationManager).  
 
-#####  <a name="AddDeviceDriverstoanOperatingSysteminConfigurationManager"></a>Apparaatstuurprogramma's toevoegt aan een besturingssysteem in Configuration Manager  
+#####  <a name="AddDeviceDriverstoanOperatingSysteminConfigurationManager"></a> Apparaatstuurprogramma's toevoegt aan een besturingssysteem in Configuration Manager  
  Nieuwe apparaatstuurprogramma's toevoegt aan een bestaande installatiekopie van een besturingssysteem met de Takenreekseditor. Toevoegen als u Configuration Manager om te zoeken in de stuurprogrammacatalogus voor de nieuwe stuurprogramma's, een **stuurprogramma's automatisch toepassen** takenreeksstap aan een bestaande takenreeks.  
 
  Zie de sectie 'Hoe te installeren apparaat stuurprogramma's naar Computers door gebruik van Takenreeksen,' in de Documentatiebibliotheek van Configuration Manager, dat geïnstalleerd is met Configuration Manager voor informatie over het toevoegen van apparaatstuurprogramma's aan een besturingssysteem.  
 
-#####  <a name="AddDeviceDriverstoaBootImageinConfigurationManager"></a>Apparaatstuurprogramma's toevoegt aan een opstartinstallatiekopie in Configuration Manager  
+#####  <a name="AddDeviceDriverstoaBootImageinConfigurationManager"></a> Apparaatstuurprogramma's toevoegt aan een opstartinstallatiekopie in Configuration Manager  
  U kunt Windows-apparaatstuurprogramma's die u hebt geïmporteerd in de stuurprogrammacatalogus aan een of meer installatiekopieën toevoegen. Alleen stuurprogramma's voor massaopslag en apparaatstuurprogramma's voor netwerkadapters moeten worden toegevoegd aan opstartinstallatiekopieën, omdat andere typen stuurprogramma's niet nodig zijn en de grootte van de opstartinstallatiekopie vergroot. Alleen geldige apparaatstuurprogramma's die zijn bedoeld voor gebruik met Windows 8.1, toevoegen omdat de versie van Windows PE is gebaseerd op Windows 8.1.  
 
  Voor informatie over apparaatstuurprogramma's toevoegen aan opstartinstallatiekopieën, Zie de sectie 'Hoe voor toevoegen en verwijderen apparaat stuurprogramma's dat zijn die is gekoppeld met stuurprogramma-pakketten en installatiekopieën,' in de Documentatiebibliotheek van Configuration Manager die is geïnstalleerd met Configuration Manager.  
 
-####  <a name="DeploySpecificDeviceDriverstoTargetComputersinConfigurationManager"></a>Specifieke apparaatstuurprogramma's implementeren op doelcomputers in Configuration Manager  
+####  <a name="DeploySpecificDeviceDriverstoTargetComputersinConfigurationManager"></a> Specifieke apparaatstuurprogramma's implementeren op doelcomputers in Configuration Manager  
  Standaard implementeert met behulp van Configuration Manager ZTI alle apparaatstuurprogramma's op de doelcomputers. Vervolgens gebruikt het doelbesturingssysteem Plug en Play-id's om te bepalen welke apparaatstuurprogramma's die nodig zijn voor de apparaten op de doelcomputers.  
 
  Als u wilt dit standaardgedrag wijzigen, configureert u het implementatieproces ZTI om specifieke stuurprogramma's installeren op doelcomputers, zoals beschreven in [besturingselement apparaat stuurprogramma implementaties met Configuration Manager voor ZTI](#ControlDeviceDriverDeploymentsUsingConfigurationManagerforZTI). Zie voor meer informatie over strategieën voor het beheer van apparaten stuurprogramma [schakelt de strategie voor apparaatstuurprogramma's Management](#SelecttheDeviceDriverManagementStrategy).  
 
-###  <a name="DeployinganOperatingSystemUsingTaskSequenceBootableMediainConfigurationManager"></a>Implementeren van een besturingssysteem met opstartbare Takenreeksmedia in Configuration Manager  
+###  <a name="DeployinganOperatingSystemUsingTaskSequenceBootableMediainConfigurationManager"></a> Implementeren van een besturingssysteem met opstartbare Takenreeksmedia in Configuration Manager  
  Start de doelcomputer met de opstartbare media voor het initiëren van ZTI implementatie met behulp van Configuration Manager vanaf opstartbare media. Het opstartproces wordt Windows PE gestart, en start vervolgens ZTI. U start de doelcomputer vanaf een USB-Flashstation, cd-rom of DVD.  
 
 > [!NOTE]
@@ -5668,7 +5667,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  Voor meer informatie over het implementeren van een besturingssysteem met opstartbare takenreeksmedia, Zie de sectie 'Hoe te implementeren besturingssystemen door met behulp van Media in Configuration Manager' in de Documentatiebibliotheek van Configuration Manager, die is geïnstalleerd met Configuration Manager.  
 
-###  <a name="CreatingTaskSequenceBootableMediainConfigurationManager"></a>Maken van opstartbare Takenreeksmedia in Configuration Manager  
+###  <a name="CreatingTaskSequenceBootableMediainConfigurationManager"></a> Maken van opstartbare Takenreeksmedia in Configuration Manager  
  Bieden een methode voor het starten van de computer met Windows PE en de benodigde software door het maken van de schijf taak sequence opstartbare media voor het initiëren van het implementatieproces van ZTI met Configuration Manager vanaf opstartbare media. Gebruik de Wizard Takenreeks Media in Configuration Manager-console voor het maken van opstartbare media voor opslag op een USB-Flashstation, cd-rom of DVD.  
 
 > [!NOTE]
@@ -5676,7 +5675,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  Zie de sectie 'Hoe te maken van opstartbare Media,' in de Documentatiebibliotheek van Configuration Manager, dat geïnstalleerd is met Configuration Manager voor meer informatie over het maken van opstartbare takenreeksmedia.  
 
-###  <a name="CreatingZTIBootImagesinConfigurationManager"></a>ZTI opstartinstallatiekopieën maken in Configuration Manager  
+###  <a name="CreatingZTIBootImagesinConfigurationManager"></a> ZTI opstartinstallatiekopieën maken in Configuration Manager  
  Sommige situaties-aanroep voor u een nieuwe opstartinstallatiekopie voor het proces ZTI maken zonder de MDT Wizard Takenreeks maken worden uitgevoerd. U kunt nieuwe opstartinstallatiekopieën maken voor ZTI met de opstartinstallatiekopie maken met behulp van de Wizard MDT in het knooppunt opstartgegevens in de Configuration Manager-console.  
 
 ##### <a name="to-create-a-zti-boot-image-in-configuration-manager"></a>Een opstartinstallatiekopie ZTI maken in Configuration Manager  
@@ -5707,14 +5706,14 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  Nadat de installatiekopie maken met behulp van de Wizard MDT is voltooid, de nieuwe opstartinstallatiekopie wordt weergegeven in het voorbeeldvenster in de Configuration Manager-console.  
 
-###  <a name="ManagingSoftwarePackagesinConfigurationManager"></a>Het beheren van Software-updatepakketten in Configuration Manager  
+###  <a name="ManagingSoftwarePackagesinConfigurationManager"></a> Het beheren van Software-updatepakketten in Configuration Manager  
  Beheren van softwarepakketten in de Configuration Manager-console in Configuration Manager door:  
 
 -   Taalpakketten toevoegen, zoals beschreven in [taalpakketten toevoegen in Configuration Manager](#AddLanguagePacksinConfigurationManager)  
 
 -   Softwareupdates toe te voegen, zoals beschreven in [Software-Updates toevoegen in Configuration Manager](#AddSoftwareUpdatesinConfigurationManager)  
 
-####  <a name="AddLanguagePacksinConfigurationManager"></a>Taalpakketten in Configuration Manager toevoegen  
+####  <a name="AddLanguagePacksinConfigurationManager"></a> Taalpakketten in Configuration Manager toevoegen  
  *Taalpakketten* CAB-bestanden die u aan Configuration Manager-pakketten offline of online toevoegen kunt zijn. Voordat u taalpakketten toevoegt, moet u echter een Configuration Manager-pakket met een of meer taalpakketten maken.  
 
  Het nummer van de taalpakketten die u aan een Configuration Manager-pakket toevoegt is gebaseerd op het type implementatie wordt uitgevoerd. Bij het implementeren van taalpakketten gebruiken:  
@@ -5817,7 +5816,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 11. In de ***task_sequence_name*** **Takenreekseditor** in het dialoogvenster, klikt u op **OK**.  
 
-####  <a name="AddSoftwareUpdatesinConfigurationManager"></a>Software-Updates in Configuration Manager toevoegen  
+####  <a name="AddSoftwareUpdatesinConfigurationManager"></a> Software-Updates in Configuration Manager toevoegen  
  Gebruik Configuration Manager-updates toevoegt, online of offline: tijdens de takenreeks wordt uitgevoerd. Software-updates in Configuration Manager, een server die is geconfigureerd als een software-updatepunt beheren. Zie de sectie 'Configureren van Software-Updates in Configuration Manager,' in de Documentatiebibliotheek van Configuration Manager, dat geïnstalleerd is met Configuration Manager voor gedetailleerde informatie over software-updates met Configuration Manager.  
 
  Gebruik implementatiepakketten voor software-updates implementeren. Updatepakketten voor meer informatie over de configuratie en implementatie van software, Zie de sectie 'Downloaden van Software-Updates,' in de Documentatiebibliotheek van Configuration Manager, die met Configuration Manager is geïnstalleerd.  
@@ -5901,15 +5900,15 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 > [!NOTE]
 >  De rol van de Software-updatepunt en Windows Server Update Services (WSUS) moeten correct worden geconfigureerd om te werken met dit type takenreeks stap.  
 
-###  <a name="ManagingTaskSequenceDeploymentinConfigurationManager"></a>Het beheren van de Takenreeksimplementatie in Configuration Manager  
+###  <a name="ManagingTaskSequenceDeploymentinConfigurationManager"></a> Het beheren van de Takenreeksimplementatie in Configuration Manager  
  In implementaties van ZTI met Configuration Manager, moet u de takenreeksen implementeren met de doelcomputers met behulp van de Wizard Software implementeren. De takenreeks wordt geïmplementeerd op een verzameling die de referentiecomputer of doelcomputers bevat. Voor meer informatie over het implementeren van takenreeksen, Zie de sectie 'Hoe te implementeren van een Takenreeks,' in de sectie 'Hoe te beheren Taakreeksen in Configuration Manager,' in de Documentatiebibliotheek van Configuration Manager, die is geïnstalleerd met Configuration Manager.  
 
-###  <a name="ManuallyAddingComputerstotheSiteDatabaseinConfigurationManager"></a>Handmatig toevoegen van Computers met de sitedatabase in Configuration Manager  
+###  <a name="ManuallyAddingComputerstotheSiteDatabaseinConfigurationManager"></a> Handmatig toevoegen van Computers met de sitedatabase in Configuration Manager  
  Computers moeten bestaan in de Configuration Manager-sitedatabase in implementaties van ZTI met Configuration Manager, voordat u kunt een takenreeks op de computer weergeven. Configuration Manager bevat een functie voor het automatisch doelcomputers toevoegen aan de sitedatabase. Voor verwijzing computers is het echter gemakkelijker de referentiecomputer handmatig toevoegen aan de sitedatabase.  
 
  Voor meer informatie over het handmatig toevoegen van computers met de sitedatabase, Zie de sectie 'Hoe naar toevoegen een Computer naar de Configuration Manager-Database,' in de sectie 'Hoe te implementeren van besturingssystemen in Configuration Manager,' in de Configuration Manager Documentatiebibliotheek met Configuration Manager is geïnstalleerd.  
 
-###  <a name="ManagingComputerCollectionsinConfigurationManager"></a>Het beheren van verzamelingen van computers in Configuration Manager  
+###  <a name="ManagingComputerCollectionsinConfigurationManager"></a> Het beheren van verzamelingen van computers in Configuration Manager  
  In implementaties van ZTI met Configuration Manager, moeten de takenreeksen worden aangekondigd aan een verzameling van doelcomputers. In Configuration Manager *verzamelingen* zijn een groepering van een of meer computers. Zie voor meer informatie over het beheren van verzamelingen van computers in de volgende secties in de Documentatiebibliotheek van Configuration Manager, die met Configuration Manager is geïnstalleerd:  
 
 -   'Inleiding op verzamelingen in Configuration Manager'  
@@ -5920,14 +5919,14 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 -   'Beveiliging en Privacy voor verzamelingen in Configuration Manager'  
 
-###  <a name="ManagingDistributionPointsinConfigurationManager"></a>Distributiepunten in Configuration Manager beheren  
+###  <a name="ManagingDistributionPointsinConfigurationManager"></a> Distributiepunten in Configuration Manager beheren  
  In implementaties van ZTI met Configuration Manager *distributiepunten* zijn van de opslagplaats voor de bestanden die op de referentie- en doelcomputers computers worden geïmplementeerd. Uw organisatie mogelijk meer dan één distributiepunt. Distributiepunten voor de installatiekopieën van besturingssystemen en software-updatepakketten die gebruikmaakt van MDT, ervoor te zorgen dat elke computer referentie- en doel heeft een permanente snelle verbinding met een distributiepunt wijst configureren.  
 
  Als u wijzigingen in de installatiekopieën van besturingssystemen en software-updatepakketten gebruikt die gebruikmaakt van MDT aanbrengt, werkt u de distributiepunten waar deze installatiekopieën en pakketten worden opgeslagen.  
 
  Zie de sectie 'Bewerkingen en onderhoud voor Content Management in Configuration Manager,' in de Documentatiebibliotheek van Configuration Manager, dat geïnstalleerd is met Configuration Manager voor meer informatie over het beheren van distributiepunten.  
 
-###  <a name="ConfiguringZTITaskSequenceStepsinConfigurationManager"></a>Configureren van de Takenreeks ZTI stappen in Configuration Manager  
+###  <a name="ConfiguringZTITaskSequenceStepsinConfigurationManager"></a> Configureren van de Takenreeks ZTI stappen in Configuration Manager  
  Nadat u een met de MDT Wizard Takenreeks maken in Configuration Manager ZTI-takenreeks hebt gemaakt, kunt u via de Configuration Manager-console kunt aanpassen. De Configuration Manager-console kunt u:  
 
 -   Nieuwe takenreeksstappen toevoegen  
@@ -5942,7 +5941,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 -   Takenreeksen, Zie de sectie 'Plannen van een Taakreeksen strategie in Configuration Manager,' in de Documentatiebibliotheek van Configuration Manager, die met Configuration Manager is geïnstalleerd.  
 
-###  <a name="ConfiguringZTIServerRoleTaskSequenceStepsinConfigurationManager"></a>Configureren van ZTI Server rol Takenreeks stappen in Configuration Manager  
+###  <a name="ConfiguringZTIServerRoleTaskSequenceStepsinConfigurationManager"></a> Configureren van ZTI Server rol Takenreeks stappen in Configuration Manager  
  ZTI kan helpen bij de implementatie van serverfuncties in Windows Server automatiseren. Configureer ZTI takenreeksstappen in Configuration Manager voor het implementeren van de ondersteunde serverrollen, waaronder:  
 
 -   AD DS  
@@ -5953,7 +5952,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  Het proces voor het configureren van de server-rol takenreeksstappen lijkt voor ZTI en LTI. Zie voor meer informatie over het configureren van server-rol takenreeksstappen voor in Configuration Manager ZTI [configureren van Server-rol Takenreeksstappen](#ConfiguringServerRoleTaskSequenceSteps).  
 
-##  <a name="PerformingUDIDeployments"></a>UDI implementaties uitvoeren  
+##  <a name="PerformingUDIDeployments"></a> UDI implementaties uitvoeren  
  U uitvoeren UDI implementaties in MDT met Configuration Manager binnen een AD DS-domein, een Windows-werkgroep, of via verwisselbare media.  
 
 > [!NOTE]
@@ -5973,7 +5972,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 -   Vastgelegde installatiekopieën implementeren op de doelcomputer met behulp van UDI zoals beschreven [vastgelegd installatiekopieën implementeren naar de doel-Computers met behulp van UDI](#DeployingCapturedImagestoTargetComputersUsingUDI)  
 
-###  <a name="OverviewofUDIDeployments"></a>Overzicht van UDI implementaties  
+###  <a name="OverviewofUDIDeployments"></a> Overzicht van UDI implementaties  
  UDI kan de interactieve implementatie van Windows-besturingssystemen en toepassingen met Configuration Manager. Normaal gesproken moet u alle informatie die nodig zijn voor het implementeren van het besturingssysteem opgeven bij het implementeren van besturingssystemen met de OSD-functie in Configuration Manager en ZTI in MDT. Voordat u de implementatie uitvoert, is de informatie in de configuratiebestanden of in databases (zoals het CustomSettings.ini-bestand of de MDT-DB) geconfigureerd. Tijdens de implementatie van ZTI omgezet ZTI in de juiste configuratie-instellingen takenreeksvariabelen die de MDT-takenreeksen voor UDI gebruiken. Alle configuratie-instellingen moet worden opgegeven voordat u de implementatie kunt starten.  
 
  UDI biedt een wizard-gebaseerde interface die wordt uitgevoerd op de doelcomputer, zodat u kunt de configuratiegegevens onmiddellijk voordat het besturingssysteem en de implementatie van de toepassing opgeven. Hiermee kunt u algemene OSD-takenreeksen maken en vervolgens hebben andere gebruikers specifieke informatie van de computer op het moment van implementatie, die meer flexibiliteit in het implementatieproces biedt.  
@@ -6000,7 +5999,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 |*Installatie door gebruikers geïnitieerde-handleiding voor ontwikkelaars*|Deze inhoud geeft instructies voor het aanpassen en uitbreiden van UDI om te voldoen aan de behoeften van uw organisatie.|  
 |'UDI concepten' sectie *Microsoft Deployment Toolkit Reference*|Deze inhoud bevat definities van UDI voorwaarden en terminologie en algemene informatie over UDI.|  
 
-####  <a name="OverviewofUDIinMDTDeploymentScenarios"></a>Overzicht van UDI in MDT implementatiescenario 's  
+####  <a name="OverviewofUDIinMDTDeploymentScenarios"></a> Overzicht van UDI in MDT implementatiescenario 's  
  UDI ondersteunt de nieuwe Computer, de Computer vernieuwen en de Computer MDT vervangen implementatiescenario's die zijn beschreven in [implementatiescenario's te identificeren](#IdentifyingDeploymentScenarios). UDI ondersteunt deze implementaties scenario's met behulp van de Configuration Manager taak reeks sjablonen MDT voorzien. 136 tabel bevat de implementatiescenario's voor MDT en de bijbehorende UDI taak reeks sjablonen gebruikt voor het uitvoeren van het scenario van implementatie.  
 
 ### <a name="table-136-mdt-deployment-scenarios-and-udi-task-sequence-templates-used-to-perform-the-scenarios"></a>Tabel 136. MDT implementatiescenario's beschreven en UDI Sequence taaksjablonen gebruikt voor het uitvoeren van de scenario 's  
@@ -6021,7 +6020,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  Zie voor meer informatie over de werking van UDI in elk van deze MDT implementatiescenario's, de bijbehorende secties in 'UDI fase verwijzing' *Microsoft Deployment Toolkit Reference*.  
 
-#####  <a name="UDIintheNewComputerDeploymentScenario"></a>UDI in de nieuwe Computer implementatiescenario  
+#####  <a name="UDIintheNewComputerDeploymentScenario"></a> UDI in de nieuwe Computer implementatiescenario  
  Voor de Wizard Nieuwe Computer implementatie kunnen installatiekopieën van besturingssystemen zich in de volgende locaties:  
 
 -   **Op een distributiepunt**. Deze methode gebruikt de traditionele OSD-implementatiemethode in Configuration Manager.  
@@ -6040,14 +6039,14 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  **Afbeelding 3. Processtroom voor UDI uitvoeren van de nieuwe Computer implementatiescenario voor vooraf geplaatste media**  
 
-#####  <a name="UDIintheRefreshComputerDeploymentScenario"></a>UDI in het Scenario van implementatie Computer vernieuwen  
+#####  <a name="UDIintheRefreshComputerDeploymentScenario"></a> UDI in het Scenario van implementatie Computer vernieuwen  
  Takenreeksen die worden gebruikt voor het uitvoeren van het scenario vernieuwen Computer dezelfde taak sequence sjabloon gebruiken als het scenario met een nieuwe Computer de **Takenreeks gebruiker gebaseerde installatie** taak sequence sjabloon. De Computer vernieuwen implementatiescenario begint altijd met de doelcomputer met de bestaande Windows-besturingssysteem die is hoe de taken wordt uitgevoerd, kent het verschil tussen het implementatiescenario Computer vernieuwen en de nieuwe Computer-implementaties scenario. Afbeelding 4 ziet u hoe UDI wordt gebruikt in het implementatiescenario Computer vernieuwen.  
 
  ![MDTDevToolkit4](media/MDTDevToolkit4.jpg "MDTDevToolkit4")  
 
  Afbeelding 4: Processtroom voor UDI uitvoeren van het implementatiescenario Computer vernieuwen  
 
-#####  <a name="UDIintheReplaceComputerDeploymentScenario"></a>UDI in het Scenario van implementatie Computer vervangen  
+#####  <a name="UDIintheReplaceComputerDeploymentScenario"></a> UDI in het Scenario van implementatie Computer vervangen  
  De Computer vervangen scenario vereist de volgende takenreeksen.  
 
 -   Een takenreeks die is gemaakt met behulp van de **gebruiker gebaseerde installatie vervangen Takenreeks** taak sequence sjabloon. Deze takenreeks eerste op de bestaande computer wordt uitgevoerd en wordt gebruikt om vast te leggen statusmigratiegegevens naar een gedeelde netwerkmap of op een USB-schijf die is gekoppeld aan de bestaande computer.  
@@ -6060,7 +6059,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  **Afbeelding 5. Processtroom voor UDI het implementatiescenario vervangen Computer uitvoeren**  
 
-####  <a name="OverviewofBuiltinUDIComponents"></a>Overzicht van de ingebouwde UDI onderdelen  
+####  <a name="OverviewofBuiltinUDIComponents"></a> Overzicht van de ingebouwde UDI onderdelen  
  UDI wordt geleverd met ingebouwde Configuration Manager-takenreeksen, fase groepen fasen, taken, validatiefuncties en wizardpagina's die het meest voorkomende implementatiescenario's zonder de hulp van een ontwikkelaar kunnen uitvoeren. Deze ingebouwde onderdelen kunnen worden geconfigureerd met behulp van de Wizard UDI Designer:  
 
  Zie voor meer informatie over de ingebouwde UDI-onderdelen in de volgende secties in de *Microsoft Deployment Toolkit Reference*:  
@@ -6075,7 +6074,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  Naast deze ingebouwde onderdelen, kunt u aangepaste wizardpagina's, wizard pagina's, taken en validatiefuncties met UDI software development kit (SDK). De SDK UDI met MDT is geïnstalleerd en voorbeeld-oplossingen voor Microsoft Visual Studio 2010 bevat. Zie voor meer informatie over het uitbreiden van UDI met behulp van de SDK UDI het document MDT *Driven installatie-handleiding voor ontwikkelaars*.  
 
-###  <a name="PreparingtheUDIDeploymentEnvironment"></a>De implementatieomgeving UDI voorbereiden  
+###  <a name="PreparingtheUDIDeploymentEnvironment"></a> De implementatieomgeving UDI voorbereiden  
  Nadat u de vereiste infrastructuur hebt voorbereid voor MDT, bent u klaar voor het voorbereiden van de MDT-implementatie-omgeving voor UDI.  
 
 ##### <a name="to-prepare-the-mdt-deployment-environment-for-udi-deployments"></a>De MDT-implementatie-omgeving voor UDI implementaties voorbereiden  
@@ -6088,7 +6087,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 4.  Integratie van de Configuration Manager-console met MDT inschakelen zoals beschreven in [inschakelen Configuration Manager-Console-integratie voor UDI](#EnableConfigurationManagerConsoleIntegrationforUDI).  
 
-####  <a name="PreparethePrerequisiteInfrastructureforUDIDeployments"></a>De vereiste infrastructuur voorbereiden voor UDI-implementaties  
+####  <a name="PreparethePrerequisiteInfrastructureforUDIDeployments"></a> De vereiste infrastructuur voorbereiden voor UDI-implementaties  
  UDI-implementaties vereisen dat een correct geconfigureerde Configuration Manager-infrastructuur bestaat vóór MDT installeren en uitvoeren van implementaties. Zorg ervoor dat uw nieuwe of bestaande Configuration Manager-infrastructuur is speciaal geoptimaliseerd voor de functie van de implementatie van besturingssystemen.  
 
 > [!NOTE]
@@ -6096,11 +6095,11 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  Meer informatie:  
 
--   Hardware- en softwarevereisten voor Configuration Manager, Zie [ondersteunde configuraties voor Configuration Manager](http://technet.microsoft.com/library/gg682077.aspx) ...  
+-   Hardware- en softwarevereisten voor Configuration Manager, Zie [ondersteunde configuraties voor Configuration Manager](https://docs.microsoft.com/sccm/core/plan-design/configs/supported-configurations) ...  
 
 -   Configureren van een Configuration Manager-infrastructuur ter ondersteuning van UDI implementaties, Zie de sectie ' stap 1: De vereiste infrastructuur voorbereiden', in de MDT-document introductiehandleiding voor Driven installatie.  
 
-####  <a name="InstallorUpgradetoMDTforUDIDeployments"></a>Installeren of upgraden van MDT voor UDI implementaties  
+####  <a name="InstallorUpgradetoMDTforUDIDeployments"></a> Installeren of upgraden van MDT voor UDI implementaties  
  De eerste stap bij het uitvoeren van UDI implementaties is dat ten minste één exemplaar van MDT uitvoert in uw omgeving. Installeer MDT op elke computer waarop de Configuration Manager-console die is geïnstalleerd en die u wilt gebruiken om te maken of bewerken van takenreeksen die MDT genereert. Als uw bestaande omgeving:  
 
 -   Er zijn geen computers die momenteel met MDT of een eerdere versie van MDT, een of meer nieuwe exemplaren van MDT installeren zoals is beschreven in [installeren van een nieuw exemplaar van MDT](#InstallingaNewInstanceofMDT).  
@@ -6113,7 +6112,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
     -   **Zorg ervoor dat er UDI takenreeksen gemaakt vóór de upgrade de Microsoft Deployment Toolkit bestanden pakket gebruiken dat vóór de upgrade aanwezig**. U kunt deze takenreeksen UDI wijzigen, maar u kunt geen nieuwe MDT-takenreeksacties of stappen gebruiken. Voor het gebruik van de nieuwe MDT-takenreeksacties of stappen een nieuwe UDI-takenreeks te maken.  
 
-####  <a name="ObtaintheSoftwareThattheUDIDeploymentProcessRequires"></a>De Software voor het implementatieproces UDI verkrijgen  
+####  <a name="ObtaintheSoftwareThattheUDIDeploymentProcessRequires"></a> De Software voor het implementatieproces UDI verkrijgen  
  De software die nodig zijn tijdens het implementatieproces UDI verzamelen. Deze software worden geïmporteerd of toegevoegd aan implementatieshares, tenzij deze al in de implementatieshare voorkomt.  
 
 > [!NOTE]
@@ -6131,7 +6130,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 -   USMT-bronbestanden gebruikt voor het maken van een softwarepakket dat is geïmplementeerd op de doelcomputers voor het vastleggen van gegevens van de migratie van gebruikersstatus  
 
-####  <a name="EnableConfigurationManagerConsoleIntegrationforUDI"></a>Integratie van Configuration Manager-Console voor UDI inschakelen  
+####  <a name="EnableConfigurationManagerConsoleIntegrationforUDI"></a> Integratie van Configuration Manager-Console voor UDI inschakelen  
  Voordat u de Configuration Manager-integratiefuncties van MDT gebruiken kunt, moet u de Wizard Configuration Manager-integratie configureren uitvoert. Deze wizard kopieert de juiste Configuration Manager-integratie bestanden naar de *Configuration Manager _root* (waar *_root Configuration Manager* is de map waarin de Configuration Manager console is geïnstalleerd).  
 
  De wizard voegt ook WMI-klassen voor de nieuwe aangepaste acties in MDT. U kunt deze klassen toevoegen door het compileren van een MOF-bestand met de nieuwe klassedefinities.  
@@ -6156,7 +6155,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  De Wizard Configuration Manager-integratie is voltooid en MDT is geïntegreerd met Configuration Manager.  
 
-###  <a name="PreparingforUDIDeploymenttotheReferenceComputer"></a>UDI implementatie op de referentiecomputer voorbereiden  
+###  <a name="PreparingforUDIDeploymenttotheReferenceComputer"></a> UDI implementatie op de referentiecomputer voorbereiden  
  Ongeacht de MDT-implementatiescenario die u uitvoert met behulp van UDI altijd starten door het maken van een referentiecomputer en vervolgens een installatiekopie van de computer vastleggen. Later in het implementatieproces van MDT implementeert u de vastgelegde kopie van de referentiecomputer met de juiste doelcomputers. Bovendien kunt u bestaande installatiekopieën van besturingssystemen in het WIM-indeling.  
 
  Maak een referentiecomputer voor elke installatiekopie die u wilt maken voor implementatie naar de doelcomputers. Zie voor meer informatie over het bepalen van het aantal installatiekopieën vereist zijn in uw organisatie (en vervolgens het aantal vereiste referentiecomputers) [schatting opslagvereisten voor Configuration Manager-distributiepunten](#EstimateStorageRequirementsforConfigurationManagerDistributionPoints). Zie voor meer informatie over het gebruik van referentiecomputers in MDT implementaties [referentiecomputers in implementaties van MDT met behulp van](#UsingReferenceComputersinMDTDeployments).  
@@ -6191,7 +6190,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     > [!NOTE]
     >  Het implementatieproces UDI is niet Sysprep bewerkingen uitvoeren op een doelcomputer die is versleuteld met BitLocker-stationsversleuteling. Niet inschakelen van BitLocker op de referentiecomputer en BitLocker inschakelen op de doelcomputers alleen nadat het beoogde besturingssysteem volledig is geïmplementeerd.  
 
-###  <a name="DeployingToandCapturinganImageoftheReferenceComputerUsingUDI"></a>Om te implementeren en een installatiekopie van de referentiecomputer met behulp van UDI vastleggen  
+###  <a name="DeployingToandCapturinganImageoftheReferenceComputerUsingUDI"></a> Om te implementeren en een installatiekopie van de referentiecomputer met behulp van UDI vastleggen  
  Nadat de distributiepunten worden bijgewerkt, adverteren van de takenreeks wordt uitgevoerd op de referentiecomputer en start de referentiecomputer met opstartbare Windows PE-installatiekopie die eerder in het proces hebt gemaakt. De takenreeks dat eerder hebt gemaakt wordt het beoogde besturingssysteem, stuurprogramma's, besturingssysteempakketten en toepassingen op de referentiecomputer distribueren en vervolgens een installatiekopie van de referentiecomputer vast te leggen.  
 
 ##### <a name="to-deploy-to-and-capture-an-image-of-the-reference-computer"></a>Om te implementeren op een installatiekopie van de referentiecomputer  
@@ -6208,7 +6207,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 6.  Start de referentiecomputer met de takenreeks opstartbare media zoals beschreven in schijf [implementeren van een besturingssysteem met behulp van opstartbare Takenreeksmedia in Configuration Manager](#DeployinganOperatingSystemUsingTaskSequenceBootableMediainConfigurationManager) die hetzelfde proces voor de UDI en ZTI is.  
 
-###  <a name="PreparingforUDIDeploymenttoTargetComputers"></a>UDI implementatie naar de doelcomputers voorbereiden  
+###  <a name="PreparingforUDIDeploymenttoTargetComputers"></a> UDI implementatie naar de doelcomputers voorbereiden  
  Nadat de installatiekopieën van de referentiecomputer wordt vastgelegd, kunt u deze met de doelcomputers implementeren. Maken van een of meer takenreeksen voor de implementatie van de vastgelegde installatiekopieën, zorg ervoor dat de benodigde implementatie resources bestaan en aanpassen van het implementatieproces MDT in voorbereiding voor het implementeren van de vastgelegde installatiekopieën op de doelcomputers.  
 
 ##### <a name="to-prepare-for-udi-deployment-to-target-computers"></a>Om voor te bereiden voor implementatie naar de doelcomputers UDI  
@@ -6229,7 +6228,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
      Afhankelijk van de doelcomputers in uw organisatie een combinatie van deze implementaties scenario's mogelijk nodig. Zie voor meer informatie over MDT implementatiescenario's [implementatiescenario's te identificeren](#IdentifyingDeploymentScenarios).  
 
-####  <a name="PreparefortheNewComputerDeploymentScenariotoTargetComputersUsingUDI"></a>Voorbereiden voor de nieuwe Computer implementatiescenario op doelcomputers met UDI  
+####  <a name="PreparefortheNewComputerDeploymentScenariotoTargetComputersUsingUDI"></a> Voorbereiden voor de nieuwe Computer implementatiescenario op doelcomputers met UDI  
  In het implementatiescenario voor de nieuwe Computer implementeert u een nieuwe installatie van een Windows-besturingssysteem naar een nieuwe computer. Er is geen gebruiker migratie-informatie opslaan en terugzetten en er zijn geen bestaande bestandssystemen te behouden. Gebruik de Driven installatie taak sequence-sjabloon voor het implementeren van de vastgelegde installatiekopie van de referentiecomputer op de doelcomputer.  
 
 ###### <a name="to-prepare-for-the-new-computer-deployment-scenario-to-target-computers-using-udi"></a>Voorbereiden voor het implementatiescenario voor de nieuwe Computer naar de doelcomputers met UDI  
@@ -6277,7 +6276,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     > [!NOTE]
     >  De meeste productienetwerken hebben meerdere distributiepunten. Wanneer u deze stap uitvoert in een productieomgeving, selecteer de juiste distributiepunten voor het netwerk.  
 
-####  <a name="PreparefortheRefreshComputerDeploymentScenariotoTargetComputersUsingUDI"></a>Voorbereiden voor het Scenario van implementatie Computer vernieuwen op doelcomputers met UDI  
+####  <a name="PreparefortheRefreshComputerDeploymentScenariotoTargetComputersUsingUDI"></a> Voorbereiden voor het Scenario van implementatie Computer vernieuwen op doelcomputers met UDI  
  Een computer wordt in het implementatiescenario Computer vernieuwen vernieuwd, waaronder computers die moeten worden siteservercomputer voor installatiekopie normalisatie of om een probleem te verhelpen. Er is migratie gebruikersgegevens opslaan en terugzetten, maar er zijn geen bestaande bestandssystemen te behouden. Gebruik de **Takenreeks gebruiker gebaseerde installatie** sjabloon voor het implementeren van de vastgelegde installatiekopie van de referentiecomputer op de doelcomputer.  
 
 ###### <a name="to-prepare-for-the-refresh-computer-deployment-scenario-to-target-computers-using-udi"></a>Voorbereiden voor het implementatiescenario Computer vernieuwen op doelcomputers met UDI  
@@ -6322,7 +6321,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     > [!NOTE]
     >  De meeste productienetwerken hebben meerdere distributiepunten. Wanneer u deze stap uitvoert in een productieomgeving, selecteer de juiste distributiepunten voor het netwerk.  
 
-####  <a name="PreparefortheReplaceComputerDeploymentScenariotoTargetComputersUsingUDI"></a>Voorbereiden voor het implementatiescenario voor vervangen Computer naar de doelcomputers met UDI  
+####  <a name="PreparefortheReplaceComputerDeploymentScenariotoTargetComputersUsingUDI"></a> Voorbereiden voor het implementatiescenario voor vervangen Computer naar de doelcomputers met UDI  
  In het implementatiescenario vervangen Computer één computer wordt vervangen door een andere computer. Een computerkoppeling record maken die wordt gekoppeld aan de bestaande doelcomputer en de nieuwe doelcomputer. De bestaande gegevens migreren wordt van de bestaande doelcomputer opgeslagen. Vervolgens wordt een nieuwe installatie van Windows op een nieuwe computer geïmplementeerd. Ten slotte wordt de gebruikersstatusgegevens teruggezet naar de nieuwe computer. Er zijn geen bestaande bestandssystemen te behouden.  
 
 > [!IMPORTANT]
@@ -6387,7 +6386,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     > [!NOTE]
     >  De meeste productienetwerken hebben meerdere distributiepunten. Wanneer u deze stap uitvoert in een productieomgeving, selecteer de juiste distributiepunten voor het netwerk.  
 
-###  <a name="DeployingCapturedImagestoTargetComputersUsingUDI"></a>Implementatie van installatiekopieën van doelcomputers via UDI vastgelegd  
+###  <a name="DeployingCapturedImagestoTargetComputersUsingUDI"></a> Implementatie van installatiekopieën van doelcomputers via UDI vastgelegd  
  De implementatie van de vastgelegde installatiekopieën op de doelcomputers is enigszins verschillen voor elk MDT implementatiescenario met UDI. De vastgelegde installatiekopie van de referentiecomputer implementeren op doelcomputers voor elk implementatiescenario respectieve in uw organisatie.  
 
 ##### <a name="to-deploy-the-capture-image-of-the-reference-computer-to-the-target-computers-using-udi"></a>De vastgeleginstallatiekopie van de referentiecomputer implementeren op de doelcomputers met UDI  
@@ -6424,7 +6423,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
      Afhankelijk van de doelcomputers in uw organisatie een combinatie van implementaties scenario's mogelijk nodig. Zie voor meer informatie over de implementatiescenario's voor MDT [implementatiescenario's te identificeren](#IdentifyingDeploymentScenarios).  
 
-####  <a name="DeployCapturedImagestoTargetComputersintheNewComputerDeploymentScenarioUsingUDI"></a>Vastgelegde installatiekopieën implementeren op doelcomputers in de nieuwe Computer implementatiescenario met UDI  
+####  <a name="DeployCapturedImagestoTargetComputersintheNewComputerDeploymentScenarioUsingUDI"></a> Vastgelegde installatiekopieën implementeren op doelcomputers in de nieuwe Computer implementatiescenario met UDI  
  Start de doelcomputer met opstartbare media voor de takenreeks die eerder in het proces of van Windows Deployment Services gemaakt. Beide methoden wordt Windows PE gestart op de doelcomputer en start het implementatieproces UDI. Aan het einde van het proces worden de vastgelegde installatiekopie van de referentiecomputer wordt geïmplementeerd op de doelcomputer.  
 
 ###### <a name="to-deploy-the-capture-images-to-the-target-computers-in-the-new-computer-deployment-scenario-using-udi"></a>De Vastleginstallatiekopieën implementeren op de doelcomputers in de nieuwe Computer implementatiescenario met UDI  
@@ -6452,7 +6451,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 4.  Voltooi de Wizard UDI met het selecteren van de juiste waarden op de wizardpagina's voor de vereisten van uw organisatie, zoals beschreven in [uitvoeren van de Wizard UDI](#RunningtheUDIWizard).  
 
-####  <a name="DeployCapturedImagestoTargetComputersintheRefreshComputerDeploymentScenarioUsingUDI"></a>Vastgelegde installatiekopieën implementeren op doelcomputers in het vernieuwen van Computer-implementatiescenario met UDI  
+####  <a name="DeployCapturedImagestoTargetComputersintheRefreshComputerDeploymentScenarioUsingUDI"></a> Vastgelegde installatiekopieën implementeren op doelcomputers in het vernieuwen van Computer-implementatiescenario met UDI  
  Dit scenario starten door het uitvoeren van de Configuration Manager-takenreeksimplementatie (advertisement) voor het vastleggen van de statusmigratiegegevens die u eerder in het proces hebt gemaakt. Deze takenreeks wordt uitgevoerd in het huidige besturingssysteem op de bestaande doelcomputer.  
 
 ###### <a name="to-deploy-the-capture-images-to-the-target-computers-in-the-refresh-computer-deployment-scenario-using-udi"></a>De Vastleginstallatiekopieën implementeren op de doelcomputers in de vernieuwen Computer implementatie Scenario met behulp van UDI  
@@ -6469,7 +6468,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  De takenreeks wordt uitgevoerd in Windows PE voor het vastleggen van gegevens van de migratie van gebruikersstatus. De takenreeks de computer opnieuw opstart, wordt Windows PE gestart en start vervolgens de installatie van het nieuwe besturingssysteem. De takenreeks de computer opnieuw opstart, het nieuwe besturingssysteem wordt gestart, herstelt de gebruikersstatusgegevens voor migratie, er pakketten worden geïnstalleerd, installeert alle toepassingen en eventuele andere vereiste acties geconfigureerd in de takenreeks wordt uitgevoerd. Ten slotte wordt het programma OSD-resultaten, OSDResults.exe, wordt uitgevoerd en de resultaten van de implementatie worden weergegeven. De doelcomputer wordt nu geïmplementeerd.  
 
-####  <a name="DeployCapturedImagestoTargetComputersintheReplaceComputerDeploymentScenarioUsingUDI"></a>Vastgelegde installatiekopieën implementeren op doelcomputers in de vervangen Computer implementatiescenario met UDI  
+####  <a name="DeployCapturedImagestoTargetComputersintheReplaceComputerDeploymentScenarioUsingUDI"></a> Vastgelegde installatiekopieën implementeren op doelcomputers in de vervangen Computer implementatiescenario met UDI  
  Het implementatiescenario vervangen Computer vereist twee afzonderlijke stappen om de migratie te voltooien. Voer eerst de implementatie (advertisement) voor de takenreeks die u hebt gemaakt voor het vastleggen van de migratiegegevens van de gebruiker de status van de doelcomputer bestaande (oude computer). Ten tweede, voer de Wizard UDI voor het implementeren van de vastgelegde installatiekopie van de referentiecomputer naar de nieuwe doelcomputer (nieuwe computer) en het herstellen van de gebruikersstatus opgeslagen eerder in het proces.  
 
 ###### <a name="to-deploy-captured-images-of-the-reference-computer-to-target-computers-in-the-replace-computer-deployment-scenario-using-udi"></a>Vastgelegd voor het implementeren van installatiekopieën van de referentiecomputer met doelcomputers in de Computer vervangen implementatiescenario met UDI  
@@ -6478,7 +6477,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 2.  Implementeer de vastgelegde installatiekopie van de referentiecomputer met de nieuwe doelcomputer, zoals beschreven in [implementeert de installatiekopie vastgelegd en Statusmigratiegegevens in de vervangen Computer implementatie Scenario met behulp van UDI](#DeploytheCapturedImageandUserStateMigrationDataintheReplaceComputerDeploymentScenarioUsingUDI).  
 
-#####  <a name="SavetheUserStateMigrationDataintheReplaceComputerDeploymentScenarioUsingUDI"></a>Migratiegegevens van de gebruikersstatus opslaan in het vervangen Computer implementatiescenario met UDI  
+#####  <a name="SavetheUserStateMigrationDataintheReplaceComputerDeploymentScenarioUsingUDI"></a> Migratiegegevens van de gebruikersstatus opslaan in het vervangen Computer implementatiescenario met UDI  
  Dit scenario starten door het uitvoeren van de takenreeksimplementatie (advertisement) voor het vastleggen van de statusmigratiegegevens die u eerder in het proces hebt gemaakt. Deze takenreeks wordt uitgevoerd in het huidige besturingssysteem op de bestaande doelcomputer.  
 
 ###### <a name="to-save-the-user-state-migration-data-from-the-existing-target-computers-in-the-replace-computer-deployment-scenario-using-udi"></a>Migratiegegevens van de gebruiker van de bestaande doelcomputers in de vervangen Computer implementatiescenario met UDI opslaan  
@@ -6491,7 +6490,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  De takenreeks wordt uitgevoerd in het huidige besturingssysteem voor het vastleggen van gegevens van de migratie van gebruikersstatus. Migratiegegevens van de gebruiker van de bestaande doelcomputer wordt aan het einde van de takenreeks opgeslagen met de Configuration Manager-statusmigratiepunt.  
 
-#####  <a name="DeploytheCapturedImageandUserStateMigrationDataintheReplaceComputerDeploymentScenarioUsingUDI"></a>De vastgelegde installatiekopie en de migratie van Gebruikersstatusgegevens in de vervangen Computer implementatiescenario met UDI implementeren  
+#####  <a name="DeploytheCapturedImageandUserStateMigrationDataintheReplaceComputerDeploymentScenarioUsingUDI"></a> De vastgelegde installatiekopie en de migratie van Gebruikersstatusgegevens in de vervangen Computer implementatiescenario met UDI implementeren  
  Start de doelcomputer met de ZTI opstartbare media die eerder in het proces of van Windows Deployment Services gemaakt. De opstartbare media ZTI wordt Windows PE gestart op de doelcomputer en start het implementatieproces UDI. Aan het einde van het implementatieproces de vastgelegde installatiekopie van de referentiecomputer wordt geïmplementeerd op de doelcomputer en de gegevens van de migratie van gebruikersstatus is hersteld van de Configuration Manager-statusmigratiepunt.  
 
 ###### <a name="to-complete-the-windows-deployment-wizard-in-the-replace-computer-deployment-scenario-for-deploying-the-captured-image-using-udi"></a>Om de Wizard Windows-implementatie in het implementatiescenario vervangen Computer voor het implementeren van de vastgelegde installatiekopie met behulp van UDI voltooien  
@@ -6521,7 +6520,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  De takenreeks wordt Windows PE gestart en start vervolgens de installatie van het nieuwe besturingssysteem. De takenreeks de computer opnieuw opstart, het nieuwe besturingssysteem wordt gestart, herstelt de gebruikersstatusgegevens voor migratie, er pakketten worden geïnstalleerd, installeert alle toepassingen en eventuele andere vereiste acties geconfigureerd in de takenreeks wordt uitgevoerd. Ten slotte wordt het programma OSD-resultaten, OSDResults.exe, wordt uitgevoerd en de resultaten van de implementatie worden weergegeven. De doelcomputer wordt nu geïmplementeerd.  
 
-##  <a name="ManagingUDIDeployments"></a>UDI implementaties beheren  
+##  <a name="ManagingUDIDeployments"></a> UDI implementaties beheren  
  U UDI implementaties beheren via de Configuration Manager-console en de waarde van de Wizard UDI. Gebruikt u de implementatie-Workbench in UDI implementaties alleen voor het configureren van de MDT-database. De wizard wordt gebruikt voor het maken van takenreeksen UDI zijn geïntegreerd in de Configuration Manager-console. De waarde van de Wizard UDI kunt u het gedrag van de Wizard UDI configureren.  
 
  UDI implementaties door beheren:  
@@ -6556,7 +6555,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 -   Maken van een aangepaste wizardpagina voor het verzamelen van aanvullende implementatie-informatie, zoals beschreven in [maken aangepaste wizardpagina's met de functie uw eigen pagina bouwen](#CreatingCustomWizardPagesUsingtheBuildYourOwnPageFeature)  
 
-###  <a name="OverviewofUDIAdministration"></a>Overzicht van UDI beheer  
+###  <a name="OverviewofUDIAdministration"></a> Overzicht van UDI beheer  
  Het doel van UDI beheer is voor het configureren van de gebruikerservaring in de Wizard UDI en uiteindelijk de implementatie van Windows-besturingssystemen en toepassingen naar de doelcomputers te beheren. De gebruikerservaring UDI configureert u met behulp van de waarde van de Wizard UDI en door de takenreeksen voor Configuration Manager gebruikt met UDI in de Configuration Manager-Console aanpassen.  
 
  Het belangrijkste instrument voor het beheren van UDI is de Wizard UDI designer. De Wizard UDI Designer is geïnstalleerd als onderdeel van MDT die is geïnstalleerd op dezelfde computer op de Configuration Manager-Console. U zult ook de Configuration Manager-Console gebruiken voor het beheren van bepaalde aspecten van UDI implementaties, omdat UDI is gebouwd op de OSD-functie in Configuration Manager.  
@@ -6597,7 +6596,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
      AppInstaller kunt Configuration Manager om te zoeken welke toepassingen geïnstalleerd met behulp van het model van de toepassing tijdens de takenreeks wordt uitgevoerd. Hierdoor kan de Configuration Manager u functies zoals de functie voor toepassingsbewaking.  
 
-###  <a name="CreatingaUDITaskSequenceUsingMDTTaskSequenceTemplates"></a>Een UDI Takenreeks met behulp van MDT taak reeks sjablonen maken  
+###  <a name="CreatingaUDITaskSequenceUsingMDTTaskSequenceTemplates"></a> Een UDI Takenreeks met behulp van MDT taak reeks sjablonen maken  
  Gebruik de MDT Wizard Takenreeks maken in de Configuration Manager-console voor het maken van takenreeksen in Configuration Manager waarmee zijn geïntegreerd met MDT. MDT bevat taak reeks sjablonen die u gebruiken kunt om de referentie- en doelcomputers computers te implementeren.  
 
  Maak takenreeksen UDI met behulp van de MDT taak reeks sjablonen door:  
@@ -6610,7 +6609,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 -   UDI takenreeksen voor het implementeren van verschillende besturingssystemen, zoals beschreven in configureren [UDI Takenreeksen configureren om te implementeren van verschillende besturingssystemen worden uitgevoerd](#ConfigureUDITaskSequencestoDeployDifferentOperatingSystems)  
 
-####  <a name="IdentifytheUDITaskSequenceTemplatesinMDT"></a>De volgorde van UDI taaksjablonen in MDT identificeren  
+####  <a name="IdentifytheUDITaskSequenceTemplatesinMDT"></a> De volgorde van UDI taaksjablonen in MDT identificeren  
  MDT bevat taak reeks sjablonen die worden gebruikt voor het maken van MDT takenreeksen in Configuration Manager. De taak reeks sjablonen in MDT worden beschreven in [identificeren van de taak reeks sjablonen in MDT in Configuration Manager](#IdentifytheTaskSequenceTemplatesinMDTinConfigurationManager).  
 
  De sjablonen die zijn beschreven in [identificeren van de taak reeks sjablonen in MDT in Configuration Manager](#IdentifytheTaskSequenceTemplatesinMDTinConfigurationManager), het volgende in MDT implementatiescenario's met behulp van UDI worden gebruikt:  
@@ -6628,10 +6627,10 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 > [!NOTE]
 >  Gebruik altijd de MDT Wizard Takenreeks maken voor het maken van takenreeksen. Hoewel de takenreeksen u handmatig maken kunt, wordt doen dit niet aanbevolen.  
 
-####  <a name="IdentifythePackagesandImagesThattheUDITaskSequenceTemplatesRequire"></a>De pakketten en afbeeldingen waarvoor de UDI taak reeks sjablonen te identificeren  
+####  <a name="IdentifythePackagesandImagesThattheUDITaskSequenceTemplatesRequire"></a> De pakketten en afbeeldingen waarvoor de UDI taak reeks sjablonen te identificeren  
  De volgorde van UDI taaksjablonen vereist de dezelfde pakketten en installatiekopieën, zoals vereist door de implementaties van ZTI, zoals beschreven in [de pakketten identificeren en die de MDT-reeks taaksjablonen in Configuration Manager vereisen](#IdentifythePackagesandImagesThattheMDTTaskSequenceTemplatesinConfigurationManagerRequire).  
 
-####  <a name="CreateUDITaskSequencesUsingtheCreateMDTTaskSequenceWizard"></a>Maken van Takenreeksen UDI met behulp van de Wizard Takenreeks MDT maken  
+####  <a name="CreateUDITaskSequencesUsingtheCreateMDTTaskSequenceWizard"></a> Maken van Takenreeksen UDI met behulp van de Wizard Takenreeks MDT maken  
  De Wizard maken Takenreeks MDT vervangt door de pakketten en installatiekopieën die zijn geselecteerd voor de tijdelijke aanduidingen in de reeks taaksjablonen. Na het voltooien van de wizard verwijst nieuwe takenreeks de juiste pakketten en afbeeldingen.  
 
 > [!NOTE]
@@ -6641,7 +6640,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  Selecteer de juiste volgorde sjabloon voor UDI taak op basis van het scenario van implementatie wordt uitgevoerd. Zie voor meer informatie over de volgorde van UDI taaksjablonen in MDT [Sequence taaksjablonen van de UDI identificeren in MDT](#IdentifytheUDITaskSequenceTemplatesinMDT).  
 
-####  <a name="ConfigureUDITaskSequencestoDeployDifferentOperatingSystems"></a>UDI Takenreeksen voor het implementeren van verschillende besturingssystemen configureren  
+####  <a name="ConfigureUDITaskSequencestoDeployDifferentOperatingSystems"></a> UDI Takenreeksen voor het implementeren van verschillende besturingssystemen configureren  
  De **VolumePage** pagina in de ingebouwde UDI fase groepen kunt u selecteren uit alle installatiekopieën van besturingssystemen die u hebt geconfigureerd in de ontwerpfunctie van de Wizard UDI. Echter, de takenreeks die is gemaakt door de wizard Takenreeks MDT maken verwijst naar slechts één installatiekopie van een specifiek besturingssysteem in de **Besturingssysteeminstallatiekopie toepassen** takenreeksstap.  
 
  Wanneer u de installatiekopie selecteert op de **VolumePage** pagina de Wizard UDI sets de **OSDImageName** takenreeksvariabele aan de waarde van de naam van de installatiekopie die is geselecteerd. De waarde van de **OSDImageName** takenreeksvariabele komt overeen met de naam van de installatiekopie van het besturingssysteem in de **installatiekopieën van besturingssystemen** of **installatieprogramma's voor besturingssystemen**knooppunten in de Configuration Manager-console.  
@@ -6660,7 +6659,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  Na deze stappen uitvoert wanneer de gebruiker een besturingssysteemkopie geselecteerd op de **VolumePage** pagina, de bijbehorende **Besturingssysteeminstallatiekopie toepassen** takenreeksstap wordt uitgevoerd en implementeren van de de installatiekopie van het juiste besturingssysteem.  
 
-###  <a name="ConfiguringUDIWizardBehavior"></a>Gedrag van de Wizard UDI configureren  
+###  <a name="ConfiguringUDIWizardBehavior"></a> Gedrag van de Wizard UDI configureren  
  De Takenreeks voor Driven installatie en Driven installatie-vervangen Takenreeks sjablonen bevatten takenreeksstappen die worden uitgevoerd van de Wizard UDI. Wanneer een takenreeksstap wordt uitgevoerd van de Wizard UDI, de stap een verwijzing naar het bestand UDIWizard_Config.xml, die het gedrag bepalen van de Wizard UDI en wordt opgeslagen in de map van het pakket van de MDT-bestanden. U kunt het UDIWizard_Config.xml-bestand met de waarde van de Wizard UDI aanpassen.  
 
  Het gedrag van de Wizard UDI configureren door het uitvoeren van de volgende stappen uit in de Wizard UDI Designer:  
@@ -6705,7 +6704,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 -   Overslaan (verwijderen) van een fase zoals beschreven in een pagina van de wizard [overslaan van een pagina van de Wizard](#SkipaWizardPage).  
 
-####  <a name="ReviewUDIWizardDesignerConcepts"></a>Begrippen UDI Wizard ontwerpen  
+####  <a name="ReviewUDIWizardDesignerConcepts"></a> Begrippen UDI Wizard ontwerpen  
  De waarde van de Wizard UDI is een console in MDT die u kunt het configuratiebestand van de Wizard UDI eenvoudig te configureren. De waarde van de Wizard UDI kunt bijwerken van een bestaand configuratiebestand van de Wizard UDI of maak een nieuw configuratiebestand van de Wizard UDI.  
 
 > [!NOTE]
@@ -6721,7 +6720,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  Zie voor meer gedetailleerde informatie over de taken die kunnen worden uitgevoerd in de waarde van de Wizard UDI UDI Wizard gedrag configureren.  
 
-####  <a name="IdentifyUDIDeploymentProcessComponents"></a>Onderdelen voor implementatie proces UDI identificeren  
+####  <a name="IdentifyUDIDeploymentProcessComponents"></a> Onderdelen voor implementatie proces UDI identificeren  
  Het implementatieproces UDI is gebaseerd op implementaties van ZTI in MDT en Configuration Manager vereist. Het proces UDI wordt uitgevoerd als een andere takenreeks MDT, behalve dat de takenreeksen UDI-specifieke de Wizard UDI op de juiste stappen in de takenreeks uitvoeren.  
 
   Tabel 143 bevat de onderdelen voor UDI implementatie proces en een korte beschrijving van hoe ze samen in een implementatie UDI werken.  
@@ -6735,7 +6734,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 |**De Wizard UDI-configuratiebestand** |Hiermee bepaalt u de Wizard UDI is-configuratiebestand is gelezen door de Wizard UDI om te bepalen van de wizardpagina's die worden weergegeven, de volgorde van de wizardpagina's, de standaardwaarden voor, en Hiermee wordt aangegeven of besturingselementen zijn ingeschakeld of uitgeschakeld voor de interactie van de gebruiker.<br /><br /> Het configuratiebestand van de Wizard UDI kan worden aangepast met behulp van de waarde van de Wizard UDI.<br /><br /> Het standaardconfiguratiebestand van de Wizard UDI is naam UDIWizard_Config.xml en wordt opgeslagen in de scriptmap in het pakket van de MDT-bestanden.|  
 |**UDI takenreeksen** |De takenreeksen UDI worden gemaakt met behulp van MDT UDI-gerelateerde taak reeks sjablonen. De sjablonen UDI taak sequence bevatten de takenreeksstap voor het uitvoeren van de Wizard UDI op het juiste moment in het implementatieproces UDI.<br /><br /> Zie voor meer informatie over de taaksjablonen van reeks UDI [Sequence taaksjablonen van de UDI identificeren in MDT](#IdentifytheUDITaskSequenceTemplatesinMDT).|  
 
-####  <a name="ReviewtheRelationshipAmongUDIWizardPagesWizardPageEditorsandtheUDIWizardConfigurationFile"></a>Controleer de relatie tussen UDI wizardpagina's, Wizard pagina's en het configuratiebestand van de UDI-Wizard  
+####  <a name="ReviewtheRelationshipAmongUDIWizardPagesWizardPageEditorsandtheUDIWizardConfigurationFile"></a> Controleer de relatie tussen UDI wizardpagina's, Wizard pagina's en het configuratiebestand van de UDI-Wizard  
  Voor elke pagina van de wizard weergegeven in de Wizard UDI, is er een overeenkomstige wizard pagina editor die kan worden gebruikt voor het configureren van deze pagina van de wizard met behulp van de waarde van de Wizard UDI. Het configuratiebestand van de Wizard UDI (UDIWizard_Config.xml) wordt gebruikt voor het opslaan van de configuratie-instellingen voor elke pagina van de wizard. Afbeelding 7 ziet u de relatie tussen UDI wizardpagina's, UDI wizard pagina's en het configuratiebestand van de Wizard UDI.  
 
  ![MDTDevToolkit7](media/MDTDevToolkit7.jpg "MDTDevToolkit7")  
@@ -6751,7 +6750,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 > [!NOTE]
 >  Niet rechtstreeks wijzigen het configuratiebestand van de Wizard UDI. Gebruik in plaats daarvan de juiste wizard pagina editors in de waarde van de Wizard UDI.  
 
-####  <a name="ReviewtheUDIWizardDesignerUserInterface"></a>Bekijk de gebruikersinterface UDI Wizard ontwerpen  
+####  <a name="ReviewtheUDIWizardDesignerUserInterface"></a> Bekijk de gebruikersinterface UDI Wizard ontwerpen  
  De waarde van de Wizard UDI wordt gebruikt voor het aanpassen van de gebruikerservaring in de Wizard UDI, met inbegrip van de:  
 
 -   Wizardpagina's die worden weergegeven in de Wizard UDI (wizardpagina's kunnen worden toegevoegd of verwijderd)  
@@ -6776,7 +6775,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 4.  Controleer de **configureren** tabblad in het detailvenster de waarde van de Wizard UDI zoals beschreven in [Bekijk het tabblad configureren in de waarde van de Wizard UDI](#ReviewtheConfigureTabintheUDIWizardDesigner).  
 
-#####  <a name="ReviewtheUDIWizardDesignerHighLevelUserInterfaceElements"></a>Bekijk de UDI Wizard ontwerpfunctie op hoog niveau gebruikersinterface-elementen  
+#####  <a name="ReviewtheUDIWizardDesignerHighLevelUserInterfaceElements"></a> Bekijk de UDI Wizard ontwerpfunctie op hoog niveau gebruikersinterface-elementen  
  Afbeelding 8 ziet u de Wizard UDI op hoog niveau UI-elementen.  
 
  ![MDTDevToolkit8](media/MDTDevToolkit8.jpg "MDTDevToolkit8")  
@@ -6789,11 +6788,11 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 |**UI-element** |**Beschrijving** |  
 |--------------------|---------------------|  
-|Lint|Biedt toegang tot taakgebaseerde acties die kunnen worden uitgevoerd binnen de waarde van de Wizard UDI. De acties gecombineerd in groepen, zoals de **bestandsmenu** groep of de **Designer stromen** groep.|  
+|Ribbon|Biedt toegang tot taakgebaseerde acties die kunnen worden uitgevoerd binnen de waarde van de Wizard UDI. De acties gecombineerd in groepen, zoals de **bestandsmenu** groep of de **Designer stromen** groep.|  
 |Deelvenster pagina bibliotheek|Bevat de wizardpagina's die beschikbaar voor gebruik binnen de waarde van de Wizard UDI zijn. Het aantal keren dat elke pagina wordt gebruikt in het configuratiebestand van de Wizard UDI wordt weergegeven op het uiterst rechts gedeelte van de vermelding van de pagina wizard. Bijvoorbeeld, de **taal** pagina drie keer wordt gebruikt de **scannen configuratie** pagina tweemaal wordt gebruikt.|  
 |Deelvenster met details|Biedt toegang tot de configuratiegegevens van het configuratiebestand van de Wizard UDI wordt aangepast.|  
 
-#####  <a name="ReviewthePageLibraryPaneintheUDIWizardDesigner"></a>Controleer het deelvenster Bibliotheek pagina in de Wizard UDI Designer  
+#####  <a name="ReviewthePageLibraryPaneintheUDIWizardDesigner"></a> Controleer het deelvenster Bibliotheek pagina in de Wizard UDI Designer  
   Afbeelding 9 ziet u de UI-elementen in het deelvenster Bibliotheek pagina in de waarde van de Wizard UDI.  
 
  ![MDTDevToolkit9](media/MDTDevToolkit9.jpg "MDTDevToolkit9")  
@@ -6812,7 +6811,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 |Paginanaam|Dit is de naam van het exemplaar van het type van de pagina wizard. Deze waarde moet uniek zijn binnen een paginabibliotheek.|  
 |Aantal keren pagina wordt gebruikt|Dit element onderhoudt een telling van het aantal keren dat een exemplaar van de pagina wizard in de stadia wordt gebruikt. Bijvoorbeeld, zoals weergegeven in REF _Ref307996589 \h afbeelding 9 de **ComputerPage** wizard page-exemplaar wordt gebruikt in twee verschillende plaatsen in het configuratiebestand van de Wizard UDI.|  
 
-#####  <a name="ReviewtheFlowTabintheUDIWizardDesigner"></a>Bekijk het tabblad stroom in de Wizard UDI Designer  
+#####  <a name="ReviewtheFlowTabintheUDIWizardDesigner"></a> Bekijk het tabblad stroom in de Wizard UDI Designer  
   Afbeelding 10 ziet u de UI-elementen in de **Flow** tabblad in het detaildeelvenster. De **Flow** tabblad wordt gebruikt voor het configureren van de:  
 
 1.  Wizardpagina's die wordt weergegeven in de Wizard UDI voor een specifieke fase binnen een bepaalde fase-groep  
@@ -6830,11 +6829,11 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 |**UI-element** |**Beschrijving** |  
 |--------------------|---------------------|  
 |Fase groep|Verzameling van een of meer sets van wizard pagina groeperingen (fasen) die worden gebruikt door de implementatiescenario's die UDI ondersteunt, met inbegrip van de nieuwe Computer, Computer vernieuwen en vervang Computer MDT implementatiescenario's.<br /><br /> De groepen fase zijn vooraf gedefinieerd in UDI. Het toevoegen of verwijderen van fase groepen wordt niet ondersteund.|  
-|Fase|Verzameling van een of meer wizardpagina's gebruikt op een bepaald tijdstip binnen een groep fase.<br /><br /> MDT bevat voor de nieuwe Computer fase groep, de volgende fasen:<br /><br /> -                                  **NEWCOMPUTER**. Dit stadium wordt gebruikt voor nieuwe computerimplementaties.<br /><br /> -                                  **NEWCOMPUTER. Voorbereide**. Deze fase wordt gebruikt voor implementaties met voorbereide media in Configuration Manager.<br /><br /> MDT bevat voor de groep van de fase Computer vervangt de volgende fasen:<br /><br /> 1.                                  **VERVANG**. Dit stadium wordt gebruikt voor het gedeelte van de vervangen fase computergroep uitgevoerd in het oorspronkelijke besturingssysteem op de doelcomputer.<br /><br /> 2.                                 **VERVANGEN. WinPE**. Dit stadium wordt gebruikt voor het gedeelte van de vervangen fase computergroep uitgevoerd in Windows PE.<br /><br /> De fasen zijn vooraf gedefinieerd in UDI. Het toevoegen of verwijderen van de fasen wordt niet ondersteund.|  
+|Fase|Verzameling van een of meer wizardpagina's gebruikt op een bepaald tijdstip binnen een groep fase.<br /><br /> MDT bevat voor de nieuwe Computer fase groep, de volgende fasen:<br /><br /> -                                  **NEWCOMPUTER**. Dit stadium wordt gebruikt voor nieuwe computerimplementaties.<br /><br /> -                                  **NEWCOMPUTER.Prestaged**. Deze fase wordt gebruikt voor implementaties met voorbereide media in Configuration Manager.<br /><br /> MDT bevat voor de groep van de fase Computer vervangt de volgende fasen:<br /><br /> 1.                                  **REPLACE**. Dit stadium wordt gebruikt voor het gedeelte van de vervangen fase computergroep uitgevoerd in het oorspronkelijke besturingssysteem op de doelcomputer.<br /><br /> 2.                                 **REPLACE.WinPE**. Dit stadium wordt gebruikt voor het gedeelte van de vervangen fase computergroep uitgevoerd in Windows PE.<br /><br /> De fasen zijn vooraf gedefinieerd in UDI. Het toevoegen of verwijderen van de fasen wordt niet ondersteund.|  
 |Pagina van wizard|De wizardpagina die moet worden weergegeven in de Wizard UDI voor een specifieke fase binnen een bepaalde fase-groep.<br /><br /> Een pagina van de wizard is gebaseerd op een exemplaar van de wizardpagina in de bibliotheek pagina. Een exemplaar van een pagina van de wizard mogelijk in meerdere fasen en fase groepen weergegeven. Configuratie-instellingen voor een wizardpagina van invloed op het exemplaar van de pagina wizard niet de afzonderlijke pagina's die worden weergegeven in de fase groepen en fasen.<br /><br /> Maak een uniek exemplaar van een pagina van de wizard in de bibliotheek pagina voor elke set van unieke configuratie-instellingen die u wilt beheren voor een specifiek type pagina van de wizard.|  
 |Wizard pagina reeks|De volgorde waarin de wizardpagina wordt weergegeven in de Wizard UDI voor een specifieke fase binnen een bepaalde fase-groep.|  
 
-#####  <a name="ReviewtheConfigureTabintheUDIWizardDesigner"></a>Bekijk het tabblad configureren in de Wizard UDI Designer  
+#####  <a name="ReviewtheConfigureTabintheUDIWizardDesigner"></a> Bekijk het tabblad configureren in de Wizard UDI Designer  
  Afbeelding 11 ziet u de UI-elementen in de **configureren** tabblad in het detaildeelvenster. U gebruikt de **configureren** tabblad configureren van de afzonderlijke besturingselementen op de wizardpagina.  
 
 > [!NOTE]
@@ -6877,7 +6876,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  Zie voor meer informatie over het configureren van specifieke besturingselementen op specifieke wizardpagina's de overeenkomstige sectie voor die wizardpagina in het document MDT *Toolkit verwijzing*.  
 
-####  <a name="CreateaNewUDIWizardConfigurationFile"></a>Maak een nieuwe UDI Wizard-configuratiebestand  
+####  <a name="CreateaNewUDIWizardConfigurationFile"></a> Maak een nieuwe UDI Wizard-configuratiebestand  
  De Wizard UDI geeft wizardpagina's op basis van de configuratieopties die is opgegeven in het bestand UDIWizard_Config.xml in de map van het pakket van MDT-bestanden in de takenreeks opgeven. Maak een nieuwe Wizard UDI-configuratiebestand met de waarde van de Wizard UDI.  
 
 > [!TIP]
@@ -6901,7 +6900,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  Nadat de nieuwe Wizard UDI-configuratiebestand is gemaakt, een nieuwe takenreeks maken of wijzigen van een bestaande takenreeksstappen voor het gebruik van het juiste pakket van de MDT-bestanden. U moet ook de distributiepunten bijwerkt met de gewijzigde pakket van de MDT-bestanden, zoals beschreven in in [distributiepunten beheren in Configuration Manager](#ManagingDistributionPointsinConfigurationManager), die hetzelfde proces voor de UDI en ZTI is.  
 
-####  <a name="OpenanExistingUDIWizardConfigurationFile"></a>Open een bestaand configuratiebestand van de UDI-Wizard  
+####  <a name="OpenanExistingUDIWizardConfigurationFile"></a> Open een bestaand configuratiebestand van de UDI-Wizard  
  De Wizard UDI geeft pagina's op basis van de configuratieopties die is opgegeven in het bestand UDIWizard_Config.xml in de map van het pakket van MDT-bestanden in de takenreeks opgeven. Open een bestaand Wizard UDI-configuratiebestand met de waarde van de Wizard UDI.  
 
 ###### <a name="to-open-an-existing-udi-wizard-configuration-file-using-the-udi-wizard-designer"></a>Een bestaand Wizard UDI-configuratiebestand met de waarde van de Wizard UDI openen  
@@ -6914,7 +6913,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 3.  In de **Open** in het dialoogvenster, gaat u naar ***folder_path*** (waarbij *folder_path* is het volledig gekwalificeerde pad naar de scriptmap in de pakketbron van de MDT-bestanden), klikt u op ***bestandsnaam*** (waarbij *bestandsnaam* is de bestandsnaam voor het configuratiebestand), en klik vervolgens op **Open**.  
 
-####  <a name="SaveUDIWizardConfigurationUpdates"></a>UDI Wizard Configuratie-Updates opslaan  
+####  <a name="SaveUDIWizardConfigurationUpdates"></a> UDI Wizard Configuratie-Updates opslaan  
  Nadat u de Wizard UDI configuratie hebt bijgewerkt, moet u de wijzigingen opslaan in het configuratiebestand van de UDI-wizard. Sla het configuratiebestand van de Wizard UDI in de map van het pakket van MDT-bestanden in de takenreeks opgeven.  
 
 ###### <a name="to-save-the-udi-wizard-configuration-updates-using-the-udi-wizard-designer"></a>Voor het opslaan van de Wizard UDI configuratie-updates met behulp van de waarde van de Wizard UDI  
@@ -6935,7 +6934,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 6.  In de **bestand opslaan** in het dialoogvenster, klikt u op **OK**.  
 
-####  <a name="OverridetheConfigurationFileThattheUDIWizardUses"></a>Het configuratiebestand dat gebruikmaakt van de Wizard UDI overschrijven  
+####  <a name="OverridetheConfigurationFileThattheUDIWizardUses"></a> Het configuratiebestand dat gebruikmaakt van de Wizard UDI overschrijven  
  De Wizard UDI maakt standaard gebruik van het bestand UDIWizard_Config.xml in de map Scripts in het pakket MDT-bestanden voor de configuratie. U kunt het configuratiebestand dat de wizard wordt gebruikt door het wijzigen van overschrijven de **Wizard UDI**takenreeksstap gebruiken de **/definition** parameter.  
 
 ###### <a name="to-override-the-configuration-file-that-the-udi-wizard-uses"></a>Voor het onderdrukken van het configuratiebestand dat gebruikmaakt van de Wizard UDI  
@@ -6969,7 +6968,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 10. Klik op **OK**.  
 
-####  <a name="ConfiguretheUDIWizardTitleandBannerImage"></a>De titel van de Wizard UDI en afbeelding Banner configureren  
+####  <a name="ConfiguretheUDIWizardTitleandBannerImage"></a> De titel van de Wizard UDI en afbeelding Banner configureren  
  De Wizard UDI geeft een titel en een banner aan de bovenkant van de wizardpagina's. U kunt de Wizard UDI titel en banner installatiekopie configureren voor uw organisatie in de waarde van de Wizard UDI.  
 
 ###### <a name="to-configure-the-udi-wizard-title-and-banner-image-using-the-udi-wizard-designer"></a>De Wizard UDI titel en banner installatiekopie met de waarde van de Wizard UDI configureren  
@@ -7007,7 +7006,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 9. Sluit alle geopende vensters en dialoogvensters.  
 
-####  <a name="AddaWizardPagetoaStage"></a>Een wizardpagina toevoegen aan een fase  
+####  <a name="AddaWizardPagetoaStage"></a> Een wizardpagina toevoegen aan een fase  
  De Wizard UDI geeft een reeks van wizardpagina's die worden gebruikt voor het verzamelen van de benodigde informatie voor het voltooien van het besturingssysteem en de implementatie van de toepassing. U kunt de wizardpagina's en de volgorde van de wizardpagina's weergegeven in de Wizard UDI is met de waarde van de Wizard UDI configureren.  
 
  De lijst met beschikbare wizardpagina's wordt weergegeven in het deelvenster pagina bibliotheek. U kunt pagina's in het deelvenster pagina bibliotheek toevoegen door de wizardpagina slepen vanuit het deelvenster pagina bibliotheek naar de fase in het detaildeelvenster.  
@@ -7023,7 +7022,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     > [!TIP]
     >  Vergeet niet om op te slaan van het configuratiebestand van de Wizard UDI nadat u wijzigingen aanbrengt.  
 
-####  <a name="RemoveaWizardPagefromaStage"></a>Een wizardpagina verwijderen uit een fase  
+####  <a name="RemoveaWizardPagefromaStage"></a> Een wizardpagina verwijderen uit een fase  
  De Wizard UDI geeft een reeks van wizardpagina's die worden gebruikt voor het verzamelen van de benodigde informatie voor het voltooien van het besturingssysteem en de implementatie van de toepassing. U kunt de wizardpagina's en de volgorde van de wizardpagina's weergegeven in de Wizard UDI is met de waarde van de Wizard UDI configureren. U kunt de wizardpagina's binnen een fase verwijderen als onderdeel van dit proces. Een pagina van de wizard worden uit een fase niet verwijderd een wizardpagina in het deelvenster pagina bibliotheek.  
 
 > [!NOTE]
@@ -7046,7 +7045,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     > [!TIP]
     >  Vergeet niet om op te slaan van het configuratiebestand van de Wizard UDI nadat u wijzigingen aanbrengt.  
 
-####  <a name="ChangetheWizardPageSequenceFlowWithinaStage"></a>De Wizard pagina sequentiestroom binnen een fase wijzigen  
+####  <a name="ChangetheWizardPageSequenceFlowWithinaStage"></a> De Wizard pagina sequentiestroom binnen een fase wijzigen  
  De Wizard UDI geeft een reeks van wizardpagina's gebruikt voor het verzamelen van de benodigde informatie voor het voltooien van het besturingssysteem en de implementatie van de toepassing. U kunt de wizardpagina's en de volgorde van de wizardpagina's weergegeven in de Wizard UDI is met de waarde van de Wizard UDI configureren. Als onderdeel van dit proces kunt u de volgorde van de wizardpagina's binnen een fase.  
 
 ###### <a name="to-change-the-wizard-page-sequence-flow-within-a-stage-using-the-udi-wizard-designer"></a>De wizard pagina sequentiestroom binnen een fase met behulp van de waarde van de Wizard UDI wijzigen  
@@ -7060,7 +7059,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 > [!TIP]
 >  Vergeet niet om op te slaan van het configuratiebestand van de Wizard UDI nadat u wijzigingen aanbrengt.  
 
-####  <a name="AlloworPreventUsersfromEnteringInformationinaControlonaWizardPage"></a>Toestaan of voorkomen dat gebruikers gegevens invoeren in een besturingselement op een wizardpagina  
+####  <a name="AlloworPreventUsersfromEnteringInformationinaControlonaWizardPage"></a> Toestaan of voorkomen dat gebruikers gegevens invoeren in een besturingselement op een wizardpagina  
  Elke pagina van de wizard weergegeven door de Wizard UDI geeft informatie weer over het implementatieproces UDI of gegevens die worden gebruikt in het implementatieproces UDI verzamelt. Wizardpagina's die informatie verzamelen hebt een of meer besturingselementen om de gegevens te verzamelen.  
 
  Alle besturingselementen zijn standaard ingeschakeld op alle wizardpagina's. De waarde van de Wizard UDI kunt u afzonderlijke besturingselementen op elke pagina van de wizard om te voorkomen dat gebruikers gegevens door middel van deze besturingselementen uitschakelen. De Wizard UDI designer heeft knop die wordt weergegeven van de volgende statussen:  
@@ -7087,7 +7086,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 > [!TIP]
 >  Vergeet niet om op te slaan van het configuratiebestand van de Wizard UDI nadat u wijzigingen aanbrengt.  
 
-####  <a name="ConfiguretheUserExperienceforaWizardPage"></a>De gebruikerservaring voor een wizardpagina configureren  
+####  <a name="ConfiguretheUserExperienceforaWizardPage"></a> De gebruikerservaring voor een wizardpagina configureren  
  Elke pagina van de wizard verzamelt unieke informatie die helpt het implementatieproces UDI configureren. U kunt de gebruikerservaring op voor elke pagina van de wizard configureren.  
 
 ###### <a name="to-configure-the-user-experience-for-a-specific-wizard-page-using-the-udi-wizard-designer"></a>Voor het configureren van de gebruikerservaring op voor een specifieke wizardpagina met behulp van de Wizard UDI Designer  
@@ -7105,7 +7104,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 > [!TIP]
 >  Vergeet niet om op te slaan van het configuratiebestand van de Wizard UDI nadat u wijzigingen aanbrengt.  
 
-####  <a name="PreviewWizardPagesandtheWizardPageSequenceFlow"></a>Preview wizardpagina's en de Wizard pagina sequentiestroom  
+####  <a name="PreviewWizardPagesandtheWizardPageSequenceFlow"></a> Preview wizardpagina's en de Wizard pagina sequentiestroom  
  Nadat u de juiste wizardpagina's in de juiste volgorde voor een fase hebt, kunt u zien hoe de pagina's worden weergegeven in de Wizard UDI is met de Preview-functie in de waarde van de Wizard UDI. De Preview-functie kunt u voor het visualiseren van de gebruikerservaring en wijzigingen aanbrengen in de ervaring van de gebruiker voordat u werkelijke implementaties uitvoert.  
 
 ###### <a name="to-preview-the-wizard-pages-and-wizard-page-sequence-flow-for-a-stage-using-the-udi-wizard-designer"></a>Voorbeeld van de wizardpagina's en de wizard pagina sequentiestroom voor een fase met behulp van de Wizard UDI Designer  
@@ -7120,7 +7119,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  U kunt ook een voorbeeld de wizardpagina's en de wizard pagina sequentiestroom voor een fase door te klikken op de **Preview** hyperlink in het werkgebied binnen een fase.  
 
-####  <a name="AddaWizardPagetothePageLibrary"></a>Een pagina van de Wizard aan de bibliotheek pagina toevoegen  
+####  <a name="AddaWizardPagetothePageLibrary"></a> Een pagina van de Wizard aan de bibliotheek pagina toevoegen  
  De pagina bibliotheek in de waarde van de Wizard UDI bevat een lijst van de wizardpagina's die u aan fasen toevoegen kunt. Elke pagina van de wizard in de bibliotheek pagina onderhoudt een telling van het aantal exemplaren waarin de wizardpagina wordt gebruikt in de huidige versie van het configuratiebestand van de Wizard UDI.  
 
  U kunt een wizardpagina toevoegen aan de pagina bibliotheek, zodat deze kan worden toegevoegd aan fasen.  
@@ -7149,7 +7148,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  U kunt ook een wizardpagina toevoegen met de rechtermuisknop op een willekeurige plaats in de fase in het detailvenster, vervolgens te klikken op **pagina toevoegen**.  
 
-####  <a name="RemoveaWizardPagefromthePageLibrary"></a>Een pagina van de Wizard uit de bibliotheek pagina verwijderen  
+####  <a name="RemoveaWizardPagefromthePageLibrary"></a> Een pagina van de Wizard uit de bibliotheek pagina verwijderen  
  De pagina bibliotheek in de waarde van de Wizard UDI bevat een lijst van de wizardpagina's die u aan fasen toevoegen kunt. Elke pagina van de wizard in de bibliotheek pagina onderhoudt een telling van het aantal exemplaren waarin de wizardpagina wordt gebruikt in de huidige versie van het configuratiebestand van de Wizard UDI.  
 
  Zodat deze niet meer kan worden toegevoegd aan fasen, kunt u een wizardpagina verwijderen uit de bibliotheek pagina.  
@@ -7174,7 +7173,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 > [!TIP]
 >  Vergeet niet om op te slaan van het configuratiebestand van de Wizard UDI nadat u wijzigingen aanbrengt.  
 
-####  <a name="ChangetheSequenceofaStageGrouporaStage"></a>De volgorde van een groep fase of een fase wijzigen  
+####  <a name="ChangetheSequenceofaStageGrouporaStage"></a> De volgorde van een groep fase of een fase wijzigen  
  Het detaildeelvenster bevat een lijst van de fase groepen en fasen die ondersteuning biedt voor het configuratiebestand van de Wizard UDI (UDIWizard_Config.xml). Elke fase groep weergegeven in het detailvenster wordt gebruikt in een of meer van de volgende MDT implementatiescenario's:  
 
 -   Nieuwe Computer  
@@ -7219,7 +7218,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 > [!TIP]
 >  Vergeet niet om op te slaan van het configuratiebestand van de Wizard UDI nadat u wijzigingen aanbrengt.  
 
-####  <a name="PrepareforLanguagePackDeploymentinUDI"></a>Language Pack-implementatie in UDI voorbereiden  
+####  <a name="PrepareforLanguagePackDeploymentinUDI"></a> Language Pack-implementatie in UDI voorbereiden  
  De Wizard UDI paginatypen die beschikbaar zijn in de bibliotheek pagina in de waarde van de Wizard UDI is de **LanguagePage** wizard paginatype. De **LanguagePage** paginatype van de wizard kunt u selecteren de:  
 
 -   Standaardtaal  
@@ -7245,7 +7244,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  Voor meer informatie over de **LanguagePage** paginatype wizard in de ontwerpfunctie van de Wizard UDI raadpleegt u de bijbehorende sectie in het *Driven installatie-handleiding voor ontwikkelaars*.  
 
-####  <a name="SkipaWizardPage"></a>Een wizardpagina overslaan  
+####  <a name="SkipaWizardPage"></a> Een wizardpagina overslaan  
  In sommige gevallen wilt u mogelijk nog verder besturingselement en de ervaring van de Wizard UDI vereenvoudigen door overslaan (verwijderen) wizardpagina's. Overslaan van een pagina van de wizard kunt u gewoonlijk geleverd door de gebruiker voor de pagina van de wizard configuratiewaarden op te geven. Is eenvoudiger en minder verwarrend dan uitschakelen (vergrendelen) ook overslaan van een pagina van de wizard alle besturingselementen op een pagina van de wizard.  
 
 ###### <a name="to-skip-a-wizard-page"></a>Een wizardpagina overslaan  
@@ -7258,7 +7257,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 3.  De wizardpagina verwijderen uit het werkgebied binnen een fase met behulp van de **Item verwijderen** actie op het lint in de **Designer stromen** groep.  
 
-###  <a name="CreatingCustomWizardPagesUsingtheBuildYourOwnPageFeature"></a>Maken van aangepaste wizardpagina's met de Build van uw eigen functie  
+###  <a name="CreatingCustomWizardPagesUsingtheBuildYourOwnPageFeature"></a> Maken van aangepaste wizardpagina's met de Build van uw eigen functie  
  Mogelijk zijn er gevallen waarin u wenst te verzamelen van informatie over de extra implementatie moet worden gebruikt in UDI. U moet deze aanvullende informatie in de Wizard UDI is met behulp van een aangepaste wizardpagina verzamelen. U kunt aangepaste wizard's maken met de:  
 
 -   **Bouwen van uw eigen functie**. Deze functie kunt u een aangepaste wizardpagina voor het verzamelen van informatie over het implementeren zonder dat u code schrijven of ontwikkelingsvaardigheden hebben te maken. Gebruik deze functie als u nodig hebt voor het verzamelen van basisinformatie zonder tussenkomst van de ervaren gebruikers. U kan bijvoorbeeld code toevoegen of aanpassen van de gebruikersinterface lettertypen met deze functie.  
@@ -7285,7 +7284,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 -   Controleer en test de aangepaste wizardpagina nadat u deze hebt gemaakt zoals beschreven in [controleren en testen van een aangepaste wizardpagina](#VerifyandTestaCustomWizardPage).  
 
-####  <a name="CreateaNewCustomWizardPage"></a>Maak een nieuwe aangepaste Wizard-pagina  
+####  <a name="CreateaNewCustomWizardPage"></a> Maak een nieuwe aangepaste Wizard-pagina  
  UDI aangepaste wizardpagina's zijn gemaakt met de functie van uw eigen pagina bouwen, kunt u voor het verzamelen van informatie over de implementatie naast de informatie die verzameld op andere pagina's van de Wizard UDI. Maken van aangepaste wizardpagina's op basis van de **bouwen uw eigen wizardpagina** type. Nadat u de aangepaste wizardpagina hebt gemaakt, kunt u besturingselementen op de wizardpagina toevoegen en configureren van de takenreeksvariabelen die de besturingselementen ingesteld.  
 
 ###### <a name="to-create-a-new-custom-wizard-page"></a>Een nieuwe aangepaste wizardpagina maken  
@@ -7316,7 +7315,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 9. Klik in de bibliotheek pagina ***display_name***. Sleep de pagina naar de juiste plaats in ***stage_group*** op de **Flow** tabblad (waarbij *display_name* is de beschrijvende naam van de wizardpagina en *stage_ groep* is de naam van de fase-groep die u wilt de nieuwe aangepaste wizardpagina toevoegen).  
 
-####  <a name="AddaControltoaCustomWizardPage"></a>Een besturingselement toevoegt aan een aangepaste wizardpagina  
+####  <a name="AddaControltoaCustomWizardPage"></a> Een besturingselement toevoegt aan een aangepaste wizardpagina  
  Nadat een nieuwe aangepaste wizardpagina voor UDI is toegevoegd aan een groep fase, moet u de juiste besturingselementen toevoegen aan de nieuwe aangepaste wizardpagina. U deze besturingselementen toevoegen uit de werkset van uw eigen pagina bouwen, dat wordt weergegeven wanneer u de aangepaste wizardpagina weergeven op de **configureren** tabblad in de waarde van de Wizard UDI.  
 
   Tabel 149 bevat de typen besturingselementen naar uw aangepaste wizardpagina dat wordt weergegeven in afbeelding 13.  
@@ -7325,13 +7324,13 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 |**Besturingselementtype** |**Beschrijving** |  
 |----------------------|---------------------|  
-|**Selectievakje** |Dit besturingselement kunt u selecteren of wissen van een configuratieoptie en gedraagt zich als een traditionele UI-selectievakje. Dit besturingselement heeft een bijbehorende label dat u gebruiken kunt om te beschrijven van het doel van het selectievakje in. De status van dit besturingselement is waar als het selectievakje is ingeschakeld en ONWAAR wanneer het selectievakje is uitgeschakeld. De status van het selectievakje wordt opgeslagen in de takenreeksvariabele die is geconfigureerd voor dit besturingselement. Zie voor meer informatie over dit besturingselement 'Selectievakje Control' in het document MDT *Toolkit verwijzing*.|  
-|**ComboBox** |Dit besturingselement kunt u een item selecteren uit een lijst met items en gedraagt zich als een vervolgkeuzelijst traditionele gebruikersinterface. Dit besturingselement kunt u toevoegen of verwijderen van items uit de lijst en geef een overeenkomende waarde die in de takenreeksvariabele die is geconfigureerd voor dit besturingselement worden ingesteld. Zie voor meer informatie over dit besturingselement 'Keuzelijst met invoervak' in het document MDT *Toolkit verwijzing*.|  
-|**Regel** |Dit besturingselement kunt u een horizontale lijn delen van een deel van de aangepaste wizardpagina van een andere toevoegen. Dit besturingselement verzamelt niet alle configuratiewaarden, maar in plaats daarvan wordt gebruikt voor het verbeteren van de gebruikersinterface visueel. Zie voor meer informatie over dit besturingselement 'Regel Control' in het document MDT *Toolkit verwijzing*.|  
+|**Checkbox** |Dit besturingselement kunt u selecteren of wissen van een configuratieoptie en gedraagt zich als een traditionele UI-selectievakje. Dit besturingselement heeft een bijbehorende label dat u gebruiken kunt om te beschrijven van het doel van het selectievakje in. De status van dit besturingselement is waar als het selectievakje is ingeschakeld en ONWAAR wanneer het selectievakje is uitgeschakeld. De status van het selectievakje wordt opgeslagen in de takenreeksvariabele die is geconfigureerd voor dit besturingselement. Zie voor meer informatie over dit besturingselement 'Selectievakje Control' in het document MDT *Toolkit verwijzing*.|  
+|**Combobox** |Dit besturingselement kunt u een item selecteren uit een lijst met items en gedraagt zich als een vervolgkeuzelijst traditionele gebruikersinterface. Dit besturingselement kunt u toevoegen of verwijderen van items uit de lijst en geef een overeenkomende waarde die in de takenreeksvariabele die is geconfigureerd voor dit besturingselement worden ingesteld. Zie voor meer informatie over dit besturingselement 'Keuzelijst met invoervak' in het document MDT *Toolkit verwijzing*.|  
+|**Line** |Dit besturingselement kunt u een horizontale lijn delen van een deel van de aangepaste wizardpagina van een andere toevoegen. Dit besturingselement verzamelt niet alle configuratiewaarden, maar in plaats daarvan wordt gebruikt voor het verbeteren van de gebruikersinterface visueel. Zie voor meer informatie over dit besturingselement 'Regel Control' in het document MDT *Toolkit verwijzing*.|  
 |**Label** |Dit besturingselement kunt u beschrijvende, alleen-lezen tekst toevoegen aan de wizardpagina. Dit besturingselement verzamelt niet alle configuratiewaarden, maar in plaats daarvan wordt gebruikt voor het verbeteren van de gebruikersinterface visueel. Zie voor meer informatie over dit besturingselement 'Labelbesturingselement' in het document MDT *Toolkit verwijzing*.|  
-|**Keuzerondjes** |Dit besturingselement kunt u een configuratieoptie selecteren uit een groep van twee of meer opties. Net als bij traditionele keuzerondjes, twee of meer van deze besturingselementen kunnen worden gegroepeerd, en vervolgens de gebruiker kunt selecteren een van de opties in de groep met keuzerondjes. Een unieke waarde is toegewezen aan elke optie. De waarde die is toegewezen aan de geselecteerde optie-besturingselement wordt opgeslagen in de takenreeksvariabele die is geconfigureerd voor dit besturingselement. Zie voor meer informatie over dit besturingselement 'Keuzerondjes Control' in het document MDT *Toolkit verwijzing*.|  
+|**Radio** |Dit besturingselement kunt u een configuratieoptie selecteren uit een groep van twee of meer opties. Net als bij traditionele keuzerondjes, twee of meer van deze besturingselementen kunnen worden gegroepeerd, en vervolgens de gebruiker kunt selecteren een van de opties in de groep met keuzerondjes. Een unieke waarde is toegewezen aan elke optie. De waarde die is toegewezen aan de geselecteerde optie-besturingselement wordt opgeslagen in de takenreeksvariabele die is geconfigureerd voor dit besturingselement. Zie voor meer informatie over dit besturingselement 'Keuzerondjes Control' in het document MDT *Toolkit verwijzing*.|  
 |**Bitmap** |Dit besturingselement kunt u een bitmapafbeelding (bmp-bestand) toevoegen aan de aangepaste wizardpagina. Dit besturingselement verzamelt niet alle configuratiewaarden, maar in plaats daarvan wordt gebruikt voor het verbeteren van de gebruikersinterface visueel. Het pad naar het bmp-bestand is gebaseerd op de locatie van de Wizard UDI (OSDSetupWizard.exe). Zie voor meer informatie over dit besturingselement 'Bitmap Control' in het document MDT *Toolkit verwijzing*.|  
-|**Tekstvak** |Dit besturingselement kunt u tekst op de pagina wizard Aangepaste invoeren. De tekst die in dit besturingselement getypt wordt opgeslagen in de takenreeksvariabele die is geconfigureerd voor dit besturingselement. Zie voor meer informatie over dit besturingselement 'Besturingselement Textbox' in het document MDT *Toolkit verwijzing*.|  
+|**Textbox** |Dit besturingselement kunt u tekst op de pagina wizard Aangepaste invoeren. De tekst die in dit besturingselement getypt wordt opgeslagen in de takenreeksvariabele die is geconfigureerd voor dit besturingselement. Zie voor meer informatie over dit besturingselement 'Besturingselement Textbox' in het document MDT *Toolkit verwijzing*.|  
 
  U kunt toevoegen om een combinatie van deze besturingselementen naar uw aangepaste wizardpagina op basis van de informatie die u wilt verzamelen. Bovendien kunt u de **rasterlijnen weergeven** selectievakje in als de rasterlijnen die kunnen worden gebruikt om te helpen bij het ontwerpen van de aangepaste wizardpagina visueel weergeven of verbergen.  
 
@@ -7355,14 +7354,14 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
      Het besturingselement is toegevoegd aan de aangepaste wizardpagina.  
 
-####  <a name="PositionaControlonaCustomWizardPage"></a>Positie van een besturingselement op een aangepaste wizardpagina  
+####  <a name="PositionaControlonaCustomWizardPage"></a> Positie van een besturingselement op een aangepaste wizardpagina  
  Nadat een besturingselement is toegevoegd aan een aangepaste wizardpagina, kunt u het besturingselement plaats door het uitvoeren van een van de volgende taken:  
 
 -   Positie van een besturingselement op een aangepaste wizardpagina met behulp van slepen en neerzetten zoals beschreven in [positie van een besturingselement op een aangepaste Wizard pagina met behulp van slepen en neerzetten](#PositionaControlonaCustomWizardPageUsingDragandDrop).  
 
 -   Positie van een besturingselement op een aangepaste wizardpagina besturingselementeigenschappen die zoals beschreven in [positie van een besturingselement op een aangepaste pagina met behulp van besturingselementeigenschappen van de Wizard](#PositionaControlonaCustomWizardPageUsingControlProperties).  
 
-#####  <a name="PositionaControlonaCustomWizardPageUsingDragandDrop"></a>Positie van een besturingselement op een aangepaste wizardpagina met slepen en neerzetten  
+#####  <a name="PositionaControlonaCustomWizardPageUsingDragandDrop"></a> Positie van een besturingselement op een aangepaste wizardpagina met slepen en neerzetten  
  U kunt de positie van een besturingselement op een aangepaste wizardpagina met behulp van slepen en neerzetten voor een van de volgende situaties:  
 
 1.  Het besturingselement van de Build Your Own pagina naar de pagina wizard Aangepaste in eerste instantie te plaatsen  
@@ -7386,7 +7385,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
     > [!TIP]
     >  U kunt de *x* en *y* coördineren locaties aan de bovenkant van de aangepaste wizardpagina voor hulp bij het plaatsen van het besturingselement weergegeven.  
 
-#####  <a name="PositionaControlonaCustomWizardPageUsingControlProperties"></a>Positie van een besturingselement op een aangepaste wizardpagina met behulp van de eigenschappen van besturingselementen  
+#####  <a name="PositionaControlonaCustomWizardPageUsingControlProperties"></a> Positie van een besturingselement op een aangepaste wizardpagina met behulp van de eigenschappen van besturingselementen  
  Positie van een besturingselement op een aangepaste wizardpagina wanneer u bepalen van de plaatsing van het besturingselement wilt zodat alle besturingselementen nauwkeurig zijn uitgelijnd. U plaatst de beheren met de **X** en **Y** eigenschappen op de **lay-out** eigenschappen van het besturingselement.  
 
  Positie van een besturingselement ongeveer, zoals bij het uitvoeren van de oorspronkelijke indeling, doen met behulp van slepen en neerzetten. Zie voor meer informatie over de plaatsing van een besturingselement op een aangepaste wizardpagina met slepen en neerzetten, [positie van een besturingselement op een aangepaste Wizard pagina met behulp van slepen en neerzetten](#PositionaControlonaCustomWizardPageUsingDragandDrop).  
@@ -7414,7 +7413,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
      Nadat de eigenschappen zijn geconfigureerd, wordt het besturingselement wordt geplaatst op de coördinaten die door deze eigenschappen.  
 
-####  <a name="ChangetheSizeofaControlonaCustomWizardPage"></a>De grootte van een besturingselement op een aangepaste wizardpagina wijzigen  
+####  <a name="ChangetheSizeofaControlonaCustomWizardPage"></a> De grootte van een besturingselement op een aangepaste wizardpagina wijzigen  
  De grootte van een besturingselement op een aangepaste wizardpagina wijzigen zodat de inhoud van het besturingselement goed worden weergegeven. Wijzigen van de grootte van het besturingselement met behulp van de **breedte** en **hoogte** eigenschappen op de **lay-out** eigenschappen van het besturingselement.  
 
 ###### <a name="to-change-the-size-of-a-control-on-a-custom-wizard-page"></a>De grootte van een besturingselement op een aangepaste wizardpagina wijzigen  
@@ -7438,7 +7437,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
      Nadat de eigenschappen zijn geconfigureerd, de grootte van het besturingselement komt overeen met de waarden in deze eigenschappen.  
 
-####  <a name="RemoveaControlfromaCustomWizardPage"></a>Een besturingselement van een aangepaste wizardpagina verwijderen  
+####  <a name="RemoveaControlfromaCustomWizardPage"></a> Een besturingselement van een aangepaste wizardpagina verwijderen  
  Wanneer het besturingselement niet meer nodig is op de pagina wizard Aangepaste, moet u een besturingselement verwijderen uit een aangepaste wizardpagina. Als u een besturingselement verwijdert uit een aangepaste wizard pagina alle **lay-out** en **instellingen** eigenschappen die zijn gekoppeld aan het besturingselement worden ook verwijderd. Als het besturingselement is verwijderd en het configuratiebestand van de Wizard UDI is opgeslagen, kan niet de verwijdering ongedaan worden gemaakt.  
 
 > [!TIP]
@@ -7456,7 +7455,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
      Het besturingselement wordt verwijderd uit de aangepaste wizardpagina.  
 
-####  <a name="EditCustomWizardPageControlProperties"></a>Aangepaste Wizard paginabesturingselement eigenschappen bewerken  
+####  <a name="EditCustomWizardPageControlProperties"></a> Aangepaste Wizard paginabesturingselement eigenschappen bewerken  
  Elk besturingselement dat u op de pagina wizard Aangepaste plaatsen heeft eigenschappen. Deze eigenschappen worden gebruikt voor het configureren van de weergave van het besturingselement en hoe de gegevens van het besturingselement worden verwerkt door de Wizard UDI verzamelt.  
 
  De volgende typen eigenschappen zijn beschikbaar voor uw eigen pagina bouwen werksetbesturingselementen:  
@@ -7487,7 +7486,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
          Voor meer informatie over de **instellingen** eigenschappen voor een bepaald besturingselement, Zie de bijbehorende secties voor elk besturingselement in 'UDI bouwen uw eigen werkset controle van paginaverwijzing' in het document MDT *Toolkit Verwijzing*.  
 
-####  <a name="ShoworHideCustomWizardPageGridlines"></a>Wizard aangepaste pagina rasterlijnen weergeven of verbergen  
+####  <a name="ShoworHideCustomWizardPageGridlines"></a> Wizard aangepaste pagina rasterlijnen weergeven of verbergen  
  U kunt rasterlijnen weergeven of verbergen op uw aangepaste wizardpagina's. De rasterlijnen helpen u besturingselementen plaatsen, zodat ze goed zijn uitgelijnd met elkaar.  
 
 ###### <a name="to-show-or-hide-custom-wizard-page-gridlines"></a>Naar aangepaste wizard pagina rasterlijnen weergeven of verbergen  
@@ -7506,14 +7505,14 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
     -   Uitgeschakeld, worden de rasterlijnen niet weergegeven  
 
-####  <a name="VerifyandTestaCustomWizardPage"></a>Controleer en een aangepaste wizardpagina Test  
+####  <a name="VerifyandTestaCustomWizardPage"></a> Controleer en een aangepaste wizardpagina Test  
  Nadat u uw aangepaste wizardpagina maken en configureren van de juiste besturingselementen, controleert u of uw aangepaste wizardpagina naar verwachting werkt. U kunt controleren en testen van uw aangepaste wizardpagina met behulp van de preview-functie in de ontwerpfunctie van de Wizard UDI.  
 
  De preview-functie kunt u visualiseren van de gebruikerservaring en wijzigingen aanbrengen in de ervaring van de gebruiker voordat u werkelijke implementaties uitvoert. U kunt met uw aangepaste wizardpagina werken alsof u de gebruiker die de Wizard UDI.  
 
  Zie voor meer informatie over de preview-wizardpagina's en de wizard pagina sequentiestroom [Preview wizardpagina's en de Wizard pagina sequentiestroom](#PreviewWizardPagesandtheWizardPageSequenceFlow).  
 
-##  <a name="RunningtheUDIWizard"></a>Uitvoeren van de Wizard UDI  
+##  <a name="RunningtheUDIWizard"></a> Uitvoeren van de Wizard UDI  
  De Wizard UDI wordt automatisch gestart wanneer u een UDI op basis van een takenreeks uitvoert. Start de takenreeks op basis van UDI wordt automatisch met behulp van Windows Deployment Services of handmatig met behulp van een takenreeks voor het geïmplementeerde (aangekondigd) in de Configuration Manager-Client. Elk implementatiescenario MDT (nieuwe Computer, Computer vernieuwen of vervangen Computer) maakt gebruik van een ander proces. Start de implementatie van Windows Deployment Services of met de opstartbare takenreeksmedia. Het implementatieproces vraagt om een configuratie-instellingen niet is opgegeven.  
 
  De Wizard UDI geeft wizardpagina's op basis van de MDT-implementatiescenario die u hebt geselecteerd en de configuratieopties die u in de map van het pakket van de MDT-bestanden in het configuratiebestand van de Wizard UDI (UDIWizard_Config.xml opgeslagen). De besturingselementen die zijn ingeschakeld en hun standaardwaarden worden ook worden beheerd door de configuratieopties die u hebt opgeslagen in het configuratiebestand van de Wizard UDI.  
@@ -7539,7 +7538,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
  Nadat u de Wizard UDI hebt voltooid, begint de implementatie van het nieuwe besturingssysteem. Als het implementatieproces voltooid is, de **OSD resultaten** pagina voorafgaand aan de eerste gebruiker melden bij de doelcomputer wordt weergegeven. Voor meer informatie over het configureren van de **OSD resultaten** pagina, Zie de sectie 'OSDResults.exe.config bestand elementwaarden voor' in het document MDT *Toolkit verwijzing*.  
 
-##  <a name="ConfiguringMDTDeployments"></a>MDT-implementaties configureren  
+##  <a name="ConfiguringMDTDeployments"></a> MDT-implementaties configureren  
  Configureer de MDT-implementaties op basis van:  
 
 -   De bestanden CustomSettings.ini en Bootstrap.ini aanpassen zoals beschreven in [MDT-configuratiebestanden aanpassen](#CustomizingMDTConfigurationFiles)  
@@ -7568,7 +7567,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 -   Toepassen van beveiliging en naleving configuratie-instellingen met behulp van Group Policy Object Packs zoals beschreven [toepassen Group Policy Object Packs](#ApplyingGroupPolicyObjectPacks)  
 
--   Inschakelen van deelname aan [Windows programma voor kwaliteitsverbetering](http://windows.microsoft.com/da-DK/windows-8/privacy-statement?T1=server#section_9)(CEIP) en [Windows Foutrapportage](http://msdn.microsoft.com/windows/hardware/gg487440) (WER), zoals beschreven in [inschakelen deelname aan het programma voor Kwaliteitsverbetering en Windows Foutrapportage](#EnablingParticipationinCEIPandWER)  
+-   Inschakelen van deelname aan [Windows programma voor kwaliteitsverbetering](https://privacy.microsoft.com/privacystatement)(CEIP) en [Windows Foutrapportage](https://docs.microsoft.com/windows-hardware/drivers/dashboard/windows-error-reporting-getting-started) (WER), zoals beschreven in [inschakelen deelname aan het programma voor Kwaliteitsverbetering en Windows Foutrapportage](#EnablingParticipationinCEIPandWER)  
 
 -   Configureren van de takenreeksstappen die Windows-rollen en functies op de doelcomputer configureren, zoals beschreven in [configureren van rollen en functies Takenreeksstappen](#ConfiguringRolesandFeaturesTaskSequenceSteps)  
 
@@ -7578,7 +7577,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 -   Maken van aangepaste scripts die zijn geïntegreerd met de MDT-implementatieshare verwerkt zoals beschreven in [aangepaste Scripts voor MDT maken](#CreatingCustomScriptsforMDT)  
 
-###  <a name="CustomizingMDTConfigurationFiles"></a>MDT-configuratiebestanden aanpassen  
+###  <a name="CustomizingMDTConfigurationFiles"></a> MDT-configuratiebestanden aanpassen  
  MDT is flexibel en zeer aanpasbare met MDT-configuratiebestanden. De volgende secties bevatten configuratie-voorbeelden laten hoe u zien voor het aanpassen van het implementatieproces.  
 
  De MDT-configuratiebestanden door aanpassen:  
@@ -7599,7 +7598,7 @@ Tabel 52 ziet u de taak sequence-sjablonen in MDT.
 
 -   Om de syntaxis van het bestand BootStrap.ini te identificeren, zoals beschreven in [de syntaxis van het bestand BootStrap.ini identificeren](#IdentifytheBootStrap.iniFileSyntax)  
 
-####  <a name="IdentifytheCustomSettings.iniFileSyntax"></a>De syntaxis van het bestand CustomSettings.ini identificeren  
+####  <a name="IdentifytheCustomSettings.iniFileSyntax"></a> De syntaxis van het bestand CustomSettings.ini identificeren  
  De syntaxis van het CustomSettings.ini-bestand is vergelijkbaar met veel .ini-bestanden. CustomSettings.ini-bestand bevat:  
 
 -   Secties  
@@ -7631,7 +7630,7 @@ CustomProperty=FALSE
 
 ```  
 
-####  <a name="SectionsintheCustomSettings.iniFile"></a>Secties in het CustomSettings.ini-bestand  
+####  <a name="SectionsintheCustomSettings.iniFile"></a> Secties in het CustomSettings.ini-bestand  
  Secties worden geïdentificeerd door vierkante haken (`[]`) rond de sectienaam (bijvoorbeeld `[Settings]`). In de lijst 1 in de secties bevatten `[Settings]`, `[Default]`, `[00:0F:20:35:DE:AC]`, en `[00:03:FF:FE:FF:FF]`.  
 
  De rubrieken in het bestand CustomSettings.ini bevatten de:  
@@ -7640,17 +7639,17 @@ CustomProperty=FALSE
 
 -   Optioneel secties zoals beschreven in [optionele secties](#OptionalSections)  
 
-#####  <a name="RequiredSections"></a>Vereiste secties  
+#####  <a name="RequiredSections"></a> Vereiste secties  
  Alleen de `[Settings]` sectie is vereist. Alle andere gedeelten zijn optioneel. De MDT-scripts moeten de `[Settings]` sectie in CustomSettings.ini vinden van de gereserveerde eigenschappen (**prioriteit** en **eigenschappen**).  
 
-#####  <a name="OptionalSections"></a>Optionele secties  
+#####  <a name="OptionalSections"></a> Optionele secties  
  U kunt de optionele secties in het bestand CustomSettings.ini toewijzen van een groep configuratie-instellingen:  
 
 -   **Een groep computers**. In de lijst 1, configuratie-instellingen in de `[Default]`sectie op meer dan één computer worden toegepast. Zie voor meer informatie [MDT eigenschappen toepassen op groepen van Computers](#ApplyingMDTPropertiestoGroupsofComputers)verderop in deze handleiding.  
 
 -   **Een afzonderlijke computer**. In de lijst 1, configuratie-instellingen in de `[00:0F:20:35:DE:AC]` en `[00:03:FF:FE:FF:FF]` secties worden toegepast op de desbetreffende computer (in dit geval geïdentificeerd door het adres van de media access control [MAC] van de doelcomputer). Zie voor meer informatie [MDT eigenschappen toepassen op afzonderlijke Computers](#ApplyingMDTPropertiestoIndividualComputers)verderop in deze handleiding.  
 
-####  <a name="PropertiesintheCustomSettings.iniFile"></a>Eigenschappen in het CustomSettings.ini-bestand  
+####  <a name="PropertiesintheCustomSettings.iniFile"></a> Eigenschappen in het CustomSettings.ini-bestand  
  Eigenschappen zijn variabelen waarvoor waarden moeten worden toegewezen. Eigenschappen worden gevolgd door een gelijkteken (=). De scripts scannen om te zoeken van de eigenschappen van het CustomSettings.ini-bestand.  
 
  De typen van eigenschappen die u gebruiken kunt bij het implementeren van doelcomputers zijn eigenschappen die zijn:  
@@ -7678,7 +7677,7 @@ CustomProperty=FALSE
 
 -   De waarden voor eigenschappen configureren zoals beschreven in [waarden in het CustomSettings.ini-bestand](#ValuesintheCustomSettings.iniFile)  
 
-#####  <a name="PriorityReservedProperty"></a>Prioriteit gereserveerd eigenschap  
+#####  <a name="PriorityReservedProperty"></a> Prioriteit gereserveerd eigenschap  
  De **prioriteit** gereserveerde eigenschap bepaalt de volgorde en de sectie waarin u configuratiewaarden kunt vinden. Elke sectie gezocht in de opgegeven volgorde. Als een waarde van de eigenschap wordt gevonden, worden de resterende secties niet gebruikt voor die eigenschap. In de lijst 1 de `[Default]` sectie geparseerde eerste en de sectie die overeenkomt met het MAC-adres van de doelcomputer is (in dit geval `[00:0F:20:35:DE:AC]` of `[00:03:FF:FE:FF:FF]`).  
 
   152 tabel bevat de typen secties die u kunt verwijzen naar in de **prioriteit** eigenschap.  
@@ -7691,7 +7690,7 @@ CustomProperty=FALSE
 |De naam van de literal-sectie|Een letterlijke naam die u opgeeft in de **prioriteit** eigenschap. Bijvoorbeeld, als `MySection` is opgenomen in de **prioriteit** eigenschap MDT opzoeken voor eigenschappen niet eerder gevonden in de `[MySection]`sectie.|  
 |Indirecte verwijzing|Een letterlijke naam die verwijst naar een sectie die op zijn beurt verwijst naar andere secties. Bijvoorbeeld, als de **standaardgateway** eigenschap is opgenomen in de **prioriteit** eigenschap MDT wilt zoeken naar de `[DefaultGateway]` sectie. Als de `[DefaultGateway]` sectie verwijst naar andere secties (op basis van het IP-adres van de standaardgateway), is dit een voorbeeld van een indirecte verwijzing. Voor een voorbeeld van het gebruik van de indirecte verwijzing naar de **standaardgateway** eigenschap, Zie "voorbeeld: Computer groeperingen geselecteerd door de Woodgrove Bank' in [Selecteer de methode voor het groeperen van Computers](#SelecttheMethodforGroupingComputers).|  
 
-#####  <a name="PropertiesReservedProperty"></a>De gereserveerde eigenschap eigenschappen  
+#####  <a name="PropertiesReservedProperty"></a> De gereserveerde eigenschap eigenschappen  
  De **eigenschappen** gereserveerde eigenschap (weergegeven in de lijst 1) definieert de aangepaste, door de gebruiker gedefinieerde eigenschappen in de implementatie moet worden gebruikt. Deze door de gebruiker gedefinieerde eigenschappen bevinden zich door ZTIGather.wsf script in het CustomSettings.ini-bestand (of de configuratiedatabase). Deze eigenschappen zijn, naast de vooraf gedefinieerde eigenschappen in MDT.  
 
  In de lijst 1 **CustomProperty** is een eigenschap gebruiker gedefinieerde en **ScanStateArgs** is een vooraf gedefinieerde eigenschap. Zie de sectie 'Eigenschappen' in het document MDT voor een lijst van de vooraf gedefinieerde eigenschappen in MDT *Toolkit verwijzing*.  
@@ -7709,7 +7708,7 @@ ListProperty001=New York City
 ListProperty002=Chicago  
 ```  
 
-#####  <a name="ValuesintheCustomSettings.iniFile"></a>Waarden in het CustomSettings.ini-bestand  
+#####  <a name="ValuesintheCustomSettings.iniFile"></a> Waarden in het CustomSettings.ini-bestand  
  *Waarden* zijn de configuratie-instellingen die aan de eigenschappen zijn toegewezen. Waarden worden voorafgegaan door een gelijkteken (=). De scripts scannen het CustomSettings.ini-bestand om te zoeken van de waarden. In de lijst 1 de waarde die is toegewezen aan de **LoadStateArgs** eigenschap is:  
 
 ```  
@@ -7719,7 +7718,7 @@ ListProperty002=Chicago
 > [!NOTE]
 >  het bestand CustomSettings.ini verschilt van traditionele INI-bestanden in dat u plaats niet tussen aanhalingstekens waarden, zelfs als de waarde spaties bevat.  
 
-####  <a name="SubsectionsintheCustomSettings.iniFile"></a>Subsecties in het bestand CustomSettings.ini  
+####  <a name="SubsectionsintheCustomSettings.iniFile"></a> Subsecties in het bestand CustomSettings.ini  
  U kunt subsecties maken in het bestand Customsettings.ini op basis van de waarde van een eigenschap met de **subsectie** richtlijn. De waarde van de **subsectie** richtlijn kan worden gebruikt om dynamisch verwijzen naar subsecties die aan groep-configuratie-instellingen kunnen worden gebruikt.  
 
   Lijst 2 ziet u een fragment van een CustomSettings.ini-bestand dat gebruikmaakt van de **subsectie** richtlijn dynamisch verwijzen naar subsecties op basis van het computermodel, dat is opgegeven in de **Model** de eigenschap.  
@@ -7749,7 +7748,7 @@ Packages002=XXX00003:Program4
 
  De subsectie 'Contoso Computer Corporation' bevat een **subsectie** regel die verwijst naar andere subsecties op basis van de waarde van de **Model** eigenschap. In dit voorbeeld wordt de 'Contoso-MDT 6600' en ' Contoso-MDT 2431" secties wordt verwerkt door MDT, afhankelijk van de waarde van de **Model** eigenschap.  
 
-####  <a name="UserExitScriptsintheCustomSettings.iniFile"></a>Gebruiker afsluiten Scripts in het CustomSettings.ini-bestand  
+####  <a name="UserExitScriptsintheCustomSettings.iniFile"></a> Gebruiker afsluiten Scripts in het CustomSettings.ini-bestand  
  Exit gebruikersscript is in feite een Functiebibliotheek die kan worden aangeroepen tijdens de verwerking van het CustomSettings.ini-bestand met de **UserExit** richtlijn. Exit gebruikersscript bevat een of meer functies die kunnen worden aangeroepen tijdens het proces van het CustomSettings.ini-bestand.  
 
  Exit gebruikersscript wordt aangeroepen door het opgeven van de **UserExit** richtlijn en het toewijzen van de naam van de eigenschap van het script moet worden aangeroepen, bijvoorbeeld **UserExit=TrimAssetTag.vbs**. Een functie binnen de afsluitcode gebruikersscript wordt aangeroepen door het opgeven van de naam van een functie die is ingesloten in de  **#**  tekens. Als de gebruiker script afsluit bevat bijvoorbeeld een aangeroepen functie **TrimAssetTag()**, zou worden aangeroepen door te geven **#TrimAssetTag() #**.  
@@ -7843,7 +7842,7 @@ SkipProductKey=YES
 
 ```  
 
-####  <a name="BasicCustomSettings.iniFileforLTIDeployments"></a>Basic CustomSettings.ini-bestand voor implementaties van LTI  
+####  <a name="BasicCustomSettings.iniFileforLTIDeployments"></a> Basic CustomSettings.ini-bestand voor implementaties van LTI  
  Voor implementaties van LTI, de implementatie-Workbench gebruikmaakt van een sjabloonversie van het CustomSettings.ini-bestand (opgeslagen in *installation_folder*\Templates, waarbij *installation_folder* is de map waarin MDT is geïnstalleerd) als basis voor een aangepaste versie van CustomSettings.ini. De sjabloonversie van het CustomSettings.ini-bestand wordt weergegeven in de lijst 5. De sjabloonversie van de in de lijst 5 bevat niet voldoende instellingen voor een juiste implementatie van Windows naar een doelcomputer. Het bestand wordt echter wel verder aangepast met de implementatie-Workbench.  
 
  **Aanbieding 5. Ongewijzigd CustomSettings.ini-bestand in de sjablonenmap**  
@@ -7900,7 +7899,7 @@ SkipProductKey=YES
 
  Zie voor meer informatie over de afzonderlijke eigenschappen, de bijbehorende verwijzen naar de sectie in het document MDT *Toolkit verwijzing*.  
 
-####  <a name="BasicCustomSettings.iniFileforZTIDeploymentsUsingConfigurationManger"></a>Basic CustomSettings.ini-bestand voor implementaties van ZTI met behulp van Configuration Manager  
+####  <a name="BasicCustomSettings.iniFileforZTIDeploymentsUsingConfigurationManger"></a> Basic CustomSettings.ini-bestand voor implementaties van ZTI met behulp van Configuration Manager  
  Voor implementaties van ZTI met Configuration Manager, de implementatie-Workbench gebruikmaakt van een sjabloonversie van het CustomSettings.ini-bestand (opgeslagen in *installation_folder*\Templates, waarbij *installation_folder* is de map waarin u MDT is geïnstalleerd) als basis voor een aangepaste versie van CustomSettings.ini. De sjabloonversie van het CustomSettings.ini-bestand wordt weergegeven in de lijst 7. De sjabloonversie van de in de lijst 7 bevat niet voldoende instellingen voor een juiste implementatie van Windows naar een doelcomputer. Het bestand wordt echter wel verder aangepast met de implementatie-Workbench.  
 
  **Aanbieding 7. Ongewijzigd CustomSettings.ini-bestand in de sjablonenmap**  
@@ -7977,7 +7976,7 @@ Tabel 154 worden de eigenschappen en de bijbehorende waarden die worden gebruikt
 
  Zie voor meer informatie over de afzonderlijke eigenschappen, de bijbehorende verwijzen naar de sectie in het document MDT *Toolkit verwijzing*.  
 
-####  <a name="IdentifytheBootStrap.iniFileSyntax"></a>De syntaxis van het bestand BootStrap.ini identificeren  
+####  <a name="IdentifytheBootStrap.iniFileSyntax"></a> De syntaxis van het bestand BootStrap.ini identificeren  
  In implementaties van LTI, gebruikt u het bestand BootStrap.ini eigenschapsinstellingen opgeven voordat u het CustomSettings.ini-bestand opent. Het bestand BootStrap.ini voor informatie over distributiepunten, aanmeldingsreferenties en landinstellingen van Windows PE toetsenbord gebruiken. De eigenschappen die zijn geconfigureerd in BootStrap.ini helpen de MDT-scripts die de juiste MDT distributieshare vinden.  
 
  De syntaxis van het bestand BootStrap.ini is identiek aan het CustomSettings.ini-bestand. Het bestand BootStrap.ini bevat een subset van de eigenschappen die in CustomSettings.ini als volgt:  
@@ -8013,7 +8012,7 @@ Priority=Default
 DeployRoot=\\NYC-MDT-01\Distribution$  
 ```  
 
-###  <a name="ConfiguringtheAppropriateMDTProperties"></a>De juiste MDT-eigenschappen te configureren  
+###  <a name="ConfiguringtheAppropriateMDTProperties"></a> De juiste MDT-eigenschappen te configureren  
  MDT gebruikt wizards voor het maken en de configuratiebestanden beheren. Zie voor meer informatie over de standaard MDT-configuratiebestanden, CustomSettings.ini en BootStrap.ini, [MDT-configuratiebestanden aanpassen](#CustomizingMDTConfigurationFiles). U kunt echter de configuratiebestanden om te voldoen aan de behoeften van uw organisatie.  
 
  Voordat u het implementatieproces configureert, selecteer de eigenschappen om te verwijzen naar uit de vooraf gedefinieerde of door de gebruiker gedefinieerde eigenschappen. De geselecteerde eigenschappen moeten de configuratie-instellingen worden opgegeven tijdens de implementatie bevatten.  
@@ -8038,7 +8037,7 @@ DeployRoot=\\NYC-MDT-01\Distribution$
 
  Zie de sectie 'Eigenschappen' in de MDT-document voor meer informatie over elk van de eigenschappen die in elke fase *Toolkit verwijzing*.  
 
-###  <a name="ApplyingMDTPropertiestoGroupsofComputers"></a>Eigenschappen van de MDT toepassen op groepen van Computers  
+###  <a name="ApplyingMDTPropertiestoGroupsofComputers"></a> Eigenschappen van de MDT toepassen op groepen van Computers  
  Gebruik indien mogelijk op basis van een groep regels meeste computer configuratie-instellingen toe te passen. Regels op basis van een groep kunt dezelfde configuratie-instellingen worden toegepast op een groep met clientcomputers. U kunt na het toepassen van regels op basis van een groep, computer-specifieke configuratie-instellingen met behulp van regels op basis van een computer opgeven.  
 
  Eigenschappen toepassen op groepen computers door de volgende stappen uit te voeren:  
@@ -8047,7 +8046,7 @@ DeployRoot=\\NYC-MDT-01\Distribution$
 
 2.  De eigenschappen toepassen op de groepen van computers, zoals beschreven in [de eigenschappen van toepassing op de groepen](#ApplythePropertiestotheGroups).  
 
-####  <a name="SelecttheMethodforGroupingComputers"></a>Selecteer de methode voor het groeperen van Computers  
+####  <a name="SelecttheMethodforGroupingComputers"></a> Selecteer de methode voor het groeperen van Computers  
  Verschillende methoden kunnen worden gebruikt voor clientcomputers van de groep. Na het vaststellen van hoe u wilt groeperen van de computers, selecteer de relevante eigenschappen om u te helpen ze te groeperen.  
 
  Met de verwerking van regels in MDT, groep computers op basis van een eigenschap die kan worden toegepast op een groep computers (zoals **zorg**, **Model**, of **standaardgateway**).  Tabel 155 bevat methoden voor het groeperen van computers, een beschrijving van de methode en de eigenschappen die kunnen worden gebruikt voor het groeperen van de computers.  
@@ -8056,7 +8055,7 @@ DeployRoot=\\NYC-MDT-01\Distribution$
 
 |Groeperingsmethode|Beschrijving|Eigenschappen|  
 |---------------------|-----------------|----------------|  
-|Geografisch|Groeperen op basis van bronnen die zich binnen een geografische regio (zoals een gedeelde map op een computer binnen een geografische regio) van configuratie-instellingen.|**Standaard-gateway** |  
+|Geografisch|Groeperen op basis van bronnen die zich binnen een geografische regio (zoals een gedeelde map op een computer binnen een geografische regio) van configuratie-instellingen.|**DefaultGateway** |  
 |Doel computer hardware kenmerken|Groeperen op basis van hardware-kenmerken (zoals het maken van de computer of de processor-architectuur van de doelcomputer)-configuratie-instellingen.|**Architectuur**CapableArchitectureMake|  
 |Doel computer software kenmerken|Groeperen op basis van hardware-kenmerken (zoals de besturingssysteemversie van de doelcomputer)-configuratie-instellingen.|**OSVersion** |  
 |Standaardkenmerken|Configuratie-instellingen toepassen op alle doelcomputers, wanneer de eigenschappen niet in andere secties zijn.|**Standaard** |  
@@ -8098,12 +8097,12 @@ SLShare=\\DAL-AM-FIL-01\Logs
 Administrator1=WOODGROVEBANK\DAL Help Desk Staff  
 ```  
 
-####  <a name="ApplythePropertiestotheGroups"></a>De eigenschappen van toepassing op de groepen  
+####  <a name="ApplythePropertiestotheGroups"></a> De eigenschappen van toepassing op de groepen  
  Nadat u hebt geïdentificeerd, hoe u wilt groeperen bepalen configuratie-instellingen, welke eigenschappen en de bijbehorende configuratie-instellingen wilt toepassen op elke groep. Eigenschappen die kunnen worden gegroepeerd zijn die u op meerdere computers toepassen kunt.  
 
  Enkele voorbeelden van eigenschappen die meestal worden toegepast op groepen computers zijn:  
 
--   **Back-upmap**  
+-   **BackupDir**  
 
 -   **BackupShare**  
 
@@ -8139,7 +8138,7 @@ Administrator1=WOODGROVEBANK\DAL Help Desk Staff
 
 -   In NYC, locatie-specifieke pakketten worden aangewezen door `Packages1` en `Packages2`.  
 
-###  <a name="ApplyingMDTPropertiestoIndividualComputers"></a>Eigenschappen van de MDT toepassen op afzonderlijke Computers  
+###  <a name="ApplyingMDTPropertiestoIndividualComputers"></a> Eigenschappen van de MDT toepassen op afzonderlijke Computers  
  Na het vaststellen van de groepen van de doelcomputers en configuratie-instellingen worden toegepast op elke groep, de methode voor het identificeren van afzonderlijke computers en de configuratie-instellingen om toe te wijzen aan elke computer te bepalen. De regels voor de doelcomputers de onderdrukking of uitdiepen van verwerken op basis van een groep van regels op basis van de prioriteit van de regels op basis van een computer is toegestaan.  
 
  Zie voor meer informatie over het bepalen van de prioriteit van regels worden verwerkt [gereserveerde prioriteitseigenschap](#PriorityReservedProperty)eerder in deze handleiding.  
@@ -8156,7 +8155,7 @@ Administrator1=WOODGROVEBANK\DAL Help Desk Staff
 
 |Identificatie-methode|Beschrijving|Eigenschappen|  
 |---------------------------|-----------------|----------------|  
-|Doel computer hardware kenmerken|Identificeer de doelcomputer met behulp van de hardwareconfiguratie.|**AssetTag**, **MACAddress**, **SerialNumber**, **UUID**, **Product**, **maken** , en **Model** |  
+|Doel computer hardware kenmerken|Identificeer de doelcomputer met behulp van de hardwareconfiguratie.|**AssetTag**, **MACAddress**, **SerialNumber**, **UUID**, **Product**, **zorg**, en **Model** |  
 |Doel computer software kenmerken|Identificeer de doelcomputer met behulp van de software of firmware-configuratie.|**OSVersion**, **IsServerOS**, en **OSSKU** |  
 |Doel van de gebruiker gedefinieerde kenmerken van computer|Identificeer de doelcomputer met kenmerken die zijn toegewezen aan de computer, maar geen deel uit van de configuratie van de hardware of software.|**AssetTag SerialNumber** |  
 
@@ -8188,23 +8187,23 @@ OverRideProductKey=11111-22222-33333-44444-55555
 
 |Doelcomputer|Instellingen en -beschrijving|  
 |---------------------|------------------------------|  
-|`[00:03:FF:CB:4E:C2]`|`ComputerName`de naam van de computer is na de implementatie: in dit geval WasW2K.`OverRideProductKey` de productcode moet worden toegewezen aan de computer — in dit geval TTTTT-VVVVV-WWWWW-XXXXX-YYYYY.|  
-|`[00:0F:20:35:DE:AC]`|`ComputerName`de naam van de computer is na de implementatie: in dit geval HPD530-1.`OverRideProductKey` de productcode moet worden toegewezen aan de computer — in dit geval AAAAA-BBBBB-CCCCC-DDDDD-EEEEE.|  
-|`[00:03:FF:FE:FF:FF]`|`ComputerName`de naam van de computer is na de implementatie: in dit geval BVMXP.<br /><br /> `OverRideProductKey`de productcode moet worden toegewezen aan de computer — in dit geval 11111-22222-33333-44444-55555.|  
+|`[00:03:FF:CB:4E:C2]`|`ComputerName` de naam van de computer is na de implementatie: in dit geval WasW2K.`OverRideProductKey` de productcode moet worden toegewezen aan de computer — in dit geval TTTTT-VVVVV-WWWWW-XXXXX-YYYYY.|  
+|`[00:0F:20:35:DE:AC]`|`ComputerName` de naam van de computer is na de implementatie: in dit geval HPD530-1.`OverRideProductKey` de productcode moet worden toegewezen aan de computer — in dit geval AAAAA-BBBBB-CCCCC-DDDDD-EEEEE.|  
+|`[00:03:FF:FE:FF:FF]`|`ComputerName` de naam van de computer is na de implementatie: in dit geval BVMXP.<br /><br /> `OverRideProductKey` de productcode moet worden toegewezen aan de computer — in dit geval 11111-22222-33333-44444-55555.|  
 
-###  <a name="ConfiguringMDTProcessingRules"></a>MDT verwerkingsregels configureren  
+###  <a name="ConfiguringMDTProcessingRules"></a> MDT verwerkingsregels configureren  
  MDT scripts configureren op basis van regels en configuratie-instellingen opgeslagen in het CustomSettings.ini-bestand of de MDT-DB computerinstellingen. Configureer de van de MDT-verwerkingsregels door de volgende taken voltooien:  
 
 -   Configureer het verwerken van regels, zoals beschreven in [configureren van de regels in het bestand CustomSettings.ini](#ConfiguretheRulesintheCustomSettings.iniFile).  
 
 -   Configureer het verwerken van regels, zoals beschreven in [de regels in de MDT-database configureren](#ConfiguretheRulesintheMDTDB).  
 
-####  <a name="ConfiguretheRulesintheCustomSettings.iniFile"></a>De regels in het bestand CustomSettings.ini configureren  
+####  <a name="ConfiguretheRulesintheCustomSettings.iniFile"></a> De regels in het bestand CustomSettings.ini configureren  
  Configureer regels in het CustomSettings.ini-bestand. De sjabloonversie van het bestand CustomSettings.ini, samen met de regels van de organisatie, wordt het aangepaste CustomSettings.ini-bestand.  
 
  Voor implementaties van LTI, configureren van instellingen op basis van een groep mogelijk voldoende, omdat computerspecifieke instellingen kunnen worden opgegeven tijdens het installatieproces MDT. Toevoegen unieke configuratie-instellingen voor implementaties van ZTI met Configuration Manager, een specifieke clientcomputer omdat ZTI wordt ervan uitgegaan dat alle configuratie-instellingen die vereist zijn voor distributie van tevoren zijn geconfigureerd. Deze configuratie-instellingen kunnen niet naast of in plaats van de regels op basis van een groep.  
 
-####  <a name="ConfiguretheRulesintheMDTDB"></a>De regels in de MDT-database configureren  
+####  <a name="ConfiguretheRulesintheMDTDB"></a> De regels in de MDT-database configureren  
  Gebruik de Workbench-implementatie voor het configureren van de regels voor implementaties van LTI en ZTI in de MDT-database. De voordelen van het gebruik van de MDT-DB zijn:  
 
 -   **Er is een meer algemene versie van CustomSettings.ini**. De configuratie-instellingen opslaan in de MDT-DB verwijdert de meeste van de details van het CustomSettings.ini-bestand. Deze wijziging kunnen het bestand CustomSettings.ini algemene zodat u hetzelfde bestand in meerdere implementatieshares kunt.  
@@ -8213,7 +8212,7 @@ OverRideProductKey=11111-22222-33333-44444-55555
 
  Zie voor meer informatie over de MDT-DB en met het voor het uitvoeren van implementaties [back-implementaties met behulp van de MDT-DB](#PerformingDeploymentsUsingtheMDTDB).  
 
-###  <a name="PreparingDisksonTargetComputers"></a>Voorbereiden van de schijven op doelcomputers  
+###  <a name="PreparingDisksonTargetComputers"></a> Voorbereiden van de schijven op doelcomputers  
  Vóór de implementatie van het beoogde besturingssysteem op een doelcomputer wordt de schijven op de doelcomputer in het implementatieproces MDT voorbereid voor implementatie. De schijf-voorbereidingsproces omvat de volgende stappen uit:  
 
 1.  Partities maken op een of meer stations op de doelcomputers.  
@@ -8238,7 +8237,7 @@ OverRideProductKey=11111-22222-33333-44444-55555
 
 6.  Configureren van de MDT-eigenschappen die in opslaan en herstellen van status van gebruikersgegevens, zoals beschreven in [schijfeigenschappen voorbereiding configureren](#ConfigureDiskPreparationProperties).  
 
-####  <a name="ReviewtheDefaultPartitionConfigurationCreatedbyMDT"></a>Bekijk de standaardconfiguratie van de partitie gemaakt door MDT  
+####  <a name="ReviewtheDefaultPartitionConfigurationCreatedbyMDT"></a> Bekijk de standaardconfiguratie van de partitie gemaakt door MDT  
  De MDT-implementatieprocessen maken automatisch de benodigde schijfpartities om te profiteren van de functies van de doelcomputer en besturingssysteem. Standaard wordt de partitieconfiguratie voor op BIOS gebaseerde computers MDT gemaakt zoals beschreven in de tabel 158.  
 
 ### <a name="table-158-default-partition-configuration-created-by-mdt-for-bios-based-computers"></a>Tabel 158. Standaardconfiguratie voor partitie gemaakt door MDT voor op BIOS gebaseerde Computers  
@@ -8258,9 +8257,9 @@ OverRideProductKey=11111-22222-33333-44444-55555
 |MSR|Niet-opgemaakt|128 MB|De *Microsoft gereserveerde partitie* (MSR) is een partitie op een apparaat voor gegevensopslag die is gelabeld met een GUID die gelijk is aan E3C9E316-0B5C-4DB8-817 D-F92DF00215AE. Het opslagapparaat met heeft de nieuwe GPT (GUID Partition Table)-indeling, niet de traditionele master boot record (MBR) partitie tabelindeling gebruiken. Een partitie op elke GPT-schijf is vereist en moet worden gemaakt, omdat de schijf in eerste instantie is gepartitioneerd. Deze moet worden gevonden nadat EFI System partitie (ESP) en een OEM-service-partities bevat, maar: belangrijker: de eerste gegevenspartitie moet onmiddellijk volgen.|  
 |OSDisk|NTFS|Resterende schijfruimte|Partitie waarop Windows zich bevindt, ook wel bekend als de *besturingssysteemstation*. Als BitLocker wordt gebruikt, is dit de partitie die is versleuteld.|  
 
- Naast de MDT partitie standaardconfiguraties, kunt u aangepaste partitie configuraties. De standaardconfiguratie van de MDT-partitie omvatten bijvoorbeeld geen andere partities of herstelinstallatiekopieën van het. Zie voor meer informatie [informatie over schijfpartities](http://technet.microsoft.com/library/dd799232\(WS.10\).aspx).  
+ Naast de MDT partitie standaardconfiguraties, kunt u aangepaste partitie configuraties. De standaardconfiguratie van de MDT-partitie omvatten bijvoorbeeld geen andere partities of herstelinstallatiekopieën van het. Zie voor meer informatie [informatie over schijfpartities](https://technet.microsoft.com/library/dd799232\(WS.10\).aspx).  
 
-####  <a name="PrepareforDeploymenttoVirtualHardDiskswithNativeBoot"></a>Voorbereidingen voor implementatie naar virtuele harde schijven met eigen opstartmogelijkheid  
+####  <a name="PrepareforDeploymenttoVirtualHardDiskswithNativeBoot"></a> Voorbereidingen voor implementatie naar virtuele harde schijven met eigen opstartmogelijkheid  
  Met eigen opstartmogelijkheid kunt VHD's worden uitgevoerd op een computer zonder een virtuele machine of de hypervisor.  
 
 > [!NOTE]
@@ -8286,24 +8285,24 @@ OverRideProductKey=11111-22222-33333-44444-55555
 
 -   **Schakel OSDDiskIndexVariable**. Hiermee wist u deze stap de **OSDDiskIndexVariable** takenreeksvariabele is ingesteld tijdens de **VHD-schijf maken** takenreeksstap. Wissen van de **OSDDiskIndexVariable** takenreeksvariabele kan andere schijven worden gepartitioneerd en geformatteerd als onderdeel van de takenreeks wordt uitgevoerd.  
 
- Zie voor meer informatie over virtuele harde schijven met eigen opstartmogelijkheid [Understanding virtuele harde schijven met eigen opstartmogelijkheid](http://technet.microsoft.com/library/hh825689.aspx).  
+ Zie voor meer informatie over virtuele harde schijven met eigen opstartmogelijkheid [Understanding virtuele harde schijven met eigen opstartmogelijkheid](https://technet.microsoft.com/library/hh825689.aspx).  
 
-####  <a name="ConfiguretheCreateVHDDiskTaskSequenceStepType"></a>Configureer de VHD schijf staptype Takenreeks maken  
+####  <a name="ConfiguretheCreateVHDDiskTaskSequenceStepType"></a> Configureer de VHD schijf staptype Takenreeks maken  
  De **VHD-schijf maken** staptype takenreeks maakt u een .vhd-bestand in voorbereiding op het uitvoeren van een implementatie op een VHD met eigen opstartmogelijkheid ondersteuning. Tabel 160 wordt beschreven hoe u de **VHD-schijf maken** task sequence staptype.  
 
 ### <a name="table-160-configure-create-vhd-disk-task-sequence-step-type"></a>Tabel 160. Configureer VHD schijf staptype Takenreeks maken  
 
 |Instelling|Beschrijving|  
 |-------------|-----------------|  
-|VHD filename pad| Hiermee geeft u het pad naar de map waarin het VHD-bestand wordt gemaakt en kan een van de volgende waarde bevatten:<br /><br /> -                              **Willekeurige**. Deze waarde geeft aan dat de takenreeksstap automatisch een unieke naam voor map- en VHD-bestand creëert. De takenreeksstap wordt automatisch het VHD-bestand in de map geplaatst.<br /><br /> -                              ***vhd_path***. In dit geval *vhd_path* is het pad naar de map waar u de takenreeksstap voor het maken van het VHD-bestand, inclusief de naam van het VHD-bestand.<br /><br /> De standaardwaarde voor deze instelling is **willekeurige**.|  
-|Diff-bestandsnaam|Hiermee geeft u de bestandsnaam voor een differentiërende VHD-bestand:<br /><br /> -                              **Willekeurige**. Deze waarde geeft aan dat de takenreeksstap automatisch een unieke naam voor de mappen en bestanden voor de differentiërende VHD-bestand creëert.<br /><br /> -                              ***vhd_path***. In dit geval *vhd_path* is het pad naar de map waar u de takenreeksstap voor het maken van de differentiërende VHD-bestand, inclusief de naam van het VHD-bestand.<br /><br /> -                              ***Lege***. In dit geval is geen differentiërende VHD-bestand gemaakt.<br /><br /> De standaardwaarde voor deze instelling is **leeg**, wat aangeeft dat er geen differentiërende VHD-bestand is gemaakt.|  
+|VHD filename pad| Hiermee geeft u het pad naar de map waarin het VHD-bestand wordt gemaakt en kan een van de volgende waarde bevatten:<br /><br /> -                              **Random**. Deze waarde geeft aan dat de takenreeksstap automatisch een unieke naam voor map- en VHD-bestand creëert. De takenreeksstap wordt automatisch het VHD-bestand in de map geplaatst.<br /><br /> -                              ***vhd_path***. In dit geval *vhd_path* is het pad naar de map waar u de takenreeksstap voor het maken van het VHD-bestand, inclusief de naam van het VHD-bestand.<br /><br /> De standaardwaarde voor deze instelling is **willekeurige**.|  
+|Diff-bestandsnaam|Hiermee geeft u de bestandsnaam voor een differentiërende VHD-bestand:<br /><br /> -                              **Random**. Deze waarde geeft aan dat de takenreeksstap automatisch een unieke naam voor de mappen en bestanden voor de differentiërende VHD-bestand creëert.<br /><br /> -                              ***vhd_path***. In dit geval *vhd_path* is het pad naar de map waar u de takenreeksstap voor het maken van de differentiërende VHD-bestand, inclusief de naam van het VHD-bestand.<br /><br /> -                              ***Blank***. In dit geval is geen differentiërende VHD-bestand gemaakt.<br /><br /> De standaardwaarde voor deze instelling is **leeg**, wat aangeeft dat er geen differentiërende VHD-bestand is gemaakt.|  
 |De grootte van de VHD|Hiermee geeft u de capaciteit van het VHD-bestand kan worden opgegeven in MB of als een percentage van de beschikbare schijfruimte.|  
 |Dynamisch uitbreidbare|Deze optie maakt een dynamisch uitbreidbare .vhd-bestand, dat wordt fysiek in grootte toeneemt naarmate er meer meer gegevens worden opgeslagen in het VHD-bestand. De andere mogelijkheid is **een vaste grootte**. Deze instelling is standaard geselecteerd.|  
 |Vaste grootte|Deze optie maakt een vaste grootte .vhd-bestand, dat wordt gemaakt als de grootte die is opgegeven in de grootte van de VHD en niet automatisch in grootte groeit. De andere mogelijkheid is **dynamisch uitbreidbare**, die is standaard geselecteerd.|  
 |Ophalen van het doelstation voor het VHD-bestand van een variabele|Hiermee geeft u de variabele naam van de takenreeks gebruikt voor het doelstation voor de takenreeksvariabele. Deze instelling kunt u een geldige takenreeksvariabele opgeven. De standaardwaarde is de **VHDTargetDisk** takenreeksvariabele. Voor meer informatie over de **VHDTargetDisk** taak reeks variabele, Zie de **VHDTargetDisk** eigenschap in de in het document MDT *Toolkit verwijzing*.|  
 |De schijfindex gemaakt op basis van de VHD aan een variabele toewijzen|Deze instelling geeft variabele naam van de takenreeks gebruikt om aan te wijzen de schijfindex moet worden gebruikt bij het implementeren van het besturingssysteem. Deze instelling kunt u een geldige takenreeksvariabele opgeven. De standaardwaarde is de **OSDDiskIndex** takenreeksvariabele. Voor meer informatie over de **OSDDiskIndex** taak reeks variabele, Zie de **OSDDiskIndex** eigenschap in de in het document MDT *Toolkit verwijzing*.|  
 
-####  <a name="DeploytoComputerswithUEFI"></a>Implementeren op Computers met UEFI  
+####  <a name="DeploytoComputerswithUEFI"></a> Implementeren op Computers met UEFI  
  De UEFI is een specificatie die een software-interface tussen een besturingssysteem en platform firmware definieert. UEFI is veiliger vervanging voor de oudere BIOS-firmware-interface aanwezig zijn in sommige computers persoonlijk is kwetsbaar voor schadelijke software waarmee aanvallen tijdens het opstarten of inschakelen zelf testen (POST) worden verwerkt.  
 
  Windows-besturingssystemen ondersteunen firmwarerevisies die zijn gebaseerd op de UEFI-versie 2.0 of hoger specificatie op 64-bits platforms en Intel Itanium-platforms. Windows biedt ook ondersteuning voor firmwarerevisies die zijn gebaseerd op de specificatie EFI versie 1.10 op Intel Itanium-platforms.  
@@ -8317,11 +8316,11 @@ OverRideProductKey=11111-22222-33333-44444-55555
 
  Zie de volgende bronnen voor meer informatie:  
 
--   [Ondersteuning voor UEFI- en vereisten voor Windows-besturingssystemen](http://msdn.microsoft.com/windows/hardware/gg463144.aspx)  
+-   [Ondersteuning voor UEFI- en vereisten voor Windows-besturingssystemen](https://msdn.microsoft.com/windows/hardware/gg463144.aspx)  
 
--   [Aanbevolen configuraties op basis van UEFI-schijfpartitie](http://technet.microsoft.com/library/dd744301\(WS.10\).aspx)  
+-   [Aanbevolen configuraties op basis van UEFI-schijfpartitie](https://technet.microsoft.com/library/dd744301\(WS.10\).aspx)  
 
-####  <a name="ConfigureDiskPreparationTaskSequenceSteps"></a>Schijf voorbereiding Takenreeksstappen configureren  
+####  <a name="ConfigureDiskPreparationTaskSequenceSteps"></a> Schijf voorbereiding Takenreeksstappen configureren  
  MDT bevat taaksjablonen van reeks voor implementaties van LTI en ZTI. Deze taak sequence-sjablonen bevatten de takenreeksstappen die worden vermeld in de tabel 161 die worden gebruikt voor de schijf voorbereidende stappen uitvoeren.  
 
 ### <a name="table-161-disk-preparation-task-sequence-steps"></a>Tabel 161. Schijf voorbereiding Takenreeksstappen  
@@ -8335,7 +8334,7 @@ OverRideProductKey=11111-22222-33333-44444-55555
 |BDE-Protectors uitschakelen|Schakelt de BitLocker-protectors op de doelcomputer; beschikbaar in takenreeksen alleen LTI|  
 |Virtuele harde schijf (VHD) maken|Maakt een .vhd-bestand in voorbereiding voor het implementeren van Windows op een VHD met eigen opstartmogelijkheid ondersteuning.|  
 
-####  <a name="ConfigureDiskPreparationProperties"></a>Eigenschappen van de voorbereiding van schijf configureren  
+####  <a name="ConfigureDiskPreparationProperties"></a> Eigenschappen van de voorbereiding van schijf configureren  
   162 tabel geeft een lijst van de MDT-eigenschappen die regelen van de voorbereiding van schijven op de doelcomputers. U kunt deze eigenschappen in CustomSettings.ini of in de MDT-database configureren. Zie voor meer informatie over de eigenschappen in de tabel 162 de overeenkomstige sectie voor elke eigenschap in het document MDT *Toolkit verwijzing*.  
 
 ### <a name="table-162-disk-preparation-properties"></a>Tabel 162. Eigenschappen van de schijf voorbereiden  
@@ -8364,7 +8363,7 @@ OverRideProductKey=11111-22222-33333-44444-55555
 |**OSDPartitionsxVolumeName** |De naam van het volume dat wordt toegewezen aan de partitie|  
 |**WipeDisk** |Hiermee wordt aangegeven of de schijf moet worden gewist|  
 
-###  <a name="SavingandRestoringUserStateInformation"></a>Opslaan en herstellen van gebruikersstatus informatie  
+###  <a name="SavingandRestoringUserStateInformation"></a> Opslaan en herstellen van gebruikersstatus informatie  
  Informatie over de status van de gebruiker bestaat uit de gebruikersprofielgegevens, Internet Explorer favorieten, gegevensbestanden en andere gebruikersspecifieke gegevens die zijn opgeslagen op de doelcomputer. Het implementatieproces MDT kunt automatisch vastleggen en herstellen van status van gebruikersgegevens op de doelcomputers.  
 
  Het implementatieproces MDT gebruikt USMT opslaan en terugzetten van informatie over de status van de gebruiker. Tijdens de status fase voor het vastleggen in het implementatieproces van MDT slaat USMT informatie over de gebruikersstatus op de gewenste locatie. Later, tijdens de fase status herstellen USMT statusinformatie wordt hersteld op deze gebruiker.  
@@ -8379,7 +8378,7 @@ OverRideProductKey=11111-22222-33333-44444-55555
 
 4.  Configureren van MDT om uit te voeren gebruikersstatus in Windows PE (offline) of in het bestaande besturingssysteem (online) zoals is beschreven in [configureren USMT Offline User State Migration Tool](#ConfigureUSMTOfflineUserStateMigration).  
 
-####  <a name="ReviewUserStateInformationTaskSequenceSteps"></a>Controleer de status van gebruiker informatie Takenreeksstappen  
+####  <a name="ReviewUserStateInformationTaskSequenceSteps"></a> Controleer de status van gebruiker informatie Takenreeksstappen  
  MDT omvat taaksjablonen van reeks voor implementaties van LTI en ZTI voor Configuration Manager. Deze taak sequence-sjablonen bevatten de takenreeksstappen die worden vermeld in de tabel 163, die worden gebruikt voor het opslaan en herstellen van informatie over de status van de gebruiker.  
 
 ### <a name="table-163-user-state-information-task-sequence-steps"></a>Tabel 163. Gebruikersstatus informatie Takenreeksstappen  
@@ -8393,7 +8392,7 @@ OverRideProductKey=11111-22222-33333-44444-55555
 |**Herstellen van groepen** |De gegevens herstelt die de **groepen vastleggen** takenreeksstap opgeslagen op de doelcomputer|  
 |**Offline gebruikersstatus vastleggen** |Bevat informatie over gebruikersstatus tijdens het uitvoeren van Windows PE (offline) in plaats van de orignial besturingssysteem (online). Deze takenreeksstap wordt uitgevoerd het script ZTIUserState.wsf en wordt uitgevoerd wanneer de volgende voorwaarden wordt voldaan:<br /><br /> -De **_SMSTSMediaType** eigenschap is niet gelijk aan **'OEMMedia'**.<br /><br /> -De **OSDDiskPart** eigenschap is niet gelijk aan **'TRUE'**.<br /><br /> Deze takenreeksstap maakt deel uit van de groep Offline USMT die wordt gestart wanneer de **USMTOfflineMigration** gelijk is aan **'TRUE'**.|  
 
-####  <a name="ConfigureUserStateInformationProperties"></a>Eigenschappen van de gebruikersstatus informatie configureren  
+####  <a name="ConfigureUserStateInformationProperties"></a> Eigenschappen van de gebruikersstatus informatie configureren  
   164 tabel bevat de MDT-eigenschappen voor implementaties van LTI waarmee gebruikersstatusinformatie opslaan en herstellen. U kunt deze eigenschappen in het bestand CustomSettings.ini of in de MDT-database configureren. Zie voor meer informatie over de eigenschappen in de tabel 164 de overeenkomstige sectie voor elke eigenschap in het document MDT *Toolkit verwijzing*.  
 
 ### <a name="table-164-user-state-information-properties-for-lti-deployments"></a>Tabel 164. Eigenschappen van de gebruikersstatus informatie voor implementaties van LTI  
@@ -8411,14 +8410,14 @@ OverRideProductKey=11111-22222-33333-44444-55555
 > [!IMPORTANT]
 >  USMT wordt standaard alle lokale en domeininstellingen gebruikersaccounts vastleggen tenzij expliciet uitgesloten. Alle lokale accounts wordt vastgelegd worden standaard opgenomen in het herstelproces. In sommige gevallen mislukt stap voor het herstellen zonder het opnemen van de parameter /lae om het wachtwoord voor deze lokale accounts instellen.  
 
-####  <a name="ConfigureUserStateMigrationXMLControlFiles"></a>User State Migration XML-besturingselement bestanden configureren  
+####  <a name="ConfigureUserStateMigrationXMLControlFiles"></a> User State Migration XML-besturingselement bestanden configureren  
  USMT gebruikt de standaardversies van de XML-bestanden voor migratie, tenzij het pad naar de XML-bestanden voor aangepaste besturingselement is aangegeven. De migratie van XML-besturingselement gebruikersstatusbestanden voor USMT aanpassen door de volgende taken:  
 
 -   De XML-bestanden voor beheer configureren voor USMT voor implementaties van LTI, zoals beschreven in [configureren migratie XML-besturingselement Gebruikersstatusbestanden voor implementaties van LTI](#ConfigureUserStateMigrationXMLControlFilesforLTIDeployments).  
 
 -   De XML-bestanden voor beheer configureren voor USMT voor implementaties van ZTI, zoals beschreven in [configureren migratie XML-besturingselement Gebruikersstatusbestanden voor implementaties van ZTI](#ConfigureUserStateMigrationXMLControlFilesforZTIDeployments).  
 
-#####  <a name="ConfigureUserStateMigrationXMLControlFilesforLTIDeployments"></a>User State Migration XML-besturingselement bestanden configureren voor implementaties van LTI  
+#####  <a name="ConfigureUserStateMigrationXMLControlFilesforLTIDeployments"></a> User State Migration XML-besturingselement bestanden configureren voor implementaties van LTI  
  Implementaties van LTI, plaatst u een of meer regels in het CustomSettings.ini-bestand met de **USMTMigFiles** eigenschap voor elk van de USMT migratie XML-bestanden die u wilt opgeven. De XML-bestanden moeten worden gekopieerd naar de USMT-map of de scriptmap in de distributieshare.  
 
  Gebruik de volgende notatie voor deze regels:  
@@ -8434,7 +8433,7 @@ USMTConfigFile=Config.xml
 > [!NOTE]
 >  Raadpleeg het document MDT *Toolkit verwijzing* voor meer informatie over configuratie-instellingen.  
 
-#####  <a name="ConfigureUserStateMigrationXMLControlFilesforZTIDeployments"></a>User State Migration XML-besturingselement bestanden voor implementaties van ZTI configureren  
+#####  <a name="ConfigureUserStateMigrationXMLControlFilesforZTIDeployments"></a> User State Migration XML-besturingselement bestanden voor implementaties van ZTI configureren  
  Voor implementaties van ZTI voor Configuration Manager, kunt u een regel invoegen in het CustomSettings.ini-bestand met de **OSDMigrateConfigFiles** takenreeksvariabele voor de USMT migratie XML-bestand dat u wilt opgeven. Als u opgeeft de **OSDMigrateConfigFiles** eigenschap invoegen van een andere regel die de **OSDMigrateMode** takenreeksvariabele Geavanceerd.  
 
  Gebruik de volgende notatie voor deze regels:  
@@ -8446,7 +8445,7 @@ OSDMigrateConfigFiles=MigApp.xml,MigUser.xml
 
  Het pad naar de XML-bestanden voor besturingselement is ten opzichte van de huidige map, de locatie van het USMT-pakket worden. Als u de XML-bestanden voor beheer in het USMT-pakket, wordt dit pakket telkens wanneer die u een van de XML-bestanden voor beheer wijzigen bijwerken. Anders kunt u de XML-besturingselement bestanden opslaan in een apart pakket- of gedeelde map en geef een volledig gekwalificeerde UNC-pad naar de gedeelde map met het pakket of het netwerk.  
 
-####  <a name="ConfigureUSMTOfflineUserStateMigration"></a>USMT Offline User State Migration configureren  
+####  <a name="ConfigureUSMTOfflineUserStateMigration"></a> USMT Offline User State Migration configureren  
  USMT kunt offline migratie van gebruikersstatus uitvoeren vanaf een computer. In een offlinemigratie wordt de vastlegging van de uitgevoerd in Windows PE in plaats van het bestaande besturingssysteem. De voordelen van de uitvoering van een offline user state Migration Tool zijn:  
 
 -   U hoeft niet aanmelden bij de computer waarop u de gebruikersstatus vastlegt.  
@@ -8459,7 +8458,7 @@ OSDMigrateConfigFiles=MigApp.xml,MigUser.xml
 
 -   U kunt mogelijk een offlinemigratie gebruiken voor het herstellen van bestanden en instellingen als een computer niet meer correct opstart.  
 
- Het nadeel van de uitvoering van een offline user state Migration Tool is dat sommige gebruikersinstellingen worden niet vastgelegd, maar in plaats daarvan kunnen alleen worden vastgelegd tijdens het uitvoeren van USMT van het beoogde besturingssysteem. Zie voor een lijst met instellingen die niet zijn vastgelegd tijdens het uitvoeren van een offline gebruikersstatus [wat USMT migreert?](http://technet.microsoft.com/library/hh825238.aspx)  
+ Het nadeel van de uitvoering van een offline user state Migration Tool is dat sommige gebruikersinstellingen worden niet vastgelegd, maar in plaats daarvan kunnen alleen worden vastgelegd tijdens het uitvoeren van USMT van het beoogde besturingssysteem. Zie voor een lijst met instellingen die niet zijn vastgelegd tijdens het uitvoeren van een offline gebruikersstatus [wat USMT migreert?](https://technet.microsoft.com/library/hh825238.aspx)  
 
  U kunt USMT offline gebruikersstatusmigratie uitvoeren in de MDT:  
 
@@ -8470,7 +8469,7 @@ OSDMigrateConfigFiles=MigApp.xml,MigUser.xml
 > [!NOTE]
 >  U kunt USMT offline gebruikersstatusmigratie niet uitvoeren in de nieuwe Computer MDT implementatiescenario met ZTI.8  
 
-###  <a name="JoiningTargetComputerstoADDSDomains"></a>Doelcomputers toevoegen aan AD DS-domeinen  
+###  <a name="JoiningTargetComputerstoADDSDomains"></a> Doelcomputers toevoegen aan AD DS-domeinen  
  Een van de laatste stappen bij het voltooien van de implementatie van een besturingssysteem met de doelcomputers is de computer toevoegen aan een AD DS-domein. Hoewel dit proces handmatig hebt voltooid, kunt u MDT biedt ondersteuning voor de volgende geautomatiseerde methoden voor de doelcomputers toevoegen aan AD DS-domeinen:  
 
 -   Met behulp van de Wizard implementatie, zoals beschreven in [domeinen die gebruikmaken van de Wizard implementatie toevoegen](#JoinDomainsUsingtheDeploymentWizard)  
@@ -8483,7 +8482,7 @@ OSDMigrateConfigFiles=MigApp.xml,MigUser.xml
 
 -   Met behulp van de Windows offline domain join-functie, zoals beschreven in [Join domeinen met behulp van Offline aan domein toevoegen](#JoinDomainsUsingOfflineDomainJoin)  
 
-####  <a name="JoinDomainsUsingtheDeploymentWizard"></a>Domeinen die gebruikmaken van de implementatiewizard toevoegen  
+####  <a name="JoinDomainsUsingtheDeploymentWizard"></a> Domeinen die gebruikmaken van de implementatiewizard toevoegen  
  Voor implementaties van LTI, de **de computer toevoegen aan een domein of werkgroep** wizardpagina in de Wizard Windows implementeren in MDT kunt u de configuratie-instellingen die nodig zijn voor het koppelen van een domein interactief te bieden. 165 tabel geeft een lijst van de configuratie-instellingen op deze wizardpagina gebruikt in het lidmaatschap van een domein.  
 
 ### <a name="table-165-configuration-settings-on-the-join-the-computer-to-a-domain-or-workgroup-wizard-page-for-joining-domain"></a>Tabel 165. Configuratie-instellingen op de Join-de computer aan een domein of werkgroep wizardpagina voor lid worden van domein  
@@ -8499,20 +8498,20 @@ OSDMigrateConfigFiles=MigApp.xml,MigUser.xml
 
  Voor meer informatie over het uitvoeren van de **de computer toevoegen aan een domein of werkgroep** wizardpagina in de Wizard Windows implementeren, Zie [Voltooi de Wizard implementatie](#CompletetheDeploymentWizard).  
 
-####  <a name="JoinDomainsbyModifyingtheCustomSettings.iniFile"></a>Domeinen toevoegen door het wijzigen van het CustomSettings.ini-bestand  
+####  <a name="JoinDomainsbyModifyingtheCustomSettings.iniFile"></a> Domeinen toevoegen door het wijzigen van het CustomSettings.ini-bestand  
  U kunt het proces lid van domein voor implementaties van LTI of ZTI automatiseren door de eigenschappen die worden vermeld in de tabel 166 in het bestand CustomSettings.ini gebruikt in het implementatieproces van MDT te wijzigen.  
 
 ### <a name="table-166-properties-in-customsettingsini-to-modify-for-joining-a-domain"></a>Tabel 166. Eigenschappen in CustomSettings.ini voor deelname aan een domein wijzigen  
 
 |Eigenschap|Beschrijving|  
 |--------------|-----------------|  
-|**DomainAdmin** |De referenties van de gebruiker gebruikt voor het toevoegen van de doelcomputer aan het domein dat is opgegeven in **JoinDomain**; opgeven als *domein\gebruikersnaam* of*user_name@domain.com*|  
+|**DomainAdmin** |De referenties van de gebruiker gebruikt voor het toevoegen van de doelcomputer aan het domein dat is opgegeven in **JoinDomain**; opgeven als *domein\gebruikersnaam* of *user_name@domain.com*|  
 |**DomainAdminDomain** |Het domein waarin de referenties van de gebruiker die zijn opgegeven in **DomainAdmin** zich bevinden|  
 |**DomainAdminPassword** |Het wachtwoord voor het domein Administrator-account opgegeven in de **DomainAdmin** eigenschap in op de computer toevoegen aan het domein|  
 |**JoinDomain** |Het domein waarvan de doelcomputer lid na het beoogde besturingssysteem wordt wordt geïmplementeerd (dit is het domein waarin het computeraccount voor de doelcomputer wordt gemaakt. De **JoinDomain** eigenschap mag alfanumerieke tekens, afbreekstreepjes [-] en onderstrepingstekens [_]. De **JoinDomain** eigenschap mag niet leeg zijn of spaties bevatten.)|  
 |**MachineObjectOU** |De AD DS-OE in het doeldomein waarin het computeraccount voor de doelcomputer is gemaakt|  
 
-####  <a name="JoinDomainsbyModifyingtheUnattended.xmlFile"></a>Domeinen toevoegen door het wijzigen van het bestand Unattended.xml  
+####  <a name="JoinDomainsbyModifyingtheUnattended.xmlFile"></a> Domeinen toevoegen door het wijzigen van het bestand Unattended.xml  
  U kunt het proces lid van domein voor implementaties van LTI of ZTI automatiseren door de instellingen die worden vermeld in de tabel 167 in het bestand Unattended.xml dat wordt gebruikt in het implementatieproces van MDT te wijzigen.  
 
 ### <a name="table-167-settings-in-unattendedxml-to-modify-for-joining-a-domain"></a>Tabel 167. Instellingen in Unattended.xml voor deelname aan een domein wijzigen  
@@ -8525,9 +8524,9 @@ OSDMigrateConfigFiles=MigApp.xml,MigUser.xml
 |**JoinDomain** |Het domein waarvan de doelcomputer lid na het beoogde besturingssysteem wordt wordt geïmplementeerd|  
 |**MachineObjectOU** |De AD DS-OE in het doeldomein waarin het computeraccount voor de doelcomputer is gemaakt|  
 
- Zie voor meer informatie over deze instellingen [Microsoft-Windows-UnattendedJoin](http://technet.microsoft.com/library/cc748842\(WS.10\).aspx).  
+ Zie voor meer informatie over deze instellingen [Microsoft-Windows-UnattendedJoin](https://technet.microsoft.com/library/cc748842\(WS.10\).aspx).  
 
-####  <a name="JoinDomainsUsingtheRecoverfromDomainJoinFailureTaskSequenceStepType"></a>Domeinen met het herstellen van een domein Join mislukte stap Takenreekstype koppelen  
+####  <a name="JoinDomainsUsingtheRecoverfromDomainJoinFailureTaskSequenceStepType"></a> Domeinen met het herstellen van een domein Join mislukte stap Takenreekstype koppelen  
  Takenreeksstappen op basis van de **herstellen Domain Join** stap takenreekstype het proces opnieuw starten lid van een domein met de configuratie-informatie die is opgegeven in CustomSettings.ini. U kunt de **herstellen van fouten voor domein deelnemen aan** task sequence staptype te herstellen met behulp van een van de volgende methoden:  
 
 -   **Automatisch herstellen (lid worden van domein opnieuw uitvoeren)**. Deze methode wordt automatisch opnieuw geprobeerd het proces van het lid van domein zonder tussenkomst van de. Selecteer deze methode als u wilt dat de MDT-proces voor het automatisch opnieuw het proces van het lid van domein.  
@@ -8563,7 +8562,7 @@ OSDMigrateConfigFiles=MigApp.xml,MigUser.xml
         |**Handmatige herstellen (de gebruiker toestaan te aan domein toevoegen)** |Selecteer het configureren van de takenreeksstap als u wilt toestaan dat de gebruiker het proces opnieuw starten lid van domein|  
         |**Er is geen herstellen (stoppen uitvoering van het script)** |Selecteer het configureren van de takenreeksstap voor het stoppen van de takenreeks wordt uitgevoerd als de computer het domein niet is toegevoegd|  
 
-####  <a name="JoinDomainsUsingOfflineDomainJoin"></a>Domeinen die gebruikmaken van offlinedomein koppelen  
+####  <a name="JoinDomainsUsingOfflineDomainJoin"></a> Domeinen die gebruikmaken van offlinedomein koppelen  
  Offlinedomeindeelname is een proces aan een domein zonder verbinding met een domeincontroller. Dit proces maakt het mogelijk computers toevoegen aan een domein in de locaties waar er geen netwerkverbinding met een bedrijfsnetwerk is.  
 
  Met behulp van offlinedomeindeelname met kunnen doelcomputers worden gekoppeld aan het domein wanneer ze in eerste instantie na de installatie van het beoogde besturingssysteem starten. Er zijn geen extra opnieuw opstarten is vereist voor het voltooien van het proces lid van een domein, waardoor de totale tijd die nodig is voor VM-implementaties wide aanzienlijk kan verminderen.  
@@ -8576,7 +8575,7 @@ OSDMigrateConfigFiles=MigApp.xml,MigUser.xml
 
 -   Configureren van het bestand Unattended.xml offline join uitvoeren, Zie de sectie 'Een offlinedomein uitvoeren met behulp van een installatie zonder toezicht besturingssysteem' in de stapsgewijze handleiding voor Offline Domain Join (Djoin.exe)  
 
-###  <a name="DeployingSoftwareUpdatestoTargetComputers"></a>Software-Updates implementeren op doelcomputers  
+###  <a name="DeployingSoftwareUpdatestoTargetComputers"></a> Software-Updates implementeren op doelcomputers  
  Naast het beoogde besturingssysteem, toepassingen, stuurprogramma's en andere softwareonderdelen, moet u wellicht software-updates toepassen op alle softwareonderdelen van deze. Deze software-updates zijn vereist om te controleren of een consistente configuratiebasislijn voor de doelcomputers.  
 
  Software-updates implementeren op doelcomputers in MDT door:  
@@ -8589,14 +8588,14 @@ OSDMigrateConfigFiles=MigApp.xml,MigUser.xml
 
 -   Implementeren van softwareupdates met Configuration Manager voor implementaties van ZTI zoals beschreven in [Software-Updates implementeren met Configuration Manager voor implementaties van ZTI](#DeploySoftwareUpdateswithConfigurationManagerforZTIDeployments)  
 
-####  <a name="SelecttheSoftwareUpdateDeploymentStrategy"></a>Selecteer de implementatiestrategie voor Software-Update  
+####  <a name="SelecttheSoftwareUpdateDeploymentStrategy"></a> Selecteer de implementatiestrategie voor Software-Update  
  De software-update-implementatiestrategieën zijn gebaseerd op wanneer de software-updates moeten worden geïnstalleerd. U kunt software-updates installeren:  
 
 -   Als onderdeel van de afbeelding die wordt geïmplementeerd op de doelcomputers  
 
 -   Na het doel wordt besturingssysteem geïmplementeerd met de doelcomputers  
 
-####  <a name="DeploySoftwareUpdateswithWindowsUpdateAgentforLTIDeployments"></a>Software-Updates met Windows Update Agent voor implementaties van LTI implementeren  
+####  <a name="DeploySoftwareUpdateswithWindowsUpdateAgentforLTIDeployments"></a> Software-Updates met Windows Update Agent voor implementaties van LTI implementeren  
  In implementaties van LTI, kunt u software-updates installeren via Windows Update of WSUS met behulp van een takenreeksstap waarvoor de ZTIWindowsUpdate.wsf-script wordt uitgevoerd. Dit zijn enkele van de LTI taak reeks sjablonen vindt u in MDT de **Windows Update (vooraf toepassingsinstallatie)** takenreeksstap en de **Windows Update (na toepassingsinstallatie)** taak stap.  
 
  U kunt ook maken met een aangepaste takenreeksstap op basis van de **opdrachtregel uitvoeren** task sequence staptype die wordt uitgevoerd de volgende opdrachtregel:  
@@ -8605,14 +8604,14 @@ OSDMigrateConfigFiles=MigApp.xml,MigUser.xml
 Cscript.exe "%SCRIPTROOT%\ZTIWindowsUpdate.wsf"  
 ```  
 
-####  <a name="DeploySoftwareUpdateswiththeDeploymentWorkbenchforLTIDeployments"></a>Software-Updates met de implementatie-Workbench implementeren voor implementaties van LTI  
+####  <a name="DeploySoftwareUpdateswiththeDeploymentWorkbenchforLTIDeployments"></a> Software-Updates met de implementatie-Workbench implementeren voor implementaties van LTI  
  In implementaties van LTI, kunt u software-updates installeren voor Windows in het knooppunt pakketten in de Workbench-implementatie met behulp van een takenreeksstap op basis van de **Offline Updates installeren** task sequence staptype. Dit zijn enkele van de LTI taak reeks sjablonen vindt u in MDT de **Patches toepassen** takenreeksstap, die is gebaseerd op de **Offline Updates installeren** task sequence staptype.  
 
  U kunt de software-updates geïmplementeerd op de doelcomputers door deze methode met behulp van selectie profielen beheren. De **Offline Updates installeren** takenreeksstap kunt u een selectie-profiel opgeven, zodat u welke software-updates opgeven kunt te implementeren. Als u implementeren op basis van meerdere profielen voor selectie van software-updates wilt, maken van een takenreeksstap voor elk profiel selectie en geef vervolgens de bijbehorende selectie profiel in de takenreeksstap.  
 
  Zie voor meer informatie over het maken van profielen voor selectie [maken van een nieuw profiel van de selectie in de implementatie-Workbench](#CreateaNewSelectionProfileintheDeploymentWorkbench).  
 
-####  <a name="DeploySoftwareUpdateswithConfigurationManagerforZTIDeployments"></a>Software-Updates met Configuration Manager voor implementaties van ZTI implementeren  
+####  <a name="DeploySoftwareUpdateswithConfigurationManagerforZTIDeployments"></a> Software-Updates met Configuration Manager voor implementaties van ZTI implementeren  
  In implementaties van ZTI met Configuration Manager, kunt u met behulp van een takenreeksstap op basis van software-updates initiëren de **Software-Updates installeren** task sequence staptype. De **Software-Updates installeren** takenreekstype kunt u alleen verplichte of alle software-updates installeren in een enkel takenreeksstap met behulp van een van de configuratieopties die worden vermeld in de tabel 169.  
 
 ### <a name="table-169-configuration-settings-on-the-properties-tab-of-the-install-software-updates-type-task-sequence-step"></a>Tabel 169. Configuratie-instellingen op het tabblad Eigenschappen van de installatie van Software-Updates Type Takenreeksstap  
@@ -8626,7 +8625,7 @@ Cscript.exe "%SCRIPTROOT%\ZTIWindowsUpdate.wsf"
 
  Voor meer informatie over de **Software-Updates installeren** taak type takenreeks, Zie de sectie 'Software-Updates installeren,' in de sectie 'Taak reeks stappen in Configuration Manager,' in de documentatie van Configuration Manager Bibliotheek met Configuration Manager is geïnstalleerd.  
 
-###  <a name="ManagingDeviceDrivers"></a>Apparaatstuurprogramma's beheren  
+###  <a name="ManagingDeviceDrivers"></a> Apparaatstuurprogramma's beheren  
  Stuurprogramma Apparaatbeheer is een essentieel onderdeel bij het implementeren van besturingssystemen naar doelcomputers. De benodigde apparaatstuurprogramma's moet beschikbaar voor Windows PE en het beoogde besturingssysteem voor de implementatie te laten slagen.  
 
  Beheren van apparaatstuurprogramma's met MDT door:  
@@ -8639,7 +8638,7 @@ Cscript.exe "%SCRIPTROOT%\ZTIWindowsUpdate.wsf"
 
 -   Het omzetten van apparaat handtekeningverificatie problemen zoals beschreven in [oplossen ondertekening problemen met apparaatstuurprogramma's](#ResolveDeviceDriverSigningIssues)  
 
-####  <a name="SelecttheDeviceDriverManagementStrategy"></a>Selecteer de strategie voor apparaatstuurprogramma's beheren  
+####  <a name="SelecttheDeviceDriverManagementStrategy"></a> Selecteer de strategie voor apparaatstuurprogramma's beheren  
  Hier volgen de strategieën op hoog niveau voor het uitvoeren van stuurprogrammabeheer van apparaten:  
 
 -   **Alle apparaatstuurprogramma's omvatten**. Dit is het standaardgedrag voor implementaties van LTI en ZTI. Alle stuurprogramma's worden in deze strategie geïmplementeerd naar de doelcomputer. Vervolgens Windows PE en het beoogde besturingssysteem gebruikt Plug en Play-id's om te bepalen welke apparaatstuurprogramma's die nodig zijn voor de apparaten op de doelcomputers.  
@@ -8659,7 +8658,7 @@ Cscript.exe "%SCRIPTROOT%\ZTIWindowsUpdate.wsf"
 
  Selecteer in de meeste gevallen een strategie voor apparaatstuurprogramma's management die is een hybride versie van deze strategieën en het beste past bij uw organisatie.  
 
-####  <a name="ControlDeviceDriverDeploymentsforLTI"></a>Besturingselement apparaat stuurprogramma implementaties van LTI  
+####  <a name="ControlDeviceDriverDeploymentsforLTI"></a> Besturingselement apparaat stuurprogramma implementaties van LTI  
  Het doel van het beheren van apparaatstuurprogramma's voor implementaties van LTI is om ervoor te zorgen dat alleen de juiste apparaatstuurprogramma's zijn geïmplementeerd op de doelcomputers zonder de introductie van onnodige inspanning en beheeroverhead. De aanpak van stuurprogrammabeheer van apparaten met behulp van de implementatie-Workbench voor implementaties van LTI op hoog niveau is als volgt:  
 
 1.  De mapstructuur van een maken in het knooppunt Out-of-Box stuurprogramma's van de implementatie-Workbench te organiseren van de apparaatstuurprogramma's, zoals beschreven in [mappen maken om te organiseren apparaatstuurprogramma's voor implementaties van LTI](#CreateFolderstoOrganizeDeviceDriversforLTIDeployments).  
@@ -8668,7 +8667,7 @@ Cscript.exe "%SCRIPTROOT%\ZTIWindowsUpdate.wsf"
 
 3.  Configureren van takenreeksen voor het implementeren van de apparaatstuurprogramma's in de selectie-profielen, zoals beschreven in [Takenreeksen configureren voor implementatie van apparaatstuurprogramma's in selectie profielen voor implementaties van LTI](#ConfigureTaskSequencestoDeployDeviceDriversinSelectionProfilesforLTIDeployments).  
 
-#####  <a name="CreateFolderstoOrganizeDeviceDriversforLTIDeployments"></a>Mappen maken om de apparaatstuurprogramma's voor implementaties van LTI ordenen  
+#####  <a name="CreateFolderstoOrganizeDeviceDriversforLTIDeployments"></a> Mappen maken om de apparaatstuurprogramma's voor implementaties van LTI ordenen  
  Mapstructuren maken in het knooppunt Out-of-Box stuurprogramma's in de implementatie-Workbench om het niveau van het besturingselement dat u wilt voor het implementeren van apparaatstuurprogramma's op de doelcomputers. De structuur van de groepen of categoriseert apparaatstuurprogramma's zodat u specifieke groeperingen of categorieën van stuurprogramma's uitvoeren met behulp van selectie profielen kunt selecteren.  
 
  Selecteer een combinatie van de volgende methoden voor het maken van de mapstructuur:  
@@ -8706,23 +8705,23 @@ Cscript.exe "%SCRIPTROOT%\ZTIWindowsUpdate.wsf"
 
     -   make_01\  
 
-         ...\model_01  
+         …\model_01  
 
-         ...\model_02  
+         …\model_02  
 
-         ...\model_03  
+         …\model_03  
 
     -   make_02\  
 
-         ...\model_aa  
+         …\model_aa  
 
-         ...\model_ab  
+         …\model_ab  
 
     -   make_03\  
 
-         ...\model_xx  
+         …\model_xx  
 
-         ...\model_xy  
+         …\model_xy  
 
  **Voorbeeld: De Woodgrove Bank apparaat stuurprogramma mapstructuur voor LTI**  
 
@@ -8736,7 +8735,7 @@ Cscript.exe "%SCRIPTROOT%\ZTIWindowsUpdate.wsf"
 
  **Afbeelding 14. Apparaat stuurprogramma-mapstructuur is gemaakt door de Woodgrove Bank**  
 
-#####  <a name="CreateSelectionProfilestoSelecttheDeviceDriversforLTIDeployments"></a>Selecteer de apparaatstuurprogramma's voor implementaties van LTI selectie profielen maken  
+#####  <a name="CreateSelectionProfilestoSelecttheDeviceDriversforLTIDeployments"></a> Selecteer de apparaatstuurprogramma's voor implementaties van LTI selectie profielen maken  
  Selectie van profielen voor het identificeren van de combinatie van stuurprogramma's die u wilt implementeren met specifieke doelcomputers op basis van de mapstructuur die u hebt gemaakt in het knooppunt Out-of-Box stuurprogramma's in de Implementatieworkbench maken. Het implementatieproces LTI selectie profielen gebruikt om te bepalen van de apparaatstuurprogramma's te implementeren in de **stuurprogramma's invoeren** task sequence staptype, in CustomSettings.ini en in de MDT-database.  
 
  Selectie-profielen implementeren de apparaatstuurprogramma's in de geselecteerde map en submappen. Maak selectie profielen op basis van het niveau van het besturingselement dat u wilt beschikken over de apparaatstuurprogramma's worden geïmplementeerd. Als u selectie profielen in mappen maken:  
@@ -8756,13 +8755,13 @@ Cscript.exe "%SCRIPTROOT%\ZTIWindowsUpdate.wsf"
 
  Woodgrove Bank met de naam de selectie-profielen op basis van de mapstructuur in de indeling als volgt:  
 
- Controleer – model-operating_system-architectuur  
+ make–model-operating_system–architecture  
 
  Hier volgt een voorbeeld van de Woodgrove Bank selectie profiel naamgevingsconventie voor 64-bits stuurprogramma's voor Windows 8 op een computer met 'Fabrikam' als het merk en 'FK5323' als het model:  
 
- 'Fabrikam – FK5323 – Win8 – x64'  
+ “Fabrikam–FK5323–Win8–x64”  
 
-#####  <a name="ConfigureTaskSequencestoDeployDeviceDriversinSelectionProfilesforLTIDeployments"></a>Takenreeksen voor het implementeren van apparaatstuurprogramma's in de selectie van profielen voor implementaties van LTI configureren  
+#####  <a name="ConfigureTaskSequencestoDeployDeviceDriversinSelectionProfilesforLTIDeployments"></a> Takenreeksen voor het implementeren van apparaatstuurprogramma's in de selectie van profielen voor implementaties van LTI configureren  
  Wijzig de configuratie voor uw takenreeksen om te verwijzen naar de selectie-profielen en implementeren van de juiste apparaatstuurprogramma's op de doelcomputers. Selectie van profielen worden blootgesteld aan het implementatieproces LTI als:  
 
 -   Selectie profielen die kunnen worden geconfigureerd in de Workbench-implementatie, het CustomSettings.ini-bestand of de MDT-DB  
@@ -8812,7 +8811,7 @@ DriverSelectionProfile =%MAKE%-%MODEL%-Win8-%ARCHITECTURE%
 > [!NOTE]
 >  Het besturingssysteem is een statische waarde voor de **DriverSelectionProfile** takenreeksvariabele, omdat de takenreeks slechts één besturingssysteem implementeert.  
 
-####  <a name="ControlDeviceDriverDeploymentsUsingConfigurationManagerforZTI"></a>Besturingselement apparaat stuurprogramma implementaties met Configuration Manager voor ZTI  
+####  <a name="ControlDeviceDriverDeploymentsUsingConfigurationManagerforZTI"></a> Besturingselement apparaat stuurprogramma implementaties met Configuration Manager voor ZTI  
  Implementaties van ZTI in Configuration Manager de stuurprogrammacatalogus in Configuration Manager gebruiken als de centrale opslagplaats voor apparaatstuurprogramma's. Nadat u apparaatstuurprogramma's in de stuurprogrammacatalogus hebt geïmporteerd, kunt u ze door indelen:  
 
 -   **Apparaatstuurprogrammapakketten**. Apparaatstuurprogrammapakketten worden gedistribueerd naar distributiepunten zoals softwarepakketten, zodat ze toegankelijk voor de doelcomputers zijn. U kunt meerdere apparaat stuurprogrammapakketten aan de groep apparaatstuurprogramma's worden geïmplementeerd op de doelcomputer, zoals het merk en model van de doelcomputer maken. U kunt de apparaatstuurprogramma's geïmplementeerd beheren op basis van het apparaatstuurprogrammapakketten met de **stuurprogrammapakket toepassen** takenreeksstap.  
@@ -8884,18 +8883,18 @@ DriverSelectionProfile =%MAKE%-%MODEL%-Win8-%ARCHITECTURE%
 
 -   Bij het uitvoeren van implementaties met zelfstandige media gebruiken een **stuurprogrammapakket toepassen** takenreeksstap, omdat de **stuurprogramma's automatisch toepassen** takenreeks vereist dat de verbinding met een beheerpunt, en de zelfstandige media wordt niet geprobeerd een verbinding met een beheerpunt.  
 
-####  <a name="ResolveDeviceDriverSigningIssues"></a>Stuurprogramma-ondertekening problemen oplossen  
+####  <a name="ResolveDeviceDriverSigningIssues"></a> Stuurprogramma-ondertekening problemen oplossen  
  Digitale handtekeningen laat u weten of een apparaatstuurprogramma wordt verstrekt door een legitieme uitgever. Windows-onderdelen te profiteren van de ondertekening van programmacode technologieën en vereisten voor beveiliging in het besturingssysteem het gebruik van digitale handtekeningen voor bepaalde soorten code afdwingen.  
 
  In veel gevallen bent apparaatstuurprogramma's van leveranciers al aangemeld. Er kan echter zijn exemplaren waarin het wijzigen van de bestanden opnemen in de apparaatstuurprogramma's en moet de apparaatstuurprogramma's opnieuw aanmelden. U wilt bijvoorbeeld een INF-bestand voor een stuurprogramma te wijzigen en meld u vervolgens het apparaatstuurprogramma.  
 
  Controleer de volgende bronnen apparaatstuurprogramma-ondertekening problemen oplossen:  
 
--   [Stuurprogramma-ondertekening vereisten voor Windows](http://msdn.microsoft.com/windows/hardware/gg487317.aspx)  
+-   [Stuurprogramma-ondertekening vereisten voor Windows](https://msdn.microsoft.com/windows/hardware/gg487317.aspx)  
 
--   [Stapsgewijze handleiding voor Apparaatbeheer en de installatie: Ondertekenen en klaarzetten van apparaatstuurprogramma's in Windows 7 en Windows Server 2008 R2](http://technet.microsoft.com/library/dd919230.aspx)  
+-   [Stapsgewijze handleiding voor Apparaatbeheer en de installatie: Ondertekenen en klaarzetten van apparaatstuurprogramma's in Windows 7 en Windows Server 2008 R2](https://technet.microsoft.com/library/dd919230.aspx)  
 
-###  <a name="RunningOrchestratorRunbooks"></a>Orchestrator-Runbooks uitgevoerd  
+###  <a name="RunningOrchestratorRunbooks"></a> Orchestrator-Runbooks uitgevoerd  
  System Center 2012 Orchestrator kunt uiteenlopende taken en procedures met elkaar verbinden met behulp van de Runbook Designer grafische gebruikersinterface voor het maken van betrouwbare, flexibele en efficiënte end-to-end-oplossingen in de IT-omgeving.  
 
  U kunt de volgende taken met behulp van Orchestrator uitvoeren:  
@@ -8933,8 +8932,8 @@ DriverSelectionProfile =%MAKE%-%MODEL%-Win8-%ARCHITECTURE%
     |-------------|-----------------|  
     |**Naam** |Typ een naam voor de taak.|  
     |**Beschrijving** |Typ een beschrijving van de taak, bijvoorbeeld ***runbook_name*** (waarbij *runbook_name* is de naam van de Orchestrator-runbook dat deze takenreeksstap wordt uitgevoerd).|  
-    |**Orchestrator-Server** |Typ de URL voor de Orchestrator-webservice, waaronder de naam van de server. De Orchestrator-webservice kunt Hypertext Transfer Protocol (HTTP) of HTTP via Secure Sockets Layer (HTTPS). De Orchestrator-webservice wordt standaard ingesteld op poort 81.<br /><br /> De Orchestrator-webservice ondersteunt meerdere runbook-servers. Standaard kan een runbook uitgevoerd op een runbook-server. Een runbook kan worden geconfigureerd om op te geven welke runbook-servers moeten worden gebruikt voor het uitvoeren van het runbook.<br /><br /> De Orchestrator-webservice ondersteunt de mogelijkheid voor het uitvoeren van een runbook op een specifiek runbook-server. Deze functie wordt niet ondersteund in MDT.<br /><br /> Geef de URL in een van de volgende indelingen:<br /><br /> -                                  **ServerName**. Wanneer u deze indeling gebruikt, wordt de URL wordt standaard ingesteld op:<br /><br /> `http://<servername>:81/Orchestrator2012/Orchestrator.svc`<br /><br /> -                                  **servernaam: poort**. Wanneer u deze indeling gebruikt, wordt de URL wordt standaard ingesteld op:<br /><br /> `http://<servername:port>/Orchestrator2012/Orchestrator.svc.`<br /><br /> -                                  **http://servernaam: poort**. Wanneer u deze indeling gebruikt, wordt de URL wordt standaard ingesteld op:<br /><br /> `http://<servername:port>/Orchestrator2012/Orchestrator.svc.`<br /><br /> -                                  **https://servername:Port**. Wanneer u deze indeling gebruikt, wordt de URL wordt standaard ingesteld op:<br /><br /> `https://<servername:port>/Orchestrator2012/Orchestrator.svc.`<br /><br /> -                                  **http://servername:Port/Orchestrator2012/Orchestrator.svc**. Wanneer u deze indeling, MDT wordt ervan uitgegaan dat u de volledige URL opgeeft omdat de waarde eindigt op *.svc*.<br /><br /> -                                  **https://servername:Port/Orchestrator2012/Orchestrator.svc**. Wanneer u deze indeling, MDT wordt ervan uitgegaan dat u de volledige URL opgeeft omdat de waarde eindigt op *.svc*.|  
-    |**Runbook** |Klik op **Bladeren**, en selecteer vervolgens de naam van de Orchestrator-runbook die deze takenreeks moet worden uitgevoerd.<br /><br /> Om te kunnen bladeren voor Orchestrator-runbooks, installeert u de [ADO.NET Data Services Update voor .NET Framework 3.5 SP1 voor Windows 7 en Windows Server 2008 R2](http://www.microsoft.com/download/details.aspx?displaylang=en&id=2343).|  
+    |**Orchestrator Server** |Typ de URL voor de Orchestrator-webservice, waaronder de naam van de server. De Orchestrator-webservice kunt Hypertext Transfer Protocol (HTTP) of HTTP via Secure Sockets Layer (HTTPS). De Orchestrator-webservice wordt standaard ingesteld op poort 81.<br /><br /> De Orchestrator-webservice ondersteunt meerdere runbook-servers. Standaard kan een runbook uitgevoerd op een runbook-server. Een runbook kan worden geconfigureerd om op te geven welke runbook-servers moeten worden gebruikt voor het uitvoeren van het runbook.<br /><br /> De Orchestrator-webservice ondersteunt de mogelijkheid voor het uitvoeren van een runbook op een specifiek runbook-server. Deze functie wordt niet ondersteund in MDT.<br /><br /> Geef de URL in een van de volgende indelingen:<br /><br /> -                                  **ServerName**. Wanneer u deze indeling gebruikt, wordt de URL wordt standaard ingesteld op:<br /><br /> `https://<servername>:81/Orchestrator2012/Orchestrator.svc`<br /><br /> -                                  **servernaam: poort**. Wanneer u deze indeling gebruikt, wordt de URL wordt standaard ingesteld op:<br /><br /> `https://<servername:port>/Orchestrator2012/Orchestrator.svc.`<br /><br /> -                                  **https://servername:port**. Wanneer u deze indeling gebruikt, wordt de URL wordt standaard ingesteld op:<br /><br /> `https://<servername:port>/Orchestrator2012/Orchestrator.svc.`<br /><br /> -                                  **https://servername:port**. Wanneer u deze indeling gebruikt, wordt de URL wordt standaard ingesteld op:<br /><br /> `https://<servername:port>/Orchestrator2012/Orchestrator.svc.`<br /><br /> -                                  **https://servername:port/Orchestrator2012/Orchestrator.svc**. Wanneer u deze indeling, MDT wordt ervan uitgegaan dat u de volledige URL opgeeft omdat de waarde eindigt op *.svc*.<br /><br /> -                                  **https://servername:port/Orchestrator2012/Orchestrator.svc**. Wanneer u deze indeling, MDT wordt ervan uitgegaan dat u de volledige URL opgeeft omdat de waarde eindigt op *.svc*.|  
+    |**Runbook** |Klik op **Bladeren**, en selecteer vervolgens de naam van de Orchestrator-runbook die deze takenreeks moet worden uitgevoerd.<br /><br /> Om te kunnen bladeren voor Orchestrator-runbooks, installeert u de [ADO.NET Data Services Update voor .NET Framework 3.5 SP1 voor Windows 7 en Windows Server 2008 R2](https://www.microsoft.com/download/details.aspx?id=2343).|  
     |**Runbook automatisch parameterwaarden opgeven** |Selecteer deze optie automatisch de Orchestrator runbook invoerparameter om waarden te leveren (die wordt ervan uitgegaan dat de waarden van de parameter runbook takenreeksvariabelen zijn). Bijvoorbeeld, als een runbook heeft een invoerparameter **OSDComputerName**, wordt de **OSDComputerName** waarde wordt doorgegeven aan het runbook.<br /><br /> Deze optie werkt alleen voor de invoerparameters die geldige namen van takenreeksvariabelen zijn en geen spaties of andere speciale tekens bevatten. Hoewel spaties en andere speciale tekens worden ondersteund als namen van de Orchestrator-parameters, maar ze zijn geen geldige namen van takenreeksvariabelen. Als u waarden doorgeven aan de parameters met spaties of andere speciale tekens moet, gebruikt u de **expliciete runbookparameters opgeven** optie.<br /><br /> De andere mogelijkheid is **expliciete runbookparameters opgeven**.<br /><br /> De waarden voor de invoerparameters van runbook met de Orchestrator-webservice worden opgemaakt als XML. Waarden die gegevens bevatten die lijkt op de gegevens in XML-indeling of wordt doorgegeven, kan fouten veroorzaken.|  
     |**Expliciete runbookparameters opgeven** |Selecteer deze optie als u expliciet de Orchestrator runbook-invoerparameters.<br /><br /> U moet de volgende instellingen voor elke invoerparameter die vereist dat de Orchestrator-runbook configureren:<br /><br /> -                                  **Naam**. Dit is de naam van de invoer runbook-parameter.<br /><br /> Als u de parameters voor een bestaande Orchestrator-runbook wijzigt, moet u opnieuw (opnieuw) bladeren voor het runbook omdat MDT worden alleen de lijst met parameters haalt bij het toevoegen van de Orchestrator-runbook in eerste instantie.<br /><br /> -                                  **Waarde**. Dit is een constante zijn of een variabele, zoals een takenreeksvariabele of een omgevingsvariabele. Bijvoorbeeld, kunt u een waarde van **% OSDComputerName %**, waarmee wordt doorgeven dat de waarde van de **OSDComputerName** takenreeksvariabele aan de runbook-invoerparameter.|  
     |**Wacht totdat het runbook te voltooien voordat u doorgaat** |Dit selectievakje bepaalt of de takenreeksstap voor het runbook wachten moet te voltooien voordat u doorgaat naar de volgende takenreeksstap. Als dit selectievakje is:<br /><br /> -                                  **Geselecteerd**, en vervolgens de takenreeksstap voor het runbook wachten moet te voltooien voordat u doorgaat naar de volgende takenreeksstap.<br /><br /> Wanneer dit selectievakje is ingeschakeld, wordt de takenreeksstap pollen van de Orchestrator-webservice voor de runbook om te voltooien. De hoeveelheid tijd tussen polls begint bij 1 seconde en vervolgens wordt verhoogd naar 2, 4, 8, 16, 32 en 64 seconden tussen de verschillende. Zodra de hoeveelheid tijd 64 seconden bereikt, de takenreeksstap voortgezet voor het pollen van elke 64 seconden.<br /><br /> -                                  **Gewist**, en vervolgens de takenreeksstap niet totdat het runbook wachten wordt te voltooien voordat u doorgaat naar de volgende takenreeksstap.<br /><br /> Dit selectievakje moet worden geselecteerd als het runbook output-parameters retourneert.|  
@@ -8949,7 +8948,7 @@ DriverSelectionProfile =%MAKE%-%MODEL%-Win8-%ARCHITECTURE%
 > [!NOTE]
 >  De **wacht u totdat het runbook te voltooien voordat u doorgaat** selectievakje moet worden geselecteerd als het runbook output-parameters retourneert.  
 
-###  <a name="RunningWindowsPowerShellScriptsDuringDeployment"></a>Windows PowerShell-Scripts uitgevoerd tijdens de implementatie  
+###  <a name="RunningWindowsPowerShellScriptsDuringDeployment"></a> Windows PowerShell-Scripts uitgevoerd tijdens de implementatie  
  MDT biedt ondersteuning voor Windows PowerShell-scripts uitgevoerd als onderdeel van het implementatieproces. U kunt Windows PowerShell-scripts om het implementatieproces automatiseren en voer vervolgens deze scripts binnen een takenreeks MDT te ontwikkelen.  
 
  Voer de Windows PowerShell-scripts met behulp van een takenreeksstap gemaakt met behulp van de **PowerShell-Script uitvoeren** task sequence staptype. U kunt toevoegen op basis van de stap in een takenreeks de **PowerShell-Script uitvoeren** task sequence staptype voor takenreeksen in LTI ZTI en UDI.  
@@ -8979,7 +8978,7 @@ DriverSelectionProfile =%MAKE%-%MODEL%-Win8-%ARCHITECTURE%
 
     -   Een volledig gekwalificeerde pad en de scriptnaam, Verzeker u ervan dat de takenreeks wordt uitgevoerd toegang heeft tot de map waarin het script wordt opgeslagen (bijvoorbeeld, als het script is opgeslagen op een gedeelde netwerkmap, zorg ervoor dat er een bestaande verbinding met die server voorafgaand aan th e-script.)  
 
-###  <a name="ApplyingGroupPolicyObjectPacks"></a>Group Policy Object Packs toepassen  
+###  <a name="ApplyingGroupPolicyObjectPacks"></a> Group Policy Object Packs toepassen  
  Implementeren van besturingssystemen en toepassingen zodat ze compatibel met beveiligings- en regelgeving standaarden zijn is een essentieel onderdeel van een mogelijke implementatie. MDT kunt u configuratiesjablonen voor beveiliging en naleving van toepassing op het besturingssysteem en toepassingen nadat deze zijn geïmplementeerd met behulp van Groepsbeleid-object (GPO) packs.  
 
  Groepsbeleidsobject packs worden gemaakt door een GPO van back-up in de Microsoft Security Compliance Manager exporteren. Deze packs groepsbeleidsobject worden toegepast door de **pakket lokaal groepsbeleidsobject toepassen** takenreeksstap voor takenreeksen die zijn gemaakt met behulp van de MDT taak reeks sjablonen. De **pakket lokaal groepsbeleidsobject toepassen** takenreeksstap voert het script ZTIApplyGPOPack.wsf, die verantwoordelijk is voor het groepsbeleidsobject toepassen packs naar de doelcomputer.  
@@ -9018,21 +9017,21 @@ DriverSelectionProfile =%MAKE%-%MODEL%-Win8-%ARCHITECTURE%
 
 3.  MDT configureren voor het implementeren van het groepsbeleidsobject packs zoals beschreven in [MDT configureren voor het implementeren van de GPO-Packs](#ConfigureMDTtoDeploytheGPOPacks).  
 
-####  <a name="IdentifyorCreatetheGPOPacks"></a>Bepalen of de Packs GPO maken  
+####  <a name="IdentifyorCreatetheGPOPacks"></a> Bepalen of de Packs GPO maken  
  U kunt GPO packs die zijn:  
 
 -   **De Security naleving Manager gegenereerd**. De Security Compliance Manager kunt een GPO back-up die u als een groepsbeleidsobject pack gebruiken kunt exporteren. U kunt deze packs groepsbeleidsobject kopiëren naar de map van de MDT-bestanden en ze toepassen tijdens het implementatieproces.  
 
 -   **Aangepast door u**. U kunt uw eigen aangepaste GPO packs op basis van de vereisten van uw organisatie kunt maken. U kunt de configuratie-instellingen voor beveiliging en naleving in Security Compliance Manager gebruiken als een begint en vervolgens deze instellingen aanpassen voor uw organisatie. Vervolgens kunt u de beveiliging en naleving van het configuratie-instellingen exporteren als een back-up van groepsbeleidsobject en vervolgens een groepsbeleidsobject pack.  
 
-####  <a name="PlacetheGPOPacksintheAppropriateMDTFolders"></a>Plaats het groepsbeleidsobject Packs in de juiste MDT-mappen  
+####  <a name="PlacetheGPOPacksintheAppropriateMDTFolders"></a> Plaats het groepsbeleidsobject Packs in de juiste MDT-mappen  
  Nadat u hebt geïdentificeerd of gemaakt van de GPO-packs die uw organisatie vereist, plaatst u het groepsbeleidsobject packs in de submap in de Templates\GPOPacksfolder in de:  
 
 -   Share-implementatie voor LTI  
 
 -   Pakket van de MDT-bestanden voor ZTI en UDI  
 
-####  <a name="ConfigureMDTtoDeploytheGPOPacks"></a>MDT voor het implementeren van de GPO-Packs configureren  
+####  <a name="ConfigureMDTtoDeploytheGPOPacks"></a> MDT voor het implementeren van de GPO-Packs configureren  
  De **pakket lokaal groepsbeleidsobject toepassen** takenreeksstap kan worden geconfigureerd met de eigenschappen in de tabel 172. Deze eigenschappen kunnen worden geconfigureerd met het CustomSettings.ini-bestand of de MDT-DB.  
 
 ### <a name="table-172-properties-used-to-configure-the-apply-local-gpo-package-task-sequence-step"></a>Tabel 172. Eigenschappen die worden gebruikt voor het configureren van de Takenreeksstap lokaal groepsbeleidsobject pakket toepassen  
@@ -9045,11 +9044,11 @@ DriverSelectionProfile =%MAKE%-%MODEL%-Win8-%ARCHITECTURE%
 > [!NOTE]
 >  Het juiste GPO-pakket is geselecteerd op basis van het besturingssysteem wordt geïmplementeerd. Als er geen overeenkomend GPO-pakket kan worden gevonden, wordt geen pack groepsbeleidsobject worden toegepast.  
 
-###  <a name="EnablingParticipationinCEIPandWER"></a>Deelname aan het programma voor Kwaliteitsverbetering en Windows Foutrapportage inschakelen  
- MDT bevat een nieuwe takenreeksstap waarmee de configuratie van deelname aan geautomatiseerd [Windows programma voor kwaliteitsverbetering](http://www.microsoft.com/products/ceip/%20privacypolicy.mspx) (CEIP) en [Windows Foutrapportage](http://msdn.microsoft.com/%20windows/hardware/gg487440) (WER,). De **zich aanmelden bij het programma voor Kwaliteitsverbetering en Windows Foutrapportage** takenreeksstap wordt gebruikt voor het automatiseren van deze deelname.  
+###  <a name="EnablingParticipationinCEIPandWER"></a> Deelname aan het programma voor Kwaliteitsverbetering en Windows Foutrapportage inschakelen  
+ MDT bevat een nieuwe takenreeksstap waarmee de configuratie van deelname aan geautomatiseerd [Windows programma voor kwaliteitsverbetering](https://privacy.microsoft.com/privacystatement) (CEIP) en [Windows Foutrapportage](https://docs.microsoft.com/windows-hardware/drivers/dashboard/windows-error-reporting-getting-started) (WER,). De **zich aanmelden bij het programma voor Kwaliteitsverbetering en Windows Foutrapportage** takenreeksstap wordt gebruikt voor het automatiseren van deze deelname.  
 
 > [!NOTE]
->  U kunt MDT-takenreeksen gebruiken om in te schakelen programma voor Kwaliteitsverbetering en Windows Foutrapportage voor Windows-besturingssystemen (alleen bij de bijbehorende takenreeksstap is ingeschakeld), is dit gescheiden van de CEIP-gegevens verzameld wanneer u aan het MDT CEIP-programma deelneemt. Zie voor meer informatie over welke informatie MDT wordt verzonden wanneer het programma voor Kwaliteitsverbetering is ingeschakeld, de [privacyverklaring van Microsoft Deployment Toolkit](http://go.microsoft.com/fwlink/?LinkId=314082).  
+>  U kunt MDT-takenreeksen gebruiken om in te schakelen programma voor Kwaliteitsverbetering en Windows Foutrapportage voor Windows-besturingssystemen (alleen bij de bijbehorende takenreeksstap is ingeschakeld), is dit gescheiden van de CEIP-gegevens verzameld wanneer u aan het MDT CEIP-programma deelneemt. Zie voor meer informatie over welke informatie MDT wordt verzonden wanneer het programma voor Kwaliteitsverbetering is ingeschakeld, de [privacyverklaring van Microsoft Deployment Toolkit](https://go.microsoft.com/fwlink/?LinkId=314082).  
 
  De **zich aanmelden bij het programma voor Kwaliteitsverbetering en Windows Foutrapportage** takenreeksstap is opgenomen in de volgende reeks sjablonen van de MDT taak, maar is standaard uitgeschakeld:  
 
@@ -9071,25 +9070,25 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
  Het script ZTIOptIn.wsf heeft de volgende benoemde parameters:  
 
--   **PROGRAMMA VOOR KWALITEITSVERBETERING**. Deze parameter kan bepaalt de deelname aan CEIP en een van de volgende opties:  
+-   **CEIP**. Deze parameter kan bepaalt de deelname aan CEIP en een van de volgende opties:  
 
-    -   **JA**. Deze waarde bepaalt zodat deelname.  
+    -   **YES**. Deze waarde bepaalt zodat deelname.  
 
-    -   **GEEN**. Deze waarde bepaalt voor deelname niet inschakelen.  
+    -   **NO**. Deze waarde bepaalt voor deelname niet inschakelen.  
 
     > [!NOTE]
     >  Een andere waarde dan de waarde **Ja** wordt behandeld als **Nee**, inclusief het bieden van de parameter niet.  
 
--   **WINDOWS FOUTRAPPORTAGE**. Deze parameter kan bepaalt de deelname aan Windows Foutrapportage en een van de volgende opties:  
+-   **WER**. Deze parameter kan bepaalt de deelname aan Windows Foutrapportage en een van de volgende opties:  
 
-    -   **JA**. Deze waarde bepaalt zodat deelname.  
+    -   **YES**. Deze waarde bepaalt zodat deelname.  
 
-    -   **GEEN**. Deze waarde bepaalt voor deelname niet inschakelen.  
+    -   **NO**. Deze waarde bepaalt voor deelname niet inschakelen.  
 
 > [!NOTE]
 >  Een andere waarde dan de waarde **Ja** wordt behandeld als **Nee**, inclusief het bieden van de parameter niet.  
 
-###  <a name="ConfiguringRolesandFeaturesTaskSequenceSteps"></a>Configureren rollen en functies Takenreeksstappen  
+###  <a name="ConfiguringRolesandFeaturesTaskSequenceSteps"></a> Configureren rollen en functies Takenreeksstappen  
  MDT automatiseert het installeren en verwijderen van Windows-rollen en functies met behulp van de **Installeer functies en onderdelen** en **verwijderen van functies en onderdelen** task sequence stap typen. Deze reeks taaktypen kunnen bedrijven de doelcomputers met de Windows-rollen en functies die aan de configuratie-normen die zijn gedefinieerd door de organisatie- of regelgeving instanties voldoen implementeert.  
 
  Configureer de functies en onderdelen takenreeksstappen voor LTI en ZTI door:  
@@ -9098,7 +9097,7 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
 -   De juiste Windows-functies en onderdelen verwijdert, zoals beschreven in [configureren verwijderen van functies en onderdelen Takenreeksstappen](#ConfigureUninstallRolesandFeaturesTaskSequenceSteps)  
 
-####  <a name="ConfigureInstallRolesandFeaturesTaskSequenceSteps"></a>Configureren van de installatie van functies en onderdelen taak sequentiëren stappen  
+####  <a name="ConfigureInstallRolesandFeaturesTaskSequenceSteps"></a> Configureren van de installatie van functies en onderdelen taak sequentiëren stappen  
  MDT automatiseert de implementatie van Windows-functies en onderdelen met het installeren van functies en onderdelen staptype takenreeks. Deze takenreeksstap moet in het doelbesturingssysteem niet in Windows PE worden uitgevoerd.  
 
 > [!NOTE]
@@ -9126,12 +9125,12 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
     |-------------|-----------------|  
     |**Naam** |Typ een naam voor de taak.|  
     |**Beschrijving** |Typ een beschrijving van de taak.|  
-    |**Selecteer het besturingssysteem waarvoor functies worden geïnstalleerd** |Selecteer het doelbesturingssysteem worden geïmplementeerd in de volgende lijst:<br /><br /> -Windows 7<br /><br /> -Windows 8<br /><br /> -Windows 8.1<br /><br /> -Windows Server 2008 R2<br /><br /> -Windows Server 2008 R2 Core<br /><br /> -Windows Server 2012<br /><br /> -Windows Server 2012 Core<br /><br /> -Windows Server 2012 R2<br /><br /> -Windows Server 2012 R2 Core|  
+    |**Selecteer het besturingssysteem waarvoor functies worden geïnstalleerd** |Selecteer het doelbesturingssysteem worden geïmplementeerd in de volgende lijst:<br /><br /> - Windows 7<br /><br /> - Windows 8<br /><br /> - Windows 8.1<br /><br /> - Windows Server 2008 R2<br /><br /> - Windows Server 2008 R2 Core<br /><br /> - Windows Server 2012<br /><br /> - Windows Server 2012 Core<br /><br /> - Windows Server 2012 R2<br /><br /> - Windows Server 2012 R2 Core|  
     |**Selecteer de functies en onderdelen die moeten worden geïnstalleerd** |Selecteer het selectievakje in naast de functies of onderdelen worden geïnstalleerd.<br /><br /> U kunt klikken op **Alles selecteren** selecteren alle de rollen en functies, of u kunt klikken op **niets selecteren** om te wissen van de functies en onderdelen.|  
 
  Zie voor meer informatie over het verwijderen van Windows-rollen en functies [configureren verwijderen van functies en onderdelen Takenreeksstappen](#ConfigureUninstallRolesandFeaturesTaskSequenceSteps).  
 
-#####  <a name="ConfigureUninstallRolesandFeaturesTaskSequenceSteps"></a>Configureer verwijderen van rollen en functies taak stappen sequentiëren  
+#####  <a name="ConfigureUninstallRolesandFeaturesTaskSequenceSteps"></a> Configureer verwijderen van rollen en functies taak stappen sequentiëren  
  Automatiseert MDT het verwijderen (verwijderen) van het besturingssysteem functies en onderdelen in Windows met behulp van de **verwijderen van functies en onderdelen** takenreeksstap. Deze takenreeksstap moet in het doelbesturingssysteem niet in Windows PE worden uitgevoerd.  
 
  Zorg ervoor dat u uitvoert voor ZTI takenreeksen die niet zijn gemaakt met behulp van de MDT task sequence sjablonen, de **gebruik Toolkit pakket** en **verzamelen** takenreeksstappen voorafgaand aan die wordt uitgevoerd de **installeren Functies en onderdelen** takenreeksstap. De **Installeer functies en onderdelen** takenreeksstap is afhankelijk van de **gebruik Toolkit pakket** en **verzamelen** takenreeksstappen.  
@@ -9161,12 +9160,12 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
     |-------------|-----------------|  
     |**Naam** |Typ een naam voor de taak.|  
     |**Beschrijving** |Typ een beschrijving van de taak.|  
-    |**Selecteer het besturingssysteem waarvoor rollen worden verwijderd** |Selecteer het doelbesturingssysteem worden geïmplementeerd in de volgende lijst:<br /><br /> -Windows 7<br /><br /> -Windows 8<br /><br /> -Windows 8.1<br /><br /> -Windows Server 2008 R2<br /><br /> -Windows Server 2008 R2 Core<br /><br /> -Windows Server 2012<br /><br /> -Windows Server 2012 Core<br /><br /> -Windows Server 2012 R2<br /><br /> -Windows Server 2012 R2 Core|  
+    |**Selecteer het besturingssysteem waarvoor rollen worden verwijderd** |Selecteer het doelbesturingssysteem worden geïmplementeerd in de volgende lijst:<br /><br /> - Windows 7<br /><br /> - Windows 8<br /><br /> - Windows 8.1<br /><br /> - Windows Server 2008 R2<br /><br /> - Windows Server 2008 R2 Core<br /><br /> - Windows Server 2012<br /><br /> - Windows Server 2012 Core<br /><br /> - Windows Server 2012 R2<br /><br /> - Windows Server 2012 R2 Core|  
     |**Selecteer de functies en onderdelen die moeten worden verwijderd** |Selecteer het selectievakje in naast de functies of onderdelen worden verwijderd.<br /><br /> U kunt klikken op **Alles selecteren** voor de functies en onderdelen selecteren of klik op **niets selecteren** om te wissen van de functies en onderdelen.|  
 
  Zie voor meer informatie over het installeren van Windows-rollen en functies [configureren installeer functies en onderdelen Takenreeksstappen](#ConfigureUninstallRolesandFeaturesTaskSequenceSteps).  
 
-###  <a name="ConfiguringServerRoleTaskSequenceSteps"></a>Server-rol Takenreeksstappen configureren  
+###  <a name="ConfiguringServerRoleTaskSequenceSteps"></a> Server-rol Takenreeksstappen configureren  
  MDT automatiseert de implementatie van serverfuncties in Windows Server. Takenreeksstappen in MDT voor het implementeren van de serverfuncties die worden ondersteund in MDT configureren.  
 
 > [!NOTE]
@@ -9182,7 +9181,7 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
 -   De takenreeksstap voor het autoriseren van DHCP configureren zoals beschreven in [configureren autoriseren DHCP Takenreeksstapinstellingen](#ConfigureAuthorizeDHCPTaskSequenceStepSettings)  
 
-####  <a name="ConfigureADDSServerRoleTaskSequenceStepSettings"></a>AD DS-Server-rol Takenreeksstapinstellingen configureren  
+####  <a name="ConfigureADDSServerRoleTaskSequenceStepSettings"></a> AD DS-Server-rol Takenreeksstapinstellingen configureren  
  AD DS directorygegevens opgeslagen en beheert de communicatie tussen gebruikers en domeinen, met inbegrip van de aanmeldingsprocessen, verificatie en zoekacties in Active directory. Een AD DS-domeincontroller is een server met AD DS.  
 
 > [!NOTE]
@@ -9202,7 +9201,7 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
 -   AD DS configureren geavanceerde eigenschappen voor domeincontrollers zoals beschreven in [geavanceerde eigenschappen van configureren van AD DS](#ConfigureADDSAdvancedProperties)  
 
-#####  <a name="DeployaDomainControllerinaNewForest"></a>Implementatie van een domeincontroller in een nieuw Forest  
+#####  <a name="DeployaDomainControllerinaNewForest"></a> Implementatie van een domeincontroller in een nieuw Forest  
  Deze optie gebruikt, implementeert u een domeincontroller met een nieuw forest-omgeving. Gebruik deze optie bij het implementeren van een nieuw forest-omgeving.  
 
 ###### <a name="to-deploy-a-domain-controller-with-a-new-forest"></a>Voor het implementeren van een domeincontroller met een nieuw forest  
@@ -9241,9 +9240,9 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
 8.  In de **geavanceerde eigenschappen** sectie, voltooi de taakconfiguratie van de, zoals beschreven in [configureren AD DS geavanceerde eigenschappen](#ConfigureADDSAdvancedProperties), en klik vervolgens op **OK**.  
 
- Voor meer informatie over **DCPROMO** opdrachtregelopties, Zie [Dcpromo](http://technet2.microsoft.com/windowsserver2008/en/library/d660e761-9ee7-4382-822a-06fc2365a1d21033.mspx?mfr=true).  
+ Voor meer informatie over **DCPROMO** opdrachtregelopties, Zie [Dcpromo](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/install-active-directory-domain-services--level-100-#BKMK_PS).  
 
-#####  <a name="DeployaNewDomainControllerasaReplicainanExistingDomain"></a>Een nieuwe domeincontroller als een Replica in een bestaand domein implementeren  
+#####  <a name="DeployaNewDomainControllerasaReplicainanExistingDomain"></a> Een nieuwe domeincontroller als een Replica in een bestaand domein implementeren  
  Deze optie gebruikt, een bestaande domeincontroller implementeren als een nieuwe domeincontroller door deze te repliceren naar een bestaande omgeving. Gebruik deze optie bij het implementeren van een nieuwe domeincontroller in een bestaande omgeving als replicatie het bestaande domeininformatie uit AD DS verkrijgen wordt.  
 
 ###### <a name="to-deploy-a-domain-controller-as-a-new-domain-controller-replica"></a>Voor het implementeren van een domeincontroller als een nieuwe replica van de domain-controller  
@@ -9280,9 +9279,9 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
 9. In de **geavanceerde eigenschappen** sectie, voltooi de taakconfiguratie van de, zoals beschreven in [configureren AD DS geavanceerde eigenschappen](#ConfigureADDSAdvancedProperties), en klik vervolgens op **OK**.  
 
- Voor meer informatie over **DCPROMO** opdrachtregelopties, Zie [Dcpromo](http://technet2.microsoft.com/windowsserver2008/en/library/d660e761-9ee7-4382-822a-06fc2365a1d21033.mspx?mfr=true).  
+ Voor meer informatie over **DCPROMO** opdrachtregelopties, Zie [Dcpromo](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/install-active-directory-domain-services--level-100-#BKMK_PS).  
 
-#####  <a name="DeployaNewDomainControllerinaNewDomainTreeinanExistingForest"></a>Implementeren van een nieuwe domeincontroller in een nieuwe domeinstructuur in een bestaand Forest  
+#####  <a name="DeployaNewDomainControllerinaNewDomainTreeinanExistingForest"></a> Implementeren van een nieuwe domeincontroller in een nieuwe domeinstructuur in een bestaand Forest  
  Deze optie gebruikt, implementeert u een domeincontroller met een nieuwe structuur in een bestaand forest-omgeving. Gebruik deze optie bij het implementeren van een onderliggend domein in een bestaand forest-omgeving.  
 
 ###### <a name="to-deploy-a-domain-controller-with-a-new-domain-tree-in-an-existing-forest"></a>Voor het implementeren van een domeincontroller met een nieuwe domeinstructuur in een bestaand forest  
@@ -9323,9 +9322,9 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
 11. In de **geavanceerde eigenschappen** sectie, voltooi de taakconfiguratie van de, zoals beschreven in [configureren AD DS geavanceerde eigenschappen](#ConfigureADDSAdvancedProperties), en klik vervolgens op **OK**.  
 
- Voor meer informatie over **DCPROMO** opdrachtregelopties, Zie [Dcpromo](http://technet2.microsoft.com/windowsserver2008/en/library/d660e761-9ee7-4382-822a-06fc2365a1d21033.mspx?mfr=true).  
+ Voor meer informatie over **DCPROMO** opdrachtregelopties, Zie [Dcpromo](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/install-active-directory-domain-services--level-100-#BKMK_PS).  
 
-#####  <a name="DeployaNewDomainControllerinaNewDomaininanExistingForest"></a>Implementeren van een nieuwe domeincontroller in een nieuw domein in een bestaand Forest  
+#####  <a name="DeployaNewDomainControllerinaNewDomaininanExistingForest"></a> Implementeren van een nieuwe domeincontroller in een nieuw domein in een bestaand Forest  
  Deze optie gebruikt, implementeert u een domeincontroller met een nieuw domein in een bestaand forest-omgeving. Gebruik deze optie bij het implementeren van een nieuw onderliggend domein in een bestaand forest-omgeving.  
 
 ###### <a name="to-deploy-a-domain-controller-with-a-new-domain-in-an-existing-forest"></a>Voor het implementeren van een domeincontroller met een nieuw domein in een bestaand forest  
@@ -9366,9 +9365,9 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
 11. In de **geavanceerde eigenschappen** sectie, voltooi de taakconfiguratie van de, zoals beschreven in [configureren AD DS geavanceerde eigenschappen](#ConfigureADDSAdvancedProperties), en klik vervolgens op **OK**.  
 
- Voor meer informatie over **DCPROMO** opdrachtregelopties, Zie [Dcpromo](http://technet2.microsoft.com/windowsserver2008/en/library/d660e761-9ee7-4382-822a-06fc2365a1d21033.mspx?mfr=true).  
+ Voor meer informatie over **DCPROMO** opdrachtregelopties, Zie [Dcpromo](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/install-active-directory-domain-services--level-100-#BKMK_PS).  
 
-#####  <a name="DeployanRODCinanExistingDomain"></a>Een RODC in een bestaand domein implementeren  
+#####  <a name="DeployanRODCinanExistingDomain"></a> Een RODC in een bestaand domein implementeren  
  Deze optie gebruikt, implementeert u een domeincontroller die een replica alleen-lezen van het bestaande domein naar een bestaand forest-omgeving bevat. Gebruik deze optie voor het implementeren van een domeincontroller met een niet-bewerkbaar replica van een domeinstructuur in een bestaand forest-omgeving.  
 
 ###### <a name="to-deploy-an-rodc-in-an-existing-domain"></a>Voor het implementeren van een RODC in een bestaand domein  
@@ -9405,9 +9404,9 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
 9. In de **geavanceerde eigenschappen** sectie, voltooi de taakconfiguratie van de, zoals beschreven in [configureren AD DS geavanceerde eigenschappen](#ConfigureADDSAdvancedProperties), en klik vervolgens op **OK**.  
 
- Voor meer informatie over **DCPROMO** opdrachtregelopties, gaat u naar [Dcpromo](http://technet2.microsoft.com/windowsserver2008/en/library/d660e761-9ee7-4382-822a-06fc2365a1d21033.mspx?mfr=true).  
+ Voor meer informatie over **DCPROMO** opdrachtregelopties, gaat u naar [Dcpromo](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/install-active-directory-domain-services--level-100-#BKMK_PS).  
 
-#####  <a name="ConfigureADDSAdvancedProperties"></a>AD DS geavanceerde eigenschappen configureren  
+#####  <a name="ConfigureADDSAdvancedProperties"></a> AD DS geavanceerde eigenschappen configureren  
  Voor het configureren van AD DS geavanceerde eigenschappen van de volgende stappen uitvoeren:  
 
 1.  Bewerken ***task_sequence_name*** (waarbij *task_sequence_name* is de naam van de takenreeks die u wilt toevoegen de takenreeksstap) voor:  
@@ -9436,9 +9435,9 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
      **Functionele niveaus** sectie:  
 
-    -   **Forest-functionaliteitsniveau**. WindowsServer 2003 of WindowsServer 2008 (2 = Windows Server 2003, 3 = Windows Server 2008; 4 = Windows Server 2008 R2)  
+    -   **Forest-functionaliteitsniveau**. Windows Server 2003, Windows Server 2008 (2 = Windows Server 2003; 3 = Windows Server 2008; 4 = Windows Server 2008 R2)  
 
-    -   **Functionaliteitsniveau van domein**. WindowsServer 2003 of WindowsServer 2008 (2 = Windows Server 2003, 3 = Windows Server 2008; 4 = Windows Server 2008 R2)  
+    -   **Functionaliteitsniveau van domein**. Windows Server 2003, Windows Server 2008 (2 = Windows Server 2003; 3 = Windows Server 2008; 4 = Windows Server 2008 R2)  
 
      **Mappen** sectie:  
 
@@ -9455,7 +9454,7 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
      De standaardnaam voor een nieuw forest of de site is *default_first_site*, maar deze waarde niet wordt weergegeven in de **sitenaam** vak standaard, moet u deze typen. Klik vervolgens op **OK** voltooid de configuratie van de **geavanceerde eigenschappen van AD DS** in het dialoogvenster en klik vervolgens op **OK** in de ***taaknaam*** **Eigenschappen** in het dialoogvenster configuratie van de taak wilt voltooien.  
 
-####  <a name="ConfigureDNSServerRoleSettings"></a>DNS-serverfunctie-instellingen configureren  
+####  <a name="ConfigureDNSServerRoleSettings"></a> DNS-serverfunctie-instellingen configureren  
  Deze optie gebruikt, configureren en implementeren van de DNS-serverfunctie op een nieuwe computer of een DNS-server-besturingssysteem op een bestaande computer. De DNS-serverfunctie toewijst, kunt u configureren standaard DNS-primaire, secundaire en stub-zones, evenals AD DS geïntegreerde primaire en stub-zones. Er is ook een optie voor het beheren van veroudering, updates, typen en meerdere zones — in een geautomatiseerd proces. Dit is niet een migratieproces van een bestaande DNS-server; het is in plaats daarvan een nieuwe installatie van DNS-zones alle typen.  
 
 > [!NOTE]
@@ -9513,7 +9512,7 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
 16. Sluit de implementatie-Workbench.  
 
-####  <a name="ConfigureDHCPServerRoleTaskSequenceStepSettings"></a>DHCP-Server-rol Takenreeksstapinstellingen configureren  
+####  <a name="ConfigureDHCPServerRoleTaskSequenceStepSettings"></a> DHCP-Server-rol Takenreeksstapinstellingen configureren  
  Deze optie gebruikt, configureren en implementeren van de DHCP-serverfunctie met MDT. U kunt alle de standaard DHCP-scope-opties vergelijkbaar met het gebruik van de standaard DHCP-console in Windows Server configureren. Configureren voor het implementeren van de DHCP-serverfunctie, de **DHCP machtigen** takenreeks in combinatie met de **DHCP-Server configureren** takenreeks.  
 
 > [!NOTE]
@@ -9527,7 +9526,7 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
 -   De opties voor de DHCP-server voor de DHCP-serverfunctie configureren zoals beschreven in [opties van de DHCP-Server configureren voor de DHCP-serverfunctie](#ConfiguretheDHCPServerOptionsfortheDHCPServerRole)  
 
-#####  <a name="ConfigureDeploymentoftheDHCPServerRole"></a>Implementatie van de DHCP-serverfunctie configureren  
+#####  <a name="ConfigureDeploymentoftheDHCPServerRole"></a> Implementatie van de DHCP-serverfunctie configureren  
  Installeren en configureren van de DHCP-serverfunctie op de doelcomputer door het wijzigen van de **DHCP-Server configureren** task sequence staptype.  
 
 ###### <a name="to-configure-and-deploy-the-dhcp-server-role"></a>Configureren en implementeren van de DHCP-serverfunctie  
@@ -9556,8 +9555,8 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
 4.  Klik op **OK**.  
 
-#####  <a name="ConfigureDHCPScopesfortheDHCPServerRole"></a>Configureren van DHCP-Scopes voor de DHCP-serverfunctie  
- Deze optie gebruikt, configureert de DHCP-scopes die de regels bevatten en actieve scopes op de DHCP-server gebruikt. Voor meer informatie over DHCP scope configuratieopties en Zie voor instructies over het gebruik van elke configuratieoptie [hoofdstuk 6 - Dynamic Host Configuration Protocol](http://technet.microsoft.com/library/bb727003.aspx) in TCP/IP Fundamentals for Microsoft Windows.  
+#####  <a name="ConfigureDHCPScopesfortheDHCPServerRole"></a> Configureren van DHCP-Scopes voor de DHCP-serverfunctie  
+ Deze optie gebruikt, configureert de DHCP-scopes die de regels bevatten en actieve scopes op de DHCP-server gebruikt. Voor meer informatie over DHCP scope configuratieopties en Zie voor instructies over het gebruik van elke configuratieoptie [hoofdstuk 6 - Dynamic Host Configuration Protocol](https://technet.microsoft.com/library/bb727003.aspx) in TCP/IP Fundamentals for Microsoft Windows.  
 
 ###### <a name="to-configure-and-deploy-dhcp-scopes"></a>Configureren en implementeren van DHCP-scopes  
 
@@ -9613,7 +9612,7 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
 7.  Klik op **OK**.  
 
-#####  <a name="ConfiguretheDHCPServerOptionsfortheDHCPServerRole"></a>Configureer de opties voor de DHCP-Server voor de DHCP-serverfunctie  
+#####  <a name="ConfiguretheDHCPServerOptionsfortheDHCPServerRole"></a> Configureer de opties voor de DHCP-Server voor de DHCP-serverfunctie  
  Deze optie gebruikt, de opties van de DHCP-server opgegeven DHCP-clients, waaronder router of standaard gateway-aanduiding, DNS-server IP-gegevens en informatie over de WINS-server configureren.  
 
 ###### <a name="to-configure-and-deploy-dhcp-server-options"></a>Opties configureren en implementeren van DHCP-server  
@@ -9660,11 +9659,11 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
 8.  Klik op **046 WINS/NBT Node Type**, en typ vervolgens een van de volgende codes: **44**, **46**, of **47**.  
 
-     Zie voor meer informatie over het bepalen van de juiste optie voor het milieu [DHCP-opties voor het beheren van](http://technet.microsoft.com/library/cc958929.aspx).  
+     Zie voor meer informatie over het bepalen van de juiste optie voor het milieu [DHCP-opties voor het beheren van](https://technet.microsoft.com/library/cc958929.aspx).  
 
 9. Klik op **060 PXE-Client**; vervolgens in de **tekenreekswaarde** vak de PXE-client-tekenreeks (meestal PXEClient).  
 
-####  <a name="ConfigureAuthorizeDHCPTaskSequenceStepSettings"></a>Configureren van DHCP-Takenreeksstapinstellingen autoriseren  
+####  <a name="ConfigureAuthorizeDHCPTaskSequenceStepSettings"></a> Configureren van DHCP-Takenreeksstapinstellingen autoriseren  
  Goedkeuren van de DHCP-service in AD DS is van cruciaal belang om correct te implementeren en met behulp van DHCP-services in een Windows-netwerk.  
 
 > [!NOTE]
@@ -9700,17 +9699,17 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
 5.  Klik op **OK**, klikt u vervolgens op **OK** opnieuw.  
 
-###  <a name="CopyingContenttotheTargetComputer"></a>Kopiëren van inhoud naar de doelcomputer  
+###  <a name="CopyingContenttotheTargetComputer"></a> Kopiëren van inhoud naar de doelcomputer  
  Om de inhoud kopieert naar de doelcomputers, voert u een combinatie van de volgende stappen uit:  
 
 -   Inhoud kopiëren naar de doelcomputer met behulp van een takenreeksstap, zoals beschreven in [kopie inhoud naar de doel-Computers met behulp van de stappen Takenreeks](#CopyContenttoTargetComputersUsingTaskSequenceSteps).  
 
 -   Inhoud kopiëren naar de doelcomputer met behulp van $OEM$ folders zoals beschreven [inhoud kopiëren naar doel Computers met behulp van $OEM$ mappen](#CopyContenttoTargetComputersUsingOEMFolders).  
 
-####  <a name="CopyContenttoTargetComputersUsingTaskSequenceSteps"></a>Inhoud kopiëren naar de doelcomputers via Takenreeksstappen  
+####  <a name="CopyContenttoTargetComputersUsingTaskSequenceSteps"></a> Inhoud kopiëren naar de doelcomputers via Takenreeksstappen  
  Een takenreeks maken op basis van de **opdrachtregel uitvoeren** task sequence staptype die wordt uitgevoerd de **xcopy.exe** opdracht of een vergelijkbare de inhoud kopieert naar de doelcomputer. Zorg ervoor dat de **opdrachtregel uitvoeren** stap takenreekstype vindt plaats voordat alle takenreeksstappen of scripts die afhankelijk zijn van de bestanden worden gekopieerd naar de doelcomputers. Zie voor meer informatie over het wijzigen van takenreeksstappen [configureren van de Takenreeksstappen en stap reeks](#ConfiguretheTaskSequenceStepsandStepSequence).  
 
-####  <a name="CopyContenttoTargetComputersUsingOEMFolders"></a>Inhoud kopiëren naar de doelcomputers via $OEM$-mappen  
+####  <a name="CopyContenttoTargetComputersUsingOEMFolders"></a> Inhoud kopiëren naar de doelcomputers via $OEM$-mappen  
  MDT ondersteunt het gebruik van verouderde $OEM ordenen en aanvullende bestanden kopiëren naar de doelcomputers. Gegevens WIM-bestanden worden verkozen via $OEM$-mappen.  
 
 > [!NOTE]
@@ -9738,7 +9737,7 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
      Microsoft raadt aan dat deze mappen niet wordt gebruikt. De mappen zijn afhankelijk van de configuratie van een specifieke schijf op de doelcomputer. Gebruik $1 om aan te duiden % SystemDrive %, in plaats daarvan. In de meeste installaties $OEM$\\$1 en $OEM$ \C schrijven naar dezelfde locatie: de hoofdmap van station C.  
 
-###  <a name="CreatingCustomScriptsforMDT"></a>Maken van aangepaste Scripts voor MDT  
+###  <a name="CreatingCustomScriptsforMDT"></a> Maken van aangepaste Scripts voor MDT  
  Scripts bieden automatisering van de installatiekopie-build en het algehele implementatieproces. Ze scannen van de configuratiebestanden, zoeken in de configuratiedatabase omgevingsvariabelen om te bepalen van de regels moet worden gebruikt wanneer de implementatie van de installatiekopieën op de doelcomputers te evalueren en vele andere van complexe implementatietaken uitvoeren. MDT wordt gebruikt voor zowel Microsoft Visual Basic® Scripting Edition (VBScript [.vbs]) en Windows Script-bestand (.wsf)-scripts. Normaal gesproken hoeft niet een van de geleverde scripts te wijzigen. Als een wijziging nodig is, in plaats van het wijzigen van een van de geleverde scripts, Kopieer het script naar een nieuw bestand, bijwerken en het effect van elke wijziging grondig te testen.  
 
  De scripts maken logboekbestanden, de scripts het implementatieproces te automatiseren. De logboekbestanden van de status van het implementatieproces registreren en kunnen worden gebruikt om u te helpen bij het oplossen van dit proces:  
@@ -9749,7 +9748,7 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
 -   Maken van Windows PowerShell-scripts voor gebruik in MDT-implementaties, zoals beschreven in [Windows PowerShell-Scripts maken voor gebruik in MDT](#CreateWindowsPowerShellScriptsforUseinMDT).  
 
-####  <a name="DevelopCustomScripts"></a>Aangepaste Scripts ontwikkelen  
+####  <a name="DevelopCustomScripts"></a> Aangepaste Scripts ontwikkelen  
  U kunt nieuwe scripts voor gebruik in MDT implementaties ontwikkelen. Deze scripts moet in de vorm van .vbs of .wsf-bestanden. Voor voorbeelden van scripts die gebruikmaakt van de implementatie-Workbench, open het installatiepad van de implementatieshare en open vervolgens de map Scripts.  
 
 > [!NOTE]
@@ -9771,7 +9770,7 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
 -   **Omgeving**. Hiermee configureert u omgevingsvariabelen die worden verzameld via WMI en MDT regel verwerken, waardoor het directe verwijzing van het script en wordt gedefinieerd in ZTIUtility.vbs zoals beschreven in [omgeving klasse](#EnvironmentClass).  
 
--   **Logboekregistratie**. Biedt de functionaliteit van logboekregistratie die alle MDT-scripts gebruiken voor het maken van één logboekbestand voor elk script of een geconsolideerde logboekbestand van alle scripts en in ZTIUtility.vbs is gedefinieerd, zoals beschreven in [logboekregistratie klasse](#LoggingClass).  
+-   **Logging**. Biedt de functionaliteit van logboekregistratie die alle MDT-scripts gebruiken voor het maken van één logboekbestand voor elk script of een geconsolideerde logboekbestand van alle scripts en in ZTIUtility.vbs is gedefinieerd, zoals beschreven in [logboekregistratie klasse](#LoggingClass).  
 
 -   **Hulpprogramma voor**. Algemene hulpprogramma functionaliteit biedt en is gedefinieerd in ZTIUtility.vbs zoals beschreven in [hulpprogrammaklasse](#UtilityClass).  
 
@@ -9787,7 +9786,7 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
     -   Kan worden gebruikt voor toegang tot webservices in scripts in plaats van de bestanden CustomSettings.ini of BootStrap.ini; configureren u kunt de parameters voor toegang tot de webservices in de scripts opgeven  
 
-#####  <a name="EnvironmentClass"></a>Klasse van de omgeving  
+#####  <a name="EnvironmentClass"></a> Klasse van de omgeving  
  Deze klasse in scripts via verwijzen naar de **oEnvironment** object. Wijzig bijvoorbeeld de naam van de computer aan **voorbeeld** met de opdracht:  
 
 ```  
@@ -9800,7 +9799,7 @@ oEnvironment.Item("ComputerName") = "Example"
 oEnvironment.Item("Architecture")  
 ```  
 
-#####  <a name="LoggingClass"></a>Klasse voor logboekregistratie  
+#####  <a name="LoggingClass"></a> Klasse voor logboekregistratie  
  Deze klasse in scripts via verwijzen naar de **oLogging** object. Bij het maken van een informatieve logboekvermelding, moet u de opdracht gebruiken:  
 
 ```  
@@ -9813,7 +9812,7 @@ oLogging.CreateEntry "Informational message", LogTypeInfo
 oLogging.CreateEntry "An error occurred",LogTypeError  
 ```  
 
-#####  <a name="UtilityClass"></a>Hulpprogramma voor klasse  
+#####  <a name="UtilityClass"></a> Hulpprogramma voor klasse  
  Deze klasse in scripts via verwijzen naar de **oUtility** object. Om te bepalen van de naam van het huidige script, gebruikt u de opdracht:  
 
 ```  
@@ -9826,7 +9825,7 @@ oUtility.ScriptName
 iRetVal = oUtility.FindFile("CustomSettings.ini", sIniFile)  
 ```  
 
-#####  <a name="DatabaseClass"></a>Database-klasse  
+#####  <a name="DatabaseClass"></a> Database-klasse  
  Deze klasse in scripts via verwijzen naar de **Database** klasse. U kunt geen exemplaar maken van de object-klasse en verbinding maken met een database met volgende fragment script:  
 
 ```  
@@ -9853,7 +9852,7 @@ iRetVal = oUtility.FindFile("CustomSettings.ini", sIniFile)
    WScript.Echo "Records retrieved: " & oRecordset.RecordCount  
 ```  
 
-#####  <a name="WebServiceClass"></a>WebService-klasse  
+#####  <a name="WebServiceClass"></a> WebService-klasse  
  Deze klasse in scripts via verwijzen naar de **WebService** klasse. U kunt geen exemplaar maken van de object-klasse en verbinding maken met een database met volgende fragment script:  
 
 ```  
@@ -9866,7 +9865,7 @@ iRetVal = oUtility.FindFile("CustomSettings.ini", sIniFile)
    oEnvironment.Item("USZip") = "98029"  
    oEnvironment.Item("USZip") = "98029"  
    Set oWebService = new WebService  
-   oWebService.WebService = "http://www.webservicex.net/uszip.asmx/GetInfoByZIP"  
+   oWebService.WebService = "https://www.webservicex.net/uszip.asmx/GetInfoByZIP"  
    oWebService.Parameters = "USZip"  
 
    Set oXML = oWebService.Query  
@@ -9874,7 +9873,7 @@ iRetVal = oUtility.FindFile("CustomSettings.ini", sIniFile)
    WScript.Echo oXML.XML  
 ```  
 
-####  <a name="CreateNewScriptsfromaTemplate"></a>Nieuwe Scripts maken van een sjabloon  
+####  <a name="CreateNewScriptsfromaTemplate"></a> Nieuwe Scripts maken van een sjabloon  
  U kunt ook scripts voor gebruik in het proces installatiekopie maken. U kunt deze scripts door ze toe te voegen aan de Takenreekseditor en uiteindelijk door ze toe te voegen aan het bestand TS.xml aanroepen. Aanbieding 13 ziet u een sjabloon voor het maken van aangepaste scripts.  
 
  **Lijst met 13. Aangepast Script sjabloon**  
@@ -9972,7 +9971,7 @@ End Function
 
 -   Controleer of met ZTIUtility.vbs en ZTIDataAccess.vbs niet al over de functionaliteit die is vereist voordat er een functie worden geschreven.  
 
-####  <a name="CreateWindowsPowerShellScriptsforUseinMDT"></a>Windows PowerShell-Scripts maken voor gebruik in MDT  
+####  <a name="CreateWindowsPowerShellScriptsforUseinMDT"></a> Windows PowerShell-Scripts maken voor gebruik in MDT  
  MDT kunt u Windows PowerShell-scripts maken en vervolgens deze scripts worden uitgevoerd als onderdeel van een MDT taak reeks met de **PowerShell-Script uitvoeren** task sequence staptype. De Windows PowerShell-scripts die u kunnen een typische automation ondersteund door het beoogde besturingssysteem uitvoeren.  
 
  Windows PowerShell-scripts voor gebruik in MDT door maken:  
@@ -9985,12 +9984,12 @@ End Function
 
 4.  Windows PowerShell interpreteren retourcodes gegenereerd door het script, zoals beschreven in [interpreteren Windows PowerShell-Script retourcodes](#InterpretWindowsPowerShellScriptReturnCodes)  
 
-#####  <a name="IncludePrerequisitesforRunningWindowsPowerShellScriptsinMDT"></a>Vereisten voor het uitvoeren van Windows PowerShell-Scripts in MDT opnemen  
+#####  <a name="IncludePrerequisitesforRunningWindowsPowerShellScriptsinMDT"></a> Vereisten voor het uitvoeren van Windows PowerShell-Scripts in MDT opnemen  
  Wanneer een **PowerShell-Script uitvoeren** takenreeksstap Windows PowerShell-script wordt uitgevoerd, de stap automatisch geladen de **Microsoft.BDD.TaskSequenceModule** module voorafgaand aan het script. De **Microsoft.BDD.TaskSequenceModule** -module is verantwoordelijk voor het maken van de **TSENV**: en **TSENVLIST**: Windows PowerShell-stations.  
 
  Bovendien wordt aanbevolen dat uw script laden de **ZTIUtility.psm1** module aan het begin van het script door de volgende regel toe te voegen aan het begin van uw script:  
 
- Import-Module`.\ZTIUtility.psm1`  
+ Import-Module `.\ZTIUtility.psm1`  
 
  Inclusief de **ZTIUtility.psm1** module aan het begin van uw script biedt de volgende functies:  
 
@@ -10009,7 +10008,7 @@ End Function
 Import-Module MyCustomModule  
 ```  
 
-#####  <a name="UseTaskSequenceVariablesWithinWindowsPowerShellScripts"></a>Takenreeksvariabelen in Windows PowerShell-Scripts gebruiken  
+#####  <a name="UseTaskSequenceVariablesWithinWindowsPowerShellScripts"></a> Takenreeksvariabelen in Windows PowerShell-Scripts gebruiken  
  Uw Windows PowerShell script kunt ophalen of instellen van takenreeksvariabelen die kunnen worden gebruikt door MDT. U ophalen of instellen van takenreeksvariabelen met behulp van de volgende Windows PowerShell-stations:  
 
 -   **TSENV**:. Dit station is een lijst van de takenreeksvariabelen en de huidige waarden. Net als elk ander Windows-station, kunt u dit station openen. Typ de volgende opdracht in Windows PowerShell voor een lijst met de takenreeksvariabelen en hun huidige waarden: dir tsenv kan u bijvoorbeeld:  
@@ -10037,7 +10036,7 @@ Import-Module MyCustomModule
 
      Met deze opdracht wordt de waarde van de **PAKKETTEN** takenreeksvariabele `"XXX00001:Program","XXX00002:Program"`.  
 
-####  <a name="UpdateMDTLogsUsingWindowsPowerShellScripts"></a>Update MDT logboeken met behulp van Windows PowerShell-Scripts  
+####  <a name="UpdateMDTLogsUsingWindowsPowerShellScripts"></a> Update MDT logboeken met behulp van Windows PowerShell-Scripts  
  Standaard wordt de uitvoer van uw Windows PowerShell-scripts naar BDD geschreven. HET LOGBOEK. 175 tabel bevat de berichttypen die worden weergegeven in de BDD. Logboekbestand en hoe deze typen berichten worden gegenereerd door het script.  
 
 ### <a name="table-175-bddlog-message-types-and-script-output-that-generates-them"></a>Tabel 175. BDD. LOGBOEK berichttypen en uitvoer van het Script waarmee deze wordt gegenereerd  
@@ -10052,12 +10051,12 @@ Import-Module MyCustomModule
 
 -   Voortgang wordt weergegeven als een percentage van totale voltooiing voor het huidige script en alle berichten die worden weergegeven.  
 
--   Voortgang wordt bijgewerkt met de standaard [Write-Progress](http://technet.microsoft.com/library/dd347663.aspx) cmdlet.  
+-   Voortgang wordt bijgewerkt met de standaard [Write-Progress](https://technet.microsoft.com/library/dd347663.aspx) cmdlet.  
 
 > [!NOTE]
 >  In tegenstelling tot enkele van de andere scripts in MDT is een afzonderlijk logboekbestand niet gegenereerd voor de takenreeksstap uitvoeren van het Windows PowerShell-script. Logboekregistratie wordt alleen uitgevoerd in de BDD. Logboekbestand.  
 
-####  <a name="InterpretWindowsPowerShellScriptReturnCodes"></a>Windows PowerShell-Script retourcodes interpreteren  
+####  <a name="InterpretWindowsPowerShellScriptReturnCodes"></a> Windows PowerShell-Script retourcodes interpreteren  
  Standaard, als uw Windows PowerShell-script een afsluitfout of niet-nul-retourcode, rapporteert wordt de takenreeksstap mislukken en stopt met het uitvoeren (tenzij u de stap voor het negeren van de gegenereerde retourcode hebt geconfigureerd).  
 
   Tabel 176 geeft een lijst van de vooraf gedefinieerde retourcodes dat MDT retourneert en een korte beschrijving van elke bevat. Andere retourcodes niet wordt vermeld in de tabel 176 zijn geretourneerd door de Windows PowerShell-script.  
@@ -10070,7 +10069,7 @@ Import-Module MyCustomModule
 |10902|Er is geen Windows PowerShell-script is opgegeven in de takenreeksstap.|  
 |10903|Een beëindigingsfout is gemeld door de Windows PowerShell-script.|  
 
-##  <a name="PerformingDeploymentsUsingtheMDTDB"></a>Uitvoeren van implementaties met behulp van de MDT-DB  
+##  <a name="PerformingDeploymentsUsingtheMDTDB"></a> Uitvoeren van implementaties met behulp van de MDT-DB  
  MDT bevat een database, de MDT-DB — u kunt gebruiken om configuratie-instellingen voor LTI of ZTI implementaties met Configuration Manager. Configureer de MDT-database via de implementatie-Workbench in MDT of een ander gegevensbeheer hulpprogramma die u gebruiken kunt om informatie opgeslagen in SQL Server-databases te wijzigen.  
 
  Conceptueel gezien is de MDT-database een gecentraliseerde versie van het CustomSettings.ini-bestand. Het voordeel van de MDT-database is voor grotere implementaties u hebt een centrale opslagplaats voor het beheren van configuratie-instellingen voor implementatie.  
@@ -10089,7 +10088,7 @@ Import-Module MyCustomModule
 
 -   Uitbreiding van het schema van de MDT-database, zoals beschreven in [MDT DB Schema uitbreiden](#ExtendingtheMDTDBSchema)  
 
-###  <a name="PreparingtheMDTDB"></a>Voorbereiden van de MDT-DB  
+###  <a name="PreparingtheMDTDB"></a> Voorbereiden van de MDT-DB  
  Voordat u de MDT-database gebruiken kunt om configuratie-instellingen voor implementaties van MDT, moet u de MDT-database voorbereiden voor gebruik door MDT. Bereid de MDT-database voor het opslaan van configuratie-instellingen door:  
 
 -   Een nieuwe MDT-database maken of verbinding te maken met een bestaande database van de MDT, zoals beschreven in [maken van een nieuwe MDT-database of verbinding maken met een bestaande MDT-database](#CreatingaNewMDTDBorConnectingtoanExistingMDTDB)  
@@ -10098,7 +10097,7 @@ Import-Module MyCustomModule
 
 -   Machtigingen toe te wijzen aan de MDT-DB zoals beschreven in [de juiste machtigingen toewijzen aan de MDT-DB](#AssigningtheAppropriatePermissionstotheMDTDB)  
 
-####  <a name="CreatingaNewMDTDBorConnectingtoanExistingMDTDB"></a>Maken van een nieuwe MDT-database of verbinding maken met een bestaande MDT-database  
+####  <a name="CreatingaNewMDTDBorConnectingtoanExistingMDTDB"></a> Maken van een nieuwe MDT-database of verbinding maken met een bestaande MDT-database  
  Voordat u configuratie-instellingen in de MDT-database beheren kunt, maak een nieuwe MDT-database of maak verbinding met een bestaande database MDT in de implementatie-Workbench. De MDT-database bevat de databaseobjecten die gebruikmaakt van het implementatieproces van MDT, zoals weergaven, tabellen en opgeslagen procedures. U maakt een nieuwe MDT-database of verbinding maken met een bestaande met behulp van de geavanceerde configuratie/Database-knooppunt in de Implementatieworkbench MDT DB databaseobjecten.  
 
 > [!NOTE]
@@ -10110,14 +10109,14 @@ Import-Module MyCustomModule
 
 -   Verbinding maken met een bestaande database van de MDT, zoals beschreven in [verbinding maken met een bestaande database van de MDT](#ConnecttoanExistingMDTDB).  
 
-#####  <a name="CreateaNewMDTDB"></a>Maak een nieuwe MDT-DB  
+#####  <a name="CreateaNewMDTDB"></a> Maak een nieuwe MDT-DB  
  Maak een nieuwe MDT-database, en maak vervolgens de MDT-DB databaseobjecten in de database. U kunt de MDT-database in maken:  
 
 -   Een bestaande database zoals beschreven in [de MDT-database in een bestaande Database maken](#CreatetheMDTDBinanExistingDatabase)  
 
 -   Een nieuwe database zoals is beschreven in [de MDT-database in een nieuwe Database maken](#CreatetheMDTDBinaNewDatabase)  
 
-######  <a name="CreatetheMDTDBinanExistingDatabase"></a>De MDT-database in een bestaande Database maken  
+######  <a name="CreatetheMDTDBinanExistingDatabase"></a> De MDT-database in een bestaande Database maken  
  Als u wilt de MDT-DB opslaan in een SQL Server-database die databasebeheerder (DBA) beheert, de DBA moet de MDT-database maken en verlenen u de juiste machtigingen voor het maken van de MDT-DB-objecten in de nieuwe database. Wanneer de database is gemaakt, maakt u de MDT-database in de nieuwe database met behulp van de implementatie-Workbench.  
 
 > [!NOTE]
@@ -10141,15 +10140,15 @@ Import-Module MyCustomModule
 
     |Op deze wizardpagina|Voer deze handeling uit|  
     |-------------------------|-------------|  
-    |**SQL Server-gegevens** |a. In **SQL Server-naam**, type ***computer_name*** (waarbij *computer_name* is de naam van de computer met SQL Server).<br /><br /> b. In **exemplaar**, type ***exemplaarnaam*** (waarbij *exemplaarnaam* is de naam van SQL Server-exemplaar op de computer met SQL Server).<br /><br /> Als u SQL Server is geïnstalleerd als het standaardexemplaar gebruikt, kunt u laten **exemplaar** leeg. Als u van Microsoft SQL Server Express gebruikmaakt, typt u **SQLExpress** voor naam van het exemplaar.<br /><br /> c. In **poort**, type ***port_number*** (waarbij *port_number* is de TCP-poortnummer voor de SQL Server-exemplaren als anders dan de standaardwaarde).<br /><br /> Als u de standaardwaarde gebruikt, kunt u laten **poort** leeg.<br /><br /> d. In **netwerkbibliotheek**, selecteer ***network_library*** (waarbij *network_library* is de netwerkbibliotheek die wordt gebruikt voor communicatie met SQL Server en kan ofwel **Named Pipes** of **TCP/IP-Sockets**).|  
+    |**SQL Server Details** |a. In **SQL Server-naam**, type ***computer_name*** (waarbij *computer_name* is de naam van de computer met SQL Server).<br /><br /> b. In **exemplaar**, type ***exemplaarnaam*** (waarbij *exemplaarnaam* is de naam van SQL Server-exemplaar op de computer met SQL Server).<br /><br /> Als u SQL Server is geïnstalleerd als het standaardexemplaar gebruikt, kunt u laten **exemplaar** leeg. Als u van Microsoft SQL Server Express gebruikmaakt, typt u **SQLExpress** voor naam van het exemplaar.<br /><br /> c. In **poort**, type ***port_number*** (waarbij *port_number* is de TCP-poortnummer voor de SQL Server-exemplaren als anders dan de standaardwaarde).<br /><br /> Als u de standaardwaarde gebruikt, kunt u laten **poort** leeg.<br /><br /> d. In **netwerkbibliotheek**, selecteer ***network_library*** (waarbij *network_library* is de netwerkbibliotheek die wordt gebruikt voor communicatie met SQL Server en kan ofwel **Named Pipes** of **TCP/IP-Sockets**).|  
     |**Database** |a. Selecteer **maken (of maak deze opnieuw) de tabellen en weergaven in een bestaande database**.<br /><br /> b. In **Database**, selecteer ***database_name*** (waarbij *database_name* is de naam van de database waarin wordt gezocht voor het opslaan van de MDT-DB).<br /><br /> Als u een database met een bestaande database van de MDT selecteert, is de informatie in de bestaande database van de MDT-tabellen en weergaven worden verbroken.<br /><br /> c. Klik op **Volgende**.|  
-    |**SQL-Share** |a. In **SQL Share**, type ***sharenaam*** (waarbij *sharenaam* is de naam van een gedeelde netwerkmap op de computer die is opgegeven op de **voorSQLServer-gegevens** wizardpagina).<br /><br /> Dit tekstvak is vereist voor Windows PE voor verbinding met de database met behulp van geïntegreerde Windows-beveiliging met Named Pipes-protocol. Windows PE maakt verbinding met de gedeelde netwerkmap, tot stand brengen van een netwerkverbinding met de server zodat Windows Integrated Security in SQL Server juist worden geverifieerd.<br /><br /> b. Als Windows PE geen verbinding met de database met dit protocol maken is, kunt u laten **SQL Share** leeg.<br /><br /> c. Klik op **Volgende**.|  
+    |**SQL Share** |a. In **SQL Share**, type ***sharenaam*** (waarbij *sharenaam* is de naam van een gedeelde netwerkmap op de computer die is opgegeven op de **voorSQLServer-gegevens** wizardpagina).<br /><br /> Dit tekstvak is vereist voor Windows PE voor verbinding met de database met behulp van geïntegreerde Windows-beveiliging met Named Pipes-protocol. Windows PE maakt verbinding met de gedeelde netwerkmap, tot stand brengen van een netwerkverbinding met de server zodat Windows Integrated Security in SQL Server juist worden geverifieerd.<br /><br /> b. Als Windows PE geen verbinding met de database met dit protocol maken is, kunt u laten **SQL Share** leeg.<br /><br /> c. Klik op **Volgende**.|  
     |**Samenvatting** |Lees de informatie in de **Details** vak en klik vervolgens op **volgende**.|  
     |**Bevestiging** |U kunt klikken op **uitvoer opslaan** de uitvoer van de wizard opslaan in een bestand. U kunt ook klikken op **Script weergeven** om weer te geven van de Windows PowerShell-scripts gebruikt voor het uitvoeren van taken van de wizard.<br /><br /> Klik op **Voltooien**.|  
 
  De nieuwe database-Wizard is voltooid. De configuratiegegevens van de database wordt vermeld in het detailvenster van de implementatie-Workbench.  
 
-######  <a name="CreatetheMDTDBinaNewDatabase"></a>De MDT-database in een nieuwe Database maken  
+######  <a name="CreatetheMDTDBinaNewDatabase"></a> De MDT-database in een nieuwe Database maken  
  In gevallen waarin u de SQL Server-DBA of de vereiste machtigingen kunt u de nieuwe MDT-database maken en vervolgens de MDT-DB databaseobjecten te maken in de nieuwe database met behulp van de implementatie-Workbench.  
 
 > [!NOTE]
@@ -10171,15 +10170,15 @@ Import-Module MyCustomModule
 
     |Op deze wizardpagina|Voer deze handeling uit|  
     |-------------------------|-------------|  
-    |**SQL Server-gegevens** |a. In **SQL Server-naam**, type ***computer_name*** (waarbij *computer_name* is de naam van de computer met SQL Server).<br /><br /> b. In **exemplaar**, type ***exemplaarnaam*** (waarbij *exemplaarnaam* is de naam van de SQL Server-exemplaar op de computer met SQL Server).<br /><br /> Als u SQL Server is geïnstalleerd als het standaardexemplaar gebruikt, kunt u laten **exemplaar** leeg. Als u SQL Server Express gebruikt, typt u **SQLExpress** voor naam van het exemplaar.<br /><br /> c. In **poort**, type ***port_number*** (waarbij *port_number* is de TCP-poortnummer voor de SQL Server-exemplaar als anders dan de standaardwaarde).<br /><br /> d. In **netwerkbibliotheek**, selecteer ***network_library*** (waarbij *network_library* is de netwerkbibliotheek die wordt gebruikt voor communicatie met SQL Server en kan ofwel **Named Pipes** of **TCP/IP-Sockets**).<br /><br /> e. Klik op **Volgende**.|  
+    |**SQL Server Details** |a. In **SQL Server-naam**, type ***computer_name*** (waarbij *computer_name* is de naam van de computer met SQL Server).<br /><br /> b. In **exemplaar**, type ***exemplaarnaam*** (waarbij *exemplaarnaam* is de naam van de SQL Server-exemplaar op de computer met SQL Server).<br /><br /> Als u SQL Server is geïnstalleerd als het standaardexemplaar gebruikt, kunt u laten **exemplaar** leeg. Als u SQL Server Express gebruikt, typt u **SQLExpress** voor naam van het exemplaar.<br /><br /> c. In **poort**, type ***port_number*** (waarbij *port_number* is de TCP-poortnummer voor de SQL Server-exemplaar als anders dan de standaardwaarde).<br /><br /> d. In **netwerkbibliotheek**, selecteer ***network_library*** (waarbij *network_library* is de netwerkbibliotheek die wordt gebruikt voor communicatie met SQL Server en kan ofwel **Named Pipes** of **TCP/IP-Sockets**).<br /><br /> e. Klik op **Volgende**.|  
     |**Database** |a. Selecteer **een nieuwe database maken**.<br /><br /> b. In **Database**, type ***database_name*** (waarbij *database_name* is de naam van de database waarin wordt gezocht voor het opslaan van de MDT-DB).<br /><br /> c. Klik op **Volgende**.|  
-    |**SQL-Share** |a. In **SQL Share**, type ***sharenaam*** (waarbij *sharenaam* is de naam van een gedeelde netwerkmap op de computer die is opgegeven op de **voorSQLServer-gegevens** wizardpagina).<br /><br /> Dit tekstvak is vereist voor Windows PE voor verbinding met de database met behulp van geïntegreerde Windows-beveiliging met Named Pipes-protocol. Windows PE maakt verbinding met de gedeelde netwerkmap, tot stand brengen van een netwerkverbinding met de server zodat Windows Integrated Security in SQL Server juist worden geverifieerd.<br /><br /> Als Windows PE geen verbinding met de database met dit protocol maken is, kunt u laten **SQL Share** leeg.<br /><br /> b. Klik op **Volgende**.|  
+    |**SQL Share** |a. In **SQL Share**, type ***sharenaam*** (waarbij *sharenaam* is de naam van een gedeelde netwerkmap op de computer die is opgegeven op de **voorSQLServer-gegevens** wizardpagina).<br /><br /> Dit tekstvak is vereist voor Windows PE voor verbinding met de database met behulp van geïntegreerde Windows-beveiliging met Named Pipes-protocol. Windows PE maakt verbinding met de gedeelde netwerkmap, tot stand brengen van een netwerkverbinding met de server zodat Windows Integrated Security in SQL Server juist worden geverifieerd.<br /><br /> Als Windows PE geen verbinding met de database met dit protocol maken is, kunt u laten **SQL Share** leeg.<br /><br /> b. Klik op **Volgende**.|  
     |**Samenvatting** |Lees de informatie in het vak Details en klik vervolgens op **volgende**.|  
     |**Bevestiging** |U kunt klikken op **uitvoer opslaan** de uitvoer van de wizard opslaan in een bestand. U kunt ook klikken op **Script weergeven** om weer te geven van de Windows PowerShell-scripts gebruikt voor het uitvoeren van taken van de wizard.<br /><br /> Klik op voltooien.|  
 
  De nieuwe database-Wizard is voltooid. De database-configuratie-informatie wordt weergegeven in het detailvenster van de implementatie-Workbench.  
 
-#####  <a name="ConnecttoanExistingMDTDB"></a>Verbinding maken met een bestaande MDT-database  
+#####  <a name="ConnecttoanExistingMDTDB"></a> Verbinding maken met een bestaande MDT-database  
  U kunt de implementatie-Workbench verbinden met een bestaande database MDT, zodat u kunt kopiëren of repliceren, de MDT-database moet een ander exemplaar van SQL Server, en configureer vervolgens CustomSettings.ini voor toegang tot de MDT-database.  
 
 > [!NOTE]
@@ -10201,20 +10200,20 @@ Import-Module MyCustomModule
 
     |Op deze wizardpagina|Voer deze handeling uit|  
     |-------------------------|-------------|  
-    |**SQL Server-gegevens** |a. In **SQL Server-naam**, type ***computer_name*** (waarbij *computer_name* is de naam van de computer met SQL Server).<br /><br /> b. In **exemplaar**, type ***exemplaarnaam*** (waarbij *exemplaarnaam* is de naam van SQL Server-exemplaar op de computer met SQL Server).<br /><br /> Als u SQL Server is geïnstalleerd als het standaardexemplaar gebruikt, kunt u laten **exemplaar** leeg. Als u SQL Server Express gebruikt, typt u **SQL Express** voor naam van het exemplaar.<br /><br /> c. In **poort**, type ***port_number*** (waarbij *port_number* is van het TCP-poortnummer voor de SQL Server als anders dan de standaardwaarde).<br /><br /> Als u de standaardwaarde gebruikt, kunt u laten **poort** leeg.<br /><br /> d. In **netwerkbibliotheek**, selecteer ***network_library*** (waarbij *network_library* is de netwerkbibliotheek die wordt gebruikt voor communicatie met SQL Server en kan Named Pipes of TCP / IP-Sockets).<br /><br /> e. Klik op **Volgende**.|  
+    |**SQL Server Details** |a. In **SQL Server-naam**, type ***computer_name*** (waarbij *computer_name* is de naam van de computer met SQL Server).<br /><br /> b. In **exemplaar**, type ***exemplaarnaam*** (waarbij *exemplaarnaam* is de naam van SQL Server-exemplaar op de computer met SQL Server).<br /><br /> Als u SQL Server is geïnstalleerd als het standaardexemplaar gebruikt, kunt u laten **exemplaar** leeg. Als u SQL Server Express gebruikt, typt u **SQL Express** voor naam van het exemplaar.<br /><br /> c. In **poort**, type ***port_number*** (waarbij *port_number* is van het TCP-poortnummer voor de SQL Server als anders dan de standaardwaarde).<br /><br /> Als u de standaardwaarde gebruikt, kunt u laten **poort** leeg.<br /><br /> d. In **netwerkbibliotheek**, selecteer ***network_library*** (waarbij *network_library* is de netwerkbibliotheek die wordt gebruikt voor communicatie met SQL Server en kan Named Pipes of TCP / IP-Sockets).<br /><br /> e. Klik op **Volgende**.|  
     |**Database** |a. Selecteer **gebruik van een bestaande database al de vereiste tabellen en weergaven bevat**.<br /><br /> b. In **Database**, selecteer ***database_name*** (waarbij *database_name* is de naam van de bestaande database van de MDT).<br /><br /> c. Klik op**volgende**.|  
-    |**SQL-Share** |a. In **SQL Share**, type ***sharenaam*** (waarbij *sharenaam* is de naam van een gedeelde netwerkmap op de computer die is opgegeven op de **voorSQLServer-gegevens** wizardpagina).<br /><br /> Dit tekstvak is vereist voor Windows PE voor verbinding met de database met behulp van geïntegreerde Windows-beveiliging met Named Pipes-protocol. Windows PE maakt verbinding met de gedeelde netwerkmap, tot stand brengen van een netwerkverbinding met de server zodat Windows Integrated Security in SQL Server juist worden geverifieerd.<br /><br /> Als Windows PE geen verbinding met de database met dit protocol maken is, kunt u laten **SQL Share** leeg.<br /><br /> b. Klik op **Volgende**.|  
+    |**SQL Share** |a. In **SQL Share**, type ***sharenaam*** (waarbij *sharenaam* is de naam van een gedeelde netwerkmap op de computer die is opgegeven op de **voorSQLServer-gegevens** wizardpagina).<br /><br /> Dit tekstvak is vereist voor Windows PE voor verbinding met de database met behulp van geïntegreerde Windows-beveiliging met Named Pipes-protocol. Windows PE maakt verbinding met de gedeelde netwerkmap, tot stand brengen van een netwerkverbinding met de server zodat Windows Integrated Security in SQL Server juist worden geverifieerd.<br /><br /> Als Windows PE geen verbinding met de database met dit protocol maken is, kunt u laten **SQL Share** leeg.<br /><br /> b. Klik op **Volgende**.|  
     |**Samenvatting** |Lees de informatie in de **Details** vak en klik vervolgens op **volgende**.|  
     |**Bevestiging** |U kunt klikken op **uitvoer opslaan** de uitvoer van de wizard opslaan in een bestand. U kunt ook klikken op **Script weergeven** om weer te geven van de Windows PowerShell-scripts gebruikt voor het uitvoeren van taken van de wizard.<br /><br /> Klik op **Voltooien**.|  
 
  De nieuwe database-Wizard is voltooid. De database-configuratie-informatie wordt weergegeven in het detailvenster van de implementatie-Workbench.  
 
-####  <a name="UpgradinganExistingMDTDB"></a>Upgraden van een bestaande MDT-database  
+####  <a name="UpgradinganExistingMDTDB"></a> Upgraden van een bestaande MDT-database  
  De MDT-database wordt automatisch bijgewerkt vanuit een eerdere versie van MDT wanneer u een upgrade uitvoert van de implementatieshare. Het upgradeproces bewaart schema wijzigingen in de bestaande MDT-database wanneer u naar de nieuwe MDT-database bijwerkt.  
 
  Als voor een bepaalde reden dat de bestaande MDT DB niet wordt bijgewerkt wanneer u een upgrade uitvoert van de implementatieshare, kunt u handmatig upgraden de MDT-database met behulp van de **Upgrade MDTDatabaseSchema** Windows PowerShell-cmdlet.  
 
-####  <a name="AssigningtheAppropriatePermissionstotheMDTDB"></a>De juiste machtigingen toewijzen aan de MDT-DB  
+####  <a name="AssigningtheAppropriatePermissionstotheMDTDB"></a> De juiste machtigingen toewijzen aan de MDT-DB  
  Afhankelijk van de taken worden uitgevoerd, moet u mogelijk andere machtigingen voor de MDT-database. 180 tabel bevat de typen taken die moeten worden uitgevoerd en de bijbehorende SQL Server-serverrollen en databaserollen vereist voor het uitvoeren.  
 
 ### <a name="table-180-roles-and-required-roles"></a>180 van de tabel. Rollen en functies vereist  
@@ -10228,9 +10227,9 @@ Import-Module MyCustomModule
 |De configuratie-informatie opgeslagen in de MDT-DB wijzigen|de databaserol db_datawrite in de MDT-DB of rechten voor de afzonderlijke tabellen en weergaven in de MDT-database|  
 |De configuratiegegevens die zijn opgeslagen in de MDT-database bekijken|de databaserol db_datareader in de MDT-DB of rechten op de afzonderlijke tabellen en weergaven in de MDT-DB|  
 
- Zie voor meer informatie over het toewijzen van deze machtigingen [identiteits- en toegangsbeheer (Database-Engine)](http://technet.microsoft.com/library/bb510418\(v=sql.105\)).  
+ Zie voor meer informatie over het toewijzen van deze machtigingen [identiteits- en toegangsbeheer (Database-Engine)](https://technet.microsoft.com/library/bb510418).  
 
-###  <a name="SelectingtheMethodsforApplyingConfigurationSettings"></a>De methoden voor het toepassen van configuratie-instellingen selecteren  
+###  <a name="SelectingtheMethodsforApplyingConfigurationSettings"></a> De methoden voor het toepassen van configuratie-instellingen selecteren  
  Selecteer de methode voor het toepassen van configuratie-instellingen van MDT met behulp van de MDT-DB na het voorbereiden van de MDT-database. U kunt de configuratie-instellingen opgeslagen in de MDT-database met behulp van de knooppunten onder het knooppunt van de Database op een share van de Implementatieworkbench-implementatie beheren.  
 
 > [!NOTE]
@@ -10252,7 +10251,7 @@ Import-Module MyCustomModule
 > [!NOTE]
 >  Maakt de items in het knooppunt functies voordat u items onder de andere knooppunten (Computers, locaties en merk en Model), omdat de items in de andere knooppunten kunnen worden gekoppeld aan rollen.  
 
-###  <a name="ManagingConfigurationSettingsStoredintheMDTDB"></a>Het beheren van configuratie-instellingen opgeslagen in de MDT-database  
+###  <a name="ManagingConfigurationSettingsStoredintheMDTDB"></a> Het beheren van configuratie-instellingen opgeslagen in de MDT-database  
  De MDT-database bevat tabellen en weergaven waarmee het implementatieproces MDT query kan uitvoeren. De tabellen bevatten configuratie-instellingen die toegankelijk via de weergaven zijn.  
 
  U kunt de configuratie-instellingen opgeslagen in de MDT-DB een combinatie van de volgende manieren beheren:  
@@ -10261,7 +10260,7 @@ Import-Module MyCustomModule
 
 2.  Beheren van configuratie-instellingen opgeslagen in de MDT-database met behulp van hulpprogramma's voor SQL Server-database, zoals beschreven in [beheren van configuratie-instellingen opgeslagen in de MDT-database met behulp van SQL Server Management Tools](#ManageConfigurationSettingsStoredintheMDTDBUsingSQLServerManagementTools).  
 
-####  <a name="ManageConfigurationSettingsStoredintheMDTDBUsingtheDeploymentWorkbench"></a>Configuratie-instellingen opgeslagen in de MDT-database met behulp van de implementatie-Workbench beheren  
+####  <a name="ManageConfigurationSettingsStoredintheMDTDBUsingtheDeploymentWorkbench"></a> Configuratie-instellingen opgeslagen in de MDT-database met behulp van de implementatie-Workbench beheren  
  U kunt de configuratie-instellingen opgeslagen in de MDT-database met behulp van de knooppunten onder het knooppunt van de Database op een share van de Implementatieworkbench-implementatie beheren.  
 
 > [!NOTE]
@@ -10303,7 +10302,7 @@ Import-Module MyCustomModule
     |Naar|Voer deze handeling uit|  
     |--------|-------------|  
     |Een toepassing van de implementatieshare (die wordt beheerd in het knooppunt toepassingen in de implementatie-Workbench) toevoegen|a. Klik op **toevoegen**, en klik vervolgens op **Lite TouchApplication**.<br /><br /> De **Selecteer een item** dialoogvenster wordt weergegeven.<br /><br /> b. In de **Selecteer een item** in het dialoogvenster, selecteer de toepassing toevoegen en klik vervolgens op **OK**.<br /><br /> De toepassing moet aanwezig zijn in dezelfde share van de implementatie als de share van de implementatie die zijn gekoppeld aan de MDT-database die u configureert.|  
-    |Een Configuration Manager-toepassing toevoegen|a. Klik op **toevoegen**, en klik vervolgens op **Configuration Manager 2012 toepassing**.<br /><br /> De **nieuwe Configuration Manager-toepassing** dialoogvenster wordt weergegeven.<br /><br /> b. In de **nieuwe Configuration Manager-toepassing** het dialoogvenster **Geef op de nieuwe Configuration Manager-toepassing toevoegen**, type ***configmgr_application***, en klik vervolgens op **OK** (waarbij *configmgr_application* is de naam van de Configuration Manager-toepassing moet worden toegevoegd).<br /><br /> De naam hebt ingevoerd **Geef op de nieuwe Configuration Manager-toepassing toevoegen** de naam van de Configuration Manager-toepassing moet exact overeenkomen.<br /><br /> Zie de sectie 'Toepassing installeren' op voor meer informatie over het opgeven van de toepassingsnaam [Takenreeksstappen in Configuration Manager](http://technet.microsoft.com/library/hh846237).<br /><br /> De **toe dat deze toepassing wordt geïnstalleerd door de takenreeksactie toepassing installeren zonder te worden geïmplementeerd**selectievakje moet worden ingeschakeld voor de toepassing Configuration Manager op de juiste wijze worden geïmplementeerd.|  
+    |Een Configuration Manager-toepassing toevoegen|a. Klik op **toevoegen**, en klik vervolgens op **Configuration Manager 2012 toepassing**.<br /><br /> De **nieuwe Configuration Manager-toepassing** dialoogvenster wordt weergegeven.<br /><br /> b. In de **nieuwe Configuration Manager-toepassing** het dialoogvenster **Geef op de nieuwe Configuration Manager-toepassing toevoegen**, type ***configmgr_application***, en klik vervolgens op **OK** (waarbij *configmgr_application* is de naam van de Configuration Manager-toepassing moet worden toegevoegd).<br /><br /> De naam hebt ingevoerd **Geef op de nieuwe Configuration Manager-toepassing toevoegen** de naam van de Configuration Manager-toepassing moet exact overeenkomen.<br /><br /> Zie de sectie 'Toepassing installeren' op voor meer informatie over het opgeven van de toepassingsnaam [Takenreeksstappen in Configuration Manager](https://docs.microsoft.com/sccm/osd/understand/task-sequence-steps).<br /><br /> De **toe dat deze toepassing wordt geïnstalleerd door de takenreeksactie toepassing installeren zonder te worden geïmplementeerd**selectievakje moet worden ingeschakeld voor de toepassing Configuration Manager op de juiste wijze worden geïmplementeerd.|  
     |Een toepassing verwijderen uit de lijst met toepassingen om te worden geïmplementeerd|Klik op ***toepassing*** (waarbij *toepassing* is de naam van de toepassing die u wilt verwijderen), en klik vervolgens op **verwijderen**.|  
     |Een toepassing voorafgaand aan de andere toepassingen installeren |Klik op ***toepassing*** (waarbij *toepassing* is de naam van de toepassing die u wilt installeren voordat u andere toepassingen), en klik vervolgens op **Up**.|  
     |Een toepassing na de andere toepassingen installeren |Klik op ***toepassing*** (waarbij *toepassing* is de naam van de toepassing die u wilt installeren na de andere toepassingen), en klik vervolgens op **omlaag**.|  
@@ -10340,7 +10339,7 @@ Import-Module MyCustomModule
     |Een beheerder toevoegen|a. Klik op **Toevoegen**.<br /><br /> b. De **nieuwe beheerder** dialoogvenster wordt weergegeven.|  
     |Een beheerder verwijderen|Klik op ***admin_name*** (waarbij *admin_name* is de naam van de gebruiker of groep account die u wilt verwijderen), en klik vervolgens op **verwijderen**.<br /><br /> Als een account uit deze lijst verwijdert het account niet verwijderd uit AD DS of van de lokale computer.|  
 
-####  <a name="ManageConfigurationSettingsStoredintheMDTDBUsingSQLServerManagementTools"></a>Configuratie-instellingen opgeslagen in de MDT-database met behulp van SQL Server-beheerprogramma's beheren  
+####  <a name="ManageConfigurationSettingsStoredintheMDTDBUsingSQLServerManagementTools"></a> Configuratie-instellingen opgeslagen in de MDT-database met behulp van SQL Server-beheerprogramma's beheren  
  Het beheren van de configuratie-instellingen opgeslagen in de MDT-database met behulp van de implementatie-Workbench is geschikt is voor het beheer van een beperkt aantal items in de database. Als u toevoegen, honderden vermeldingen wilt (zoals het toevoegen van de configuratie-instellingen voor de doelcomputers) of als u wilt uitvoeren van een bulk-update voor de configuratie-instellingen, echter SQL Server-database beheerhulpprogramma's gebruiken.  
 
  Bulksgewijs importeren en bijwerken van configuratie-instellingen in het gebruik van de MDT-DB uitvoeren:  
@@ -10353,14 +10352,14 @@ Import-Module MyCustomModule
 
  U kunt controleren de tabellen, weergaven en andere databaseobjecten in de MDT-database om te bepalen van de tabellen die u wilt bijwerken. Zie de sectie "Tabellen en weergaven in de MDT DB", in de MDT-document voor meer informatie over de tabellen en weergaven in de MDT-database*Toolkit verwijzing*.  
 
-###  <a name="ConfiguringtheMDTDeploymentProcesstoRetreiveConfigurationSettingsfromtheMDTDB"></a>Het implementatieproces MDT aan configuratie-instellingen ophalen uit de MDT-database configureren  
+###  <a name="ConfiguringtheMDTDeploymentProcesstoRetreiveConfigurationSettingsfromtheMDTDB"></a> Het implementatieproces MDT aan configuratie-instellingen ophalen uit de MDT-database configureren  
  Configureer de MDT-implementatieproces voor toegang tot de MDT-database en de configuratie-instellingen opgeslagen in het door het wijzigen van CustomSettings.ini ophalen. U kunt wijzigen CustomSettings.ini zodat het implementatieproces MDT voor toegang tot de MDT-DB een combinatie van de volgende methoden:  
 
 -   Gebruik de Wizard DB configureren in de Workbench-implementatie, zoals beschreven in [configureren de Retreival van configuratie-instellingen van de MDT-database met behulp van de Wizard DB configureren](#ConfiguretheRetreivalofConfigurationSettingsfromtheMDTDBUsingtheConfigureDBWizard).  
 
 -   Het CustomSettings.ini-bestand rechtstreeks worden gewijzigd zoals beschreven in [de Retreival van configuratie-instellingen van de MDT-database configureren door directe wijzigingen van het bestand CustomSettings.ini](#ConfiguretheRetreivalofConfigurationSettingsfromtheMDTDBbyDirectlyModifyingtheCustomSettings.iniFile).  
 
-####  <a name="ConfiguretheRetreivalofConfigurationSettingsfromtheMDTDBUsingtheConfigureDBWizard"></a>Het ophalen van configuratie-instellingen van de MDT-database configureren met behulp van de Wizard database configureren  
+####  <a name="ConfiguretheRetreivalofConfigurationSettingsfromtheMDTDBUsingtheConfigureDBWizard"></a> Het ophalen van configuratie-instellingen van de MDT-database configureren met behulp van de Wizard database configureren  
  De Wizard DB configureren in de implementatie-Workbench biedt een grafische interface voor het configureren van de MDT-implementatieproces voor toegang tot de MDT-database. De voordelen van het gebruik van deze wizard is dat deze reduceert de:  
 
 1.  Mogelijkheid om fouten in de configuratie in het bestand CustomSettings.ini  
@@ -10457,7 +10456,7 @@ Import-Module MyCustomModule
 
 1.  De sectie "Tabellen en weergaven in de MDT DB", in het document MDT *Toolkit-verwijzing*  
 
-####  <a name="ConfiguretheRetreivalofConfigurationSettingsfromtheMDTDBbyDirectlyModifyingtheCustomSettings.iniFile"></a>De Retreival van configuratie-instellingen van de MDT-DB door directe wijzigingen van het CustomSettings.ini-bestand configureren  
+####  <a name="ConfiguretheRetreivalofConfigurationSettingsfromtheMDTDBbyDirectlyModifyingtheCustomSettings.iniFile"></a> De Retreival van configuratie-instellingen van de MDT-DB door directe wijzigingen van het CustomSettings.ini-bestand configureren  
  De Wizard DB configureren in de Workbench-implementatie biedt de methode die is het gemakkelijkst, minimale kennis over hoe u het CustomSettings.ini-bestand is gewijzigd en zo min mogelijk fouten in de configuratie is vereist. Als u maken van aangepaste query's voor meer informatie wilt, kunt u echter CustomSettings.ini om te retourneren van resultaten van de juiste query wijzigen.  
 
 > [!NOTE]
@@ -10477,7 +10476,7 @@ Import-Module MyCustomModule
 
 -   Configureer de eigenschappen in het bestand CustomSettings.ini die worden gebruikt voor implementatie door de rol, zoals beschreven in [configureren eigenschappen die worden gebruikt voor implementatie door de rol](#ConfigurePropertiesThatAreUsedforDeploymentbyRole).  
 
-#####  <a name="ReviewtheCustomSettings.iniFileAfterRunningtheConfigureDBWizard"></a>Bekijk het CustomSettings.ini-bestand worden voltooid nadat u de Wizard database configureren  
+#####  <a name="ReviewtheCustomSettings.iniFileAfterRunningtheConfigureDBWizard"></a> Bekijk het CustomSettings.ini-bestand worden voltooid nadat u de Wizard database configureren  
  Wanneer de Wizard DB configureren is voltooid, wordt het CustomSettings.ini-bestand is geconfigureerd voor het uitvoeren van de geselecteerde query's. **Fout! Referentie-bron niet vinden**. Geeft een voorbeeld van het bestand CustomSettings.ini nadat de Wizard DB configureren is voltooid.  
 
  **Aanbieding 14. Het bestand CustomSettings.ini na het configureren van DB Wizard is voltooid**  
@@ -10689,23 +10688,23 @@ Parameters=Role
 
 ```  
 
-#####  <a name="ConfigurePropertiesThatAreUsedtoCreateanSQLQuery"></a>Eigenschappen die worden gebruikt voor het maken van een SQL-Query configureren  
+#####  <a name="ConfigurePropertiesThatAreUsedtoCreateanSQLQuery"></a> Eigenschappen die worden gebruikt voor het maken van een SQL-Query configureren  
  De Wizard DB configureren maakt vermeldingen in het bestand CustomSettings.ini die worden gebruikt voor het bouwen van een SQL-query. 191 tabel bevat de MDT-eigenschappen die worden gebruikt om de query te maken. Zie de bijbehorende sectie voor elke eigenschap in de sectie 'Eigenschappen' in de MDT-document voor meer informatie over de eigenschappen in de tabel 191 *Toolkit verwijzing*.  
 
 ### <a name="table-191-properties-that-are-used-to-create-an-sql-query"></a>Tabel 191. Eigenschappen die worden gebruikt voor het maken van een SQL-Query  
 
 |Eigenschap|Beschrijving|  
 |--------------|-----------------|  
-|**SQL Server** |Hiermee geeft u de naam van de computer met SQL Server moet worden gebruikt in de query|  
+|**SQLServer** |Hiermee geeft u de naam van de computer met SQL Server moet worden gebruikt in de query|  
 |**Exemplaar** |Hiermee geeft u de naam van de SQL Server-exemplaar op de computer die is opgegeven in de **SQLServer** eigenschap. Als u gebruikt:<br /><br /> -SQL-Server is geïnstalleerd als de standaardexemplaren, kunt u laten **exemplaar** leeg<br /><br /> -SQL Server Express type **SQLExpress** voor de exemplaarnaam|  
 |**Database** |Hiermee geeft u de naam van de MDT-database in de SQL Server-exemplaar opgegeven in de **exemplaar** eigenschap.|  
-|**NetLib** |Hiermee geeft u de netwerkbibliotheek moet worden gebruikt in de verbinding te maken met de MDT-database die is opgegeven in de **Database** eigenschap en kan met de naam Pipes (DBNDPNTW) of TCP/IP-Sockets (DBMSSOCN).|  
+|**Netlib** |Hiermee geeft u de netwerkbibliotheek moet worden gebruikt in de verbinding te maken met de MDT-database die is opgegeven in de **Database** eigenschap en kan met de naam Pipes (DBNDPNTW) of TCP/IP-Sockets (DBMSSOCN).|  
 |**SQLShare** |Hiermee geeft u een gedeelde netwerkmap op de computer die is opgegeven in de **SQLServer** eigenschap, die wordt gebruikt bij het uitvoeren van gebruikersverificatie met behulp van geïntegreerde Windows-verificatie met het protocol Named Pipes.|  
 |**Tabel** |Hiermee geeft u de tabel of weergave moet worden gebruikt in de query. Als u opgeeft de **tabel** -eigenschap die u niet opgeven de **StoredProcedure** -eigenschap te: U moet een of andere opgeven.|  
-|**Opgeslagen procedure** |Hiermee geeft u de opgeslagen procedure moet worden gebruikt in de query. Als u opgeeft de **StoredProcedure** -eigenschap die u niet opgeven de **tabel** -eigenschap te: U moet een of andere opgeven.|  
+|**StoredProcedure** |Hiermee geeft u de opgeslagen procedure moet worden gebruikt in de query. Als u opgeeft de **StoredProcedure** -eigenschap die u niet opgeven de **tabel** -eigenschap te: U moet een of andere opgeven.|  
 |**Parameters** |Specificeert de selectiecriteria voor het retourneren van rijen uit de query. Conceptueel gezien deze eigenschap is de **waar** -component in een SQL **Selecteer** instructie.|  
 |**ParameterCondition** |Hiermee geeft u de Boole-bewerking moet worden uitgevoerd wanneer u opgeeft meer dan één selectiecriterium in de **Parameters** eigenschap. U kunt een Booleaanse waarde selecteren **en** (de standaardinstelling) of **OR** bewerkingen. Als u wilt gebruiken een Booleaanse waarde **of** bewerking, moet u **ParameterCondition = of**.|  
-|**Volgorde** |Hiermee geeft u de sorteervolgorde van de rijen die door de query zijn geretourneerd. Conceptueel gezien deze eigenschap is de **ORDER BY** -component in een SQL **Selecteer** instructie.|  
+|**Order** |Hiermee geeft u de sorteervolgorde van de rijen die door de query zijn geretourneerd. Conceptueel gezien deze eigenschap is de **ORDER BY** -component in een SQL **Selecteer** instructie.|  
 
 > [!NOTE]
 >  De SQL-query maken van deze eigenschappen retourneert alle kolommen uit de tabel of weergave die is opgegeven de **tabel** eigenschap.  
@@ -10737,7 +10736,7 @@ ParameterCondition=OR
 
  U kunt bekijken de tabellen en weergaven in de MDT-database om te bepalen van de kolommen die u wilt verwijzen de **Parameters** eigenschap. Zie de sectie "Tabellen en weergaven in de MDT DB", in de MDT-document voor meer informatie over de tabellen en weergaven in de MDT-database *Toolkit verwijzing*.  
 
-#####  <a name="ConfigurePropertiesThatAreUsedforDeploymenttoaSpecificComputer"></a>Eigenschappen die worden gebruikt voor implementatie met een specifieke Computer configureren  
+#####  <a name="ConfigurePropertiesThatAreUsedforDeploymenttoaSpecificComputer"></a> Eigenschappen die worden gebruikt voor implementatie met een specifieke Computer configureren  
  De Wizard DB configureren configureert u de **prioriteit** eigenschap en de bijbehorende sectie in het bestand CustomSettings.ini bij bepaalde computerimplementaties met behulp van de MDT-DB maakt. 192 tabel geeft een lijst van de secties die zijn gemaakt en een korte beschrijving van het doel van elke sectie bevat. Raadpleeg het voorbeeld CustomSettings.ini-bestand in de tabel 192.  
 
 ### <a name="table-192-sections-in-the-customsettingsini-file-for-deployment-to-a-specific-computer-and-their-purpose"></a>Tabel 192. Secties in het bestand CustomSettings.ini voor implementatie op een specifieke Computer en hun doel  
@@ -10752,7 +10751,7 @@ ParameterCondition=OR
 
  Zie de sectie "Tabellen en weergaven in de MDT DB", in de MDT-document voor meer informatie over de weergaven en tabellen die de implementatie-Workbench beheert *Toolkit verwijzing*.  
 
-#####  <a name="ConfigurePropertiesThatAreUsedforDeploymentbyLocation"></a>Eigenschappen die worden gebruikt voor de implementatie per locatie configureren  
+#####  <a name="ConfigurePropertiesThatAreUsedforDeploymentbyLocation"></a> Eigenschappen die worden gebruikt voor de implementatie per locatie configureren  
  De Wizard DB configureren configureert u de **prioriteit** eigenschap en de bijbehorende sectie gemaakt in het CustomSettings.ini-bestand voor de implementatie per locatie met behulp van de MDT-database. Tabel 193 vindt u de secties die zijn gemaakt en een korte beschrijving van het doel van elke sectie. Raadpleeg het voorbeeld CustomSettings.ini-bestand in de tabel 193.  
 
 ### <a name="table-193-sections-in-the-customsettingsini-file-for-deployment-by-location-and-their-purpose"></a>Tabel 193. Secties in het CustomSettings.ini-bestand voor de implementatie per locatie en hun doel  
@@ -10769,7 +10768,7 @@ ParameterCondition=OR
 
  Zie de sectie "Tabellen en weergaven in de MDT DB", in de MDT-document voor meer informatie over de weergaven en tabellen die de implementatie-Workbench beheert *Toolkit verwijzing*.  
 
-#####  <a name="ConfigurePropertiesThatAreUsedforDeploymentbyComputerMakeandModel"></a>Eigenschappen die worden gebruikt voor implementatie door het merk en Model Computer configureren  
+#####  <a name="ConfigurePropertiesThatAreUsedforDeploymentbyComputerMakeandModel"></a> Eigenschappen die worden gebruikt voor implementatie door het merk en Model Computer configureren  
  De Wizard DB configureren configureert u de **prioriteit** eigenschap en de bijbehorende sectie in het bestand CustomSettings.ini voor implementatie door het merk en model met behulp van de MDT-DB computer maakt. Tabel 194 ziet u de secties die zijn gemaakt en korte beschrijving van het doel van elke. Raadpleeg het voorbeeld CustomSettings.ini-bestand in de tabel 194.  
 
 ### <a name="table-194-sections-in-the-customsettingsini-file-for-deployment-by-computer-make-and-model-and-their-purpose"></a>Tabel 194. Secties in het CustomSettings.ini-bestand voor de implementatie van het merk en Model van hun doel  
@@ -10784,7 +10783,7 @@ ParameterCondition=OR
 
  Zie de sectie "Tabellen en weergaven in de MDT DB", in de MDT-document voor meer informatie over de weergaven en tabellen die de implementatie-Workbench beheert *Toolkit verwijzing*.  
 
-#####  <a name="ConfigurePropertiesThatAreUsedforDeploymentbyRole"></a>Eigenschappen die worden gebruikt voor implementatie door de rol configureren  
+#####  <a name="ConfigurePropertiesThatAreUsedforDeploymentbyRole"></a> Eigenschappen die worden gebruikt voor implementatie door de rol configureren  
  De Wizard DB configureren configureert u de **prioriteit** eigenschap en de bijbehorende sectie gemaakt in het CustomSettings.ini-bestand voor implementaties van rol met behulp van de MDT-database. 195 tabel ziet u de secties die zijn gemaakt en een korte beschrijving van het doel voor elk. Raadpleeg het voorbeeld CustomSettings.ini-bestand in de tabel 195.  
 
 ### <a name="table-195-sections-in-the-customsettingsini-file-for-deployment-by-roles-and-their-purpose"></a>Tabel 195. Secties in het bestand CustomSettings.ini voor implementatie op basis van rollen en hun doel  
@@ -10801,7 +10800,7 @@ ParameterCondition=OR
 
  Zie de sectie "Tabellen en weergaven in de MDT DB", in de MDT-document voor meer informatie over de databaseweergave en tabellen die de implementatie-Workbench beheert *Toolkit verwijzing*.  
 
-###  <a name="ExtendingtheMDTDBSchema"></a>De MDT-DB-Schema uitbreiden  
+###  <a name="ExtendingtheMDTDBSchema"></a> De MDT-DB-Schema uitbreiden  
  Hoewel de MDT-database de meeste van de algemene configuratie-instellingen die u moet in uw implementatie bevat, kunnen er gevallen waarin u moet de gegevens die zijn gekoppeld aan een of meer van de entiteiten in de MDT-database, zoals computers, rollen uitbreiden , locaties, of de merken en modellen.  
 
  Als dit het geval is, moet u het schema uitbreiden voor een of meer van de tabellen en weergaven in de MDT-database. Als u het schema voor de tabellen uitbreidt, moet u mogelijk ook de weergaven die afhankelijk van die tabellen zijn te wijzigen. Uitbreiden van het schema voor de:  
@@ -10826,7 +10825,7 @@ ParameterCondition=OR
 
 6.  Maken van een takenreeksstap die verwijst naar de nieuwe kolom zoals beschreven in [verwijzen naar de nieuwe kolom in een Takenreeksstap](#ReferencetheNewColumninaTaskSequenceStep).  
 
-####  <a name="DeterminetheTablesandViewstoBeModified"></a>Bepalen van de tabellen en weergaven worden gewijzigd  
+####  <a name="DeterminetheTablesandViewstoBeModified"></a> Bepalen van de tabellen en weergaven worden gewijzigd  
  Bepaal de tabellen en weergaven aan de hand van het schema van de tabellen en weergaven in de MDT-database worden gewijzigd. De tabel gewijzigd meest **instellingen**, die geldt voor alle weergaven, zoals de **ComputerSettings** of **LocationSettings**.  
 
 > [!TIP]
@@ -10847,14 +10846,14 @@ ParameterCondition=OR
 
 -   Ophalen van de gegevens via de **LocationSettings** weergeven  
 
-####  <a name="CreateaBackupoftheMDTDB"></a>Maak een back-up van de MDT-DB  
+####  <a name="CreateaBackupoftheMDTDB"></a> Maak een back-up van de MDT-DB  
  Als een best practice een back-up van de MDT-database te maken voordat u wijzigt de tabellen en weergaven in deze. Maak een back-up van het gebruik van de MDT-DB:  
 
 -   **SQL Server Management Studio**. Zie voor meer informatie over het uitvoeren van de databaseback-ups met deze methode "How to: Back Up a Database (SQL Server Management Studio) ' in SQL Server Books Online, opgenomen met SQL Server.  
 
 -   **Bestaande back-upoplossing van SQL Server in uw organisatie**. Raadpleeg de documentatie voor uw back-upoplossing voor meer informatie over het uitvoeren van de databaseback-ups met deze methode of neem contact op met de Databasebeheerder.  
 
-####  <a name="ModifytheTable"></a>De tabel wijzigen  
+####  <a name="ModifytheTable"></a> De tabel wijzigen  
  U wijzigt u de tabel met nieuwe kolommen toe te voegen. U toevoegen nieuwe kolommen aan tabellen in het MDT DB met:  
 
 -   **SQL Server Management Studio**. Zie voor meer informatie over het toevoegen van een kolom met SQL Server Management Studio ' How to: Invoegen van kolommen in tabellen (Visual Database Tools) ' in SQL Server Books Online, opgenomen met SQL Server.  
@@ -10889,7 +10888,7 @@ ParameterCondition=OR
 |**Null-waarden toestaan** |Ja|  
 |**Gegevenstype** |CHAR(20)|  
 
-####  <a name="ModifyandRefreshtheDependentViews"></a>Wijzigen en vernieuwen van de afhankelijke weergaven  
+####  <a name="ModifyandRefreshtheDependentViews"></a> Wijzigen en vernieuwen van de afhankelijke weergaven  
  Nadat de kolom is toegevoegd aan de tabel, wijzigt u de weergaven die u wilt weergeven voor de nieuwe kolom. Normaal gesproken zou u de nieuwe kolom toevoegen met aangepaste weergaven die u hebt gemaakt.  
 
 > [!NOTE]
@@ -10917,7 +10916,7 @@ ParameterCondition=OR
 
  Woodgrove Bank hoeft niet te wijzigen van weergaven, als de **LocationSettings** weergave al retourneert alle kolommen uit de **instellingen** tabel. Echter, Woodgrove Bank uitgevoerd de **sp_refreshview** opgeslagen procedure voor het vernieuwen van de **ComputerSettings**, **LocationSettings**, **MakeModelSettings** , of **RoleSettings** weergaven die verwijzen naar de tabel instellingen. Hiermee wordt de weergaven om te retourneren van de computernaam van de antivirussoftware server, indien nodig.  
 
-####  <a name="ReferencetheNewColumnintheCustomSettings.iniFile"></a>Verwijzing naar de nieuwe kolom die in het bestand CustomSettings.ini  
+####  <a name="ReferencetheNewColumnintheCustomSettings.iniFile"></a> Verwijzing naar de nieuwe kolom die in het bestand CustomSettings.ini  
  Nadat u hebt de kolom wordt toegevoegd aan de tabel en de juiste weergaven gewijzigd, configureert u het CustomSettings.ini-bestand om te verwijzen naar de nieuwe kolom. Om te verwijzen naar de nieuwe kolom die in het bestand CustomSettings.ini, moet u de volgende stappen uitvoeren:  
 
 1.  Voeg een verwijzing naar het gedeelte query op de **prioriteit** in het bestand CustomSettings.ini regel, indien nodig.  
@@ -10954,7 +10953,7 @@ Table=LocationSettings
 Parameters=DefaultGateway  
 ```  
 
-####  <a name="ReferencetheNewColumninaTaskSequenceStep"></a>Verwijzing naar de nieuwe kolom in een Takenreeksstap  
+####  <a name="ReferencetheNewColumninaTaskSequenceStep"></a> Verwijzing naar de nieuwe kolom in een Takenreeksstap  
  Nu dat het CustomSettings.ini-bestand voor de configuratie-instellingen uit de nieuwe kolom wordt gewijzigd, bent u klaar om te verwijzen naar de nieuwe kolom in een takenreeksstap. U verwijzen naar de nieuwe kolom die als een takenreeksvariabele in de takenreeksstap. De variabele heeft dezelfde naam als de kolom. Bijvoorbeeld, als u een kolom genaamd **Zip_Code**, naam van de takenreeksvariabele **Zip_Code**.  
 
  **Voorbeeld: Hoe de Woodgrove Bank verwijst naar de nieuwe kolom in een Takenreeksstap**  
@@ -10963,7 +10962,7 @@ Parameters=DefaultGateway
 
  `avsetup.exe -server %AVSERVER%`  
 
-##  <a name="MonitoringMDTDeployments"></a>Bewaking van de MDT-implementaties  
+##  <a name="MonitoringMDTDeployments"></a> Bewaking van de MDT-implementaties  
  U kunt met behulp van de functie voor toepassingsbewaking wordt ondersteund door de MDT-scripts en de implementatie-Workbench MDT-implementaties kunt bewaken. De functie voor het bewaking van MDT-implementatie kunt u het implementatieproces MDT voor implementaties van LTI, ZTI en UDI weergeven. U kunt het implementatieproces weergeven in de Workbench-implementatie of met behulp van de **Get-MDTMonitorData** cmdlet.  
 
  Bewaken van implementaties van MDT met behulp van de MDT bewakingsfuncties door de volgende stappen uit te voeren:  
@@ -10972,7 +10971,7 @@ Parameters=DefaultGateway
 
 2.  MDT-implementatieproces weergeven, zoals beschreven in [voortgang weergeven MDT-implementatie](#ViewMDTDeploymentProgress).  
 
-###  <a name="EnableMDTDeploymentMonitoring"></a>Inschakelen MDT-implementatie bewaking  
+###  <a name="EnableMDTDeploymentMonitoring"></a> Inschakelen MDT-implementatie bewaking  
  Voordat u MDT implementaties bewaken kunt, moet u de bewaking van de MDT-implementatie inschakelen. Het proces voor het inschakelen van bewaking van de MDT-implementatie is verschillend voor implementaties van LTI en op basis van Configuration Manager-implementaties (inclusief implementaties van ZTI en UDI).  
 
  MDT-implementatie controle door inschakelen:  
@@ -10981,7 +10980,7 @@ Parameters=DefaultGateway
 
 -   Inschakelen van bewaking voor ZTI of UDI implementaties, zoals beschreven in MDT [ZTI inschakelen of UDI implementatie bewaken](#EnablingZTIorUDIDeploymentMonitoring)  
 
-####  <a name="EnablingLTIDeploymentMonitoring"></a>Implementatie van de LTI inschakelen bewaking  
+####  <a name="EnablingLTIDeploymentMonitoring"></a> Implementatie van de LTI inschakelen bewaking  
  Schakel de bewaking van het implementatieproces LTI vóór de implementatie van computers met behulp van LTI. U inschakelen bewaking op de **bewaking** tabblad in het dialoogvenster voor eigenschappen van implementatie-share.  
 
 ###### <a name="to-enable-monitoring-of-the-lti-deployment-process"></a>Bewaking van het implementatieproces LTI wilt inschakelen  
@@ -11002,7 +11001,7 @@ Parameters=DefaultGateway
 
 7.  Sluit alle geopende vensters en dialoogvensters.  
 
-####  <a name="EnablingZTIorUDIDeploymentMonitoring"></a>ZTI of UDI implementatie-controle inschakelen  
+####  <a name="EnablingZTIorUDIDeploymentMonitoring"></a> ZTI of UDI implementatie-controle inschakelen  
  Schakel de bewaking van het implementatieproces bij deze in de Implementatieworkbench vóór de implementatie van computers met ZTI en UDI. U inschakelen bewaking op de **bewaking** tabblad in de implementatieshare **eigenschappen** dialoogvenster net zoals u zou voor implementaties van LTI doen.  
 
  Kopieer vervolgens de **EventService** eigenschappenregel van de in de **regels** tabblad in de implementatieshare **eigenschappen** in het dialoogvenster naar het bestand CustomSettings.ini in de MDT-pakket in bestanden Configuration Manager. Het pakket van de MDT-bestanden op alle distributiepunten bijwerken.  
@@ -11015,7 +11014,7 @@ Parameters=DefaultGateway
 
      Hieronder volgt een voorbeeld van de **EventService** eigenschappenregel:  
 
-     `EventService=http://WDG-MDT-01:9800`  
+     `EventService=https://WDG-MDT-01:9800`  
 
      Voor meer informatie over het aanpassen van de MDT-configuratiebestanden om op te nemen de **EventService** eigenschappenregel, Zie ' stap 3 en 4: Aanpassen van de MDT-configuratiebestanden voor de referentiecomputer'*introductiehandleiding voor Microsoft System Center 2012 R2 Configuration Manager* voor Configuration Manager-omgevingen.  
 
@@ -11023,7 +11022,7 @@ Parameters=DefaultGateway
 
      Voor meer informatie over het bijwerken van de MDT-pakket voor distributiepunten bestanden, Zie ' stap 3-5: De distributiepunten bijwerken voor het pakket bestanden van aangepaste instellingen' *introductiehandleiding voor Microsoft System Center 2012 R2 Configuration Manager* voor Configuration Manager-omgevingen.  
 
-###  <a name="ViewMDTDeploymentProgress"></a>Voortgang van weergeven MDT-implementatie  
+###  <a name="ViewMDTDeploymentProgress"></a> Voortgang van weergeven MDT-implementatie  
  U kunt de voortgang van de MDT-implementatie met behulp van de implementatie-Workbench weergeven of de **Get-MDTMonitorData** cmdlet.  
 
 > [!NOTE]
@@ -11035,7 +11034,7 @@ Parameters=DefaultGateway
 
 2.  Weergave van de MDT deployment voortgang gebruiken de **Get-MDTMonitorData** cmdlet zoals beschreven in [weergeven van de MDT-implementatie uitgevoerd met de Cmdlet Get-MDTMonitorData](#ViewingtheMDTDeploymentProgressUsingtheGetMDTMonitorDataCmdlet).  
 
-####  <a name="ViewingtheMDTDeploymentProgressintheDeploymentWorkbench"></a>De voortgang van de MDT-implementatie bekijken in de Workbench-implementatie  
+####  <a name="ViewingtheMDTDeploymentProgressintheDeploymentWorkbench"></a> De voortgang van de MDT-implementatie bekijken in de Workbench-implementatie  
  Weergeven van het implementatieproces MDT in de **bewaking** knooppunt in de implementatieshare. De voortgang van het implementatieproces LTI wordt weergegeven als een percentage van voltooiing.  
 
 > [!NOTE]
@@ -11069,9 +11068,9 @@ Parameters=DefaultGateway
     |**Computernaam** |De naam van de computer wordt geïmplementeerd.|  
     |**Implementatiestatus** |De huidige status van de computer wordt geïmplementeerd; een van de volgende kan zijn:<br /><br /> -                                      **Met**. Hiermee wordt aangegeven dat de takenreeks in orde en wordt uitgevoerd is.<br /><br /> -                                      **Kan geen**. Hiermee wordt aangegeven dat de takenreeks mislukt, en het implementatieproces mislukt is.<br /><br /> -                                      **Voltooid**. Hiermee wordt aangegeven dat de takenreeks is voltooid.<br /><br /> -                                      **Niet-reagerende**. De takenreeks heeft de status ervan niet bijgewerkt in de afgelopen vier uur en wordt ervan uitgegaan dat niet meer reageert.|  
     |**Stap** |De huidige takenreeksstap wordt uitgevoerd.|  
-    |**Voortgang** |De algemene voortgang van de takenreeks wordt uitgevoerd. De voortgangsbalk geeft aan hoeveel takenreeksstappen van het totale aantal met takenreeksstappen zijn uitgevoerd.|  
+    |**Progress** |De algemene voortgang van de takenreeks wordt uitgevoerd. De voortgangsbalk geeft aan hoeveel takenreeksstappen van het totale aantal met takenreeksstappen zijn uitgevoerd.|  
     |**Start** |Tijd van het implementatieproces gestart.|  
-    |**Einde** |Tijd van de van het implementatieproces is beëindigd.|  
+    |**End** |Tijd van de van het implementatieproces is beëindigd.|  
     |**Verstreken** |Hoe lang het implementatieproces actief is geweest of duurde om uit te voeren als de implementatie is voltooid.|  
     |**Fout** |Het aantal fouten zijn opgetreden tijdens het implementatieproces.|  
     |**Waarschuwingen** |Het aantal waarschuwingen aangetroffen tijdens het implementatieproces.|  
@@ -11085,7 +11084,7 @@ Parameters=DefaultGateway
 
 9. Sluit de Workbench-implementatie  
 
-####  <a name="ViewingtheMDTDeploymentProgressUsingtheGetMDTMonitorDataCmdlet"></a>De voortgang van de MDT-implementatie met de Cmdlet Get-MDTMonitorData weergeven  
+####  <a name="ViewingtheMDTDeploymentProgressUsingtheGetMDTMonitorDataCmdlet"></a> De voortgang van de MDT-implementatie met de Cmdlet Get-MDTMonitorData weergeven  
  U kunt bekijken van de MDT deployment proces met behulp de **Get-MDTMonitorData** cmdlet. Deze cmdlet is opgenomen in de MDT-PowerShell **microsoft.bdd.pssnapin** -module die opgenomen in MDT is. Voor het gebruik van deze cmdlet de bewaking moet zijn ingeschakeld zoals beschreven in [MDT-implementatie bewaking inschakelen](#EnableMDTDeploymentMonitoring).  
 
 ###### <a name="to-view-mdt-deployment-progress-using-the-get-mdtmonitordata-cmdlet"></a>Voortgang van de MDT-implementatie met de cmdlet Get-MDTMonitorData weergeven  
@@ -11150,15 +11149,15 @@ Parameters=DefaultGateway
 
 5.  Sluit de Windows PowerShell-console.  
 
-##  <a name="SupportingWindowsREandDaRT"></a>Ondersteuning van Windows RE en DaRT  
+##  <a name="SupportingWindowsREandDaRT"></a> Ondersteuning van Windows RE en DaRT  
  MDT geïntegreerd met Windows RE en DaRT voor uitgebreide ondersteuning en probleemoplossing van functies. MDT-ondersteuning voor Windows RE en DaRT is als volgt:  
 
 -   LTI ondersteunt Windows RE en DaRT in LTI-installatiekopieën en op de herstelpartitie op de doelcomputer zoals beschreven in [ondersteuning van Windows RE en DaRT in LTI](#SupportingWindowsREandDaRTinLTI).  
 
 -   ZTI en UDI ondersteuning voor DaRT in opstartinstallatiekopieën zoals beschreven in [ondersteunende DaRT in ZTI en UDI opstartinstallatiekopieën](#SupportingDaRTinZTIandUDIBootImages).  
 
-###  <a name="SupportingWindowsREandDaRTinLTI"></a>Ondersteuning van Windows RE en DaRT in LTI  
- MDT biedt ondersteuning voor de mogelijkheid Windows RE partities implementeren op computers. Bovendien, als uw organisatie heeft een licentie voor de [pakket van Microsoft Desktop Optimization](http://www.microsoft.com/windows/enterprise/products-and-technologies/mdop/default.aspx) (MDOP), kunt u DaRT opnemen in de Windows RE-partities.  
+###  <a name="SupportingWindowsREandDaRTinLTI"></a> Ondersteuning van Windows RE en DaRT in LTI  
+ MDT biedt ondersteuning voor de mogelijkheid Windows RE partities implementeren op computers. Bovendien, als uw organisatie heeft een licentie voor de [pakket van Microsoft Desktop Optimization](https://technet.microsoft.com/windows/mdop.aspx) (MDOP), kunt u DaRT opnemen in de Windows RE-partities.  
 
 > [!NOTE]
 >  MDT biedt geen ondersteuning van Windows RE in Windows 7 wanneer u de Windows ADK.  
@@ -11171,7 +11170,7 @@ Parameters=DefaultGateway
 
 3.  De DaRT-configuratie aanpassen wanneer DaRT is geïntegreerd met LTI, zoals beschreven in [aanpassen DaRT wanneer geïntegreerd met LTI](#CustomizeDaRTWhenIntegratedwithLTI).  
 
-####  <a name="EnableWindowsRESupportinLTI"></a>Schakel Windows RE-ondersteuning in LTI  
+####  <a name="EnableWindowsRESupportinLTI"></a> Schakel Windows RE-ondersteuning in LTI  
  Windows RE helpt gebruikers oplossen en het herstellen van problemen met opstarten op hun computers. Wanneer een implementatieshare is bijgewerkt, worden de ISO en WIM-bestanden met de ondersteuning van Windows RE implementatie-Workbench automatisch gegenereerd.  
 
 > [!NOTE]
@@ -11185,8 +11184,8 @@ Parameters=DefaultGateway
 
  De **toevoegen Windows Herstelomgeving** takenreeksstap wordt uitgevoerd als de **PrepareWinRE** eigenschap is ingesteld op een waarde van **Ja**. Voor meer informatie over de **PrepareWinRE** eigenschap, Zie de eigenschap 'PrepareWinRE' in het document MDT *Toolkit verwijzing*.  
 
-####  <a name="EnableDaRTSupportinLTI"></a>DaRT-ondersteuning inschakelen in LTI  
- DaRT is opgenomen als onderdeel van de [pakket van Microsoft Desktop Optimization](http://www.microsoft.com/windows/enterprise/products-and-technologies/mdop/default.aspx), dat wordt geleverd als onderdeel van Microsoft Software Assurance. U kunt DaRT opnemen in de Windows RE-partities.  
+####  <a name="EnableDaRTSupportinLTI"></a> DaRT-ondersteuning inschakelen in LTI  
+ DaRT is opgenomen als onderdeel van de [pakket van Microsoft Desktop Optimization](https://technet.microsoft.com/windows/mdop.aspx), dat wordt geleverd als onderdeel van Microsoft Software Assurance. U kunt DaRT opnemen in de Windows RE-partities.  
 
  Hier volgt een samenvatting van de DaRT-functies:  
 
@@ -11204,7 +11203,7 @@ Parameters=DefaultGateway
 
 -   DaRT versie 8 (gebruikt met Windows 8), zoals beschreven in [DaRT 8-ondersteuning inschakelen in LTI](#EnableDaRT8SupportinLTI)  
 
-#####  <a name="EnableDaRT7SupportinLTI"></a>DaRT 7-ondersteuning inschakelen in LTI  
+#####  <a name="EnableDaRT7SupportinLTI"></a> DaRT 7-ondersteuning inschakelen in LTI  
  DaRT versie 7 is voor gebruik met Windows 7. Zie voor meer informatie over het inschakelen van DaRT versie 8 voor gebruik met Windows 8 [DaRT 8-ondersteuning inschakelen in LTI](#EnableDaRT8SupportinLTI).  
 
 ###### <a name="to-enable-dart-7-support-in-lti"></a>DaRT 7 ondersteuning inschakelen in LTI  
@@ -11244,7 +11243,7 @@ Parameters=DefaultGateway
 
 10. Sluit alle geopende vensters en dialoogvensters.  
 
-#####  <a name="EnableDaRT8SupportinLTI"></a>DaRT 8-ondersteuning inschakelen in LTI  
+#####  <a name="EnableDaRT8SupportinLTI"></a> DaRT 8-ondersteuning inschakelen in LTI  
  DaRT versie 8 is voor gebruik met Windows 8. Zie voor meer informatie over het inschakelen van DaRT 7 voor gebruik met Windows 7 [DaRT 7-ondersteuning inschakelen in LTI](#EnableDaRT7SupportinLTI).  
 
 ###### <a name="to-enable-dart-8-support-in-lti"></a>DaRT-8-ondersteuning in LTI inschakelen  
@@ -11294,7 +11293,7 @@ Parameters=DefaultGateway
 
 11. Sluit alle geopende vensters en dialoogvensters.  
 
-####  <a name="CustomizeDaRTWhenIntegratedwithLTI"></a>DaRT indien geïntegreerd met LTI aanpassen  
+####  <a name="CustomizeDaRTWhenIntegratedwithLTI"></a> DaRT indien geïntegreerd met LTI aanpassen  
  U kunt aanpassen DaRT en vervolgens de aanpassingen opslaat in LTI, zodat de geïmplementeerde partities met DaRT consistent worden geconfigureerd. U kunt dit doen door een nieuwe DaRT herstel installatiekopie met de configuratie-instellingen die u wenst te maken en vervolgens kopiëren van het bestand DartConfig.dat van de installatiekopie van het meest recent geconfigureerde DaRT herstel naar een share LTI-implementatie.  
 
 ###### <a name="to-customize-dart-when-integrated-with-lti"></a>DaRT indien geïntegreerd met LTI aanpassen  
@@ -11307,7 +11306,7 @@ Parameters=DefaultGateway
 
      Voor meer informatie over het maken van een nieuwe installatiekopie voor het herstel van DaRT voor:  
 
-    -   DaRT-7, Zie [het testen van diagnostische gegevens & Recovery Toolkit (DaRT 7) herstel installatiekopie – deel I & maken](http://blogs.technet.com/b/aviraj/archive/2011/10/01/how-to-create-amp-test-diagnostics-amp-recovery-toolkit-dart-7-recovery-image-part-i.aspx).  
+    -   DaRT-7, Zie [het testen van diagnostische gegevens & Recovery Toolkit (DaRT 7) herstel installatiekopie – deel I & maken](https://blogs.technet.microsoft.com/aviraj/2011/10/01/how-to-create-test-diagnostics-recovery-toolkit-dart-7-recovery-imagepart-i/).  
 
     -   DaRT-8, Zie de sectie 'Maakt de DaRT 8 herstel installatiekopie,' in de *Microsoft Diagnostics and Recovery Toolset Administrator's Guide*, die deel uitmaakt van DaRT 8.  
 
@@ -11319,7 +11318,7 @@ Parameters=DefaultGateway
 
      Zie voor meer informatie over het bijwerken van een implementatieshare [Update Deployment Share in de Implementatieworkbench](#UpdateaDeploymentShareintheDeploymentWorkbench).  
 
-###  <a name="SupportingDaRTinZTIandUDIBootImages"></a>Ondersteunende DaRT in ZTI en UDI opstartinstallatiekopieën  
+###  <a name="SupportingDaRTinZTIandUDIBootImages"></a> Ondersteunende DaRT in ZTI en UDI opstartinstallatiekopieën  
  MDT ondersteunt DaRT versie 7 (voor Windows 7) en DaRT versie 8 (voor Windows 8) in ZTI en UDI installatiekopieën. Deze ondersteuning wordt DaRT functies beschikbaar wanneer de opstartinstallatiekopieën ZTI of UDI worden uitgevoerd op de doelcomputers.  
 
  Nadat een opstartinstallatiekopie ZTI of UDI is ingeschakeld voor DaRT, de **gebruik Toolkit pakket** takenreeksstap herkent dat de beheer op afstand DaRT bestanden aanwezig zijn en wordt automatisch de DaRT-agent voor beheer op afstand gestart. De agent DaRT-beheer op afstand biedt beheer op afstand van de doelcomputer tijdens de implementatie, waardoor problemen met implementatie oplossen.  
@@ -11330,7 +11329,7 @@ Parameters=DefaultGateway
 
 -   DaRT versie 8 (gebruikt met Windows 8), zoals beschreven in [DaRT 8-ondersteuning inschakelen in ZTI en UDI opstartinstallatiekopieën](#EnableDaRT8SupportinZTIandUDIBootImages).  
 
-####  <a name="EnableDaRT7SupportinZTIandUDIBootImages"></a>DaRT 7-ondersteuning inschakelen in ZTI en UDI opstartinstallatiekopieën  
+####  <a name="EnableDaRT7SupportinZTIandUDIBootImages"></a> DaRT 7-ondersteuning inschakelen in ZTI en UDI opstartinstallatiekopieën  
  DaRT versie 7 is voor gebruik met Windows 7. Zie voor meer informatie over het inschakelen van DaRT versie 8 voor gebruik met Windows 8 [DaRT 8-ondersteuning inschakelen in ZTI en UDI opstartinstallatiekopieën](#EnableDaRT8SupportinZTIandUDIBootImages).  
 
 ###### <a name="to-enable-dart-7-support-in-zti-and-udi-boot-images"></a>DaRT 7 ondersteuning inschakelen in ZTI en UDI opstartinstallatiekopieën  
@@ -11357,7 +11356,7 @@ Parameters=DefaultGateway
 
 5.  Sluit alle geopende vensters en dialoogvensters.  
 
-####  <a name="EnableDaRT8SupportinZTIandUDIBootImages"></a>DaRT 8-ondersteuning inschakelen in ZTI en UDI opstartinstallatiekopieën  
+####  <a name="EnableDaRT8SupportinZTIandUDIBootImages"></a> DaRT 8-ondersteuning inschakelen in ZTI en UDI opstartinstallatiekopieën  
  DaRT versie 8 is voor gebruik met Windows 8. Zie voor meer informatie over het inschakelen van DaRT 7 voor gebruik met Windows 7 [DaRT 7-ondersteuning inschakelen in ZTI en UDI opstartinstallatiekopieën](#EnableDaRT7SupportinZTIandUDIBootImages).  
 
  U inschakelen op basis van het besturingssysteem op de computer waarop u MDT geïnstalleerd DaRT-ondersteuning. DaRT 8 kan alleen worden geïnstalleerd op Windows 8. Als u MDT op een computer met installeren:  
@@ -11366,7 +11365,7 @@ Parameters=DefaultGateway
 
 -   Besturingssystemen voorafgaand aan Windows 8, vervolgens een netwerkinstallatie uitvoeren op een computer met Windows 8 en kopieer de bestanden Toolsx86.cab en Toolsx64.cab aan de computer met MDT, zoals beschreven in [DaRT 8-ondersteuning inschakelen in ZTI en UDI Installatiekopieën van besturingssystemen voorafgaand aan Windows 8](#EnableDaRT8SupportinZTIandUDIBootImagesforOperatingSystemsPriortoWindows8).  
 
-#####  <a name="EnableDaRT8SupportinZTIandUDIBootImagesforWindows8OperatingSystems"></a>DaRT 8-ondersteuning inschakelen in ZTI en UDI installatiekopieën voor Windows 8-besturingssystemen  
+#####  <a name="EnableDaRT8SupportinZTIandUDIBootImagesforWindows8OperatingSystems"></a> DaRT 8-ondersteuning inschakelen in ZTI en UDI installatiekopieën voor Windows 8-besturingssystemen  
  DaRT-8-ondersteuning in ZTI en UDI installatiekopieën voor Windows 8-besturingssystemen in te schakelen, vereist de installatie van DaRT 8 op de computer waarop u MDT hebt geïnstalleerd. Nadat DaRT 8 is geïnstalleerd, de implementatie-Workbench in MDT automatisch de benodigde DaRT-8-bestanden gekopieerd naar de juiste locaties.  
 
 ###### <a name="to-enable-dart-8-support-in-zti-and-udi-boot-images-for-windows-8-operating-systems"></a>Als u wilt DaRT-8-ondersteuning inschakelen opstartinstallatiekopieën in ZTI en UDI voor Windows 8-besturingssystemen  
@@ -11393,7 +11392,7 @@ Parameters=DefaultGateway
 
 4.  Sluit alle geopende vensters en dialoogvensters.  
 
-#####  <a name="EnableDaRT8SupportinZTIandUDIBootImagesforOperatingSystemsPriortoWindows8"></a>DaRT 8-ondersteuning inschakelen in ZTI en UDI opstartinstallatiekopieën voor oudere besturingssystemen dan Windows 8  
+#####  <a name="EnableDaRT8SupportinZTIandUDIBootImagesforOperatingSystemsPriortoWindows8"></a> DaRT 8-ondersteuning inschakelen in ZTI en UDI opstartinstallatiekopieën voor oudere besturingssystemen dan Windows 8  
  DaRT-8 inschakelen vereist ondersteuning in ZTI en UDI installatiekopieën van besturingssystemen voorafgaand aan Windows 8 een netwerkinstallatie van DaRT 8 op een computer met een besturingssysteem vóór Windows 8. Nadat DaRT 8 is geïnstalleerd, moet u de DaRT-8-bestanden handmatig kopiëren naar de juiste locatie op de computer met MDT.  
 
 ###### <a name="to-enable-dart-8-support-in-zti-and-udi-boot-images-for-operating-systems-prior-to-windows-8"></a>Als u wilt DaRT-8-ondersteuning inschakelen opstartinstallatiekopieën in ZTI en UDI voor oudere besturingssystemen dan Windows 8  
@@ -11426,7 +11425,7 @@ Parameters=DefaultGateway
 
 5.  Sluit alle geopende vensters en dialoogvensters.  
 
-##  <a name="PreparingtheMDTMigrationResources"></a>De MDT-bronnen voor migratie voorbereiden  
+##  <a name="PreparingtheMDTMigrationResources"></a> De MDT-bronnen voor migratie voorbereiden  
  Tijdens de implementatie van de doelcomputers is implementatiescripts verbinding maken met de implementatieshares en gedeelde mappen. Accounts maken voor de scripts worden gebruikt bij het openen van deze resources.  
 
  Bereid de MDT migratie bronnen door:  
@@ -11437,7 +11436,7 @@ Parameters=DefaultGateway
 
 -   Configureren van toegang tot andere resources, zoals beschreven in [toegang tot andere Resources configureren](#ConfiguringAccesstoOtherResources)  
 
-###  <a name="CreatingAdditionalSharedFolders"></a>Maken van extra gedeelde mappen  
+###  <a name="CreatingAdditionalSharedFolders"></a> Maken van extra gedeelde mappen  
  Voordat u de implementatie start, extra gedeelde mappen in om op te slaan migratiegegevens van de gebruiker en de implementatielogboeken van de te maken. Tabel 198 geeft een lijst van de gedeelde mappen die moeten worden gemaakt en wordt het doel van elke beschreven.  
 
 ### <a name="table-198-shared-folders-and-their-descriptions"></a>Tabel 198. Gedeelde mappen en de bijbehorende beschrijvingen  
@@ -11450,7 +11449,7 @@ Parameters=DefaultGateway
 > [!NOTE]
 >  De bestanden in de tabel 198 aanbevolen namen van de gedeelde map. Gebruik een naam voor deze gedeelde mappen. Echter, de rest van het implementatieproces verwijst naar deze gedeelde mappen met deze naam.  
 
-###  <a name="ConfiguringSharedFolderPermissions"></a>Gedeelde mapmachtigingen configureren  
+###  <a name="ConfiguringSharedFolderPermissions"></a> Gedeelde mapmachtigingen configureren  
  Na het maken van extra gedeelde mappen die worden vermeld in de tabel 198 door de juiste gedeelde mapmachtigingen te configureren. Zorg ervoor dat onbevoegde gebruikers geen toegang tot statusmigratiegegevens van gebruiker en de implementatielogboeken van de. Alleen de doelcomputer maken van de gebruiker statusmigratie-informatie en de implementatielogboeken van de moet toegang hebben tot deze mappen.  
 
 ##### <a name="to-configure-the-shared-folder-permissions-for-the-folders-listed-in-table-198"></a>Machtigingen voor de gedeelde map voor de mappen die worden vermeld in de tabel 198 configureren  
@@ -11489,7 +11488,7 @@ Parameters=DefaultGateway
 
 -   Implementaties van ZTI door te vervangen door **geverifieerde gebruikers** in de bovenstaande stappen met een account voor netwerktoegang in Configuration Manager  
 
-###  <a name="ConfiguringAccesstoOtherResources"></a>Toegang tot andere Resources configureren  
+###  <a name="ConfiguringAccesstoOtherResources"></a> Toegang tot andere Resources configureren  
  Naast de gedeelde mappen zojuist hebt gemaakt, mogelijk de MDT-scripts toegang tot andere resources. De resources omvatten toepassing of database-servers (zoals Microsoft SQL Server of Microsoft Exchange Server).  
 
  Toegang te krijgen tot de referenties die zijn opgegeven de:  
@@ -11514,7 +11513,7 @@ Parameters=DefaultGateway
     > [!NOTE]
     >  Andere verbindingen met de dezelfde servers, zoals Named Pipes en RPC, gebruiken dezelfde referenties die hierboven worden genoemd. Het script ZTIConnect.wsf gebruiken deze verbindingen tot stand gebracht.  
 
-##  <a name="PreparingWindowsDeploymentServices"></a>Voorbereiden van Windows Deployment Services  
+##  <a name="PreparingWindowsDeploymentServices"></a> Voorbereiden van Windows Deployment Services  
  U kunt Windows Deployment Services gebruiken in combinatie met MDT automatisch opstartinstallatiekopieën op de doelcomputers te starten. Deze installatiekopieën zijn op Windows PE-installatiekopieën en aangepaste installatiekopieën die besturingssystemen rechtstreeks op de doelcomputers implementeren kunnen.  
 
  Windows Deployment Services voor gebruik met MDT door voorbereiden:  
@@ -11525,7 +11524,7 @@ Parameters=DefaultGateway
 
 -   Voorbereiden van Windows Deployment Services voor gebruik in UDI implementaties, zoals beschreven in [Windows Deployment Services voor implementaties van UDI voorbereiden](#PreparingWindowsDeploymentServicesforUDIDeployments)  
 
-###  <a name="PreparingWindowsDeploymentServicesforLTIDeployments"></a>Windows Deployment Services voor implementaties van LTI voorbereiden  
+###  <a name="PreparingWindowsDeploymentServicesforLTIDeployments"></a> Windows Deployment Services voor implementaties van LTI voorbereiden  
  U kunt Windows Deployment Services gebruiken in implementaties van LTI in de volgende manieren:  
 
 -   **Windows PE gestart op de doelcomputers**. Het begin van het implementatiescenario voor de nieuwe Computer en de tweede helft van het implementatiescenario vervangen Computer start zowel de doelcomputer in Windows PE. Voor deze scenario's, kunt u vanaf Windows PE met Windows Deployment Services automatiseren.  
@@ -11534,11 +11533,9 @@ Parameters=DefaultGateway
 
  Zie voor meer informatie over het instellen en configureren van Windows Deployment Services:  
 
--   [Windows Deployment Services](http://technet.microsoft.com/library/hh831764.aspx)  
+-   [Windows Deployment Services](https://technet.microsoft.com/library/hh831764.aspx)  
 
 -   De Help van Windows Deployment Services-bestand, die wordt opgenomen in Windows Deployment Services  
-
--   Het witboek [stapsgewijze handleiding voor Windows Deployment Services](http://www.microsoft.com/download/details.aspx?displaylang=en&id=17556)  
 
  Windows Deployment Services voor implementaties van LTI door voorbereiden:  
 
@@ -11548,7 +11545,7 @@ Parameters=DefaultGateway
 
 -   Inschakelen van Windows Deployment Services-multicast-implementaties van installatiekopieën van Windows Deployment Services voor implementaties van LTI, zoals beschreven in [Windows Deployment Services Multicast implementatie inschakelen voor implementaties van LTI](#EnableWindowsDeploymentServicesMulticastDeploymentforLTIDeployments)  
 
-####  <a name="AddLTIBootImagestoWindowsDeploymentServices"></a>LTI-opstartinstallatiekopieën toevoegen aan Windows Deployment Services  
+####  <a name="AddLTIBootImagestoWindowsDeploymentServices"></a> LTI-opstartinstallatiekopieën toevoegen aan Windows Deployment Services  
  U kunt de LTI opstarten WIM bestanden in de map opstarten van een implementatieshare toevoegen aan Windows Deployment Services. Hierdoor kunnen de Windows Deployment Services automatisch LTI de implementatie te starten door op te starten LTI opstartinstallatiekopieën.  
 
 > [!NOTE]
@@ -11560,9 +11557,9 @@ Parameters=DefaultGateway
 
 -   'Een afbeelding toevoegen' in de Windows Deployment Services Help, die is opgenomen in Windows Deployment Services  
 
--   [Windows Deployment Services Getting Started Guide](http://technet.microsoft.com/library/jj648426.aspx)  
+-   [Windows Deployment Services Getting Started Guide](https://technet.microsoft.com/library/jj648426.aspx)  
 
-####  <a name="PrestageTargetComputersforWindowsDeploymentServicesforLTIDeployments"></a>Vooraf opzet doelcomputers voor Windows Deployment Services voor implementaties van LTI  
+####  <a name="PrestageTargetComputersforWindowsDeploymentServicesforLTIDeployments"></a> Vooraf opzet doelcomputers voor Windows Deployment Services voor implementaties van LTI  
  U kunt vooraf opzet PXE-clientcomputers in AD DS-domeinen. Wanneer doelcomputers vooraf geplaatste zijn, de computeraccounts bestaan in AD DS-domeinen (ook wel *bekende computers*). Doelcomputers die worden niet vooraf geplaatste hoeft geen computeraccounts in AD DS-domeinen (ook wel onbekende computers genoemd).  
 
 > [!NOTE]
@@ -11583,9 +11580,6 @@ Parameters=DefaultGateway
 
 4.  In de **beheerde** selecteert u de **dit is een beheerde computer** selectievakje. In de **unieke ID van de Computer (GUID/UUID)** in het vak ***guid_uuid*** (waarbij *guid_uuid* is de GUID/UUID van de computer), en klik vervolgens op **volgende**.  
 
-    > [!NOTE]
-    >  Zie het document Microsoft TechNet voor meer informatie over de locatie van de GUID voor doelcomputers [de GUID van clientcomputers opzoeken](http://technet.microsoft.com/library/cc739558.aspx).  
-
 5.  In de **hostserver** in het dialoogvenster Selecteer een van de volgende opties en klik vervolgens op **volgende**:  
 
     -   **Een beschikbare installatie van de externe server**. Deze optie geeft aan dat deze computer kan worden uitgevoerd door een willekeurige Windows Deployment Services-server.  
@@ -11596,7 +11590,7 @@ Parameters=DefaultGateway
 
 7.  Sluit alle geopende vensters.  
 
-####  <a name="EnableWindowsDeploymentServicesMulticastDeploymentforLTIDeployments"></a>Windows Deployment Services multicast-implementatie voor implementaties van LTI inschakelen  
+####  <a name="EnableWindowsDeploymentServicesMulticastDeploymentforLTIDeployments"></a> Windows Deployment Services multicast-implementatie voor implementaties van LTI inschakelen  
  Multicast-implementaties van LTI besturingssystemen met Windows Deployment Services kan meerdere computers voor het ontvangen van één exemplaar van een installatiekopie, die de hoeveelheid netwerkverkeer vereist reduceert wanneer u meerdere computers moeten dezelfde installatiekopie van een ontvangen. Ondersteuning voor multicasting is standaard uitgeschakeld in MDT.  
 
  Voor implementaties van LTI maakt de implementatie-Workbench een multicast-naamruimte voor de implementatieshare. De afbeeldingen worden overgebracht naar de doelcomputers met multicast van de implementatieshare, niet vanuit een Windows Deployment Services-share.  
@@ -11622,7 +11616,7 @@ Parameters=DefaultGateway
 > [!NOTE]
 >  U kunt deze scenario's niet gebruiken om toe te staan van multicast voor installatiekopieën, zoals de multicast-client niet geladen totdat is nadat Windows PE wordt uitgevoerd. Multicast LTI alleen gebruikt om de overdracht besturingssysteem WIM-bestanden.  
 
-#####  <a name="EnableMulticastDeploymentswithMDTInstalledontheSameComputerasWindowsDeploymentServices"></a>Multicast-implementaties met MDT is geïnstalleerd op dezelfde Computer als de Windows Deployment Services inschakelen  
+#####  <a name="EnableMulticastDeploymentswithMDTInstalledontheSameComputerasWindowsDeploymentServices"></a> Multicast-implementaties met MDT is geïnstalleerd op dezelfde Computer als de Windows Deployment Services inschakelen  
  In dit scenario is MDT geïnstalleerd op een computer met Windows Server met de Windows Deployment Services-serverfunctie. In dit scenario kan MDT automatisch Windows Deployment Services ter ondersteuning van multicast-implementaties configureren.  
 
 ###### <a name="to-enable-multicast-deployments-with-mdt-installed-on-the-same-computer-as-windows-deployment-services"></a>Multicast-implementaties met MDT is geïnstalleerd op dezelfde computer als de Windows Deployment Services inschakelen  
@@ -11650,7 +11644,7 @@ Parameters=DefaultGateway
 
  Wanneer voltooid, maakt de implementatie-Workbench een automatische conversie Windows Deployment Services-multicast-overdracht van de implementatieshare.  
 
-#####  <a name="EnableMulticastDeploymentswithMDTInstalledonaDifferentComputerfromWindowsDeploymentServices"></a>Multicast-implementaties met MDT is geïnstalleerd op een andere Computer dan de Windows Deployment Services inschakelen  
+#####  <a name="EnableMulticastDeploymentswithMDTInstalledonaDifferentComputerfromWindowsDeploymentServices"></a> Multicast-implementaties met MDT is geïnstalleerd op een andere Computer dan de Windows Deployment Services inschakelen  
  In dit scenario worden alle Windows Deployment Services en Windows Server geïnstalleerd op de computer die fungeert als de implementatieserver, maar MDT is geïnstalleerd op een andere computer. In deze configuratie op afstand uitvoert de **WDSUTIL** opdracht op de computer met Windows Deployment Services en Windows Server.  
 
 ###### <a name="to-enable-multicast-deployments-with-mdt-installed-on-a-different-computer-than-windows-deployment-services"></a>Multicast-implementaties met MDT is geïnstalleerd op een andere computer dan de Windows Deployment Services inschakelen  
@@ -11669,7 +11663,7 @@ Parameters=DefaultGateway
 
  Wanneer voltooid, maakt het hulpprogramma WDSUTIL een automatische conversie Windows Deployment Services-multicast-overdracht van de implementatieshare.  
 
-###  <a name="PreparingWindowsDeploymentServicesforZTIDeploymentsUsingConfigurationManager"></a>Windows Deployment Services voor implementaties van ZTI met Configuration Manager voorbereiden  
+###  <a name="PreparingWindowsDeploymentServicesforZTIDeploymentsUsingConfigurationManager"></a> Windows Deployment Services voor implementaties van ZTI met Configuration Manager voorbereiden  
  Voor implementaties van ZTI met Configuration Manager, configureert u een Configuration Manager PXE-servicepunt op de computer waarop Windows Deployment Services is geïnstalleerd. Hierdoor kunnen de Configuration Manager op rechtstreeks service PXE-opstartaanvragen door Windows Deployment Services ontvangen als een PXE-servicepunt, waarmee op zijn beurt doelcomputers aan opstartinstallatiekopieën die Configuration Manager worden beheerd met behulp van PXE. Het PXE-servicepunt is een functie van de site distributiepuntrol, wat betekent dat u de computer met Windows Deployment Services als een sitesysteemrol van distributiepunt configureert.  
 
  Zie voor meer informatie over het voorbereiden van Windows Deployment Services voor implementaties van ZTI met Configuration Manager:  
@@ -11681,5 +11675,5 @@ Parameters=DefaultGateway
 > [!NOTE]
 >  Naast de methoden die hier wordt beschreven, kunt u traditionele methoden voor Windows Deployment Services voor het reageren op PXE-opstartaanvragen. Zie de Help van Windows Deployment Services-bestand is opgenomen in Windows Deployment Services voor meer informatie.  
 
-###  <a name="PreparingWindowsDeploymentServicesforUDIDeployments"></a>Windows Deployment Services voor implementaties van UDI voorbereiden  
+###  <a name="PreparingWindowsDeploymentServicesforUDIDeployments"></a> Windows Deployment Services voor implementaties van UDI voorbereiden  
  Windows Deployment Services voor implementaties van UDI hetzelfde proces gebruiken voor implementaties van ZTI zoals beschreven in het voorbereiden van Windows Deployment Services voor ZTI implementaties met Configuration Manager voorbereiden.
