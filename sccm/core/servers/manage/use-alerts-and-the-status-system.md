@@ -24,7 +24,7 @@ ms.lasthandoff: 02/20/2018
 ---
 # <a name="use-alerts-and-the-status-system-for-system-center-configuration-manager"></a>Waarschuwingen en het statussysteem voor System Center Configuration Manager gebruiken
 
-Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 Waarschuwingen configureren en gebruiken van het ingebouwde statussysteem om te blijven over de status van uw implementatie van System Center Configuration Manager op de hoogte.  
 
