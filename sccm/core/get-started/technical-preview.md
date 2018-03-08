@@ -16,15 +16,15 @@ caps.latest.revision:
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 4f16216bd1bbb662cc8d532664ccd593f94d3898
-ms.sourcegitcommit: e15516983883a4dd002c4bdd114147b04b811021
+ms.openlocfilehash: 1cb4d775985839ea7c4fb1b48a04ab0be64f5d8c
+ms.sourcegitcommit: 32bbc006a41868a6d9a708db5f7b372d9c71d985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="technical-preview-for-system-center-configuration-manager"></a>Technical Preview voor System Center Configuration Manager
 
-Van toepassing op: System Center Configuration Manager (Technical Preview)*
+*Van toepassing op: System Center Configuration Manager (Technical Preview)*
 
 **Welkom bij de System Center Configuration Manager Technical Preview**. In dit artikel bevat informatie over de zich ontwikkelende preview-versie die introduceert nieuwe functionaliteit en mogelijkheden bieden die we aan werken. Elke versie van de technical preview introduceert nieuwe functies die niet zijn opgenomen in de huidige vertakking van Configuration Manager op het moment dat de technische preview-versie beschikbaar wordt gesteld. Deze functies worden uiteindelijk misschien opgenomen in een update van de huidige release, maar voordat we de functies voltooien en toevoegen, willen we u de mogelijkheid bieden ze uit te proberen en ons feedback te geven.  
 
@@ -131,7 +131,7 @@ Hieronder vindt u de mogelijkheden die in de meest recente Configuration Manager
 - [Goedkeuren van aanvragen van toepassingen voor gebruikers per apparaat](capabilities-in-technical-preview-1802.md#approve-application-requests-for-users-per-device) <!-- 1357015 --> 
 - [Software Center gebruiken om te zoeken en installeren van de gebruiker beschikbare toepassingen op Azure AD-die lid zijn van apparaten](capabilities-in-technical-preview-1802.md#use-software-center-to-browse-and-install-user-available-applications-on-azure-ad-joined-devices) <!-- 1322613 --> 
 - [Rapport over Windows Automatische piloot apparaatgegevens](capabilities-in-technical-preview-1802.md#report-on-windows-autopilot-device-information) <!-- 1351442 --> 
-- [Verbeteringen in Configuration Manager-beleid voor Windows-apparaat misbruiken Guard](capabilities-in-technical-preview-1802.md#improvements-to-configuration-manager-policies-for-windows-device-exploit-guard) <!-- 1356220 -->
+- [Verbeteringen in Configuration Manager-beleid voor Windows Defender misbruiken Guard](capabilities-in-technical-preview-1802.md#improvements-to-configuration-manager-policies-for-windows-defender-exploit-guard) <!-- 1356220 -->
 - [Microsoft Edge-browser-beleid](capabilities-in-technical-preview-1802.md#microsoft-edge-browser-policies) <!-- 1357310 -->
 - [Rapport voor standaard browser aantallen](capabilities-in-technical-preview-1802.md#report-for-default-browser-counts) <!-- 1357830 --> 
 - [Ondersteuning voor Windows 10 ARM64 apparaten](capabilities-in-technical-preview-1802.md#support-for-windows-10-arm64-devices) <!-- 1353704 --> 
@@ -156,7 +156,7 @@ Then remove the bottom of this list and/or move individual items not in CB to th
  |Verbeteringen in de hardware-inventaris <!-- 1357389 --> | [Tech Preview 1801](capabilities-in-technical-preview-1801.md#improvements-to-hardware-inventory)  |![Niet toegevoegd](media/Red_X.gif)    |
  |Verbeteringen in de clientinstellingen voor Software Center <!-- 1355146 --> | [Tech Preview 1801](capabilities-in-technical-preview-1801.md#improvements-to-client-settings-for-software-center)  |![Niet toegevoegd](media/Red_X.gif)    |
  |Nieuwe instellingen voor Windows Defender toepassing Guard <!-- 1356256 --> | [Tech Preview 1801](capabilities-in-technical-preview-1801.md#new-settings-for-windows-defender-application-guard)  |![Niet toegevoegd](media/Red_X.gif)    |
- |<!-- 1236459 -->Verbeteringen aan het uitvoeren van Scripts  | [Tech Preview 1801](capabilities-in-technical-preview-1801.md#improvements-to-run-scripts)  |![Niet toegevoegd](media/Red_X.gif)    |
+ |Verbeteringen aan het uitvoeren van Scripts <!-- 1236459 --> | [Tech Preview 1801](capabilities-in-technical-preview-1801.md#improvements-to-run-scripts)  |![Niet toegevoegd](media/Red_X.gif)    |
  |Vervangen van toepassingen niet automatisch bijgewerkt <!-- 1351266 --> | [Tech Preview 1712](capabilities-in-technical-preview-1712.md#do-not-automatically-upgrade-superseded-applications)  |![Niet toegevoegd](media/Red_X.gif)    | 
  |Meerdere toepassingen in Software Center installeren <!-- 1357126 --> | [Tech Preview 1712](capabilities-in-technical-preview-1712.md#install-multiple-applications-in-software-center)  |![Niet toegevoegd](media/Red_X.gif)    |
  |PXE-responder-service op basis van client <!-- 1357148 --> | [Tech Preview 1712](capabilities-in-technical-preview-1712.md#client-based-pxe-responder-service)  |![Niet toegevoegd](media/Red_X.gif)    |
