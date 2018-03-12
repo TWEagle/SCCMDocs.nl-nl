@@ -7,19 +7,20 @@ ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-client
+ms.technology:
+- configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2c8f57cf-1968-48de-87fb-4897432ed6e0
-caps.latest.revision: "23"
+caps.latest.revision: 
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: 1abd791817af5b59e850cec4d529f57d9e541674
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 2df5127f3eb5049d1a4277fd25ce04c6de05999d
+ms.sourcegitcommit: b653342fb5d69a16e71b3548a7e9a2e47e54bf88
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-monitor-clients-in-system-center-configuration-manager"></a>Clients controleren in System Center Configuration Manager
 
@@ -31,7 +32,7 @@ ms.lasthandoff: 10/12/2017
 ##  <a name="bkmk_about"></a> Over de clientstatus  
  Configuration Manager biedt de volgende soorten informatie als clientstatus:  
 
--   **Online clientstatus** -vanaf versie 1602 van Configuration Manager kan deze status geeft aan of de computer al dan niet online is. Een computer wordt als online beschouwd als de computer is verbonden met het beheerpunt dat eraan is toegewezen.  Om aan te geven dat de client online is, verzendt deze ping-achtige berichten naar het beheerpunt. Als het beheerpunt na ongeveer 5 minuten geen bericht heeft ontvangen, wordt de client als offline beschouwd.  
+-   **Online clientstatus** -vanaf versie 1602 van Configuration Manager kan deze status geeft aan of de computer al dan niet online is. Een computer wordt beschouwd als online als deze is verbonden met de bijbehorende toegewezen beheerpunt.  Om aan te geven dat de client online is, verzendt deze ping-achtige berichten naar het beheerpunt. Als het beheerpunt na ongeveer 5 minuten geen bericht heeft ontvangen, wordt de client als offline beschouwd.  
 
 -   **Clientactiviteit** -deze status geeft aan of de client heeft gehad actief met Configuration Manager gedurende de afgelopen 7 dagen. Als de client de afgelopen 7 dagen geen beleidsupdate heeft aangevraagd of heartbeat-bericht of hardware-inventaris heeft verzonden, wordt de client als inactief beschouwd.  
 

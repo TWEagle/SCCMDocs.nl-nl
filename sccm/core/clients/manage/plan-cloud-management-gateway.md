@@ -2,18 +2,19 @@
 title: Plan voor de cloud-management-gateway
 titleSuffix: Configuration Manager
 description: 
-ms.date: 10/06/2017
+ms.date: 03/08/2018
 ms.prod: configuration-manager
-ms.technology: configmgr-client
+ms.technology:
+- configmgr-client
 ms.assetid: 2dc8c9f1-4176-4e35-9794-f44b15f4e55f
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: b1063826841c37973e26954e164d867649c3fb9f
-ms.sourcegitcommit: c4a1bafcd004638d264a93d307c70d8b6f7fe023
+ms.openlocfilehash: 051d3fcba379aec83ea7c4dc1e407b3d3e774e12
+ms.sourcegitcommit: b653342fb5d69a16e71b3548a7e9a2e47e54bf88
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="plan-for-the-cloud-management-gateway-in-configuration-manager"></a>Plan voor de cloudgateway management in Configuration Manager
 
@@ -30,7 +31,7 @@ Clientcertificaten en Secure Socket Layer (SSL)-certificaten zijn vereist voor h
 
 ## <a name="requirements-for-cloud-management-gateway"></a>Vereisten voor cloud-management-gateway
 
--   Clientcomputers en de sitesysteemserver die het cloud-gateway connector beheerpunt uitgevoerd.
+-    Sitesysteem met de cloud management gateway-connector voor clients op Internet te gebruiken.
 
 -   Aangepaste SSL-certificaten van de interne CA - gebruikt voor het versleutelen van communicatie van de clientcomputers en de identiteit van de cloud management gateway-service verifiëren.
 
@@ -175,7 +176,7 @@ Alle gepubliceerde externe URL's worden geüpload naar de CMG automatisch CMG ku
 |-|-|-|-|
 |Gegevensstroom|Server|Server-poorten|Client|
 |CMG-implementatie|Azure|443|Serviceverbindingspunt Configuration Manager|
-|CMG kanaal maken|CMG|VM-instantie: 1-poort: 443<br>VM-instantie: N (N > = 2 en N < = 16) poorten: 10124 ~ N 10140 ~ N|CMG verbindingspunt|
+|CMG kanaal maken|CMG|VM-instantie: 1-poort: 443<br>VM-instantie: N (N > = 2 en N < = 16) poorten: 10124~N 10140~N|CMG verbindingspunt|
 |Client CMG|CMG|443|Client|
 |CMG connector siterol (momenteel beheerpunten en software-updatepunten)|Siterol|Protocol/poorten zijn geconfigureerd op de siterol|Verbindingspunt CMG|
 

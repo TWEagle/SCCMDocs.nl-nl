@@ -3,23 +3,24 @@ title: Welke vertakking moet ik gebruiken
 titleSuffix: Configuration Manager
 description: Meer informatie over de verschillen tussen de beschikbare vertakkingen van System Center Configuration Manager.
 ms.custom: na
-ms.date: 05/02/2017
+ms.date: 03/08/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a3be4f8f-3d44-4e3c-9fa1-e85f30a36e72
-caps.latest.revision: "0"
+caps.latest.revision: 
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 9985ff5db4357b6b18de1ef58de40bc631d6cc6b
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+ms.openlocfilehash: d762cf5e6932e17d8dfb0dd6c442c452028b5228
+ms.sourcegitcommit: b653342fb5d69a16e71b3548a7e9a2e47e54bf88
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="which-branch-of-configuration-manager-should-i-use"></a>Welke vertakking van Configuration Manager moet ik gebruiken?
 
@@ -77,7 +78,7 @@ De LTSB is gebaseerd op versie 1606. De vertakking ontvangt geen in de console-u
 U kunt de LTSB installeren als een nieuwe site of als een upgrade van een ondersteunde Configuration Manager 2012-site met de versie 1606 [basislijnmedia](/sccm/core/servers/manage/updates#baseline-and-update-versions) die u krijgt als een DVD met System Center 2016 of release van System Center Configuration Manager (huidige vertakking en Long-Term Servicing Branch 1606). U kunt basislijnmedia gebruiken voor het installeren van een nieuwe site met versie 1606 van de huidige vertakking of een nieuwe site die de vertakking Long-Term onderhoud wordt uitgevoerd.
 
 > [!TIP]  
-> Zie voor meer informatie over System Center 2016, [System Center 2016 documentatie](https://technet.microsoft.com/system-center-docs/system-center). Deze documentatie identificeert ook System Center 2016, waarvoor een gebruiksrechtovereenkomst van Microsoft of soortgelijke rechten krijgen.
+> Zie voor meer informatie over System Center 2016, [System Center 2016 documentatie](https://docs.microsoft.com/system-center/index). Deze documentatie identificeert ook System Center 2016, waarvoor een gebruiksrechtovereenkomst van Microsoft of soortgelijke rechten krijgen.
 
 > Als u in het Volume Licensing Service Center (VLSC) voor System Center Configuration Manager versie 1606 zoekt, gaat u naar de **downloadt en -sleutels** tabblad van de [VLSC](https://www.microsoft.com/Licensing/servicecenter/Downloads/DownloadsAndKeys.aspx), zoek naar "system center-config" en selecteer vervolgens **System Center Config Mgr (huidige vertakking en LTSB)**.
 
@@ -90,7 +91,7 @@ U kunt de LTSB installeren als een nieuwe site of als een upgrade van een onders
 
 **Beperkingen**  
 De LTSB is gebaseerd op de huidige vertakking versie 1606 en heeft de volgende beperkingen:
-- De LTSB wordt ondersteund voor tien jaar van essentiële beveiligingsupdates na de algemene beschikbaarheid (oktober 2016), na welke, ondersteuning voor de vertakking verloopt. Zie voor meer informatie over de levenscyclus voor ondersteuning, [Microsoft Lifecycle Policy](https://support.microsoft.com/en-us/lifecycle).
+- De LTSB wordt ondersteund voor tien jaar van essentiële beveiligingsupdates na de algemene beschikbaarheid (oktober 2016), na welke, ondersteuning voor de vertakking verloopt. Zie voor meer informatie over de levenscyclus voor ondersteuning, [Microsoft Lifecycle Policy](https://support.microsoft.com/lifecycle).
 - Ondersteunt een beperkte set-lijst van de server en client-besturingssystemen en verwante technologieën, zoals SQL Server-versies. Zie voor meer informatie over wat wordt ondersteund met de vertakking [ondersteunde configuraties voor de vertakking Long-Term onderhoud](supported-configurations-for-ltsb.md).
 - Ontvangt geen updates voor de nieuwe functies.
 - Biedt geen ondersteuning voor het toevoegen van een Microsoft Intune-abonnement, waardoor het gebruik van:
@@ -149,5 +150,5 @@ Als u versie-informatie voor een Configuration Manager-site bekijkt, worden ook 
 **Versie**   
 Controleer de versie van uw site in de console Ga naar de **over System Center Configuration Manager** op de linkerbovenhoek van de console waar de **siteversie** wordt weergegeven. Zie [basislijn- en updateversies](/sccm/core/servers/manage/updates#bkmk_Baselines) voor een lijst met versies van de site.
 
-**Filialen**  
+**Branch**  
 Om te bevestigen dat de vertakking van uw site (als de LTSB of Current Branch) in de console gaat u naar **beheer** > **siteconfiguratie** > **Sites**, en open **hiërarchie-instellingen**. Als er een optie om te converteren naar de huidige vertakking en actief is, voert de site de LTSB-versie. Wanneer de site wordt uitgevoerd de huidige vertakking, wordt deze optie grijs weergegeven. Zie voor informatie over de verschillende versies van Configuration Manager 'basislijn- en updateversies' [Updates voor Configuration Manager](/sccm/core/servers/manage/updates).
