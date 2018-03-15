@@ -119,12 +119,12 @@ In System Center Configuration Manager-client- and siteserveronderdelen procesin
 
     -   [WSUS-server](#BKMK_WSUSLog)  
 
-##  <a name="BKMK_AboutLogs">Logboekbestanden over Configuration Manager</a>  
+##  <a name="BKMK_AboutLogs"></a> Logboekbestanden over Configuration Manager  
  De meeste processen in Configuration Manager schrijven operationele gegevens naar een logboekbestand dat is aan dat proces toegewezen. De logboekbestanden zijn geïdentificeerd door **.log** of **.lo_** bestandsextensies. Configuration Manager schrijft naar een .log-bestand totdat het logboek de maximum grootte heeft bereikt. Wanneer het logboek vol is, wordt het .log-bestand wordt gekopieerd naar een bestand met dezelfde naam maar met de .lo_-extensie en het proces of het onderdeel wordt nu geschreven naar het .log-bestand. Wanneer het .log-bestand opnieuw zijn maximum grootte bereikt, wordt het .log-bestand overschreven en het proces wordt herhaald. Sommige onderdelen leggen een bestand Logboekgeschiedenis door toe te voegen een datum en een tijdstempel aan de naam van het logboekbestand en door de .log-extensie te behouden. Een uitzondering op de maximale grootte en het gebruik van het .log-bestand is de client voor Linux en UNIX. Zie voor meer informatie over hoe de client voor Linux en UNIX logboekbestanden gebruikt [logboekbestanden beheren in de client voor Linux en UNIX](#BKMK_ManageLinuxLogs) in dit artikel.  
 
  Als u de logboeken wilt, gebruikt u de Configuration Manager hulpprogramma voor logboekweergave CMTrace, zich in de \\SMSSetup\\de map hulpprogramma's van de Configuration Manager-bronmedia. Het hulpprogramma CMTrace wordt toegevoegd aan alle opstartinstallatiekopieën die zijn toegevoegd aan de softwarebibliotheek.  
 
-###  <a name="BKMK_LogOptions">Opties voor logboekregistratie configureren met behulp van Configuration Manager Service Manager</a>  
+###  <a name="BKMK_LogOptions"></a> Opties voor logboekregistratie configureren met behulp van Configuration Manager Service Manager  
  In Configuration Manager die u kunt wijzigen waar logboekbestanden worden opgeslagen en u de grootte van het logboekbestand kunt wijzigen.  
 
  Wijzigen van de grootte van de logboekbestanden, de naam en locatie van het logboekbestand te wijzigen of om meerdere onderdelen om te schrijven naar één enkel logboekbestand te dwingen, voer de volgende stappen uit:  
@@ -143,10 +143,10 @@ In System Center Configuration Manager-client- and siteserveronderdelen procesin
 ###  <a name="BKMK_LogLocation"></a> Zoeken naar Logboeken Configuration Manager  
 Configuration Manager-logboekbestanden worden opgeslagen in verschillende plaatsen die afhangen van het proces dat het logboekbestand maakt en op de configuratie van uw sitesystemen. Omdat de locatie van het logboek op een computer verschillen kan, gebruiken de zoekfunctie om de relevante logboekbestanden op uw computers voor Configuration Manager als u wilt oplossen, een specifiek scenario.  
 
-##  <a name="BKMK_ClientLogs">Logboeken Configuration Manager-client</a>  
+##  <a name="BKMK_ClientLogs"></a> Logboeken Configuration Manager-client  
 De volgende secties geven lijsten van logboekbestanden gerelateerd aan clientbewerkingen en clientinstallatie.  
 
-###  <a name="BKMK_ClientOpLogs">Clientbewerkingen</a>  
+###  <a name="BKMK_ClientOpLogs"></a> Clientbewerkingen  
 De volgende tabel bevat de logboekbestanden die zich op de Configuration Manager-client.  
 
 |Logboeknaam|Beschrijving|  
@@ -209,7 +209,7 @@ De volgende tabel bevat de logboekbestanden die zich op de Configuration Manager
 |wakeprxy-install.log|Registreert installatie-informatie wanneer clients ontvangt de client-instelling optie wake-up proxy inschakelen.|  
 |wakeprxy-uninstall.log|Registreert informatie over het verwijderen van wake-up proxy wanneer clients de clientinstelling optie voor het uitschakelen van wake-up proxy, ontvangen indien wake-up proxy eerder was ingeschakeld.|  
 
-###  <a name="BKMK_ClientInstallLog">Logboekbestanden van client-installatie</a>  
+###  <a name="BKMK_ClientInstallLog"></a> Logboekbestanden van client-installatie  
  De volgende tabel bevat de logboekbestanden die informatie bevatten met betrekking tot de installatie van Configuration Manager-client.  
 
 |Logboeknaam|Beschrijving|  
@@ -219,7 +219,7 @@ De volgende tabel bevat de logboekbestanden die zich op de Configuration Manager
 |CcmRepair.log|Registreert de herstelactiviteiten van de clientagent.|  
 |client.msi.log|Registreert installatietaken uitgevoerd door client.msi. Kan worden gebruikt voor het oplossen van problemen tijdens de installatie van de client.|  
 
-###  <a name="BKMK_LogFilesforLnU">Client voor Linux en UNIX</a>  
+###  <a name="BKMK_LogFilesforLnU"></a> Client voor Linux en UNIX  
  Configuration Manager-client voor Linux en UNIX registreert informatie in de volgende logboekbestanden.  
 
 > [!TIP]  
@@ -265,7 +265,7 @@ Bijvoorbeeld, kunt u de standaard Linux- en UNIX-opdracht **logrotate** voor het
 
 Zie de documentatie voor de Linux- en UNIX-distributies die u gebruikt voor meer informatie over **logrotate**.  
 
-###  <a name="BKMK_LogfilesforMac">Client voor Mac-computers</a>  
+###  <a name="BKMK_LogfilesforMac"></a> Client voor Mac-computers  
 Configuration Manager-client voor Mac-computers registreert informatie in de volgende logboekbestanden.  
 
 |Logboeknaam|Details|  
@@ -277,10 +277,10 @@ Configuration Manager-client voor Mac-computers registreert informatie in de vol
 
 Het logboekbestand SMS_DM.log op de sitesysteemserver registreert ook de communicatie tussen Mac-computers en het beheerpunt dat is ingesteld voor mobiele apparaten en Mac-computers.  
 
-##  <a name="BKMK_ServerLogs">Configuration Manager site server-logboekbestanden</a>  
+##  <a name="BKMK_ServerLogs"></a> Configuration Manager site server-logboekbestanden  
  De volgende secties worden de logboekbestanden die op de siteserver of die gerelateerd zijn aan specifieke sitesysteemrollen.  
 
-###  <a name="BKMK_SiteSiteServerLog">Server en de site siteserversystemen</a>  
+###  <a name="BKMK_SiteSiteServerLog"></a> Server en de site siteserversystemen  
  De volgende tabel bevat de logboekbestanden die op de Configuration Manager-siteserver en sitesysteemservers.  
 
 |Logboeknaam|Beschrijving|Computer met logboekbestand|  
