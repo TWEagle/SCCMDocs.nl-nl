@@ -7,19 +7,20 @@ ms.date: 09/14/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c14a3607-253b-41fb-8381-ae2d534a9022
-caps.latest.revision: "36"
+caps.latest.revision: 
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 081935ebb3ef2cc12d2023d86c0b68bbd816f2f3
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 5c202ede7be14bb60c6b28d87dfa77577597e955
+ms.sourcegitcommit: 52080ef1b0f9a27c123711ef274ac3ffe070e8e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="install-in-console-updates-for-system-center-configuration-manager"></a>Updates binnen de console installeren voor System Center Configuration Manager
 
@@ -89,14 +90,15 @@ Standaard maakt **Pakketten bijwerken** (SMS_CM_Updatepackages) deel uit van de 
 ##  <a name="bkmk_beforeinstall"></a> Voordat u een update binnen de console installeert  
  Bekijk de volgende stappen uit voordat u een update van de Configuration Manager-console installeert.  
 
-###  <a name="bkmk_step1"></a>Stap 1: Bekijk de controlelijst voor bijwerken  
+###  <a name="bkmk_step1"></a> Stap 1: Bekijk de controlelijst voor bijwerken  
 Controleer de betreffende controlelijst voor bijwerken acties moet uitvoeren voordat u de update start:
 
 - Bijwerken naar 1606: Zie [controlelijst voor het installeren van update 1606](../../../core/servers/manage/checklist-for-installing-update-1606.md).  
 
 - Bijwerken van beide 1606 naar 1610: Zie [controlelijst voor het installeren van update 1610](../../../core/servers/manage/checklist-for-installing-update-1610.md).  
 
-- Bijwerken van 1606 of 1610 naar 1702: Zie [controlelijst voor het installeren van update 1702](../../../core/servers/manage/checklist-for-installing-update-1702.md).
+- Bijwerken van 1610, 1702 of 1706 naar 1710: Zie [controlelijst voor het installeren van update 1710](../../../core/servers/manage/checklist-for-installing-update-1710.md).
+
 
 <!-- Removed as update guidance 6/6/2017. The Test DB Upgrade details are no longer recommended nor required. They live on in a new topic for customers who still want to use them. -->
 
@@ -365,7 +367,7 @@ Functies van evaluatieversies zijn opgenomen in de huidige vertakking voor vroeg
 
 ## <a name="known-issues"></a>Bekende problemen
 
-###  <a name="bkmk_faq"></a>Waarom zie ik bepaalde updates niet in mijn console?  
+###  <a name="bkmk_faq"></a> Waarom zie ik bepaalde updates niet in mijn console?  
  Als u kunt een specifieke update niet in de console na een synchronisatie met de Microsoft-cloudservice vinden, is dit mogelijk doordat:  
 
 -   Voor de update is een configuratie vereist die niet wordt gebruikt in uw infrastructuur of uw huidige versie van het product voorziet niet in een vereiste voor het ontvangen van de update.  
