@@ -4,7 +4,8 @@ titleSuffix: MDT 2013 release notes
 description: 'Vereisten en beperkingen van de Microsoft Deployment Toolkit 2013 begrijpen. '
 ms.date: 09/09/2016
 ms.prod: configuration-manager
-ms.technology: configmgr-osd
+ms.technology:
+- configmgr-osd
 ms.topic: article
 ms.assetid: 6e32ce6d-585d-4801-a345-ff0f6f2d90ad
 author: aczechowski
