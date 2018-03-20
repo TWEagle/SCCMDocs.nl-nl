@@ -65,7 +65,7 @@ ms.lasthandoff: 03/20/2018
 >
 > **Voor apparaten die alleen FBWF gebruiken:** Configureer de volgende uitzonderingen om clientstatus en inventarisgegevens tussen het herstarten van apparaten te behouden:  
 >   
->  -   CCMINSTALLDIR\\*.sdf  
+>  -   CCMINSTALLDIR\\\*.sdf  
 > -   CCMINSTALLDIR\ServiceData  
 > -   HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\CCM\StateSystem  
 >   
