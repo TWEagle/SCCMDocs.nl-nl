@@ -5,21 +5,22 @@ description: Meer informatie over functies die beschikbaar zijn in de Technical 
 ms.custom: na
 ms.date: 03/24/2017
 ms.prod: configuration-manager
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2e801f8c-d331-41ee-8f27-908448fc0951
-caps.latest.revision: "5"
+caps.latest.revision: 
 author: erikje
 ms.author: erikje
 manager: angrobe
 ms.openlocfilehash: a44d6a0c9b02a529fe8776033e58e971af37e332
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.sourcegitcommit: 52080ef1b0f9a27c123711ef274ac3ffe070e8e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/20/2018
 ---
 # <a name="capabilities-in-technical-preview-1703-for-system-center-configuration-manager"></a>Mogelijkheden van Technical Preview 1703 voor System Center Configuration Manager
 
@@ -56,7 +57,7 @@ U kunt nu eindgebruikers met een directe koppeling naar een toepassing in Softwa
 
 Gebruik de volgende URL-indeling te openen van Software Center voor een bepaalde toepassing:
 
-**Softwarecenter:SoftwareId =*toepassings-id***
+**Softwarecenter:SoftwareId=*Application Identifier***
 
 ### <a name="how-to-get-the-application-identifier-of-an-application"></a>Het ophalen van de toepassings-id van een toepassing.
 
@@ -65,7 +66,7 @@ Gebruik de volgende URL-indeling te openen van Software Center voor een bepaalde
 3.  In de **toepassingen** weergeven en selecteer vervolgens in de lijst met de rechtermuisknop op een van de kolomkoppen **unieke CI-ID**. Ziet u de unieke ID van elke toepassing wordt nu weergegeven in de lijst.
 4.  Opmerking de **unieke CI-ID** van de toepassing die u wilt bijvoorbeeld een koppeling naar, opgeven: **ScopeId_1672B0CD-912A-4613-9BAB-D4EF2696D416/Application_970b1fef-1f38-405c-ad37-c753400b895f/2**
 5.  Verwijder alle tekst in dit geval de GUID van de toepassing na **/2**. Dit laat u de met de toepassings-id.
-6.  Ten slotte voor het voltooien van het construeren van de koppeling moet worden voorafgegaan door deze met **Softwarecenter:SoftwareID =**. Het bovenstaande voorbeeld gebruikt, wordt de laatste koppeling gelezen: **Softwarecenter:SoftwareId = ScopeId_1672B0CD-912A-4613-9BAB-D4EF2696D416/Application_970b1fef-1f38-405c-ad37-c753400b895f**.
+6.  Ten slotte voor het voltooien van het construeren van de koppeling moet worden voorafgegaan door deze met **Softwarecenter:SoftwareID =**. Het bovenstaande voorbeeld gebruikt, wordt de laatste koppeling gelezen: **Softwarecenter:SoftwareId= ScopeId_1672B0CD-912A-4613-9BAB-D4EF2696D416/Application_970b1fef-1f38-405c-ad37-c753400b895f**.
 
 Via deze koppeling kunt eindgebruikers Software Center openen rechtstreeks naar de toepassing die u hebt opgegeven.
 

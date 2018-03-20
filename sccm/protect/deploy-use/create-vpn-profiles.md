@@ -7,20 +7,21 @@ ms.date: 11/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f338e4db-73b5-45ff-92f4-1b89a8ded989
-caps.latest.revision: "15"
+caps.latest.revision: 
 author: lleonard-msft
-caps.handback.revision: "0"
+caps.handback.revision: 
 ms.author: alleonar
 ms.manager: angrobe
 ms.openlocfilehash: 21fc286cdcc05244e1895ded5623d346e6cb8ebe
-ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
+ms.sourcegitcommit: 52080ef1b0f9a27c123711ef274ac3ffe070e8e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 03/20/2018
 ---
 # <a name="how-to-create-vpn-profiles-in-system-center-configuration-manager"></a>VPN-profielen maken in System Center Configuration Manager
 
@@ -37,13 +38,13 @@ Voor de VPN-verbindingen van derden door de VPN-app te distribueren voordat u he
 2.  Op de **Start** tabblad, in de **maken** groep, kiest u **VPN-profiel maken**.  
 
 
-3.  Voltooi de **algemene** pagina. Houd rekening met het volgende:  
+3.  Voltooi de **algemene** pagina. en let op het volgende:  
 
     - Selecteer de relevante **Platform**.
 
        - Als u het Windows 8.1-platform selecteert, hebt u de optie te selecteren **een bestaande VPN-profielitem uit een bestand importeren** voor VPN-profielgegevens importeren die is geëxporteerd naar een XML-bestand.
 
-    - Gebruik niet de tekens \\/ :*?&lt; > &#124; of een spatie in de naam van de VPN-profiel. Deze tekens worden niet ondersteund door de Windows Server-VPN-profiel.  
+    - Gebruik niet de tekens \\/ :*?&lt; >&#124;, of een spatie in de naam van de VPN-profiel. Deze tekens worden niet ondersteund door de Windows Server-VPN-profiel.  
 
 
 4.  Op de **verbinding** pagina:  
@@ -68,7 +69,7 @@ Voor de VPN-verbindingen van derden door de VPN-app te distribueren voordat u he
 |**VPN overslaan bij verbinding met Wi-Fi-bedrijfsnetwerk**  |De VPN-verbinding niet gebruikt wanneer het apparaat is verbonden met het Wi-Fi-bedrijfsnetwerk.|- Cisco AnyConnect<br /><br /> - Pulse Secure<br /><br /> - F5 Edge Client<br /><br /> - Dell SonicWALL Mobile Connect<br /><br /> - Check Point Mobile VPN<br /><br /> - Microsoft SSL (SSTP)<br /><br /> - Microsoft Automatic<br /><br /> - IKEv2<br /><br /> - L2TP|  
 |**VPN overslaan bij verbinding met Wi-Fi-thuisnetwerk**  |De VPN-verbinding niet gebruikt wanneer het apparaat is verbonden met een Wi-Fi-netwerk thuis.|Alle|  
 |**Per app-VPN (iOS 7 en hoger, Mac OS X 10.9 en hoger)** |Koppelen aan een iOS-app deze VPN-verbinding zodat de verbinding wordt geopend wanneer de app wordt uitgevoerd. U kunt het VPN-profiel aan een app koppelen bij het implementeren.|- Cisco AnyConnect<br /><br /> - Pulse Secure<br /><br /> - F5 Edge Client<br /><br /> - Dell SonicWALL Mobile Connect<br /><br /> - Check Point Mobile VPN|  
-|**Aangepaste XML (optioneel)** |Aangepaste XML-opdrachten opgeven waarmee de VPN-verbinding configureren.<br /><br /> Voorbeelden:<br /><br /> Voor **Pulse Secure**:<br /><br /> **&lt;Pulse-schema ><br /> &nbsp; &lt;isSingleSignOnCredential > waar&lt;/isSingleSignOnCredential\><br />&lt;/pulse-schema >**<br /><br /> Voor **CheckPoint Mobile VPN**:<br /><br /> **&lt;CheckPointVPN <br /> &nbsp; port = "443" name = "CheckPointSelfhost" <br /> &nbsp; sso = "true" <br /> &nbsp; debug = "3"<br />/>**<br /><br /> Voor **Dell SonicWALL Mobile Connect**:<br /><br /> **&lt;MobileConnect\> <br /> &nbsp; &nbsp; &lt;compressie\>false&lt;/Compression\> <br /> &nbsp; &nbsp; &lt;debugLogging\>True&lt;/debugLogging\> <br /> &nbsp; &nbsp; &lt;packetCapture\>False&lt;/packetCapture\><br />&lt;/MobileConnect\>**<br /><br /> Voor **F5 Edge Client**:<br /><br /> **&lt;F5-vpn-conf >&lt;single-sign-on-credential >&lt;/f5-vpn-conf >**<br /><br /> Raadpleeg de VPN-documentatie van elke fabrikant voor meer informatie over het schrijven van aangepaste XML-opdrachten.|- Cisco AnyConnect<br /><br /> - Pulse Secure<br /><br /> - F5 Edge Client<br /><br /> - Dell SonicWALL Mobile Connect<br /><br /> - Check Point Mobile VPN|  
+|**Aangepaste XML (optioneel)** |Aangepaste XML-opdrachten opgeven waarmee de VPN-verbinding configureren.<br /><br /> Voorbeelden:<br /><br /> Voor **Pulse Secure**:<br /><br /> **&lt;pulse-schema><br /> &nbsp; &lt;isSingleSignOnCredential>true&lt;/isSingleSignOnCredential\><br />&lt;/pulse-schema>**<br /><br /> Voor **CheckPoint Mobile VPN**:<br /><br /> **&lt;CheckPointVPN <br /> &nbsp; port = "443" name = "CheckPointSelfhost" <br /> &nbsp; sso = "true" <br /> &nbsp; debug = "3"<br />/>**<br /><br /> Voor **Dell SonicWALL Mobile Connect**:<br /><br /> **&lt;MobileConnect\> <br /> &nbsp; &nbsp; &lt;compressie\>false&lt;/Compression\> <br /> &nbsp; &nbsp; &lt;debugLogging\>True&lt;/debugLogging\> <br /> &nbsp; &nbsp; &lt;packetCapture\>False&lt;/packetCapture\> <br /> &lt;/MobileConnect\>**<br /><br /> Voor **F5 Edge Client**:<br /><br /> **&lt;f5-vpn-conf>&lt;single-sign-on-credential>&lt;/f5-vpn-conf>**<br /><br /> Raadpleeg de VPN-documentatie van elke fabrikant voor meer informatie over het schrijven van aangepaste XML-opdrachten.|- Cisco AnyConnect<br /><br /> - Pulse Secure<br /><br /> - F5 Edge Client<br /><br /> - Dell SonicWALL Mobile Connect<br /><br /> - Check Point Mobile VPN|  
 
 > [!NOTE]  
 >  Zie voor informatie die specifiek zijn voor het maken van VPN-profielen voor mobiele apparaten [VPN-profielen maken](../../mdm/deploy-use/create-vpn-profiles.md)  

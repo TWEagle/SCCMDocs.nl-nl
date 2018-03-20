@@ -7,26 +7,27 @@ ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-client
+ms.technology:
+- configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 038e61f9-f49d-41d1-9a9f-87bec9e00d5d
-caps.latest.revision: "7"
-caps.handback.revision: "0"
+caps.latest.revision: 
+caps.handback.revision: 
 author: arob98
 ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: c4f3d8a9b043707340e56d3ae483ad66ca17dc10
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.sourcegitcommit: 52080ef1b0f9a27c123711ef274ac3ffe070e8e0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/20/2018
 ---
 # <a name="planning-for-client-deployment-to-windows-embedded-devices-in-system-center-configuration-manager"></a>Planning voor clientimplementatie op Windows Embedded-apparaten in System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-<a name="BKMK_DeployClientEmbedded"></a>Als uw Windows Embedded-apparaat niet onder de System Center Configuration Manager-client, kunt u een van de methode voor clientinstallatie gebruiken als het apparaat voldoet aan de vereiste afhankelijkheden. Als het Embedded-apparaat schrijffilters ondersteunt, moet u deze filters uitschakelen voordat u de client installeert, en de filters vervolgens opnieuw inschakelen nadat de client is geïnstalleerd en is toegewezen aan een site.  
+<a name="BKMK_DeployClientEmbedded"></a> Als uw Windows Embedded-apparaat niet onder de System Center Configuration Manager-client, kunt u een van de methode voor clientinstallatie gebruiken als het apparaat voldoet aan de vereiste afhankelijkheden. Als het Embedded-apparaat schrijffilters ondersteunt, moet u deze filters uitschakelen voordat u de client installeert, en de filters vervolgens opnieuw inschakelen nadat de client is geïnstalleerd en is toegewezen aan een site.  
 
  Wanneer u de filters uitschakelt, moet u ervoor zorgen dat u niet de stuurprogramma's voor het filter uitschakelt. Deze stuurprogramma's worden doorgaans automatisch gestart wanneer de computer wordt gestart. Als u de stuurprogramma's uitschakelt, wordt de installatie van de client verhinderd of wordt de indelingstaak voor schrijffilters verstoord, waardoor de clientbewerkingen mislukken. Hieronder ziet u de services die zijn gekoppeld aan elk type schrijffilter dat actief moet blijven:  
 
