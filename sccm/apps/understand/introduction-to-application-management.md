@@ -55,7 +55,7 @@ In dit onderwerp leert u de basisbeginselen die u weten moet voordat u begint te
  Configuration Manager kunt u de volgende typen Apps implementeren:  
 
 - Windows Installer (*.msi file)
-- Windows app-pakket (*.appx, *.appxbundle)
+- Windows app-pakket (\*.appx, \*.appxbundle)
 - Windows-app-pakket (in de Windows Store)
 - Microsoft Application Virtualization 4
 - Microsoft Application Virtualization 5

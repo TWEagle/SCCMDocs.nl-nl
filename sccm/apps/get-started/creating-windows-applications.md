@@ -33,8 +33,8 @@ Naast de andere System Center Configuration Manager-vereisten en procedures voor
 
 |Apparaattype|Ondersteunde bestandstypen|  
 |-----------------|---------------------|  
-|Windows RT en Windows RT 8.1|*.appx, \*.appxbundle|  
-|Windows 8.1 en later ingeschreven als een mobiel apparaat|*.appx, \*.appxbundle|  
+|Windows RT en Windows RT 8.1|\*.appx, \*.appxbundle|  
+|Windows 8.1 en later ingeschreven als een mobiel apparaat|\*.appx, \*.appxbundle|  
 
  De volgende implementatieacties worden ondersteund:  
 
