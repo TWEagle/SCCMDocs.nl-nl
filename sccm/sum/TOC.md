@@ -32,3 +32,14 @@
 ## [De bestanden voor snelle installatie van Windows 10-updates beheren](deploy-use/manage-express-installation-files-for-windows-10-updates.md)
 ## [Integratie met Windows Update voor Bedrijven in Windows 10](deploy-use/integrate-windows-update-for-business-windows-10.md)
 ## [Voorbeeldscenario voor het implementeren van beveiligingsupdates](deploy-use/example-scenario-deploy-monitor-monthly-security-updates.md)
+
+# [System Center Updates Publisher](tools/updates-publisher.md)
+## [Installeren](tools/install-updates-publisher.md)
+## [Opties configureren](tools/updates-publisher-options.md)
+## [Catalogi beheren](tools/updates-publisher-catalogs.md)
+## [Updates beheren](tools/manage-updates-with-updates-publisher.md)
+## [Publicaties beheren](tools/updates-publisher-publications.md)
+## [Nieuwe updates maken](tools/create-updates-with-updates-publisher.md)
+## [Toepasselijkheidsregels](tools/updates-publisher-applicability-rules.md)
+## [Certificaten en beveiliging](tools/updates-publisher-security.md)
+
