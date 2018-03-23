@@ -1,21 +1,22 @@
 ---
 title: Beheergateway voor Cloud instellen
 titleSuffix: Configuration Manager
-description: 
+description: ''
 author: arob98
 ms.author: angrobe
 manager: angrobe
 ms.date: 09/26/2017
 ms.topic: article
 ms.prod: configuration-manager
-ms.service: 
-ms.technology: configmgr-client
+ms.service: ''
+ms.technology:
+- configmgr-client
 ms.assetid: e0ec7d66-1502-4b31-85bb-94996b1bc66f
 ms.openlocfilehash: 7463cd7199098b21843fd5b99ed284a12ff91e00
-ms.sourcegitcommit: 986fc2d54f7c5fa965fd4df42f4db4ecce6b79cb
+ms.sourcegitcommit: d03e4dee92a31dd214c528e895379f6013b7de82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="set-up-cloud-management-gateway-for-configuration-manager"></a>Instellen van de cloud management gateway voor Configuration Manager
 
@@ -112,8 +113,8 @@ Een Azure-beheercertificaat is vereist voor Configuration Manager voor toegang t
 
     Azure-cloud | FQDN-voorvoegsel
     --------------|-------------
-    Openbare (commercieel) cloud | . cloudapp.net    
-    Cloud van de overheid | . usgovcloudapp.net
+    Openbare (commercieel) cloud | .cloudapp.net    
+    Cloud van de overheid | .usgovcloudapp.net
 
   - Schakel het selectievakje naast **certificaatintrekking Client controleren** (tenzij u uw CRL-gegevens openbaar publiceert).
 

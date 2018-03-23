@@ -1,7 +1,7 @@
 ---
 title: Plan voor de cloud-management-gateway
 titleSuffix: Configuration Manager
-description: 
+description: ''
 ms.date: 03/08/2018
 ms.prod: configuration-manager
 ms.technology:
@@ -11,10 +11,10 @@ author: arob98
 ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: 051d3fcba379aec83ea7c4dc1e407b3d3e774e12
-ms.sourcegitcommit: b653342fb5d69a16e71b3548a7e9a2e47e54bf88
+ms.sourcegitcommit: d03e4dee92a31dd214c528e895379f6013b7de82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="plan-for-the-cloud-management-gateway-in-configuration-manager"></a>Plan voor de cloudgateway management in Configuration Manager
 
@@ -164,7 +164,7 @@ De interne URL wordt gebruikt voor het doorsturen van aanvragen naar de interne 
 #### <a name="example"></a>Voorbeeld:
 Wanneer u verkeer op een beheerpunt CMG inschakelt, wordt een reeks URL-toewijzingen intern voor elke beheerserver punt, zoals ccm_system, ccm_incoming en sms_mp gemaakt door Configuration Manager.
 De externe URL voor het eindpunt van de punt ccm_system management als volgt uitzien **https://<CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID>/CCM_System**.
-De URL is uniek voor elk beheerpunt. De Configuration Manager-client vervolgens de CMG ingeschakeld MP naam zoals puts  **<CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID>**  in de internet MP-lijst.
+De URL is uniek voor elk beheerpunt. De Configuration Manager-client vervolgens de CMG ingeschakeld MP naam zoals puts **<CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID>** in de internet MP-lijst.
 Alle gepubliceerde externe URL's worden geüpload naar de CMG automatisch CMG kunnen doen URL-filtering is. Alle URL-toewijzing wordt gerepliceerd naar CMG verbindingspunt zodat kunnen worden doorgestuurd naar interne servers volgens client aanvragen van de externe URL.
 
 ### <a name="what-ports-are-used-by-the-cloud-management-gateway"></a>Welke poorten worden gebruikt door de cloud management gateway?
