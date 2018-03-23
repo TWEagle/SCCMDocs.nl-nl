@@ -3,23 +3,24 @@ title: De map CD.Latest
 titleSuffix: Configuration Manager
 description: Meer informatie over de nieuwe updateproces dat het product via de Configuration Manager-console updates levert.
 ms.custom: na
-ms.date: 05/02/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8db92d67-5d9c-4e9c-80d0-ae6fa0dd4817
-caps.latest.revision: "6"
+caps.latest.revision: ''
 author: mestew
 ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: 1dd176f80afa4a9edc5a14d538eef7989614e814
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+manager: dougeby
+ms.openlocfilehash: 9371762a3f6acb9df7e7138c693b0a529c81a2ff
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="the-cdlatest-folder-for-system-center-configuration-manager"></a>De map CD.Latest voor System Center Configuration Manager
 
@@ -27,12 +28,12 @@ ms.lasthandoff: 12/04/2017
 
 System Center Configuration Manager introduceert een nieuwe updateproces waarmee updates aan het product via de Configuration Manager-console levert. Ter ondersteuning van deze nieuwe methode voor het bijwerken van Configuration Manager, een nieuwe map gemaakt met de naam **CD. Meest recente** die een kopie van de Configuration Manager-installatiebestanden voor de bijgewerkte versie van uw site bevat.  
 
-Vanaf update 1606 bevat de map CD.Latest een map met de naam **Redist** die de herdistribueerbare bestanden bevat. Deze worden gedownload en gebruikt door Setup. Deze bestanden zijn afgestemd op de versie van de Configuration Manager-bestanden die te vinden zijn in de map CD.Latest. Wanneer u Setup uitvoert vanuit de map CD.Latest, dient u de bestanden te gebruiken die zijn afgestemd op die versie van Setup. Hiervoor kunt u via Setup opdracht geven voor het downloaden van nieuwe en actuele bestanden van Microsoft, of u kunt de opdracht geven dat de bestanden uit de map Redist (die in de map CD.Latest staat) worden gebruikt.
+De CD. Meest recente map bevat een map met de naam **Redist** waarin de herdistribueerbare bestanden die door setup downloadt en gebruikt. Deze bestanden zijn afgestemd op de versie van de Configuration Manager-bestanden die te vinden zijn in de map CD.Latest. Wanneer u Setup uitvoert vanuit de map CD.Latest, dient u de bestanden te gebruiken die zijn afgestemd op die versie van Setup. Hiervoor kunt u via Setup opdracht geven voor het downloaden van nieuwe en actuele bestanden van Microsoft, of u kunt de opdracht geven dat de bestanden uit de map Redist (die in de map CD.Latest staat) worden gebruikt.
 
-Basislijnmedia, zoals echter de basislijnversie 1606 die in oktober 2016 wordt uitgebracht, bevat geen een Redist-map. De map Redist wordt niet gemaakt totdat u een update in de console installeert. In de tussentijd de Redist-map die u hebt gebruikt bij het installeren van sites uit de basislijnmedia gebruiken.  
+Basislijnmedia, zoals echter de basislijnversie 1802 die in maart van 2018 uitgebracht, bevat geen een Redist-map. De map Redist wordt niet gemaakt totdat u een update in de console installeert. In de tussentijd de Redist-map die u hebt gebruikt bij het installeren van sites uit de basislijnmedia gebruiken.  
 
 > [!TIP]
-> Als u versie 1606 nog niet hebt geïnstalleerd, controleert u of de redist-bestanden die u gebruikt, actueel zijn. Als u de redist-bestanden niet recentelijk hebt gedownload, stelt u Setup zodanig in dat ze van Microsoft worden gedownload.   
+> Zorg ervoor dat de herdistribueerbare bestanden die u gebruikt actueel zijn. Als u onlangs niet herdistribueerbare bestanden hebt gedownload, kunt u plannen zodat de installatie om dit te doen van Microsoft.   
 
  Hieronder volgen scenario's voor het maken of bijwerken van de map CD.Latest op een centrale beheersite of primaire siteserver:  
 
@@ -40,7 +41,7 @@ Basislijnmedia, zoals echter de basislijnversie 1606 die in oktober 2016 wordt u
 
 -   U uitvoeren de ingebouwde back-uptaak voor Configuration Manager: De map wordt gemaakt of bijgewerkt op de aangewezen back-upmap.  
 
--  Vanaf versie 1606 is de CD. Meest recente map wordt gemaakt wanneer u een nieuwe site met behulp van de basislijnmedia (zoals versie 1606 of 1702) installeert.
+-  De CD. Meest recente map wordt gemaakt wanneer u een nieuwe site met behulp van de basislijnmedia (zoals versie 1802) installeert.
 
 De bronbestanden vanuit de map CD.Latest worden ondersteund voor het volgende:  
 

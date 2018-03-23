@@ -1,20 +1,22 @@
 ---
 title: CO-beheer voor Windows 10-apparaten
+titleSuffix: Configuration Manager
 description: Informatie over het beheren van Windows 10-apparaten gelijktijdig met behulp van zowel Configuration Manager en Microsoft Intune.
-keywords: 
-author: dougeby
-manager: angrobe
-ms.date: 11/20/2017
+keywords: ''
+author: mestew
+ms.author: mstewart
+manager: dougeby
+ms.date: 03/22/2018
 ms.topic: article
 ms.prod: configuration-manager
-ms.service: 
-ms.technology: 
+ms.service: ''
+ms.technology: ''
 ms.assetid: d6bbc787-83a5-44b4-ad64-016e5da7413f
-ms.openlocfilehash: 0cc11a05013fd9c25ee98ec35adcbe822d8a21fb
-ms.sourcegitcommit: 389c4e5b4e9953b74c13b1689195f99c526fa737
+ms.openlocfilehash: e4b8bd58d30cd87ffc461289edbfc5da9a684cda
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="co-management-for-windows-10-devices"></a>CO-beheer voor Windows 10-apparaten    
 <!-- 1350871 -->
@@ -35,7 +37,7 @@ Hieronder vindt u algemene vereisten voor het inschakelen van CO-beheer:
 - Azure AD
 - Intune- of EMS-licentie voor alle gebruikers
 - [Azure AD automatische inschrijving](https://docs.microsoft.com/intune/windows-enroll#enable-windows-10-automatic-enrollment) ingeschakeld
-- Intune-abonnement &#40; MDM-instantie in Intune wordt ingesteld op **Intune**&#41;
+- Intune-abonnement &#40;MDM-instantie in Intune wordt ingesteld op **Intune**&#41;
 
 
    > [!Note]  
@@ -50,7 +52,7 @@ Hieronder vindt u algemene vereisten voor het inschakelen van CO-beheer:
 - [Management Gateway cloud](/sccm/core/clients/manage/manage-clients-internet#cloud-management-gateway) in Configuration Manager (als u Intune gebruikt voor het installeren van Configuration Manager-client)
 
 ## <a name="workloads-you-can-switch-to-intune"></a>Werkbelastingen die u kunt overschakelen naar Intune
-Nadat u mede-beheer inschakelen, blijft de Configuration Manager voor het beheren van alle werkbelastingen. Als u besluit dat u klaar bent, kunt u beginnen met beheer van beschikbare werklasten Intune kunt hebben. U kunt de volgende werkbelastingen beheren Intune hebben.   
+Nadat u mede-beheer inschakelen, blijft de Configuration Manager voor het beheren van alle werkbelastingen. Als u besluit dat u klaar bent, kunt u beginnen met beheer van beschikbare werklasten Intune kunt hebben. U kunt Intune beheren van de volgende werkbelastingen hebben:   
 
 ### <a name="compliance-policies"></a>Nalevingsbeleid
 Het nalevingsbeleid bevat de regels en instellingen waaraan een apparaat voldoen moet om te worden beschouwd als het beleid voldoen aan het beleid voor voorwaardelijke toegang. U kunt ook nalevingsbeleid gebruiken om nalevingsproblemen met apparaten te bewaken en onafhankelijk van voorwaardelijke toegang op te lossen. Zie voor meer informatie [nalevingsbeleid voor apparaten](/sccm/mdm/deploy-use/device-compliance-policies).  
@@ -60,6 +62,10 @@ Windows Update voor bedrijven-beleid kunt u beleidsregels voor uitgestelde voor 
 
 ### <a name="resource-access-policies"></a>Resource-beleid
 Resourcetoegangsbeleid configureren VPN, Wi-Fi, e-mail en instellingen van het certificaat op apparaten. Zie voor meer informatie [resourcetoegangsprofielen implementeren](/sccm/protect/deploy-use/deploy-wifi-vpn-email-cert-profiles).
+
+### <a name="endpoint-protection"></a>Endpoint Protection 
+<!-- 1357365 -->
+U start in Configuration Manager 1802, worden de werkbelasting van de Endpoint Protection overgegaan naar Intune. Zie voor meer informatie [werkbelastingen kunnen worden overgezet naar Intune](/sccm/core/clients/manage/co-management-switch-workloads.md#Workloads-able-to-be-transitioned-to-Intune) en [Endpoint Protection in Configuration Manager](/sccm/protect/deploy-use/endpoint-protection).
 
 ## <a name="architectural-overview-for-co-management"></a>Overzicht van de architectuur voor CO-management
 Het volgende diagram biedt een overzicht van de architectuur van CO-beheer en hoe deze in de bestaande infrastructuur voor configuratie en Intune past.

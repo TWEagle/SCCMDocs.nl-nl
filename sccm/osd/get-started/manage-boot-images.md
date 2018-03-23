@@ -1,70 +1,72 @@
 ---
-title: "Opstartinstallatiekopieën beheren "
+title: 'Opstartinstallatiekopieën beheren '
 titleSuffix: Configuration Manager
-description: "In Configuration Manager, informatie over het beheren van de Windows PE-opstartinstallatiekopieën die u tijdens de implementatie van een besturingssysteem gebruiken."
+description: In Configuration Manager, informatie over het beheren van de Windows PE-opstartinstallatiekopieën die u tijdens de implementatie van een besturingssysteem gebruiken.
 ms.custom: na
-ms.date: 01/23/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-osd
+ms.technology:
+- configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 97f2d81a-2c58-442c-88bc-defd5a1cd48f
-caps.latest.revision: "23"
-caps.handback.revision: "0"
+caps.latest.revision: ''
+caps.handback.revision: ''
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: 21cd2d2f8087cb39dc47fbcca01ec700d79f41d0
-ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
+manager: dougeby
+ms.openlocfilehash: 8fd5510ec00cdcf6829778b264b759588a2323cb
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-boot-images-with-system-center-configuration-manager"></a>Opstartinstallatiekopieën beheren met System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Een opstartinstallatiekopie in Configuration Manager is een [Windows PE (WinPE)](https://msdn.microsoft.com/library/windows/hardware/dn938389%28v=vs.85%29.aspx) afbeelding die wordt gebruikt tijdens de implementatie van een besturingssysteem. Opstartinstallatiekopieën worden gebruikt om een computer op te starten in WinPE. Dit is een minimaal besturingssysteem met beperkte onderdelen en services dat de doelcomputer voorbereidt voor een Windows-installatie.  Gebruik de volgende secties voor het beheren van opstartinstallatiekopieën.
+Een opstartinstallatiekopie in Configuration Manager is een [Windows PE](https://docs.microsoft.com/windows-hardware/manufacture/desktop/winpe-intro) installatiekopie (WinPE) die wordt gebruikt tijdens de implementatie van een besturingssysteem. Opstartinstallatiekopieën worden gebruikt voor een computer te starten in WinPE. Deze minimaal besturingssysteem bevat beperkte onderdelen en services. Configuration Manager gebruikt WinPE voor de doelcomputer voorbereidt voor Windows-installatie. Gebruik de volgende secties voor het beheren van opstartinstallatiekopieën.
 
-## <a name="BKMK_BootImageDefault"></a>Standaardopstartinstallatiekopieën
+## <a name="BKMK_BootImageDefault"></a> Standaardopstartinstallatiekopieën
 Configuration Manager biedt twee standaardopstartinstallatiekopieën: Één ter ondersteuning van x86-platformen en één ter ondersteuning van x64 platforms. Deze installatiekopieën worden opgeslagen: \\ \\ *servername*> \SMS_ <*sitecode*> \osd\boot\\<*x64*> of <*i386*>. De standaardopstartinstallatiekopieën worden bijgewerkt of opnieuw worden gegenereerd, afhankelijk van de actie die u wilt uitvoeren.
 
-Overweeg het volgende voor elk van de acties beschreven in de volgende secties:
-- De bronobjecten van het stuurprogramma moeten geldig zijn, inclusief de bronbestanden van het stuurprogramma of de stuurprogramma's wordt niet toegevoegd aan de opstartinstallatiekopieën op de site zijn.
+Houd rekening met de volgende gedragsopties instelt voor een van de acties beschreven voor de standaardopstartinstallatiekopieën:
+- De bronobjecten van het stuurprogramma moeten geldig zijn. Deze objecten bevatten de bronbestanden van het stuurprogramma. Als de objecten niet geldig zijn, toevoegen niet de site de stuurprogramma's aan de installatiekopieën.
 - Installatiekopieën die niet zijn gebaseerd op de standaardopstartinstallatiekopieën, zelfs als ze dezelfde Windows PE-versie gebruiken worden niet gewijzigd.
-- U moet de gewijzigde opstartinstallatiekopieën naar distributiepunten opnieuw distribueren.
-- U moet alle media die gebruikmaakt van de aangepaste opstartinstallatiekopieën opnieuw maken.
+- De gewijzigde opstartinstallatiekopieën naar distributiepunten distribueren.
+- Maak de media die gebruikmaakt van de aangepaste opstartinstallatiekopieën opnieuw.
 - Als u niet dat uw aangepaste/standaard opstartinstallatiekopieën automatisch bijgewerkt wilt, u deze niet opslaan in de standaardlocatie.
 
 > [!NOTE]
-> Het hulpprogramma Configuration Manager Trace Log wordt toegevoegd aan alle opstartinstallatiekopieën die u toevoegt aan de **softwarebibliotheek**. Wanneer u zich in Windows PE, kunt u het hulpprogramma Configuration Manager Trace Log beginnen door te typen **CMTrace** vanaf een opdrachtprompt.  
+> Het hulpprogramma Configuration Manager Trace Log (CMTrace) is toegevoegd aan alle opstartinstallatiekopieën in de **softwarebibliotheek**. Wanneer u zich in Windows PE, start u het hulpprogramma door te typen **CMTrace** vanaf de opdrachtprompt. Vanaf versie 1802, tijdens het starten van cmtrace.exe in Windows PE, wordt u niet langer gevraagd te kiezen of maken van dit programma van de standaard-viewer voor logboekbestanden.
 
 ### <a name="use-updates-and-servicing-to-install-the-latest-version-of-configuration-manager"></a>Updates en onderhoud voor het installeren van de meest recente versie van Configuration Manager gebruiken
-Vanaf versie 1702, wanneer u de Windows ADK-versie bijwerken en vervolgens met updates en onderhoud voor het installeren van de meest recente versie van Configuration Manager, Configuration Manager genereert de standaardopstartinstallatiekopieën. Dit omvat het nieuwe venster PE-versie van de bijgewerkte Windows ADK, de nieuwe versie van de Configuration Manager-client, stuurprogramma's, aanpassingen, enzovoort. Aangepaste opstartinstallatiekopieën worden niet gewijzigd.
+Vanaf versie 1702, wanneer u de versie van Windows Assessment and Deployment Kit (ADK) niet bijwerken en vervolgens met updates en onderhoud voor het installeren van de meest recente versie van Configuration Manager, de site wordt opnieuw gegenereerd de standaardopstartinstallatiekopieën. Deze update bevat de nieuwe WinPE-versie van de bijgewerkte Windows ADK, de nieuwe versie van de Configuration Manager-client, stuurprogramma's en aanpassingen. De site geen aangepaste opstartinstallatiekopieën te wijzigen.
 
-Voorafgaand aan versie 1702, Configuration Manager de bestaande installatiekopie (boot.wim) bijgewerkt met de clientonderdelen, de stuurprogramma's, de aanpassingen, enz. maar maakt geen gebruik van de meest recente Windows PE-versie van Windows ADK. De opstartinstallatiekopie voor het gebruik van de nieuwe versie van Windows ADK, moet u handmatig wijzigen.
+Voorafgaand aan versie 1702, Configuration Manager de bestaande opstartinstallatiekopie bijgewerkt met de clientonderdelen, de stuurprogramma's en de aanpassingen, maar geen gebruik maakt van de meest recente WinPE-versie van Windows ADK. Handmatig wijzigen van de opstartinstallatiekopie voor het gebruik van de nieuwe versie van Windows ADK.
 
 ### <a name="upgrade-from-configuration-manager-2012-to-configuration-manager-current-branch-cb"></a>Upgrade van Configuration Manager 2012 naar Configuration Manager Current Branch (CB)
-Wanneer u Configuration Manager 2012 met Configuration Manager CB met behulp van het installatieproces bijwerkt, wordt de standaardopstartinstallatiekopieën opnieuw gegenereerd Configuration Manager. Dit omvat het nieuwe venster PE-versie van de bijgewerkte Windows ADK, de nieuwe versie van de Configuration Manager-client, en alle aanpassingen blijven ongewijzigd. Aangepaste opstartinstallatiekopieën worden niet gewijzigd.
+Wanneer u Configuration Manager 2012 met Configuration Manager CB met behulp van het installatieproces bijwerkt, wordt de site de standaardopstartinstallatiekopieën opnieuw gegenereerd. Deze update bevat de nieuwe WinPE-versie van de bijgewerkte Windows ADK en de nieuwe versie van Configuration Manager-client. Alle aanpassingen in opstartinstallatiekopies blijven ongewijzigd. De site geen aangepaste opstartinstallatiekopieën te wijzigen.
 
 ### <a name="update-distribution-points-with-the-boot-image"></a>Bijwerken van distributiepunten met de installatiekopie
-Wanneer u gebruikt de **distributiepunten bijwerken** actie van de **opstartinstallatiekopieën** knooppunt in de Configuration Manager-console Configuration Manager de doel-opstartinstallatiekopie bijgewerkt met de clientonderdelen stuurprogramma's, aanpassingen, enzovoort.    
+Wanneer u gebruikt de **distributiepunten bijwerken** actie van de **opstartinstallatiekopieën** knooppunt in de console, de site de doel-opstartinstallatiekopie bijgewerkt met de clientonderdelen, de stuurprogramma's en de aanpassingen.    
 
-Vanaf Configuration Manager versie 1706, kunt u de nieuwste versie van Windows PE (van de installatiemap van Windows ADK) in de opstartinstallatiekopie opnieuw laden. De **algemene** pagina van de wizard distributiepunten bijwerken bevat informatie over de Windows ADK-versie die is geïnstalleerd op de siteserver, de Windows ADK-versie waarin Windows PE wordt gebruikt in de opstartinstallatiekopie en de versie van Configuration Manager-client. U kunt deze informatie gebruiken om te beslissen of u wilt de opstartinstallatiekopie opnieuw laden. Ook een nieuwe kolom (**clientversie**) is toegevoegd wanneer u opstartinstallatiekopieën in de **opstartinstallatiekopieën** knooppunt zodat u weet welke versie van Configuration Manager-client elke opstartinstallatiekopie wordt gebruikt.    
+Met ingang van Configuration Manager versie 1706, opnieuw laden van de installatiekopie met de meest recente versie van WinPE vanuit de installatiemap van Windows ADK. De **algemene** pagina van de wizard distributiepunten bijwerken bevat de volgende informatie: 
+ - De Windows ADK-versie die is geïnstalleerd op de siteserver
+ - De Windows ADK-versie van WinPE in de opstartinstallatiekopie
+ - De versie van Configuration Manager-client gebruiken deze informatie om te helpen beslissen of u de opstartinstallatiekopie opnieuw laden. De **opstartinstallatiekopieën** knooppunt bevat ook een nieuwe kolom voor (**clientversie**). Deze kolom wordt gebruikt om weer te geven snel de versie van de Configuration Manager-client in elke opstartinstallatiekopie.    
 
 
-##  <a name="BKMK_BootImageCustom"></a>Een opstartinstallatiekopie aanpassen  
- U kunt een opstartinstallatiekopie aanpassen of [een opstartinstallatiekopie wijzigen](#BKMK_ModifyBootImages), vanuit de Configuration Manager-console wanneer deze is gebaseerd op een Windows PE-versie van de ondersteunde versie van Windows ADK. Wanneer een site is bijgewerkt met een nieuwe versie en een nieuwe versie van Windows ADK is geïnstalleerd, worden aangepaste opstartinstallatiekopieën (die zich niet op de standaardlocatie voor opstartinstallatiekopieën bevinden) niet bijgewerkt met de nieuwe versie van Windows ADK. Wanneer dit gebeurt, kunt u zich niet langer de opstartinstallatiekopieën in de Configuration Manager-console aanpassen. Ze blijven echter werken zoals voor de upgrade.  
+##  <a name="BKMK_BootImageCustom"></a> Een opstartinstallatiekopie aanpassen  
+ Wanneer een opstartinstallatiekopie is gebaseerd op de WinPE-versie van de ondersteunde versie van Windows ADK, kunt u aanpassen of [een opstartinstallatiekopie wijzigen](#BKMK_ModifyBootImages) vanuit de console. Wanneer een site is bijgewerkt met een nieuwe versie en een nieuwe versie van Windows ADK is geïnstalleerd, worden aangepaste opstartinstallatiekopieën (niet in de standaardlocatie voor opstartinstallatiekopieën bevinden) niet zijn bijgewerkt met de nieuwe versie van Windows ADK. Wanneer dit gebeurt, kunt u de opstartinstallatiekopieën in de Configuration Manager-console niet aanpassen. Ze blijven echter werken zoals vóór de upgrade.  
 
- Wanneer een opstartinstallatiekopie is gebaseerd op een andere versie van Windows ADK die op de site is geïnstalleerd, moet u de opstartinstallatiekopieën aanpassen met een andere methode, zoals de Deployment Image Servicing and Management (DISM) opdrachtregeltool welke deel uitmaakt van Windows AIK en Windows ADK. Zie voor meer informatie [opstartinstallatiekopieën aanpassen](customize-boot-images.md).  
+ Wanneer een opstartinstallatiekopie is gebaseerd op een andere versie van Windows ADK is geïnstalleerd op een site, moet u de opstartinstallatiekopieën aanpassen. Gebruik een andere methode voor het aanpassen van deze installatiekopieën, zoals de Deployment Image Servicing and Management (DISM) opdrachtregeltool. DISM maakt deel uit van Windows ADK. Zie voor meer informatie [opstartinstallatiekopieën aanpassen](customize-boot-images.md).  
 
-##  <a name="BKMK_AddBootImages"></a>Een opstartinstallatiekopie toevoegen  
+##  <a name="BKMK_AddBootImages"></a> Een opstartinstallatiekopie toevoegen  
 
- Tijdens site-installatie voegt Configuration Manager automatisch opstartinstallatiekopieën die zijn gebaseerd op een WinPE-versie van de ondersteunde versie van Windows ADK. Afhankelijk van de versie van Configuration Manager, is het mogelijk om toe te voegen op basis van een andere WinPE-versie van de ondersteunde versie van Windows ADK-opstartinstallatiekopieën.  Er treedt een fout op wanneer u een opstartinstallatiekopie probeert toe te voegen die een niet-ondersteunde versie van WinPE bevat.  
-
- Hieronder vindt u de ondersteunde versie van Windows ADK, de Windows PE-versie die op waarop de opstartinstallatiekopie is gebaseerd die kan worden aangepast via de Configuration Manager-console en de Windows PE-versies waarop de opstartinstallatiekopie is gebaseerd, u kunt aanpassen met behulp van DISM en vervolgens de installatiekopie toevoegen aan Configuration Manager.  
+ Tijdens site-installatie voegt Configuration Manager automatisch opstartinstallatiekopieën die zijn gebaseerd op een WinPE-versie van de ondersteunde versie van Windows ADK. Afhankelijk van de versie van Configuration Manager, is het mogelijk om toe te voegen op basis van een andere WinPE-versie van de ondersteunde versie van Windows ADK-opstartinstallatiekopieën. Er treedt een fout op wanneer u probeert toe te voegen van een installatiekopie die een niet-ondersteunde versie van WinPE bevat. De volgende lijst bevat de ondersteunde versies van Windows ADK en WinPE: 
 
 -   **Windows ADK-versie**  
 
@@ -78,9 +80,9 @@ Vanaf Configuration Manager versie 1706, kunt u de nieuwste versie van Windows P
 
      Windows PE 3.1<sup>1</sup> en Windows PE 5  
 
-     <sup>1</sup> u kunt alleen een opstartinstallatiekopie toevoegen aan Configuration Manager wanneer deze is gebaseerd op Windows PE 3.1. Installeer Windows AIK Supplement voor Windows 7 SP1 om een upgrade van Windows AIK voor Windows 7 (gebaseerd op Windows PE 3) naar Windows AIK Supplement voor Windows 7 SP1 (gebaseerd op Windows PE 3.1) uit te voeren. U kunt Windows AIK Supplement voor Windows 7 SP1 downloaden via het [Microsoft Downloadcentrum](http://www.microsoft.com/download/details.aspx?id=5188).  
+     <sup>1</sup> u kunt alleen een opstartinstallatiekopie toevoegen aan Configuration Manager wanneer deze is gebaseerd op Windows PE 3.1. Werk de Windows AIK voor Windows 7 (gebaseerd op Windows PE 3.0) met de Windows AIK Supplement voor Windows 7 SP1 (gebaseerd op Windows PE 3.1). Download de Windows AIK Supplement voor Windows 7 SP1 via het [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=5188).  
 
-     Bijvoorbeeld, wanneer u Configuration Manager hebt, kunt u opstartinstallatiekopieën uit Windows ADK voor Windows 10 (gebaseerd op Windows PE 10) aanpassen via de Configuration Manager-console. Hoewel installatiekopieën die zijn gebaseerd op Windows PE 5 wel worden wel ondersteund, moet u ze aanpassen op een andere computer en moet u die versie van DISM gebruiken die is geïnstalleerd met Windows ADK voor Windows 8. Vervolgens kunt u de installatiekopie toevoegen aan de Configuration Manager-console. Voor meer informatie over de stappen voor het aanpassen van een installatiekopie (toevoegen van optionele componenten en stuurprogramma's), inschakelen van opdrachtondersteuning aan de opstartinstallatiekopie, de installatiekopie toevoegen aan de Configuration Manager-console en distributiepunten bijwerken met de installatiekopie, Zie [opstartinstallatiekopieën aanpassen](customize-boot-images.md).
+     Bijvoorbeeld de Configuration Manager-console gebruiken om aan te passen, installatiekopieën gebaseerd op Windows PE 10 uit de Windows ADK voor Windows 10. Voor een opstartinstallatiekopie is gebaseerd op Windows PE 5, aan te passen vanaf een andere computer met de versie van DISM uit de Windows ADK voor Windows 8. Vervolgens moet u de aangepaste installatiekopie toevoegen aan de Configuration Manager-console. Zie voor meer informatie [opstartinstallatiekopieën aanpassen](customize-boot-images.md).
 
  Gebruik de volgende procedure om handmatig een opstartinstallatiekopie toe te voegen.  
 
@@ -110,33 +112,32 @@ Vanaf Configuration Manager versie 1706, kunt u de nieuwste versie van Windows P
 
 6.  Voltooi de wizard.  
 
- De opstartinstallatiekopie is nu opgenomen in de **opstartinstallatiekopie** knooppunt van de Configuration Manager-console. Vóór u evenwel de opstartinstallatiekopie kunt gebruiken om een besturingssysteem te implementeren, moet u de opstartinstallatiekopie verdelen naar distributiepuntgroepen of naar verzamelingen die gekoppeld zijn met distributiepuntgroepen.  
+ De opstartinstallatiekopie is nu opgenomen in de **opstartinstallatiekopie** knooppunt van de Configuration Manager-console. Voordat u de opstartinstallatiekopie gebruiken om een besturingssysteem te implementeren, moet u de opstartinstallatiekopie naar distributiepunten distribueren. 
 
 > [!NOTE]  
->  Wanneer u selecteert de **opstartinstallatiekopie** knooppunt in de Configuration Manager-console de **grootte (KB)** kolom ziet u de gecomprimeerde grootte voor elke opstartinstallatiekopie. Echter als Configuration Manager stuurt een opstartinstallatiekopie via het netwerk, zendt het een gecomprimeerde kopie van de installatiekopie, die typisch veel kleiner is dan de grootte die worden vermeld in de **grootte (KB)** kolom.  
+>  In de **opstartinstallatiekopie** knooppunt van de console, de **grootte (KB)** kolom ziet u de gecomprimeerde grootte voor elke opstartinstallatiekopie. Wanneer de site een opstartinstallatiekopie via het netwerk verzendt, zendt het een gecomprimeerde kopie. Dit exemplaar is doorgaans kleiner is dan de grootte die worden vermeld in de **grootte (KB)** kolom.  
 
-##  <a name="BKMK_DistributeBootImages"></a>Opstartinstallatiekopieën naar een distributiepunt distribueren  
- Opstartinstallatiekopieën worden op dezelfde manier naar distributiepunten gedistribueerd als bij het distribueren van andere inhoud. In de meeste gevallen moet u de opstartinstallatiekopie naar ten minste één distributiepunt distribueren voordat u een besturingssysteem implementeert en voordat u media maakt.  
+##  <a name="BKMK_DistributeBootImages"></a> Opstartinstallatiekopieën naar een distributiepunt distribueren  
+ Opstartinstallatiekopieën worden op dezelfde manier naar distributiepunten gedistribueerd als bij het distribueren van andere inhoud. In de meeste gevallen moet u de opstartinstallatiekopie naar ten minste één distributiepunt distribueren voordat u een besturingssysteem implementeert en voordat u media maakt.   
 
 > [!NOTE]  
->  Als u PXE voor de implementatie van een besturingssysteem wilt gebruiken, moet u, voordat u de opstartinstallatiekopie distribueert, rekening houden met het volgende:  
+> Houd rekening met de volgende punten om PXE gebruiken om een besturingssysteem te implementeren, voordat u de opstartinstallatiekopie distribueert:  
+> - Configureer het distributiepunt om PXE-aanvragen te accepteren.  
+> - Zowel een x86- en een x64 distribueren opstartinstallatiekopie met PXE-functionaliteit naar ten minste één distributiepunt met PXE-functionaliteit.  
+> - Configuration Manager distribueert de opstartinstallatiekopieën naar de **RemoteInstall** map op het distributiepunt met PXE-functionaliteit.  
 >   
->  -   Het distributiepunt moet worden geconfigureerd om PXE-aanvragen te accepteren.  
-> -   U moet zowel een x86- als x64-opstartinstallatiekopie met PXE-functionaliteit naar ten minste één distributiepunt met PXE-functionaliteit distribueren.  
-> -   Configuration Manager distribueert de opstartinstallatiekopieën naar de **RemoteInstall** map op het distributiepunt met PXE-functionaliteit.  
->   
->  Zie voor meer informatie over het implementeren van besturingssystemen met PXE [PXE gebruiken om Windows te implementeren via het netwerk](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
+> Zie voor meer informatie over het implementeren van besturingssystemen met PXE [PXE gebruiken om Windows te implementeren via het netwerk](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
 
  Zie [Distribute content](/sccm/core/servers/deploy/configure/deploy-and-manage-content#bkmk_distribute) (Inhoud distribueren) voor de stappen voor het distribueren van een opstartinstallatiekopie.  
 
-##  <a name="BKMK_ModifyBootImages"></a>Een opstartinstallatiekopie wijzigen  
+##  <a name="BKMK_ModifyBootImages"></a> Een opstartinstallatiekopie wijzigen  
  U kunt apparaatstuurprogramma aan de installatiekopie toevoegen of verwijderen of de eigenschappen bewerken die aan de opstartinstallatiekopie zijn gekoppeld. De door u toegevoegde of verwijderde apparaatstuurprogramma's kunnen stuurprogramma's voor netwerkadapters of massaopslag zijn. Houd rekening met de volgende factoren wanneer u opstartinstallatiekopieën wijzigt:  
 
--   U moet de apparaatstuurprogramma's importeren en inschakelen in de catalogus voor apparaatstuurprogramma voordat u ze kunt toevoegen aan de opstartinstallatiekopie.  
+-   Importeren en inschakelen van de apparaatstuurprogramma's in de catalogus voor apparaatstuurprogramma voordat u deze toevoegt aan de installatiekopie.  
 
 -   Wanneer u een opstartinstallatiekopie wijzigt, wijzigt de opstartinstallatiekopie geen van de gekoppelde pakketten waarnaar de opstartinstallatiekopie verwijst.  
 
--   Nadat u een opstartinstallatiekopie hebt gewijzigd, moet u de distributiepunten **bijwerken** die een versie van de opstartinstallatiekopie bevatten, zodat de meest recente versie van de opstartinstallatiekopie beschikbaar is. Zie [Manage content you have distributed](/sccm/core/servers/deploy/configure/deploy-and-manage-content#bkmk_manage) (Inhoud beheren die u hebt gedistribueerd) voor meer informatie.  
+-   Nadat u wijzigingen aan een opstartinstallatiekopie aanbrengt **bijwerken** de opstartinstallatiekopie op het distributiepunt wijst die al hebt. Dit proces maakt de meest recente versie van de opstartinstallatiekopie beschikbaar voor clients. Zie [Manage content you have distributed](/sccm/core/servers/deploy/configure/deploy-and-manage-content#bkmk_manage) (Inhoud beheren die u hebt gedistribueerd) voor meer informatie.  
 
  Gebruik de volgende procedure om een opstartinstallatiekopie te wijzigen.  
 
@@ -154,50 +155,50 @@ Vanaf Configuration Manager versie 1706, kunt u de nieuwste versie van Windows P
 
     -   Klik op **Opnieuw laden** op het tabblad **Installatiekopieën**, indien u de eigenschappen van de opstartinstallatiekopie hebt gewijzigd door gebruik te maken van een extern hulpprogramma.  
 
-    -   Voeg op het tabblad **Stuurprogramma's** de Windows-apparaatstuurprogramma's toe, die vereist zijn om WinPE op te starten. Overweeg het volgende wanneer u apparaatstuurprogramma's toevoegt:  
+    -   Voeg op het tabblad **Stuurprogramma's** de Windows-apparaatstuurprogramma's toe, die vereist zijn om WinPE op te starten. Houd rekening met de volgende punten wanneer u apparaatstuurprogramma's toevoegt:  
 
-        -   Selecteer **stuurprogramma's die niet overeenkomen met de architectuur van de installatiekopie verbergen** om alleen stuurprogramma's voor de architectuur van de opstartinstallatiekopie weer te geven. De architectuur is gebaseerd op de architectuur die wordt vermeld in de .INF van de fabrikant.  
+        -   Selecteer **stuurprogramma's die niet overeenkomen met de architectuur van de installatiekopie verbergen** om alleen stuurprogramma's voor de architectuur van de opstartinstallatiekopie weer te geven. De architectuur is gebaseerd op de architectuur die wordt vermeld in het INF-bestand van de fabrikant.  
 
-        -   Selecteer **Stuurprogramma’s buiten een opslag- of netwerkklasse verbergen (voor installatiekopieën)** om alleen opslag- en netwerkstations weer te geven en andere stuurprogramma's die doorgaans niet nodig zijn voor installatiekopieën, zoals een video- of modemstuurprogramma, te verbergen.  
+        -   Selecteer **stuurprogramma's die zich niet in een opslag- of netwerkklasse (voor installatiekopieën) verbergen** om alleen opslag- en netwerkstations weer te geven. Deze optie verbergt u ook andere stuurprogramma's die doorgaans niet nodig voor installatiekopieën, zoals een video- of modem stuurprogramma's zijn.  
 
-        -   Selecteer **Stuurprogramma's die niet digitaal zijn ondertekend verbergen** om stuurprogramma's die niet digitaal zijn ondertekend, te verbergen.  
+        -   Selecteer **stuurprogramma's die niet digitaal zijn ondertekend verbergen** voor het verbergen van stuurprogramma's die u geen geldige digitale handtekening hebt.  
 
-        -   Voeg als best practice uitsluitend NIC-stuurprogramma's en stuurprogramma's voor massaopslag aan de opstartinstallatiekopie toe, tenzij er vereisten zijn dat andere stuurprogramma's deel uitmaken van WinPE.  
+        -   Als een best practice toevoegen alleen netwerk- en stuurprogramma's voor massaopslag aan de opstartinstallatiekopie, tenzij er vereisten voor andere stuurprogramma's in WinPE.  
 
-        -   Aangezien WinPE een groot aantal ingebouwde stuurprogramma's bevat, kunt u het beste uitsluitend NIC-stuurprogramma's en stuurprogramma's voor massaopslag toevoegen die niet door WinPE worden geleverd.  
+        -   Aangezien WinPE een groot aantal ingebouwde stuurprogramma's bevat, alleen netwerk- en mass storage stuurprogramma's toevoegen die niet door WinPE worden geleverd.  
 
-        -   Zorg ervoor dat de stuurprogramma's die u toevoegt aan de opstartinstallatiekopie overeenkomen met de architectuur van de opstartinstallatiekopie.  
+        -   Zorg ervoor dat de stuurprogramma's die u aan de opstartinstallatiekopie toevoegt overeenkomen met de architectuur van de opstartinstallatiekopie.  
 
         > [!NOTE]  
         >  U moet apparaatstuurprogramma's importeren in de stuurprogrammacatalogies, vóór u ze toevoegt aan de opstartinstallatiekopie. Zie voor meer informatie over het importeren van apparaatstuurprogramma's [stuurprogramma's beheren](manage-drivers.md).  
 
     -   Selecteer op het tabblad **Aanpassen** één van de volgende instellingen:  
 
-        -   Selecteer het selectievakje **Schakel prestart-opdrachten** om een uit te voeren opdracht op te geven vóór de takenreeks wordt uitgevoerd. Wanneer prestart-opdrachten ingeschakeld zijn, kunt u de opdrachtregel opgeven die uitgevoerd wordt, opgeven of er ondersteuningsbestanden nodig zijn om de opdracht uit te voeren en de bronlocatie van deze ondersteuningsbestanden.  
+        -   Selecteer het selectievakje **Schakel prestart-opdrachten** om een uit te voeren opdracht op te geven vóór de takenreeks wordt uitgevoerd. Wanneer u deze optie inschakelt, ook de opdrachtregel om uit te voeren en ondersteuningsbestanden vereist door de opdracht opgeven.  
 
             > [!WARNING]  
-            >  U moet **cmd /c** toevoegen aan het begin van de opdrachtregel. Als u geen **cmd /c** opgeeft, wordt de opdracht niet afgesloten nadat deze is uitgevoerd. De implementatie blijft wachten tot de opdracht is voltooid en er worden geen andere geconfigureerde opdrachten of acties gestart.  
+            >  Voeg **cmd /c** toe aan het begin van de opdrachtregel. Als u geen opgeeft **cmd /c**, de opdracht niet gesloten nadat deze is uitgevoerd. De implementatie blijft wachten tot de opdracht is voltooid en geen andere geconfigureerde opdrachten of acties start niet.  
 
             > [!TIP]  
-            >  Tijdens het maken van taak de media schrijft de takenreeks de pakket-ID en prestart-opdrachtregel, inclusief de waarde voor eventuele takenreeksvariabelen, naar het logboekbestand CreateTSMedia.log op de computer waarop de Configuration Manager-console. U kunt dit logboekbestand controleren om de waarde voor de takenreeksvariabelen te verifiëren.  
+            >  Tijdens het maken van de media taak schrijft de wizard de pakket-ID en prestart-opdrachtregel, inclusief de waarde voor eventuele takenreeksvariabelen, naar het logboekbestand CreateTSMedia.log. Dit logboek is op de computer waarop de Configuration Manager-console. Bekijk dit logboekbestand om de waarde voor de takenreeksvariabelen te verifiëren.  
 
         -   Stel bij **Windows PE-achtergrond** in of u de standaardachtergrond van WindowsPE of een aangepaste achtergrond wilt gebruiken.  
 
-        -   Schakel het selectievakje **Opdrachtondersteuning inschakelen (alleen testen)** in om tijdens het implementeren van de opstartinstallatiekopie een opdrachtprompt met toets **F8** te openen. Dit is nuttig voor de probleemoplossing als u uw implementatie test. Het gebruik van deze instelling in een productie-implementatie wordt niet aanbevolen.  
+        -   Schakel het selectievakje **Opdrachtondersteuning inschakelen (alleen testen)** in om tijdens het implementeren van de opstartinstallatiekopie een opdrachtprompt met toets **F8** te openen. Deze optie is nuttig voor de probleemoplossing als u uw implementatie test. Het gebruik van deze instelling in een productie-implementatie wordt niet aanbevolen.  
 
         -   Configureer de Windows PE-scratchruimte, die door Windows PE wordt gebruikt als tijdelijke opslag (RAM-station). Wanneer er bijvoorbeeld een toepassing wordt uitgevoerd in WinPE en er tijdelijke bestanden moet worden geschreven, stuurt WindPE de bestanden naar de scratchruimte in het geheugen om de aanwezigheid van een harde schijf te simuleren. Standaard wijst WinPE 32 megabytes (MB) aan beschrijfbaar geheugen toe.  
 
     -   Update één van de volgende instellingen op het tabblad **Gegevensbron**:  
 
-        -   Stel **Pad voor installatiekopie** en **Installatiekopie-index** in om het bronbestand van de opstartinstallatiekopie te wijzigen.  
+        -   Als u wilt wijzigen van het bronbestand van de opstartinstallatiekopie, **installatiekopiepad** en **installatiekopie-index**.  
 
-        -   Selecteer **Distributiepunten bijwerken op basis van een planning** om een planning te maken voor wanneer de opstartinstallatiekopie is bijgewerkt.  
+        -   Voor het maken van een planning voor wanneer de site de opstartinstallatiekopie werkt selecteert **Update distributiepunten volgens een schema**.  
 
-        -   Selecteer **Inhoud in clientcache permanent behouden** als u niet wilt dat de inhoud van dit pakket uit de clientcache wordt verwijderd om ruimte te maken voor andere inhoud.  
+        -   Als u niet dat de inhoud van dit pakket uit de clientcache om ruimte voor andere inhoud te maken wilt, selecteert u **inhoud in de clientcache behouden**.  
 
-        -   Selecteer **Binaire differentiële replicatie inschakelen** om te aan te geven dat alleen gewijzigde bestanden worden gedistribueerd wanneer het pakket met de opstartinstallatiekopie op het distributiepunt is bijgewerkt. Deze instelling minimaliseert het netwerkverkeer tussen sites, in het bijzonder wanneer het opstartinstallatiekopie-pakket groot is en de wijzigingen relatief gering zijn.  
+        -   U kunt opgeven dat de site de gewijzigde bestanden alleen verspreidt tijdens het bijwerken van het opstartinstallatiekopiepakket op het distributiepunt, **binaire differentiële replicatie inschakelen** (BDR). Deze instelling minimaliseert het netwerkverkeer tussen sites. BDR is vooral nuttig wanneer het opstartinstallatiekopie-pakket groot is en de wijzigingen relatief gering zijn.  
 
-        -   Selecteer **Deze opstartinstallatiekopie implementeren vanaf het PXE-distibutiepunt** als de opstartinstallatiekopie wordt gebruikt in een implementatie met PXE-functionaliteit.  
+        -   Als u de installatiekopie in een implementatie met PXE-functionaliteit gebruikt, selecteert u **deze opstartinstallatiekopie implementeren vanaf het distributiepunt met PXE-functionaliteit**.  
 
             > [!NOTE]  
             >  Zie voor meer informatie [PXE gebruiken om Windows te implementeren via het netwerk](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
@@ -210,11 +211,11 @@ Vanaf Configuration Manager versie 1706, kunt u de nieuwste versie van Windows P
 
     -   Selecteer één van de volgende instellingen op het tabblad **Distributie-instellingen**:  
 
-        -   In de **distributieprioriteit** lijst, geeft u het prioriteitsniveau op dat u wilt dat Configuration Manager moet worden gebruikt wanneer meerdere pakketten worden gedistribueerd naar hetzelfde distributiepunt.  
+        -   In de **distributieprioriteit** lijst, geeft u het prioriteitsniveau op. Configuration Manager gebruikt deze prioriteitenlijst wanneer de site meerdere pakketten naar hetzelfde distributiepunt distribueert.  
 
-        -   Selecteer **De inhoud voor dit pakket distribueren naar voorkeursdistributiepunten** als u inhouddistributie op aanvraag naar voorkeursdistributiepunten wilt inschakelen. Wanneer deze instelling ingeschakeld is, distribueert het beheerpunt de inhoud naar alle voorkeurdistributiepunten wanneer een client de inhoud voor het pakket opvraagt en de inhoud niet beschikbaar is op om het even welk voorkeursdistributiepunt.  
+        -   Als u inschakelen, distributie van inhoud op aanvraag naar voorkeursdistributiepunten wilt, selecteert u **Distribueer de inhoud voor dit pakket naar voorkeursdistributiepunten**. Wanneer u deze instelling inschakelt als een client de inhoud voor het pakket opvraagt en de inhoud niet beschikbaar is op voorkeursdistributiepunten, is en het beheerpunt de inhoud naar alle voorkeursdistributiepunten distribueert.  
 
-        -   Stel de **Instellingen voorbereid distributiepunt** in om op te geven hoe u wilt de opstartinstallatiekopie gedistribueerd zien naar distributiepunten die ingeschakeld zijn voor voorbereide inhoud.  
+        -   Wilt u opgeven hoe u wilt dat de site om de opstartinstallatiekopie naar distributiepunten die zijn ingeschakeld voor voorbereide inhoud te distribueren, stelt de **instellingen voorbereid distributiepunt**.  
 
             > [!NOTE]  
             >  Zie [Prestage content](/sccm/core/servers/deploy/configure/deploy-and-manage-content#bkmk_prestage) (Voorbereide inhoud) voor meer informatie over voorbereide inhoud.  
@@ -225,13 +226,13 @@ Vanaf Configuration Manager versie 1706, kunt u de nieuwste versie van Windows P
 
         -   Klik op **Valideer** om de integriteit te controleren van het opstartinstallatiekopiepakket op het geselecteerde distributiepunt of de geselecteerde distributiepuntgroep.  
 
-    -   Op de **optionele onderdelen** tabblad, geeft u de onderdelen die zijn toegevoegd aan Windows PE voor gebruik met Configuration Manager. Zie voor meer informatie over beschikbare optionele onderdelen [WinPE: Pakketten (Optional Components Reference) toevoegen](https://msdn.microsoft.com/library/windows/hardware/dn938382\(v=vs.85\).aspx).  
+    -   Op de **optionele onderdelen** tabblad, geeft u de onderdelen die zijn toegevoegd aan Windows PE voor gebruik met Configuration Manager. Zie voor meer informatie over beschikbare optionele onderdelen [WinPE: Pakketten (Optional Components Reference) toevoegen](https://docs.microsoft.com/windows-hardware/manufacture/desktop/winpe-add-packages--optional-components-reference).  
 
     -   Selecteer op het tabblad **Beveiliging** een gebruiker met beheerdersrechten en wijzig de operaties die ze kunnen uitvoeren.  
 
 6.  Klik op **OK** nadat u de eigenschappen hebt geconfigureerd.  
 
-##  <a name="BKMK_BootImagePXE"></a>Een opstartinstallatiekopie implementeren vanaf een distributiepunt met PXE-functionaliteit configureren  
+##  <a name="BKMK_BootImagePXE"></a> Een opstartinstallatiekopie implementeren vanaf een distributiepunt met PXE-functionaliteit configureren  
  Voordat u een opstartinstallatiekopie voor de implementatie van een PXE-besturingssysteem kunt gebruiken, moet u de opstartinstallatiekopie configureren voor een implementatie vanaf een distributiepunt met PXE-functionaliteit.  
 
 #### <a name="to-configure-a-boot-image-to-deploy-from-a-pxe-enabled-distribution-point"></a>Een opstartinstallatiekopie configureren voor de implementatie vanaf een distributiepunt met PXE-functionaliteit  
@@ -251,12 +252,12 @@ Vanaf Configuration Manager versie 1706, kunt u de nieuwste versie van Windows P
 
 6.  Klik op **OK** nadat u de eigenschappen hebt geconfigureerd.  
 
-##  <a name="BKMK_BootImageLanguage"></a>Meerdere talen configureren voor implementatie van de opstartinstallatiekopie  
- Opstartinstallatiekopieën zijn taalonafhankelijk. Hierdoor kunt u één opstartinstallatiekopie gebruiken die de tekst van de takenreeks in meerdere talen weergeeft wanneer WinPE wordt gebruikt, als u de toepasselijke taalondersteuning uit optionele onderdelen van WinPE opneemt en de toepasselijke takenreeksvariabele zo instelt, dat deze aangeeft welke taal kan worden weergegeven. De taal van het besturingssysteem die u implementeert, is onafhankelijk van de taal die wordt weergegeven in WinPE, ongeacht de versie van Configuration Manager. De aan de gebruiker weergegeven taal wordt als volgt bepaald:  
+##  <a name="BKMK_BootImageLanguage"></a> Meerdere talen configureren voor implementatie van de opstartinstallatiekopie  
+ Opstartinstallatiekopieën zijn taalonafhankelijk. Deze functie kunt u één opstartinstallatiekopie gebruiken om de tekst van de takenreeks in meerdere talen wanneer WinPE weer te geven. De toepasselijke taalondersteuning uit de opstartinstallatiekopie bevatten **optionele onderdelen** tabblad. Stel de toepasselijke takenreeksvariabele om aan te geven welke taal om weer te geven. De taal van het geïmplementeerde besturingssysteem is onafhankelijk van de taal in WinPE. De taal die WinPE voor de gebruiker wordt is als volgt bepaald:  
 
 -   Wanneer een gebruiker de takenreeks wordt uitgevoerd vanuit een bestaand besturingssysteem wordt uitgevoerd, gebruikt Configuration Manager automatisch de taal die is geconfigureerd voor de gebruiker. Wanneer de takenreeks automatisch wordt uitgevoerd als gevolg van een verplichte implementatiedeadline, wordt in Configuration Manager maakt gebruik van de taal van het besturingssysteem.  
 
--   U kunt voor implementaties van besturingssystemen die PXE of media gebruiken de id-waarde van de taal instellen in de variabele SMSTSLanguageFolder als onderdeel van een prestart-opdracht. Wanneer de computer wordt opgestart in WinPE, worden berichten weergegeven in de taal die u hebt opgegeven in de variabele. Als er een fout optreedt bij het openen van het bronbestand voor de taal in de opgegeven map of als u de variabele niet instelt, worden berichten in de WinPE-taal weergegeven.  
+-   Voor implementaties van besturingssystemen die PXE of media gebruiken de waarde van de taal-ID in de **SMSTSLanguageFolder** variabele als onderdeel van een prestart-opdracht. Wanneer de computer wordt opgestart in WinPE, worden berichten weergegeven in de taal die u hebt opgegeven in de variabele. Als er een fout bij toegang tot het bronbestand in de opgegeven map, of u de variabele niet instelt, worden berichten weergegeven in de standaardtaal van WinPE.  
 
     > [!NOTE]  
     >  Wanneer de media met een wachtwoord zijn beschermd, wordt de tekst waarin de gebruiker naar het wachtwoord wordt gevraagd, altijd weergegeven in de WinPE-taal.  
@@ -265,6 +266,6 @@ Vanaf Configuration Manager versie 1706, kunt u de nieuwste versie van Windows P
 
 #### <a name="to-set-the-windows-pe-language-for-a-pxe-or-media-initiated-operating-system-deployment"></a>De Windows PE-taal instellen voor implementaties van door PXE of media geactiveerde besturingssystemen  
 
-1.  Controleer of het toepasselijke bronbestand (tsres.dll) voor de takenreeks zich in de betreffende taalmap op de siteserver bevindt, voordat u de opstartinstallatiekopie bijwerkt. Het Engels bronbestand bevindt zich bijvoorbeeld op de volgende locatie:  <*ConfigMgrInstallationFolder*>\OSD\bin\x64\00000409\tsres.dll.  
+1.  Controleer of de juiste volgorde bronbestand (tsres.dll) in de betreffende taalmap op de siteserver voordat u de opstartinstallatiekopie bijwerkt. Bijvoorbeeld, het Engels bronbestand bevindt in de volgende locatie: <*ConfigMgrInstallationFolder*> \OSD\bin\x64\00000409\tsres.dll.  
 
-2.  Als onderdeel van uw prestart-opdracht stelt u de variabele voor de SMSTSLanguageFolder-omgeving in op de juiste taal-id. De taal-id moet worden opgegeven met decimale tekens en geen hexadecimale tekens. Als u bijvoorbeeld de taal-id op Engels wilt instellen, zou u een decimale waarde 1033 moeten opgeven in plaats van de hexadecimale waarde 00000409 die wordt gebruikt voor de mapnaam.  
+2.  Als onderdeel van uw prestart-opdracht stelt u de variabele voor de SMSTSLanguageFolder-omgeving in op de juiste taal-id. De taal-id moet worden opgegeven met decimale tekens en geen hexadecimale tekens. Geef bijvoorbeeld de taal-ID op Engels wilt instellen, de decimale waarde 1033, niet de hexadecimale waarde 00000409 van de mapnaam.  

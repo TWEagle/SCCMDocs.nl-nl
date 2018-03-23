@@ -1,40 +1,41 @@
 ---
 title: Endpoint Protection-Client configureren
 titleSuffix: Configuration Manager
-description: "Informatie over het configureren van aangepaste clientinstellingen voor Endpoint Protection die kan worden geïmplementeerd naar verzamelingen van computers in uw hiërarchie."
+description: Informatie over het configureren van aangepaste clientinstellingen voor Endpoint Protection die kan worden geïmplementeerd naar verzamelingen van computers in uw hiërarchie.
 ms.custom: na
-ms.date: 02/14/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: e63f2394-6eb1-4a33-bec5-8377fc62a34e
-caps.latest.revision: "21"
-author: NathBarn
-ms.author: nathbarn
-manager: angrobe
-ms.openlocfilehash: de8f7411219446420a8c8bca00799d8d7d18fd2f
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+caps.latest.revision: ''
+author: mestew
+ms.author: mstewart
+manager: dougeby
+ms.openlocfilehash: 22c56bac25cc6e3129f2e8478bbae9fa8782de9f
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-custom-client-settings-for-endpoint-protection"></a>Aangepaste clientinstellingen voor Endpoint Protection configureren
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Deze procedure configureert u aangepaste clientinstellingen voor Endpoint Protection die kunnen worden geïmplementeerd op verzamelingen van computers in uw hiërarchie.
+Deze procedure configureert u aangepaste clientinstellingen voor Endpoint Protection, die kunnen worden geïmplementeerd op verzamelingen van computers in uw hiërarchie.
 
 > [!IMPORTANT]
->  Alleen de standaardinstellingen van de Endpoint Protection-client configureren als u zeker weet dat u ze toepassen op alle computers in uw hiërarchie wilt.
+>  Alleen de standaardinstellingen van de Endpoint Protection-client configureren als u zeker dat u ze toepassen op alle computers in uw hiërarchie wilt. 
 
 ## <a name="to-enable-endpoint-protection-and-configure-custom-client-settings"></a>Endpoint Protection inschakelen en aangepaste clientinstellingen configureren
 
 1.  Klik op **Beheer**in de Configuration Manager-console.
 
-2.  Klik op **Clientinstellingen** in de werkruimte **Beheer**.
+2.  Klik in de werkruimte **Beheer** op **Clientinstellingen**.
 
 3.  Klik op het tabblad **Start** in de groep **Maken** op **Aangepaste clientapparaatinstellingen maken**.
 
@@ -56,20 +57,22 @@ Clientcomputers zullen worden geconfigureerd met deze instellingen wanneer ze de
 ## <a name="how-to-provision-the-endpoint-protection-client-in-a-disk-image-in-configuration-manager"></a>De Endpoint Protection-client in een schijfinstallatiekopie inrichten in Configuration Manager
 U kunt de Endpoint Protection-client installeren op een computer die u wilt gebruiken als bron voor schijfinstallatiekopieën voor besturingssysteemimplementatie van Configuration Manager. Deze computer wordt doorgaans de referentiecomputer genoemd. Nadat u de installatiekopie van het besturingssysteem hebt gemaakt, kunt u kunt vervolgens besturingssysteemimplementatie van Configuration Manager gebruiken om de installatiekopie die softwarepakketten, met inbegrip van Endpoint Protection op de clientcomputers kan bevatten.
 
-Gebruik de procedures in dit onderwerp voor hulp bij het installeren en configureren van de Endpoint Protection-client op een referentiecomputer
+Gebruik de procedures in dit artikel voor hulp bij het installeren en configureren van de Endpoint Protection-client op een referentiecomputer
 
 ### <a name="prerequisites-for-installing-the-endpoint-protection-client-on-the-reference-computer"></a>Vereisten voor het installeren van de Endpoint Protection-client op de referentiecomputer
 De volgende lijst bevat de vereisten voor het installeren van de Endpoint Protection-clientsoftware op een referentiecomputer.
 
--   U moet toegang hebben tot het clientinstallatiepakket van de Endpoint Protection **scepinstall.exe**. Dit pakket kan worden gevonden in de **Client** map van de Microsoft System Center Configuration Manager-installatiemap op de siteserver.
+-   U moet toegang hebben tot het clientinstallatiepakket van de Endpoint Protection **scepinstall.exe**. Dit pakket kan worden gevonden in de **Client** map van de Microsoft System Center Configuration Manager-installatiemap op de siteserver. Windows 10 en Windows Server 2016 hebt Windows Defender is geïnstalleerd. 
 
 -   Om te controleren of de Endpoint Protection client wordt geïmplementeerd met de configuratie die is in uw organisatie vereist, maakt u een antimalwarebeleid en exporteert u dat beleid. Vervolgens kunt u het antimalwarebeleid moet worden gebruikt wanneer u de Endpoint Protection-client handmatig installeert. Zie voor meer informatie [maken en implementeren van antimalwarebeleid voor Endpoint Protection in System Center Configuration Manager](endpoint-antimalware-policies.md).
 
    > [!NOTE]
-   >  Het beleid dat is ingesteld als **Standaard antimalwarebeleid client** kan niet worden geëxporteerd.
+   >  De **standaard Antimalwarebeleid Client** kan niet worden geëxporteerd.
 
 -   Als u de Endpoint Protection-client installeren met de meest recente definities wilt, u moet deze downloaden vanuit de [Microsoft Malware Protection Center](http://go.microsoft.com/fwlink/?LinkID=200965).
 
+>[!NOTE]
+> Vanaf Configuration Manager 1802, hoeft Windows 10-apparaten niet te hebben van de Endpoint Protection agent (SCEPInstall) is geïnstalleerd. Als deze al is geïnstalleerd op Windows 10-apparaten, wordt Configuration Manager niet verwijderd. Beheerders kunnen de Endpoint Protection-agent op Windows 10-apparaten die met ten minste de clientversie 1802 verwijderen. SCEPInstall.exe mogelijk nog steeds in C:\Windows\ccmsetup op sommige computers aanwezig, maar niet moeten worden gedownload op de nieuwe clientinstallaties. <!--503654-->
 ### <a name="how-to-install-the-endpoint-protection-client-software-on-the-reference-computer"></a>De Endpoint Protection-clientsoftware installeren op de referentiecomputer
 U kunt de Endpoint Protection-client lokaal installeren op de referentiecomputer vanaf een opdrachtprompt. Hiervoor hebt u het installatiebestand **scepinstall.exe**nodig. U kunt de client ook installeren met een vooraf geconfigureerd antimalwarebeleid of met een antimalwarebeleid dat u eerder hebt geëxporteerd.
 
@@ -77,7 +80,7 @@ U kunt de Endpoint Protection-client lokaal installeren op de referentiecomputer
 
 1.  Kopiëren **scepinstall.exe** van de **Client** map op de installatiemedia van System Center Configuration Manager op de computer waarop u wilt de Endpoint Protection-clientsoftware installeren.
 
-2.  Open een opdrachtprompt met beheerdersbevoegdheden, navigeer naar de map waarin **scepinstall.exe** is opgenomen en voer de volgende opdracht uit, inclusief eventuele aanvullende opdrachtregeleigenschappen:
+2.  Open een opdrachtprompt met beheerdersbevoegdheden, navigeer naar de map waar **scepinstall.exe** zich bevindt en voer de volgende opdracht, toe te voegen eventuele aanvullende opdrachtregeleigenschappen die u nodig hebt:
 
    ```
    scepinstall.exe
@@ -99,7 +102,7 @@ U kunt de Endpoint Protection-client lokaal installeren op de referentiecomputer
 4.  Als u het meest recente pakket met updatedefinities hebt gedownload, kopieert u dit pakket naar de clientcomputer en dubbelklikt u op het pakket om het te installeren.
 
    > [!NOTE]
-   >  Nadat de installatie van de Endpoint Protection-client is voltooid, wordt de client automatisch een definitie-update-controle uitvoert. Als er een update beschikbaar is, hoeft u het pakket met de meest recente definitie-update niet handmatig te installeren.
+   >  Nadat de installatie van de Endpoint Protection-client is voltooid, wordt de client automatisch een definitie-update-controle uitvoert. Als deze update beschikbaar is, hebt u niet de meest recente definitie-updatepakket handmatig installeren.
 
 ## <a name="to-install-the-client-software-with-an-antimalware-policy-from-the-command-prompt"></a>De clientsoftware met een antimalwarebeleid installeren via de opdrachtprompt
 
@@ -116,18 +119,18 @@ U kunt de Endpoint Protection-client lokaal installeren op de referentiecomputer
 4.  Als u het meest recente pakket met definities hebt gedownload, kopieert u dit pakket naar de clientcomputer en dubbelklikt u op het pakket om het te installeren.
 
    > [!NOTE]
-   >  Nadat de installatie van de Endpoint Protection-client is voltooid, wordt de client automatisch een definitie-update-controle uitvoert. Als er een update beschikbaar is, hoeft u het pakket met de meest recente definitie-update niet handmatig te installeren.
+   >  Nadat de installatie van de Endpoint Protection-client is voltooid, wordt de client automatisch een definitie-update-controle uitvoert. Als deze update beschikbaar is, hebt u niet de meest recente definitie-updatepakket handmatig installeren.
 
 ## <a name="verify-that-the-endpoint-protection-client-is-installed-correctly"></a>Controleren of de Endpoint Protection-client correct is geïnstalleerd
 Nadat u de Endpoint Protection-client op uw referentiecomputer hebt geïnstalleerd, moet u controleren of de client correct werkt.
 
 ### <a name="to-verify-that-the-endpoint-protection-client-is-installed-correctly"></a>Controleren of de Endpoint Protection-client correct is geïnstalleerd
 
-1.  Open op de referentiecomputer **System Center Endpoint Protection** van de Windows notification zijn.
+1.  Open op de referentiecomputer **System Center Endpoint Protection** vanuit het Windows-systeemvak.
 
 2.  Op de **Start** tabblad van de **System Center Endpoint Protection** dialoogvenster Controleer **real-timebeveiliging** is ingesteld op **op**.
 
-3.  Controleer of **Bijgewerkt** wordt weergegeven voor **Definities van virussen en spyware**.
+3.  Controleer **Up-to-date** wordt weergegeven voor **definities van virussen en spyware**.
 
 4.  Selecteer onder **Opties voor scan**de optie **Volledig**en klik vervolgens op **Nu scannen**om ervoor te zorgen dat uw referentiecomputer gereed is voor imaging.
 
@@ -150,7 +153,7 @@ Zie voor meer informatie over de implementatie van besturingssystemen in Configu
    ```
 
    > [!IMPORTANT]
-   >  Wees voorzichtig bij het uitvoeren van de Register-Editor op deze manier; de optie -s in PsExec.exe wordt Register-Editor met LocalSystem-bevoegdheden uitgevoerd.
+   >  Wees voorzichtig wanneer u de Register-Editor op deze manier uitvoert; de optie -s in PsExec.exe wordt Register-Editor met LocalSystem-bevoegdheden uitgevoerd.
 
 4.  Navigeer in Register-editor naar elk van de volgende registersleutels en verwijder deze.
 

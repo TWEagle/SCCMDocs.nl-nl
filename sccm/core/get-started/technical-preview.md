@@ -1,9 +1,9 @@
 ---
 title: Technische Preview-versies
 titleSuffix: Configuration Manager
-description: Meer informatie over de Technical Preview-versie dat we u test-drive nieuwe functionaliteit en mogelijkheden in System Center Configuration Manager.
+description: Meer informatie over de Technical Preview-versie naar test-drive nieuwe functionaliteit en mogelijkheden in Configuration Manager.
 ms.custom: na
-ms.date: 02/09/2018
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: nab
 ms.suite: na
@@ -12,15 +12,15 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 9ce0a8cb-f96c-4e41-834c-59ceb54ce44a
-caps.latest.revision: 
+caps.latest.revision: ''
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 1cb4d775985839ea7c4fb1b48a04ab0be64f5d8c
-ms.sourcegitcommit: 32bbc006a41868a6d9a708db5f7b372d9c71d985
+ms.openlocfilehash: 4509c7da3ca36d2ffd3de36774bf069c40d95ce2
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="technical-preview-for-system-center-configuration-manager"></a>Technical Preview voor System Center Configuration Manager
 
@@ -149,26 +149,45 @@ Then remove the bottom of this list and/or move individual items not in CB to th
 
  |Mogelijkheid |Technische Preview-versie |Huidige versie van het filiaal|  
  |----------------|---------------------|--------------------|
- |Gefaseerde implementaties maken <!-- 1357405 --> | [Tech Preview 1801](capabilities-in-technical-preview-1801.md#create-phased-deployments)  |![Niet toegevoegd](media/Red_X.gif)    |
- |Mede management reporting <!-- 1356648 --> | [Tech Preview 1801](capabilities-in-technical-preview-1801.md#co-management-reporting)  |![Niet toegevoegd](media/Red_X.gif)    |
- |Verbeteringen aan automatische implementatie regel evaluatieplanning <!-- 1357133 --> | [Tech Preview 1801](capabilities-in-technical-preview-1801.md#improvements-to-automatic-deployment-rule-evaluation-schedule)  |![Niet toegevoegd](media/Red_X.gif)    |
- |Opnieuw toewijzen van distributiepunt <!-- 1306937 --> | [Tech Preview 1801](capabilities-in-technical-preview-1801.md#reassign-distribution-point)  |![Niet toegevoegd](media/Red_X.gif)    |
- |Verbeteringen in de hardware-inventaris <!-- 1357389 --> | [Tech Preview 1801](capabilities-in-technical-preview-1801.md#improvements-to-hardware-inventory)  |![Niet toegevoegd](media/Red_X.gif)    |
- |Verbeteringen in de clientinstellingen voor Software Center <!-- 1355146 --> | [Tech Preview 1801](capabilities-in-technical-preview-1801.md#improvements-to-client-settings-for-software-center)  |![Niet toegevoegd](media/Red_X.gif)    |
- |Nieuwe instellingen voor Windows Defender toepassing Guard <!-- 1356256 --> | [Tech Preview 1801](capabilities-in-technical-preview-1801.md#new-settings-for-windows-defender-application-guard)  |![Niet toegevoegd](media/Red_X.gif)    |
- |Verbeteringen aan het uitvoeren van Scripts <!-- 1236459 --> | [Tech Preview 1801](capabilities-in-technical-preview-1801.md#improvements-to-run-scripts)  |![Niet toegevoegd](media/Red_X.gif)    |
- |Vervangen van toepassingen niet automatisch bijgewerkt <!-- 1351266 --> | [Tech Preview 1712](capabilities-in-technical-preview-1712.md#do-not-automatically-upgrade-superseded-applications)  |![Niet toegevoegd](media/Red_X.gif)    | 
- |Meerdere toepassingen in Software Center installeren <!-- 1357126 --> | [Tech Preview 1712](capabilities-in-technical-preview-1712.md#install-multiple-applications-in-software-center)  |![Niet toegevoegd](media/Red_X.gif)    |
- |PXE-responder-service op basis van client <!-- 1357148 --> | [Tech Preview 1712](capabilities-in-technical-preview-1712.md#client-based-pxe-responder-service)  |![Niet toegevoegd](media/Red_X.gif)    |
- |Wijziging in de Configuration Manager-client installeren <!-- 1356195 --> | [Tech Preview 1712](capabilities-in-technical-preview-1712.md#change-in-the-configuration-manager-client-install)  |![Niet toegevoegd](media/Red_X.gif)    | 
- |Wijzig in het dashboard Surface apparaat <!-- 1355788 --> | [Tech Preview 1712](capabilities-in-technical-preview-1712.md#change-to-the-surface-device-dashboard)  |![Niet toegevoegd](media/Red_X.gif)    | 
- |Verbeteringen aan beheer van Office 365 Client-dashboard <!-- 1357281 --> | [Tech Preview 1712](capabilities-in-technical-preview-1712.md#improvements-to-office-365-client-management-dashboard)  |![Niet toegevoegd](media/Red_X.gif)    | 
- |Verbeteringen in de Configuration Manager-console <!-- 1357280,1357282 --> | [Tech Preview 1712](capabilities-in-technical-preview-1712.md#improvements-to-the-configuration-manager-console)  |![Niet toegevoegd](media/Red_X.gif)    | 
- |Verbeteringen in de implementatie van besturingssysteem <!-- SMS 500897 --> | [Tech Preview 1712](capabilities-in-technical-preview-1712.md#improvements-to-operating-system-deployment)  |![Niet toegevoegd](media/Red_X.gif)    | 
- |Takenreeksstap uitvoeren <!-- 1261338 --> | [Tech Preview 1711](capabilities-in-technical-preview-1711.md) |[Versie 1710](/sccm/osd/understand/task-sequence-steps#child-task-sequence)    |
- |Interactie van de gebruiker toestaan bij het installeren van een toepassing <!-- 1356976 --> | [Tech Preview 1711](capabilities-in-technical-preview-1711.md) |![Niet toegevoegd](media/Red_X.gif)    |
+ | Overgang Endpoint Protection werkbelasting voor Intune met CO-management <!-- 1357365 --> | [Tech Preview 1802](capabilities-in-technical-preview-1802.md#transition-endpoint-protection-workload-to-intune-using-co-management) | [Versie 1802](/sccm/core/clients/manage/co-management-switch-workloads#workloads-able-to-be-transitioned-to-intune) |  
+ | Windows leveringsoptimalisatie voor het gebruik van Configuration Manager-grensgroepen configureren <!-- 1324696 --> | [Tech Preview 1802](capabilities-in-technical-preview-1802.md#configure-windows-delivery-optimization-to-use-configuration-manager-boundary-groups) | [Versie 1802](/sccm/core/plan-design/hierarchy/fundamental-concepts-for-content-management#delivery-optimization) |  
+ | Takenreeks Windows 10 in-place upgrade via cloud management gateway <!-- 1357149 --> | [Tech Preview 1802](capabilities-in-technical-preview-1802.md#windows-10-in-place-upgrade-task-sequence-via-cloud-management-gateway) | [Versie 1802](/sccm/osd/deploy-use/manage-task-sequences-to-automate-tasks#deploy-windows-10-in-place-upgrade-via-cmg) |  
+ | Verbeteringen in de takenreeks Windows 10 in-place upgrade <!-- 1357425 --> | [Tech Preview 1802](capabilities-in-technical-preview-1802.md#improvements-to-windows-10-in-place-upgrade-task-sequence) | [Versie 1802](/sccm/osd/deploy-use/create-a-task-sequence-to-upgrade-an-operating-system) |  
+ | Verbeteringen aan distributiepunten met PXE-functionaliteit <!-- 1357580 --> | [Tech Preview 1802](capabilities-in-technical-preview-1802.md#improvements-to-pxe-enabled-distribution-points) | ![Niet toegevoegd](media/Red_X.gif) | 
+ | Implementatiesjablonen voor takenreeksen <!-- 1357391 --> | [Tech Preview 1802](capabilities-in-technical-preview-1802.md#deployment-templates-for-task-sequences) | [Versie 1802](/sccm/osd/deploy-use/manage-task-sequences-to-automate-tasks#BKMK_DeployTS) |  
+ | Product lifecycle-dashboard <!--1319632 --> | [Tech Preview 1802](capabilities-in-technical-preview-1802.md#product-lifecycle-dashboard) | ![Niet toegevoegd](media/Red_X.gif) | 
+ | Verbeteringen aan te melden <!--1357653 --> | [Tech Preview 1802](capabilities-in-technical-preview-1802.md#improvements-to-reporting) | [Versie 1802](/sccm/core/servers/manage/list-of-reports#operating-system) |  
+ | Verbeteringen aan Software Center <!--1357592 --> | [Tech Preview 1802](capabilities-in-technical-preview-1802.md#improvements-to-software-center) | [Versie 1802](/sccm/core/clients/deploy/about-client-settings#BKMK_HideInstalled) |  
+ | Grensgroep voor beheerpunten terugval <!-- 1324594 --> | [Tech Preview 1802](capabilities-in-technical-preview-1802.md#boundary-group-fallback-for-management-points) | [Versie 1802](/sccm/core/servers/deploy/configure/boundary-groups#management-points) |  
+ | Verbeterde ondersteuning voor CNG-certificaten <!-- 1357314 --> | [Tech Preview 1802](capabilities-in-technical-preview-1802.md#improved-support-for-cng-certificates) | [Versie 1802](/sccm/core/plan-design/network/cng-certificates-overview) |  
+ | Ondersteuning voor Azure Resource Manager-gateway cloud <!-- 1324735 --> | [Tech Preview 1802](capabilities-in-technical-preview-1802.md#cloud-management-gateway-support-for-azure-resource-manager) | [Versie 1802](/sccm/core/clients/manage/cmg/plan-cloud-management-gateway#azure-resource-manager) |  
+ | Goedkeuren van aanvragen van toepassingen voor gebruikers per apparaat <!-- 1357015 --> | [Tech Preview 1802](capabilities-in-technical-preview-1802.md#approve-application-requests-for-users-per-device) | [Versie 1802](/sccm/apps/deploy-use/deploy-applications#specify-deployment-settings) |  
+ | Software Center gebruiken om te zoeken en installeren van de gebruiker beschikbare toepassingen op Azure AD-die lid zijn van apparaten <!-- 1322613 --> | [Tech Preview 1802](capabilities-in-technical-preview-1802.md#use-software-center-to-browse-and-install-user-available-applications-on-azure-ad-joined-devices) | [Versie 1802](/sccm/apps/deploy-use/deploy-applications#deploy-user-available-applications-on-azure-ad-joined-devices) |  
+ | Rapport over Windows Automatische piloot apparaatgegevens <!-- 1351442 --> | [Tech Preview 1802](capabilities-in-technical-preview-1802.md#report-on-windows-autopilot-device-information) | [Versie 1802](/sccm/core/clients/manage/co-management-prepare#new-windows-10-devices) |  
+ | Verbeteringen in Configuration Manager-beleid voor Windows Defender misbruiken Guard <!-- 1356220 --> | [Tech Preview 1802](capabilities-in-technical-preview-1802.md#improvements-to-configuration-manager-policies-for-windows-defender-exploit-guard) | [Versie 1802](/sccm/protect/deploy-use/create-deploy-exploit-guard-policy) |  
+ | Microsoft Edge-browser-beleid <!-- 1357310 --> | [Tech Preview 1802](capabilities-in-technical-preview-1802.md#microsoft-edge-browser-policies) | [Versie 1802](/sccm/compliance/deploy-use/browser-profiles) | 
+ | Rapport voor standaard browser aantallen <!-- 1357830 --> | [Tech Preview 1802](capabilities-in-technical-preview-1802.md#report-for-default-browser-counts) | [Versie 1802](/sccm/core/servers/manage/list-of-reports#software---companies-and-products) | 
+ | Ondersteuning voor Windows 10 ARM64 apparaten <!-- 1353704 --> | [Tech Preview 1802](capabilities-in-technical-preview-1802.md#support-for-windows-10-arm64-devices) | [Versie 1802](/sccm/core/plan-design/configs/support-for-windows-10) |  
+ | Gefaseerde implementaties maken <!-- 1356837 --> | [Tech Preview 1801](capabilities-in-technical-preview-1801.md#create-phased-deployments) | [Versie 1802](/sccm/osd/deploy-use/create-phased-deployment-for-task-sequence) |
+ | Mede management reporting <!-- 1356648 --> | [Tech Preview 1801](capabilities-in-technical-preview-1801.md#co-management-reporting) | [Versie 1802](\sccm\core\clients\manage\client-management-dashboard) |
+ | Verbeteringen aan automatische implementatie regel evaluatieplanning <!-- 1357133 --> | [Tech Preview 1801](capabilities-in-technical-preview-1801.md#improvements-to-automatic-deployment-rule-evaluation-schedule) | [Versie 1802](/sccm/sum/deploy-use/automatically-deploy-software-updates#BKMK_CreateAutomaticDeploymentRule) |
+ | Opnieuw toewijzen van distributiepunt <!-- 1306937 --> | [Tech Preview 1801](capabilities-in-technical-preview-1801.md#reassign-distribution-point) | [Versie 1802](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#bkmk_reassign) |
+ | Verbeteringen in de hardware-inventaris <!-- 1357389 --> | [Tech Preview 1801](capabilities-in-technical-preview-1801.md#improvements-to-hardware-inventory) | [Versie 1802](/sccm/core/clients/manage/inventory/extend-hardware-inventory#BKMK_GreaterThan255) |
+ | Verbeteringen in de clientinstellingen voor Software Center <!-- 1355146 --> | [Tech Preview 1801](capabilities-in-technical-preview-1801.md#improvements-to-client-settings-for-software-center) | [Versie 1802](/sccm/core/clients/deploy/about-client-settings#BKMK_HideUnapproved) |
+ | Nieuwe instellingen voor Windows Defender toepassing Guard <!-- 1356256 --> | [Tech Preview 1801](capabilities-in-technical-preview-1801.md#new-settings-for-windows-defender-application-guard) | [Versie 1802](/sccm/protect/deploy-use/create-deploy-application-guard-policy#BKMK_HIS) |
+ | Verbeteringen aan het uitvoeren van Scripts <!-- 1236459 --> | [Tech Preview 1801](capabilities-in-technical-preview-1801.md#improvements-to-run-scripts) | [Versie 1802](/sccm/apps/deploy-use/create-deploy-scripts) |
+ | Vervangen van toepassingen niet automatisch bijgewerkt <!-- 1351266 --> | [Tech Preview 1712](capabilities-in-technical-preview-1712.md#do-not-automatically-upgrade-superseded-applications) | [Versie 1802](/sccm/apps/deploy-use/deploy-applications#specify-deployment-settings) | 
+ | Meerdere toepassingen in Software Center installeren <!-- 1357126 --> | [Tech Preview 1712](capabilities-in-technical-preview-1712.md#install-multiple-applications-in-software-center) | [Versie 1802](/sccm/core/understand/software-center#install-multiple-applications) |
+ | PXE-responder-service op basis van client <!-- 1357148 --> | [Tech Preview 1712](capabilities-in-technical-preview-1712.md#client-based-pxe-responder-service) | ![Niet toegevoegd](media/Red_X.gif) |
+ | Wijziging in de Configuration Manager-client installeren <!-- 1356195 --> | [Tech Preview 1712](capabilities-in-technical-preview-1712.md#change-in-the-configuration-manager-client-install) | [Versie 1802](/sccm/core/clients/deploy/prerequisites-for-deploying-clients-to-windows-computers.#BKMK_ExternalDependencies) | 
+ | Wijzig in het dashboard Surface apparaat <!-- 1355788 --> | [Tech Preview 1712](capabilities-in-technical-preview-1712.md#change-to-the-surface-device-dashboard) | [Versie 1802](/sccm/core/clients/manage/surface-device-dashboard) | 
+ | Verbeteringen aan beheer van Office 365 Client-dashboard <!-- 1357281 --> | [Tech Preview 1712](capabilities-in-technical-preview-1712.md#improvements-to-office-365-client-management-dashboard) | [Versie 1802](/sccm/sum/deploy-use/manage-office-365-proplus-updates#office-365-client-management-dashboard) | 
+ | Verbeteringen in de Configuration Manager-console <!-- 1357280,1357282 --> | [Tech Preview 1712](capabilities-in-technical-preview-1712.md#improvements-to-the-configuration-manager-console) | Versie 1802 | 
+ | Verbeteringen in de implementatie van het besturingssysteem <!-- SMS 500897 --> | [Tech Preview 1712](capabilities-in-technical-preview-1712.md#improvements-to-operating-system-deployment) | Versie 1802 | 
+ | Takenreeksstap uitvoeren <!-- 1261338 --> | [Tech Preview 1711](capabilities-in-technical-preview-1711.md) | [Versie 1710](/sccm/osd/understand/task-sequence-steps#child-task-sequence) |
+ | Interactie van de gebruiker toestaan bij het installeren van een toepassing <!-- 1356976 --> | [Tech Preview 1711](capabilities-in-technical-preview-1711.md) | [Versie 1802](/sccm/apps/deploy-use/create-applications#specify-user-experience-options-for-the-deployment-type) |
 
- 
+  
 
 ## <a name="capabilities-delivered-in-previous-technical-previews"></a>Mogelijkheden die in vorige technical Previews worden geboden
 Hier volgen de specifieke mogelijkheden die in eerdere versies van de Configuration Manager technical preview-versie. Deze mogelijkheden blijven beschikbaar in latere versies, maar nog niet beschikbaar in een current branch-release. 

@@ -1,20 +1,22 @@
 ---
-title: Privacyverklaring voor System Center Configuration Manager - aanvullende informatie
-description: Meer informatie over hoe Microsoft worden verzameld en gebruikt gegevens uit een System Center Configuration Manager-implementatie.
+title: Privacyverklaring - aanvullende informatie
+titleSuffix: Configuration Manager
+description: Meer informatie over hoe Microsoft worden verzameld en gebruikt gegevens uit System Center Configuration Manager.
 ms.custom: na
-ms.date: 10/13/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1fcc921f-085f-4b0b-9c53-1e0707211076
-caps.latest.revision: "5"
-caps.handback.revision: "0"
+caps.latest.revision: ''
+caps.handback.revision: ''
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
+manager: dougeby
 translation.priority.ht:
 - cs-cz
 - de-de
@@ -34,11 +36,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 5332d02f4d128516f310a2edff897b4efc5b971b
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+ms.openlocfilehash: eb557a29b1412e136023b3e6caddf358732659e9
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="additional-information-about-privacy-for-system-center-configuration-manager"></a>Meer informatie over privacy voor System Center Configuration Manager
 
@@ -57,18 +59,22 @@ Configuration Manager verzamelt gegevens uit SQL server-database van de site all
 
 Beheerders kunnen het niveau wijzigen van gegevens die worden verzameld door te gaan naar de **gebruiksgegevens** gedeelte van de Configuration Manager-console.
 
-Zie voor meer informatie de 'Meer informatie' artikelen over Gebruiksgegevensniveaus en instellingen in de [diagnostische gegevens en gebruiksgegevens voor System Center Configuration Manager](http://go.microsoft.com/fwlink/?LinkID=626566) artikel.
+Zie voor meer informatie de 'Meer informatie' artikelen over gebruiksgegevensniveaus en instellingen in de [diagnostische gegevens en gebruiksgegevens voor System Center Configuration Manager](https://go.microsoft.com/fwlink/?LinkID=626566) artikel.
 
 
 ## <a name="customer-experience-improvement-program"></a>Programma voor verbetering van de gebruikerservaring
+
+> [!Note]  
+> Starten van de functie programma voor Kwaliteitsverbetering in Configuration Manager versie 1802 is verwijderd uit het product.
+
 Customer Experience Improvement Program (CEIP) verzamelt basisinformatie van de Configuration Manager-console over uw hardwareconfiguratie en hoe u onze software en services gebruiken om trends en gebruikspatronen te identificeren. Programma voor Kwaliteitsverbetering verzamelt ook het type en aantal fouten die u tegenkomt, software en hardwareprestaties en de snelheid van services. Er worden niet uw naam, adres of andere contactgegevens verzameld. Er worden geen gegevens van het Programma voor verbetering van de gebruikerservaring verzameld van clientcomputers.
 
 We gebruiken deze gegevens om de kwaliteit, betrouwbaarheid en prestaties van de software en services van Microsoft te verbeteren.
 
-Zie voor meer informatie over de informatie die is verzameld, verwerkt of verzonden door CEIP, de [CEIP-privacyverklaring](http://go.microsoft.com/fwlink/?LinkID=525211).
+Zie voor meer informatie over de informatie die is verzameld, verwerkt of verzonden door CEIP, de [CEIP-privacyverklaring](https://go.microsoft.com/fwlink/?LinkID=525211).
 
 ## <a name="operations-management-suite-connector"></a>Operations Management Suite-Connector
-De Microsoft Operations Management Suite-Connector wordt gesynchroniseerd gegevens, zoals verzamelingen, van System Center Configuration Manager en Microsoft Operations Management Suite. De Microsoft Azure-abonnements-ID en een geheime sleutel worden opgeslagen in de Configuration Manager-database wanneer een beheerder de functie configureert. Zowel de Azure Active Directory-clientgeheim en de Microsoft Operations Management Suite-werkruimte gedeelde sleutel worden opgeslagen in de lokale System Center Configuration Manager-database. Alle communicatie tussen System Center Configuration Manager en Microsoft Operations Management Suite HTTPS gebruiken. Geen aanvullende informatie over de verzamelingen wordt geleverd aan Microsoft buiten willekeurige telemetrische gegevens. Zie voor meer informatie over de gegevens die Microsoft Operations Management Suite verzamelt [logboek analytics](http://go.microsoft.com/fwlink/?LinkId=823545).
+De Microsoft Operations Management Suite-Connector wordt gesynchroniseerd gegevens, zoals verzamelingen, van System Center Configuration Manager en Microsoft Operations Management Suite. De Microsoft Azure-abonnements-ID en een geheime sleutel worden opgeslagen in de Configuration Manager-database wanneer een beheerder de functie configureert. Zowel de Azure Active Directory-clientgeheim en de Microsoft Operations Management Suite-werkruimte gedeelde sleutel worden opgeslagen in de lokale System Center Configuration Manager-database. Alle communicatie tussen System Center Configuration Manager en Microsoft Operations Management Suite HTTPS gebruiken. Geen aanvullende informatie over de verzamelingen wordt geleverd aan Microsoft buiten willekeurige telemetrische gegevens. Zie voor meer informatie over de gegevens die Microsoft Operations Management Suite verzamelt [logboek analytics](https://go.microsoft.com/fwlink/?LinkId=823545).
 
 ## <a name="asset-intelligence"></a>Asset Intelligence
 Asset Intelligence kunnen IT-beheerders definiëren, traceren en proactief beheren conformiteit met configuratiestandaarden. Meten van en rapporteren over de implementatie en het gebruik van zowel fysieke als virtuele toepassingen helpt organisaties om betere zakelijke beslissingen te nemen met betrekking tot softwarelicenties en het behouden van compatibiliteit met licentieovereenkomsten. Na het verzamelen van gegevens over het gebruik van Configuration Manager-clients, kunnen beheerders verschillende functies gebruiken om weer te geven van de gegevens, met inbegrip van verzamelingen, query's en rapportage.
@@ -96,16 +102,16 @@ Rapporten van de Cloudservice van Microsoft voor beveiliging worden gebruikt om 
 
 Microsoft-Cloudservice beveiliging verzameld niet opzettelijk persoonlijke gegevens. Voor zover dit Microsoft-Cloudservice beveiliging geen persoonlijke gegevens verzamelt, gebruikt Microsoft de gegevens niet naar u te identificeren of contact met u opnemen.
 
-Aanvullende informatie over de verzamelde gegevens vindt u in de productdocumentatie op [Endpoint Protection in System Center Configuration Manager](http://go.microsoft.com/fwlink/?LinkId=823547).
+Aanvullende informatie over de verzamelde gegevens vindt u in de productdocumentatie op [Endpoint Protection in System Center Configuration Manager](https://go.microsoft.com/fwlink/?LinkId=823547).
 
 ## <a name="site-hierarchy--geographical-view-with-bing-maps"></a>Sitehiërarchie – geografische weergave met Bing kaarten
 Sitehiërarchie - geografische weergave kunt u gebruiken van kaarten die Microsoft Bing Maps biedt om uw fysieke Servertopologie van Configuration Manager weer te geven. Om deze functie inschakelt, locatie-informatie die u verstrekt verzonden van uw server met de Bing Maps-webservice.
 
-Microsoft gebruikt de informatie voor de werking van Microsoft Bing Maps en voor de verbetering van de werking hiervan en voor andere Microsoft-sites en -diensten. Zie voor meer informatie de [privacyverklaring van Microsoft](http://go.microsoft.com/fwlink/?LinkId=823548).
+Microsoft gebruikt de informatie voor de werking van Microsoft Bing Maps en voor de verbetering van de werking hiervan en voor andere Microsoft-sites en -diensten. Zie voor meer informatie de [privacyverklaring van Microsoft](https://go.microsoft.com/fwlink/?LinkId=823548).
 U kunt kiezen om de geografische weergave voor de sitehiërarchie niet te gebruiken. De diagramweergave hiërarchie kunt u de hiërarchie zien en gebruikt de Bing Maps-service niet.
 
 ## <a name="microsoft-intune-subscription"></a>Microsoft Intune-abonnement
-Klanten die een abonnement op Microsoft Intune hebt aangeschaft kunnen Configuration Manager gebruiken voor het beheren van hun mobiele apparaten die via Microsoft Intune verbonden zijn. [Privacyverklaring van Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkId=262214) geldt voor de Microsoft online services, waaronder Microsoft Intune. Als klanten ook een Microsoft Intune-abonnement hebt, de [privacyverklaring van Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkId=262214) moet worden gelezen in combinatie met deze privacyverklaring.
+Klanten die een abonnement op Microsoft Intune hebt aangeschaft kunnen Configuration Manager gebruiken voor het beheren van hun mobiele apparaten die via Microsoft Intune verbonden zijn. [Privacyverklaring van Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=262214) geldt voor de Microsoft online services, waaronder Microsoft Intune. Als klanten ook een Microsoft Intune-abonnement hebt, de [privacyverklaring van Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=262214) moet worden gelezen in combinatie met deze privacyverklaring.
 
 Alle communicatie met Microsoft Intune gebruiken HTTPS. De Microsoft Intune-abonnement configureren en om te downloaden van het Certificate Signing Request (CSR) die nodig is voor het configureren van iOS-ondersteuning, een beheerder moet zich aanmelden bij Microsoft Intune met werkaccount en wachtwoord. Deze referenties worden niet opgeslagen in Configuration Manager. Alle andere communicaties met Microsoft Intune worden geverifieerd door gebruikmaking van PKI-certificaten die door Microsoft Intune wordt automatisch gegenereerd.
 

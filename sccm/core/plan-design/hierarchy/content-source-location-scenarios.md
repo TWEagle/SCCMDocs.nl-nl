@@ -7,19 +7,21 @@ ms.date: 1/3/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 70b5cbc0-64ba-49bd-8b34-fb4c09b2b95b
-caps.latest.revision: "3"
+caps.latest.revision: ''
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 03eb4d1fb08bfe8bf69af2c3e9ee035c8e2f8ab6
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8db263c6a2ae7792cea50b1c41a377a7f05314b4
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="content-source-location-scenarios-in-system-center-configuration-manager"></a>Inhoudsbron locatie scenario's in System Center Configuration Manager
 
@@ -30,7 +32,7 @@ System Center Configuration Manager ondersteund voorafgaand aan versie 1610, ver
 > [!IMPORTANT]  
 > **Als uw sites versie 1511 of 1602 1606 uitgevoerd**, de informatie in dit onderwerp is van toepassing op uw infrastructuur. Zie ook [grensgroepen voor versies 1511,1602 en 1606](/sccm/core/servers/deploy/configure/boundary-groups-for-1511-1602-and-1606) voor informatie die specifiek is voor grensgroepen met deze versies van Configuration Manager.
 >
-> **Als uw sites versie wordt uitgevoerd 1610 of hoger**, gebruik de informatie in [sitegrenzen en grensgroepen definiëren voor System Center Configuration Manager](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#boundary-groups) om te begrijpen hoe uw clients distributiepunten waarvoor beschikbare inhoud te vinden.
+> **Als uw sites versie wordt uitgevoerd 1610 of hoger**, gebruik de informatie in [sitegrenzen en grensgroepen definiëren voor System Center Configuration Manager](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#boundary-groups) om te begrijpen hoe uw clients distributiepunten met vinden beschikbare inhoud.
 
 
 

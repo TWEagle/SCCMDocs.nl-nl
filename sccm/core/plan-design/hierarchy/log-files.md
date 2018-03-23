@@ -1,9 +1,9 @@
 ---
 title: Logboekbestanden voor het oplossen van problemen
 titleSuffix: Configuration Manager
-description: "Logboekbestanden gebruiken voor het oplossen van problemen in een System Center Configuration Manager-hiërarchie."
+description: Logboekbestanden voor het oplossen van problemen met Configuration Manager-clients en sitesystemen gebruiken.
 ms.custom: na
-ms.date: 02/14/2018
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,24 +12,24 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c1ff371e-b0ad-4048-aeda-02a9ff08889e
-caps.latest.revision: 
-caps.handback.revision: 
+caps.latest.revision: ''
+caps.handback.revision: ''
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: b0f15b0c7cf983234f41e3f202be7d46ce4954e2
-ms.sourcegitcommit: fbd4a9d2fa8ed4ddd3a0fecc4a2ec4fc0ccc3d0c
+ms.openlocfilehash: 471730e056ca512f300ead234b9a8a9e4f10a835
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="log-files-in-system-center-configuration-manager"></a>Logbestanden in System Center Configuration Manager
 
-Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-In System Center Configuration Manager-client- and siteserveronderdelen procesinformatie in afzonderlijke logboekbestanden vastleggen U kunt de informatie in de logboekbestanden gebruiken om u te helpen bij het oplossen van problemen die in uw Configuration Manager-hiërarchie optreden kunnen. Standaard is logboekregistratie voor client- en serveronderdelen ingeschakeld in Configuration Manager.   
+In Configuration Manager-client- and siteserveronderdelen procesinformatie in afzonderlijke logboekbestanden vastleggen U kunt de informatie in deze logboekbestanden gebruiken om u te helpen bij het oplossen van problemen die kunnen optreden. Configuration Manager wordt standaard logboekregistratie voor client- en serveronderdelen ingeschakeld.   
 
- De volgende secties bieden details over de verschillende logboekbestanden beschikbaar voor u. U kunt deze informatie te bekijken en controleren van Configuration Manager-client en server-logboeken inzake operationele details en om te identificeren fout informatie die u kan helpen oplossen van problemen.  
+ De volgende secties bieden details over de verschillende logboekbestanden beschikbaar voor u. Monitor Configuration Manager-client en server-logboeken voor operationele details en fout-informatie weergeven voor het oplossen van problemen.  
 
 -   [Logboekbestanden over Configuration Manager](#BKMK_AboutLogs)  
 
@@ -125,7 +125,7 @@ In System Center Configuration Manager-client- and siteserveronderdelen procesin
  Als u de logboeken wilt, gebruikt u de Configuration Manager hulpprogramma voor logboekweergave CMTrace, zich in de \\SMSSetup\\de map hulpprogramma's van de Configuration Manager-bronmedia. Het hulpprogramma CMTrace wordt toegevoegd aan alle opstartinstallatiekopieën die zijn toegevoegd aan de softwarebibliotheek.  
 
 ###  <a name="BKMK_LogOptions"></a> Opties voor logboekregistratie configureren met behulp van Configuration Manager Service Manager  
- In Configuration Manager die u kunt wijzigen waar logboekbestanden worden opgeslagen en u de grootte van het logboekbestand kunt wijzigen.  
+ U kunt wijzigen waar logboekbestanden en de omvang ervan worden opgeslagen in Configuration Manager.  
 
  Wijzigen van de grootte van de logboekbestanden, de naam en locatie van het logboekbestand te wijzigen of om meerdere onderdelen om te schrijven naar één enkel logboekbestand te dwingen, voer de volgende stappen uit:  
 
@@ -141,7 +141,7 @@ In System Center Configuration Manager-client- and siteserveronderdelen procesin
 8.  Selecteer **OK** aan de configuratie op te slaan.  
 
 ###  <a name="BKMK_LogLocation"></a> Zoeken naar Logboeken Configuration Manager  
-Configuration Manager-logboekbestanden worden opgeslagen in verschillende plaatsen die afhangen van het proces dat het logboekbestand maakt en op de configuratie van uw sitesystemen. Omdat de locatie van het logboek op een computer verschillen kan, gebruiken de zoekfunctie om de relevante logboekbestanden op uw computers voor Configuration Manager als u wilt oplossen, een specifiek scenario.  
+Configuration Manager slaat de logboekbestanden op verschillende locaties. Deze locaties, is afhankelijk van het proces dat wordt gemaakt van het logboekbestand en de configuratie van uw sitesystemen. Omdat de locatie van het logboek op een computer verschillen kan, gebruiken de zoekfunctie om de relevante logboekbestanden op uw computers voor Configuration Manager als u wilt oplossen, een specifiek scenario.  
 
 ##  <a name="BKMK_ClientLogs"></a> Logboeken Configuration Manager-client  
 De volgende secties geven lijsten van logboekbestanden gerelateerd aan clientbewerkingen en clientinstallatie.  
@@ -152,7 +152,7 @@ De volgende tabel bevat de logboekbestanden die zich op de Configuration Manager
 |Logboeknaam|Beschrijving|  
 |--------------|-----------------|  
 |CAS.log|De inhoud Access-service. Behoudt de cache van het lokale pakket op de client.|  
-|Ccm32BitLauncher.log|Registreert acties voor het starten van toepassingen op de client gemarkeerd als 'uitvoeren als 32-bits'.|  
+|Ccm32BitLauncher.log|Registreert acties voor het starten van toepassingen op de client gemarkeerd *uitvoeren als 32-bits*.|  
 |CcmEval.log|Registreert Configuration Manager-client activiteiten voor de evaluatie en details voor onderdelen die voor de Configuration Manager-client vereist zijn.|  
 |CcmEvalTask.log|Registreert de Configuration Manager client status evaluatie activiteiten die zijn geïnitieerd door de geplande taak voor evaluatie.|  
 |CcmExec.log|Registreert activiteiten van de client en de SMS Agent Host-service. Dit logboekbestand bevat informatie over het in- en uitschakelen van wake-up proxy.|  
@@ -220,10 +220,10 @@ De volgende tabel bevat de logboekbestanden die zich op de Configuration Manager
 |client.msi.log|Registreert installatietaken uitgevoerd door client.msi. Kan worden gebruikt voor het oplossen van problemen tijdens de installatie van de client.|  
 
 ###  <a name="BKMK_LogFilesforLnU"></a> Client voor Linux en UNIX  
- Configuration Manager-client voor Linux en UNIX registreert informatie in de volgende logboekbestanden.  
+ Configuration Manager-client voor Linux en UNIX registreert informatie in de volgende logboekbestanden:  
 
 > [!TIP]  
->  Beginnend met clients voor Linux en UNIX vanaf cumulatieve Update 1, kunt u CMTrace gebruiken om weer te geven van de logboekbestanden voor de client voor Linux en UNIX.  
+>  CMTrace gebruiken om weer te geven van de logboekbestanden voor de client voor Linux en UNIX.  
 
 > [!NOTE]  
 >  Vervang de volgende referenties voor elk bestand of elk proces, wanneer u de initiële versie van de client voor Linux en UNIX gebruikt en een referentie maakt naar de documentatie in deze sectie:  
@@ -266,7 +266,7 @@ Bijvoorbeeld, kunt u de standaard Linux- en UNIX-opdracht **logrotate** voor het
 Zie de documentatie voor de Linux- en UNIX-distributies die u gebruikt voor meer informatie over **logrotate**.  
 
 ###  <a name="BKMK_LogfilesforMac"></a> Client voor Mac-computers  
-Configuration Manager-client voor Mac-computers registreert informatie in de volgende logboekbestanden.  
+Configuration Manager-client voor Mac-computers registreert informatie in de volgende logboekbestanden:  
 
 |Logboeknaam|Details|  
 |--------------|-------------|  
@@ -338,7 +338,8 @@ Het logboekbestand SMS_DM.log op de sitesysteemserver registreert ook de communi
 |sinvproc.log|Registreert informatie over het verwerking van software-inventarisgegevens naar de sitedatabase.|Siteserver|  
 |sitecomp.log|Registreert details over het onderhoud van de geïnstalleerde sitecomponenten op alle sitesysteemservers in de site.|Siteserver|  
 |sitectrl.log|Registreert site-instellingswijzigingen die zijn aangebracht aan site-controleobjecten in de database.|Siteserver|  
-|sitestat.log|Registreert het bewakingsproces van beschikbaarheid en schijfruimte voor alle sitesystemen.|Siteserver|  
+|sitestat.log|Registreert het bewakingsproces van beschikbaarheid en schijfruimte voor alle sitesystemen.|Siteserver|
+|SMS_PhasedDeployment.log| Logboekbestand voor gefaseerde implementaties, een voorlopige versie-functie in Configuration Manager versie 1802 wordt gestart.|Het hoogste niveau in de hiërarchie van Configuration Manager|   
 |SmsAdminUI.log|Registreert Configuration Manager-console-activiteit.|Computer waarop de Configuration Manager-console wordt uitgevoerd|  
 |SMSAWEBSVCSetup.log|Registreert de installatieactiviteiten van de Application Catalog-webservice.|Sitesysteemserver|  
 |smsbkup.log|Registreert output van het back-upproces van de site.|Siteserver|  
@@ -516,16 +517,15 @@ Het logboekbestand SMS_DM.log op de sitesysteemserver registreert ook de communi
 
 De volgende tabel bevat de logboekbestanden die informatie over de cloud management gateway bevatten.
 
-||||
-|-|-|-|
 |Logboeknaam|Beschrijving|Computer met logboekbestand|
-|CloudMgr.log|Registreert gegevens over het implementeren van de cloud management gateway-service, voortdurende status en gebruiksgegevens die zijn gekoppeld aan de service.<br>U kunt het niveau van logboekregistratie voor het register bewerken **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SMS\COMPONENTS\SMS_CLOUD_SERVICES_MANAGER\Logging niveau**|De *installdir* map op de primaire siteserver of de CA's.|
-|CMGSetup.log of CMG -*RoleInstanceID*-CMGSetup.log<sup>1</sup>|Registreert gegevens over de tweede fase van de cloud management gateway-implementatie (lokaal te implementeren in Azure)<br>U kunt het niveau van logboekregistratie met behulp van de instelling configureren **traceerniveau** (**informatie** (standaard), **uitgebreid**, **fout**) op de **Azure portal\Cloud services configuration** tabblad.|De **%approot%\logs** op uw Azure-server of de map SMS/logboeken op de sitesysteemserver|
-|CMGHttpHandler.log of CMG -*RoleInstanceID*-CMGHttpHandler.log<sup>1</sup>|Registreert gegevens over de cloud management gateway HTTP-handler binding met Internet Information Services in Azure<br>U kunt het niveau van logboekregistratie met behulp van de instelling configureren **traceerniveau** (**informatie** (standaard), **uitgebreid**, **fout**) op de **Azure portal\Cloud services configuration** tabblad.|De **%approot%\logs** op uw Azure-server of de map SMS/logboeken op de sitesysteemserver|
-|CMGService.log of CMG -*RoleInstanceID*-CMGService.log<sup>1</sup>|Registreert gegevens over het kernonderdeel van cloud management gateway-service in Azure<br>U kunt het niveau van logboekregistratie met behulp van de instelling configureren **traceerniveau** (**informatie** (standaard), **uitgebreid**, **fout**) op de **Azure portal\Cloud services configuration** tabblad.|De **%approot%\logs** op uw Azure-server of de map SMS/logboeken op de sitesysteemserver|
-|SMS_Cloud_ProxyConnector.log|Registreert details over het instellen van de verbindingen tussen de cloud management gateway-service en de cloud management gatewayverbinding beheerpunt.|Sitesysteemserver|
+|--------------|-----------------|----------------------------|  
+|CloudMgr.log|Registreert gegevens over het implementeren van de cloud management gateway-service, voortdurende status en gebruiksgegevens die zijn gekoppeld aan de service.<br>U kunt het niveau voor logboekregistratie configureren zijn dat u bewerkt de **logboekregistratieniveau** waarde in de registersleutel HKLM\SOFTWARE\ Microsoft\SMS\COMPONENTS\ SMS_CLOUD_ SERVICES_MANAGER|De *installdir* map op de primaire siteserver of de CA's.|
+|CMGSetup.log<sup>1</sup>|Registreert gegevens over de tweede fase van de cloud management gateway-implementatie (lokaal te implementeren in Azure)<br>U kunt het niveau van logboekregistratie met behulp van de instelling configureren **traceerniveau** (**informatie** (standaard), **uitgebreid**, **fout**) op de **Azure portal\Cloud services configuration** tabblad.|De **%approot%\logs** op uw Azure-server of de map SMS/logboeken op de sitesysteemserver|
+|CMGHttpHandler.log<sup>1</sup>|Registreert gegevens over de cloud management gateway HTTP-handler binding met Internet Information Services in Azure<br>U kunt het niveau van logboekregistratie met behulp van de instelling configureren **traceerniveau** (**informatie** (standaard), **uitgebreid**, **fout**) op de **Azure portal\Cloud services configuration** tabblad.|De **%approot%\logs** op uw Azure-server of de map SMS/logboeken op de sitesysteemserver|
+|CMGService.log<sup>1</sup>|Registreert gegevens over het kernonderdeel van cloud management gateway-service in Azure<br>U kunt het niveau van logboekregistratie met behulp van de instelling configureren **traceerniveau** (**informatie** (standaard), **uitgebreid**, **fout**) op de **Azure portal\Cloud services configuration** tabblad.|De **%approot%\logs** op uw Azure-server of de map SMS/logboeken op de sitesysteemserver|
+|SMS_Cloud_</br>ProxyConnector.log|Registreert details over het instellen van de verbindingen tussen de cloud management gateway-service en de cloud management gatewayverbinding beheerpunt.|Sitesysteemserver|
 
-<sup>1</sup> dit lokale Configuration Manager-logboekbestanden die cloud service manager synchroniseren vanuit Azure-opslag om de 5 minuten zijn. De cloud management gateway duwt logboeken naar Azure-opslag om de 5 minuten. de maximale wachttijd is dus 10 minuten. Uitgebreide switches van invloed op zowel lokale als externe logboeken.
+<sup>1</sup> dit lokale Configuration Manager-logboekbestanden die cloud service manager synchroniseren vanuit Azure-opslag om de vijf minuten zijn. De cloud management gateway duwt logboeken naar Azure-opslag om de vijf minuten. de maximale wachttijd is dus 10 minuten. Uitgebreide switches van invloed op zowel lokale als externe logboeken. De werkelijke namen van bevatten de service en de rol exemplaar-id. Bijvoorbeeld, CMG -*ServiceName*-*RoleInstanceID*-CMGSetup.log
 
 - Gebruik voor het oplossen van problemen implementaties **CloudMgr.log** en **CMGSetup.log**
 - Gebruik om problemen op servicestatus **CMGService.log** en **SMS_Cloud_ProxyConnector.log**.
@@ -699,7 +699,7 @@ De volgende tabel bevat de logboekbestanden die informatie bevatten met betrekki
 |MCSSetup.log|Registreert gegevens over de installatie van de rol multicastserver.|Sitesysteemserver|  
 |MCSMSI.log|Registreert gegevens over de installatie van de rol multicastserver.|Sitesysteemserver|  
 |Mcsperf.log|Registreert gegevens over de prestaties van multicast-prestatiemeter-updates.|Sitesysteemserver|  
-|MP_ClientIDManager.log|Registreert beheerpuntantwoorden op de takenreeksen voor vragen naar client-ID die geïnitieerd worden door PXE of opstartmedia.|Sitesysteemserver|  
+|MP_ClientIDManager.log|Registreert beheerpunt antwoorden op de client-ID-aanvragen die taak takenreeksen starten vanuit PXE of opstartmedia.|Sitesysteemserver|  
 |MP_DriverManager.log|Registreert beheerpuntantwoorden op actieverzoeken van automatisch toepassen-takenreeksen.|Sitesysteemserver|  
 |OfflineServicingMgr.log|Registreert gegevens van offline onderhoud schema's en update acties van toepassing op Windows Imaging Format (WIM) besturingssysteembestanden.|Sitesysteemserver|  
 |Setupact.log|Registreert gegevens over Windows Sysprep en installatielogboeken.|Client|  
@@ -710,7 +710,8 @@ De volgende tabel bevat de logboekbestanden die informatie bevatten met betrekki
 |smpmsi.log|Registreert installatie- en configuratiegegevens over het statusmigratiepunt.|Sitesysteemserver|  
 |smpperf.log|Registreert de tellerupdates van de prestatie van het statusmigratiepunt.|Sitesysteemserver|  
 |smspxe.log|Registreert gegevens over de antwoorden aan clients die gebruikmaken van PXE-opstart en meer informatie over de uitbreiding van opstartinstallatiekopieën en opstartbestanden.|Sitesysteemserver|  
-|smssmpsetup.log|Registreert installatie- en configuratiegegevens over het statusmigratiepunt.|Sitesysteemserver|  
+|smssmpsetup.log|Registreert installatie- en configuratiegegevens over het statusmigratiepunt.|Sitesysteemserver|
+| SMS_PhasedDeployment.log| Logboekbestand voor gefaseerde implementaties, een voorlopige versie-functie in Configuration Manager versie 1802 wordt gestart.|Het hoogste niveau in de hiërarchie van Configuration Manager| 
 |Smsts.log|Registreert takenreeksactiviteiten.|Client|  
 |TSAgent.log|Registreert het resultaat van afhankelijkheden van takenreeks vóór een takenreeks gestart wordt.|Client|  
 |TaskSequenceProvider.log|Registreert gegevens over takenreeksen wanneer ze worden geïmporteerd, geëxporteerd of bewerkt.|Sitesysteemserver|  
@@ -729,7 +730,7 @@ De volgende tabel bevat de logboekbestanden die informatie bevatten met betrekki
 
 |Logboeknaam|Beschrijving|Computer met logboekbestand|  
 |--------------|-----------------|----------------------------|  
-|CMRcViewer.log|Registreert gegevens over de activiteit van beheer op afstand viewer.|In de map % temp % op de computer met de viewer voor beheer op afstand|  
+|CMRcViewer.log|Registreert gegevens over de activiteit van beheer op afstand viewer.|Op de computer met de viewer voor extern beheer in de map % temp %.|  
 
 ###  <a name="BKMK_ReportLog"></a>Rapportage  
  De volgende tabel bevat de Configuration Manager-logboekbestanden die informatie bevatten met betrekking tot rapportage.  

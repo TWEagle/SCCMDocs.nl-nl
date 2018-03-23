@@ -3,24 +3,25 @@ title: Huidige vertakking versies
 titleSuffix: Configuration Manager
 description: Bekijk de versiegeschiedenis van de van System Center Configuration Manager en meer informatie over de fasen geboden.
 ms.custom: na
-ms.date: 11/22/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 35b5baec-d313-46aa-9d14-c443aa0d6c09
-caps.latest.revision: "8"
+caps.latest.revision: ''
 author: mestew
 ms.author: mstewart
 manager: angrobe
 robots: noindex,nofollow
-ms.openlocfilehash: 694b205144559d0ee4aee38c38361d5bd8b62a9d
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: e2ea7d8a915caebfdac824147e60bae509151fbf
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="support-for-system-center-configuration-manager-current-branch-versions"></a>Ondersteuning voor de huidige vertakking-versies van System Center Configuration Manager
 
@@ -32,7 +33,7 @@ Microsoft plannen voor het vrijgeven van updates voor de huidige vertakking van 
 
 -   Beveiligingsupdates (alleen) onderhoud fase - na de release van een nieuwe versie voor huidige vertakking, ondersteuning voor oudere vertakkingen verminderen op beveiligingsupdates alleen voor het restant van die versies ondersteuning bieden voor lifecycle (weergegeven in afbeelding 1).  
 
- ![CM &#95; Onderhoud &#95; ondersteuning &#95; tijdlijn](media/CM_Servicing_support_timeline1.png "CM_Servicing_support_timeline")  
+ ![CM&#95;Servicing&#95;support&#95;timeline](media/CM_Servicing_support_timeline1.png "CM_Servicing_support_timeline")  
 Afbeelding 1. Voorbeeld van de overlapping van de cyclus release voor de huidige vertakking ondersteuning onderhoud. In dit voorbeeld is ter illustratie van de cyclus en geeft geen waargenomen of verwachte release datums.
 
 > [!NOTE]  
@@ -45,7 +46,8 @@ Afbeelding 1. Voorbeeld van de overlapping van de cyclus release voor de huidige
  **Versiegeschiedenis**  
 
 |Versie |Beschikbaarheidsdatum |Einddatum voor ondersteuning|  
-|-------------|-----------------------|----------------------|  
+|-------------|-----------------------|----------------------|
+|1802|22 maart 2018|22 september 2019  
 |1710|20 november 2017|20 mei 2019 |
 |1706|31 juli 2017|31 juli 2018|
 |1702|27 maart 2017|27 maart 2018|

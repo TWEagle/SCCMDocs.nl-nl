@@ -1,26 +1,27 @@
 ---
 title: Updates
 titleSuffix: Configuration Manager
-description: Meer informatie over een in de console-servicemethode aangeroepen ** Updates en onderhoud ** waarmee u gemakkelijk om te zoeken en installeren aanbevolen updates.
+description: Meer informatie over een in de console-servicemethode aangeroepen **Updates en onderhoud** waarmee u gemakkelijk om te zoeken en aanbevolen updates te installeren.
 ms.custom: na
-ms.date: 11/20/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3a832943-580a-4a40-b454-961d0854ac2b
-caps.latest.revision: "51"
-caps.handback.revision: "0"
+caps.latest.revision: ''
+caps.handback.revision: ''
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: a90222d16391d1e75d041c95c048a1d8d19bf278
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 8be32aa07819239820711079e4ff3637e96367db
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="updates-for-system-center-configuration-manager"></a>Updates voor System Center Configuration Manager
 
@@ -47,7 +48,7 @@ Als u de vertakking Technical Preview gebruikt, Zie [Technical Preview voor Syst
 
 
 ##  <a name="bkmk_Baselines"></a> Basislijn- en updateversies  
- De eerste release van System Center Configuration Manager current branch is versie 1511, waarmee een basislijnversie is. Meer recente basislijnversies omvatten versie 1606 en 1702:
+ De eerste release van System Center Configuration Manager current branch is versie 1511, waarmee een basislijnversie is. Meer recente basislijnversies omvatten versie 1702 en 1802:
 
 -   Gebruik de meest recente versie van de basislijn wanneer u een nieuwe site in een nieuwe hiërarchie installeert.  
 
@@ -75,17 +76,18 @@ De volgende versies van Configuration Manager zijn beschikbaar als basislijn, al
 
 |Versie |Beschikbaarheidsdatum|[Einddatum voor ondersteuning](/sccm/core/servers/manage/current-branch-versions-supported) |Basislijn|Update in de console|  
 |-------------|-----------|------------|--------------|------------------------|  
+|[1802](/sccm/core/plan-design/changes/whats-new-in-version-1802)<br /><br /> 5.00.8634.1000|22 maart 2018|22 september 2019|Ja|Ja|
 |[1710](/sccm/core/plan-design/changes/whats-new-in-version-1710)<br /><br /> 5.00.8577.1000|20 november 2017|20 mei 2019|Nee|Ja|
 |[1706](/sccm/core/plan-design/changes/whats-new-in-version-1706)<br /><br /> 5.00.8540.1000|31 juli 2017|31 juli 2018|Nee|Ja|
 |[1702](/sccm/core/plan-design/changes/whats-new-in-version-1702)<br /><br /> 5.00.8498.1000|27 maart 2017| 27 maart 2018|Ja|Ja|
 |[1610](/sccm/core/plan-design/changes/whats-new-in-version-1610)<br /><br /> 5.00.8458.1000|18 november 2016| 18 november 2017|Nee|Ja|
 |[1606](/sccm/core/plan-design/changes/whats-new-in-version-1606)<br /><br /> 5.00.8412.1000|22 juli 2016| 22 juli 2017|Nee|Ja|
-|[1606](/sccm/core/plan-design/changes/whats-new-in-version-1606) met het updatepakket voor 1606 hotfix (KB3186654) </br></br>5.00.8412.1307 *(Opmerking 1)* |12 oktober 2016| 12 oktober 2017|Ja|Nee|
+|[1606](/sccm/core/plan-design/changes/whats-new-in-version-1606) met het updatepakket voor 1606 hotfix (KB3186654) </br></br>5.00.8412.1307 *(Note 1)* |12 oktober 2016| 12 oktober 2017|Ja|Nee|
 | 1602<br /><br /> 5.00.8355.1000|11 maart 2016| 11 maart 2017|Nee|Ja|
 | 1511 <br /><br /> 5.00.8325.1000|8 december 2015| 8 december 2016|Ja|Nee|  
 
 
-*(Opmerking 1)*  De basislijnmedia 1606 en 1702 beschikbaar zijn als onderdeel van de Microsoft System Center 2016 of System Center Configuration Manager (huidige vertakking en Long-Term Servicing Branch) is uitgebracht op de [Volume licentie Service Center](https://www.microsoft.com/Licensing/servicecenter/Downloads/DownloadsAndKeys.aspx) (VLSC). Bijvoorbeeld, op het VLSC u kunt zoeken naar *System Center Config Mgr (huidige vertakking en LTSB)*, basislijnmedia 1606 en 1702 versie zijn geretourneerde en gedownload.
+*(Opmerking 1)*  De basislijnmedia 1802 en 1702 beschikbaar zijn als onderdeel van de Microsoft System Center 2016 of System Center Configuration Manager (huidige vertakking en Long-Term Servicing Branch) is uitgebracht op de [Volume licentie Service Center](https://www.microsoft.com/Licensing/servicecenter/Downloads/DownloadsAndKeys.aspx) (VLSC). Bijvoorbeeld, op het VLSC u kunt zoeken naar *System Center Config Mgr (huidige vertakking en LTSB)*, 1802 en 1702 versie basislijnmedia zijn geretourneerde en gedownload.
 
 Ga in de linkerbovenhoek van de console naar **Info over System Center Configuration Manager** waar de nieuwe site en consoleversie worden weergegeven als u de versie van uw Configuration Manager-site wilt controleren.  
 
@@ -93,7 +95,7 @@ Ga in de linkerbovenhoek van de console naar **Info over System Center Configura
  Wanneer u een productie-gereed-installatie van System Center Configuration Manager, ook wel aangeduid als de huidige vertakking, zijn de meeste updates die u installeert beschikbaar via de Updates en onderhoud van kanaal. Met deze methode worden de updates die van toepassing zijn op de huidige versie en configuratie van uw infrastructuur geïdentificeerd, gedownload en beschikbaar gesteld en worden er alleen updates opgenomen die worden aanbevolen voor alle klanten.   
  Deze omvatten:  
 
--   Nieuwe versies, zoals versie 1610, 1702 of 1706.  
+-   Nieuwe versies, zoals versie 1702, 1706, 1710 of 1802.  
 
 -   Updates, waaronder nieuwe functies voor uw huidige versie.
 
@@ -147,6 +149,6 @@ U installeert deze oplossingen handmatig op een van de twee volgende manieren:
 
      Zie voor meer informatie [gebruik het hulpprogramma registratie bijwerken om hotfixes te importeren naar System Center Configuration Manager](../../../core/servers/manage/use-the-update-registration-tool-to-import-hotfixes.md).  
 
--   **Hotfix-installatieprogramma:** Dit hulpprogramma wordt gebruikt voor het handmatig een hotfix installeren waarnaar kan niet worden geïnstalleerd via de methode in de console. Deze methode wordt gebruikt voor oplossingen die gebruikmaken van de volgende bestandsnaamstructuur: **&lt;Product\>-&lt;product version\>-&lt;KB article ID\>-&lt;platform\>-&lt;language\>.exe**.
+-   **Hotfix-installatieprogramma:** Dit hulpprogramma wordt gebruikt voor het handmatig een hotfix installeren waarnaar kan niet worden geïnstalleerd via de methode in de console. Deze methode wordt gebruikt voor oplossingen die gebruikmaken van de volgende bestandsnaamstructuur: **&lt;Product\>-&lt;productversie\>-&lt;KB-artikel-ID\>-&lt;platform\> - &lt;taal\>.exe**.
 
      Zie voor meer informatie [het Hotfix-installatieprogramma gebruiken om updates te installeren voor System Center Configuration Manager](../../../core/servers/manage/use-the-hotfix-installer-to-install-updates.md).

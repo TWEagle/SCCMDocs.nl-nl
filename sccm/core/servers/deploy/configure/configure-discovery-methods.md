@@ -1,53 +1,55 @@
 ---
 title: Detectie configureren
 titleSuffix: Configuration Manager
-description: Configureer detectiemethoden worden uitgevoerd op een Configuration Manager-site zoeken naar bronnen die u vanaf uw netwerkinfrastructuur en Active Directory beheren kunt.
+description: Configureer detectiemethoden om resources voor het beheren van uw netwerk, Active Directory en Azure Active Directory te zoeken.
 ms.custom: na
-ms.date: 7/31/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 49505eb1-d44d-4121-8712-e0f3d8b15bf5
-caps.latest.revision: "5"
+caps.latest.revision: ''
 author: mestew
 ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: f2d928e066702190eba32b2a2c06fe89636d59f6
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+manager: dougeby
+ms.openlocfilehash: 825b9b250000e8353b1428cbee45f8fda9a30c35
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-discovery-methods-for-system-center-configuration-manager"></a>Detectiemethoden configureren voor System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 
-U configureren detectiemethoden worden uitgevoerd op een System Center Configuration Manager-site zoeken naar bronnen die u van uw netwerkinfrastructuur en Active Directory beheren kunt. Hiervoor moet u inschakelen en vervolgens elke methode die u wilt gebruiken om te zoeken van uw omgeving te configureren. (U kunt ook een methode uitschakelen met behulp van dezelfde procedure die u gebruikt deze in te schakelen.)  De enige uitzondering hierop zijn Heartbeat-detectie en serverdetectie:  
+Configureer detectiemethoden om resources voor het beheren van uw netwerk, Active Directory en Azure Active Directory (Azure AD) te zoeken. Voor het eerst inschakelt en configureert u elke methode die u wilt gebruiken om te zoeken van uw omgeving. U kunt ook een methode uitschakelen met behulp van dezelfde procedure die u gebruikt deze in te schakelen. De enige uitzonderingen op dit proces zijn Heartbeat-detectie en serverdetectie:  
 
--   Standaard is Heartbeat-detectie al ingeschakeld wanneer u een primaire site van Configuration Manager hebt geïnstalleerd en geconfigureerd voor uitvoering op een eenvoudige planning. Het is een goed idee om Houd Heartbeat-detectie ingeschakeld omdat Hiermee zorgt u ervoor dat de detectiegegevensrecords (DDR's) voor apparaten up-to-date zijn. Zie voor meer informatie over Heartbeat-detectie [over Heartbeat-detectie](../../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_aboutHeartbeat).  
+-   Standaard **Heartbeat-detectie** is al ingeschakeld wanneer u een primaire site van Configuration Manager installeert. Deze is geconfigureerd om te worden uitgevoerd op een eenvoudige planning. Houd Heartbeat-detectie is ingeschakeld. Hiermee zorgt u ervoor dat de detectiegegevensrecords (DDR's) voor apparaten up-to-date zijn. Zie voor meer informatie over Heartbeat-detectie [over Heartbeat-detectie](../../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_aboutHeartbeat).  
 
--   Serverdetectie is een automatische detectiemethode waarmee wordt gezocht naar computers die u als sitesystemen gebruikt. Configureren of niet uitschakelen.  
+-   **Serverdetectie** is een automatische detectie. Het zoeken naar computers die u als sitesystemen gebruikt. Configureren of niet uitschakelen.  
 
-**Een configureerbare detectiemethode inschakelen:**  
+### <a name="enable-a-configurable-discovery-method"></a>Een configureerbare detectiemethode inschakelen  
  > [!NOTE]  
- > De volgende informatie is niet van toepassing op Azure Active Directory-Gebruikersdetectie. In plaats daarvan Zie [configureren Azure AD-Gebruikersdetectie](#azureaadisc) verderop in dit onderwerp.
+ > De volgende informatie geldt niet voor Azure AD-Gebruikersdetectie. In plaats daarvan Zie [configureren Azure AD-Gebruikersdetectie](#azureaadisc) verderop in dit artikel.
 
-1.  Kies in de Configuration Manager-console **beheer** > **Hiërarchieconfiguratie**, en kies vervolgens **detectiemethoden**.  
+1.  Ga in de Configuration Manager-console naar de **beheer** werkruimte Vouw **Hiërarchieconfiguratie**, en selecteer vervolgens **detectiemethoden**.  
 
 2.  Selecteer de detectiemethode voor de site waar u detectie wilt inschakelen.  
 
-3.  Op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**, en klik vervolgens op de **algemene** tabblad, Controleer de **inschakelen&lt;detectiemethode\>**  vak.  
+3.  Op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**. Klik op de **algemene** tabblad controle de **inschakelen &lt;detectiemethode\>**  vak.  
 
      Als dit selectievakje al is ingeschakeld, kunt u de detectiemethode uitschakelen door het selectievakje uitschakelt.  
 
 4.  Kies **OK** aan de configuratie op te slaan.  
 
 
-##  <a name="BKMK_ConfigADForestDisc"></a>Detectie van Active Directory-Forest configureren  
+
+##  <a name="BKMK_ConfigADForestDisc"></a> Detectie van Active Directory-Forest configureren  
 Voor het voltooien van de configuratie van detectie van Active Directory-Forest, moet u instellingen configureren op twee locaties:  
 
 -   In de **detectiemethoden** knooppunt, kunt u:
@@ -101,8 +103,10 @@ Gebruik de volgende procedures in Active Directory-Forestdetectie inschakelen en
 
 4.  Wanneer u klaar bent met de configuratie van deze forest voor Active Directory Forest Discovery kiezen **OK** aan de configuratie op te slaan.  
 
-##  <a name="BKMK_ConfigADDiscGeneral"></a>Detectie van Active Directory voor computers, gebruikers of groepen configureren  
- Gebruik de informatie in de volgende secties voor het configureren van detectie van computers, gebruikers of groepen. U hebt deze detectiemethoden gebruiken:  
+
+
+##  <a name="BKMK_ConfigADDiscGeneral"></a> Detectie van Active Directory voor computers, gebruikers of groepen configureren  
+ Gebruik de informatie in deze secties uit voor de volgende detectiemethodes te gebruiken voor het configureren van detectie van computers, gebruikers of groepen:  
 
 -   Active Directory-groepdetectie  
 
@@ -111,12 +115,12 @@ Gebruik de volgende procedures in Active Directory-Forestdetectie inschakelen en
 -   Detectie Active Directory-gebruiker  
 
 > [!NOTE]  
->  De informatie in deze sectie geldt niet voor de detectie van Active Directory-Forest.  
+>  De informatie in deze sectie niet van toepassing op detectie van Active Directory-Forest.  
 
  Hoewel elk van deze detectiemethoden onafhankelijk van de andere, delen ze wel soortgelijke opties. Zie voor meer informatie over deze configuratieopties [gedeeld opties voor de detectie van groep-, systeem- en gebruiker](../../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_shared).  
 
 > [!WARNING]  
->  Polling van Active Directory door elk van deze detectiemethoden kan significant netwerkverkeer genereren. U kunt de planning van elke detectiemethode om uit te voeren op een tijdstip waarop dit netwerkverkeer geen belemmering zakelijke gebruik van uw netwerk.  
+>  Polling van Active Directory door elk van deze detectiemethoden kan significant netwerkverkeer genereren. U kunt de planning van elke detectiemethode om uit te voeren op een tijdstip wanneer dit netwerkverkeer geen belemmering vormt voor zakelijke gebruik van uw netwerk.  
 
 #### <a name="to-configure-active-directory-group-discovery"></a>Detectie van Active Directory-groepen configureren  
 
@@ -146,7 +150,7 @@ Gebruik de volgende procedures in Active Directory-Forestdetectie inschakelen en
 
 7.  Op de **Polling-planning** tabblad, het configureren van de volledige detectiepolling-planning en deltadetectie.  
 
-8.  Klik desgewenst op de **optie** tabblad kunt u opties wilt filteren of uitsluiten van verouderde computerrecords van detectie en het lidmaatschap van distributiegroepen te detecteren.  
+8.  Klik desgewenst op de **optie** tabblad Opties configureren om te filteren of uitsluiten van verouderde computerrecords van detectie. De detectie van het lidmaatschap van distributiegroepen ook configureren.  
 
     > [!NOTE]  
     >  Detectie van Active Directory-groepen detecteert standaard alleen het lidmaatschap van beveiligingsgroepen.  
@@ -172,7 +176,7 @@ Gebruik de volgende procedures in Active Directory-Forestdetectie inschakelen en
     3.  Geef voor elke locatie het account wilt gebruiken als de **Detectieaccount Active Directory**.  
 
         > [!TIP]  
-        >  U kunt een set van detectieopties en een uniek Active Directory Discovery-Account configureren voor elke locatie die u opgeeft.  
+        >  U kunt een set van detectieopties en een uniek Active Directory Discovery-Account configureren voor elke opgegeven locatie.  
 
     4.  Kies **OK** om op te slaan van de configuratie van de Active Directory-container.  
 
@@ -203,7 +207,7 @@ Gebruik de volgende procedures in Active Directory-Forestdetectie inschakelen en
     3.  Geef voor elke locatie het account wilt gebruiken als de **Detectieaccount Active Directory**.  
 
         > [!NOTE]  
-        >  U kunt een unieke set van detectieopties en een uniek Active Directory Discovery-Account configureren voor elke locatie die u opgeeft.  
+        >  U kunt een unieke set van detectieopties en een uniek Active Directory Discovery-Account configureren voor elke opgegeven locatie.  
 
     4.  Kies **OK** om op te slaan van de configuratie van de Active Directory-container.  
 
@@ -213,16 +217,34 @@ Gebruik de volgende procedures in Active Directory-Forestdetectie inschakelen en
 
 8.  Wanneer u klaar bent met het configureren van detectie van Active Directory-gebruikers voor deze site, kiezen **OK** aan de configuratie op te slaan.  
 
-## <a name="azureaadisc"></a>Azure AD-Gebruikersdetectie configureren
-Vanaf versie 1706, kunt u Azure Active Directory-Gebruikersdetectie configureren wanneer u verbinding maakt met Configuration Manager uw [Azure-abonnement en Azure Active Directory](/sccm/core/servers/deploy/configure/azure-services-wizard).
-
-Azure AD-Gebruikersdetectie wordt geconfigureerd als onderdeel van *Cloudbeheer*. De procedure om dit te doen, wordt besproken in [maken van de Azure-web-app voor gebruik met Configuration Manager](/sccm/core/servers/deploy/configure/Azure-services-wizard#webapp) in het onderwerp *configureren van Azure services voor gebruik met Configuration Manager*.
 
 
+## <a name="azureaadisc"></a> Azure AD-Gebruikersdetectie configureren
+Azure AD-Gebruikersdetectie is niet ingeschakeld of geconfigureerd hetzelfde is als andere detectiemethoden. Configureren wanneer u vrijgeven de Configuration Manager-site naar Azure AD. Wanneer u [Azure-Services configureren](/sccm/core/servers/deploy/configure/azure-services-wizard) voor **Cloudbeheer**, kunt u ook inschakelen en configureren van deze detectiemethode. 
+
+Bij het configureren van de **Cloudbeheer** Azure-service: 
+- Op de **detectie** pagina van de wizard, klikt u op **inschakelen Azure Active Directory-Gebruikersdetectie**. 
+- Klik op **Instellingen**. 
+- Configureer een planning voor wanneer detectie wordt uitgevoerd in het dialoogvenster Instellingen voor netwerkdetectie Azure AD-gebruiker. U kunt ook detectie van verschillen alleen op nieuwe of gewijzigde accounts in Azure AD controleert inschakelen. 
+
+Zie voor meer informatie [Azure AD-Gebruikersdetectie](/sccm/core/servers/deploy/configure/about-discovery-methods#azureaddisc).
+
+ > [!Important]  
+ > Voordat u *importeren* de Azure AD-app in Configuration Manager, moet u de server toepassing machtiging aan het Active directory-gegevens lezen uit Azure AD. 
+ >  - In de [Azure-portal](https://portal.azure.com), gaat u naar de **Azure Active Directory** blade. 
+ >  - Klik op **App registraties**, en schakel over naar **alle apps** indien nodig. 
+ >  - Selecteer de server-app van het type *Web-app / API*, en klik vervolgens op **instellingen**. 
+ >  - Klik op **vereist machtigingen**, en klik vervolgens op **machtigingen verlenen**.
+ >  
+ > Als u *maken* de machtigingen in de server-app uit Configuration Manager, Azure AD automatisch worden gemaakt met de toepassing. U moet nog steeds toestemming geven tot de toepassing in de Azure-portal.
+
+ > [!Note]  
+ > Als de gebruiker een identiteit federatieve of gesynchroniseerd wordt, moet u Configuration Manager [Active Directory-gebruikersdetectie](/sccm/core/servers/deploy/configure/about-discovery-methods#bkmk_aboutUser) en Azure AD-gebruikersdetectie. Zie voor meer informatie over hybride identiteiten [definiëren van een strategie voor hybride identiteit ingebruikname](/azure/active-directory/active-directory-hybrid-identity-design-considerations-identity-adoption-strategy).<!--497750-->
 
 
-##  <a name="BKMK_ConfigHBDisc"></a>Heartbeat-detectie configureren  
- Heartbeat-detectie is standaard ingeschakeld wanneer u een primaire site van Configuration Manager installeert. Hierdoor hoeft u alleen te configureren van de planning voor hoe vaak clients verzenden de Heartbeat-detectie-gegevens naar een beheerpunt opnemen wanneer u niet wilt dat de standaard elke zeven dagen.  
+
+##  <a name="BKMK_ConfigHBDisc"></a> Heartbeat-detectie configureren  
+ Heartbeat-detectie is standaard ingeschakeld wanneer u een primaire site van Configuration Manager installeert. Hierdoor hoeft u alleen te configureren van de planning voor hoe vaak clients verzenden de Heartbeat-detectie-gegevens worden vastgelegd met een beheerpunt wanneer u niet wilt dat de standaard elke zeven dagen.  
 
 > [!NOTE]  
 >  Als zowel client-pushinstallatie en de siteonderhoudstaak voor **Installatievlag** zijn ingeschakeld op dezelfde site, zet u de planning voor Heartbeat-detectie op korter dan de **periode Herdetectie Client** van de **Installatievlag** siteonderhoudstaak. Zie voor meer informatie over siteonderhoudstaken [onderhoudstaken voor System Center Configuration Manager](../../../../core/servers/manage/maintenance-tasks.md).  
@@ -237,11 +259,13 @@ Azure AD-Gebruikersdetectie wordt geconfigureerd als onderdeel van *Cloudbeheer*
 
 4.  Configureer de frequentie waarmee clients Heartbeat-gegevensdetectierecord verzenden, en kies vervolgens **OK** aan de configuratie op te slaan.  
 
-##  <a name="BKMK_ConfigNetworkDisc"></a>Netwerkdetectie configureren  
- Gebruik de informatie in de volgende secties voor hulp bij het configureren van netwerkdetectie.  
 
-###  <a name="BKMK_AboutConfigNetworkDisc"></a>Over het configureren van netwerkdetectie  
- Voordat u netwerkdetectie configureert, moet u het volgende weten:  
+
+##  <a name="BKMK_ConfigNetworkDisc"></a> Netwerkdetectie configureren  
+ Gebruik de informatie in deze secties zodat u kunt netwerkdetectie configureren.  
+
+###  <a name="BKMK_AboutConfigNetworkDisc"></a> Over het configureren van netwerkdetectie  
+ Voordat u netwerkdetectie configureert, moet u begrijpen dat de volgende onderwerpen:  
 
 -   Beschikbare niveaus van netwerkdetectie  
 
@@ -253,17 +277,17 @@ Zie voor meer informatie [over netwerkdetectie](../../../../core/servers/deploy/
 
  De volgende secties bevatten informatie over algemene configuraties voor netwerkdetectie. U kunt een of meer van deze configuraties voor gebruik tijdens dezelfde detectierun uitvoeren. Als u meerdere configuraties gebruikt, moet u plannen voor de interactie die de detectieresultaten kunnen beïnvloeden.  
 
- U wilt bijvoorbeeld alle Simple Network Management Protocol (SNMP)-apparaten die gebruikmaken van een specifieke SNMP-communitynaam te detecteren. U kunt bovendien detectie op een specifiek subnet uitschakelen voor de dezelfde detectierun. Wanneer detectie wordt uitgevoerd, detecteert netwerkdetectie geen SNMP-apparaten met de opgegeven communitynaam op het subnet dat u hebt uitgeschakeld.  
+ U wilt bijvoorbeeld alle Simple Network Management Protocol (SNMP)-apparaten die gebruikmaken van een specifieke SNMP-communitynaam te detecteren. U kunt bovendien detectie op een specifiek subnet uitschakelen voor de dezelfde detectierun. Wanneer detectie wordt uitgevoerd, kan netwerkdetectie SNMP-apparaten met de opgegeven communitynaam op het subnet dat u hebt uitgeschakeld niet detecteren.  
 
-####  <a name="BKMK_DetermineNetTopology"></a>Uw netwerktopologie bepalen  
- Alleen-topologie detectie kunt u uw netwerk worden toegewezen. Dit type detectie detecteert geen potentiële clients. De topologie-alleen voor netwerkdetectie is afhankelijk van SNMP.  
+####  <a name="BKMK_DetermineNetTopology"></a> Uw netwerktopologie bepalen  
+ Alleen-topologie detectie kunt u uw netwerk worden toegewezen. Dit type detectie detecteren geen potentiële clients. De topologie-alleen voor netwerkdetectie is afhankelijk van SNMP.  
 
  Wanneer u uw netwerktopologie toegewezen bent, moet u de **Maximum aantal hops** op de **SNMP** tabblad de **netwerkdetectie-eigenschappen** in het dialoogvenster. Met slechts enkele hops kunnen helpen bij het beheren van de netwerkbandbreedte die wordt gebruikt wanneer detectie wordt uitgevoerd. Als u meer van uw netwerk ontdekt, kunt u het aantal hops opvoeren beter inzicht te krijgen van uw netwerktopologie om verhogen.  
 
- Nadat u uw netwerktopologie begrijpt, kunt u extra eigenschappen voor netwerkdetectie voor het detecteren van mogelijke clients en hun besturingssystemen, terwijl u beschikbare configuraties gebruikt voor het beperken van de netwerksegmenten dat netwerkdetectie kan zoeken.  
+ Nadat u uw netwerktopologie begrijpt, kunt u extra eigenschappen voor netwerkdetectie voor het detecteren van mogelijke clients en hun besturingssystemen, terwijl u beschikbare configuraties om te beperken van de netwerksegmenten dat netwerk configureren Detectie kunt zoeken.  
 
-####  <a name="BKMK_LimitBySubnet"></a>Zoekopdrachten beperken met subnetten  
- U kunt netwerkdetectie configureren om te zoeken naar specifieke subnetten tijdens een detectierun. Netwerkdetectie doorzoekt standaard het subnet van de server die detectie uitvoert. Eventuele extra subnetten die u configureert en inschakelt alleen van toepassing op SNMP en Dynamic Host Configuration Protocol (DHCP) zoekopties. Wanneer netwerkdetectie domeinen zoekt, wordt het niet beperkt door subnetconfiguraties.  
+####  <a name="BKMK_LimitBySubnet"></a> Zoekopdrachten beperken met subnetten  
+ U kunt netwerkdetectie configureren om te zoeken naar specifieke subnetten tijdens een detectierun. Netwerkdetectie doorzoekt standaard het subnet van de server die detectie uitvoert. Eventuele extra subnetten die u configureert en inschakelt alleen van toepassing op SNMP en Dynamic Host Configuration Protocol (DHCP) zoekopties. Wanneer netwerkdetectie domeinen zoekt, kunt het niet wordt beperkt door subnetconfiguraties.  
 
  Als u een of meer subnetten opgeeft op de **subnetten** tabblad de **netwerkdetectie-eigenschappen** in het dialoogvenster alleen de subnetten die zijn gemarkeerd als **ingeschakeld** worden doorzocht.  
 
@@ -275,7 +299,7 @@ Zie voor meer informatie [over netwerkdetectie](../../../../core/servers/deploy/
 
 -   Domain-query's kunnen bronnen detecteren die zich op het subnet bevinden.  
 
-####  <a name="BKMK_SearchByDomain"></a>Zoeken in een specifiek domein  
+####  <a name="BKMK_SearchByDomain"></a> Zoeken in een specifiek domein  
  U kunt netwerkdetectie configureren om te zoeken in een specifiek domein of set van domeinen tijdens het uitvoeren van een detectie. Netwerkdetectie doorzoekt standaard het lokale domein van de server die detectie uitvoert.  
 
  Als u een of meer domeinen specificeert op het **domeinen** tabblad de **netwerkdetectie-eigenschappen** in het dialoogvenster alleen de domeinen die zijn gemarkeerd als **ingeschakeld** worden doorzocht.  
@@ -288,7 +312,7 @@ Zie voor meer informatie [over netwerkdetectie](../../../../core/servers/deploy/
 
 -   DHCP-servers kunnen nog steeds antwoorden met een lijst met bronnen in het domein.  
 
-####  <a name="BKMK_LimitBySNMPname"></a>Zoekopdrachten beperken door SNMP-communitynamen te gebruiken  
+####  <a name="BKMK_LimitBySNMPname"></a> Zoekopdrachten beperken door SNMP-communitynamen te gebruiken  
  U configureren netwerkdetectie om te zoeken in een specifieke SNMP-community of set van communities tijdens het uitvoeren van een detectie. Standaard wordt de communitynaam van **openbare** is geconfigureerd voor gebruik.  
 
  Netwerkdetectie gebruikt communitynamen om toegang tot routers die SNMP-apparaten te krijgen. Een router kan netwerkdetectie voorzien met informatie over andere routers en subnetten die zijn gekoppeld aan de eerste router.  
@@ -296,12 +320,12 @@ Zie voor meer informatie [over netwerkdetectie](../../../../core/servers/deploy/
 > [!NOTE]  
 >  SNMP-communitynamen lijken op wachtwoorden. Netwerkdetectie kan enkel informatie krijgen van een SNMP-apparaat waarvoor u een communitynaam hebt opgegeven. Elk SNMP-apparaat kan zijn eigen communitynaam hebben, maar dikwijls wordt dezelfde comunitynaam gedeeld tussen verschillende apparaten. Bovendien hebben de meeste SNMP-apparaten een standaardcommunitynaam **openbare**. Sommige organisaties wissen, maar de **openbare** communitynaam vanaf hun apparaten veiligheidsoverwegingen.  
 
- Als meerdere SNMP-communities worden weergegeven op de **SNMP** tabblad de **netwerkdetectie-eigenschappen** in het dialoogvenster zoekt netwerkdetectie ze in de volgorde waarin ze worden weergegeven. Om te helpen het netwerkverkeer dat wordt gegenereerd door pogingen om contact met een apparaat met behulp van verschillende namen te minimaliseren, zorg ervoor dat de meest gebruikte namen aan de bovenkant van de lijst.  
+ Als meerdere SNMP-communities worden weergegeven op de **SNMP** tabblad de **netwerkdetectie-eigenschappen** in het dialoogvenster zoekt netwerkdetectie ze in de volgorde waarin ze zijn weergegeven. Om te helpen het netwerkverkeer dat wordt gegenereerd door pogingen om contact met een apparaat met behulp van verschillende namen te minimaliseren, zorg ervoor dat de meest gebruikte namen aan de bovenkant van de lijst.  
 
 > [!NOTE]  
->  Naast het gebruik van de SNMP-communitynaam, kunt u het IP-adres of herleidbare naam van een specifiek SNMP-apparaat. U dit doen op de **SNMP-apparaten** tabblad de **netwerkdetectie-eigenschappen** in het dialoogvenster.  
+>  Samen met de SNMP-community-naam gebruikt, kunt u het IP-adres of herleidbare naam van een specifiek SNMP-apparaat. Voer van deze actie op de **SNMP-apparaten** tabblad de **netwerkdetectie-eigenschappen** in het dialoogvenster.  
 
-####  <a name="BKMK_SearchByDHCP"></a>Een specifieke DHCP-server zoeken  
+####  <a name="BKMK_SearchByDHCP"></a> Een specifieke DHCP-server zoeken  
  U kunt netwerkdetectie voor het gebruik van een specifieke DHCP-server of meerdere servers voor het detecteren van DHCP-clients tijdens de uitvoering van een detectie configureren.  
 
  Netwerkdetectie doorzoekt elke DHCP-server die u opgeeft op de **DHCP** tabblad de **netwerkdetectie-eigenschappen** in het dialoogvenster. Als de server die detectie uitvoert zijn IP-adres van een DHCP-server huurt, u kunt detectie configureren zodat deze DHCP-server zoeken door het controleren van de **de DHCP-server opnemen waarvoor de siteserver is geconfigureerd voor gebruik** vak.  
@@ -309,7 +333,7 @@ Zie voor meer informatie [over netwerkdetectie](../../../../core/servers/deploy/
 > [!NOTE]  
 >  Als u wilt configureren met succes een DHCP-server in netwerkdetectie, moet uw omgeving IPv4 ondersteunen. U kunt netwerkdetectie voor het gebruik van een DHCP-server in een systeemeigen IPv6-netwerkomgeving niet configureren.  
 
-###  <a name="BKMK_HowToConfigNetDisc"></a>Het configureren van netwerkdetectie  
+###  <a name="BKMK_HowToConfigNetDisc"></a> Het configureren van netwerkdetectie  
  Gebruik de volgende procedures om eerst enkel uw netwerktopologie te detecteren en configureer dan netwerkdetectie voor het detecteren van mogelijke clients met behulp van een of meer van de beschikbare opties voor netwerkdetectie.  
 
 ##### <a name="to-determine-your-network-topology"></a>Uw netwerktopologie bepalen  
@@ -325,7 +349,7 @@ Zie voor meer informatie [over netwerkdetectie](../../../../core/servers/deploy/
     -   Op de **subnetten** tabblad, Controleer de **lokale subnetten doorzoeken** vak.  
 
         > [!TIP]  
-        >  Als u welke subnetten deel uitmaken van uw netwerk weet, schakelt u de **lokale subnetten doorzoeken** vak en gebruik de **nieuw** pictogram ![pictogram Nieuw](media/Disc_new_Icon.gif) toevoegen de specifieke subnetten die u wilt zoeken. Voor grote netwerken is het verstandig om te zoeken slechts één of twee subnetten tegelijk om het gebruik van netwerkbandbreedte te minimaliseren.  
+        >  Als u welke subnetten deel uitmaken van uw netwerk weet, schakelt u de **lokale subnetten doorzoeken** vak. Gebruik vervolgens de **nieuw** pictogram ![pictogram Nieuw](media/Disc_new_Icon.gif) toevoegen de specifieke subnetten die u wilt zoeken. Voor grote netwerken is het verstandig om te zoeken slechts één of twee subnetten tegelijk om het gebruik van netwerkbandbreedte te minimaliseren.  
 
     -   Op de **domeinen** tabblad, Controleer de **lokale domeinen doorzoeken** vak.  
 
@@ -399,7 +423,7 @@ Zie voor meer informatie [over netwerkdetectie](../../../../core/servers/deploy/
 
 10. Om detectie te configureren om te doorzoeken op specifieke DHCP-servers DHCP-clients, kies de **DHCP** tabblad en configureer vervolgens een of meer van de volgende opties:  
 
-    -   Als u wilt zoeken op de DHCP-server op de computer die detectie uitvoert, Controleer de **gebruik altijd de DHCP-server van de siteserver** vak.  
+    -   Als u wilt zoeken op de DHCP-server op de computer die detectie uitvoert, ervoor kiezen om te **gebruik altijd de DHCP-server van de siteserver**.  
 
         > [!NOTE]  
         >  Om deze optie gebruikt, is de server moet het IP-adres van een DHCP-server van de lease, en een statisch IP-adres niet gebruiken.  
@@ -414,12 +438,12 @@ Zie voor meer informatie [over netwerkdetectie](../../../../core/servers/deploy/
      U kunt meerdere recurrente plannings- en meerdere plannings zonder recurrentie configureren.  
 
     > [!NOTE]  
-    >  Als meerdere planningen worden weergegeven op de **planning** tabblad op hetzelfde moment, resulteren alle plannings in een uitvoering van Netwerkdetectie zoals ze geconfigureerd is op het tijdstip aangegeven in de planning. Dit geldt ook voor terugkerende schema's.  
+    >  Als meerdere planningen worden weergegeven op de **planning** tabblad op hetzelfde moment, resulteren alle plannings in een uitvoering van Netwerkdetectie zoals ze geconfigureerd is op het tijdstip aangegeven in de planning. Dit gedrag geldt ook voor terugkerende schema's.  
 
 12. Kies **OK** uw configuraties op te slaan.  
 
-###  <a name="BKMK_HowToVerifyNetDisc"></a>Controleren of de netwerkdetectie is voltooid  
- De tijd die netwerkdetectie nodig heeft om te voltooien kan variëren afhankelijk van een verscheidenheid aan factoren. Deze factoren kunnen bevatten een of meer van de volgende opties:  
+###  <a name="BKMK_HowToVerifyNetDisc"></a> Controleren of de netwerkdetectie is voltooid  
+ De tijd die netwerkdetectie nodig heeft om te voltooien kan variëren afhankelijk van een of meer van de volgende factoren:  
 
 -   De grootte van uw netwerk  
 
@@ -454,7 +478,7 @@ Omdat netwerkdetectie geen berichten om u te waarschuwen wanneer detectie is vol
 
     -   Beschrijving: **Dit onderdeel is gestopt**  
 
-    Als dit statusbericht niet aanwezig is, heeft niet de netwerkdetectie voltooid.  
+    Als dit statusbericht niet aanwezig is, kan netwerkdetectie nog niet voltooid.  
 
 7.  Om te valideren dat netwerkdetectie gestart, zoekt u een statusbericht dat de volgende gegevens:  
 

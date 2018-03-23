@@ -3,29 +3,30 @@ title: Endpoint Protection configureren
 titleSuffix: Configuration Manager
 description: Informatie over het instellen van Configuration Manager om te werken en distribueren van malware-definities voor Windows Defender.
 ms.custom: na
-ms.date: 02/14/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: e63f2394-6eb1-4a33-bec5-8377fc62a34e
-caps.latest.revision: "21"
-author: NathBarn
-ms.author: nathbarn
-manager: angrobe
-ms.openlocfilehash: 5f005e7cd9c396fcf7e02aafefcb34c37ddab901
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+caps.latest.revision: ''
+author: mestew
+ms.author: mstewart
+manager: dougeby
+ms.openlocfilehash: 9e54b433224b86650178b4df0cd6d0f2ab827b6c
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-endpoint-protection"></a>Endpoint Protection configureren
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Voordat u Endpoint Protection gebruiken kunt voor het beheren van beveiliging en schadelijke software op clientcomputers van Configuration Manager, moet u de configuratiestappen die is beschreven in dit onderwerp uitvoeren.  
+Voordat u Endpoint Protection gebruiken kunt voor het beheren van beveiliging en schadelijke software op clientcomputers van Configuration Manager, moet u de configuratiestappen uiteengezet in dit artikel uitvoeren.  
 
 ## <a name="how-to-configure-endpoint-protection-in-configuration-manager"></a>Endpoint Protection configureren in Configuration Manager  
  Endpoint Protection in Configuration Manager heeft externe afhankelijkheden en afhankelijkheden binnen het product.  
@@ -34,7 +35,8 @@ Voordat u Endpoint Protection gebruiken kunt voor het beheren van beveiliging en
  In de volgende tabel vindt u de stappen, gegevens en overige informatie voor het configureren van Endpoint Protection.  
 
 > [!IMPORTANT]  
->  Als u endpoint protection voor Windows 10-computers beheren, moet u Configuration Manager om te werken en distribueren van malware-definities voor Windows Defender configureren. Windows Defender is opgenomen in Windows 10 SCEPInstall moet wel nog steeds geïnstalleerd en aangepaste clientinstellingen voor Endpoint Protection (**stap 5** hieronder) zijn nog steeds vereist.  
+>  Als u endpoint protection voor Windows 10-computers beheren, moet u Configuration Manager om te werken en distribueren van malware-definities voor Windows Defender configureren. Windows Defender is opgenomen in Windows 10 SCEPInstall moet wel nog steeds geïnstalleerd en aangepaste clientinstellingen voor Endpoint Protection (**stap 5** hieronder) zijn nog steeds vereist. </br> </br>
+> Vanaf Configuration Manager 1802, hoeft Windows 10-apparaten niet te hebben van de Endpoint Protection agent (SCEPInstall) is geïnstalleerd. Als deze al is geïnstalleerd op Windows 10-apparaten, wordt Configuration Manager niet verwijderd. Beheerders kunnen de Endpoint Protection-agent op Windows 10-apparaten die met ten minste de clientversie 1802 verwijderen. SCEPInstall.exe mogelijk nog steeds in C:\Windows\ccmsetup op sommige computers aanwezig, maar niet moeten worden gedownload op de nieuwe clientinstallaties. Aangepaste clientinstellingen voor Endpoint Protection (**stap 5** hieronder) zijn nog steeds vereist. <!--503654-->
 
 |Stappen|Details|  
 |-----------|-------------|  

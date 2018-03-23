@@ -3,7 +3,7 @@ title: Datawarehouse
 titleSuffix: Configuration Manager
 description: Datawarehouse-servicepunt en de database voor System Center Configuration Manager
 ms.custom: na
-ms.date: 02/26/2018
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,15 +12,15 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: aaf43e69-68b4-469a-ad58-9b66deb29057
-caps.latest.revision: 
+caps.latest.revision: ''
 author: mestew
 ms.author: mstewart
 manager: dougeby
-ms.openlocfilehash: 954ec65bae15e087d6cf5afbcc8e0da1ebf83533
-ms.sourcegitcommit: be939893f0ceca4add8655ae2c24e42aa16aec38
+ms.openlocfilehash: 83bfc0e3d7bdf1ff8718c7c211c897e37b21a06b
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 #  <a name="the-data-warehouse-service-point-for-system-center-configuration-manager"></a>De datawarehouse-servicepunt voor System Center Configuration Manager
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
@@ -88,6 +88,7 @@ Wanneer u de rol installeert, maakt Configuration Manager de datawarehouse-datab
      - **Databasenaam**: Geef een naam voor de datawarehouse-database. Naam van de database kan niet groter zijn dan 10 tekens. (De lengte van de ondersteunde worden verhoogd in een toekomstige release).
      Configuration Manager maakt de datawarehouse-database met deze naam. Als u de naam van een database die al bestaat op het exemplaar van SQL server opgeeft, wordt in Configuration Manager dat de database gebruikt.
      - **SQL Server-poort gebruikt voor verbinding**: Geef het nummer van de TCP/IP-poort die wordt gebruikt door de SQL Server die als host fungeert voor de datawarehouse-database. Deze poort wordt gebruikt door de datawarehouse-synchronisatieservice verbinding maken met de datawarehouse-database.  
+     - **Datawarehouse-account voor service-punt**: Vanaf versie 1802, geef het account dat SQL Server Reporting Services gebruikt bij het verbinden met de datawarehouse-database. 
 
 **Synchronisatieplanning** pagina:   
 - **Synchronisatieplanning**:
@@ -96,8 +97,12 @@ Wanneer u de rol installeert, maakt Configuration Manager de datawarehouse-datab
          - **Dagelijkse**: Geef op dat de synchronisatie wordt uitgevoerd elke dag.
          - **Wekelijkse**: Geef een enkele dag elke week en wekelijkse terugkeerpatronen voor synchronisatie.
 
+
 ## <a name="reporting"></a>Rapporten
 Nadat u een gegevenspunt van de datawarehouse-service hebt geïnstalleerd, worden diverse rapporten beschikbaar zijn op de reporting services-punt is geïnstalleerd op dezelfde site. Als u het gegevenspunt van de datawarehouse-service installeren voordat u een reporting services-punt installeert, worden de rapporten worden automatisch toegevoegd wanneer u later de reporting services-punt installeert.
+
+>[!WARNING]
+>In Configuration Manager versie 1802, alternatieve referenties ondersteuning toegevoegd voor het gegevenspunt van de datawarehouse. <!--507334-->Als u een upgrade uitgevoerd van een eerdere versie van Configuration Manager, moet u de referenties op die SQL Server Reporting Services gebruikt verbinding maken met de datawarehouse-database opgeven. Rapporten datawarehouse kunnen niet worden geopend en de totdat de referenties zijn opgegeven. Als u een account, gaat u naar **beheer** >**siteconfiguratie** >**Servers en sitesysteemrollen**. Klik op de server met het gegevenspunt van de datawarehouse-service en vervolgens met de rechtermuisknop op de datawarehouse rol. Selecteer **eigenschappen** Geef vervolgens de **datawarehouse-account voor service-punt**.
 
 De sitesysteemrol van de datawarehouse bevat de volgende rapporten, waarvoor een categorie van **Data Warehouse**:
  - **Toepassingsimplementatie - historische**: Details weergeven voor de implementatie van de toepassing voor een bepaalde toepassing en de machine.

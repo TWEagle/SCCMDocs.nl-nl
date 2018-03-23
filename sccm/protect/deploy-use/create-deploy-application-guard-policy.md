@@ -1,33 +1,35 @@
 ---
 title: Een toepassing bescherming van Windows Defender-beleid maken en implementeren
-titleSuffix: Configuration Manager
+titleSuffix: System Center Configuration Manager
 description: Maken en implementeren van beleid voor Windows Defender toepassing Guard.
 ms.custom: na
-ms.date: 11/21/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.assetid: 
-caps.latest.revision: "5"
-author: ErikjeMS
-ms.author: erikje
+ms.assetid: ''
+caps.latest.revision: ''
+author: mestew
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: db2508e5bbd1435fce432b6ef98d7968e68ea5ab
-ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
+ms.openlocfilehash: faa1a50b29fe4ba966812441243b81ee2d31b024
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-and-deploy-windows-defender-application-guard-policy----1351960---"></a>Windows Defender toepassing Guard beleid maken en implementeren<!-- 1351960 -->
-
+# <a name="create-and-deploy-windows-defender-application-guard-policy"></a>Windows Defender toepassing Guard beleid maken en implementeren 
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+<!-- 1351960 -->
 U kunt maken en implementeren [Windows Defender toepassing Guard](https://docs.microsoft.com/windows/threat-protection/windows-defender-application-guard/wd-app-guard-overview) beleidsregels met behulp van de Configuration Manager endpoint protection. Deze beleidsregels kunt beveiligen van uw gebruikers via niet-vertrouwde websites in een beveiligde geïsoleerde container die is niet toegankelijk voor andere onderdelen van het besturingssysteem.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Maken en implementeren van een beleid voor Windows Defender toepassing Guard, moet u de Windows 10 vallen Creator Update. De Windows 10-apparaten waarop u het beleid implementeert moeten ook worden geconfigureerd met een beleid voor het isoleren van netwerken. Zie voor meer informatie de [overzicht van Windows Defender toepassing Guard](https://docs.microsoft.com/en-us/windows/threat-protection/windows-defender-application-guard/wd-app-guard-overview). Deze functie werkt alleen met huidige Insider voor Windows 10-builds. Als u wilt testen, moeten uw clients worden uitgevoerd een recente Windows 10 Insider niet maken.
+Als u wilt maken en implementeren van een beleid voor Windows Defender toepassing Guard, moet u de Windows 10 vallen Creator Update (1709). De Windows 10-apparaten waarop u het beleid implementeert moeten ook worden geconfigureerd met een beleid voor het isoleren van netwerken. Zie voor meer informatie de [overzicht van Windows Defender toepassing Guard](https://docs.microsoft.com/en-us/windows/threat-protection/windows-defender-application-guard/wd-app-guard-overview). 
 
 
 ## <a name="create-a-policy-and-to-browse-the-available-settings"></a>Maak een beleid en de beschikbare instellingen bladeren:
@@ -35,7 +37,7 @@ Maken en implementeren van een beleid voor Windows Defender toepassing Guard, mo
 1. Kies in de Configuration Manager-console **activa en naleving**.
 2. In de **activa en naleving** werkruimte, kiest u **overzicht** > **Endpoint Protection** > **Windows Defender toepassing Guard**.
 3. In de **Start** tabblad, in de **maken** groep, klikt u op **maken Windows Defender Guard toepassingsbeleid**.
-4. Met behulp van de [blogbericht](https://blogs.windows.com/msedgedev/2016/09/27/application-guard-microsoft-edge/#BmJGKPfSjHHzsMmI.97) als uitgangspunt, kunt u bladeren en de beschikbare instellingen configureren.
+4. Met behulp van de [artikel](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-guard/configure-wd-app-guard) als uitgangspunt, kunt u bladeren en de beschikbare instellingen configureren. Configuration Manager kunt u om in te stellen bepaalde beleidsinstellingen Zie [interactie hostinstellingen](#BKMK_HIS) en [gedrag van toepassingen](#BKMK_AppB).
 5. Op de **Netwerkdefinitie** pagina, geeft u de zakelijke identiteit en definieer de grens van uw bedrijfsnetwerk.
 
     > [!NOTE]
@@ -48,7 +50,36 @@ Maken en implementeren van een beleid voor Windows Defender toepassing Guard, mo
     > 
     > 
 
-6. Wanneer u klaar bent, voltooi de wizard en implementeer het beleid voor een of meer Windows 10-apparaten.
+6. Wanneer u klaar bent, voltooi de wizard en implementeer het beleid voor een of meer apparaten met Windows 10 1709.
+
+### <a name="bkmk_HIS"></a> Instellingen voor de interactie van de host
+Hiermee configureert u interacties tussen de hostapparaten en de toepassing Guard-container. Voordat u Configuration Manager versie 1802, de interactie van beide toepassing gedrag en host zijn onder de **instellingen** tabblad.
+
+- **Klembord** - onder instellingen voordat Configuration Manager 1802
+    - Type inhoud toegestaan
+        - Tekst
+        - Installatiekopieën
+- **Afdrukken:**
+    - Afdrukken naar XPS inschakelen
+    - Afdrukken naar PDF inschakelen
+    - Afdrukken op printers lokale inschakelen
+    - Afdrukken op netwerkprinters inschakelen
+- **Afbeeldingen:** (te beginnen met Configuration Manager versie 1802)
+    - Toegang tot Virtual graphics-processor
+- **Bestanden:** (te beginnen met Configuration Manager versie 1802)
+    - Gedownloade bestanden voor het hosten van opslaan
+
+### <a name="bkmk_ABS"></a> Instellingen voor het gedrag van toepassing
+Hiermee configureert u het gedrag van toepassingen in de toepassing Guard-sessie. Voordat u Configuration Manager versie 1802, de interactie van beide toepassing gedrag en host zijn onder de **instellingen** tabblad.
+
+- **Inhoud:**
+   - Enterprise-sites kunnen de inhoud buiten de onderneming, zoals invoegtoepassingen van derden laden.
+- **Andere:**
+    - De gebruiker gegenereerde browser gegevens bewaren
+    - Beveiligingsgebeurtenissen in de geïsoleerde toepassing guard-sessie
+
+
 
 ## <a name="next-steps"></a>Volgende stappen
-Voor meer informatie over Windows Defender toepassing Guard, Zie [dit blogbericht](https://blogs.windows.com/msedgedev/2016/09/27/application-guard-microsoft-edge/#BmJGKPfSjHHzsMmI.97). Zie ook voor meer informatie over Windows Defender toepassing Guard zelfstandige modus, [dit blogbericht](https://techcommunity.microsoft.com/t5/Windows-Insider-Program/Windows-Defender-Application-Guard-Standalone-mode/td-p/66903).
+Voor meer informatie over Windows Defender toepassing Guard: [Overzicht van Windows Defender toepassing Guard](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-guard/wd-app-guard-overview).
+[Windows Defender toepassing Guard Veelgestelde vragen over](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-guard/faq-wd-app-guard).

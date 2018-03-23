@@ -1,38 +1,39 @@
 ---
 title: Clientinstallatiemethoden
 titleSuffix: Configuration Manager
-description: Meer informatie over installatiemethoden voor clients voor System Center Configuration Manager.
+description: Meer informatie over de methoden voor het installeren van Configuration Manager-client.
 ms.custom: na
-ms.date: 04/25/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-client
+ms.technology:
+- configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 51b5964b-374d-4abc-8619-414a9fffad2d
-caps.latest.revision: "9"
-caps.handback.revision: "0"
-author: arob98
-ms.author: angrobe
-manager: angrobe
-ms.openlocfilehash: 4c600212c817e8b490e93938387b18c65baee042
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+caps.latest.revision: ''
+caps.handback.revision: ''
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 38f7d428149f4a4ac2b0bcb604031eca60a0fae5
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="client-installation-methods-in-system-center-configuration-manager"></a>Clientinstallatiemethoden in System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-U kunt verschillende methoden gebruiken om de Configuration Manager-clientsoftware te installeren. U kunt één methode of een combinatie van methoden gebruiken. In dit onderwerp kunt u lezen over elke methode, voor meer informatie over die beste werkt in uw organisatie.  
+U kunt verschillende methoden gebruiken om de Configuration Manager-clientsoftware te installeren. Een methode of een combinatie van methoden gebruiken. In dit artikel beschrijft elke methode zodat u leert welk werkt het beste voor uw organisatie.  
 
 ## <a name="client-push-installation"></a>Clientpushinstallatie  
 
- **Ondersteund clientplatform:** Windows  
+**Ondersteund clientplatform**: Windows  
 
- **Voordelen**  
+#### <a name="advantages"></a>Voordelen  
 
 -   Kan gebruikt worden om de client te installeren op één computer, een verzameling van computers of voor de resultaten van een query.  
 
@@ -40,7 +41,7 @@ U kunt verschillende methoden gebruiken om de Configuration Manager-clientsoftwa
 
 -   Gebruikt automatisch clientinstallatie-eigenschappen die zijn gedefinieerd op het tabblad **Client** in het dialoogvenster **Clientpushinstallatie-eigenschappen**.  
 
- **Nadelen**  
+#### <a name="disadvantages"></a>Nadelen  
 
 -   Kan hoog netwerkverkeer veroorzaken wanneer te grote verzamelingen worden gepusht.  
 
@@ -50,98 +51,141 @@ U kunt verschillende methoden gebruiken om de Configuration Manager-clientsoftwa
 
 -   Er moet een clientpushinstallatie-account opgegeven worden die beheerdersrechten heeft voor de bedoelde clientcomputer.  
 
--   Windows Firewall moet geconfigureerd zijn op clientcomputers met uitzonderingen zodat clientpushinstallatie vervolledigd kan worden.  
+-   Windows Firewall moet zijn geconfigureerd met uitzonderingen op clientcomputers.   
 
--   U kunt clientpushinstallatie niet annuleren. Wanneer u deze clientinstallatiemethode voor een site gebruikt, wordt Configuration Manager probeert de client te installeren op alle gedetecteerde bronnen en alle mislukte pogingen maximaal 7 dagen.  
+-   U kunt clientpushinstallatie niet annuleren. Configuration Manager probeert de client te installeren op alle gedetecteerde bronnen. Deze pogingen alle mislukte tot zeven dagen.  
 
- Zie [Clients implementeren op Windows-computers in System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md) voor meer informatie over deze installatiemethode.  
+Zie voor meer informatie [clients installeren met client-push](/sccm/core/clients/deploy/deploy-clients-to-windows-computers#BKMK_ClientPush).  
+
+
 
 ## <a name="software-update-point-based-installation"></a>Installatie op basis van software-updatepunten  
- **Ondersteund clientplatform:** Windows  
 
- **Voordelen:**  
+**Ondersteund clientplatform**: Windows  
+
+#### <a name="advantages"></a>Voordelen  
 
 -   Kan uw bestaande software-update-infrastructuur gebruiken om de clientsoftware te beheren.  
 
--   Kan automatisch de clientsoftware installeren op nieuwe computers als Windows Server Update Services (WSUS) en instellingen voor groepsbeleid in Active Directory Domain Services juist geconfigureerd zijn.  
+-   Als Windows Server Update Services (WSUS) en instellingen voor Groepsbeleid in Active Directory Domain Services juist zijn geconfigureerd, kan deze automatisch de clientsoftware installeren op nieuwe computers.  
 
--   Vereist niet dat computers moeten worden gedetecteerd voordat de client kan worden geïnstalleerd.  
+-   Niet dat computers moeten worden gedetecteerd voordat de client kan worden geïnstalleerd.  
 
 -   Computers kunnen clientinstallatie-eigenschappen lezen die gepubliceerd werden op Active Directory Domain Services.  
 
--   Zal de clientsoftware opnieuw installeren als hij wordt verwijderd.  
+-   Als de client wordt verwijderd, wordt deze methode wordt opnieuw geïnstalleerd.  
 
--   Vereist niet dat u een installatie-account configureert en onderhoudt voor de bedoelde clientcomputer.  
+-   Hoeft u configureert en onderhoudt een installatie-account voor de bedoelde clientcomputer.  
 
- **Nadelen:**  
+#### <a name="disadvantages"></a>Nadelen  
 
 -   Vereist een werkende software-update-infrastructuur als een vereist onderdeel.  
 
--   Moet dezelfde server gebruiken voor clientinstallatie en software-updates en deze server moet zich bevinden op een primaire site.  
+-   Moet dezelfde server gebruiken voor clientinstallatie en software-updates. Deze server moet zich bevinden in een primaire site.  
 
--   Als u nieuwe clients wilt installeren, moet u een groepsbeleidobject (GPO) configureren in Active Directory Domain Services met het actieve software-updatepunt en de actieve updatepoort van de client.  
+-   Voor het installeren van nieuwe clients, moet u een groepsbeleidobject in Active Directory Domain Services configureren met het actieve software-updatepunt en de poort van de client.  
 
--   Indien het Active Directory-schema voor Configuration Manager niet is uitgebreid, moet u de instellingen voor Groepsbeleid gebruiken voor het inrichten van computers met clientinstallatie-eigenschappen.  
+-   Als het Active Directory-schema niet is uitgebreid voor Configuration Manager, moet u groepsbeleidinstellingen voor het inrichten van computers met clientinstallatie-eigenschappen.  
 
- Zie [Clients implementeren op Windows-computers in System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md) voor meer informatie over deze installatiemethode.  
+Zie voor meer informatie [clients installeren met software-update-gebaseerde installatie](/sccm/core/clients/deploy/deploy-clients-to-windows-computers#BKMK_ClientSUP).  
+
+
 
 ## <a name="group-policy-installation"></a>Installatie van Groepsbeleid  
- **Ondersteund clientplatform:** Windows  
 
- **Voordelen:**  
+**Ondersteund clientplatform**: Windows  
 
--   Vereist niet dat computers moeten worden gedetecteerd voordat de client kan worden geïnstalleerd.  
+#### <a name="advantages"></a>Voordelen  
+
+-   Niet dat computers moeten worden gedetecteerd voordat de client kan worden geïnstalleerd.  
 
 -   Kan worden gebruikt voor de nieuwe clientinstallaties of voor upgrades.  
 
 -   Computers kunnen clientinstallatie-eigenschappen lezen die gepubliceerd werden op Active Directory Domain Services.  
 
--   Vereist niet dat u een installatie-account configureert en onderhoudt voor de bedoelde clientcomputer.  
+-   Hoeft u configureert en onderhoudt een installatie-account voor de bedoelde clientcomputer.  
 
- **Nadelen:**  
+#### <a name="disadvantages"></a>Nadelen  
 
--   Kan veel netwerkverkeer veroorzaken indien een groot aantal clients worden geïnstalleerd.  
+-   Indien een groot aantal clients worden geïnstalleerd, kan dit veel netwerkverkeer veroorzaken.  
 
--   Indien het Active Directory-schema voor Configuration Manager niet is uitgebreid, moet u instellingen voor Groepsbeleid clientinstallatie-eigenschappen toevoegen aan computers in uw site.  
+-   Als het Active Directory-schema niet is uitgebreid voor Configuration Manager, moet u instellingen voor Groepsbeleid clientinstallatie-eigenschappen toevoegen aan computers in uw site.  
 
- Zie [Clients implementeren op Windows-computers in System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md) voor meer informatie over deze installatiemethode.  
+Zie voor meer informatie [clients installeren met het groepsbeleid](/sccm/core/clients/deploy/deploy-clients-to-windows-computers#BKMK_ClientGP).  
+
+
 
 ## <a name="logon-script-installation"></a>Aanmeldingscriptinstallatie  
- **Ondersteund clientplatform:** Windows  
 
- **Voordelen:**  
+**Ondersteund clientplatform**: Windows  
 
--   Vereist niet dat computers moeten worden gedetecteerd voordat de client kan worden geïnstalleerd.  
+#### <a name="advantages"></a>Voordelen  
+
+-   Niet dat computers moeten worden gedetecteerd voordat de client kan worden geïnstalleerd.  
 
 -   Ondersteunt opdrachtregeleigenschappen voor CCMSetup.  
 
- **Nadelen:**  
+#### <a name="disadvantages"></a>Nadelen  
 
--   Kan veel netwerkverkeer veroorzaken indien een groot aantal clients in een korte tijdspanne worden geïnstalleerd.  
+-   Indien een groot aantal clients in een korte tijdspanne worden geïnstalleerd, kan dit veel netwerkverkeer veroorzaken.  
 
--   Kan lange tijd duren om te installeren op alle clientcomputers indien gebruikers zich niet frequent aanmelden op het netwerk.  
+-   Als gebruikers niet frequent op het netwerk aanmelden, kan het lang duren om te installeren op alle clientcomputers.  
 
- Zie [Clients implementeren op Windows-computers in System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md) voor meer informatie over deze installatiemethode.  
+Zie voor meer informatie [clients installeren met aanmeldingsscripts](/sccm/core/clients/deploy/deploy-clients-to-windows-computers#BKMK_ClientLogonScript).  
+
+
 
 ## <a name="manual-installation"></a>Handmatige installatie  
- **Ondersteund clientplatform:** Windows, UNIX/Linux, Mac OS X  
 
- **Voordelen:**  
+**Ondersteund clientplatform**: Windows, UNIX/Linux, Mac OS X  
 
--   Vereist niet dat computers moeten worden gedetecteerd voordat de client kan worden geïnstalleerd.  
+#### <a name="advantages"></a>Voordelen  
+
+-   Niet dat computers moeten worden gedetecteerd voordat de client kan worden geïnstalleerd.  
 
 -   Kan handig zijn voor testdoeleinden.  
 
 -   Ondersteunt opdrachtregeleigenschappen voor CCMSetup.  
 
- **Nadelen:**  
+#### <a name="disadvantages"></a>Nadelen  
 
 -   Er is geen automatisering, dus tijdrovend.  
 
- Zie de volgende onderwerpen voor meer informatie over het handmatig installeren van de client op de verschillende platforms:  
+Zie de volgende artikelen voor meer informatie over het handmatig installeren van de client op verschillende platforms:  
 
--   [Clients implementeren op Windows-computers in System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md)  
+-   [Clients implementeren op Windows-computers](/sccm/core/clients/deploy/deploy-clients-to-windows-computers#BKMK_Manual)  
 
--   [Clients implementeren op UNIX en Linux-servers in System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-unix-and-linux-servers.md)  
+-   [Clients implementeren op UNIX- en Linux-servers](/sccm/core/clients/deploy/deploy-clients-to-unix-and-linux-servers)  
 
--   [Clients implementeren op Mac-computers in System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-macs.md)  
+-   [Clients op Macs implementeren](/sccm/core/clients/deploy/deploy-clients-to-macs)  
+
+
+
+## <a name="microsoft-intune-mdm-installation"></a>Microsoft Intune MDM-installatie
+
+**Ondersteunde clientplatforms voor**: Windows 10
+
+#### <a name="advantages"></a>Voordelen  
+
+-   Niet dat computers moeten worden gedetecteerd voordat de client kan worden geïnstalleerd.  
+
+-   Hoeft u configureert en onderhoudt een installatie-account voor de bedoelde clientcomputer.  
+
+-   Kan moderne authenticatie gebruiken met Azure Active Directory.  
+
+-   Kunt installeren en toewijzen van computers op het internet.  
+
+-   Kunt automatiseren met Windows Automatische piloot en Microsoft Intune voor het beheer van collega.  
+
+#### <a name="disadvantages"></a>Nadelen  
+
+-   Vereist aanvullende technologieën buiten Configuration Manager.  
+
+-   Moet het apparaat toegang tot internet, zelfs als het is niet op basis van het internet.  
+
+Zie voor meer informatie de volgende artikelen:  
+
+-   [Het installeren van clients op Windows Intune MDM-beheerde apparaten](/sccm/core/clients/deploy/deploy-clients-to-windows-computers#bkmk_mdm)  
+
+-   [Installeren en toewijzen van Configuration Manager Windows 10-clients die gebruikmaken van Azure AD voor verificatie](/sccm/core/clients/deploy/deploy-clients-cmg-azure)  
+

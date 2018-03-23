@@ -1,9 +1,9 @@
 ---
 title: Stappen voor takenreeksen
 titleSuffix: Configuration Manager
-description: Meer informatie over de takenreeksstappen die u aan een takenreeks van Configuration Manager toevoegen kunt.
+description: Meer informatie over de stappen die u aan een takenreeks van Configuration Manager toevoegen kunt.
 ms.custom: na
-ms.date: 01/12/2018
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,16 +12,16 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7c888a6f-8e37-4be5-8edb-832b218f266d
-caps.latest.revision: 
-caps.handback.revision: 
+caps.latest.revision: ''
+caps.handback.revision: ''
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: 5320d7747f7e2c6164da8c1801e631b749935d6d
-ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
+manager: dougeby
+ms.openlocfilehash: ad68209784b78da5c6e75745094ba8e6bc002c44
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="task-sequence-steps-in-system-center-configuration-manager"></a>Stappen voor takenreeksen in System Center Configuration Manager
 
@@ -44,7 +44,7 @@ De secties voor specifieke takenreeksstappen beschrijven andere mogelijke instel
 
 
 
-##  <a name="BKMK_ApplyDataImage"></a>Gegevensinstallatiekopie toepassen   
+##  <a name="BKMK_ApplyDataImage"></a> Gegevensinstallatiekopie toepassen   
  Deze stap gebruiken om te kopiëren van de gegevensinstallatiekopie naar de opgegeven doelpartitie.  
 
  Deze stap kan alleen in Windows PE worden uitgevoerd. De taak kan niet worden uitgevoerd in een standaardbesturingssysteem. Zie voor meer informatie over de takenreeksvariabelen [Takenreeksacties](task-sequence-action-variables.md).  
@@ -76,7 +76,7 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **installatiekopieën**,
 
 
 
-##  <a name="BKMK_ApplyDriverPackage"></a>Stuurprogrammapakket toepassen  
+##  <a name="BKMK_ApplyDriverPackage"></a> Stuurprogrammapakket toepassen  
  Deze stap gebruiken voor alle stuurprogramma's in het stuurprogrammapakket te downloaden en te installeren op het Windows-besturingssysteem.
 
  Met de takenreeksstap **Stuurprogrammapakket toepassen** worden alle apparaatstuurprogramma's in een stuurprogrammapakket beschikbaar gemaakt voor gebruik door Windows. Toevoegen van deze stap tussen de **besturingssysteem toepassen** en **Windows en ConfigMgr installeren** stappen om de stuurprogramma's in het pakket beschikbaar voor Windows. Normaal gesproken wordt de stap **Stuurprogrammapakket toepassen** geplaatst na de takenreeksstap **Stuurprogramma's automatisch toepassen**. De takenreeksstap **Stuurprogrammapakket toepassen** is ook nuttig bij scenario's met implementatie van zelfstandige media.  
@@ -109,7 +109,7 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **stuurprogramma's**, en
 
 
 
-##  <a name="BKMK_ApplyNetworkSettings"></a>Netwerkinstellingen toepassen   
+##  <a name="BKMK_ApplyNetworkSettings"></a> Netwerkinstellingen toepassen   
  Deze stap gebruiken om op te geven van de netwerk- of werkgroepconfiguratie configuratie-informatie voor de doelcomputer. Deze waarden worden opgeslagen in de juiste antwoordbestand van de takenreeks wordt uitgevoerd. Windows Setup gebruikmaakt van dit antwoordbestand tijdens de **Windows en ConfigMgr installeren** in te grijpen.  
 
  Deze takenreeksstap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoerd. Zie [Apply Network Settings Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_ApplyNetworkSettings) (Variabelen voor de takenreeksacties van netwerkinstellingen toepassen) voor meer informatie over de takenreeksvariabelen voor deze actie.  
@@ -123,17 +123,17 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **stuurprogramma's**, en
  Selecteer deze optie om de doelcomputer toe te voegen aan de opgegeven werkgroep. Voer de naam van de werkgroep in op de regel **Werkgroep**. Deze waarde kan worden genegeerd door de waarde die is opgenomen door de takenreeksstap **Netwerkinstellingen vastleggen**.  
 
  **Lid worden van een domein**  
- Selecteer deze optie om de doelcomputer toe te voegen aan het opgegeven domein. Geef het domein op of blader hiernaartoe, zoals *fabricam.com*. Geef op of blader naar een Lightweight Directory Access Protocol (LDAP)-pad voor een organisatie-eenheid. Bijvoorbeeld: *LDAP / / OU = computers, DC=Fabricam.com, C = com*  
+ Selecteer deze optie om de doelcomputer toe te voegen aan het opgegeven domein. Geef het domein op of blader hiernaartoe, zoals *fabricam.com*. Geef op of blader naar een Lightweight Directory Access Protocol (LDAP)-pad voor een organisatie-eenheid. Bijvoorbeeld: *LDAP//OU=computers, DC=Fabricam.com, C=com*  
 
  **Account**  
- Klik op **Instellen** om een account op te geven met de vereiste machtigingen om de computer lid te laten worden van het domein. In de **Windows-gebruikersaccount** in het dialoogvenster kunt u de gebruikersnaam met de volgende notatie invoeren: **Domein\gebruiker**.  
+ Klik op **Instellen** om een account op te geven met de vereiste machtigingen om de computer lid te laten worden van het domein. In de **Windows-gebruikersaccount** in het dialoogvenster kunt u de gebruikersnaam met de volgende notatie invoeren: **Domain\User**.  
 
  **Adapterinstellingen**  
  Netwerkconfiguraties opgeven voor elke netwerkadapter in de computer. Klik op **Nieuw** om het dialoogvenster **Netwerkinstellingen** te openen en geef vervolgens de netwerkinstellingen op. Als u ook de **netwerkinstellingen vastleggen** stap, de takenreeks de eerder vastgelegde instellingen toegepast op de netwerkadapter. De takenreeks de instellingen die u in deze stap opgeeft is niet van toepassing. Als de takenreeks de netwerkinstellingen niet eerder vastlegt heeft, geldt deze de instellingen die zijn opgegeven de **netwerkinstellingen toepassen** stap. De takenreeks geldt deze instellingen voor netwerkadapters in volgorde van Windows-Apparaatinventarisatie.  
 
 
 
-##  <a name="BKMK_ApplyOperatingSystemImage"></a>Besturingssysteeminstallatiekopie toepassen  
+##  <a name="BKMK_ApplyOperatingSystemImage"></a> Besturingssysteeminstallatiekopie toepassen  
 
 > [!TIP]  
 > Windows 10 versie 1709, vanaf bevat media meerdere edities. Bij het configureren van een takenreeks een upgradepakket voor besturingssysteem of de installatiekopie van het besturingssysteem te gebruiken, moet u selecteren een [edition ondersteund](/sccm/core/plan-design/configs/support-for-windows-10#windows-10-as-a-client).
@@ -142,7 +142,7 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **stuurprogramma's**, en
 
  De **Besturingssysteeminstallatiekopie toepassen** stap worden de volgende acties uitgevoerd wanneer u een installatiekopie van besturingssysteem:  
 
-1.  Verwijder alle inhoud op het betreffende volume, met uitzondering van bestanden in de map de &#95; De variabele SMSTSUserStatePath wordt opgegeven.
+1.  Verwijder alle inhoud op het betreffende volume, met uitzondering van bestanden in de map de &#95;SMSTSUserStatePath variabele geeft.
 
 2.  Pak de inhoud van het opgegeven WIM-bestand naar de opgegeven doelpartitie.  
 
@@ -158,7 +158,7 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **stuurprogramma's**, en
 
  De **Besturingssysteeminstallatiekopie toepassen** stap worden de volgende acties uitgevoerd wanneer u een upgradepakket voor besturingssysteem:  
 
-1.  Verwijder alle inhoud op het betreffende volume, met uitzondering van bestanden in de map de &#95; De variabele SMSTSUserStatePath wordt opgegeven.  
+1.  Verwijder alle inhoud op het betreffende volume, met uitzondering van bestanden in de map de &#95;SMSTSUserStatePath variabele geeft.  
 
 2.  Bereid het antwoordbestand:  
 
@@ -214,7 +214,7 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **stuurprogramma's**, en
 
 
 
-##  <a name="BKMK_ApplyWindowsSettings"></a>Windows-instellingen toepassen  
+##  <a name="BKMK_ApplyWindowsSettings"></a> Windows-instellingen toepassen  
  Deze stap gebruiken voor het configureren van de Windows-instellingen voor de doelcomputer. Deze waarden worden opgeslagen in de juiste antwoordbestand van de takenreeks wordt uitgevoerd. Windows Setup gebruikmaakt van dit antwoordbestand tijdens de **Windows en ConfigMgr installeren** in te grijpen.  
 
  Deze takenreeksstap kan alleen in Windows PE worden uitgevoerd. De taak kan niet worden uitgevoerd in een standaardbesturingssysteem. Zie [Apply Windows Settings Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_ApplyWindowsSettings) (Variabelen voor takenreeksacties van Windows-instellingen toepassen) voor meer informatie over de takenreeksvariabelen voor deze actie.  
@@ -245,12 +245,12 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **stuurprogramma's**, en
  **Het account inschakelen en lokaal beheerderswachtwoord instellen**  
  Selecteer deze optie om in te schakelen van het lokale administrator-account met het opgegeven wachtwoord. Voer het wachtwoord in op de regel **Wachtwoord** en bevestig het wachtwoord op de regel **Wachtwoord bevestigen**.  
 
- **Tijdzone**  
+ **Time Zone**  
  Geef de tijdzone op die u wilt configureren op de doelcomputer. Deze waarde kan worden genegeerd door de waarde die is opgenomen door de takenreeksstap **Windows-instellingen vastleggen**.  
 
 
 
-##  <a name="BKMK_AutoApplyDrivers"></a>Stuurprogramma's automatisch toepassen  
+##  <a name="BKMK_AutoApplyDrivers"></a> Stuurprogramma's automatisch toepassen  
  Deze stap gebruiken om te zoeken en installeren van stuurprogramma's als onderdeel van de implementatie van besturingssystemen.  
 
  Met de takenreeksactie **Stuurprogramma's automatisch toepassen** worden de volgende acties uitgevoerd:  
@@ -299,7 +299,7 @@ Deze takenreeksstap kan alleen in Windows PE worden uitgevoerd. De taak kan niet
 
 
 
-##  <a name="BKMK_CaptureNetworkSettings"></a>Netwerkinstellingen vastleggen  
+##  <a name="BKMK_CaptureNetworkSettings"></a> Netwerkinstellingen vastleggen  
  Deze stap gebruiken om vast te leggen van de Microsoft-netwerkinstellingen van de computer waarop de takenreeks wordt uitgevoerd. De takenreeks worden deze instellingen opgeslagen in takenreeksvariabelen. Deze instellingen overschrijven de standaardinstellingen die u configureert op de **netwerkinstellingen toepassen** stap.  
 
  Deze takenreeksstap kan alleen in een standaardbesturingssysteem worden uitgevoerd. De stap kan niet worden uitgevoerd in Windows PE. Zie [Capture Network Settings Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_CaptureNetworkSettings) (Variabelen voor takenreeksactie van netwerkinstellingen vastleggen) voor meer informatie over de takenreeksvariabelen voor deze actie.  
@@ -317,7 +317,7 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **instellingen**, en sel
 
 
 
-##  <a name="BKMK_CaptureOperatingSystemImage"></a>Besturingssysteeminstallatiekopie vastleggen  
+##  <a name="BKMK_CaptureOperatingSystemImage"></a> Besturingssysteeminstallatiekopie vastleggen  
  Deze stap legt een of meer installatiekopieën van een referentiecomputer vast. De takenreeks maakt een Windows-installatiekopiebestand (WIM)-bestand op de opgegeven netwerkshare. Gebruik vervolgens de **Installatiekopiepakket voor besturingssysteem toevoegen** wizard voor het importeren van deze installatiekopie in Configuration Manager voor implementaties van besturingssystemen op basis van installatiekopieën.  
 
  Configuration Manager wordt elk volume (station) van de referentiecomputer vastgelegd op een afzonderlijke installatiekopie binnen het .wim-bestand. Als de computer waarnaar wordt verwezen meerdere volumes heeft, bevat het resulterende .wim-bestand een afzonderlijke installatiekopie voor elk volume. Alleen volumes die zijn geformatteerd als NTFS of FAT32 worden vastgelegd. Volumes met andere formatteringen en USB-volumes worden overgeslagen.  
@@ -333,7 +333,7 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **instellingen**, en sel
 ### <a name="properties"></a>Eigenschappen  
  Op de **eigenschappen** tabblad voor deze stap, configureer de instellingen die in deze sectie beschreven.  
 
- **Doel**  
+ **doel**  
  Systeem bestandspad naar de locatie die Configuration Manager gebruikt bij het opslaan van de vastgelegde besturingssysteeminstallatiekopie.  
 
  **Beschrijving**  
@@ -350,7 +350,7 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **instellingen**, en sel
 
 
 
-##  <a name="BKMK_CaptureUserState"></a>Gebruikersstatus vastleggen  
+##  <a name="BKMK_CaptureUserState"></a> Gebruikersstatus vastleggen  
  Gebruik deze stap User State Migration Tool (USMT) om vast te leggen van de gebruikersstatus en instellingen van de computer waarop de takenreeks wordt uitgevoerd. Deze takenreeksstap wordt gebruikt in combinatie met de takenreeksstap **Gebruikersstatus herstellen**. In USMT 3.0.1 en hoger wordt met deze optie altijd de USMT-Statusopslag versleuteld met een versleutelingssleutel die wordt gegenereerd en beheerd door Configuration Manager.  
 
  Zie voor meer informatie over het beheren van de gebruikersstatus bij het implementeren van besturingssystemen, [Gebruikersstatus beheren](../get-started/manage-user-state.md).  
@@ -408,7 +408,7 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **instellingen**, en sel
 
 
 
-##  <a name="BKMK_CaptureWindowsSettings"></a>Windows-instellingen vastleggen  
+##  <a name="BKMK_CaptureWindowsSettings"></a> Windows-instellingen vastleggen  
  Deze stap gebruiken om vast te leggen van de Windows-instellingen van de computer waarop de takenreeks wordt uitgevoerd. De takenreeks worden deze instellingen opgeslagen in takenreeksvariabelen. Deze vastgelegde instellingen overschrijven de standaardinstellingen die u configureert op de **Windows-instellingen toepassen** stap.  
 
  Deze takenreeksstap kan in Windows PE of een standaardbesturingssysteem worden uitgevoerd. Zie [Capture Windows Settings Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_CaptureWindowsSettings) (Variabelen voor takenreeksacties van Windows-instellingen vastleggen) voor meer informatie over de takenreeksvariabelen voor deze actie.  
@@ -429,7 +429,7 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **instellingen**, en sel
 
 
 
-##  <a name="BKMK_CheckReadiness"></a>Gereedheid controleren  
+##  <a name="BKMK_CheckReadiness"></a> Gereedheid controleren  
  Deze stap gebruiken om te controleren of de doelcomputer voldoet aan de gespecificeerde implementatievereistevoorwaarden.  
 
 Klik in de takenreekseditor op **toevoegen**, selecteer **algemene**, en selecteer **gereedheid controleren** om toe te voegen in deze stap. 
@@ -455,7 +455,7 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **algemene**, en selecte
 
 
 
-##  <a name="BKMK_ConnectToNetworkFolder"></a>Verbinding maken met netwerkmap  
+##  <a name="BKMK_ConnectToNetworkFolder"></a> Verbinding maken met netwerkmap  
  Deze stap gebruiken voor het maken van een verbinding met een gedeelde netwerkmap.  
 
  Deze takenreeksstap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoerd. Zie [Connect to Network Folder Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_ConnecttoNetworkFolder) (Variabelen voor takenreeksacties voor verbinden met netwerkmap) voor meer informatie over de takenreeksvariabelen voor deze actie.  
@@ -465,7 +465,7 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **algemene**, en selecte
 ### <a name="properties"></a>Eigenschappen  
  Op de **eigenschappen** tabblad voor deze stap, configureer de instellingen die in deze sectie beschreven.  
 
- **Pad**  
+ **Path**  
  Klik op **Bladeren** het netwerkpad voor de map opgeven. Gebruik de notatie  *\\\server\share*.
 
  **Station**  
@@ -476,7 +476,7 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **algemene**, en selecte
 
 
 
-##  <a name="BKMK_DisableBitLocker"></a>BitLocker uitschakelen  
+##  <a name="BKMK_DisableBitLocker"></a> Disable BitLocker  
  Deze stap uitschakelen van de BitLocker-versleuteling op het huidige besturingssysteemstation of op een specifiek station gebruiken. Met deze actie blijven de sleutelbeveiligingen in niet-versleutelde tekst achter op de harde schijf, maar wordt de inhoud van het station niet ontsleuteld. Deze actie wordt vervolgens bijna onmiddellijk voltooid.  
 
 > [!NOTE]  
@@ -499,7 +499,7 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **algemene**, en selecte
 
 
 
-##  <a name="BKMK_DownloadPackageContent"></a>Pakketinhoud downloaden  
+##  <a name="BKMK_DownloadPackageContent"></a> Pakketinhoud downloaden  
  Deze stap gebruiken om een van de volgende pakkettypen te downloaden:  
 
 -   Installatiekopieën van besturingssysteem  
@@ -509,6 +509,8 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **algemene**, en selecte
 -   Driverpakketten  
 
 -   Pakketten  
+
+-   Installatiekopieën
     
 Deze stap werkt goed in een takenreeks om een besturingssysteem in de volgende scenario's te werken:  
 
@@ -546,7 +548,7 @@ Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoe
 
 
 
-##  <a name="BKMK_EnableBitLocker"></a>BitLocker inschakelen  
+##  <a name="BKMK_EnableBitLocker"></a> Enable BitLocker  
 Deze stap gebruiken om in te schakelen van BitLocker-versleuteling op ten minste twee partities op de harde schijf. De eerste actieve partitie bevat de Windows-bootstrapcode. Een andere partitie bevat het besturingssysteem. De bootstrappartitie moet onversleuteld blijven.  
 
 Gebruik de takenreeksstap **BitLocker vooraf inrichten** om BitLocker in Windows PE in te schakelen op een station. Zie voor meer informatie de [BitLocker vooraf inrichten](#BKMK_PreProvisionBitLocker) sectie.  
@@ -605,7 +607,7 @@ De versleuteling kan uren in beslag bij het versleutelen van een grote harde sch
 
 
 
-##  <a name="BKMK_FormatandPartitionDisk"></a>Schijf formatteren en partitioneren  
+##  <a name="BKMK_FormatandPartitionDisk"></a> Schijf formatteren en partitioneren  
  Deze stap gebruiken om te formatteren en partitioneren van een opgegeven schijf op de doelcomputer.  
 
 > [!IMPORTANT]  
@@ -645,7 +647,7 @@ Als u een partitie wilt verwijderen, selecteert u de gewenste partitie en klikt 
 
 
 
-##  <a name="BKMK_InstallApplication"></a>Toepassing installeren  
+##  <a name="BKMK_InstallApplication"></a> Toepassing installeren  
 Deze stap worden geïnstalleerd voor de opgegeven toepassingen of een set toepassingen die zijn gedefinieerd door een dynamische lijst met takenreeksvariabelen. Als deze stap wordt uitgevoerd, begint de installatie van de toepassing onmiddellijk zonder te wachten op een polling-interval voor beleid.  
 
 De geïnstalleerde toepassingen moeten voldoen aan de volgende criteria:  
@@ -724,7 +726,7 @@ Naast de standaardopties te gebruiken, kunt u de volgende aanvullende instelling
 
 
 
-##  <a name="BKMK_InstallPackage"></a>Pakket installeren
+##  <a name="BKMK_InstallPackage"></a> Pakket installeren
 Deze stap gebruiken voor het installeren van een softwarepakket als onderdeel van de takenreeks wordt uitgevoerd. Wanneer deze stap wordt uitgevoerd, begint de installatie onmiddellijk zonder te wachten op een polling-interval voor beleid.  
 
 Het pakket moet voldoen aan de volgende criteria:  
@@ -744,7 +746,7 @@ Programma's die gebruikmaken van de optie **Eerst een ander programma uitvoeren*
 >   
 >  Voor zelfstandige media met een **pakket installeren** stap, de zelfstandige media maken op een primaire site die de agent voor softwaredistributie is ingeschakeld. U kunt ook toevoegen een **opdrachtregel uitvoeren** stap na de **Windows en ConfigMgr installeren** stap en voor de eerste **pakket installeren** stap. De **opdrachtregel uitvoeren** stap wordt uitgevoerd een WMIC-opdracht inschakelen van de agent voor softwaredistributie voordat de eerste **pakket installeren** stap. Gebruik de volgende opdracht in de **opdrachtregel uitvoeren** stap:  
 >   
->  **Opdrachtregel**:`WMIC /namespace:\\\root\ccm\policy\machine\requestedconfig path ccm_SoftwareDistributionClientConfig CREATE ComponentName="Enable SWDist", Enabled="true", LockSettings="TRUE", PolicySource="local", PolicyVersion="1.0", SiteSettingsKey="1" /NOINTERACTIVE`  
+>  **Opdrachtregel**: `WMIC /namespace:\\\root\ccm\policy\machine\requestedconfig path ccm_SoftwareDistributionClientConfig CREATE ComponentName="Enable SWDist", Enabled="true", LockSettings="TRUE", PolicySource="local", PolicyVersion="1.0", SiteSettingsKey="1" /NOINTERACTIVE`  
 >   
 >  Zie voor meer informatie over het maken van zelfstandige media [zelfstandige media maken](../deploy-use/create-stand-alone-media.md).  
 
@@ -793,7 +795,7 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **Software**, en selecte
 
 
 
-##  <a name="BKMK_InstallSoftwareUpdates"></a>Software-Updates installeren  
+##  <a name="BKMK_InstallSoftwareUpdates"></a> Software-Updates installeren  
 Deze stap gebruiken voor het installeren van software-updates op de doelcomputer. De doelcomputer wordt pas geëvalueerd voor toepasselijke software-updates als deze takenreeksstap wordt uitgevoerd. Op dat moment wordt de doelcomputer geëvalueerd voor software-updates zoals elke andere Configuration Manager-client. Voor deze stap voor het installeren van software-updates, moet u eerst de updates implementeren voor een verzameling waarvan de doelcomputer lid is.  
 >  [!IMPORTANT]
 > Er is een best practice voor optimale prestaties voor het installeren van de nieuwste versie van Windows Update Agent. 
@@ -832,7 +834,7 @@ De SMSTSSoftwareUpdateScanTimeout takenreeksvariabele Hiermee bepaalt u de softw
 
 
 
-##  <a name="BKMK_JoinDomainorWorkgroup"></a>Lid worden van domein of werkgroep  
+##  <a name="BKMK_JoinDomainorWorkgroup"></a> Lid worden van domein of werkgroep  
  Deze stap wordt de doelcomputer toevoegen aan een werkgroep of domein gebruiken.  
 
  Deze takenreeksstap kan alleen in een standaardbesturingssysteem worden uitgevoerd. De stap kan niet worden uitgevoerd in Windows PE. Zie [Join Domain or Workgroup Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_JoinDomainWorkgroup) (Variabelen voor de takenreeksactie voor het lid worden van domein of werkgroep) voor informatie over takenreeksvariabelen voor deze takenreeksactie.  
@@ -851,11 +853,11 @@ De SMSTSSoftwareUpdateScanTimeout takenreeksvariabele Hiermee bepaalt u de softw
  Typ optioneel een organisatie-eenheid (OE) of blader ernaartoe in het opgegeven domein waarvan u de computer lid wilt maken. Als de computer momenteel lid is van een ander domein of werkgroep bevinden, is deze optie zorgt ervoor dat de computer opnieuw opgestart. Als de computer al lid is van een andere organisatie-eenheid, omdat het wijzigen van de organisatie-eenheid via deze methode niet wordt toegestaan door Active Directory Domain Services, Windows Setup deze instelling wordt genegeerd.  
 
  **Voer het account dat gemachtigd is aan het domein**  
- Klik op **ingesteld** gebruikersnaam en wachtwoord invoeren voor een account met machtigingen aan het domein. Voer het account in de indeling:  *Domein\account*  
+ Klik op **ingesteld** gebruikersnaam en wachtwoord invoeren voor een account met machtigingen aan het domein. Voer het account in de indeling:  *Domain\account*  
 
 
 
-## <a name="BKMK_PrepareConfigMgrClientforCapture"></a>ConfigMgr-Client voorbereiden voor vastleggen  
+## <a name="BKMK_PrepareConfigMgrClientforCapture"></a> ConfigMgr-Client voorbereiden voor vastleggen  
 Deze stap gebruiken om te verwijderen of de Configuration Manager-client configureren op de referentiecomputer. Deze actie wordt de computer voorbereid voor vastleggen als onderdeel van de installatiekopieprocedure.
 
 Configuration Manager versie 1610, vanaf de **ConfigMgr-Client voorbereiden** stap volledig verwijdert Configuration Manager-client, in plaats van alleen het verwijderen van belangrijke gegevens. Wanneer de takenreeks de vastgelegde besturingssysteeminstallatiekopie implementeert, wordt een nieuwe Configuration Manager-client elke keer.  
@@ -886,7 +888,7 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **installatiekopieën**,
 
 
 
-##  <a name="BKMK_PrepareWindowsforCapture"></a>Windows voorbereiden voor vastleggen  
+##  <a name="BKMK_PrepareWindowsforCapture"></a> Windows voorbereiden voor vastleggen  
  Deze stap gebruiken om op te geven van de Sysprep-opties bij het vastleggen van de installatiekopie van een besturingssysteem op de referentiecomputer. Deze takenreeksactie wordt Sysprep uitgevoerd en vervolgens de computer opnieuw opgestart in de Windows PE-opstartinstallatiekopie die is opgegeven voor de takenreeks wordt uitgevoerd. Deze actie mislukt als de referentiecomputer is toegevoegd aan een domein.  
 
  Deze takenreeksstap kan alleen in een standaardbesturingssysteem worden uitgevoerd. De stap kan niet worden uitgevoerd in Windows PE. Zie [Prepare Windows for Capture Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_PrepareWindowsCapture) (Variabelen voor de takenreeksactie voor het voorbereiden van Windows op het vastleggen) voor informatie over takenreeksvariabelen voor deze takenreeksactie.  
@@ -904,7 +906,7 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **installatiekopieën**,
 
 
 
-##  <a name="BKMK_PreProvisionBitLocker"></a>BitLocker vooraf inrichten  
+##  <a name="BKMK_PreProvisionBitLocker"></a> BitLocker vooraf inrichten  
  Deze stap wordt BitLocker in te schakelen op een station in Windows PE gebruiken. Alleen de gebruikte schijfruimte is versleuteld. De versleutelingstijd is daarom veel sneller. Pas de sleutelbeheeropties toe met behulp van de takenreeksstap [BitLocker inschakelen](#BKMK_EnableBitLocker) nadat het besturingssysteem is geïnstalleerd. Deze stap kan alleen in Windows PE worden uitgevoerd. De taak kan niet worden uitgevoerd in een standaardbesturingssysteem.  
 
 > [!IMPORTANT]  
@@ -923,7 +925,7 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **installatiekopieën**,
 
 
 
-##  <a name="BKMK_ReleaseStateStore"></a>Statusopslag vrijgeven  
+##  <a name="BKMK_ReleaseStateStore"></a> Statusopslag vrijgeven  
  Deze stap gebruiken op de hoogte van de status wilt dat de actie vastleggen of vrijgeven is voltooid. Deze stap gebruiken in combinatie met de **Statusopslag opvragen**, **gebruikersstatus vastleggen**, en **gebruikersstatus herstellen** stappen. U Volg deze stappen voor het migreren van gegevens van de gebruikersstatus met behulp van een statusmigratiepunt en de gebruiker staat Migration Tool (USMT).  
 
  Zie voor meer informatie over het beheren van de gebruikersstatus bij het implementeren van besturingssystemen, [Gebruikersstatus beheren](../get-started/manage-user-state.md).  
@@ -944,7 +946,7 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **installatiekopieën**,
 
 
 
-##  <a name="BKMK_RequestStateStore"></a>Statusopslag opvragen  
+##  <a name="BKMK_RequestStateStore"></a> Statusopslag opvragen  
  Deze stap gebruiken om toegang tot een statusmigratiepunt bij het vastleggen of terugzetten van de status te vragen.  
 
  Zie voor meer informatie over het beheren van de gebruikersstatus bij het implementeren van besturingssystemen, [Gebruikersstatus beheren](../get-started/manage-user-state.md).  
@@ -982,7 +984,7 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **gebruikersstatus**, en
 
 
 
-##  <a name="BKMK_RestartComputer"></a>Computer opnieuw opstarten  
+##  <a name="BKMK_RestartComputer"></a> Computer opnieuw opstarten  
  Deze stap gebruiken om de computer waarop de takenreeks wordt uitgevoerd. Na het opnieuw opstarten wordt voortgezet de computer automatisch met de volgende stap in de takenreeks.  
 
  Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoerd. Zie voor meer informatie over de takenreeksvariabelen voor deze takenreeksactie [opnieuw opstarten van computer takenreeksacties](task-sequence-action-variables.md#BKMK_RestartComputer).  
@@ -1009,7 +1011,7 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **gebruikersstatus**, en
 
 
 
-##  <a name="BKMK_RestoreUserState"></a>Gebruikersstatus herstellen  
+##  <a name="BKMK_RestoreUserState"></a> Gebruikersstatus herstellen  
  Deze stap gebruiken om de User State Migration Tool (USMT) voor het herstellen van gebruikersstatus en instellingen op de doelcomputer. U deze stap gebruiken in combinatie met de **gebruikersstatus vastleggen** stap.  
 
  Zie voor meer informatie over het beheren van de gebruikersstatus bij het implementeren van besturingssystemen, [Gebruikersstatus beheren](../get-started/manage-user-state.md).  
@@ -1048,7 +1050,7 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **gebruikersstatus**, en
 
 
 
-##  <a name="BKMK_RunCommandLine"></a>Opdrachtregel uitvoeren  
+##  <a name="BKMK_RunCommandLine"></a> Opdrachtregel uitvoeren  
  Deze stap uitvoeren van de opgegeven opdrachtregel gebruiken.  
 
  Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoerd. Zie [Run Command Line Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_RunCommand) (Variabelen voor de takenreeksactie voor het uitvoeren van de opdrachtregel) voor informatie over takenreeksvariabelen voor deze takenreeksactie.  
@@ -1080,14 +1082,14 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **gebruikersstatus**, en
 
  Voorbeelden:  
 
- **c:\OfficeXP**  
+ **c:\officexp**  
 
  **i386**  
 
 > [!NOTE]  
 >  De **Bladeren** knop op de lokale computer voor bestanden en mappen gezocht. Alles wat die u selecteert moet ook aanwezig zijn op de doelcomputer in dezelfde locatie en met de dezelfde bestands- en mapnamen.  
 
- **Pakket**  
+ **Package**  
  Wanneer u bestanden of programma's op de opdrachtregel die nog niet aanwezig op de doelcomputer opgeeft, selecteert u deze optie om op te geven van de Configuration Manager-pakket dat de betreffende bestanden bevat. Voor het pakket is geen programma vereist. Deze optie is niet vereist als de opgegeven bestanden op de doelcomputer bestaan.  
 
  **Time-out**  
@@ -1112,7 +1114,7 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **gebruikersstatus**, en
 
 
 
-##  <a name="BKMK_RunPowerShellScript"></a>PowerShell-Script uitvoeren  
+##  <a name="BKMK_RunPowerShellScript"></a> PowerShell-Script uitvoeren  
  Deze stap gebruiken de opgegeven PowerShell-script uit te voeren.  
 
  Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoerd. Als u deze stap wilt uitvoeren in Windows PE, moet PowerShell zijn ingeschakeld in de opstartinstallatiekopie. U kunt Windows PowerShell (WinPE-PowerShell) inschakelen via het tabblad **Optionele onderdelen** in de eigenschappen van de opstartinstallatiekopie. Zie voor meer informatie over het wijzigen van een opstartinstallatiekopie [opstartinstallatiekopieën beheren](../get-started/manage-boot-images.md).  
@@ -1125,7 +1127,7 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **algemene**, en selecte
 ### <a name="properties"></a>Eigenschappen  
  Op de **eigenschappen** tabblad voor deze stap, configureer de instellingen die in deze sectie beschreven.  
 
- **Pakket**  
+ **Package**  
  De Configuration Manager-pakket met het PowerShell-script opgeven. Eén pakket kan meerdere PowerShell-scripts bevatten.  
 
  **Scriptnaam**  
@@ -1159,7 +1161,7 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **algemene**, en selecte
 
 
 
-##  <a name="child-task-sequence"></a>Takenreeks uitvoeren
+##  <a name="child-task-sequence"></a> Takenreeks uitvoeren
 
 U kunt een nieuwe stap waarop een andere takenreeks wordt uitgevoerd vanaf Configuration Manager versie 1710 kunt toevoegen. Deze stap maakt een bovenliggende / onderliggende relatie tussen de takenreeksen. Met onderliggende takenreeksen, kunt u meer modulaire, herbruikbare takenreeksen maken.
 
@@ -1179,7 +1181,7 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **algemene**, en selecte
 
 
 
-##  <a name="BKMK_SetDynamicVariables"></a>Dynamische variabelen instellen  
+##  <a name="BKMK_SetDynamicVariables"></a> Dynamische variabelen instellen  
  Gebruik deze stap voor de volgende acties uitvoeren:  
 
 1.  Informatie verzamelen van de computer en de omgeving waarin de computer zich bevindt en vervolgens opgegeven takenreeksvariabelen instellen met de informatie.  
@@ -1187,13 +1189,13 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **algemene**, en selecte
 2.  Gedefinieerde regels evalueren en takenreeksvariabelen instellen op basis van de variabelen en waarden die zijn geconfigureerd voor regels die in waar resulteren.  
 
 De taakvolgorde stelt automatisch de volgende alleen-lezen takenreeksvariabelen in:  
- -   &#95; SMSTSMake  
- -   &#95; SMSTSModel  
- -   &#95; SMSTSMacAddresses  
- -   &#95; SMSTSIPAddresses  
- -   &#95; SMSTSSerialNumber  
- -   &#95; SMSTSAssetTag  
- -   &#95; SMSTSUUID  
+ -   &#95;SMSTSMake  
+ -   &#95;SMSTSModel  
+ -   &#95;SMSTSMacAddresses  
+ -   &#95;SMSTSIPAddresses  
+ -   &#95;SMSTSSerialNumber  
+ -   &#95;SMSTSAssetTag  
+ -   &AMP;#95;SMSTSUUID  
 
 Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoerd. Zie voor meer informatie over takenreeksvariabelen [Takenreeksacties](task-sequence-action-variables.md).  
 
@@ -1234,7 +1236,7 @@ Nadat u de variabelen voor een regel hebt geselecteerd, moet u een waarde opgeve
 
 
 
-##  <a name="BKMK_SetTaskSequenceVariable"></a>Takenreeksvariabele instellen  
+##  <a name="BKMK_SetTaskSequenceVariable"></a> Takenreeksvariabele instellen  
 Deze stap gebruiken om in te stellen van de waarde van een variabele die wordt gebruikt met de takenreeks wordt uitgevoerd.  
 
 Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoerd. Takenreeksvariabelen worden gelezen door takenreeksacties en bepalen het gedrag van deze acties. Zie voor meer informatie over specifieke takenreeksacties [Takenreeksacties](task-sequence-action-variables.md). Zie voor meer informatie over specifieke ingebouwde takenreeksvariabelen [Takenreeksvariabelen ingebouwde](/sccm/osd/understand/task-sequence-built-in-variables).
@@ -1252,7 +1254,7 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **algemene**, en selecte
 
 
 
-##  <a name="BKMK_SetupWindowsandConfigMgr"></a>Windows en ConfigMgr installeren  
+##  <a name="BKMK_SetupWindowsandConfigMgr"></a> Windows en ConfigMgr installeren  
  Deze stap uitvoert de overgang van Windows PE naar het nieuwe besturingssysteem gebruiken. Deze takenreeksstap is een vereist onderdeel van iedere besturingssysteemimplementatie. Deze Configuration Manager-client installeert in het nieuwe besturingssysteem en bereidt de takenreeks op uitvoering in het nieuwe besturingssysteem.  
 
  Deze stap kan alleen in Windows PE worden uitgevoerd. De taak kan niet worden uitgevoerd in een standaardbesturingssysteem. Zie voor meer informatie over takenreeksvariabelen voor deze takenreeksactie [Windows en ConfigMgr installeren takenreeksacties](task-sequence-action-variables.md#BKMK_SetupWindows).  
@@ -1326,7 +1328,7 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **installatiekopieën**,
 
 
 
-##  <a name="BKMK_UpgradeOS"></a>Besturingssysteem bijwerken  
+##  <a name="BKMK_UpgradeOS"></a> Besturingssysteem bijwerken  
  > [!TIP]  
  > Windows 10 versie 1709, vanaf bevat media meerdere edities. Bij het configureren van een takenreeks een upgradepakket voor besturingssysteem of de installatiekopie van het besturingssysteem te gebruiken, moet u selecteren een [edition ondersteund](/sccm/core/plan-design/configs/support-for-windows-10#windows-10-as-a-client).
 

@@ -1,24 +1,25 @@
 ---
 title: Overzicht van de CNG-certificaten
 titleSuffix: Configuration Manager
-description: Een overzicht van de CNG-certificaten in Configuration Manager
+description: Meer informatie over ondersteuning voor Cryptography Next Generation (CNG)-certificaten voor Configuration Manager-clients en servers.
 ms.custom: na
-ms.date: 11/20/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
-ms.assetid: 
-author: vhorne
-ms.author: victorh
-manager: angrobe
-ms.openlocfilehash: f5f5138270d4f14b76b2c41e41ec034a0c12a932
-ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
+ms.assetid: ''
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 271cc0e2753f1a65740187a4faf6875c1a018014
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="cng-certificates-overview"></a>Overzicht van de CNG-certificaten
 <!-- 1356191 --> 
@@ -28,11 +29,17 @@ Configuration Manager biedt beperkte ondersteuning voor cryptografie: Volgende G
 ## <a name="supported-scenarios"></a>Ondersteunde scenario's
 U kunt [Cryptography API: Next Generation (CNG)](https://msdn.microsoft.com/library/windows/desktop/bb204775.aspx) certificaatsjablonen voor de volgende scenario's:
 
-- Clientregistratie en -communicatie met een HTTPS-beheerpunt.   
-- Software distributie en het application-implementatie met een HTTPS-distributiepunt.   
-- Implementatie van besturingssysteem.  
-- Messaging-SDK (met de laatste update) en ISV-Proxy-client.   
-- Cloud Management Gateway-configuratie.  
+- Clientregistratie en -communicatie met een HTTPS-beheerpunt   
+- Software distributie en het application-implementatie met een HTTPS-distributiepunt   
+- Implementatie van besturingssystemen  
+- Client messaging-SDK (met de laatste update) en ISV-Proxy   
+- De configuratie voor cloud Management Gateway  
+
+Vanaf versie 1802 CNG-certificaten gebruiken voor de volgende serverfuncties voor HTTPS-functionaliteit: <!-- 1357314 -->   
+- Beheerpunt
+- Distributiepunt
+- Sitesysteemrollen toevoegen
+- Statusmigratiepunt     
 
 > [!NOTE]
 > CNG is achterwaarts compatibel met de Crypto-API (CAPI). CAPI certificaten nog steeds worden ondersteund, zelfs wanneer de CNG-ondersteuning is ingeschakeld op de client.
@@ -41,15 +48,19 @@ U kunt [Cryptography API: Next Generation (CNG)](https://msdn.microsoft.com/libr
 
 De volgende scenario's worden momenteel niet ondersteund:
 
-- Application Catalog-webservice, Application Catalog-website, inschrijvingspunt en inschrijvingsproxypunt Wijs rollen is niet operationeel wanneer geïnstalleerd in de modus van HTTPS met een CNG-certificaat dat is gebonden aan de website in Internet Information Services (IIS). Toepassingen en pakketten als beschikbaar die zijn geïmplementeerd voor gebruiker of groep gebruikersverzamelingen weergegeven software Center niet.
+- De volgende serverfuncties zijn niet operationele bij installatie in HTTPS-modus met een CNG-certificaat dat is gebonden aan de website in Internet Information Services (IIS): 
+    - Application catalog-webservice
+    - Application catalog-website
+    - Inschrijvingspunt  
+    - Proxypunt voor inschrijving  
 
-- Statusmigratiepunt is niet operationeel bij installatie in HTTPS-modus met een CNG-certificaat dat is gebonden aan de website in IIS.
+- Toepassingen en pakketten als beschikbaar die zijn geïmplementeerd voor gebruiker of groep gebruikersverzamelingen weergegeven software Center niet.
 
 - CNG-certificaten gebruiken voor het maken van een Clouddistributiepunt.
 
-- NDES Policy Module certificaat registratie punt (CRP) communicatie tussen mislukt als de NDES Policy Module maakt gebruik van een CNG-certificaat voor het certificaat voor clientverificatie.
+- Als de NDES policy module van een CNG-certificaat voor clientverificatie gebruikmaakt, mislukt de communicatie met het certificaatregistratiepunt.
 
-- Maken van de taak media mislukt voor het maken van opstartbare media als een CNG-certificaat is opgegeven.
+- Als u een CNG-certificaat opgeven bij het maken van takenreeksmedia, mislukt de wizard voor het maken van opstartbare media.
 
 ## <a name="to-use-cng-certificates"></a>CNG-certificaten te gebruiken
 

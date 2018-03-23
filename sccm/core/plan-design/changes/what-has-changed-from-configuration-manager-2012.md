@@ -2,7 +2,7 @@
 title: 'Wijzigingen van Configuration Manager 2012 '
 description: Identificeer de wijzigingen en nieuwe mogelijkheden in System Center Configuration Manager en System Center 2012 Configuration Manager.
 ms.custom: na
-ms.date: 05/02/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -11,17 +11,17 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 3ae68fa6-8b30-45dd-9d12-50bb67cb4a9d
-caps.latest.revision: 
+caps.latest.revision: ''
 author: mestew
 ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: 6e0da4f8c42bb0b2275566eba35b1e06b2028c1b
-ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
+manager: dougeby
+ms.openlocfilehash: 70f6604e6f1b6731d6d2685e20262552f2b80590
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="what39s-changed-in-system-center-configuration-manager-from-system-center-2012-configuration-manager"></a>Wat &#39; s gewijzigd in System Center Configuration Manager van System Center 2012 Configuration Manager
+# <a name="what39s-changed-in-system-center-configuration-manager-from-system-center-2012-configuration-manager"></a>Wat&#39;s gewijzigd in System Center Configuration Manager van System Center 2012 Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
@@ -36,8 +36,8 @@ ms.lasthandoff: 02/01/2018
 
 -   Gebruikt een jaar of product-id niet in de naam van het product, in tegenstelling tot eerdere versies zoals Configuration Manager 2007 of System Center 2012 Configuration Manager.
 
--   Biedt ondersteuning voor incrementele, binnen het product updates, ook wel updateversies genoemd. De eerste release is versie 1511. Latere versies worden er verschillende keren een jaar als in de console-updates, zoals versie 1610 uitgebracht.
--   Wordt geïnstalleerd met een basislijnversie. Tijdens de oorspronkelijke basislijnversie 1511, nieuwe basislijnversies ook van tijd tot tijd vrijgegeven zoals 1702. Basislijnversies kunnen worden gebruikt om een nieuwe System Center Configuration Manager-site en hiërarchie te installeren of upgraden van een ondersteunde versie van Configuration Manager 2012.
+-   Biedt ondersteuning voor incrementele, binnen het product updates, ook wel updateversies genoemd. De eerste release is versie 1511. Latere versies worden er verschillende keren een jaar als in de console-updates, zoals versie 1710 uitgebracht.
+-   Wordt geïnstalleerd met een basislijnversie. Tijdens de oorspronkelijke basislijnversie 1511, nieuwe basislijnversies ook van tijd tot tijd vrijgegeven zoals 1802. Basislijnversies kunnen worden gebruikt om een nieuwe System Center Configuration Manager-site en hiërarchie te installeren of upgraden van een ondersteunde versie van Configuration Manager 2012.
 
 
 
@@ -46,15 +46,15 @@ ms.lasthandoff: 02/01/2018
  System Center Configuration Manager maakt gebruik van een in de console-servicemethode aangeroepen **Updates en onderhoud** waarmee u gemakkelijk om te zoeken en aanbevolen updates te installeren.  
 
  Sommige versies zijn alleen beschikbaar als updates voor bestaande sites (uit binnen de Configuration Manager-console) en kan niet worden gebruikt om nieuwe Configuration Manager-sites te installeren.   
-Bijvoorbeeld: de update 1610 is alleen beschikbaar vanuit de Configuration Manager-console. Deze wordt gebruikt voor het bijwerken van een site waarop al een versie van System Center Configuration Manager.
+Bijvoorbeeld: de update 1710 is alleen beschikbaar vanuit de Configuration Manager-console. Deze wordt gebruikt voor het bijwerken van een site waarop al een versie van System Center Configuration Manager.
 
-Een updateversie wordt ook verschijnen als nieuwe basislijnversie (zoals update 1702). Dit soort update kan worden gebruikt voor het installeren van een nieuwe hiërarchie, zonder de noodzaak om te beginnen met een oudere basislijnversie (zoals 1511) en uw manier om de meest recente versie te upgraden.
+Een updateversie wordt ook verschijnen als nieuwe basislijnversie (zoals update 1802). Dit soort update kan worden gebruikt voor het installeren van een nieuwe hiërarchie, zonder de noodzaak om te beginnen met een oudere basislijnversie (zoals 1511) en uw manier om de meest recente versie te upgraden.
 
 
 Zie voor meer informatie over het gebruik van updates [Updates voor System Center Configuration Manager](../../../core/servers/manage/updates.md).  
 Zie voor meer informatie over baslines [basislijn- en updateversies](/sccm/core/servers/manage/updates#a-namebkmkbaselinesa-baseline-and-update-versions).
 
-##  <a name="bkmk_servicepoint"></a>Nieuwe sitesysteemrol: serviceaansluitpunt  
+##  <a name="bkmk_servicepoint"></a> Nieuwe sitesysteemrol: serviceaansluitpunt  
  De **Microsoft Intune-connector** wordt vervangen door een nieuwe sitesysteemrol die aanvullende functionaliteit mogelijk maakt de **serviceaansluitpunt**. Het serviceverbindingspunt:  
 
 -   Vervangt de Microsoft Intune-connector wanneer u Intune met System Center Configuration Manager-op-premises mobile device management integreert.  

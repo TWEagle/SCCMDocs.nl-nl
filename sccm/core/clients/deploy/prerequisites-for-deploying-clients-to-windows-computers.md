@@ -1,26 +1,27 @@
 ---
 title: Vereisten voor implementatie van Windows-client
 titleSuffix: Configuration Manager
-description: Meer informatie over de vereisten voor het implementeren van clients op Windows-computers in System Center Configuration Manager.
+description: Meer informatie over de vereisten voor de Configuration Manager-client implementeren op Windows-computers.
 ms.custom: na
-ms.date: 04/23/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-client
+ms.technology:
+- configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 1a2a9b48-a95b-4643-b00c-b3079584ae2e
-caps.latest.revision: "16"
-caps.handback.revision: "0"
-author: arob98
-ms.author: angrobe
-manager: angrobe
-ms.openlocfilehash: 44847d8a4bde2212c84a4f405b18730ec8f51b0a
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+caps.latest.revision: ''
+caps.handback.revision: ''
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: cf39d2f5c6520e7f1886d08f79ed87da700e9f56
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="prerequisites-for-deploying-clients-to-windows-computers-in-system-center-configuration-manager"></a>Vereisten voor het implementeren van clients op Windows-computers in System Center Configuration Manager
 
@@ -28,14 +29,16 @@ ms.lasthandoff: 10/12/2017
 
 Implementeren van Configuration Manager-clients in uw omgeving heeft de volgende externe afhankelijkheden en afhankelijkheden binnen het product. Bovendien, heeft elke client-implementatiemethode zijn eigen afhankelijkheden waaraan moet worden voldaan opdat de clientinstallaties succesvol zouden zijn.  
 
-  Zorg ervoor dat u wordt ook aangeraden [ondersteunde configuraties voor System Center Configuration Manager](../../../core/plan-design/configs/supported-configurations.md) om te bevestigen dat apparaten voorzien in de minimale vereisten voor hardware en besturingssystemen voor Configuration Manager-client.  
+  Zorg ervoor dat u wordt ook aangeraden [ondersteunde configuraties](../../../core/plan-design/configs/supported-configurations.md) om te bevestigen dat apparaten voorzien in de minimale hardware- en OS-vereisten voor Configuration Manager-client.  
 
- Zie voor meer informatie over de vereisten voor Configuration Manager-client voor Linux en UNIX [Planning voor clientimplementatie op Linux en UNIX-computers in System Center Configuration Manager](../../../core/clients/deploy/plan/planning-for-client-deployment-to-linux-and-unix-computers.md).  
+ Zie voor meer informatie over de vereisten voor Configuration Manager-client voor Linux en UNIX [Planning voor clientimplementatie op Linux en UNIX-computers](../../../core/clients/deploy/plan/planning-for-client-deployment-to-linux-and-unix-computers.md).  
 
 > [!NOTE]  
 >  De in dit artikel vermelde softwareversienummers zijn alleen de minimaal vereiste versienummers.  
 
-##  <a name="BKMK_prereqs_computers"></a>Vereisten voor computerclients  
+
+
+##  <a name="BKMK_prereqs_computers"></a> Vereisten voor computerclients  
  Gebruik de volgende informatie om te bepalen van de vereisten voor wanneer u de Configuration Manager-client op computers installeren.  
 
 ### <a name="dependencies-external-to-configuration-manager"></a>Afhankelijkheden extern aan Configuration Manager  
@@ -43,11 +46,11 @@ Implementeren van Configuration Manager-clients in uw omgeving heeft de volgende
 |||  
 |-|-|  
 |Windows Installer versie 3.1.4000.2435|Vereist om het gebruik van Windows Installer-update-(.msp)bestanden te gebruiken voor pakketten en software-updates.|  
-|[KB2552033](http://go.microsoft.com/fwlink/p/?LinkId=240048)|Installeer deze hotfix op siteservers waarop Windows Server 2008 R2 wordt uitgevoerd wanneer clientpushinstallatie is ingeschakeld.|  
+|[KB2552033](https://go.microsoft.com/fwlink/p/?LinkId=240048)|Installeer deze hotfix op siteservers waarop Windows Server 2008 R2 wordt uitgevoerd wanneer clientpushinstallatie is ingeschakeld.|  
 |Microsoft Background Intelligent Transfer Service (BITS) versie 2.5|Vereist voor het toestaan van beperkte gegevensoverdracht tussen de clientcomputer en Configuration Manager-sitesystemen. BITS is niet automatisch gedownload tijdens de clientinstallatie. Wanneer BITS geïnstalleerd is op computers, is een opnieuw opstarten vereist om de installatie te vervolledigen.<br /><br /> De meeste besturingssystemen bevatten BITS, maar indien dit niet (bijvoorbeeld Windows Server 2003 R2 SP2), moet u BITS installeren vóór u de Configuration Manager-client installeert.|  
 |Microsoft Task Scheduler|Schakel deze service in op de client om de clientinstallatie te voltooien.|  
 
-### <a name="dependencies-external-to-configuration-manager-and-automatically-downloaded-during-installation"></a>Afhankelijkheden extern aan Configuration Manager en automatisch gedownload tijdens de installatie  
+### <a name="bkmk_ExternalDependencies"></a> Afhankelijkheden extern aan Configuration Manager en automatisch gedownload tijdens de installatie  
  Configuration Manager-client heeft enkele potentiële externe afhankelijkheden. Deze afhankelijkheden hangen af van het besturingssysteem en de geïnstalleerde software op de clientcomputer.  
 
  Indien deze afhankelijkheden vereist zijn om de installatie van de client te vervolledigen, worden ze automatisch geïnstalleerd met de client software.  
@@ -61,18 +64,18 @@ Implementeren van Configuration Manager-clients in uw omgeving heeft de volgende
 |Microsoft Visual C++ 2005 Te distribueren pakket versie 8.0.50727.42|Versie 1606 en ouder wordt vereist voor de ondersteuning van Microsoft SQL Server Compact operaties.|  
 |Windows Imaging API's 6.0.6001.18000|Vereist voor het toestaan van Configuration Manager om Windows installatiekopie-(.wim) bestanden te beheren.|  
 |Microsoft-Beleidsplatform 1.2.3514.0|Vereist om clients toe te staan voor de evaluatie van de instellingen voor naleving.|  
-|Microsoft Silverlight 5.1.41212.0 (vanaf versie 1602 van Configuration Manager)|Vereist ter ondersteuning van de gebruikerservaring op Application Catalog-website.|  
+|Microsoft Silverlight 5.1.41212.0|Vereist ter ondersteuning van de gebruikerservaring op Application Catalog-website. U start in Configuration Manager 1802, wordt Silverlight niet langer automatisch geïnstalleerd. De primaire functie van de Toepassingscatalogus is nu opgenomen in Software Center. Ondersteuning voor het einde van de Application Catalog-website met de eerste update die na 1 juni 2018 uitgebracht.<!--1356195-->|  
 |Microsoft .NET Framework versie 4.5.2|Vereist ter ondersteuning van clientbewerkingen. Automatisch geïnstalleerd op de clientcomputer als hierop geen Microsoft .NET Framework versie 4.5 of hoger is geïnstalleerd. Voor meer informatie, zie [Aanvullende informatie over Microsoft .NET Framework versie 4.5.2](#dotNet).|  
 |Onderdelen van Microsoft SQL Server Compact 3.5 SP2|Vereist voor het opslaan van informatie met betrekking tot clientbewerkingen.|  
 |Onderdelen van Microsoft Windows Imaging|Vereist door Microsoft .NET Framework 4.0 voor Windows Server 2003 of Windows XP SP2 voor 64-bits computers.|
 |Client voor Microsoft Intune-PC-software|U kunt de Intune-PC-software-client en de Configuration Manager-client niet uitvoeren op dezelfde PC. Zorg ervoor dat de Intune-client is verwijderd voordat u Configuration Manager-client installeert.|
 
-####  <a name="dotNet"></a>Aanvullende informatie over Microsoft .NET Framework versie 4.5.2  
+####  <a name="dotNet"></a> Aanvullende informatie over Microsoft .NET Framework versie 4.5.2  
 
 > [!NOTE]  
->  Op 12 januari 2016 is ondersteuning voor .NET 4.0, 4.5 en 4.5.1 verlopen. Zie [Veelgestelde vragen over Microsoft .NET Framework Support Lifecycle-beleid](https://support.microsoft.com/gp/framework_faq?WT.mc_id=azurebg_email_Trans_943_NET452_Update) op support.microsoft.com voor meer informatie.  
+>  Op 12 januari 2016 is ondersteuning voor .NET 4.0, verlopen 4.5 en 4.5.1. Zie voor meer informatie [Microsoft .NET Framework Support Lifecycle Policy FAQ](https://support.microsoft.com/gp/framework_faq?WT.mc_id=azurebg_email_Trans_943_NET452_Update).  
 
- Mogelijk moet het systeem opnieuw worden opgestart om de installatie van Microsoft .NET Framework versie 4.5.2 te voltooien. De gebruiker krijgt de melding **Opnieuw opstarten is vereist** te zien in het systeemvak.  Algemene scenario's waarin clientcomputers opnieuw moeten worden opgestart:  
+ Mogelijk moet het systeem opnieuw worden opgestart om de installatie van Microsoft .NET Framework versie 4.5.2 te voltooien. De gebruiker ziet een **opnieuw opstarten vereist** melding in het systeemvak. Algemene scenario's waarin clientcomputers opnieuw moeten worden opgestart:  
 
 -   .NET-toepassingen of -services worden op de computer uitgevoerd.  
 
@@ -83,87 +86,116 @@ Implementeren van Configuration Manager-clients in uw omgeving heeft de volgende
  Nadat .NET Framework 4.5.2 is geïnstalleerd, kunnen er vervolgens aanvullende updates worden geïnstalleerd. Mogelijk moet hiervoor de computer nogmaals opnieuw worden opgestart.  
 
 ### <a name="configuration-manager-dependencies"></a>Configuration Manager-afhankelijkheden  
- Voor meer informatie over de volgende sitesysteemrollen, zie de sectie [De sitesysteemrollen voor System Center Configuration Manager-clients bepalen](../../../core/clients/deploy/plan/determine-the-site-system-roles-for-clients.md).  
+ Zie voor meer informatie [de sitesysteemrollen voor clients bepalen](../../../core/clients/deploy/plan/determine-the-site-system-roles-for-clients.md)  
 
 |||  
 |-|-|  
 |Beheerpunt|Hoewel een beheerpunt niet vereist om de Configuration Manager-client te implementeren, moet u een beheerpunt wordt informatie overgedragen tussen clientcomputers en Configuration Manager-servers hebben. Zonder een beheerpunt kunt u geen clientcomputers beheren.|  
-|Distributiepunt|Het distributiepunt is een optioneel, maar aanbevolen sitesysteemrol voor clientimplementatie. Alle distributiepunten hosten de clientbronbestanden, die computers het meest nabije distributiepunt laten vinden waarvan de clientbronbestanden kunnen gedownload worden tijdens clientimplementatie. Indien de site geen distributiepunt heeft, downloaden de computers de bronbestanden van de client van hun beheerpunt.|  
+|Distributiepunt|Het distributiepunt is een optioneel, maar aanbevolen sitesysteemrol voor clientimplementatie. Alle distributiepunten hosten de clientbronbestanden, waarmee computers zoeken naar het dichtstbijzijnde distributiepunt waaruit u wilt downloaden van de bronbestanden van de client tijdens de clientimplementatie van de. Indien de site geen distributiepunt heeft, downloaden de computers de bronbestanden van de client van hun beheerpunt.|  
 |Terugvalstatuspunt|Het terugvalstatuspunt is een optioneel, maar aanbevolen sitesysteemrol voor clientimplementatie. Het terugvalsstatuspunt traceert clientimplementatie en schakelt computers in de Configuration Manager-site om statusberichten te zenden wanneer ze niet kunnen met een beheerpunt communiceren.|  
 |Reporting Services-punt|Het Reporting Services-punt is een optionele, maar aanbevolen sitesysteemrol die rapporten kan weergeven gerelateerd aan clientimplementatie en -beheer. Zie [Rapportage in System Center Configuration Manager](../../../core/servers/manage/reporting.md) voor meer informatie.|  
 
 ### <a name="installation-method-dependencies"></a>Installatiemethode-afhankelijkheden  
  De volgende vereisten zijn specifiek voor de verschillende methodes van clientinstallatie.  
 
--   Clientpushinstallatie  
+#### <a name="client-push-installation"></a>Clientpushinstallatie  
 
-    -   Clientpushinstallatie-accounts worden gebruikt om te verbinden met computers om de client te installeren en zijn opgegeven op het tabblad **Accounts** van het dialoogvenster van de **Clientpushinstallatie-eigenschappen**. De account moet een lid zijn van de groep lokale beheerders op de doelcomputer.  
+   -   Clientpushinstallatie-accounts worden gebruikt om te verbinden met computers om de client te installeren en zijn opgegeven op het tabblad **Accounts** van het dialoogvenster van de **Clientpushinstallatie-eigenschappen**. De account moet een lid zijn van de groep lokale beheerders op de doelcomputer.  
 
-         Indien u geen clientpushinstallatie-account specificeert, zal de siteserver-computer-account gebruikt worden.  
+         Als u geen een push-clientinstallatieaccount opgeeft, wordt het computeraccount van de siteserver gebruikt.  
 
-    -   De computer waarop u de client installeert moet op ten minste één detectiemethode van Configuration Manager zijn gedetecteerd.  
+   -   De computer waarop u de client installeert moet op ten minste één detectiemethode van Configuration Manager zijn gedetecteerd.  
 
-    -   De computer heeft een ADMIN$-share.  
+   -   De computer heeft een ADMIN$-share.  
 
-    -   **Schakel clientpushinstallatie in voor toegewezen bronnen** moet worden geselecteerd in de **Clientpushinstallatie-eigenschappen** in het dialoogvenster als u wilt de Configuration Manager-client automatisch push gedetecteerde bronnen.  
+   -   **Schakel clientpushinstallatie in voor toegewezen bronnen** moet worden geselecteerd in de **Clientpushinstallatie-eigenschappen** in het dialoogvenster als u wilt de Configuration Manager-client automatisch gedetecteerde push bronnen.  
 
-    -   De clientcomputer moet in staat zijn om contact op te nemen met een distributie- of een beheerpunt om de ondersteunende bestanden te downloaden.  
+   -   De clientcomputer moet in staat zijn om contact op te nemen met een distributie- of een beheerpunt om de ondersteunende bestanden te downloaden.  
 
-     U moet de volgende beveiligingsmachtigingen hebben om te Configuration Manager-client installeren met behulp van clientpush:  
 
-    -   Het account voor Push-installatie Client configureren: **Wijzig** en leesmachtigingen voor de **Site** object.  
+U moet de volgende beveiligingsmachtigingen hebben om te Configuration Manager-client installeren met behulp van clientpush:  
 
-    -   Om clientpush te gebruiken voor het installeren van de client op verzamelingen, apparaten en query's: **Wijzig bron** en **lezen** machtiging voor het verzamelingsobject.  
+   -   Het account voor Push-installatie Client configureren: **Wijzig** en leesmachtigingen voor de **Site** object.  
 
-     De **Infrastructuur beheerder** beveiligingsrol bevat de vereiste machtigingen om de clientpushinstallatie te beheren.  
+   -   Om clientpush te gebruiken voor het installeren van de client op verzamelingen, apparaten en query's: **Wijzig bron** en **lezen** machtiging voor het verzamelingsobject.  
 
--   Installatie op basis van software-updatepunten  
 
-    -   Als het Active Directory-schema niet is uitgebreid, of u installeert clients van een andere forest, moeten de installatie-eigenschappen voor CCMSetup.exe ingericht zijn in het register van de computer door gebruik te maken van groepsbeleid. Voor meer informatie, zie [Eigenschappen van clientinstallatie inrichten (groepsbeleid en clientinstallatie op basis van software-update)](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_Provision).  
+De **Infrastructuur beheerder** beveiligingsrol bevat de vereiste machtigingen om de clientpushinstallatie te beheren.  
 
-    -   Configuration Manager-client moet gepubliceerd zijn op het software-updatepunt.  
 
-    -   De clientcomputer moet in staat zijn om contact op te nemen met een distributie- of een beheerpunt om de ondersteunende bestanden te downloaden.  
+#### <a name="software-update-point-based-installation"></a>Installatie op basis van software-updatepunten  
 
-     Voor de beveiligingsmachtigingen vereist voor het beheren van Configuration Manager software-updates, Zie [vereisten voor softwareupdates in System Center Configuration Manager](../../../sum/plan-design/prerequisites-for-software-updates.md).  
+   -   Als het Active Directory-schema niet is uitgebreid, of u clients vanuit een ander forest installeert, installatie-eigenschappen voor CCMSetup.exe ingericht zijn in het register van de computer met behulp van Groepsbeleid. Zie voor meer informatie [inrichten clientinstallatie-eigenschappen (groep beleid en software-update gebaseerde clientinstallatie)](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_Provision).  
 
--   Groepsbeleid-gebaseerde Installatie  
+   -   Configuration Manager-client moet gepubliceerd zijn op het software-updatepunt.  
 
-    -   Als het Active Directory-schema niet is uitgebreid, of u installeert clients van een andere forest, moeten de installatie-eigenschappen voor CCMSetup.exe ingericht zijn in het register van de computer door gebruik te maken van groepsbeleid. Voor meer informatie, zie [Eigenschappen van clientinstallatie inrichten (groepsbeleid en clientinstallatie op basis van software-update)](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_Provision).  
+   -   De clientcomputer moet in staat zijn om contact op te nemen met een distributie- of een beheerpunt om de ondersteunende bestanden te downloaden.  
 
-    -   De clientcomputer moet in staat zijn om contact op te nemen met een distributie- of een beheerpunt om de ondersteunende bestanden te downloaden.  
 
--   Aanmeldingscriptinstallatie  
+Voor de beveiligingsmachtigingen vereist voor het beheren van Configuration Manager software-updates, Zie [vereisten voor software-updates](../../../sum/plan-design/prerequisites-for-software-updates.md).  
 
-     De clientcomputer moet in staat zijn om contact op te nemen met een distributie- of een beheerpunt om de ondersteunende bestanden te downloaden tenzij u bij de opdrachtprompt CCMSetup.exe hebt opgegeven met de opdrachtregel-eigenschap **ccmsetup /source**.  
 
--   Handmatige installatie  
+#### <a name="group-policy-based-installation"></a>Installatie van Groepsbeleid op basis van beleid  
 
-     De clientcomputer moet in staat zijn om contact op te nemen met een distributie- of een beheerpunt om de ondersteunende bestanden te downloaden tenzij u bij de opdrachtprompt CCMSetup.exe hebt opgegeven met de opdrachtregel-eigenschap **ccmsetup /source**.  
+   -   Als het Active Directory-schema niet is uitgebreid, of u clients vanuit een ander forest installeert, installatie-eigenschappen voor CCMSetup.exe ingericht zijn in het register van de computer met behulp van Groepsbeleid. Zie voor meer informatie [inrichten clientinstallatie-eigenschappen (groep beleid en software-update gebaseerde clientinstallatie)](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_Provision).  
 
--   Installatie van de computerwerkgroep  
+   -   De clientcomputer moet in staat zijn om contact op te nemen met een distributie- of een beheerpunt om de ondersteunende bestanden te downloaden.  
 
-     Voor toegang tot bronnen in het domein van Configuration Manager site server, moet het netwerktoegangsaccount worden geconfigureerd voor de site.  
 
-     Zie voor meer informatie over het configureren van het netwerktoegangsaccount de [basisconcepten voor inhoudsbeheer in System Center Configuration Manager](../../plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
+#### <a name="logon-script-based-installation"></a>Aanmeldingscriptinstallatie  
 
--   Distributie op basis van een software-installatie (alleen voor upgrades)  
+De clientcomputer moet in staat zijn om contact op te nemen met een distributie- of een beheerpunt om de ondersteunende bestanden te downloaden. Tenzij u CCMSetup.exe opgaf met de opdrachtregel-eigenschap **ccmsetup/Source**.  
 
-    -   Als het Active Directory-schema niet is uitgebreid, of u installeert clients van een andere forest, moeten de installatie-eigenschappen voor CCMSetup.exe ingericht zijn in het register van de computer door gebruik te maken van groepsbeleid. Voor meer informatie, zie [Eigenschappen van clientinstallatie inrichten (groepsbeleid en clientinstallatie op basis van software-update)](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_Provision).  
 
-    -   De clientcomputer moet in staat zijn om contact op te nemen met een distributie- of een beheerpunt om de ondersteunende bestanden te downloaden.  
+#### <a name="manual-installation"></a>Handmatige installatie  
 
-     Voor de beveiligingsmachtigingen vereist om te upgraden van Configuration Manager-client met behulp van Toepassingsbeheer, Zie [beveiliging en privacy voor toepassingsbeheer](../../../apps/plan-design/security-and-privacy-for-application-management.md).  
+De clientcomputer moet in staat zijn om contact op te nemen met een distributie- of een beheerpunt om de ondersteunende bestanden te downloaden. Tenzij u CCMSetup.exe opgaf met de opdrachtregel-eigenschap **ccmsetup/Source**.  
 
--   Automatische clientupgrade  
 
-     U moet lid zijn van de beveiligingsrol **Volledige beheerder** om de automatische clientupgrades te kunnen configureren.  
+#### <a name="microsoft-intune-mdm-installation"></a>Microsoft Intune MDM-installatie
+
+ - Vereist een Microsoft Intune-abonnement en de juiste licenties.  
+
+ - Moet het apparaat toegang tot internet, zelfs als deze niet op basis van het internet.  
+
+ - Afhankelijk van het gebruiksvoorbeeld, wellicht ook een of beide van de volgende technologieën:  
+
+     - Azure Active Directory  
+
+     - Beheergateway cloud  
+
+
+#### <a name="workgroup-computer-installation"></a>Installatie van de computerwerkgroep  
+
+Voor toegang tot bronnen in het domein van Configuration Manager site server, moet het netwerktoegangsaccount worden geconfigureerd voor de site.  
+
+Zie voor meer informatie over het configureren van het netwerktoegangsaccount de [basisconcepten voor inhoudsbeheer](../../plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
+
+
+#### <a name="software-distribution-based-installation-for-upgrades-only"></a>Distributie op basis van een software-installatie (alleen voor upgrades)  
+
+   -   Als het Active Directory-schema niet is uitgebreid, of u clients vanuit een ander forest installeert, installatie-eigenschappen voor CCMSetup.exe ingericht zijn in het register van de computer met behulp van Groepsbeleid. Zie voor meer informatie [inrichten clientinstallatie-eigenschappen (groep beleid en software-update gebaseerde clientinstallatie)](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_Provision).  
+
+   -   De clientcomputer moet in staat zijn om contact op te nemen met een distributie- of een beheerpunt om de ondersteunende bestanden te downloaden.  
+
+
+Voor de beveiligingsmachtigingen vereist om te upgraden van Configuration Manager-client met behulp van Toepassingsbeheer, Zie [beveiliging en privacy voor toepassingsbeheer](../../../apps/plan-design/security-and-privacy-for-application-management.md).  
+
+
+#### <a name="automatic-client-upgrades"></a>Automatische clientupgrade  
+
+U moet lid zijn van de beveiligingsrol **Volledige beheerder** om de automatische clientupgrades te kunnen configureren.  
+
 
 ### <a name="firewall-requirements"></a>Firewallvereisten  
- Indien er een firewall is tussen de sitesysteemservers en de computers waarop u de Configuration Manager-client wenst te installeren, zie [Windows Firewall- en poortinstellingen voor clients in System Center Configuration Manager](../../../core/clients/deploy/windows-firewall-and-port-settings-for-clients.md).  
 
-##  <a name="BKMK_prereqs_mobiledevices"></a>Vereisten voor Clients van mobiele apparaten  
- Gebruik de volgende informatie om te bepalen van de vereisten voor wanneer u de Configuration Manager-client op mobiele apparaten installeert en Configuration Manager gebruiken om ze te registreren.  
+Als er een firewall tussen de sitesysteemservers en de computers waarop u wenst te installeren van Configuration Manager-client, Zie [Windows Firewall- en poortinstellingen voor clients](../../../core/clients/deploy/windows-firewall-and-port-settings-for-clients.md).  
+
+
+
+##  <a name="BKMK_prereqs_mobiledevices"></a> Vereisten voor clients van mobiele apparaten  
+
+Wanneer u de Configuration Manager-client op mobiele apparaten installeren en registreren, moet u deze informatie gebruiken om de vereisten te bepalen.  
 
 ### <a name="dependencies-external-to-configuration-manager"></a>Afhankelijkheden extern aan Configuration Manager  
 
@@ -171,26 +203,26 @@ Implementeren van Configuration Manager-clients in uw omgeving heeft de volgende
 
      De uitgevende CA moet automatisch certificaatverzoeken van de gebruikers van mobiele apparaten goedkeuren tijdens het registratieproces.  
 
-     Zie [Beveiliging en privacy voor certificaatprofielen in System Center Configuration Manager](../../../protect/plan-design/security-and-privacy-for-certificate-profiles.md) voor meer informatie over de certificaatvereisten.  
+     Zie voor meer informatie over de certificaatvereisten [beveiliging en privacy voor certificaatprofielen](../../../protect/plan-design/security-and-privacy-for-certificate-profiles.md).  
 
 -   Een beveiligingsgroep die gebruikers bevat die hun mobiele apparaten kunnen registreren.  
 
      Deze beveiligingsgroep wordt gebruikt om het certificaatsjabloon te configureren dat is gebruikt gedurende de registratie van het mobiele apparaat.  
 
--   Optioneel maar aangeraden: een DNS-alias (CNAME record) **ConfigMgrEnroll** genoemd, die geconfigureerd is voor de sitesysteemservernaam waarop u het registratie-proxy-punt gaat installeren.  
+-   Optioneel maar aangeraden: een DNS-alias (CNAME-record) met de naam **ConfigMgrEnroll**. Deze alias voor de servernaam van het proxypunt voor inschrijving configureren.  
 
-     De DNS-is alias vereist ter ondersteuning van automatische detectie voor de registratieservice: Als u deze DNS-record niet configureert, moeten gebruikers handmatig de sitesysteemservernaam van het proxypunt voor inschrijving opgeven als onderdeel van het registratieproces.  
+     De DNS-is alias vereist ter ondersteuning van automatische detectie voor de registratieservice. Als u deze DNS-record niet configureert, moeten gebruikers handmatig de naam van het inschrijvingsproxypunt opgeven als onderdeel van het registratieproces.  
 
--   Sitesysteemrolafhankelijkheden voor de computers die het registratiepunt en de systeemrollen van de registratie-proxypunt-site zullen uitvoeren.  
+-   Sitesysteemrolafhankelijkheden voor de computers waarop het inschrijvingspunt en het inschrijvingsproxypunt punt sitesysteemrollen.  
 
      Zie [Ondersteunde besturingssystemen voor sitesysteemservers](../../../core/plan-design/configs/supported-operating-systems-for-site-system-servers.md).  
 
 ### <a name="configuration-manager-dependencies"></a>Configuration Manager-afhankelijkheden  
- Voor meer informatie over de volgende sitesysteemrollen, zie de sectie [De sitesysteemrollen voor System Center Configuration Manager-clients bepalen](../../../core/clients/deploy/plan/determine-the-site-system-roles-for-clients.md).  
+ Zie voor meer informatie [de sitesysteemrollen voor clients bepalen](../../../core/clients/deploy/plan/determine-the-site-system-roles-for-clients.md).  
 
 -   Beheerpunt dat is geconfigureerd voor HTTPS client-verbindingen en ingeschakeld is voor mobiele apparaten  
 
-     Een beheerpunt is altijd vereist om de installatie van Configuration Manager-client op mobiele apparaten. In aanvulling op de configuratie-eisen van HTTPS en ingeschakeld voor mobiele apparaten, moet het beheerpunt worden geconfigureerd met een Internet FQDN en clientverbindingen vanaf het Internet aanvaarden.  
+     Een beheerpunt is altijd vereist om de installatie van Configuration Manager-client op mobiele apparaten. Naast de configuratievereisten van HTTPS en ingeschakeld voor mobiele apparaten, het beheerpunt moet worden geconfigureerd met een internet FQDN en clientverbindingen accepteert van het internet.  
 
 -   Registratiepunt en proxypunt voor registratie  
 
@@ -226,13 +258,14 @@ Implementeren van Configuration Manager-clients in uw omgeving heeft de volgende
 
      De beveiligingsrol **Bewerkingenbeheerder** bevat de vereiste machtigingen om mobiele apparaten te beheren.  
 
-     Zie voor meer informatie over het configureren van beveiligingsmachtigingen [De basisprincipes van beheer op basis van rollen voor System Center Configuration Manager](../../../core/understand/fundamentals-of-role-based-administration.md) en [Beheer op basis van rollen configureren voor System Center Configuration Manager](../../../core/servers/deploy/configure/configure-role-based-administration.md).  
+     Zie voor meer informatie over het configureren van beveiligingsmachtigingen [basisprincipes van beheer op basis van rollen](../../../core/understand/fundamentals-of-role-based-administration.md) en [beheer op basis van rollen configureren](../../../core/servers/deploy/configure/configure-role-based-administration.md).  
 
 ### <a name="firewall-requirements"></a>Firewallvereisten  
- Tussenkomende netwerkapparaten zoals routers en firewalls, en Windows Firewall indien van toepassing, moeten het verkeer toestaan dat gekoppeld is aan inschrijvingen van mobiele apparaten:  
+Tussenkomende netwerkapparaten zoals routers en firewalls, en Windows Firewall indien van toepassing, moeten het verkeer toestaan dat gekoppeld is aan inschrijvingen van mobiele apparaten:  
 
 -   Tussen mobiele apparaten en het proxypunt voor inschrijving: HTTPS (standaard TCP 443)  
 
 -   Tussen het registratieproxypunt en het registratiepunt: HTTPS (standaard TCP 443)  
 
- Als u een proxywebserver gebruikt, moet deze geconfigureerd zijn voor SSL-tunneling; SSL-bridging wordt niet ondersteund voor mobiele apparaten.  
+
+Als u een proxywebserver gebruikt, moet deze geconfigureerd zijn voor SSL-tunneling; SSL-bridging wordt niet ondersteund voor mobiele apparaten.  

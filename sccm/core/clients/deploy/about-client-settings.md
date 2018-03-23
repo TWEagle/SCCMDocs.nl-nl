@@ -1,9 +1,9 @@
 ---
 title: Clientinstellingen
 titleSuffix: Configuration Manager
-description: Kies de instellingen voor client met behulp van de beheerconsole in System Center Configuration Manager.
+description: Meer informatie over de standaard- en aangepaste instellingen voor het beheren van client-gedrag
 ms.custom: na
-ms.date: 01/05/2018
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,20 +12,20 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f7560876-8084-4570-aeab-7fd44f4ba737
-caps.latest.revision: 
-caps.handback.revision: 
+caps.latest.revision: ''
+caps.handback.revision: ''
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: dddfde242a67a0b4a9311c0fb6f0b2f0e6742cc2
-ms.sourcegitcommit: fbd4a9d2fa8ed4ddd3a0fecc4a2ec4fc0ccc3d0c
+manager: dougeby
+ms.openlocfilehash: 42b9364fc88acc3f403db8d2ca9243a117fd78bf
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="about-client-settings-in-system-center-configuration-manager"></a>Clientinstellingen in System Center Configuration Manager
 
-Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 Beheert alle clientinstellingen in de Configuration Manager-console van de **clientinstellingen** knooppunt in de **beheer** werkruimte. Configuration Manager wordt geleverd met een aantal standaardinstellingen. Wanneer u de standaardclientinstellingen wijzigt, worden deze instellingen worden toegepast op alle clients in de hiërarchie. U kunt ook aangepaste clientinstellingen die de standaardclientinstellingen overschrijven wanneer u deze aan verzamelingen toewijzen configureren. Zie voor meer informatie [het configureren van clientinstellingen](../../../core/clients/deploy/configure-client-settings.md).
 
@@ -114,18 +114,19 @@ Deze instelling geldt voor gebruikers wanneer hun computer op het intranet of in
 
 Stel dit in op **Ja** voor gebruikers ontvangen het gebruikersbeleid op internet gebaseerde computers. De volgende vereisten ook van toepassing:  
 
--   De client en de site zijn geconfigureerd voor clientbeheer op internet.
+-   De client en de site zijn geconfigureerd voor [internet-gebaseerd clientbeheer](/sccm/core/clients/manage/plan-internet-based-client-management) of een [management cloudgateway](/sccm/core/clients/manage/cmg/plan-cloud-management-gateway).  
 
 -   De **gebruikersbeleid op clients inschakelen** instelling is **Ja**.  
 
--   De internet-gebaseerd beheerpunt bevindt verifieert de gebruiker met behulp van Windows-verificatie (Kerberos of NTLM).  
+-   De internet-gebaseerd beheerpunt bevindt verifieert de gebruiker met behulp van Windows-verificatie (Kerberos of NTLM). Zie voor meer informatie [overwegingen voor clientcommunicatie via internet](../../../core/plan-design/hierarchy/communications-between-endpoints.md#BKMK_clientspan).  
+
+-   Vanaf versie 1710, verifieert de cloudgateway management de gebruiker met behulp van Azure Active Directory. Zie voor meer informatie [gebruikers beschikbare toepassingen op Azure AD-die lid zijn van apparaten implementeren](\sccm\apps\deploy-use\deploy-applications#deploy-user-available-applications-on-azure-ad-joined-devices).  
 
 Als u deze optie instelt op **Nee**, of een van de vorige vereisten niet wordt voldaan, wordt een computer op het internet ontvangt alleen het computerbeleid. In dit scenario nog gebruikers kunnen zien, aanvragen en installeren van toepassingen vanaf een internet-gebaseerd Application Catalog. Als deze instelling is **Nee**, maar **gebruikersbeleid op clients inschakelen** is **Ja**, gebruikers doen geen gebruikersbeleid ontvangen totdat de computer is verbonden met het intranet.  
 
-Zie voor meer informatie over het beheren van clients op het internet [overwegingen voor clientcommunicatie via internet of een niet-vertrouwd forest](../../../core/plan-design/hierarchy/communications-between-endpoints.md#BKMK_clientspan).  
-
 > [!NOTE]  
->  Goedkeuringsaanvragen voor toepassingen van gebruikers vereisen geen gebruikersbeleid of gebruikersverificatie.  
+>  Voor internet-gebaseerd clientbeheer vereisen goedkeuringsaanvragen voor toepassingen van gebruikers geen gebruikersbeleid of gebruikersverificatie. De cloud management gateway biedt geen ondersteuning voor goedkeuringsaanvragen voor toepassingen.   
+
 
 
 ## <a name="cloud-services"></a>Cloudservices
@@ -228,7 +229,7 @@ Typ de naam die wordt weergegeven in Software Center. Deze huismerkgegevens help
 
 ### <a name="use-new-software-center"></a>Nieuwe Software Center gebruiken
 
-Als u dit instellen op **Ja**, en vervolgens alle clientcomputers het Software Center gebruiken. Software Center bevat gebruikers beschikbare apps die eerder alleen toegankelijk in de Application Catalog zijn. De Application Catalog vereist Silverlight, die niet is een vereiste voor het Software Center.   
+Als u dit instellen op **Ja**, en vervolgens alle clientcomputers het Software Center gebruiken. Software Center bevat gebruikers beschikbare apps die eerder alleen toegankelijk in de Application Catalog zijn. De Application Catalog vereist Silverlight, die niet is een vereiste voor het Software Center. De standaardinstelling is gestart in Configuration Manager 1802, **Ja**.  
 
 De Application Catalog-websitepunt en Application Catalog-webservice webservicepunt functies nog steeds vereist zijn voor gebruikers beschikbare apps zijn worden weergegeven in Software Center.  
 
@@ -322,6 +323,21 @@ De volgende instellingen moet korter in duur dan het kortste onderhoudsvenster t
 
 Zie [Onderhoudsvensters gebruiken in System Center Configuration Manager](../../../core/clients/manage/collections/use-maintenance-windows.md) voor meer informatie over onderhoudsvensters.
 
+
+
+## <a name="delivery-optimization"></a>Leveringsoptimalisatie
+
+<!-- 1324696 -->
+U grensgroepen Configuration Manager gebruiken om te definiëren en inhoudsdistributie regelen tussen het bedrijfsnetwerk en naar externe kantoren. [Windows leveringsoptimalisatie](/windows/deployment/update/waas-delivery-optimization) is een cloud-gebaseerde, peer-to-peer-technologie voor het delen van inhoud tussen Windows 10-apparaten. Vanaf versie 1802, leveringsoptimalisatie voor het gebruik van uw grensgroepen bij het delen van inhoud tussen peers configureren.
+
+ > [!Note]
+ > Leveringsoptimalisatie is alleen beschikbaar op Windows 10-clients
+
+### <a name="use-configuration-manager-boundary-groups-for-delivery-optimization-group-id"></a>Gebruik Configuration Manager-Grensgroepen voor levering optimalisatie groeps-ID
+ Kies **Ja** toepassen van de grens groeps-id als de id van de groep leveringsoptimalisatie op de client. Wanneer de client met de cloudservice leveringsoptimalisatie communiceert, gebruikt deze id peers met de gewenste inhoud vinden. 
+
+
+
 ##  <a name="endpoint-protection"></a>Endpoint Protection  
 >  [!Tip]   
 > Naast de volgende informatie vindt u informatie over het gebruik van Endpoint Protection-clientinstellingen in [voorbeeldscenario: System Center Endpoint Protection gebruiken om computers te beveiligen tegen schadelijke software in System Center Configuration Manager](/sccm/protect/deploy-use/scenarios-endpoint-protection).
@@ -330,11 +346,11 @@ Zie [Onderhoudsvensters gebruiken in System Center Configuration Manager](../../
 
 Kies **Ja** als u wilt beheren van bestaande Endpoint Protection en Windows Defender-clients op computers in uw hiërarchie.  
 
-Selecteer deze optie als u de Endpoint Protection-client reeds hebt geïnstalleerd en u wilt beheren met Configuration Manager. Deze afzonderlijke installatie bevat een script proces dat gebruikmaakt van een Configuration Manager-toepassing of pakket en programma.
+Selecteer deze optie als u de Endpoint Protection-client reeds hebt geïnstalleerd en u wilt beheren met Configuration Manager. Deze afzonderlijke installatie bevat een script proces dat gebruikmaakt van een Configuration Manager-toepassing of pakket en programma. Vanaf Configuration Manager 1802, hoeft Windows 10-apparaten niet te hebben van de Endpoint Protection-agent die is geïnstalleerd. Echter, die apparaten nog steeds **beheren van Endpoint Protection-client op clientcomputers** ingeschakeld. <!--503654-->
 
 ### <a name="install-endpoint-protection-client-on-client-computers"></a>Endpoint Protection-client op clientcomputers installeren
 
-Kies **Ja** installeren en activeren van de Endpoint Protection-client op clientcomputers die de client niet al worden uitgevoerd.  
+Kies **Ja** installeren en activeren van de Endpoint Protection-client op clientcomputers die de client niet al worden uitgevoerd. Vanaf Configuration Manager 1802, hoeft Windows 10-clients niet te hebben van de Endpoint Protection-agent die is geïnstalleerd.  
 
 > [!NOTE]  
 >  Als de Endpoint Protection-client al is geïnstalleerd, kiezen **Nee** niet door de Endpoint Protection-client verwijderd. Om te verwijderen van de Endpoint Protection-client, stelt de **beheren van Endpoint Protection-client op clientcomputers** clientinstelling instelt op **Nee**. Vervolgens implementeert u een pakket en programma om de Endpoint Protection-client te verwijderen.  
@@ -609,8 +625,14 @@ Voer de naam van de organisatie die wordt weergegeven in Software Center.
 - **Kleurenschema voor Software Center** </br>
 Selecteer **Selecteer kleur** voor het definiëren van de primaire kleur die wordt gebruikt door Software Center.
 - **Selecteer een logo voor Software Center** </br>
-Selecteer **Bladeren** om een installatiekopie worden weergegeven in Software Center te selecteren. Het logo moet een JPEG-, PNG of BMP van 400 x 100 pixels en een maximale grootte van 750 KB. De naam van het logo mag geen spaties bevatten. <!--SMS.503731 space in filename, noticed BMP missing as filetype-->
+Selecteer **Bladeren** om een installatiekopie worden weergegeven in Software Center te selecteren. Het logo moet een JPEG-, PNG of BMP van 400 x 100 pixels en een maximale grootte van 750 KB. De naam van het logo mag geen spaties bevatten.  
+         
+### <a name="bkmk_HideUnapproved"></a> Niet-goedgekeurde toepassingen in Software Center verbergen
+U start in Configuration Manager versie 1802, wanneer deze optie is ingeschakeld, zijn gebruiker beschikbare toepassingen die moeten worden goedgekeurd verborgen in Software Center.   <!--1355146-->
 
+### <a name="bkmk_HideInstalled"></a> Geïnstalleerde toepassingen in Software Center verbergen
+U start in Configuration Manager versie 1802,-toepassingen die al zijn geïnstalleerd, worden niet meer op het tabblad toepassingen weergegeven wanneer deze optie is ingeschakeld. Deze optie is ingesteld als standaard bij het installeren of upgraden naar Configuration Manager 1802.  Geïnstalleerde toepassingen zijn nog steeds beschikbaar is voor controle op het tabblad van de status van de installatie. <!--1357592-->   
+  
 ### <a name="software-center-tab-visibility"></a>Software Center tabblad zichtbaarheid
 De extra instellingen configureren in deze groep **Ja** zichtbaar maken voor de volgende tabbladen in Software Center:
 - **Toepassingen**

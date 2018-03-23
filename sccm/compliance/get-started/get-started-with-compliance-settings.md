@@ -1,34 +1,37 @@
 ---
 title: Aan de slag met instellingen voor naleving
 titleSuffix: Configuration Manager
-description: Meer informatie over hoe de instellingen voor naleving in System Center Configuration Manager werken. Ook informatie over de belangrijkste concepten die u nodig hebt.
+description: Meer informatie over de belangrijkste concepten en hoe instellingen voor naleving werken
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: a2742d52-851e-4abc-b623-d12d91684c0b
-caps.latest.revision: "11"
-author: andredm7
-ms.author: andredm
-manager: angrobe
-ms.openlocfilehash: b1171f806d1bda9671fd5817362285a461ee2d44
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+caps.latest.revision: ''
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: a8f672d4d92db8f1bd6e19c4a483b5b3107ad703
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-compliance-settings-in-system-center-configuration-manager"></a>Aan de slag met de instellingen voor naleving in System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Voordat u begint met System Center Configuration Manager-configuratie-items maken, leest u dit onderwerp om te begrijpen hoe de instellingen voor naleving werken en voor meer informatie over de belangrijkste concepten waarover die u iets moet weten.  
+Voordat u instellingen voor naleving van Configuration Manager maakt, eerst meer informatie over de belangrijkste concepten en begrijpen hoe deze werken.  
 
-## <a name="how-compliance-settings-works"></a>Hoe instellingen voor naleving werken  
- Instellingen voor naleving kunnen u de configuratie en naleving van servers, laptops, desktopcomputers en mobiele apparaten in uw organisatie beheren.  
+
+
+## <a name="how-compliance-settings-work"></a>Hoe instellingen voor naleving werken  
+ Instellingen voor naleving kunnen u de configuratie en naleving van clients in uw organisatie beheren.  
 
  Configuratie-items kunnen worden onderverdeeld in twee hoofdcategorieën:  
 
@@ -36,50 +39,83 @@ Voordat u begint met System Center Configuration Manager-configuratie-items make
 
 -   **Instellingen voor apparaten die worden beheerd zonder Configuration Manager-client** - meestal apparaten die worden beheerd met Microsoft Intune of met Apparaatbeheer voor lokale Configuration Manager.  
 
+
+
 ## <a name="what-devices-are-supported"></a>Welke apparaten worden ondersteund?  
 
-
-|Apparaattype|Meer informatie|  
+| Apparaattype | Meer informatie |  
 |------------|----------------------|  
-|Windows-pc's (met de Configuration Manager-client)|Hiermee kunt u aangepaste configuratie-items maken waarmee u items zoals registersleutels, bestanden en Active Directory-kenmerken kunt beoordelen.<br /><br /> Als u het Windows 10-configuratie-itemtype gebruikt, selecteert u de gewenste instellingen in een vooraf gedefinieerde lijst.|  
-|Windows-pc's (geregistreerd bij Microsoft Intune)|Selecteer de gewenste instellingen in een vooraf gedefinieerde lijst.|  
-|iOS-apparaten (geregistreerd bij Microsoft Intune)|Selecteer de gewenste instellingen in een vooraf gedefinieerde lijst.|  
-|Android-apparaten (geregistreerd bij Microsoft Intune)|Selecteer de gewenste instellingen in een vooraf gedefinieerde lijst.|  
-|Windows Phone-apparaten (geregistreerd bij Microsoft Intune)|Selecteer de gewenste instellingen in een vooraf gedefinieerde lijst.|  
-|Mac-computers (met de Configuration Manager-client)|Biedt u de mogelijkheid om aangepaste configuratie-items te maken waarmee u items kunt evalueren, zoals waarden voor Mac OS X-voorkeuren (eigenschappenlijst). De resultaten worden geretourneerd door een script.|  
-|Mac-computers (ingeschreven bij Microsoft Intune)|Selecteer de gewenste instellingen in een vooraf gedefinieerde lijst.|  
+| Windows-pc's (met de Configuration Manager-client) | Aangepaste configuratie-items voor het evalueren van objecten, zoals registersleutels, bestanden en Active Directory-kenmerken maken.<br /><br /> Wanneer u de Windows 10-configuratie-itemtype gebruikt, selecteert u de instellingen van een vooraf gedefinieerde lijst. |  
+| Windows-pc's (geregistreerd bij Microsoft Intune) | Selecteer de instellingen van een vooraf gedefinieerde lijst. |  
+| iOS-apparaten (geregistreerd bij Microsoft Intune) | Selecteer de instellingen van een vooraf gedefinieerde lijst. |  
+| Android-apparaten (geregistreerd bij Microsoft Intune) | Selecteer de instellingen van een vooraf gedefinieerde lijst. |  
+| Windows Phone-apparaten (geregistreerd bij Microsoft Intune) | Selecteer de instellingen van een vooraf gedefinieerde lijst. |  
+| Mac-computers (met de Configuration Manager-client) | Aangepaste configuratie-items voor het evalueren van objecten, zoals Mac OS-voorkeuren en resultaten geretourneerd door een script maken. |  
+| Mac-computers (ingeschreven bij Microsoft Intune) | Selecteer de instellingen van een vooraf gedefinieerde lijst. |  
+
+
 
 ## <a name="what-is-a-configuration-item"></a>Wat is een configuratie-item?  
- Een configuratie-item kan worden gezien als een container waarin de volgende informatie wordt opgeslagen (welke informatie u configureert, is afhankelijk van het type configuratie-item):  
+ Een configuratie-item is een container waarin specifieke informatie wordt opgeslagen. De informatie die u configureert, is afhankelijk van het configuratietype-item. Configuratie-items kunnen de volgende informatie bevatten:
 
--   **Informatie over de detectiemethode** (voor Windows-configuratie-items die alleen toepassingsinstellingen bevatten): hiermee kunt u detecteren of een toepassing is geïnstalleerd door het Windows Installer-bestand voor de toepassing te detecteren of door een aangepast script te gebruiken.  
+-   **Informatie over de detectiemethode** is alleen voor Windows-configuratie-items die toepassingsinstellingen bevatten. Er wordt gedetecteerd of een toepassing is geïnstalleerd. Deze detectie maakt gebruik van het Windows installer-bestand voor de toepassing of met behulp van een aangepast script.  
 
--   **Instellingen** : instellingen vertegenwoordigen de zakelijke of technische voorwaarden die worden gebruikt voor het evalueren van naleving op clientapparaten. U kunt een nieuwe instelling configureren of naar een bestaande instelling op een referentiecomputer bladeren.  
+-   **Instellingen** vertegenwoordigen de zakelijke of technische voorwaarden om te evalueren van Compliantie op clientapparaten. Een nieuwe instelling configureren of blader naar een bestaande instelling op een referentiecomputer.  
 
--   **Compliantieregels** : met compliantieregels geeft u de voorwaarden voor naleving van een instelling van een configuratie-item op. Voordat een instelling kan worden beoordeeld op naleving, moet de instelling minimaal één compliantieregel hebben. Voor bepaalde instellingen kunt u waarden herstellen die niet compatibel zijn. U kunt nieuwe regels maken of naar een bestaande instelling in een configuratie-item bladeren om regels hierin te selecteren.  
+-   **Compliantieregels** de voorwaarden opgeven waaraan de naleving van een configuratie-item-instelling definiëren. Voordat de client een instelling voor naleving evalueert, moet ten minste één compliantieregel hebben. Sommige instellingen herstellen niet-compatibele waarden. Nieuwe regels maken of blader naar een bestaande instelling in een configuratie-item en selecteer regels in het.  
 
--   **Ondersteunde platforms** : dit zijn de apparaatplatforms die u definieert waarop het configuratie-item wordt geëvalueerd op compatibiliteit. Als u een configuratie-item voor een apparaat implementeert dat niet in de lijst met ondersteunde platforms staat, wordt de compatibiliteit van het item niet geëvalueerd.  
+-   **Ondersteunde platforms** zijn de apparaatplatforms die u definieert waarop de client evalueert de naleving van de configuratie-items. Als u een configuratie-item op een apparaat dat zich niet in de lijst met ondersteunde platformen implementeert, beoordeelt naleving niet meer.  
+
+
 
 ## <a name="what-is-a-configuration-baseline"></a>Wat is een configuratiebasislijn?  
- De compatibiliteit wordt geëvalueerd door een configuratiebasislijn te definiëren met daarin de configuratie-items die u wilt evalueren en de instellingen en de regels die het compatibiliteitsniveau beschrijven. U kunt deze configuratiegegevens importeren via Internet in Microsoft System Center Configuration Manager-configuratiepakketten als aanbevolen procedures die zijn gedefinieerd door Microsoft en andere leveranciers in Configuration Manager en die u vervolgens importeren in Configuration Manager. U kunt ook nieuwe configuratie-items en configuratiebasislijnen maken.  
+ Definieer een configuratiebasislijn met de configuratie-items om te evalueren. Ook de instellingen en regels die het vereiste niveau van compatibiliteit beschrijven. Deze configuratiegegevens uit Configuration Manager-configuratiepakketten importeren. Definieer deze configuratiepakketten Microsoft en andere leveranciers. Nieuwe configuratie-items en configuratiebasislijnen of maken.  
 
- Nadat de configuratiebasislijn is gedefinieerd, kunt u deze via verzamelingen implementeren voor gebruikers en apparaten en kunt u de instellingen voor de compatibiliteit evalueren volgens een planning. Er kunnen meerdere configuratiebasislijnen voor apparaten zijn geïmplementeerd. Dit biedt u een hoge mate van controle.  
+ Nadat u een configuratiebasislijn hebt gedefinieerd, kunt u dit aan gebruiker en apparaatverzamelingen implementeren. De client evalueert vervolgens de basislijninstellingen voor naleving volgens een schema. U kunt meer dan een configuratiebasislijn implementeren op apparaten. Deze granulatie biedt meer controle over de naleving. 
 
- Clientapparaten evalueren hun compatibiliteit aan de hand van elke geïmplementeerde configuratiebasislijn en rapporteren de resultaten rechtstreeks naar de site met behulp van statusberichten. Als een clientapparaat momenteel geen verbinding met het netwerk heeft, maar de configuratie-items heeft gedownload waarnaar in een geïmplementeerde configuratiebasislijn wordt verwezen, wordt gecontroleerd of de configuratiebasislijn aan eisen voldoet. De compatibiliteitsinformatie wordt verzonden zodra de verbinding is hersteld.  
+ Clientapparaten evalueren hun compatibiliteit aan de hand van elke geïmplementeerde configuratiebasislijn en rapporteren de resultaten rechtstreeks naar de site met behulp van statusberichten. Als een apparaat is momenteel losgekoppeld van het netwerk, maar de configuratiebasislijn wordt gedownload, evalueert deze nog steeds op compatibiliteit van de configuratie-items. De compatibiliteitsinformatie stuurt wanneer verbinding wordt gemaakt.  
 
- U kunt de resultaten van de naleving van evaluatie van de configuratiebasislijn uit bewaken de **implementaties** knooppunt in de **bewaking** werkruimte in de Configuration Manager-console om weer te geven van de meest voorkomende oorzaken van incompatibiliteit, fouten en het aantal gebruikers en apparaten die worden beïnvloed. U kunt ook rapporten voor nalevingsinstellingen uitvoeren om aanvullende details te zoeken, bijvoorbeeld welke apparaten wel en niet compatibel zijn en welke elementen van de configuratiebasislijn ervoor zorgen dat een computer niet-compatibel is. U kunt ook weergaveresultaten van de nalevingsevaluatie Windows-computers waarop de Configuration Manager-clientsoftware wordt uitgevoerd met behulp van de **configuraties** tabblad **Configuration Manager** in het Configuratiescherm.  
+### <a name="monitoring-configuration-baselines"></a>Bewaking van configuratiebasislijnen
+- Controleren van de resultaten van de evaluatie van de naleving in Configuration Manager-console onder het **bewaking** werkruimte, in de **implementaties** knooppunt. Bijvoorbeeld:
+    - Veelvoorkomende oorzaken van incompatibiliteit
+    - Errors
+    - Het aantal betrokken gebruikers en apparaten
+- Voer rapporten met instellingen voor naleving met aanvullende informatie. Bijvoorbeeld:
+    - Welke apparaten zijn compatibel of niet-compatibele
+    - Welke elementen van de configuratiebasislijn wordt veroorzaakt door een computer wordt niet-compatibele
+- Bekijken van resultaten van evaluatie van Compliantie op Windows-computers waarop de Configuration Manager-client wordt uitgevoerd. Open de **Configuration Manager** het Configuratiescherm en schakel over naar de **configuraties** tabblad.  
+
+
 
 ## <a name="user-data-and-profiles-configuration-items"></a>Configuratie-items voor gebruikersgegevens en -profielen  
- Items voor gebruikersgegevens en profielen configuratie bevatten instellingen die bepalen hoe gebruikers in uw hiërarchie Mapomleiding, offlinebestanden en zwervende profielen op computers met Windows 8 en hoger beheren. U kunt deze implementeren naar verzamelingen van gebruikers en vervolgens hun naleving controleren via de **bewaking** knooppunt van de Configuration Manager-console. In tegenstelling tot andere configuratie-items, voegt u deze configuratiebasislijnen niet toe voordat u ze implementeert. U kunt ze rechtstreeks implementeren via het dialoogvenster **Configuratie-item voor gebruikersgegevens en -profielen implementeren** .  
+ Configuratie-items voor gebruikersgegevens en -profielen bevatten instellingen die bepalen hoe gebruikers op computers met Windows 8 en hoger beheren:  
+   - Mapomleiding
+   - Offlinebestanden
+   - Zwervende profielen  
+
+Deze configuratie-items implementeren naar gebruikersverzamelingen. Hun naleving controleren via de **bewaking** knooppunt van de Configuration Manager-console. In tegenstelling tot andere configuratie-items niet toe te voegen aan configuratiebasislijnen voordat u ze implementeert. Deze implementeren rechtstreeks door te klikken op **implementeren** in het lint.  
 
  Zie voor meer informatie [gebruikersgegevens en profielen configuratie-items maken](/sccm/compliance/deploy-use/create-user-data-and-profiles-configuration-items).  
 
+
+
 ## <a name="remote-connection-profiles"></a>Profielen voor externe verbindingen  
- Met profielen voor externe verbindingen beschikt u over een verzameling hulpprogramma's en bronnen waarmee u instellingen voor externe verbindingen kunt maken, implementeren en bewaken voor apparaten in uw organisatie. Door deze instellingen te implementeren, maakt u het voor eindgebruikers gemakkelijker om met hun computers verbinding te maken met het bedrijfsnetwerk.  
+ Profielen voor externe verbindingen bieden een set hulpprogramma's en bronnen voor hulp bij het maken, implementeren en bewaken van de instellingen voor externe verbindingen. Deze instellingen implementeert op apparaten, gemakkelijker u de eindgebruikers op hun computers aansluiten op het bedrijfsnetwerk.  
 
 Zie voor meer informatie [maken van profielen voor externe verbindingen](/sccm/compliance/deploy-use/create-remote-connection-profiles).  
 
+
+
 ## <a name="windows-edition-upgrade"></a>Windows-editie-upgrade
-De editie-Upgradebeleid kunt u automatisch upgraden van apparaten met bepaalde versies van Windows 10 naar een nieuwere versie door het opgeven van een nieuw product of licentiegegevens bestand.
+De editie-Upgradebeleid worden automatisch bijgewerkt voor apparaten met bepaalde versies van Windows 10 naar een nieuwere versie. Dit beleid biedt een nieuw product of licentiegegevens bestand dat door het apparaat wordt gebruikt om bij te werken.
 
 Zie voor meer informatie [Upgrade Windows-apparaten met de editie-Upgradebeleid](/sccm/compliance/deploy-use/upgrade-windows-version)
+
+
+
+## <a name="microsoft-edge-browser-profiles"></a>Profielen van Microsoft Edge-browser
+<!-- 1357310 -->
+Vanaf versie 1802, voor klanten die gebruikmaken van de [Microsoft Edge](https://technet.microsoft.com/microsoft-edge/bb265256) web browser op Windows 10-clients, maakt u een nalevingsbeleid instellingen om verschillende Microsoft Edge-instellingen te configureren. 
+
+Zie voor meer informatie [profielen van de browser Microsoft Edge](/sccm/compliance/deploy-use/browser-profiles).
+

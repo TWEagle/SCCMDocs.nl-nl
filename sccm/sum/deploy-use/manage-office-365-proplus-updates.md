@@ -2,36 +2,36 @@
 title: Office 365 ProPlus-updates beheren
 titleSuffix: Configuration Manager
 description: Configuration Manager worden gesynchroniseerd voor Office 365-clientupdates van de WSUS-catalogus naar de siteserver om updates beschikbaar om te implementeren op clients.
-keywords: 
+keywords: ''
 author: mestew
 ms.author: mstewart
 manager: dougeby
-ms.date: 02/16/2018
+ms.date: 03/22/2018
 ms.topic: article
 ms.prod: configuration-manager
-ms.service: 
+ms.service: ''
 ms.technology:
 - configmgr-sum
 ms.assetid: eac542eb-9aa1-4c63-b493-f80128e4e99b
-ms.openlocfilehash: 2f765df84b94524cf56f6d1d9e051157f1a325ef
-ms.sourcegitcommit: 45ff3ffa040eada5656b17f47dcabd3c637bdb60
+ms.openlocfilehash: 5bd1a3afd7957e4db1b43e344a7b88e18de50695
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-office-365-proplus-with-configuration-manager"></a>Beheren van Office 365 ProPlus met Configuration Manager
 
-Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 Configuration Manager kunt u Office 365 ProPlus-apps in de volgende manieren beheren:
 
-- [Office 365 Client Management dashboard](#office-365-client-management-dashboard): Vanaf Configuration Manager versie 1610, kunt u informatie over Office 365 client vanuit het Office 365 Client Management dashboard bekijken.    
+- [Office 365 Client Management dashboard](#office-365-client-management-dashboard): U kunt informatie over Office 365 client vanuit het dashboard clientbeheer voor Office 365 controleren. Vanaf versie 1802 van Configuration Manager kan geeft het Office 365 client management dashboard een lijst met relevante apparaten wanneer grafiek secties zijn geselecteerd. <!--1357281 -->
 
 - [Office 365-apps implementeren](#deploy-office-365-apps): Vanaf versie 1702, kunt u het Office 365-installatieprogramma starten vanuit het dashboard beheer voor Office 365-Client om de initiële Office 365-App-installatie eenvoudiger ervaring. De wizard kunt u Office 365-installatie-instellingen configureren, bestanden downloaden van inhoud levering bedrijfsnetwerken (CDN), en maken en implementeren van de toepassing van een script met de inhoud.    
 
-- [Office 365-updates implementeren](#deploy-office-365-updates): Vanaf versie 1602 van Configuration Manager, kunt u updates voor Office 365-clients beheren met behulp van de werkstroom voor software-update. Wanneer Microsoft publiceert een nieuwe Office 365-clientupdate voor de Office Content Delivery Network (CDN), publiceert Microsoft ook een updatepakket voor Windows Server Update Services (WSUS). Configuration Manager worden gesynchroniseerd met de Office 365-clientupdate van de WSUS-catalogus naar de siteserver, is de update beschikbaar om te implementeren op clients.    
+- [Office 365-updates implementeren](#deploy-office-365-updates): U kunt updates voor Office 365-clients beheren met behulp van de werkstroom voor software-update. Wanneer Microsoft publiceert een nieuwe Office 365-clientupdate voor de Office Content Delivery Network (CDN), publiceert Microsoft ook een updatepakket voor Windows Server Update Services (WSUS). Configuration Manager worden gesynchroniseerd met de Office 365-clientupdate van de WSUS-catalogus naar de siteserver, is de update beschikbaar om te implementeren op clients.    
 
-- [Toevoegen van talen voor Office 365-updatebestanden downloads](#add-languages-for-office-365-update-downloads): U kunt ondersteuning voor Configuration Manager voor alle talen die worden ondersteund door Office 365-updates te downloaden vanaf Configuration Manager versie 1610 kan toevoegen. Betekenis Configuration Manager geen ondersteuning voor de taal als Office 365 biedt. U moet vóór de Configuration Manager versie 1610 downloaden en implementeren van updates in de dezelfde talen op Office 365-clients geconfigureerd. 
+- [Toevoegen van talen voor Office 365-updatebestanden downloads](#add-languages-for-office-365-update-downloads): U kunt ondersteuning voor Configuration Manager te downloaden van updates voor alle talen die worden ondersteund door Office 365 kunt toevoegen. Betekenis Configuration Manager geen ondersteuning voor de taal als Office 365 biedt. U moet vóór de Configuration Manager versie 1610 downloaden en implementeren van updates in de dezelfde talen op Office 365-clients geconfigureerd. 
 
 - [Wijzigen van het kanaal update](#change-the-update-channel-after-you-enable-office-365-clients-to-receive-updates-from-configuration-manager): U kunt Groepsbeleid gebruiken voor het distribueren van een wijziging in het register sleutelwaarde op Office 365-clients om de update-kanaal te wijzigen.
 
@@ -45,10 +45,10 @@ Het beheer van Office 365 Client dashboard biedt grafieken voor de volgende info
 - Office 365 client kanalen     
   Zie voor meer informatie [overzicht van de update voor Office 365 ProPlus kanalen](https://technet.microsoft.com/library/mt455210.aspx).
 
-Het beheer van Office 365 Client als dashboard wilt weergeven in de Configuration Manager-console, gaat u naar **softwarebibliotheek** > **overzicht** > **Office 365-clientbeheer**. Aan de bovenkant van het dashboard gebruiken de **verzameling** Vervolgkeuze-instelling voor het filteren van de dashboardgegevens door leden van een specifieke verzameling.
+Het beheer van Office 365 Client als dashboard wilt weergeven in de Configuration Manager-console, gaat u naar **softwarebibliotheek** > **overzicht** > **Office 365-clientbeheer**. Aan de bovenkant van het dashboard gebruiken de **verzameling** Vervolgkeuze-instelling voor het filteren van de dashboardgegevens door leden van een specifieke verzameling. Vanaf versie 1802 van Configuration Manager kan geeft het Office 365 client management dashboard een lijst met relevante apparaten wanneer grafiek secties zijn geselecteerd.
 
 ### <a name="display-data-in-the-office-365-client-management-dashboard"></a>Gegevens weergeven in het dashboard voor Office 365-clientbeheer
-De gegevens die wordt weergegeven in het dashboard voor beheer van Office 365 Client afkomstig van hardware-inventaris. Hardware-inventaris inschakelen en selecteer de **Office 365 ProPlus configuraties** hardware-inventarisklasse voor gegevens om weer te geven in het dashboard.
+De gegevens die wordt weergegeven in het dashboard voor beheer van Office 365 Client afkomstig van hardware-inventaris. Hardware-inventaris inschakelen en selecteer de **Office 365 ProPlus configuraties** hardware-inventarisklasse voor gegevens om weer te geven in het dashboard. 
 #### <a name="to-display-data-in-the-office-365-client-management-dashboard"></a>Gegevens weergeven in het dashboard voor Office 365-clientbeheer
 1. Hardware-inventarisatie inschakelen als deze nog niet is ingeschakeld. Zie voor meer informatie [hardware-inventaris configureren](\sccm\core\clients\manage\configure-hardware-inventory).
 2. Navigeer in de Configuration Manager-console naar **beheer** > **clientinstellingen** > **Standaardclientinstellingen**.  
@@ -78,10 +78,10 @@ Voor eerdere versies van Configuration Manager, moet u rekening houden met de vo
 ### <a name="to-deploy-office-365-apps-to-clients-from-the-office-365-client-management-dashboard"></a>Office 365-apps implementeren op clients vanuit het dashboard voor Office 365-clientbeheer
 1. Navigeer in de Configuration Manager-console naar **softwarebibliotheek** > **overzicht** > **Office 365-clientbeheer**.
 2. Klik op **Office 365 Installer** in het deelvenster rechtsboven. De Wizard Client installeren van Office 365 wordt geopend.
-3. Op de **toepassingsinstellingen** pagina, Geef een naam en beschrijving voor de app, voer de downloadlocatie voor de bestanden en klik vervolgens op **volgende**. De locatie moet worden opgegeven als &#92; &#92; *server*&#92; *delen*.
-4. Op de **clientinstellingen importeren** pagina, kiest u of de Office 365 client-instellingen importeren van een bestaande XML-configuratiebestand of geef handmatig de instellingen en klik vervolgens op **volgende**.  
+3. Op de **toepassingsinstellingen** pagina, Geef een naam en beschrijving voor de app, voer de downloadlocatie voor de bestanden en klik vervolgens op **volgende**. De locatie moet worden opgegeven als &#92; &#92; *server*&#92;*delen*.
+4. Op de **clientinstellingen importeren** pagina, kies of u de instellingen van de Office 365 client importeren uit een bestaande XML-configuratiebestand of de instellingen handmatig opgeven. Klik op **volgende** wanneer u klaar bent.  
 
-    Wanneer u een bestaand configuratiebestand hebt, voer de locatie voor het bestand en gaat u verder met stap 7. U moet de locatie opgeven in het formulier &#92; &#92; *server*&#92; *delen*&#92; *bestandsnaam*. XML.
+    Wanneer u een bestaand configuratiebestand hebt, voer de locatie voor het bestand en gaat u verder met stap 7. U moet de locatie opgeven in de vorm &#92; &#92; *server*&#92;*delen*&#92;*filename*. XML.
     > [!IMPORTANT]    
     > Het XML-configuratiebestand alleen moet bevatten [talen die worden ondersteund door de Office 365 ProPlus-client](https://technet.microsoft.com/library/cc179219&#40;v=office.16&#41;.aspx).
 
@@ -99,7 +99,7 @@ Nadat u maken en implementeren van Office 365-toepassingen met behulp van het Of
 
 
 ## <a name="deploy-office-365-updates"></a>Office 365-updates implementeren
-Vanaf Configuration Manager versie 1706 Office 365-clientupdates hebt verplaatst naar de **Office 365-clientbeheer** >**Office 365-Updates** knooppunt. Dit heeft geen invloed op de configuratie van de regel voor automatische implementatie. 
+Vanaf Configuration Manager versie 1706 Office 365-clientupdates hebt verplaatst naar de **Office 365-clientbeheer** >**Office 365-Updates** knooppunt.  de configuratie van de ADR heeft geen invloed op verplaatsen. 
 
 Gebruik de volgende stappen voor het implementeren van updates voor Office 365 met Configuration Manager:
 
@@ -108,7 +108,7 @@ Gebruik de volgende stappen voor het implementeren van updates voor Office 365 m
 2.  [Configureren van software-updatepunten](../get-started/configure-classifications-and-products.md) synchroniseren van de client Office 365-updates. Stel **Updates** voor de classificatie en selecteer **Office 365 Client** voor het product. Software-updates synchroniseren na het configureren van de software-updatepunten gebruiken de **Updates** classificatie.
 3.  Office 365-clients om updates te ontvangen van Configuration Manager inschakelen. Gebruik Configuration Manager-clientinstellingen of Groepsbeleid om te zorgen dat de client.   
 
-    **Methode 1**: Vanaf Configuration Manager versie 1606, kunt u de Configuration Manager-client instellen voor het beheren van de clientagent voor Office 365. Nadat u deze instelling configureren en implementeren van updates voor Office 365, wordt de clientagent voor Configuration Manager-communiceert met de Office 365-clientagent voor Office 365-updates vanaf een distributiepunt downloaden en te installeren. Configuration Manager-inventarisatie van Office 365 ProPlus-Client-instellingen.    
+    **Methode 1**: Vanaf Configuration Manager versie 1606, kunt u de Configuration Manager-client instellen voor het beheren van de clientagent voor Office 365. Nadat u deze instelling configureren en implementeren van updates voor Office 365, wordt de clientagent voor Configuration Manager-communiceert met de Office 365-clientagent voor de updates vanaf een distributiepunt downloaden en te installeren. Configuration Manager-inventarisatie van Office 365 ProPlus-Client-instellingen.    
 
       1.  Klik in de Configuration Manager-console op **beheer** > **overzicht** > **clientinstellingen**.  
 
@@ -124,7 +124,7 @@ Gebruik de volgende stappen voor het implementeren van updates voor Office 365 m
 > U moet vóór de Configuration Manager versie 1610 downloaden en implementeren van updates in de dezelfde talen op Office 365-clients geconfigureerd. Bijvoorbeeld, Stel dat u hebt een Office 365-client die is geconfigureerd met het en-us en nl-nl talen. Op de siteserver u downloaden en implementeren van alleen en-us inhoud voor een Office 365-update van toepassing. Wanneer de gebruiker wordt de installatie vanuit Software Center voor deze update is gestart, wordt de update tijdens het downloaden van de inhoud voor nl-nl vastloopt.   
 
 ## <a name="restart-behavior-and-client-notifications-for-office-365-updates"></a>Opnieuw opstarten van gedrag en client meldingen voor updates voor Office 365
-Wanneer u een update op een Office 365-client implementeert, zijn de meldingen van gedrag en de client opnieuw opstarten verschillend afhankelijk van welke versie van Configuration Manager die u hebt. De volgende tabel bevat informatie over de eindgebruikerservaring wanneer de client een Office 365-update ontvangt:
+Wanneer u een update op een Office 365-client implementeert, zijn de meldingen van gedrag en de client opnieuw opstarten verschillend afhankelijk van de versie van Configuration Manager. De volgende tabel bevat informatie over de eindgebruikerservaring wanneer de client een Office 365-update ontvangt:
 
 |Versie van Configuration Manager |Eindgebruikerservaring|  
 |----------------|---------------------|
@@ -132,14 +132,16 @@ Wanneer u een update op een Office 365-client implementeert, zijn de meldingen v
 |1610|Office 365-apps worden afgesloten zonder waarschuwing voordat u de update installeert|
 |1610 met update <br/>1702|Een opnieuw opstarten-vlag is ingesteld en de update is geïnstalleerd nadat de computer opnieuw is opgestart.|
 |1706|De client ontvangt een pop- en in-app-meldingen, evenals een dialoogvenster aftelling voordat u de update installeert.|
+|1802| De client ontvangt een pop- en in-app-meldingen, evenals een dialoogvenster aftelling voordat u de update installeert. </br>Als een Office 365-toepassingen worden uitgevoerd tijdens een update bekrachtiging van Office 365 client, gedwongen de Office-toepassingen niet sluiten. In plaats daarvan de installatie van de update wordt geretourneerd als het systeem opnieuw moet worden gestart <!--510006-->|
 
 > [!Important]
-> U start in Configuration Manager versie 1706, houd rekening met de volgende details:
+>
+>In Configuration Manager versie 1706, noteert u de volgende details:
 >
 >- Een pictogram wordt weergegeven in het systeemvak op de taakbalk voor vereiste apps waarbij de deadline binnen 48 uur in de toekomst en inhoud van de update is gedownload. 
 >- Een dialoogvenster aftelling worden weergegeven voor vereiste apps waarbij de deadline binnen 7.5 uur in de toekomst en de update is gedownload. De gebruiker kan het dialoogvenster aftelling maximaal drie keer vóór de deadline uitstellen. Als uitgesteld, wordt de aftelling na twee uur opnieuw weergegeven. Als dat niet het uitgesteld, er een aftelling 30 minuten en update wordt geïnstalleerd wanneer de aftelling is verlopen.
 >- Een pop-upbericht mogelijk niet weergegeven totdat de gebruiker op het pictogram in het systeemvak klikt. Bovendien, als het systeemvak minimale ruimte heeft, het meldingspictogram mogelijk niet meer zichtbaar tenzij de gebruiker opent of het systeemvak breidt. 
->- Het dialoogvenster melding en aftelling kan worden gestart terwijl de gebruiker is niet actief werk op het apparaat, bijvoorbeeld wanneer het apparaat is vergrendeld, 's nachts, zodat het mogelijk is de Office-apps die zijn uitgevoerd op het apparaat kunnen worden afgedwongen dicht bij de update te installeren. Voordat de app wordt gesloten, slaat Office app-gegevens om gegevensverlies te voorkomen. 
+>- De melding en aftelling dialoogvenster kunnen worden gestart terwijl de gebruiker is niet actief werk op het apparaat. Bijvoorbeeld, wanneer het apparaat is vergrendeld kan 's nachts is mogelijk Office-apps uitgevoerd op het apparaat kan geforceerd worden dicht bij de update te installeren. Voordat de app wordt gesloten, slaat Office app-gegevens om gegevensverlies te voorkomen. 
 >- Als de deadline in de afgelopen of geconfigureerd is dat deze zo snel mogelijk worden gestart, kan waarop Office-apps geforceerd worden sluit zonder de meldingen. 
 >- Als de gebruiker een Office-update vóór de deadline geïnstalleerd, wordt in Configuration Manager geverifieerd dat de update wordt geïnstalleerd wanneer de deadline wordt bereikt. Als de update niet op het apparaat gevonden is, wordt de update is geïnstalleerd. 
 >- De melding in de app-balk niet wordt weergegeven op een Office-app die wordt uitgevoerd voordat de update wordt gedownload. Nadat de update is gedownload, de in-app-melding wordt weergegeven voor de zojuist geopende apps.
@@ -148,7 +150,7 @@ Wanneer u een update op een Office 365-client implementeert, zijn de meldingen v
 
 
 ## <a name="add-languages-for-office-365-update-downloads"></a>Talen voor het downloaden van de Office 365-update toevoegen
-U kunt ondersteuning voor Configuration Manager-updates voor de talen die worden ondersteund door Office 365, ongeacht of ze worden ondersteund in Configuration Manager te downloaden vanaf Configuration Manager versie 1610 kan toevoegen.    
+U kunt ondersteuning voor Configuration Manager te downloaden van updates voor de talen die worden ondersteund door Office 365, ongeacht of ze worden ondersteund in Configuration Manager kunt toevoegen.    
 
 > [!IMPORTANT]  
 > Extra talen voor Office 365-updates configureren is een gehele site-instelling. Nadat u de talen die met de volgende procedure hebt toegevoegd, alle Office 365-updates worden gedownload in deze talen, evenals de talen die u selecteert op de **taalselectie** pagina in de wizards downloaden van Software-Updates of Software-Updates implementeren.
@@ -157,7 +159,7 @@ U kunt ondersteuning voor Configuration Manager-updates voor de talen die worden
 Gebruik de volgende procedure op het software-updatepunt op de centrale beheersite of zelfstandige primaire site.
 1. Vanaf een opdrachtprompt, typ *wbemtest* als gebruiker met beheerdersrechten de Windows Management Instrumentation Tester te openen.
 2. Klik op **Connect**, en typ vervolgens *root\sms\site_&lt;siteCode&gt;*.
-3. Klik op **Query**, en voer de volgende query: *&#42; selecteren uit SMS_SCI_Component waar componentname = "SMS_WSUS_CONFIGURATION_MANAGER"*  
+3. Klik op **Query**, en voer de volgende query: *Selecteer &#42; van SMS_SCI_Component waar componentname = "SMS_WSUS_CONFIGURATION_MANAGER"*  
    ![WMI-query](..\media\1-wmiquery.png)
 4. Dubbelklik in het deelvenster met resultaten op het object met de sitecode voor de centrale beheersite of zelfstandige primaire site.
 5. Selecteer de **eigenschappen** eigenschap, klikt u op **eigenschap bewerken**, en klik vervolgens op **weergave ingesloten**.
@@ -167,7 +169,7 @@ Gebruik de volgende procedure op het software-updatepunt op de centrale beheersi
 ![De eigenschap Value2 bewerken](..\media\3-queryresult.png)
 8. Toevoegen van extra talen voor de **Value2** eigenschap en klikt u op **eigenschap opslaan**. <br/> Bijvoorbeeld, pt-pt (voor Portugees - Portugal), af-za (voor Afrikaans - Zuid-Afrika), nn Nee (voor Noors (Nynorsk) - Noorwegen), enzovoort.  
 ![Talen in Eigenschappeneditor toevoegen](..\media\4-props.png)  
-9. Klik op **sluiten**, klikt u op **sluiten**, klikt u op **eigenschap opslaan**, klikt u op **Object opslaan** (als u op **sluiten** hier de waarden worden verwijderd), klikt u op **sluiten**, en klik vervolgens op **sluiten** om af te sluiten van de Windows Management Instrumentation Tester.
+9. Klik op **sluiten**, klikt u op **sluiten**, klikt u op **eigenschap opslaan**, en klik op **Object opslaan** (als u op **Sluiten**hier de waarden worden genegeerd). Klik op **sluiten**, en klik vervolgens op **sluiten** om af te sluiten van de Windows Management Instrumentation Tester.
 10. Ga in de Configuration Manager-console naar **softwarebibliotheek** > **overzicht** > **Office 365-clientbeheer** > **Office 365-Updates**.
 11. Wanneer u updates voor Office 365 hebt gedownload, worden de updates nu gedownload in de talen die u selecteert in de wizard en geconfigureerd in deze procedure. Om te controleren of de updates in de juiste talen downloaden, gaat u naar de pakketbron voor de update en naar bestanden met de taal in de bestandsnaam zoeken.  
 ![Bestandsnamen met extra talen](..\media\5-verification.png)

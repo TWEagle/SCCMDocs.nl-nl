@@ -1,31 +1,32 @@
 ---
 title: Distributiepunten beheren
 titleSuffix: Configuration Manager
-description: De inhoud (bestanden en software) die u op apparaten en gebruikers implementeert met distributiepunten hosten. Hier wordt het installeren en configureren.
+description: De inhoud die u op apparaten en gebruikers implementeert met distributiepunten te hosten
 ms.custom: na
-ms.date: 09/18/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: aebafaf9-b3d5-4a0f-9ee5-685758c037a1
-caps.latest.revision: "5"
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: e7eab46d423ed37bde7ac5f325d6cd8175806302
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+caps.latest.revision: ''
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 1010e339c586922f818e1af1e193abba95dace7b
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-and-configure-distribution-points-for-system-center-configuration-manager"></a>Installeren en configureren van distributiepunten voor System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-U kunt System Center Configuration Manager-distributiepunten voor het hosten van de inhoud die u op apparaten en gebruikers implementeert (bestanden en software) installeren. U kunt ook distributie punt groepen maken die hoe u distributiepunten wilt beheren en hoe u inhoud naar distributiepunten distribueren vereenvoudigen.  
+Installeren van Configuration Manager-distributiepunten voor het hosten van de inhoudsbestanden die u op apparaten en gebruikers implementeert. Maak distributie punt groepen hoe u distributiepunten wilt beheren en hoe het distribueren van inhoud naar distributiepunten te vereenvoudigen.  
 
  Wanneer u *een nieuw distributiepunt installeert* (via de installatiewizard) of *beheren van de eigenschappen van een bestaand distributiepunt* (het distributiepunt door eigenschappen te bewerken), kunt u de meeste van de distributiepuntinstellingen configureren. Enkele instellingen zijn alleen beschikbaar wanneer u bent u installeert of bewerkt, maar niet beide:  
 
@@ -45,11 +46,11 @@ U kunt System Center Configuration Manager-distributiepunten voor het hosten van
 
     -   **Schema's configureren voor de gegevensoverdracht naar distributiepunten**  
 
-##  <a name="bkmk_install"></a>Een distributiepunt installeren  
-U moet een sitesysteemserver toewijzen als een distributiepunt voordat inhoud kan worden gemaakt voor clientcomputers beschikbaar. U moet ook een distributiepunt toewijzen aan ten minste één [grensgroep](/sccm/core/servers/deploy/configure/boundary-groups#distribution-points) voordat lokale clientcomputers dat distributiepunt als bronlocatie voor inhoud kunnen gebruiken. U kunt de siterol van distributiepunt toevoegen aan een nieuwe sitesysteemserver of de siterol toevoegen aan een bestaande sitesysteemserver.
+##  <a name="bkmk_install"></a> Een distributiepunt installeren  
+Een sitesysteemserver aanwijzen als een distributiepunt voordat inhoud beschikbaar is op clientcomputers kan worden gemaakt. Een distributiepunt toewijzen aan ten minste één [grensgroep](/sccm/core/servers/deploy/configure/boundary-groups#distribution-points) voordat lokale clientcomputers dat distributiepunt als bronlocatie voor inhoud kunnen gebruiken. Voeg de rol distributiepuntsite toe aan een nieuwe sitesysteemserver of de siterol toevoegen aan een bestaande sitesysteemserver.
 
 
- Wanneer u een nieuw distributiepunt installeert, gebruikt u een installatiewizard die u bij de beschikbare instellingen helpt. Voordat u begint, moet u rekening houden met het volgende:  
+ Wanneer u een nieuw distributiepunt installeert, gebruikt u een installatiewizard die u bij de beschikbare instellingen helpt. Voordat u begint, houd rekening met de volgende vereisten:  
 
 -   U moet de volgende beveiligingsmachtigingen hebben om te maken en configureren van een distributiepunt:  
 
@@ -61,7 +62,7 @@ U moet een sitesysteemserver toewijzen als een distributiepunt voordat inhoud ka
 
     -   **Certificaten beheren voor implementatie van besturingssysteem** voor de **Site** object  
 
--   Internet Information Services (IIS) moet worden geïnstalleerd op de server die als voor het distributiepunt host fungeert. Wanneer u de sitesysteemrol installeert, wordt dit door Configuration Manager kunt installeren en configureren van IIS voor u.  
+-   Internet Information Services (IIS) installeren op de server die als host fungeren voor het distributiepunt. Wanneer u de sitesysteemrol installeert, wordt dit door Configuration Manager kunt installeren en configureren van IIS voor u.  
 
 Gebruik de volgende algemene procedures om te installeren of een distributiepunt te wijzigen. Zie voor meer informatie over de beschikbare configuratieopties, de [een distributiepunt configureren](#bkmk_configs) sectie van dit onderwerp.  
 
@@ -97,8 +98,8 @@ Gebruik de volgende algemene procedures om te installeren of een distributiepunt
 
 4.  Nadat u de gewenste wijzigingen hebt aangebracht, uw instellingen opslaan en sluiten van de eigenschappen van het distributiepunt.  
 
-##  <a name="bkmk_manage"></a>Distributiepuntgroepen beheren  
- Distributiepuntgroepen bieden een logische groepering van distributiepunten voor inhoudsdistributie. U kunt deze groepen gebruiken om te beheren en controleren van inhoud vanaf een centrale locatie voor distributiepunten die meerdere sites omvatten. Houd rekening met het volgende:
+##  <a name="bkmk_manage"></a> Distributiepuntgroepen beheren  
+ Distributiepuntgroepen bieden een logische groepering van distributiepunten voor inhoudsdistributie. U kunt deze groepen gebruiken om te beheren en controleren van inhoud vanaf een centrale locatie voor distributiepunten die meerdere sites omvatten. Houd rekening met het volgende punt:
 
 -   U kunt een of meer distributiepunten van elke site in de hiërarchie toevoegen aan een distributiepuntgroep.  
 
@@ -161,7 +162,43 @@ Gebruik de volgende algemene procedures om te installeren of een distributiepunt
 
 3.  In de **beschikbare distributiepuntengroepen**, selecteer de distributiepuntgroepen waaraan de geselecteerde distributiepunten als leden worden toegevoegd en kies vervolgens **OK**.  
 
-##  <a name="bkmk_configs"></a>Een distributiepunt configureren  
+
+
+## <a name="reassign-a-distribution-point"></a>Een distributiepunt opnieuw toewijzen
+<!-- 1306937 -->
+Veel klanten hebben grote Configuration Manager-infrastructuur en vermindert primaire of secundaire sites voor het vereenvoudigen van hun omgeving. Nog steeds behouden moeten blijven distributiepunten op filialen inhoud voor beheerde clients bedienen. Deze distributiepunten bevatten vaak meerdere terabytes of meer van de inhoud. Deze inhoud is kost het veel tijd en netwerkbandbreedte te distribueren naar deze externe servers. 
+
+Deze functie kunt in versie 1802 wordt gestart, u een distributiepunt naar een andere primaire site opnieuw toewijzen zonder de inhoud opnieuw distribueren. Met deze actie werkt de sitetoewijzing van het systeem tijdens het persistent maken van alle inhoud op de server. Als u meerdere distributiepunten opnieuw toewijzen wilt, eerst deze actie niet uitvoeren op één distributiepunt en vervolgens doorgaan met de extra servers met één op een tijdstip.
+
+> [!IMPORTANT]
+> De doelserver kan alleen de distributiepuntrol hosten. U kunt het distributiepunt niet toewijzen als de sitesysteemserver als host fungeert voor een andere Configuration Manager serverrol, zoals het statusmigratiepunt. U kunt een clouddistributiepunt niet toewijzen. 
+
+Toevoegen voordat het opnieuw toewijzen van een distributiepunt, het computeraccount van de doelserver van site de lokale groep Administrators op de doel-distributiepuntserver. 
+
+Volg deze stappen voor een distributiepunt opnieuw toewijzen:
+1. In de Configuration Manager-console verbinding maken met de centrale beheersite. 
+2. Ga naar de **beheer** werkruimte en selecteer de **distributiepunten** knooppunt.
+3. Met de rechtermuisknop op het distributiepunt doel en selecteer **opnieuw toewijzen van distributiepunt**. 
+4. Selecteer de doel-server en de site sitecode die u wilt dit distributiepunt opnieuw toewijst. 
+
+Controleer de hertoewijzing op dezelfde manier als wanneer u een nieuwe rol toevoegen. De eenvoudigste methode is het vernieuwen van de weergave van de console na enkele minuten. De sitecodekolom toevoegen aan de weergave. Deze waarde wordt gewijzigd wanneer de server gebeurt toewijzing van Configuration Manager. Als u een andere actie uitvoeren op de doelserver probeert voordat u de consoleweergave vernieuwt, wordt een 'object niet gevonden'-fout optreedt. Zorg ervoor dat het proces is voltooid en vernieuw de weergave van de console voordat u andere acties op de server.
+
+Na het opnieuw toewijzen van een distributiepunt, het servercertificaat te vernieuwen. De nieuwe siteserver moet dit certificaat met behulp van de openbare sleutel opnieuw te versleutelen en op te slaan in de sitedatabase. Zie voor meer informatie de **een zelfondertekend certificaat maken of importeren van een clientcertificaat voor openbare-sleutelinfrastructuur (PKI) voor het distributiepunt** instellen op de [algemene](#general) tabblad van de Eigenschappen van het distributiepunt. 
+- PKI-certificaten moet u niet een nieuw certificaat maken. Dezelfde importeren. PFX en voer het wachtwoord.
+- Aanpassen voor zelfondertekende certificaten, de vervaldatum datum of tijd bij te werken.
+Als u het certificaat niet vernieuwen, het distributiepunt nog steeds inhoud fungeert, maar het mislukken van de volgende functies:
+    - Validatie van inhoud berichten (het bestand distmgr.log ziet dat deze het certificaat niet ontsleutelen)
+    - PXE-ondersteuning voor clients 
+
+### <a name="tips"></a>Tips
+- Deze actie wordt uitgevoerd vanaf de centrale beheersite. Deze procedure helpt met replicatie naar de primaire sites.
+- Geen inhoud distribueert naar de doelserver en vervolgens probeert toe te wijzen. Taken die uitgevoerd worden mislukken tijdens het opnieuw toewijzen van inhoud distribueren, maar het per normaal opnieuw probeert.
+- Als de server ook een Configuration Manager-client is, zorg er dan voor dat ook de client naar de nieuwe primaire site opnieuw toewijzen. Deze stap is cruciaal voor pull-distributiepunten, die client-onderdelen gebruiken om inhoud te downloaden.
+- Dit proces wordt het distributiepunt verwijderd uit de oude site standaard grensgroep. U moet handmatig toevoegen aan de nieuwe site standaard grensgroep, indien nodig. Alle andere grens groepstoewijzingen blijven hetzelfde.
+
+
+
+##  <a name="bkmk_configs"></a> Een distributiepunt configureren  
  Individuele distributiepunten bieden ondersteuning voor een groot aantal verschillende configuraties. Niet alle typen distributiepunten worden echter alle configuraties ondersteund. Cloud-gebaseerde distributiepunten ondersteunen bijvoorbeeld geen inhoudsimplementaties die zijn ingeschakeld voor PXE of multicast. In de volgende onderwerpen vindt u informatie over specifieke beperkingen:  
 
 -   [Een cloud-gebaseerd distributiepunt gebruiken met System Center Configuration Manager](../../../../core/plan-design/hierarchy/use-a-cloud-based-distribution-point.md)  
@@ -182,7 +219,7 @@ De volgende secties worden de configuraties die u selecteren kunt wanneer u een 
 
 -   **Configureren hoe clientapparaten communiceren met het distributiepunt**: Er zijn voor- en nadelen via HTTP en HTTPS. Zie voor meer informatie 'Aanbevolen beveiligingsprocedures voor inhoudsbeheer' in [basisconcepten voor inhoudsbeheer in System Center Configuration Manager](../../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
 
--   **Clients toestaan anoniem verbinding te**: Deze instelling bepaalt u of het distributiepunt anonieme verbindingen van Configuration Manager-clients naar de Inhoudsbibliotheek toestaat.  
+-   **Clients toestaan anoniem verbinding te**: Deze instelling bepaalt u of het distributiepunt anonieme verbindingen van Configuration Manager-clients naar de Inhoudsbibliotheek toelaat.  
 
     > [!IMPORTANT]  
     >  Reparatie van een Windows Installer-toepassing kan mislukken voor een client wanneer u deze instelling niet gebruikt.  
@@ -207,7 +244,7 @@ De volgende secties worden de configuraties die u selecteren kunt wanneer u een 
 
     -   Bedoelde gebruik moet clientverificatie omvatten.  
 
-    -   De persoonlijke sleutel moet exporteerbaar zijn ingeschakeld.  
+    -   Schakel de persoonlijke sleutel moet worden geëxporteerd.  
 
     > [!TIP]  
     >  Er zijn geen specifieke vereisten voor het certificaatonderwerp of alternatieve onderwerpnaam (SAN) en u kunt hetzelfde certificaat gebruiken voor meerdere distributiepunten.  
@@ -216,7 +253,7 @@ De volgende secties worden de configuraties die u selecteren kunt wanneer u een 
 
      Voor een Voorbeeldimplementatie van dit certificaat, Zie de sectie 'Implementeren van de Client-certificaat voor distributiepunten' in [voorbeeld van stapsgewijze implementatie van de PKI-certificaten voor System Center Configuration Manager: Windows Server 2008-certificeringsinstantie](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
 
--   **Dit distributiepunt inschakelen voor voorbereide inhoud**: Kies deze instelling naar het distributiepunt inschakelen voor voorbereide inhoud. Wanneer deze instelling is geselecteerd, kunt u distributiegedrag configureren wanneer u inhoud distribueert. U kunt kiezen om altijd een van de volgende:
+-   **Dit distributiepunt inschakelen voor voorbereide inhoud**: Kies deze instelling naar het distributiepunt inschakelen voor voorbereide inhoud. Wanneer deze instelling is geselecteerd, kunt u distributiegedrag configureren wanneer u inhoud distribueert. U kunt kiezen om altijd een van de volgende acties:
 
  - De inhoud op het distributiepunt voor te bereiden.
  - De initiële inhoud voor het pakket voor te bereiden, maar het normale inhouddistributieproces gebruiken wanneer er updates voor de inhoud.
@@ -248,13 +285,18 @@ Voor elk pull-distributiepunt dat u configureert, moet u een of meer brondistrib
 -   Gebruik de pijltjesknoppen om aan te passen, de volgorde waarin het pull-distributiepunt contactpersonen die de bron distributiepunten wanneer het pull-distributiepunt probeert om inhoud te brengen. Distributiepunten met de laagste waarde worden eerst bereikt.  
 
 ### <a name="pxe"></a>PXE  
-Geef op of PXE moet worden ingeschakeld op het distributiepunt. Wanneer u PXE inschakelt, installeert Configuration Manager Windows Deployment Services op de server, indien nodig. Windows Deployment Services is de service die de PXE-opstart om besturingssystemen te installeren uitvoert. Nadat u de wizard om het distributiepunt te maken, installeert Configuration Manager een provider in Windows Deployment Services die de PXE-opstartfuncties gebruikt.  
+Geef op of PXE moet worden ingeschakeld op het distributiepunt. Wanneer u PXE inschakelt, installeert Configuration Manager Windows Deployment Services (WDS) op de server, indien nodig. WDS is de service die de PXE-opstart om besturingssystemen te installeren uitvoert. Nadat u de wizard om het distributiepunt te maken, installeert Configuration Manager een provider in WDS, die de PXE-opstartfuncties gebruikt. 
 
 Wanneer u de optie **PXE-ondersteuning inschakelen voor clients**, configureer de volgende instellingen:  
 
--   **Dit distributiepunt reageert op binnenkomende PXE-aanvragen toestaan**: Geef op of Windows Deployment Services inschakelen zodat het reageert op PXE-serviceaanvragen. Gebruik dit vak inschakelen en uitschakelen van de service zonder dat de PXE-functionaliteit verwijderd uit het distributiepunt.  
+ > [!Note]  
+ > Klik op **Ja** in de **vereiste poorten voor PXE controleren** dialoogvenster om te bevestigen dat u wilt inschakelen PXE. Configuration Manager configureert automatisch de standaardpoorten op Windows firewall. Als u een andere firewall gebruikt, moet u de poorten handmatig configureren.  
+ >   
+ > Als WDS en DHCP op dezelfde server zijn geïnstalleerd, moet u WDS om te luisteren op een andere poort configureren. Standaard luistert DHCP op dezelfde poort. Zie [Overwegingen wanneer u WDS en DHCP op dezelfde server uitvoert](/sccm/osd/plan-design/infrastructure-requirements-for-operating-system-deployment#BKMK_WDSandDHCP) voor meer informatie.  
 
--   **Schakel onbekende computerondersteuning**: Geef op of ondersteuning voor computers die Configuration Manager niet beheert inschakelen.  
+-   **Dit distributiepunt reageert op binnenkomende PXE-aanvragen toestaan**: Geef op of WDS inschakelen zodat het reageert op PXE-serviceaanvragen. Gebruik dit vak inschakelen en uitschakelen van de service zonder dat de PXE-functionaliteit verwijderd uit het distributiepunt.  
+
+-   **Schakel onbekende computerondersteuning**: Geef op of ondersteuning voor computers die Configuration Manager niet beheert inschakelen. 
 
 -   **Een wachtwoord verplicht stellen wanneer computers PXE gebruiken**: Geef een sterk wachtwoord voor extra beveiliging voor uw PXE-implementaties.  
 
@@ -279,9 +321,9 @@ Wanneer u de optie **PXE-ondersteuning inschakelen voor clients**, configureer d
 > 2. Met de Configuration Manager-infrastructuur om te bepalen welke implementatieacties te laten werken.  
 
 ### <a name="multicast"></a>Multicast  
-Geef op of multicast op het distributiepunt moet worden ingeschakeld. Wanneer u multicast inschakelt, installeert Configuration Manager Windows Deployment Services op de server, indien nodig.  
+Geef op of multicast op het distributiepunt moet worden ingeschakeld. Wanneer u multicast inschakelt, installeert Configuration Manager Windows Deployment Services (WDS) op de server, indien nodig.  
 
-Als u controleert de **multicast inschakelen om gelijktijdig gegevens verzenden naar meerdere clients** Configureer de volgende instellingen:  
+Wanneer u **multicast inschakelen om gelijktijdig gegevens verzenden naar meerdere clients**, configureer de volgende instellingen:  
 
 -   **Multicastverbindingsaccount**: Geef de account moet worden gebruikt wanneer u Configuration Manager-databaseverbindingen voor multicast configureert.  
 
@@ -307,6 +349,8 @@ Als u controleert de **multicast inschakelen om gelijktijdig gegevens verzenden 
 
 > [!NOTE]  
 >  Multicastimplementaties houden netwerkbandbreedte vrij door gegevens gelijktijdig te verzenden naar meerdere Configuration Manager-clients in plaats van een kopie van de gegevens verzenden naar elke client via een aparte verbinding. Zie voor meer informatie over het gebruik van multicast voor de implementatie van besturingssystemen, [multicast gebruiken om Windows te implementeren via het netwerk met System Center Configuration Manager](../../../../osd/deploy-use/use-multicast-to-deploy-windows-over-the-network.md).  
+
+
 
 ### <a name="group-relationships"></a>Groepsrelaties  
 
@@ -343,11 +387,7 @@ De resultaten van het inhoudvalidatieproces weergeven in de **bewaking** werkrui
 ### <a name="boundary-group"></a>Grensgroep  
 Beheer de grensgroepen waaraan dit distributiepunt is toegewezen. Wilt u het distributiepunt toevoegen aan ten minste één grensgroep. Tijdens inhoudsimplementatie moeten clients zich in een grensgroep die is gekoppeld aan een distributiepunt dat distributiepunt als bronlocatie voor inhoud te gebruiken.
 
-Aanvullend:
-
-- Voordat u versie 1610, kunt u controleren de **clients gebruiken dit sitesysteem als een terugvalbronlocatie voor inhoud toestaan** vak wilt toestaan dat clients buiten deze grensgroepen terug te vallen en het distributiepunt gebruiken als bronlocatie voor inhoud, wanneer er geen andere distributiepunten beschikbaar zijn. Zie voor meer informatie over grensgroepen [grensgroepen voor versie 1511, 1602 en 1606](/sccm/core/servers/deploy/configure/boundary-groups-for-1511-1602-and-1606). Zie voor voorkeursdistributiepunten, [basisconcepten voor inhoudsbeheer in System Center Configuration Manager](../../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).
-
-- Versie 1610 of hoger, configureert u grensgroep *relaties* die definiëren wanneer en tot welke grensgroepen een client terugvallen om inhoud te zoeken. Zie voor meer informatie [grensgroepen](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#boundary-groups).
+Grensgroep configureren *relaties* die definiëren wanneer en tot welke grensgroepen een client terugvallen om inhoud te zoeken. Zie voor meer informatie [grensgroepen](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#boundary-groups).
 
 
 ### <a name="schedule"></a>Planning  

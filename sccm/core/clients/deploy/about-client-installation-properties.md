@@ -1,36 +1,39 @@
 ---
 title: Clientinstallatie-eigenschappen
 titleSuffix: Configuration Manager
-description: Meer informatie over eigenschappen van clientinstallatie in System Center Configuration Manager.
+description: Meer informatie over de ccmsetup-opdrachtregel eigenschappen voor het installeren van Configuration Manager-client.
 ms.custom: na
-ms.date: 01/04/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-client
+ms.technology:
+- configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c890fd27-7a8c-4f51-bbe2-f9908af1f42b
-caps.latest.revision: "15"
-author: arob98
-ms.author: angrobe
-manager: angrobe
-ms.openlocfilehash: 903a415a936bc62aad5c889d5d8f6572ba9759c1
-ms.sourcegitcommit: 5437b2823bada8f8c9e67940f584953b9d190628
+caps.latest.revision: ''
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 057b078767a08574a806cb6af1cdb3812148a457
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="about-client-installation-properties-in-system-center-configuration-manager"></a>Over de eigenschappen van clientinstallatie in System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Gebruik de opdracht CCMSetup.exe van System Center Configuration Manager Configuration Manager-client handmatig te installeren.  
+Gebruik de opdracht CCMSetup.exe de Configuration Manager-client te installeren. Als u deze clientinstallatie-eigenschappen op de opdrachtregel, ze het installatiegedrag wijzigen.
+
+
 
 ##  <a name="aboutCCMSetup"></a> Over CCMSetup.exe  
  De opdracht CCMSetup.exe downloadt benodigde bestanden voor het installeren van de client van een beheerpunt of een bronlocatie. Deze bestanden kunnen onder andere:  
 
--   Het Windows Installer-pakket Client.msi dat de clientsoftware wordt geïnstalleerd.  
+-   De Windows Installer-pakket client.msi dat de clientsoftware wordt geïnstalleerd.  
 
 -   Microsoft Background Intelligent Transfer Service (BITS)-installatiebestanden.  
 
@@ -41,22 +44,22 @@ Gebruik de opdracht CCMSetup.exe van System Center Configuration Manager Configu
 > [!NOTE]  
 >  In Configuration Manager u kan niet rechtstreeks worden uitgevoerd de Client.msi-bestand.  
 
- CCMSetup.exe biedt [opdrachtregeleigenschappen](#ccmsetup-exe-command-line-properties) voor het aanpassen van de installatie. U kunt ook eigenschappen voor het wijzigen van het gedrag van Client.msi op de CCMSetup.exe-opdrachtregel opgeven.  
+ CCMSetup.exe biedt [opdrachtregeleigenschappen](#ccmsetup-exe-command-line-properties) voor het aanpassen van de installatie. U kunt ook eigenschappen voor het wijzigen van het gedrag van client.msi op de CCMSetup.exe-opdrachtregel opgeven.  
 
 > [!IMPORTANT]  
->  CCMSetup-eigenschappen opgeven voordat u de eigenschappen voor Client.msi opgeven.  
+>  CCMSetup-eigenschappen opgeven voordat u de eigenschappen voor client.msi opgeven.  
 
- CCMSetup.exe en de ondersteunende bestanden bevinden zich op de siteserver van Configuration Manager in de **Client** map van de installatiemap van Configuration Manager. Deze map wordt gedeeld met het netwerk als  **&lt;Siteservernaam\>\SMS_&lt;sitecode\>\Client**.  
+ CCMSetup.exe en de ondersteunende bestanden bevinden zich op de siteserver in de **Client** map van de installatiemap van Configuration Manager. Deze map wordt gedeeld met het netwerk als  **&lt;Siteservernaam\>\SMS_&lt;sitecode\>\Client**.  
 
  Aan de opdrachtregel gebruikt de opdracht CCMSetup.exe de volgende indeling:  
 
  `CCMSetup.exe [<Ccmsetup properties>] [<client.msi setup properties>]`  
 
- Voorbeeld:  
+ Bijvoorbeeld:  
 
-      'CCMSetup.exe /mp:SMSMP01 /logon SMSSITECODE=S01 FSP=SMSFSP01`  
+   `CCMSetup.exe /mp:SMSMP01 /logon SMSSITECODE=S01 FSP=SMSFSP01`  
 
- In dit voorbeeld doet het volgende:  
+ In dit voorbeeld heeft de volgende kenmerken:  
 
 -   Hiermee geeft u het beheerpunt smsmp01 om te vragen van een lijst van distributiepunten om de clientinstallatiebestanden te downloaden.  
 
@@ -71,7 +74,9 @@ Gebruik de opdracht CCMSetup.exe van System Center Configuration Manager Configu
 
 
 > [!IMPORTANT]  
->  Als u de Active Directory-schema voor Configuration Manager hebt uitgebreid, worden veel clientinstallatie-eigenschappen gepubliceerd in Active Directory Domain Services en automatisch gelezen door de Configuration Manager-client. Zie [About client installation properties published to Active Directory Domain Services in System Center Configuration Manager](about-client-installation-properties-published-to-active-directory-domain-services.md) (Over eigenschappen van clientinstallaties die zijn gepubliceerd naar Active Directory Domain Services in System Center Configuration Manager) voor meer informatie over de eigenschappen van de clientinstallatie die worden gepubliceerd Active Directory Domain Services.  
+>  Als u het Active Directory-schema uitgebreid voor Configuration Manager, worden veel clientinstallatie-eigenschappen in de site in Active Directory Domain Services gepubliceerd. Deze eigenschappen worden automatisch gelezen door de Configuration Manager-client. Zie voor meer informatie [over clientinstallatie-eigenschappen gepubliceerd op Active Directory Domain Services](about-client-installation-properties-published-to-active-directory-domain-services.md)  
+
+
 
 ##  <a name="ccmsetupexe-command-line-properties"></a>Opdrachtregeleigenschappen van CCMSetup.exe  
 
@@ -83,39 +88,51 @@ Voorbeeld: **ccmsetup.exe /?**
 
 ### <a name="sourceltpath"></a>/ source:&lt;pad\>  
 
- Hiermee geeft u de locatie van het bestand downloaden. Een lokaal of UNC-pad gebruiken. Bestanden worden gedownload met behulp van het protocol server message block (SMB).  Gebruik **/source**, de Windows-gebruikersaccount voor clientinstallatie moet leesmachtigingen hebben voor de locatie.
+ Hiermee geeft u de locatie van het bestand downloaden. Een lokaal of UNC-pad gebruiken. Bestanden worden gedownload met behulp van het protocol server message block (SMB). Gebruik **/source**, de Windows-gebruikersaccount voor clientinstallatie moet leesmachtigingen hebben voor de locatie.
 
 > [!NOTE]  
->  U kunt de **/source** eigenschap meerdere keren in een opdrachtregel van alternatieve downloadlocaties op te geven.  
+>  U kunt de **/source** eigenschap meer dan één keer in een opdrachtregel om op te geven alternatieve downloadlocaties.  
 
  Voorbeeld: **ccmsetup.exe /source: "\\\computer\map"**  
 
-### <a name="mpltcomputer"></a>/MP:&lt;computer\>
+### <a name="mpltserver"></a>/MP:&lt;server\>
 
- Specificeert een bronbeheerpunt voor computers die u wilt verbinden, zodat ze het dichtstbijzijnde distributiepunt voor de installatiebestanden vinden kunnen. Clients downloaden de bestanden vanaf het opgegeven beheerpunt als er geen distributiepunten zijn of als computers de bestanden niet kunnen downloaden van de distributiepunten na 4 uur.  
+ Hiermee geeft u een bron beheerpunt voor computers verbinding maken met. Dit beheerpunt gebruiken om te zoeken naar het dichtstbijzijnde distributiepunt voor de installatiebestanden. Als er geen distributiepunten zijn of computers de bestanden niet kunnen uit de distributiepunten na vier uur downloaden, downloaden ze de bestanden van het opgegeven beheerpunt.  
 
 > [!IMPORTANT]  
->  Deze eigenschap wordt gebruikt om een initieel beheerpunt voor computers om te vinden van een bron downloaden geven en een beheerpunt in eender welke site. Dit niet het *toewijzen* de client naar een beheerpunt.   
+>  Deze eigenschap wordt gebruikt om een initieel beheerpunt voor computers om te vinden van een bron downloaden geven en een beheerpunt in eender welke site. Dit niet het geval *toewijzen* de client naar een beheerpunt.   
 
- Computers downloaden de bestanden via een HTTP- of HTTPS-verbinding, afhankelijk van de sitesysteemrolconfiguratie voor clientverbindingen. De download gebruikt BITS-beperking, indien geconfigureerd. Als alle distributiepunten en beheerpunten voor alleen HTTPS-clientverbindingen zijn geconfigureerd, moet u controleren of de clientcomputer een geldig clientcertificaat heeft.  
+ Computers downloaden de bestanden via een HTTP- of HTTPS-verbinding, afhankelijk van de sitesysteemrolconfiguratie voor clientverbindingen. Als geconfigureerd, is de download gebruikt BITS-beperking. Als alle distributiepunten en beheerpunten voor alleen HTTPS-clientverbindingen zijn geconfigureerd, moet u controleren of de clientcomputer een geldig clientcertificaat heeft.  
 
-U kunt de **/mp** -opdrachtregeleigenschap gebruiken om meerdere beheerpunten op te geven zodat de computer, als deze niet kan verbinden met het eerste beheerpunt, verbinding probeert te maken met het volgende beheerpunt, enzovoort. Wanneer u meerdere beheerpunten opgeeft, scheidt u de waarden door puntkomma's.
+U kunt de **/mp** opdrachtregeleigenschap om meer dan één beheerpunt te geven. Als de computer geen verbinding kan maken met het eerste beheerpunt, wordt geprobeerd het volgende gedeelte van de opgegeven lijst. Wanneer u meerdere beheerpunten opgeeft, scheidt u de waarden door puntkomma's.
 
-Als de client verbinding maakt met een beheerpunt via HTTPS normaal gesproken moet u de FQDN-naam, niet de naam van de computer. De waarde moet overeenkomen met het beheerpunt PKI-certificaat onderwerpnaam of alternatieve onderwerpnaam. Hoewel een FQDN-naam in Configuration Manager ondersteunt het gebruik van een computernaam in het certificaat voor verbindingen op het intranet als een best practice bij beveiliging wordt aangeraden.
+Als de client verbinding maakt met een beheerpunt via HTTPS normaal gesproken moet u de FQDN-naam, niet de naam van de computer. De waarde moet overeenkomen met het beheerpunt PKI-certificaat onderwerpnaam of alternatieve onderwerpnaam. Hoewel Configuration Manager ondersteunt het gebruik van een computernaam in het certificaat voor verbindingen op het intranet, is een FQDN-naam de aanbevolen beveiligingsprocedure.
 
-Voorbeeld voor wanneer u de computernaam gebruikt:`ccmsetup.exe /mp:SMSMP01`  
+Voorbeeld voor wanneer u de computernaam gebruikt: `ccmsetup.exe /mp:SMSMP01`  
 
-Voorbeeld voor wanneer u de FQDN-naam gebruikt:`ccmsetup.exe /mp:smsmp01.contoso.com`  
+Voorbeeld voor wanneer u de FQDN-naam gebruikt: `ccmsetup.exe /mp:smsmp01.contoso.com`  
+
+Deze eigenschap ingesteld op de URL van een cloud-management-gateway. Gebruik deze URL naar de client installeren op een apparaat op basis van het internet. Als u de waarde voor deze eigenschap, gebruikt u de volgende stappen uit:
+- Maak een cloud-management-gateway.
+- Open een opdrachtprompt van Windows PowerShell als beheerder op een actieve client. 
+- Voer de volgende opdracht: `(Get-WmiObject -Namespace Root\Ccm\LocationServices -Class SMS_ActiveMPCandidate | Where-Object {$_.Type -eq "Internet"}).MP`
+- Toevoegen van het voorvoegsel 'https://' te gebruiken met de **/mp** eigenschap.
+
+Voorbeeld voor wanneer u de URL van de cloud management gateway gebruikt: `ccmsetup.exe /mp:https://CONTOSO.CLOUDAPP.NET/CCM_Proxy_MutualAuth/72057598037248100`
+
+ > [!Important]
+ > Wanneer het opgeven van de URL van een cloud management gateway voor de **/mp** -eigenschap moet beginnen met **https://**.
+
 
 ### <a name="retryltminutes"></a>/ opnieuw proberen:&lt;minuten\>
 
-Het interval voor opnieuw proberen als CCMSetup.exe mislukt installatiebestanden moeten worden gedownload.  CCMSetup blijft het opnieuw proberen totdat het de limiet die is opgegeven in bereikt de **downloadtimeout** eigenschap.  
+Het interval voor opnieuw proberen als CCMSetup.exe mislukt installatiebestanden moeten worden gedownload. CCMSetup blijft het opnieuw proberen totdat het de limiet die is opgegeven in bereikt de **downloadtimeout** eigenschap.  
 
 Voorbeeld: `ccmsetup.exe /retry:20`  
 
 ### <a name="noservice"></a>/noservice
 
-Voorkomt dat CCMSetup wordt uitgevoerd als een service die de standaardeigenschap. Als CCMSetup een service uitvoert, wordt deze wordt uitgevoerd in de context van het lokale systeemaccount van de computer, die mogelijk niet over voldoende rechten voor toegang tot de benodigde netwerkbronnen voor de installatie. Met **/noservice**, CCMSetup.exe wordt uitgevoerd in de context van het gebruikersaccount dat u gebruikt om de installatie te starten. Ook als u een script gebruiken om uit te voeren CCMSetup.exe met de **/service** eigenschap, wordt CCMSetup.exe afgesloten nadat de service is gestart en mogelijk installatiegegevens niet correct.   
+Voorkomt dat CCMSetup wordt uitgevoerd als een service die de standaardeigenschap. Als CCMSetup een service uitvoert, wordt deze wordt uitgevoerd in de context van het lokale systeemaccount van de computer. Dit account mogelijk niet voldoende rechten voor toegang tot de benodigde netwerkbronnen voor de installatie. Met **/noservice**, CCMSetup.exe wordt uitgevoerd in de context van het gebruikersaccount dat u gebruikt om de installatie te starten. Ook als u een script gebruikt voor het uitvoeren van CCMSetup.exe met de **/service** eigenschap, wordt CCMSetup.exe afgesloten nadat de service is gestart en mogelijk installatiegegevens niet correct.   
 
 Voorbeeld: `ccmsetup.exe /noservice`  
 
@@ -127,19 +144,19 @@ Voorbeeld: `ccmsetup.exe /service`
 
 ### <a name="uninstall"></a>/uninstall
 
-Hiermee geeft u op dat de clientsoftware moet worden verwijderd. Zie [How to manage clients in System Center Configuration Manager](../manage/manage-clients.md) (Clients beheren in System Center Configuration Manager) voor meer informatie.  
+Hiermee geeft u op dat de clientsoftware moet worden verwijderd. Zie voor meer informatie [clients beheren](../manage/manage-clients.md).  
 
 Voorbeeld: `ccmsetup.exe /uninstall`  
 
 ### <a name="logon"></a>/logon
 
-Hiermee geeft u op dat de clientinstallatie moet worden stopgezet als een willekeurige versie van de client al is geïnstalleerd.  
+Als een willekeurige versie van de client al is geïnstalleerd, wordt deze eigenschap specificeert dat de clientinstallatie moet worden gestopt.  
 
 Voorbeeld: `ccmsetup.exe /logon`  
 
 ### <a name="forcereboot"></a>/forcereboot
 
- Specificeert dat CCMSetup de clientcomputer opnieuw op te starten als dat nodig is om de installatie te voltooien moet dwingen. Als dit niet is opgegeven, wordt CCMSetup afgesloten wanneer opnieuw opstarten nodig is, klikt u vervolgens blijft na de volgende handmatig opnieuw worden gestart.  
+ Specificeert dat CCMSetup de clientcomputer opnieuw op te starten als dat nodig is om de installatie te voltooien moet dwingen. Als deze eigenschap niet is opgegeven, wordt CCMSetup afgesloten wanneer opnieuw opstarten nodig is. Vervolgens gaat door na de volgende handmatig opnieuw worden gestart.  
 
  Voorbeeld: `CCMSetup.exe /forcereboot`  
 
@@ -161,61 +178,63 @@ Voorbeeld: `ccmsetup.exe /logon`
 
 ### <a name="downloadtimeoutltminutes"></a>/ downloadtimeout:&lt;minuten\>
 
-De tijdsduur in minuten over hoelang CCMSetup moet proberen te downloaden van de installatiebestanden voor het stoppen. De standaardwaarde is **1440** minuten (1 dag).  
+De tijdsduur in minuten over hoelang CCMSetup probeert te downloaden van de installatiebestanden voor het stoppen. De standaardwaarde is **1440** minuten (één dag).  
 
 Voorbeeld: `ccmsetup.exe /downloadtimeout:100`  
 
 ### <a name="usepkicert"></a>/UsePKICert
 
- Als u opgeeft, gebruikt de client een PKI-certificaat dat clientverificatie bevat, indien beschikbaar. Als een geldig certificaat kan niet worden gevonden, gebruikt de client een HTTP-verbinding en een zelfondertekend certificaat dat ook het gedrag is wanneer u deze eigenschap niet gebruikt.
+ Als u opgeeft, gebruikt de client een PKI-certificaat dat clientverificatie bevat, indien beschikbaar. Als de client kan niet een geldig certificaat gevonden, wordt een HTTP-verbinding met een zelfondertekend certificaat. Dit gedrag is hetzelfde als u deze eigenschap niet gebruikt.
 
 > [!NOTE]  
->  In sommige scenario's u niet moet deze eigenschap opgeven wanneer u een client installeert op en nog steeds een clientcertificaat te gebruiken. Deze scenario's omvatten een client installeert met behulp van clientpush en op basis van client-installatie van software-update. U moet deze eigenschap echter opgeven wanneer u een client handmatig installeert en de eigenschap **/mp** gebruikt om een beheerpunt te specificeren dat is geconfigureerd om alleen HTTPS-clientverbindingen te accepteren. U moet deze eigenschap ook specificeren wanneer u een client installeert voor communicatie alleen via het internet, door gebruik te maken van de eigenschap CCMALWAYSINF=1 (samen met de eigenschappen voor het beheerpunt op internet en de sitecode). Zie [Overwegingen voor clientcommunicatie via internet of een niet-vertrouwd forest](../../plan-design/hierarchy/communications-between-endpoints.md#BKMK_clientspan) in [De communicatie tussen de eindpunten in System Center Configuration Manager](../../plan-design/hierarchy/communications-between-endpoints.md) voor meer informatie over clientbeheer via internet.  
+>  In sommige scenario's, u niet moet deze eigenschap opgeven wanneer u een client installeert op en nog steeds een clientcertificaat te gebruiken. Deze scenario's omvatten een client installeert met behulp van clientpush en op basis van client-installatie van software-update. U moet deze eigenschap echter opgeven wanneer u een client handmatig installeert en de eigenschap **/mp** gebruikt om een beheerpunt te specificeren dat is geconfigureerd om alleen HTTPS-clientverbindingen te accepteren. U moet deze eigenschap ook specificeren wanneer u een client voor alleen-internet communicatie installeert. Gebruik de CCMALWAYSINF = 1 eigenschap samen met de eigenschappen voor de internet-gebaseerd beheerpunt bevindt en de sitecode. Zie voor meer informatie over clientbeheer op internet, [overwegingen voor clientcommunicatie via internet of een niet-vertrouwd forest](../../plan-design/hierarchy/communications-between-endpoints.md#BKMK_clientspan).  
 
  Voorbeeld: `CCMSetup.exe /UsePKICert`  
 
 ### <a name="nocrlcheck"></a>/NoCRLCheck
 
- Hiermee geeft u op dat een client niet de certificaatintrekkingslijst (CRL) controleren moet wanneer deze via HTTPS met PKI-certificaat communiceert.  
+ Hiermee geeft u op dat een client de certificaatintrekkingslijst (CRL) niet moet controleren wanneer deze via HTTPS met PKI-certificaat communiceert.  
 
  Als niet wordt opgegeven, controleert de client de CRL voordat er een HTTPS-verbinding.  
 
- Zie voor meer informatie over client CRL-controle [Planning voor PKI-certificaatintrekking](../../plan-design/security/plan-for-security.md#BKMK_PlanningForCRLs) in [beveiliging in System Center Configuration Manager plannen](../../plan-design/security/plan-for-security.md).  
+ Zie voor meer informatie over client CRL-controle [Planning voor PKI-certificaatintrekking](../../plan-design/security/plan-for-security.md#BKMK_PlanningForCRLs).  
 
  Voorbeeld: `CCMSetup.exe /UsePKICert /NoCRLCheck`  
 
 ### <a name="configltconfiguration-file"></a>/ config:&lt;configuratiebestand\>
 
-Specificeert de naam van een tekstbestand dat de clientinstallatie-eigenschappen bevat.
+Geeft de naam van een tekstbestand met een lijst met clientinstallatie-eigenschappen.
 
 - Als u geen opgeeft de **/noservice** CCMSetup-eigenschap, moet dit bestand zich in de CCMSetup-map % Windir %\\Ccmsetup voor 32-bits en 64-bits besturingssystemen.
 - Als u de eigenschap **/noservice** specificeert, moet dit bestand zich in dezelfde map bevinden van waaruit u CCMSetup.exe uitvoert.  
 
 Voorbeeld: `CCMSetup.exe /config:&lt;Configuration File Name.txt\>`  
 
-Gebruik het bestand mobileclienttemplate.tcf in de &lt;Configuration Manager-map\>\\bin\\&lt;platform\> map op de siteservercomputer om de juiste indeling. Dit bestand bevat ook de opmerkingen over de secties en hoe ze worden gebruikt. Geef de clientinstallatie-eigenschappen in de sectie [Client installeren] na de volgende tekst: **Installeer = INSTALL = ALL**.  
+Als u de juiste bestandsindeling, gebruikt u het bestand mobileclienttemplate.tcf in de &lt;Configuration Manager-map\>\\bin\\&lt;platform\> map op de siteserver. Dit bestand heeft ook de opmerkingen over de secties en hoe deze worden gebruikt. Geef de clientinstallatie-eigenschappen in de sectie [Client installeren] na de volgende tekst: **Installeer = INSTALL = ALL**.  
 
-Invoer voor de sectie [Client installeren] Voorbeeld:`Install=INSTALL=ALL SMSSITECODE=ABC SMSCACHESIZE=100`  
+Invoer voor de sectie [Client installeren] Voorbeeld: `Install=INSTALL=ALL SMSSITECODE=ABC SMSCACHESIZE=100`  
 
 ### <a name="skipprereqltfilename"></a>/ skipprereq:&lt;filename\>
 
- Hiermee geeft u op dat CCMSetup.exe niet het opgegeven vereiste programma installeren moet wanneer de Configuration Manager-client is geïnstalleerd. Deze eigenschap ondersteunt de invoer van meerdere waarden. Gebruik de puntkomma (;) als scheidingsteken tussen elke waarde.  
+ Hiermee geeft u op dat CCMSetup.exe niet het opgegeven vereiste programma installeren moet wanneer de Configuration Manager-client installeert. Deze eigenschap ondersteunt meer dan één waarde in te voeren. Gebruik de puntkomma (;) als scheidingsteken tussen elke waarde.  
 
 
- Voorbeelden: `CCMSetup.exe /skipprereq:silverlight.exe` of`CCMSetup.exe /skipprereq:dotnetfx40_client_x86_x64.exe;Silverlight.exe`  
+ Voorbeelden: `CCMSetup.exe /skipprereq:dotnetfx40_client_x86_x64.exe` of `CCMSetup.exe /skipprereq:dotnetfx40_client_x86_x64.exe;windowsupdateagent30_x86.exe`  
 
 ### <a name="forceinstall"></a>/forceinstall
 
- Opgeven dat een bestaande client zal worden verwijderd en een nieuwe client wordt geïnstalleerd.  
+ Geef CCMSetup.exe wordt verwijderd van een bestaande client en een nieuwe client installeert.  
 
 ### <a name="excludefeaturesltfeature"></a>/ ExcludeFeatures:&lt;functie\>
 
-Hiermee geeft u op dat CCMSetup.exe niet het opgegeven onderdeel wordt geïnstalleerd wanneer de client is geïnstalleerd.  
+Hiermee geeft u op dat CCMSetup.exe het opgegeven onderdeel niet installeren als de client worden geïnstalleerd.  
 
-Voorbeeld: `CCMSetup.exe /ExcludeFeatures:ClientUI` zal het Software Center niet installeren op de client.  
+Voorbeeld: `CCMSetup.exe /ExcludeFeatures:ClientUI` Software Center niet installeren op de client.  
 
 > [!NOTE]  
->  Voor deze release is **ClientUI** de enige waarde die wordt ondersteund met de eigenschap **/ExcludeFeatures** .  
+>  **ClientUI** is de enige waarde die wordt ondersteund met de **/ExcludeFeatures** eigenschap.  
+
+
 
 ##  <a name="ccmsetupReturnCodes"></a> Retourcodes van CCMSetup.exe  
  De opdracht CCMSetup.exe biedt dat de volgende retourcodes voltooid. Om op te lossen, controleert u het bestand ccmsetup.log op de clientcomputer voor context en aanvullende details over retourcodes.  
@@ -229,12 +248,54 @@ Voorbeeld: `CCMSetup.exe /ExcludeFeatures:ClientUI` zal het Software Center niet
 |9|Fout bij evaluatie van vereisten|  
 |10|De hash-validatie is mislukt voor Setup-manifest|  
 
+
+
 ##  <a name="clientMsiProps"></a> Eigenschappen van client.msi  
  De volgende eigenschappen kunnen het installatiegedrag van client.msi wijzigen. Als u de clientpushinstallatie gebruikt, kunt u de eigenschappen ook opgeven in het tabblad **Client** van het dialoogvenster **Clientpushinstallatie-eigenschappen** .  
 
+
+### <a name="aadclientappid"></a>AADCLIENTAPPID
+
+Hiermee geeft u de client app-id van Azure Active Directory (Azure AD). De client-app is gemaakt of geïmporteerd wanneer u [Azure-services configureren](/sccm/core/servers/deploy/configure/azure-services-wizard) voor het beheer van de Cloud. Een Azure-beheerder Haal de waarde voor deze eigenschap van de Azure-portal. Zie voor meer informatie [toepassings-ID ophalen](/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-application-id-and-authentication-key). Voor de **AADCLIENTAPPID** eigenschap, wordt deze toepassing-ID is voor het toepassingstype 'Systeemeigen'.
+
+Voorbeeld: `ccmsetup.exe AADCLIENTAPPID=aa28e7f1-b88a-43cd-a2e3-f88b257c863b`
+
+
+### <a name="aadresourceuri"></a>AADRESOURCEURI
+
+Hiermee geeft u de server app-id van Azure AD. De server-app is gemaakt of geïmporteerd wanneer u [Azure-services configureren](/sccm/core/servers/deploy/configure/azure-services-wizard) voor het beheer van de Cloud. Wanneer u de server-app maakt in het dialoogvenster Server-toepassing maken, deze eigenschap is de **App ID URI**.
+
+Een Azure-beheerder Haal de waarde voor deze eigenschap van de Azure-portal. In de **Azure Active Directory** blade vinden van de server-app onder **App registraties**. Deze app is van ' Web-app / API ' toepassingstype. Open de app, klikt u op **instellingen**, en vervolgens **eigenschappen**. Gebruik de **App ID URI** waarde voor deze AADRESOURCEURI clientinstallatie-eigenschap.
+
+Voorbeeld: `ccmsetup.exe AADRESOURCEURI=https://contososerver`
+
+
+### <a name="aadtenantid"></a>AADTENANTID
+
+Hiermee geeft u de Azure AD-tenant-id. Deze tenant is gekoppeld aan Configuration Manager wanneer u [Azure-services configureren](/sccm/core/servers/deploy/configure/azure-services-wizard) voor het beheer van de Cloud. Als u de waarde voor deze eigenschap, gebruikt u de volgende stappen uit:
+- Open een opdrachtprompt op een Windows 10-apparaat die is gekoppeld aan dezelfde Azure AD-tenant.
+- Voer de volgende opdracht: `dsregcmd.exe /status`
+- Zoek in de sectie status van het apparaat de **TenantId** waarde. Bijvoorbeeld: `TenantId : 607b7853-6f6f-4d5d-b3d4-811c33fdd49a`
+
+ > [!Note]
+ > Een Azure-beheerder kan ook ophalen voor deze waarde in de Azure portal. Zie voor meer informatie [tenant-ID ophalen](/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-tenant-id)
+
+Voorbeeld: `ccmsetup.exe AADTENANTID=607b7853-6f6f-4d5d-b3d4-811c33fdd49a`
+
+
+### <a name="aadtenantname"></a>AADTENANTNAME
+
+Hiermee geeft u de naam van de Azure AD-tenant. Deze tenant is gekoppeld aan Configuration Manager wanneer u [Azure-services configureren](/sccm/core/servers/deploy/configure/azure-services-wizard) voor het beheer van de Cloud. Als u de waarde voor deze eigenschap, gebruikt u de volgende stappen uit:
+- Open een opdrachtprompt op een Windows 10-apparaat die is gekoppeld aan dezelfde Azure AD-tenant.
+- Voer de volgende opdracht: `dsregcmd.exe /status`
+- Zoek in de sectie status van het apparaat de **TenantName** waarde. Bijvoorbeeld: `TenantName : Contoso`
+
+Voorbeeld: `ccmsetup.exe AADTENANTNAME=Contoso`
+
+
 ### <a name="ccmadmins"></a>CCMADMINS  
 
-Geeft een of meerdere Windows-gebruikersaccounts of -groepen om toegang te krijgen tot clientinstellingen en beleidsregels. Dit is handig wanneer de Configuration Manager-beheerder heeft geen lokale beheerdersreferenties op de clientcomputer. Geef een lijst met accounts die worden gescheiden door puntkomma's.  
+Geeft een of meerdere Windows-gebruikersaccounts of -groepen om toegang te krijgen tot clientinstellingen en beleidsregels. Deze eigenschap is handig wanneer de Configuration Manager-beheerder geen lokale beheerdersreferenties op de clientcomputer. Geef een lijst met accounts die worden gescheiden door puntkomma's.  
 
 Voorbeeld: `CCMSetup.exe CCMADMINS="Domain\Account1;Domain\Group1"`  
 
@@ -243,17 +304,17 @@ Voorbeeld: `CCMSetup.exe CCMADMINS="Domain\Account1;Domain\Group1"`
 Hiermee geeft u op dat de computer opnieuw mag worden opgestart na de clientinstallatie, indien nodig.  
 
 > [!IMPORTANT]  
->  De computer wordt opnieuw opgestart zonder waarschuwing zelfs als een gebruiker is aangemeld.  
+>  De computer opnieuw opgestart zonder waarschuwing zelfs als een gebruiker is aangemeld.  
 
-Voorbeeld: **CCMSetup.exe CCMALLOWSILENTREBOOT**  
+Voorbeeld: **CCMSetup.exe  CCMALLOWSILENTREBOOT**  
 
 ### <a name="ccmalwaysinf"></a>CCMALWAYSINF
 
- Stel in op 1 om op te geven dat de client altijd met internet verbinding zal maken en nooit met het intranet. Het verbindingstype van de client geeft **Altijd internet**weer.  
+ Ingesteld op **1** om op te geven dat de client altijd op basis van het internet is en maakt nooit verbinding met het intranet. Het verbindingstype van de client geeft **Altijd internet**weer.  
 
- Deze eigenschap moet worden gebruikt in combinatie met CCMHOSTNAME, welke de FQDN-naam van het beheerpunt op internet specificeert. Deze eigenschap moet ook worden gebruikt in combinatie met de CCMSetup-eigenschap /UsePKICert en met de sitecode.  
+ Gebruik deze eigenschap in combinatie met CCMHOSTNAME, welke de FQDN van de internet-gebaseerd beheerpunt bevindt. Ook gebruiken met de CCMSetup-eigenschap/usepkicert en met de sitecode.  
 
- Zie [Overwegingen voor clientcommunicatie via internet of een niet-vertrouwd forest](../../plan-design/hierarchy/communications-between-endpoints.md#BKMK_clientspan) in [De communicatie tussen de eindpunten in System Center Configuration Manager](../../plan-design/hierarchy/communications-between-endpoints.md) voor meer informatie over clientbeheer via internet.  
+ Zie voor meer informatie over clientbeheer op internet, [overwegingen voor clientcommunicatie via internet of een niet-vertrouwd forest](../../plan-design/hierarchy/communications-between-endpoints.md#BKMK_clientspan).  
 
  Voorbeeld: `CCMSetup.exe /UsePKICert  CCMALWAYSINF=1 CCMHOSTNAME=SERVER3.CONTOSO.COM SMSSITECODE=ABC`  
 
@@ -261,37 +322,37 @@ Voorbeeld: **CCMSetup.exe CCMALLOWSILENTREBOOT**
 
  Hiermee geeft u de lijst met certificaatverleners, dit is een lijst met vertrouwde certificeringsinstantie (CA) basiscertificaten dat de Configuration Manager-site vertrouwt.  
 
- Zie [Planning voor de selectie van PKI-clientcertificaten](../../plan-design/security/plan-for-security.md#BKMK_PlanningForClientCertificateSelection) in [De beveiliging plannen in System Center Configuration Manager](../../plan-design/security/plan-for-security.md) voor meer informatie over de lijst van certificaatverleners en over hoe clients deze lijst gebruiken tijdens het selectieproces van certificaten.  
+ Zie voor meer informatie over de lijst met certificaatverleners en hoe clients deze gebruiken tijdens de certificaatselectie [Planning voor selectie van PKI-clientcertificaten](../../plan-design/security/plan-for-security.md#BKMK_PlanningForClientCertificateSelection).  
 
- Dit is een hoofdlettergevoelige overeenkomst voor onderwerpattributen die zich in het basis-CA-certificaat bevinden. Attributen kunnen worden gescheiden door een komma (,) of een puntkomma (;). Er kunnen meerdere basis-CA-certificaten worden opgegeven door gebruik te maken van een scheidingsbalk. Voorbeeld:  
+ Deze waarde is een hoofdlettergevoelige overeenkomst voor onderwerpattributen die zich in het basis-CA-certificaat. Attributen kunnen worden gescheiden door een komma (,) of een puntkomma (;). Geef meer dan een basis-CA-certificaten met behulp van een scheidingsbalk. Voorbeeld:  
 
  `CCMCERTISSUERS=”CN=Contoso Root CA; OU=Servers; O=Contoso, Ltd; C=US &#124; CN=Litware Corporate Root CA; O=Litware, Inc.”`  
 
 > [!TIP]  
->  Raadpleeg het bestand mobileclient.tcf in de &lt;Configuration Manager-map\>\bin\\&lt;platform\> map op de site server-computer kopiëren van de **CertificateIssuers =&lt;tekenreeks\>**  die is geconfigureerd voor de site.  
+>  Kopiëren van de **CertificateIssuers =&lt;tekenreeks\>**  voor de site te verwijzen naar het bestand mobileclient.tcf in de &lt;Configuration Manager-map\>\bin\\ &lt;platform\> map op de siteserver.  
 
 ### <a name="ccmcertsel"></a>CCMCERTSEL
 
- Hiermee geeft u de criteria voor certificaatselectie als de client heeft meer dan één certificaat voor HTTPS-communicatie (een geldig certificaat met mogelijkheid clientverificatie tot).  
+ Hiermee geeft u de criteria voor certificaatselectie als de client meer dan één certificaat voor HTTPS-communicatie heeft. Dit certificaat is een geldig certificaat met de mogelijkheid clientverificatie tot.  
 
  U kunt zoeken naar een exacte overeenkomst (Gebruik **onderwerp:**) of een gedeeltelijke overeenkomst (Gebruik **SubjectStr:)** in de onderwerpnaam of alternatieve onderwerpnaam. Voorbeelden:  
 
- `CCMCERTSEL="Subject:computer1.contoso.com"`Hiermee zoekt u naar een certificaat met een exacte overeenkomst voor de computernaam "computer1.contoso.com" in de onderwerpnaam of alternatieve onderwerpnaam.  
+ `CCMCERTSEL="Subject:computer1.contoso.com"` Hiermee zoekt u naar een certificaat met een exacte overeenkomst voor de computernaam "computer1.contoso.com" in de onderwerpnaam of alternatieve onderwerpnaam.  
 
- `CCMCERTSEL="SubjectStr:contoso.com"`Hiermee zoekt u naar een certificaat dat "contoso.com" in de onderwerpnaam of alternatieve naam voor onderwerp bevat.  
+ `CCMCERTSEL="SubjectStr:contoso.com"` Hiermee zoekt u naar een certificaat dat "contoso.com" in de onderwerpnaam of alternatieve naam voor onderwerp bevat.  
 
  U kunt ook attributen van de object-id (OID) of DN-naam gebruiken in de onderwerpnaam of alternatieve naam van het onderwerp. Bijvoorbeeld:  
 
- `CCMCERTSEL="SubjectAttr:2.5.4.11 = Computers"`Hiermee zoekt u naar het attribuut organisatie-eenheid uitgedrukt als een object-id en met de naam Computers.  
+ `CCMCERTSEL="SubjectAttr:2.5.4.11 = Computers"` Hiermee zoekt u naar het attribuut organisatie-eenheid uitgedrukt als een object-id en met de naam Computers.  
 
- `CCMCERTSEL="SubjectAttr:OU = Computers"`Hiermee zoekt u naar het attribuut organisatie-eenheid uitgedrukt als een DN-naam en met de naam Computers.  
+ `CCMCERTSEL="SubjectAttr:OU = Computers"` Hiermee zoekt u naar het attribuut organisatie-eenheid uitgedrukt als een DN-naam en met de naam Computers.  
 
 > [!IMPORTANT]  
 >  Als u het vak onderwerpnaam gebruikt de **onderwerp:** hoofdlettergevoelig, en de **SubjectStr:** is niet hoofdlettergevoelig.  
 >   
 >  Als u het vak alternatieve onderwerpnaam gebruikt de **onderwerp:**en de **SubjectStr:** zijn niet hoofdlettergevoelig.  
 
- De volledige lijst van kenmerken die u gebruikt voor certificaatselectie staat in [Ondersteunde kenmerkwaarden voor de PKI-certificaatselectiecriteria](#BKMK_attributevalues).  
+ De volledige lijst met kenmerken die u voor certificaatselectie kunt gebruiken wordt vermeld in [ondersteunde kenmerkwaarden voor de selectiecriteria van PKI-certificaat](#BKMK_attributevalues).  
 
  Als meer dan één certificaat overeenstemt met de zoekopdracht, en de eigenschap CCMFIRSTCERT op 1 is ingesteld, wordt het certificaat met de langste geldigheidsduur geselecteerd.  
 
@@ -303,13 +364,13 @@ Voorbeeld: **CCMSetup.exe CCMALLOWSILENTREBOOT**
 
 ### <a name="ccmdebuglogging"></a>CCMDEBUGLOGGING
 
-  Schakelt het logboek voor foutopsporing in. Waarden kunnen worden ingesteld op 0 (uitgeschakeld, standaardinstelling) of 1 (aan). Dit zorgt ervoor dat de client registreert informatie op laag niveau voor het oplossen van problemen. Het wordt aanbevolen het gebruik van deze eigenschap in productiesite te vermijden omdat overmatige logboekregistratie kan optreden, waardoor het moeilijk kan worden relevante informatie in de logbestanden te vinden. CCMENABLELOGGING moet ook worden ingesteld op het logboek voor foutopsporing wilt inschakelen.  
+  Schakelt het logboek voor foutopsporing in. Waarden kunnen worden ingesteld op 0 (uitgeschakeld, standaardinstelling) of 1 (aan). Deze eigenschap zorgt ervoor dat de client registreert informatie op laag niveau voor het oplossen van problemen. Vermijd het gebruik van deze eigenschap in productiesite als een best practice. Overmatige logboekregistratie kan optreden die mogelijk het moeilijker relevante informatie vinden in de logboekbestanden. CCMENABLELOGGING voor logboekregistratie wilt inschakelen voor foutopsporing ook worden ingesteld.  
 
   Voorbeeld: `CCMSetup.exe CCMDEBUGLOGGING=1`  
 
 ### <a name="ccmenablelogging"></a>CCMENABLELOGGING
 
-  Wordt standaard ingesteld op TRUE logboekregistratie in te schakelen. De logbestanden worden opgeslagen de **logboeken** map in de installatiemap van de Configuration Manager-client. Deze map is standaard % Windir%\CCM\Logs.  
+  Deze eigenschap is standaard ingesteld op TRUE logboekregistratie in te schakelen. De logbestanden worden opgeslagen de **logboeken** map in de installatiemap van de Configuration Manager-client. Deze map is standaard % Windir%\CCM\Logs.  
 
   Voorbeeld: `CCMSetup.exe CCMENABLELOGGING=TRUE`  
 
@@ -323,17 +384,31 @@ Voorbeeld: **CCMSetup.exe CCMALLOWSILENTREBOOT**
 
 ### <a name="ccmfirstcert"></a>CCMFIRSTCERT
 
- Als dit is ingesteld op 1, specificeert deze eigenschap dat de client het PKI-certificaat met de langste geldigheidsduur moet selecteren. Deze instelling is mogelijk vereist als u netwerktoegangbeveiliging met IPsec enforcement gebruikt.  
+ Als dit is ingesteld op 1, specificeert deze eigenschap dat de client het PKI-certificaat met de langste geldigheidsduur moet selecteren. Deze instelling is mogelijk vereist als u Network Access Protection met IPsec enforcement gebruikt.  
 
  Voorbeeld: `CCMSetup.exe /UsePKICert CCMFIRSTCERT=1`  
 
+
 ### <a name="ccmhostname"></a>CCMHOSTNAME
 
- Geeft de FQDN van het beheerpunt op internet, als de client over het internet wordt beheerd.  
+ Als de client wordt beheerd via internet, geeft deze eigenschap geeft u de FQDN van de internet-gebaseerd beheerpunt bevindt.  
 
- Specificeer deze optie niet met de installatie-eigenschap SMSSITECODE=AUTO. Clients op het internet moeten rechtstreeks aan hun site op het internet worden toegewezen.  
+ Deze optie niet opgeven met de installatie-eigenschap smssitecode = AUTO. Clients op Internet moeten rechtstreeks worden toegewezen aan hun site op basis van het internet.  
 
  Voorbeeld: `CCMSetup.exe  /UsePKICert CCMHOSTNAME="SMSMP01.corp.contoso.com"`  
+
+Deze eigenschap ingesteld op het adres van een cloud-management-gateway. Als u de waarde voor deze eigenschap, gebruikt u de volgende stappen uit:
+- Maak een cloud-management-gateway.
+- Open een opdrachtprompt van Windows PowerShell als beheerder op een actieve client. 
+- Voer de volgende opdracht: `(Get-WmiObject -Namespace Root\Ccm\LocationServices -Class SMS_ActiveMPCandidate | Where-Object {$_.Type -eq "Internet"}).MP`
+- Gebruik de geretourneerde waarde als-is met de **CCMHOSTNAME** eigenschap.
+
+Bijvoorbeeld: `ccmsetup.exe CCMHOSTNAME=CONTOSO.CLOUDAPP.NET/CCM_Proxy_MutualAuth/72057598037248100`
+
+ > [!Important]
+ > Bij het opgeven van het adres van een cloud management gateway voor de **CCMHOSTNAME** eigenschap doen *niet* , zoals een voorvoegsel toevoegen **https://**. Dit voorvoegsel wordt alleen gebruikt met de **/mp** URL van een cloud-management-gateway.
+
+
 
 ### <a name="ccmhttpport"></a>CCMHTTPPORT
 
@@ -349,7 +424,7 @@ Voorbeeld: `CCMSetup.exe /UsePKICert CCMHTTPSPORT=443`
 
 ### <a name="ccminstalldir"></a>CCMINSTALLDIR
 
- Identificeert de map waar de bestanden van de Configuration Manager-client worden geïnstalleerd, *% Windir %*\CCM standaard. Ongeacht waar deze bestanden worden geïnstalleerd, wordt het Ccmcore.dll-bestand altijd geïnstalleerd de *%Windir%\System32* map. Bovendien op 64-bits besturingssystemen, een kopie van het Ccmcore.dll-bestand is altijd geïnstalleerd in de *% Windir %*\SysWOW64 map ter ondersteuning van 32-bits toepassingen die gebruikmaken van de 32-bits versie van de Configuration Manager-client API's van de Configuration Manager software developer kit (SDK).  
+ Identificeert de map waar de bestanden van de Configuration Manager-client worden geïnstalleerd, *% Windir %*\CCM standaard. Ongeacht waar deze bestanden worden geïnstalleerd, wordt het Ccmcore.dll-bestand altijd geïnstalleerd de *%Windir%\System32* map. Ook op een 64-bits besturingssysteem, een kopie van het Ccmcore.dll-bestand is altijd geïnstalleerd in de *% Windir %*\SysWOW64 map. Dit bestand biedt ondersteuning voor 32-bits toepassingen die gebruikmaken van de 32-bits versie van de client-API's van de Configuration Manager-SDK.  
 
  Voorbeeld: `CCMSetup.exe CCMINSTALLDIR="C:\ConfigMgr"`  
 
@@ -361,41 +436,41 @@ Voorbeeld: `CCMSetup.exe CCMLOGLEVEL=3`
 
 ### <a name="ccmlogmaxhistory"></a>CCMLOGMAXHISTORY
 
-Wanneer een Configuration Manager-logboekbestand 250000 bytes groot is (of de waarde gespecificeerd door de eigenschap CCMLOGMAXSIZE) bereikt, als een back-up wordt gewijzigd en er wordt een nieuw logboekbestand gemaakt.  
+Wanneer een logbestand van de Configuration Manager de maximale grootte bereikt, wordt de client wijzigt u de naam als een back-up en wordt een nieuw logboekbestand gemaakt. De maximale grootte is 250.000 bytes, of de waarde gespecificeerd door de eigenschap CCMLOGMAXSIZE.
 
-Deze eigenschap specificeert hoeveel eerdere versie van het logbestand moeten worden bewaard. De standaardwaarde is 1. Als de waarde op 0 is ingesteld, worden er geen oude logbestanden bewaard.  
+Deze eigenschap geeft u op hoeveel eerdere versie van het logboekbestand te houden. De standaardwaarde is 1. Als de waarde op 0 is ingesteld, worden er geen oude logbestanden bewaard.  
 
 Voorbeeld: `CCMSetup.exe CCMLOGMAXHISTORY=0`  
 
 ### <a name="ccmlogmaxsize"></a>CCMLOGMAXSIZE
 
-De maximale logboekgrootte in bytes. Wanneer een logbestand de grootte bereikt die is gespecificeerd, krijgt het een nieuwe naam als een geschiedenisbestand en wordt er een nieuw bestand gemaakt. Deze eigenschap moet worden ingesteld op ten minste 10000 bytes. De standaardwaarde is 250000 bytes.  
+De maximale logboekgrootte in bytes. Wanneer een logbestand met de opgegeven grootte, de client wijzigt u de naam als een geschiedenisbestand en wordt een nieuw bestand gemaakt. Deze eigenschap moet worden ingesteld op ten minste 10.000 bytes. De standaardwaarde is 250.000 bytes.  
 
 Voorbeeld: `CCMSetup.exe CCMLOGMAXSIZE=300000`  
 
 ### <a name="disablesiteopt"></a>DISABLESITEOPT
 
- Indien ingesteld op TRUE, schakelt de mogelijkheid van eindgebruikers met beheerdersreferenties op de clientcomputer te wijzigen van de Configuration Manager toegewezen site in **Configuration Manager** in het Configuratiescherm van de client.  
+ Als u ingesteld op TRUE, deze eigenschap schakelt u de mogelijkheid van gebruikers met beheerdersrechten wijzigen van de toegewezen site in de **Configuration Manager** het Configuratiescherm.  
 
- Voorbeeld: **CCMSetup.exe DISABLESITEOPT = TRUE**  
+ Voorbeeld: **CCMSetup.exe DISABLESITEOPT=TRUE**  
 
 ### <a name="disablecacheopt"></a>DISABLECACHEOPT
 
-Indien ingesteld op TRUE, schakelt de mogelijkheid van eindgebruikers met beheerdersreferenties op de clientcomputer om te wijzigen van de client instellingen van de cachemap voor de Configuration Manager-client met behulp van Configuration Manager in Configuratiescherm van de clientcomputer.  
+Als u ingesteld op TRUE, deze eigenschap schakelt u de mogelijkheid van gebruikers met beheerdersrechten wijzigen van de clientcache map-instellingen in de **Configuration Manager** het Configuratiescherm.  
 
 Voorbeeld: `CCMSetup.exe DISABLECACHEOPT=TRUE`  
 
 ### <a name="dnssuffix"></a>DNSSUFFIX
 
- Geeft een DNS-domein voor clients om beheerpunten te vinden die in DNS zijn gepubliceerd. Wanneer een beheerpunt is gevonden, informeert het de client over andere beheerpunten in de hiërarchie. Dit betekent dat het beheerpunt dat is gevonden met behulp van DNS-publishing niet afkomstig moet zijn van de site van de client, maar eender welk beheerpunt in de hiërarchie kan zijn.  
+ Geeft een DNS-domein voor clients om beheerpunten te vinden die in DNS zijn gepubliceerd. Wanneer een beheerpunt is gevonden, informeert het de client over andere beheerpunten in de hiërarchie. Dit gedrag betekent dat het beheerpunt dat is gevonden met behulp van DNS-publishing niet afkomstig moet zijn van de site van de client, maar eender welk beheerpunt in de hiërarchie kan zijn.  
 
 > [!NOTE]  
->  U moet deze eigenschap niet opgeven als de client in hetzelfde domein ligt als een gepubliceerd beheerpunt. In dat geval wordt het domein van de client automatisch gebruikt om DNS te zoeken voor beheerpunten.  
+>  U hoeft niet te deze eigenschap opgeven als de client zich in hetzelfde domein als een gepubliceerd beheerpunt. In dat geval wordt het domein van de client automatisch gebruikt om DNS te zoeken voor beheerpunten.  
 
- Zie voor meer informatie over DNS-publicatie als servicelocatiebepalingsmethode voor Configuration Manager-clients, [Servicelocatiebepaling en hoe clients hun toegewezen beheerpunt bepaald](../../plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md#BKMK_Plan_Service_Location) in [begrijpen hoe clients siteresources en -services voor System Center Configuration Manager vinden](../../plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md) .  
+ Zie voor meer informatie over DNS-publicatie als servicelocatiebepalingsmethode voor Configuration Manager-clients, [Service locatie en hoe het toegewezen beheerpunt voor clients wordt bepaald](../../plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md#BKMK_Plan_Service_Location).  
 
 > [!NOTE]  
->  DNS-publishing is standaard niet ingeschakeld in Configuration Manager.  
+>  Standaard is geen DNS-publishing in Configuration Manager ingeschakeld.  
 
  Voorbeeld: `CCMSetup.exe SMSSITECODE=ABC DNSSUFFIX=contoso.com`  
 
@@ -409,7 +484,7 @@ Voorbeeld: `CCMSetup.exe FSP=SMSFP01`
 
 ### <a name="ignoreappvversioncheck"></a>IGNOREAPPVVERSIONCHECK
 
- Hiermee geeft u op dat de aanwezigheid van de minimaal vereiste versie van Microsoft Application Virtualization (App-V) niet is gecontroleerd voordat de client is geïnstalleerd.  
+ Geeft aan dat de aanwezigheid van de minimaal vereiste versie van Microsoft Application Virtualization (App-V) niet is gecontroleerd voordat de client is geïnstalleerd.  
 
 > [!IMPORTANT]  
 >  Als u de Configuration Manager-client installeert zonder App-V te installeren, kunt u virtuele toepassingen implementeren.  
@@ -418,15 +493,15 @@ Voorbeeld: `CCMSetup.exe FSP=SMSFP01`
 
 ### <a name="notifyonly"></a>NOTIFYONLY
 
-Hiermee geeft u op dat door clientstatus zal worden gerapporteerd, maar problemen die zijn gevonden met de client niet hersteld.  
+Hiermee geeft u de client wordt gerapporteerd, maar niet gevonden gevonden problemen kunt oplossen.  
 
 Voorbeeld: `CCMSetup.exe NOTIFYONLY=TRUE`  
 
-Zie [De clientstatus configureren in System Center Configuration Manager](configure-client-status.md) voor meer informatie.  
+Zie voor meer informatie [clientstatus configureren](configure-client-status.md).  
 
 ### <a name="resetkeyinformation"></a>RESETKEYINFORMATION
 
- Als een Configuration Manager-client de foutieve vertrouwde basissleutel van Configuration Manager heeft en een vertrouwd beheerpunt voor het ontvangen van de nieuwe vertrouwde basissleutel niet kan bereiken, moet u de oude vertrouwde basissleutel handmatig verwijderen met behulp van deze eigenschap. Deze situatie kan optreden wanneer u een client van de ene sitehiërarchie naar een andere verplaatst. Deze eigenschap is van toepassing op cliënten die HTTP- en HTTPS-clientcommunicatie gebruiken.  
+ Als een client de foutieve vertrouwde basissleutel van Configuration Manager heeft en een vertrouwd beheerpunt voor het ontvangen van de nieuwe vertrouwde basissleutel niet kan bereiken, moet u deze eigenschap gebruiken handmatig verwijderen van de oude vertrouwde basissleutel. Deze situatie kan optreden wanneer u een client van de ene sitehiërarchie naar een andere verplaatst. Deze eigenschap is van toepassing op cliënten die HTTP- en HTTPS-clientcommunicatie gebruiken.  
 
  Voorbeeld: `CCMSetup.exe RESETKEYINFORMATION=TRUE`  
 
@@ -438,7 +513,7 @@ Voorbeeld: `CCMSetup.exe SMSSITECODE=AUTO SITEREASSIGN=TRUE`
 
 ### <a name="smscachedir"></a>SMSCACHEDIR
 
-Geeft de locatie van de cachemap van de client op de clientcomputer, die tijdelijke bestanden opslaat. De locatie is standaard *%Windir \ccmcache*.  
+Geeft de locatie van de cachemap van de client op de clientcomputer, die tijdelijke bestanden opslaat. De locatie is standaard *%Windir%\ccmcache*.  
 
 Voorbeeld: `CCMSetup.exe SMSCACHEDIR="C:\Temp"`  
 
@@ -448,7 +523,7 @@ Voorbeeld: `CCMSetup.exe SMSCACHEDIR=Cache SMSCACHEFLAGS=MAXDRIVE` installeert d
 
 ### <a name="smscacheflags"></a>SMSCACHEFLAGS
 
-Geeft meer details over de installatie voor de cachemap van de client. U kunt SMSCACHEFLAGS-eigenschappen afzonderlijk of in combinatie, gescheiden door puntkomma's, gebruiken. Als deze eigenschap niet is gespecificeerd, wordt de cachemap van de client geïnstalleerd volgens de SMSCACHEDIR-eigenschap, wordt de map niet gecomprimeerd en wordt de waarde SMSCACHESIZE gebruikt als de grootte in MB van de map.  
+Geeft meer details over de installatie voor de cachemap van de client. U kunt SMSCACHEFLAGS-eigenschappen afzonderlijk of in combinatie, gescheiden door puntkomma's, gebruiken. Als deze eigenschap niet is opgegeven, de cachemap van de client geïnstalleerd volgens de SMSCACHEDIR-eigenschap, de map is niet gecomprimeerd en de waarde SMSCACHESIZE gebruikt als de grootte in MB van de map.  
 
 Deze instelling wordt genegeerd wanneer u een upgrade uitvoert van een bestaande client.  
 
@@ -458,13 +533,13 @@ Eigenschappen:
 
 -   PERCENTFREEDISKSPACE: Geeft de mapgrootte als een percentage van de vrije schijfruimte. Als u deze eigenschap specificeert, moet u ook de eigenschap SMSCACHESIZE specificeren als de percentagewaarde om te gebruiken. Als de schijf 10 MB vrij heeft en SMSCACHESIZE is gespecificeerd als 50, wordt de mapgrootte bijvoorbeeld ingesteld op 5 MB. U kunt deze eigenschap niet gebruiken met de eigenschap PERCENTDISKSPACE.  
 
--   MAXDRIVE: Hiermee geeft u op dat de map moet worden geïnstalleerd op de grootste beschikbare schijf. Deze waarde zal worden genegeerd als er een pad is gespecificeerd met de eigenschap SMSCACHEDIR.  
+-   MAXDRIVE: Hiermee geeft u op dat de map moet worden geïnstalleerd op de grootste beschikbare schijf. Deze waarde wordt genegeerd als er een pad is gespecificeerd met de eigenschap SMSCACHEDIR.  
 
--   MAXDRIVESPACE: Hiermee geeft u op dat de map moet worden geïnstalleerd op het schijfstation met de meeste vrije ruimte. Deze waarde zal worden genegeerd als er een pad is gespecificeerd met de eigenschap SMSCACHEDIR.  
+-   MAXDRIVESPACE: Hiermee geeft u op dat de map moet worden geïnstalleerd op het schijfstation met de meeste vrije ruimte. Deze waarde wordt genegeerd als er een pad is gespecificeerd met de eigenschap SMSCACHEDIR.  
 
--   NTFSONLY: Geeft aan dat de map alleen op NTFS-stations kan worden geïnstalleerd. Deze waarde zal worden genegeerd als er een pad is gespecificeerd met de eigenschap SMSCACHEDIR.  
+-   NTFSONLY: Geeft aan dat de map alleen op NTFS-stations kan worden geïnstalleerd. Deze waarde wordt genegeerd als er een pad is gespecificeerd met de eigenschap SMSCACHEDIR.  
 
--   COMPRESS: Hiermee geeft u de map moet stoed gecomprimeerd.  
+-   COMPRESS: Hiermee geeft u op dat de map gecomprimeerd moet worden opgeslagen.  
 
 -   FAILIFNOSPACE: Hiermee geeft u op dat de clientsoftware moet worden verwijderd als er onvoldoende ruimte om de map te installeren.  
 
@@ -474,27 +549,27 @@ Voorbeeld: `CCMSetup.exe SMSCACHEFLAGS=NTFSONLY;COMPRESS`
 ### <a name="smscachesize"></a>SMSCACHESIZE
 
 > [!IMPORTANT]
-> Vanaf Configuration Manager versie 1606 zijn zijn nieuwe clientinstellingen beschikbaar voor het opgeven van de grootte van de client cache. Het toevoegen van die clientinstellingen vervangt SMSCACHESIZE als client.msi-eigenschap voor het opgeven van de grootte van de clientcache. Zie de [clientinstellingen voor cachegrootte](about-client-settings.md#client-cache-settings) voor meer informatie.  
+> Clientinstellingen zijn beschikbaar voor het opgeven van de grootte van de cachemap client. Het toevoegen van die clientinstellingen vervangt SMSCACHESIZE als client.msi-eigenschap voor het opgeven van de grootte van de clientcache. Zie de [clientinstellingen voor cachegrootte](about-client-settings.md#client-cache-settings) voor meer informatie.  
 
-In versie 1602 en eerder wordt met SMSCACHESIZE de grootte opgegeven van de cachemap van de client in megabyte (MB) of als een percentage wanneer het wordt gebruikt met de eigenschap PERCENTDISKSPACE of PERCENTFREEDISKSPACE. Als deze eigenschap niet is ingesteld, is de map standaard maximum 5120 MB groot. De laagste waarde die u kunt opgeven, is 1 MB.  
+<!-- For 1602 and earlier, SMSCACHESIZE specifies the size of the client cache folder in megabyte (MB) or as a percentage when used with the PERCENTDISKSPACE or PERCENTFREEDISKSPACE property. If this property isn't set, the folder defaults to a maximum size of 5120 MB. The lowest value that you can specify is 1 MB.  -->
 
 > [!NOTE]  
->  Als een nieuw pakket dat moet worden gedownload, ervoor zou zorgen dat de map de maximumgrootte overschrijdt, en als de map niet kan worden leeggemaakt om voldoende ruimte beschikbaar te maken, mislukt de download van het pakket, en zal het programma of de toepassing niet worden uitgevoerd.  
+>  Als u een nieuw pakket dat moet worden gedownload, ervoor zou zorgen dat de map de maximumgrootte overschrijdt, en als de map kan niet worden leeggemaakt om voldoende ruimte beschikbaar te stellen, het downloaden van het pakket mislukt en het programma dat of toepassing kan niet worden uitgevoerd.  
 
-Deze instelling wordt genegeerd wanneer u een upgrade op een bestaande client uitvoert en wanneer de client software-update downloadt.  
+Deze instelling wordt genegeerd wanneer u een upgrade van een bestaande client uitvoert en wanneer de client downloadt software-updates.  
 
 Voorbeeld: `CCMSetup.exe SMSCACHESIZE=100`  
 
 > [!NOTE]  
->  Als u een client opnieuw installeert, kunt u de installatie-eigenschappen SMSCACHESIZE of SMSCACHEFLAGS niet gebruiken om de cachegrootte zodanig in te stellen dat deze kleiner is dan voorheen. Als u probeert om dit te doen, wordt uw waarde genegeerd en wordt de cachegrootte automatisch ingesteld op de grootte die het vroeger was.  
+>  Als u een client opnieuw installeert, kunt u de installatie-eigenschappen SMSCACHESIZE of SMSCACHEFLAGS niet gebruiken om in te stellen de cachegrootte is kleiner dan het vroeger was. Als u deze actie wordt uitgevoerd probeert, wordt uw waarde genegeerd. De cachegrootte automatisch ingesteld op de vorige grootte.  
 
 ### <a name="smsconfigsource"></a>SMSCONFIGSOURCE
 
-Hiermee geeft u de locatie en volgorde die de Configuration Manager-installatieprogramma voor configuratie-instellingen controleert. De eigenschap is een reeks die een of meerdere tekens bevat, die elk een specifieke configuratiebron definiëren. Gebruik de tekenwaarden R, P, M en U, alleen of in combinatie:  
+Hiermee geeft u de locatie en volgorde die de Configuration Manager-installatieprogramma voor configuratie-instellingen controleert. De eigenschap is een tekenreeks van een of meer tekens, die elk een specifieke configuratiebron definiëren. Gebruik de tekenwaarden R, P, M en U, alleen of in combinatie:  
 
 -   R: Controleren op configuratie-instellingen in het register.  
 
-   Zie voor meer informatie [informatie over het opslaan van eigenschappen van clientinstallatie in het register.](https://technet.microsoft.com/library/gg712298.aspx#BKMK_Provision).  
+   Zie voor meer informatie [informatie over het opslaan van eigenschappen van clientinstallatie in het register](/sccm/core/clients/deploy/deploy-clients-to-windows-computers#BKMK_Provision).  
 
 -   P: Controleren op configuratie-instellingen in de installatie-eigenschappen die is opgegeven bij de opdrachtprompt.  
 
@@ -508,15 +583,15 @@ Hiermee geeft u de locatie en volgorde die de Configuration Manager-installatiep
 
 ### <a name="smsdirectorylookup"></a>SMSDIRECTORYLOOKUP
 
- Specificeert of de client Windows Internet Name Service (WINS) kan gebruiken om een beheerpunt te vinden dat HTTP-verbindingen aanvaardt. Clients gebruiken deze methode wanneer ze geen beheerpunt in Active Directory Domain Services of in DNS kunnen vinden.  
+ Specificeert of de client Windows Internet Name Service (WINS) kan gebruiken om een beheerpunt te vinden dat HTTP-verbindingen aanvaardt. Clients gebruiken deze methode wanneer ze een beheerpunt in Active Directory Domain Services of in DNS vinden kunnen.  
 
  Deze eigenschap heeft geen invloed op of de client WINS voor naamomzetting gebruikt.  
 
  U kunt twee verschillende modi voor deze eigenschap configureren:  
 
--   NOWINS: Dit is de veiligste instelling voor deze eigenschap en voorkomt dat clients een beheerpunt in WINS vinden.  Wanneer u deze instelling gebruikt, moeten clients een andere methode hebben om een beheerpunt op het intranet te vinden, zoals Active Directory Domain Services of met behulp van DNS-publishing.  
+-   NOWINS: Deze waarde is de veiligste instelling voor deze eigenschap en voorkomt dat clients een beheerpunt in WINS vinden. Wanneer u deze instelling gebruikt, moeten clients een andere methode hebben om een beheerpunt op het intranet te vinden, zoals Active Directory Domain Services of met behulp van DNS-publishing.  
 
--   WINSSECURE (standaard): In deze modus kan een client die HTTP-communicatie gebruikt, WINS om een beheerpunt te vinden. De client moet echter een kopie van de vertrouwde basissleutel hebben voordat het een verbinding kan maken met het beheerpunt. Zie [Planning voor de vertrouwde basissleutel](../../plan-design/security/plan-for-security.md#BKMK_PlanningForRTK) in [De beveiliging plannen in System Center Configuration Manager](../../plan-design/security/plan-for-security.md) voor meer informatie.  
+-   WINSSECURE (standaard): In deze modus kan een client die HTTP-communicatie gebruikt, WINS om een beheerpunt te vinden. De client moet echter een kopie van de vertrouwde basissleutel hebben voordat het een verbinding kan maken met het beheerpunt. Zie voor meer informatie [Planning voor de vertrouwde basissleutel](../../plan-design/security/plan-for-security.md#BKMK_PlanningForRTK).  
 
 
  Voorbeeld: `CCMSetup.exe SMSDIRECTORYLOOKUP=NOWINS`  
@@ -532,15 +607,16 @@ Voorbeeld: `CCMSetup.exe SMSMP=smsmp01.contoso.com`
 
 Voorbeeld: `CCMSetup.exe SMSMP=https://smsmp01.contoso.com`  
 
+
 ### <a name="smspublicrootkey"></a>SMSPUBLICROOTKEY
 
- Hiermee geeft u de vertrouwde basissleutel van Configuration Manager wanneer het kan niet worden opgehaald uit Active Directory Domain Services. Deze eigenschap is van toepassing op cliënten die HTTP- en HTTPS-clientcommunicatie gebruiken. Zie [Planning voor de vertrouwde basissleutel](../../plan-design/security/plan-for-security.md#BKMK_PlanningForRTK) in [De beveiliging plannen in System Center Configuration Manager](../../plan-design/security/plan-for-security.md) voor meer informatie.  
+ Hiermee geeft u de vertrouwde basissleutel van Configuration Manager wanneer het kan niet worden opgehaald uit Active Directory Domain Services. Deze eigenschap is van toepassing op cliënten die HTTP- en HTTPS-clientcommunicatie gebruiken. Zie voor meer informatie [Planning voor de vertrouwde basissleutel](../../plan-design/security/plan-for-security.md#BKMK_PlanningForRTK).  
 
  Voorbeeld: `CCMSetup.exe SMSPUBLICROOTKEY=&lt;key\>`  
 
 ### <a name="smsrootkeypath"></a>SMSROOTKEYPATH
 
- Gebruikt om de vertrouwde basissleutel van Configuration Manager opnieuw te installeren. Geeft het volledige pad en de bestandsnaam aan een bestand dat de vertrouwde basissleutel bevat. Deze eigenschap is van toepassing op cliënten die HTTP- en HTTPS-clientcommunicatie gebruiken. Zie [Planning voor de vertrouwde basissleutel](../../plan-design/security/plan-for-security.md#BKMK_PlanningForRTK) in [De beveiliging plannen in System Center Configuration Manager](../../plan-design/security/plan-for-security.md) voor meer informatie.  
+ Gebruikt om de vertrouwde basissleutel van Configuration Manager opnieuw te installeren. Geeft het volledige pad en de bestandsnaam aan een bestand dat de vertrouwde basissleutel bevat. Deze eigenschap is van toepassing op cliënten die HTTP- en HTTPS-clientcommunicatie gebruiken. Zie voor meer informatie [Planning voor de vertrouwde basissleutel](../../plan-design/security/plan-for-security.md#BKMK_PlanningForRTK).  
 
  Voorbeeld: ' CCMSetup.exe SMSROOTKEYPATH =&lt;volledige pad en bestandsnaam\>`  
 
@@ -554,10 +630,10 @@ Voorbeeld: `CCMSetup.exe SMSMP=https://smsmp01.contoso.com`
 
 ### <a name="smssitecode"></a>SMSSITECODE
 
- Hiermee geeft u de Configuration Manager-site als u wilt toewijzen aan Configuration Manager-client. Dit kan een sitecode met drie tekens of het woord AUTO zijn. Als AUTO is gespecificeerd, of als deze eigenschap niet is gespecificeerd, probeert de client om te bepalen van de Configuration Manager site-toewijzing van Active Directory Domain Services of van een opgegeven beheerpunt. Om in te schakelen automatisch voor clientupgrades van de, moet u ook instellen [SITEREASSIGN](#sitereassign) op TRUE.    
+ Hiermee geeft u de Configuration Manager-site om de client toewijst aan. Deze waarde kan een sitecode met drie tekens of het woord AUTO zijn. Als u automatische opgeven of u deze eigenschap niet opgeeft, probeert de client om te bepalen de sitetoewijzing van Active Directory Domain Services of van een opgegeven beheerpunt. Om in te schakelen automatisch voor clientupgrades van de, moet u ook instellen [SITEREASSIGN](#sitereassign) op TRUE.    
 
 > [!NOTE]  
->  Gebruik geen AUTO als u ook het beheerpunt op het internet specificeert (CCMHOSTNAME). In dat geval moet u de client direct toewijzen aan de site ervan.  
+>  Gebruik geen AUTO als u ook de internet-gebaseerd beheerpunt bevindt (CCMHOSTNAME) opgeven. In dat geval moet u de client direct toewijzen aan de site ervan.  
 
  Voorbeeld: `CCMSetup.exe SMSSITECODE=XZY`  
 

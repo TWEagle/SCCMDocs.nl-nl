@@ -1,22 +1,23 @@
 ---
 title: Gereedheid voor upgrade
-titleSuffix: Configuration Manager
-description: "Gereedheid voor Upgrade worden geïntegreerd met Configuration Manager. Toegang tot upgradecompatibiliteit gegevens in de beheerconsole. Apparaten voor herstel of upgrade."
-keywords: 
-author: mattbriggs
-ms.author: mabrigg
-manager: angerobe
-ms.date: 7/31/2017
+titleSuffix: System Center Configuration Manager
+description: Gereedheid voor Upgrade worden geïntegreerd met Configuration Manager. Toegang tot upgradecompatibiliteit gegevens in de beheerconsole. Apparaten voor herstel of upgrade.
+keywords: ''
+author: mestew
+ms.author: mstewart
+manager: dougeby
+ms.date: 03/22/2018
 ms.topic: article
 ms.prod: configuration-manager
-ms.service: 
-ms.technology: configmgr-client
+ms.service: ''
+ms.technology:
+- configmgr-client
 ms.assetid: 68407ab8-c205-44ed-9deb-ff5714451624
-ms.openlocfilehash: df2950551e527788aeb01d57cdbf01ad19817ccd
-ms.sourcegitcommit: 986fc2d54f7c5fa965fd4df42f4db4ecce6b79cb
+ms.openlocfilehash: f9fec1723c5242485d23981bcb683e3a8e98bfd3
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="integrate-upgrade-readiness-with-system-center-configuration-manager"></a>Gereedheid voor Upgrade integreren met System Center Configuration Manager
 
@@ -25,6 +26,10 @@ ms.lasthandoff: 11/17/2017
 Gereedheid voor upgrade (voorheen Upgrade Analytics) maakt deel uit van [Windows Analytics](https://www.microsoft.com/WindowsForBusiness/windows-analytics) waarmee u om te beoordelen en analyseren van de gereedheid van apparaten in uw omgeving voor een upgrade naar Windows 10. U kunt de specifieke versie kunt configureren. Gereedheid voor upgrade kan worden geïntegreerd met Configuration Manager toegang tot gegevens van de client upgradecompatibiliteit in de beheerconsole van Configuration Manager. U kunt doelapparaten voor een upgrade of herstel met behulp van dynamische verzamelingen die zijn gemaakt op basis van deze gegevens.
 
 Gereedheid voor upgrade is een oplossing die wordt uitgevoerd op [Operations Management Suite (OMS)](/azure/operations-management-suite/operations-management-suite-overview). Meer informatie over de gereedheid van de Upgrade in [beheren wordt bijgewerkt met de gereedheid voor Upgrade](/windows/deployment/upgrade/manage-windows-upgrades-with-upgrade-readiness).
+
+>[!WARNING]
+>Gereedheid voor Upgrade van functie in Configuration Manager, moet u upgraden naar Configuration Manager versie 1802.  <!--507205--> De Connector van de gereedheid van de Upgrade niet meer werkt in Configuration Manager-versies eerder dan 1802. 
+
 
 ## <a name="configure-clients"></a>Clients configureren
 
@@ -37,14 +42,14 @@ Gereedheid voor upgrade, zoals alle Windows Analytics-oplossingen, afhankelijk v
 Commerciële ID-sleutel en de telemetrie van Windows kunnen worden geconfigureerd in **clientinstellingen**. Zie voor meer informatie, [Windows Analytics voor gebruik met Configuration Manager](../monitor-windows-analytics.md).
 
 >[!NOTE]
->Als u problemen met de gereedheid voor Upgrade ontvangt geen telemetriegegevens van apparaten in uw omgeving ondervindt zoals verwacht wordt dat sommige van deze problemen kunnen worden opgelost met behulp van de [implementatiescript gereedheid voor Upgrade](/windows/deployment/upgrade/upgrade-readiness-deployment-script). Echter, in de meeste omgevingen implementeert de juiste KB configureren commerciële id-sleutel en telemetrie in **clientinstellingen** moet voldoende.
+>Als u problemen met de gereedheid voor Upgrade ontvangt geen telemetriegegevens van apparaten in uw omgeving ondervindt zoals verwacht, is enkele van deze problemen kunnen worden opgelost met behulp van de [implementatiescript gereedheid voor Upgrade](/windows/deployment/upgrade/upgrade-readiness-deployment-script). Echter, in de meeste omgevingen implementeren de juiste kB, configureren van commerciële id-sleutel en telemetrie in **clientinstellingen** moet voldoende.
 
 ## <a name="connect-configuration-manager-to-upgrade-readiness"></a>Verbinding maken met Configuration Manager voor gereedheid voor Upgrade
 
 Vanaf versie van de huidige vertakking 1706, de [wizard Azure-services](../../../servers/deploy/configure/azure-services-wizard.md) wordt gebruikt voor het vereenvoudigen van het proces van het configureren van Azure services die u met Configuration Manager gebruikt. Configuration Manager een verbinding maakt met een Azure AD-app-registratie van het type van Upgrade gereedheid *Web-app / API* moeten worden gemaakt in de [Azure-portal](https://portal.azure.com). Lezen Zie informatie over het maken van een app-registratie [uw toepassing registreren met uw Azure Active Directory-tenant](/azure/active-directory/active-directory-app-registration). In de **Azure-portal**, moet u ook uw zojuist geregistreerde web-app zodat *Inzender* machtigingen voor de resourcegroep met de OMS-werkruimte die als host fungeert voor uw gegevens gereedheid voor Upgrade. De **wizard Azure-services** deze registratie van de app wordt gebruikt om toe te staan van Configuration Manager voor veilige communicatie met Azure AD en uw infrastructuur verbinden met uw gegevens gereedheid voor Upgrade.
 
 >[!IMPORTANT]
->*Inzender* moeten machtigingen worden toegekend aan de app zelf in plaats van de identiteit van een Azure AD-gebruiker. Dit is omdat deze de geregistreerde app en niet in het geval van een Azure AD-gebruiker die toegang heeft tot de gegevens namens uw Configuration Manager-infrastructuur. Hiervoor hebt uitgevoerd, om te zoeken naar de naam van de registratie van de app in de **gebruikers toevoegen** blade bij het toewijzen van de machtiging. Dit wordt hetzelfde proces dat als moet worden gevolgd [Configuration Manager met machtigingen voor OMS](https://docs.microsoft.com/azure/log-analytics/log-analytics-sccm#provide-configuration-manager-with-permissions-to-oms) voor verbindingen met [logboekanalyse](https://docs.microsoft.com/azure/log-analytics/log-analytics-sccm). Deze stappen moeten worden voltooid voordat de app-registratie is geïmporteerd in Configuration Manager met de *wizard Azure-services*.
+>*Inzender* moeten machtigingen worden toegekend aan de app zelf in plaats van de identiteit van een Azure AD-gebruiker. Dit is omdat deze de geregistreerde app en niet in het geval van een Azure AD-gebruiker die toegang heeft tot de gegevens namens uw Configuration Manager-infrastructuur. De machtigingen wilt geven, wordt er om te zoeken naar de naam van de registratie van de app in de **gebruikers toevoegen** gebied bij het toewijzen van de machtiging. Hetzelfde proces dat als moet worden gevolgd [Configuration Manager met machtigingen voor OMS](https://docs.microsoft.com/azure/log-analytics/log-analytics-sccm#provide-configuration-manager-with-permissions-to-oms) voor verbindingen met [logboekanalyse](https://docs.microsoft.com/azure/log-analytics/log-analytics-sccm). Deze stappen moeten worden voltooid voordat de app-registratie is geïmporteerd in Configuration Manager met de *wizard Azure-services*.
 
 ### <a name="use-the-azure-wizard-to-create-the-connection"></a>Gebruik de Wizard Azure-verbinding
 
@@ -55,7 +60,7 @@ Op de *configuratie* pagina de volgende waarden zijn al ingevuld als de web-app 
 -  Azure-resourcegroep
 -  Windows Analytics-werkruimte
 
-Meer dan één resourcegroep of werkruimte wordt alleen beschikbaar zijn als de geregistreerde Azure AD web-app heeft *Inzender* machtigingen op meer dan één resourcegroep of als de geselecteerde resourcegroep meer dan een OMS-werkruimte bevat.
+Meer dan één resourcegroep of werkruimte wordt alleen beschikbaar zijn als de geregistreerde Azure AD web-app heeft *Inzender* machtigingen op meer dan één resourcegroep of als de geselecteerde resourcegroep meer dan een OMS-werkruimte heeft.
  
 ## <a name="view-and-use-upgrade-readiness-information-in-configuration-manager"></a>Weergeven en gebruiken van gegevens van de gereedheid van de Upgrade in Configuration Manager
 

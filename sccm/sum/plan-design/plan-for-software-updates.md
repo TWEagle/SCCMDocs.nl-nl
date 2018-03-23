@@ -2,21 +2,22 @@
 title: Software-updates plannen
 titleSuffix: Configuration Manager
 description: Een plan voor de software-updatepuntinfrastructuur is essentieel voordat u software-updates in een productieomgeving System Center Configuration Manager gebruiken.
-keywords: 
-author: dougeby
-ms.author: dougeby
-manager: angrobe
-ms.date: 06/27/2017
+keywords: ''
+author: mestew
+ms.author: mstewart
+manager: dougeby
+ms.date: 03/22/2018
 ms.topic: article
 ms.prod: configuration-manager
-ms.service: 
-ms.technology: configmgr-sum
+ms.service: ''
+ms.technology:
+- configmgr-sum
 ms.assetid: d071b0ec-e070-40a9-b7d4-564b92a5465f
-ms.openlocfilehash: e36048141400097950a7c24733f382acacb73131
-ms.sourcegitcommit: db9978135d7a6455d83dbe4a5175af2bdeaeafd8
+ms.openlocfilehash: b57a1b584ec40d67b263959ae52f694c486481d7
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="plan-for-software-updates-in-system-center-configuration-manager"></a>Software-updates plannen in System Center Configuration Manager
 
@@ -136,9 +137,9 @@ Schakel deze optie in op een verzameling apparaten of op een reeks geselecteerde
  Deze instellingen adressen de fouttolerantiebehoeften die u hebt waarschijnlijk. Standaard biedt Configuration Manager geen ondersteuning voor configureren van het software-updatepunten als NLB-clusters. Voorafgaand aan de Configuration Manager versie 1702 kunt u de Configuration Manager SDK maximaal vier software-updatepunten op een NLB-cluster configureren. Echter vanaf Configuration Manager versie 1702, software-updatepunten worden niet ondersteund als NLB-clusters en upgrades naar Configuration Manager versie 1702 wordt geblokkeerd als deze configuratie wordt gedetecteerd. Zie voor meer informatie over de cmdlet Set-CMSoftwareUpdatePoint PowerShell de [Set-CMSoftwareUpdatePoint](http://go.microsoft.com/fwlink/?LinkId=276834).
 
 ###  <a name="BKMK_SUPSecSite"></a> Software-updatepunt op een secundaire Site  
- Het software-updatepunt is optioneel op een secundaire site. Wanneer u een software-updatepunt op een secundaire site installeert, wordt de WSUS-database geconfigureerd als een replica van het standaard software-updatepunt op de bovenliggende primaire site. U kunt slechts één software-updatepunt op een secundaire site installeren. De apparaten die aan een secundaire site zijn toegewezen, zijn geconfigureerd om een software-updatepunt te gebruiken op de bovenliggende site wanneer een software-updatepunt niet is geïnstalleerd op de secundaire site. U installeert gewoonlijk software-updatepunt op een secundaire site wanneer er beperkte netwerkbandbreedte tussen de apparaten die zijn toegewezen aan de secundaire site en de software-updatepunten op de bovenliggende primaire site is, of wanneer de software-updatepunt de capaciteitlimiet. Nadat een software-updatepunt met succes is geïnstalleerd en geconfigureerd op de secundaire site, wordt een beleid voor de gehele site bijgewerkt voor clientcomputers die zijn toegewezen aan de site, en zullen ze het nieuwe software-updatepunt beginnen te gebruiken.  
+ Het software-updatepunt is optioneel op een secundaire site. U kunt slechts één software-updatepunt op een secundaire site installeren. De apparaten die aan een secundaire site zijn toegewezen, zijn geconfigureerd om een software-updatepunt te gebruiken op de bovenliggende site wanneer een software-updatepunt niet is geïnstalleerd op de secundaire site. U installeert gewoonlijk software-updatepunt op een secundaire site wanneer er beperkte netwerkbandbreedte tussen de apparaten die zijn toegewezen aan de secundaire site en de software-updatepunten op de bovenliggende primaire site is, of wanneer de software-updatepunt de capaciteitlimiet. Nadat een software-updatepunt met succes is geïnstalleerd en geconfigureerd op de secundaire site, wordt een beleid voor de gehele site bijgewerkt voor clientcomputers die zijn toegewezen aan de site, en zullen ze het nieuwe software-updatepunt beginnen te gebruiken.  
 
-##  <a name="BKMK_SUPInstallation"></a>Plan voor de installatie van Software-updatepunt  
+##  <a name="BKMK_SUPInstallation"></a> Plan voor de installatie van Software-updatepunt  
  Voordat u een sitesysteemrol van software-update-punt in Configuration Manager maakt, zijn er verschillende vereisten die u, afhankelijk van uw Configuration Manager-infrastructuur overwegen moet. Wanneer u het software-updatepunt configureert om te communiceren met behulp van SSL, is deze sectie in het bijzonder belangrijk omdat u extra stappen moet nemen opdat de software-upatepunten in uw hiërarchie goed zouden werken. Deze sectie geeft informatie over de stappen die u moet nemen om de installatie van een software-updatepunt met succes te plannen en voor te bereiden.  
 
 ###  <a name="BKMK_SUPSystemRequirements"></a> Vereisten voor het software-updatepunt  
@@ -171,7 +172,7 @@ Software-updates vereisen dat een ondersteunde versie van WSUS is geïnstalleerd
  Wanneer u een WSUS-server is geconfigureerd als een software-updatepunt, bent u niet meer kunnen gebruiken als een zelfstandige WSUS-server. Als u een afzonderlijke, zelfstandige WSUS-server is die niet wordt beheerd door Configuration Manager moet, moet u deze configureren op een andere server.
 
 ####  <a name="BKMK_WSUSAsReplica"></a> WSUS configureren als een replicaserver  
- Wanneer u een sitesysteemrol van software-upatepunt op een primaire siteserver maakt, kunt u geen WSUS-server gebruiken die als een replica is geconfigureerd. Wanneer de WSUS-server is geconfigureerd als een replica, Configuration Manager is mislukt voor het configureren van de WSUS-server en mislukt ook de WSUS-synchronisatie. Wanneer een software-updatepunt is gemaakt op een secundaire site, configureert Configuration Manager WSUS als een replicasever van de WSUS die wordt uitgevoerd op het software-updatepunt op de bovenliggende primaire site. Het eerste software-updatepunt dat u installeert op een primaire site wordt het standaardsoftware-updatepunt. Andere software-updatepunten op de site zijn geconfigureerd als replica's van het standaardsoftware-updatepunt.  
+ Wanneer u een sitesysteemrol van software-upatepunt op een primaire siteserver maakt, kunt u geen WSUS-server gebruiken die als een replica is geconfigureerd. Wanneer de WSUS-server is geconfigureerd als een replica, Configuration Manager is mislukt voor het configureren van de WSUS-server en mislukt ook de WSUS-synchronisatie. Het eerste software-updatepunt dat u installeert op een primaire site wordt het standaardsoftware-updatepunt. Andere software-updatepunten op de site zijn geconfigureerd als replica's van het standaardsoftware-updatepunt.  
 
 ####  <a name="BKMK_WSUSandSSL"></a> Beslissen of WSUS moet worden geconfigureerd voor het gebruik van SSL  
  U kunt het SSL-protocol gebruiken om de WSUS te helpen beveiligen die op het software-updatepunt wordt uitgevoerd. WSUS gebruikt SSL om clientcomputers en WSUS-servers stroomafwaarts naar de WSUS-server te verifiëren. WSUS gebruikt ook SSL om de metagegevens van de software-update te versleutelen. Wanneer u ervoor kiest WSUS te beveiligen van SSL, moet u de WSUS-server voorbereiden voordat u het software-updatepunt installeert.  

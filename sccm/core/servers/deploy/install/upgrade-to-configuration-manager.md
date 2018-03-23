@@ -1,24 +1,25 @@
 ---
 title: Bijwerken naar System Center Configuration Manager
-description: "Meer informatie over de stappen voor het uitvoeren van een geslaagde in-place upgrade vanaf een site en hiërarchie met System Center 2012 Configuration Manager."
+description: Meer informatie over de stappen voor het uitvoeren van een geslaagde in-place upgrade vanaf een site en hiërarchie met System Center 2012 Configuration Manager.
 ms.custom: na
-ms.date: 6/6/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: c64e7483-b4bb-4738-95f4-ecdaeb6a2ba6
-caps.latest.revision: "21"
+caps.latest.revision: ''
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 770976309fbd5e8884dfec4bdaa29630ef1c02d0
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 72e11a04eb64d649749f2001ac4e3550c784132c
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="upgrade-to-system-center-configuration-manager"></a>Bijwerken naar System Center Configuration Manager
 
@@ -32,6 +33,14 @@ U kunt in-place upgrade-upgrade uitvoeren naar System Center Configuration Manag
  > Bij het beheren van System Center Configuration Manager-site en hiërarchie-infrastructuur, de voorwaarden *upgrade*, *bijwerken*, en *installeren* worden gebruikt voor het beschrijven van drie afzonderlijke concepten. Zie voor meer informatie over hoe elke term wordt gebruikt, [over upgrade-, update- en installatie](/sccm/core/understand/upgrade-update-install).
 
 ##  <a name="bkmk_path"></a> In-place upgradepaden  
+
+**Upgrade uitvoeren naar versie 1802**   
+Wanneer u versie 1702 basislijnmedia hebt, kunt u de volgende upgraden naar een volledig gelicentieerde versie van System Center Configuration Manager versie 1802:   
+-     De installatie van een evaluatieversie van System Center Configuration Manager versie 1802
+-     System Center 2012 Configuration Manager met servicepack 1
+-     System Center 2012 Configuration Manager met servicepack 2
+-     System Center 2012 R2 Configuration Manager
+-     System Center 2012 R2 Configuration Manager met servicepack 1
 
 **Upgrade uitvoeren naar versie 1702**   
 Wanneer u versie 1702 basislijnmedia hebt, kunt u de volgende upgraden naar een volledig gelicentieerde versie van System Center Configuration Manager versie 1702:   
@@ -285,7 +294,7 @@ Nadat u de sitedatabase op de SQL Server-computer herstellen Voer vervolgens Set
 >   
 >  Wanneer u een testdatabase-upgrade uitvoert op en kopie van de sitedatabase die meer dan vijf dagen oud is, kunt u een van de volgende berichten ontvangen:  
 >   
->  -   WAARSCHUWING: Upgrade forceert een volledige synchronisatie naar de cloud.  
+>  -   WARN: Upgrade forceert een volledige synchronisatie naar de cloud.  
 >  -   FOUT: Database-upgrade forceert een volledige synchronisatie naar de cloud.  
 >   
 > Beide kunnen worden genegeerd tijdens het testen van een database-upgrade niet duiden op een fout of probleem met de test-upgrade. In plaats daarvan geven ze aan dat tijdens de daadwerkelijke upgrade, worden gegevens uit de **Cloud** databasereplicatiegroep kan synchroniseren met Microsoft Intune.  
@@ -298,7 +307,7 @@ Gebruik de volgende procedure op elke centrale beheersite en primaire site die u
 
 2.  Nadat u de databasekopie teruggezet, installatieprogramma uitvoeren vanaf de bronmedia voor System Center Configuration Manager. Wanneer u Setup wilt uitvoeren, gebruikt u de opdrachtregeloptie **/TESTDBUPGRADE** . Als het SQL Server-exemplaar dat de databasekopie host niet het standaardexemplaar is, moet u ook de opdrachtregelargumenten opgeven om het exemplaar aan te duiden dat de sitedatabasekopie host.  
 
-     Stel dat u van plan bent om een sitedatabase met de databasenaam SMS_ABC bij te werken. U herstelt een kopie van deze sitedatabase naar een ondersteund exemplaar van SQL Server met de exemplaarnaam DBTest. Als u wilt een upgrade van deze kopie van de sitedatabase testen, gebruikt u de volgende opdrachtregel: **/ Van Setup.exe/testdbupgrade DBtest\CM_ABC**  
+     Stel dat u van plan bent om een sitedatabase met de databasenaam SMS_ABC bij te werken. U herstelt een kopie van deze sitedatabase naar een ondersteund exemplaar van SQL Server met de exemplaarnaam DBTest. Als u wilt een upgrade van deze kopie van de sitedatabase testen, gebruikt u de volgende opdrachtregel: **Setup.exe /TESTDBUPGRADE DBtest\CM_ABC**  
 
      U vindt Setup.exe op de volgende locatie op de bronmedia voor System Center Configuration Manager: **SMSSETUP\BIN\X64**.  
 
@@ -384,7 +393,7 @@ Op de pagina **Upgrade uitvoeren** wordt de algehele voortgang weergegeven. Wann
     </br>
 2.  Klik op **Beheer**in de Configuration Manager-console.  
 
-3.  Vouw **Siteconfiguratie** uit in de werkruimte **Beheer**en klik vervolgens op **Sites**.  
+3.  Vouw in de werkruimte **Beheer** **Siteconfiguratie**uit en klik vervolgens op **Sites**.  
 
 4.  Selecteer de secundaire site die u wilt bijwerken en klik vervolgens op het tabblad **Start** in de groep **Site** op **Upgrade uitvoeren**.  
 

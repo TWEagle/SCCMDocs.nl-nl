@@ -3,24 +3,25 @@ title: Problemen met Windows Defender of Endpoint Protection-client oplossen
 titleSuffix: Configuration Manager
 description: Informatie over het oplossen van problemen met Windows Defender- en Endpoint Protection.
 ms.custom: na
-ms.date: 01/03/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d837253e-fcc2-422a-9e2c-c78b938dfd8c
-caps.latest.revision: "7"
-caps.handback.revision: "0"
-author: NathBarn
-ms.author: nathbarn
-manager: angrobe
-ms.openlocfilehash: b667db471a16faef057f49a0a26759849e03f237
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+caps.latest.revision: ''
+caps.handback.revision: ''
+author: mestew
+ms.author: mstewart
+manager: dougeby
+ms.openlocfilehash: a8460cafce15e5fb97ace76983932841ec77412f
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-windows-defender-or-endpoint-protection-client"></a>Problemen met Windows Defender of Endpoint Protection-client oplossen
 
@@ -100,7 +101,7 @@ Als u problemen ondervindt met Windows Defender of Endpoint Protection, neemt u 
 
 2.  Als het foutbericht dat u hebt ontvangen de code 0x80072f8f bevat, wordt het probleem waarschijnlijk veroorzaakt door een onjuiste instelling van de datum of tijd op uw computer.  
 
-3.  Als u de datum- of tijdinstelling opnieuw wilt instellen, volgt u de stappen in [Verbroken snelkoppelingen op het bureaublad en veelvoorkomende onderhoudstaken corrigeren](http://go.microsoft.com/fwlink/?LinkId=155579) (http://go.microsoft.com/fwlink/?LinkId=155579).  
+3.  Volg de stappen in voor het instellen van uw computer datum of tijd, [los verbroken snelkoppelingen op het bureaublad en veelvoorkomende system onderhoudstaken](http://go.microsoft.com/fwlink/?LinkId=155579) (http://go.microsoft.com/fwlink/?LinkId=155579).  
 
 ### <a name="step-4-rename-the-software-distribution-folder-on-your-computer"></a>Stap 4: Wijzig de naam van de map softwaredistributie op uw computer  
 
@@ -140,7 +141,7 @@ Als u problemen ondervindt met Windows Defender of Endpoint Protection, neemt u 
 
      **Cd programma files\windows defender**  
 
-     **MpCmdRun - RemoveDefinitions-alle**  
+     **Mpcmdrun -RemoveDefinitions -all**  
 
      **Afsluiten**  
 
@@ -153,16 +154,16 @@ Als u problemen ondervindt met Windows Defender of Endpoint Protection, neemt u 
 
 ### <a name="step-6-manually-install-the-virus-and-spyware-definition-updates"></a>Stap 6: Definitie-updates van virus- en spywaredefinities handmatig installeren  
 
--   Als u een 32-bits Windows-besturingssysteem hebt, kunt u de nieuwste updates handmatig downloaden op [http://go.microsoft.com/fwlink/?LinkID=87342](http://go.microsoft.com/fwlink/?LinkID=87342) (http://go.microsoft.com/fwlink/?LinkID=87342).  
+-   Als u een 32-bits Windows-besturingssysteem worden uitgevoerd, de meest recente updates handmatig downloaden [ http://go.microsoft.com/fwlink/?LinkID=87342 ](http://go.microsoft.com/fwlink/?LinkID=87342) (http://go.microsoft.com/fwlink/?LinkID=87342).  
 
--   Als u een 64-bits Windows-besturingssysteem hebt, kunt u de nieuwste updates handmatig downloaden op [http://go.microsoft.com/fwlink/?LinkID=87341](http://go.microsoft.com/fwlink/?LinkID=87341) (http://go.microsoft.com/fwlink/?LinkID=87341).  
+-   Als u een 64-bits Windows-besturingssysteem worden uitgevoerd, de meest recente updates handmatig downloaden [ http://go.microsoft.com/fwlink/?LinkID=87341 ](http://go.microsoft.com/fwlink/?LinkID=87341) (http://go.microsoft.com/fwlink/?LinkID=87341).  
 
 -   Klik op **Uitvoeren**. De meest recente updates worden handmatig op uw computer geïnstalleerd.  
 
 
 ### <a name="step-7-contact-support"></a>Stap 7: Neem contact op met ondersteuning  
 
--   Als u met de stappen het probleem niet hebt opgelost, kunt u contact opnemen met de ondersteuning. Zie [Klantondersteuning](http://go.microsoft.com/fwlink/?LinkID=196174) (http://go.microsoft.com/fwlink/?LinkID=196174) voor meer informatie.  
+-   Als u met de stappen het probleem niet hebt opgelost, kunt u contact opnemen met de ondersteuning. Zie voor meer informatie [Customer Support](http://go.microsoft.com/fwlink/?LinkID=196174) (http://go.microsoft.com/fwlink/?LinkID=196174).  
 
 ##  <a name="starting-windows-defender-or-endpoint-protection-service"></a>Windows Defender of Endpoint Protection-service wordt gestart  
  **Symptoom**  
@@ -238,8 +239,7 @@ Als u problemen ondervindt met Windows Defender of Endpoint Protection, neemt u 
 3.  Als u een kabelmodem of DSL-router, controleert u of de verbindingen met de router en die met de computer goed zijn aangesloten. Koppel de router en het modem los en schakel ze uit. Wacht enkele minuten, sluit het modem eerst aan, wacht opnieuw een minuut en sluit vervolgens de router aan. Start daarna de computer opnieuw op.  
 
 ##  <a name="detected-threat-cant-be-remediated"></a>Gedetecteerde bedreiging kan niet worden hersteld.  
- Wanneer Windows Defender of  
-      Endpoint Protection een mogelijke bedreiging die verborgen in een gecomprimeerd bestand met de extensie .zip of binnen een netwerkshare detecteert, wordt geprobeerd om te gaan met de bedreiging door in quarantaine plaatsen of te verwijderen.  
+ Wanneer Windows Defender of Endpoint Protection een mogelijke bedreiging die verborgen in een gecomprimeerd bestand met de extensie .zip of binnen een netwerkshare detecteert, wordt geprobeerd om te gaan met de bedreiging door in quarantaine plaatsen of te verwijderen.  
 
 ### <a name="remove-or-scan-the-file"></a>Het bestand verwijderen of scannen  
 
