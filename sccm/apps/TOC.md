@@ -40,3 +40,4 @@
 ### [Toepassingen verwijderen](deploy-use/uninstall-applications.md)
 
 ## [Scripts uitvoeren en beheren](deploy-use/create-deploy-scripts.md)
+### [Meer informatie over de beveiliging van PowerShell-script](deploy-use/learn-script-security.md)

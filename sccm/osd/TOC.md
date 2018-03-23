@@ -46,6 +46,7 @@
 
 ## [Windows beheren als een service](deploy-use/manage-windows-as-a-service.md)
 ## [Implementaties van besturingssystemen bewaken](deploy-use/monitor-operating-system-deployments.md)
+## [Een gefaseerde implementatie voor een takenreeks maken](deploy-use/create-phased-deployment-for-task-sequence.md)
 
 ## [Takenreeksen beheren om taken te automatiseren](deploy-use/manage-task-sequences-to-automate-tasks.md)
 ### [Een takenreeks maken voor het installeren van een besturingssysteem](deploy-use/create-a-task-sequence-to-install-an-operating-system.md)

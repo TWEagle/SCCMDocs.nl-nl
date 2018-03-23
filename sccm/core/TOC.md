@@ -2,6 +2,7 @@
 ##  [Inleiding tot Configuration Manager](understand/introduction.md)
 ### [Hulp voor Configuration Manager zoeken](understand/find-help.md)
 ### [Toegankelijkheidsfuncties](understand/accessibility-features.md)
+### [Gebruikershandleiding van Software Center](understand/software-center.md)
 ##  [De grondbeginselen van Configuration Manager](understand/fundamentals.md)
 ### [De grondbeginselen van sites en hiërarchieën](understand/fundamentals-of-sites-and-hierarchies.md)
 #### [Over upgrades, updates en installaties voor de site- en hiërarchie-infrastructuur](understand/upgrade-update-install.md)
@@ -28,18 +29,19 @@
 ###  [Functies en mogelijkheden](plan-design/changes/features-and-capabilities.md)
 ###  [Wat is er veranderd in vergelijking met Configuration Manager 2012](plan-design/changes/what-has-changed-from-configuration-manager-2012.md)
 ###  [Wat is er nieuw in incrementele versies](plan-design/changes/whats-new-incremental-versions.md)
+###  [Wat is er nieuw in versie 1802](plan-design/changes/whats-new-in-version-1802.md)
 ###  [Wat is er nieuw in versie 1710](plan-design/changes/whats-new-in-version-1710.md)
 ###  [Wat is er nieuw in versie 1706](plan-design/changes/whats-new-in-version-1706.md)
-###  [Wat is er nieuw in versie 1702](plan-design/changes/whats-new-in-version-1702.md)
 <!--
+###  [What's new in version 1702](plan-design/changes/whats-new-in-version-1702.md)
 ###  [What's new in version 1610](plan-design/changes/whats-new-in-version-1610.md)
 ###  [What's new in version 1606](plan-design/changes/whats-new-in-version-1606.md)
 ###  [What's new in version 1602](plan-design/changes/whats-new-in-version-1602.md)
 -->
 ###  [Verwijderd en afgeschaft](plan-design/changes/deprecated/removed-and-deprecated.md)
 #### [Verwijderde en afgeschafte functies](plan-design/changes/deprecated/removed-and-deprecated-cmfeatures.md)
-#### [Verwijderde en afgeschafte functies voor siteservers](plan-design/changes/deprecated/removed-and-deprecated-server.md)
-#### [Verwijderde en afgeschafte functies voor clients](plan-design/changes/deprecated/removed-and-deprecated-client.md)
+#### [Verwijderd en afgeschaft voor siteservers](plan-design/changes/deprecated/removed-and-deprecated-server.md)
+#### [Verwijderd en afgeschaft voor clients](plan-design/changes/deprecated/removed-and-deprecated-client.md)
 ##   [Ondersteunde configuraties](plan-design/configs/supported-configurations.md)
 ###  [Grootte en schaalgetallen](plan-design/configs/size-and-scale-numbers.md)
 ###  [Vereisten voor sites en sitesystemen](plan-design/configs/site-and-site-system-prerequisites.md)
@@ -65,7 +67,6 @@
 #### [Hulpprogramma voor het opschonen van de inhoudsbibliotheek](plan-design/hierarchy/content-library-cleanup-tool.md)
 #### [Accounts voor toegang tot inhoud beheren](plan-design/hierarchy/manage-accounts-to-access-content.md)
 #### [Peer-cache voor Configuration Manager-clients](plan-design/hierarchy/client-peer-cache.md)
-#### [Scenario's voor de locatie van inhoudsbronnen](plan-design/hierarchy/content-source-location-scenarios.md)
 #### [Package Transfer Manager](plan-design/hierarchy/package-transfer-manager.md)
 #### [Netwerkbandbreedte voor inhoudsbeheer beheren](plan-design/hierarchy/manage-network-bandwidth.md)
 #### [Beveiliging en privacy voor inhoudsbeheer](plan-design/hierarchy/security-and-privacy-for-content-management.md)
@@ -82,10 +83,11 @@
 
 ##   [Diagnostische gegevens en gebruiksgegevens](plan-design/diagnostics/diagnostics-and-usage-data.md)
 ###  [Hoe diagnostische gegevens en gebruiksgegevens worden gebruikt](plan-design/diagnostics/how-diagnostics-and-usage-data-is-used.md)
+###  [Diagnostische gegevens voor 1802](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1802.md)
 ###  [Diagnostische gegevens voor 1710](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1710.md)
 ###  [Diagnostische gegevens voor 1706](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1706.md)
-###  [Diagnostische gegevens voor 1702](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1702.md)
 <!--
+###  [Diagnostic data for 1702](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1702.md)
 ###  [Diagnostic data for 1610](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1610.md)
 ###  [Diagnostic data for 1606](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1606.md)
 ###  [Diagnostic data for 1602](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1602.md)
@@ -201,6 +203,7 @@
 -->
 
 #    Infrastructuurservers beheren
+## [Beheerinzichten](servers/manage/management-insights.md)
 ##   [Onderhoudstaken](servers/manage/maintenance-tasks.md)
 ###  [Naslaginformatie voor onderhoudstaken](servers/manage/reference-for-maintenance-tasks.md)
 ##   [Uw infrastructuur wijzigen](servers/manage/modify-your-infrastructure.md)
@@ -217,10 +220,11 @@
 ###  [Het hulpprogramma voor serviceverbindingen gebruiken](servers/manage/use-the-service-connection-tool.md)
 ###  [Het hulpprogramma Registratie bijwerken gebruiken](servers/manage/use-the-update-registration-tool-to-import-hotfixes.md)
 ###  [Het installatieprogramma voor hotfixes gebruiken](servers/manage/use-the-hotfix-installer-to-install-updates.md)
+###  [Controlelijst voor het installeren van update 1802](servers/manage/checklist-for-installing-update-1802.md)
 ###  [Controlelijst voor het installeren van update 1710](servers/manage/checklist-for-installing-update-1710.md)
 ###  [Controlelijst voor het installeren van update 1706](servers/manage/checklist-for-installing-update-1706.md)
-###  [Controlelijst voor het installeren van update 1702](servers/manage/checklist-for-installing-update-1702.md)
 <!-- Deprecated from Content - still published but out of TOC:
+###  [Checklist for installing update 1702](servers/manage/checklist-for-installing-update-1702.md)
 ###  [Checklist for installing update 1610](servers/manage/checklist-for-installing-update-1610.md)
 ###  [Checklist for installing update 1606](servers/manage/checklist-for-installing-update-1606.md)
 ###  [Checklist for installing update 1602](servers/manage/checklist-for-installing-update-1602.md)
@@ -274,13 +278,13 @@
 #### [Clientinstellingen](clients/deploy/about-client-settings.md)
 ###  [Wake on LAN configureren](clients/deploy/configure-wake-on-lan.md)
 ###  [Clients implementeren op Windows-computers](clients/deploy/deploy-clients-to-windows-computers.md)
+#### [Clients installeren die Azure AD gebruiken](clients/deploy/deploy-clients-cmg-azure.md)
 #### [Eigenschappen voor clientinstallaties](clients/deploy/about-client-installation-properties.md)
 #### [Eigenschappen voor clientinstallaties die zijn gepubliceerd naar AD](clients/deploy/about-client-installation-properties-published-to-active-directory-domain-services.md)
 ###  [Clients implementeren op UNIX- en Linux-servers](clients/deploy/deploy-clients-to-unix-and-linux-servers.md)
 #### [Linux- en UNIX-clientopdrachten](clients/deploy/linux-and-unix-clients-technical-reference.md)
 ###  [Implementatie van clients op Macs voorbereiden](clients/deploy/prepare-to-deploy-mac-clients.md)
 ###  [Clients op Macs implementeren](clients/deploy/deploy-clients-to-macs.md)
-###  [Clients installeren vanaf het Internet met behulp van Azure AD](clients/deploy/deploy-clients-cmg-azure.md)
 ###  [Clients toewijzen aan een site](clients/deploy/assign-clients-to-a-site.md)
 ###  [De clientstatus configureren](clients/deploy/configure-client-status.md)
 ###  [De clientimplementatiestatus controleren](clients/deploy/monitor-client-deployment-status.md)
@@ -295,15 +299,21 @@
 ###  [Clients voor Linux- en UNIX-servers beheren](clients/manage/manage-clients-for-linux-and-unix-servers.md)
 ###  [Gegevens synchroniseren met OMS](clients/manage/sync-data-microsoft-operations-management-suite.md)
 ###  [Mac-clients onderhouden](clients/manage/maintain-mac-clients.md)
+### [Dashboard voor co-beheer](clients/manage/co-management-dashboard.md)
+
+### [Surface Device-dashboard](clients/manage/surface-device-dashboard.md)
 
 ##   [Co-beheer voor Windows 10-apparaten](clients/manage/co-management-overview.md)
 ###  [Windows 10-apparaten voorbereiden op co-beheer](clients/manage/co-management-prepare.md)
 ###  [Configuration Manager-workloads overschakelen naar Intune](clients/manage/co-management-switch-workloads.md)
 
 ##   [Clients op internet beheren](clients/manage/manage-clients-internet.md)
-###  [Een cloudbeheergateway plannen](clients/manage/plan-cloud-management-gateway.md)
-###  [Een cloudbeheergateway instellen](clients/manage/setup-cloud-management-gateway.md)
-###  [Clients beheren met een cloudbeheergateway](clients/manage/monitor-clients-cloud-management-gateway.md)
+###  [Een cloudbeheergateway plannen](clients/manage/cmg/plan-cloud-management-gateway.md)
+####  [Beveiliging en privacy voor cloudbeheergateway](clients/manage/cmg/security-and-privacy-for-cloud-management-gateway.md)
+####  [Veelgestelde vragen voor cloudbeheergateway](clients/manage/cmg/cloud-management-gateway-faq.md)
+####  [Certificaten voor cloudbeheergateway](clients/manage/cmg/certificates-for-cloud-management-gateway.md)
+####  [Een cloudbeheergateway instellen](clients/manage/cmg/setup-cloud-management-gateway.md)
+####  [Clients beheren met een cloudbeheergateway](clients/manage/cmg/monitor-clients-cloud-management-gateway.md)
 ###  [Clientbeheer via internet plannen](clients/manage/plan-internet-based-client-management.md)
 
 ##   Verzamelingen
@@ -324,7 +334,7 @@
 ###  [Hardware-inventaris voor Linux en UNIX](clients/manage/inventory/hardware-inventory-for-linux-and-unix.md)
 ###  [Beveiliging en privacy voor hardware-inventarisatie](clients/manage/inventory/security-and-privacy-for-hardware-inventory.md)
 
-##   Software-inventarisatie
+##   Software-inventaris
 ###  [Inleiding tot software-inventarisatie](clients/manage/inventory/introduction-to-software-inventory.md)
 ###  [Software-inventaris configureren](clients/manage/inventory/configure-software-inventory.md)
 ###  [Resource Explorer gebruiken om software-inventaris weer te geven](clients/manage/inventory/use-resource-explorer-to-view-software-inventory.md)
@@ -339,7 +349,7 @@
 ###  [Voorbeeld van validatie van statusovergangen voor Asset Intelligence](clients/manage/asset-intelligence/example-validation-state-transitions-for-asset-intelligence.md)
 ###  [Voorbeeld van een algemeen licentie-importbestand voor Asset Intelligence](clients/manage/asset-intelligence/example-asset-intelligence-general-license-import.md)
 
-### [Het levenscyclus-dashboard gebruiken](clients/manage/asset-intelligence/product-lifecycle-dashboard.md)
+### [Het dashboard Productlevenscyclus gebruiken](clients/manage/asset-intelligence/product-lifecycle-dashboard.md)
 
 ##   Extern beheer
 ###  [Inleiding op beheer op afstand](clients/manage/remote-control/introduction-to-remote-control.md)

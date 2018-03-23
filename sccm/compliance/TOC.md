@@ -30,4 +30,5 @@
 ## [Configuratie-item voor gebruikersgegevens en -profielen maken](deploy-use/create-user-data-and-profiles-configuration-items.md)
 ## [Profielen voor externe verbindingen maken](deploy-use/create-remote-connection-profiles.md)
 ## [Windows-apparaten upgraden naar een nieuwe versie](deploy-use/upgrade-windows-version.md)
+## [Instellingen voor Microsoft Edge configureren](deploy-use/browser-profiles.md)
 ## [Instellingen voor naleving bewaken](deploy-use/monitor-compliance-settings.md)
