@@ -92,7 +92,7 @@ Het nieuwe beleid wordt weergegeven in het knooppunt **Beleid voor toepassingsbe
 
 Gebruik de volgende gegevens voor meer informatie over de toegestane indelingen en jokertekens die u kunt gebruiken bij het opgeven van URL's in de lijsten met toegestane en geblokkeerde websites.  
 
--   U kunt het jokerteken '**\***' gebruiken volgens de regels in de lijst met toegestane patronen hieronder.  
+-   U kunt het jokerteken '**\\***' gebruiken volgens de regels in de lijst met toegestane patronen hieronder.  
 
 -   Zorg ervoor dat u alle URL's voorziet van het voorvoegsel **http** of **https** wanneer u ze in de lijst invoert.  
 
@@ -111,7 +111,7 @@ Gebruik de volgende gegevens voor meer informatie over de toegestane indelingen 
     |http://www.contoso.com<br /><br /> Komt overeen met één pagina|www.contoso.com|host.contoso.com<br /><br /> www.contoso.com/images<br /><br /> contoso.com/|  
     |http://contoso.com<br /><br /> Komt overeen met één pagina|contoso.com/|host.contoso.com<br /><br /> www.contoso.com/images<br /><br /> www.contoso.com|  
     |http://www.contoso.com/*<br /><br /> Komt overeen met alle URL's die beginnen met www.contoso.com|www.contoso.com<br /><br /> www.contoso.com/images<br /><br /> www.contoso.com/videos/tvshows|host.contoso.com<br /><br /> host.contoso.com/images|  
-    |http://*.contoso.com/\*<br /><br /> Komt overeen met alle subdomeinen onder contoso.com|developer.contoso.com/resources<br /><br /> news.contoso.com/images<br /><br /> news.contoso.com/videos|contoso.host.com|  
+    |http://\*.contoso.com/\*<br /><br /> Komt overeen met alle subdomeinen onder contoso.com|developer.contoso.com/resources<br /><br /> news.contoso.com/images<br /><br /> news.contoso.com/videos|contoso.host.com|  
     |http://www.contoso.com/images<br /><br /> Komt overeen met een afzonderlijke map|www.contoso.com/images|www.contoso.com/images/dogs|  
     |http://www.contoso.com:80<br /><br /> Komt overeen met één pagina, met gebruik van een poortnummer|http://www.contoso.com:80||  
     |https://www.contoso.com<br /><br /> Komt overeen met een enkele, beveiligde pagina|https://www.contoso.com|http://www.contoso.com|  
@@ -121,11 +121,11 @@ Gebruik de volgende gegevens voor meer informatie over de toegestane indelingen 
 
     -   *.com  
 
-    -   *.contoso/\*  
+    -   \*.contoso/\*  
 
     -   www.contoso.com/*images  
 
-    -   www.contoso.com/*images\*pigs  
+    -   www.contoso.com/\*images\*pigs  
 
     -   www.contoso.com/page*  
 
