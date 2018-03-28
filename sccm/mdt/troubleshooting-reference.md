@@ -4,17 +4,18 @@ titleSuffix: Microsoft Deployment Toolkit
 description: 'Verwijzing voor probleemoplossing voor de Microsoft Deployment Toolkit '
 ms.date: 09/09/2016
 ms.prod: configuration-manager
-ms.technology: configmgr-osd
+ms.technology:
+- configmgr-osd
 ms.topic: article
 ms.assetid: 91a7a69a-deac-4b0f-aac9-b7bd187c53fb
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
 ms.openlocfilehash: efb65086878a46bfb3485fdd8b0be6f613225261
-ms.sourcegitcommit: 645cd5a324bdd299906efa27eaca5885eafc9e9c
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="troubleshooting-reference-for-the-microsoft-deployment-toolkit"></a>Verwijzing voor probleemoplossing voor de Microsoft Deployment Toolkit
  De implementatie van besturingssystemen en toepassingen, evenals de migratie van gebruikersstatus kan een lastig datacenterbeheer zijn zelfs wanneer u zijn uitgerust met de juiste hulpprogramma's en richtlijnen. Deze verwijzing die deel uitmaakt van Microsoft® Deployment Toolkit (MDT) 2013, voorziet in informatie over de huidige bekende problemen, mogelijke oplossingen voor die problemen en richtlijnen voor probleemoplossing.  
@@ -23,7 +24,7 @@ ms.lasthandoff: 01/16/2018
 >  In dit document, *Windows* geldt voor de besturingssystemen Windows 8.1, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012 en Windows Server 2008 R2, tenzij anders vermeld. MDT biedt geen ondersteuning voor ARM-processor gebaseerde versies van Windows. Op deze manier *MDT* verwijst naar MDT 2013, tenzij anders vermeld.  
 
 > [!NOTE]
->  Microsoft Diagnostics and Recovery Toolset (DaRT) bevat krachtige hulpprogramma's voor het herstellen en het oplossen van clientcomputers die niet worden gestart of instabiel geworden. DaRT kunt u de oorzaak van een crash, verloren bestanden terugzetten, enzovoort. U kunt ook DaRT gebruiken als een hulpprogramma voor het oplossen van problemen bij het ontwikkelen en implementeren van een Windows-besturingssysteem. Als u een installatiekopie van het ingebouwde niet correct gestart, kunt u bijvoorbeeld de clientcomputer met de installatiekopie met behulp van ERD Commander starten: een diagnose omgeving. Vervolgens kunt u verkennen van de clientcomputer harde schijf, het gebeurtenislogboek weergeven, verwijderen van updates, besturingssysteeminstellingen wijzigen, enzovoort. DaRT maakt deel uit van Microsoft Desktop Optimization Pack voor Software Assurance. Zie voor meer informatie over DaRT, [http://www.microsoft.com/windows/enterprise/products-and-technologies/mdop/dart.aspx](http://www.microsoft.com/windows/enterprise/products-and-technologies/mdop/dart.aspx).  
+>  Microsoft Diagnostics and Recovery Toolset (DaRT) bevat krachtige hulpprogramma's voor het herstellen en het oplossen van clientcomputers die niet worden gestart of instabiel geworden. DaRT kunt u de oorzaak van een crash, verloren bestanden terugzetten, enzovoort. U kunt ook DaRT gebruiken als een hulpprogramma voor het oplossen van problemen bij het ontwikkelen en implementeren van een Windows-besturingssysteem. Als u een installatiekopie van het ingebouwde niet correct gestart, kunt u bijvoorbeeld de clientcomputer met de installatiekopie met behulp van ERD Commander starten: een diagnose omgeving. Vervolgens kunt u verkennen van de clientcomputer harde schijf, het gebeurtenislogboek weergeven, verwijderen van updates, besturingssysteeminstellingen wijzigen, enzovoort. DaRT maakt deel uit van Microsoft Desktop Optimization Pack voor Software Assurance. Zie voor meer informatie over DaRT, [ http://www.microsoft.com/windows/enterprise/products-and-technologies/mdop/dart.aspx ](http://www.microsoft.com/windows/enterprise/products-and-technologies/mdop/dart.aspx).  
 
 ## <a name="understanding-logs"></a>Understanding Logboeken  
  Voordat u effectieve oplossen van problemen met MDT kunt beginnen, moet u een duidelijk beeld van de vele .log-bestanden die wordt gebruikt tijdens de implementatie van een besturingssysteem hebben. Als u welke logboekbestanden voor welke fouttoestand en welk tijdstip onderzoeken weet, vormen problemen die eenmaal waren mysterieuze en moeilijk te begrijpen duidelijke en begrijpen.  
@@ -41,7 +42,7 @@ ms.lasthandoff: 01/16/2018
 
 -   **LiteTouch.log**. Dit bestand is gemaakt tijdens de LTI-implementaties. Deze bevindt zich in %WINDIR%\TEMP\DeploymentLogs tenzij u opgeeft de **/debug:true** optie.  
 
--   **ScriptName*.log**. Dit bestand wordt gemaakt door elk script MDT. *Scriptnaam* vertegenwoordigt de naam van het script in kwestie.  
+-   **Scriptname*.log**. Dit bestand wordt gemaakt door elk script MDT. *Scriptnaam* vertegenwoordigt de naam van het script in kwestie.  
 
 -   **SMSTS.log**. Dit bestand is gemaakt door de Sequencer taak en beschrijft alle Taaksequencer transacties. Afhankelijk van het scenario van implementatie, kan deze zich in % TEMP %, % WINDIR%\System32\ccm\logs of C:\\\_SMSTaskSequence of C:\SMSTSLog.  
 
@@ -86,7 +87,7 @@ Tabel 1 ziet u de foutcodes die de MDT-scripts maken en een beschrijving van elk
 |5208|Kan de SMS-Taaksequencer vinden. De implementatie niet worden voortgezet.|  
 |5400|-Object maken: **Stel *class_instance* = New *class_name***|  
 |5490|MSXML2 maken. DOMDocument.|  
-|5495|MSXML2 maken. DOMDocument.ParseErr.ErrCode.|  
+|5495|Create MSXML2.DOMDocument.ParseErr.ErrCode.|  
 |5496|LoadControlFile.FindFile: *ConfigFile*|  
 |5601|Controleer of de OS-guid: % OSGUID % bestaat.|  
 |5602|XML met OSGUID openen: % OSGUID %.|  
@@ -96,7 +97,7 @@ Tabel 1 ziet u de foutcodes die de MDT-scripts maken en een beschrijving van elk
 |5641|FindFile: ImageX.exe.|  
 |5643|BootSect.exe vinden.|  
 |5650|Controleer of de map: *Bronpad*.|  
-|5651|Controleer of de map: *Bronpad*\Platform.|  
+|5651|Controleer of de map: *SourcePath*\Platform.|  
 |5652|FindFile: bootsect.exe.|  
 |6001|Controleer of de schijf.|  
 |6002|Controleer of de schijf.|  
@@ -141,7 +142,7 @@ Tabel 1 ziet u de foutcodes die de MDT-scripts maken en een beschrijving van elk
 |6724|Open *DiskPartFile*.|  
 |6727|Probeert te openen *DiskPartFile*.|  
 |6729|Maak tekstbestand *DiskPartFile*.|  
-|6730|Uitvoeren van **cmd /c DISKPART. EXE /s *DiskPartFile* >> *LogPath*\ZTIMarkActive_diskpart.log 2 > & 1**|  
+|6730|Execute **cmd /c DISKPART.EXE /s *DiskPartFile* >> *LogPath*\ZTIMarkActive_diskpart.log 2>&1**|  
 |6731|Bcdboot.exe vinden.|  
 |6732|Verbinding maken met Microsoft-TPM-provider.|  
 |6733|Een TPM-exemplaar in de providerklasse ophalen.|  
@@ -154,7 +155,7 @@ Tabel 1 ziet u de foutcodes die de MDT-scripts maken en een beschrijving van elk
 |6740|Controleer of de TPM is geactiveerd.|  
 |6741|Controleer als TPM is eigendom en eigendom is toegestaan.|  
 |6741|TPM-beheerderswachtwoord instellen|  
-|6742|TPM-eigenaar P@ssword ingesteld op  **AdminP@ssword** .|  
+|6742|TPM-eigenaar P@ssword ingesteld op **AdminP@ssword**.|  
 |6743|TPM-eigenaar instellen P@ssword op waarde.|  
 |6744|Controleer of de TPM is ingeschakeld.|  
 |6745|Controleer op TPM-eigenaar.|  
@@ -186,21 +187,21 @@ Tabel 1 ziet u de foutcodes die de MDT-scripts maken en een beschrijving van elk
 |7105|Fout - verplichte eigenschappen voor het maken van een nieuw forest zijn niet opgegeven.|  
 |7200|Kan geen DHCP-server configureren, omdat de service niet is geïnstalleerd.|  
 |7201|Kan niet lezen van de details van de scope; `GetScopeDetails()` is mislukt.|  
-|7202 dient|Er is onvoldoende waarden opgegeven voor het maken van het bereik.|  
+|7202|Er is onvoldoende waarden opgegeven voor het maken van het bereik.|  
 |7203|Er is onvoldoende die zijn opgegeven voor het instellen van het IP-bereik voor deze scope.|  
 |7204|Er is geen waarde opgegeven voor bereik uitgesloten bereik.|  
 |7300|Kan geen DNS-opdrachten uitgeven.|  
 |7700|Niet een nieuwe Computer scenario; schijfpartitie afgesloten.|  
 |7701|Schijf is niet groot genoeg zijn voor systeem- en BDE partities vereist = 1,5 GB.|  
 |7702|Schijf is niet groot genoeg zijn voor systeem- en WinRE partities vereist = 10 GB.|  
-|7703 in|DeployRoot is op schijf # *DiskIndex*. OEM-Scenario uitgevoerd: Overslaan.|  
+|7703|DeployRoot is op schijf # *DiskIndex*. OEM-Scenario uitgevoerd: Overslaan.|  
 |7704|OEM-Scenario uitgevoerd: Overslaan.|  
 |7704|Uitgebreide en logische partities zijn niet toegestaan met BitLocker.|  
 |7712|Controleer of station /*Volume station* aanwezig is. de indeling.|  
 |7900|FindFile: Microsoft.BDD.PnpEnum.exe.|  
 |7901|**AllDrivers.Exists ('*GUID*').**|  
 |7904|**AllDrivers.Exists ('*GUID*').**|  
-|9200|FindFile(PkgMgr.exe).|  
+|9200|Findfile(PkgMgr.exe).|  
 |9601|Fout - ZTITatoo-statustaak voor het herstel moet worden uitgevoerd in het volledige besturingssysteem; wordt afgebroken.|  
 |9701|Niet-nul retourcode van USMT schatting, rc = *fout*.|  
 |9702|Gebruikersstatus niet mogelijk; Er is onvoldoende ruimte voor lokale en geen netwerkpad (UDShare, UDDir) opgegeven.|  
@@ -282,7 +283,7 @@ Afbeelding 1. Fout conversie
 
 -   Problemen met betrekking tot fouten toegang tot de MDT-database (MDT DB), zoals beschreven in [toegang tot de Database is mislukt](#FailuretoAccesstheDatabase)  
 
-####  <a name="FailuretoAccesstheDatabase"></a>Toegang tot de Database is mislukt  
+####  <a name="FailuretoAccesstheDatabase"></a> Toegang tot de Database is mislukt  
  **Probleem:** Een fout optreedt terwijl een CustomSettings.ini-bestand met meerdere secties en geven, met een implementatie die worden gebruikt met de **prioriteit** eigenschap, de prioriteit van elke sectie moet worden verwerkt. BDD.log bevat de volgende foutberichten weergegeven:  
 
 -   ```  
@@ -316,7 +317,7 @@ Afbeelding 1. Fout conversie
 
 -   Fout tijdens installatie van 30029 tijdens het installeren van de Microsoft Office 2007 of gerelateerde bestanden, zoals beschreven in [2007 Microsoft Office-systeem](#MicrosoftOfficeSystem)  
 
-####  <a name="BlockedExecutables"></a>Geblokkeerde uitvoerbare bestanden  
+####  <a name="BlockedExecutables"></a> Geblokkeerde uitvoerbare bestanden  
  **Probleem:** Als de bronbestanden voor installatie van het Internet worden gedownload, is het waarschijnlijk dat ze worden gemarkeerd met een of meer NTFS-bestand system gegevensstromen. Zie voor meer informatie over NTFS-gegevensstromen [bestand Streams](http://msdn2.microsoft.com/library/aa364404\(VS.85\).aspx). Het bestaan van NTFS-file system-gegevensstromen kan ertoe leiden dat een **geopend bestand – beveiligingswaarschuwing** prompt moet worden weergegeven. De installatie niet worden voortgezet totdat u klikt op **uitvoeren** bij de opdrachtprompt.  
 
  In afbeelding 2 ziet, vindt u NTFS-bestand system gegevensstromen met behulp van de **meer** opdracht en de [Streams hulpprogramma](http://technet.microsoft.com/sysinternals/bb897440.aspx).  
@@ -330,12 +331,12 @@ Afbeelding 2. NTFS-gegevensstromen
 
  **Mogelijke oplossing 2:** Gebruik het hulpprogramma Streams als REF \_Ref308173670 \\h in afbeelding 2 ziet, te verwijderen van het NTFS-gegevensstromen system bestand uit het bronbestand van de installatie. Het hulpprogramma Streams kunt in één keer NTFS-file system-gegevensstromen van een of meer bestanden of mappen verwijderen.  
 
-####  <a name="LostNetworkConnections"></a>Verbroken netwerkverbindingen  
+####  <a name="LostNetworkConnections"></a> Verbroken netwerkverbindingen  
  **Probleem:** Een installatie kan mislukken als de apparaatstuurprogramma's geïnstalleerd of wordt gewijzigd van apparaat- en netwerkconfiguraties. Deze wijzigingen mogelijk leiden tot een verval in verbinding met het netwerk zorgt ervoor dat de installatie mislukt.  
 
  **Mogelijke oplossing:** Het script ZTICacheUtil.vbs zodat downloaden en uitvoeren voor de installatie worden geïmplementeerd. Dit script is ontworpen voor het aanpassen van de aankondiging om te schakelen downloaden en uitvoeren. De download gebruikt Background Intelligent Transfer Service \(BITS\) als de Configuration Manager-distributiepunt Web\-op basis van Distributed Authoring en versiebeheer en BITS-functionaliteit. Configuration Manager het script ZTICache.vbs eerst uitgevoerd die zorgt ervoor dat het programma zelf niet worden verwijderd tijdens het implementatieproces wijzigt op hetzelfde moment.  
 
-####  <a name="MicrosoftOfficeSystem"></a>Het 2007 Microsoft Office-systeem  
+####  <a name="MicrosoftOfficeSystem"></a> Het 2007 Microsoft Office-systeem  
  **Probleem:** Tijdens het implementeren van het 2007 Office-systeem en een Windows Installer-patch, inclusief \(MSP\) -bestand, de installatie mislukken met foutcode 30029.  
 
  Verder onderzoek in de ZTIApplications.log ziet u de volgende berichten:  
@@ -356,14 +357,14 @@ Afbeelding 2. NTFS-gegevensstromen
 
  **Mogelijke oplossing 2:** Controleer of het MSP-bestand geen de **onderdrukken modale** selectievakje is ingeschakeld. Zie voor meer informatie over het configureren van deze instelling [overzicht van de implementatie van Office 2007](http://technet.microsoft.com/library/bb490141.aspx).  
 
-### <a name="autologon"></a>Automatische aanmelding  
+### <a name="autologon"></a>AutoLogon  
  Controleer de problemen en oplossingen voor problemen met automatische aanmelding:  
 
 -   Onderbreking van de LTI en de Zero Touch installatie \(ZTI\) implementatieprocessen vanwege aanmelding beveiliging banner zoals beschreven in [aanmelding beveiliging banner](#LogonSecutiryBanners)  
 
 -   Onderbreking van de implementatie van LTI en ZTI verwerkt vanwege wordt u gevraagd om gebruikersreferenties, zoals beschreven in [gevraagd om gebruikersreferenties](#PromtedforUserCredentials)  
 
-####  <a name="LogonSecutiryBanners"></a>Aanmelding beveiliging banner  
+####  <a name="LogonSecutiryBanners"></a> Aanmelding beveiliging banner  
  **Probleem:** MDT takenreeksen worden verwerkt tijdens een interactieve gebruikerssessie hiervoor is dat de doelcomputer mogen aanmelden automatisch met een opgegeven Administrator-account. Als een groepsbeleidsobject \(GPO\) is aanwezig is die een aanmeldingsscherm van de beveiliging wordt afgedwongen, deze automatische aanmelding niet mag worden voortgezet, omdat de banner van de beveiliging het aanmeldingsproces stopt tijdens het wachten op een gebruiker accepteert van het opgegeven beleid.  
 
  **Mogelijke oplossing:** Zorg dat het groepsbeleidsobject wordt toegepast op specifieke organisatie-eenheden \(OE's\) en niet opgenomen in de standaarddomein-GPO. Wanneer u computers aan het domein toevoegen, moet u opgeven dat ze worden toegevoegd aan een organisatie-eenheid die wordt niet beïnvloed door een GPO dat u een aanmeldingsscherm van de beveiliging wordt afgedwongen. In de Takenreekseditor bevatten als een van de laatste takenreeksstappen een script dat het computeraccount voor de gewenste organisatie-eenheid verplaatst.  
@@ -371,7 +372,7 @@ Afbeelding 2. NTFS-gegevensstromen
 > [!NOTE]
 >  Als u bestaande Active Directory® Domain Services wilt hergebruiken \(AD DS\) accounts, zorg ervoor dat vóór implementatie naar de doelcomputer hebt u de doelcomputer account verplaatst naar een organisatie-eenheid die wordt niet beïnvloed door het groepsbeleidsobject dat wordt afgedwongen het aanmeldingsscherm van beveiliging.  
 
-####  <a name="PromtedforUserCredentials"></a>U wordt gevraagd referenties van een gebruiker  
+####  <a name="PromtedforUserCredentials"></a> U wordt gevraagd referenties van een gebruiker  
  **Probleem:** U hebt gemaakt met een installatiekopie van een computer die is gekoppeld aan het domein. Tijdens de implementatie van de nieuwe installatiekopie naar een doelcomputer, de implementatie verwerken stopt, omdat automatische\-aanmelding wordt niet uitgevoerd en de gebruiker wordt gevraagd naar de juiste referenties invoeren. Het implementatieproces hervatten wanneer de referenties zijn opgegeven en de gebruiker is aangemeld.  
 
  **Mogelijke oplossing:** Bij het vastleggen van installatiekopieën, moet u de broncomputer niet toegevoegd aan een domein. Als de computer is toegevoegd aan een domein, de computer toevoegen aan een werkgroep, re\-vastleggen van de installatiekopie en probeert u de implementatie naar een doelcomputer om te bepalen of het probleem opgelost is.  
@@ -388,12 +389,12 @@ Afbeelding 2. NTFS-gegevensstromen
 
 -   Fouten die worden gegenereerd als gevolg van verbroken verbindingen met de databaseserver, zoals beschreven in [met de naam van de Pipe-verbindingen](#NamedPipeConnections)  
 
-####  <a name="BlockedSQLServerBrowserRequests"></a>Geblokkeerde SQL Server Browser-aanvragen  
+####  <a name="BlockedSQLServerBrowserRequests"></a> Geblokkeerde SQL Server Browser-aanvragen  
  **Probleem:** Tijdens de implementatie van MDT kunnen gegevens worden opgehaald uit Microsoft SQL Server® databases. Echter, fouten kunnen worden gegenereerd die betrekking op een onjuist geconfigureerde firewall op de databaseserver hebben.  
 
  **Mogelijke oplossing:** Windows Firewall in Windows Server kunt voorkomen dat onbevoegde toegang tot bronnen van computer. Als de firewall onjuist is geconfigureerd, kunnen u pogingen tot verbinding maken met een SQL Server-exemplaar geblokkeerd. Voor toegang tot een exemplaar van SQL Server die zich achter de firewall moet de firewall te configureren op de computer waarop SQL Server wordt uitgevoerd. Zie voor meer informatie over het configureren van de firewall-poorten voor SQL Server het Microsoft Support-artikel [hoe kan ik de firewallpoort openen voor SQL Server op Windows Server 2008?](http://support.microsoft.com/kb/968872)  
 
-####  <a name="NamedPipeConnections"></a>Named Pipe-verbindingen  
+####  <a name="NamedPipeConnections"></a> Named Pipe-verbindingen  
  **Probleem:** Tijdens de implementatie van MDT kan gegevens uit SQL Server-databases worden opgehaald. Echter, fouten kunnen worden gegenereerd die betrekking op SQL Server-verbindingen verbroken hebben. Deze kunnen worden veroorzaakt door het named pipe-verbindingen in Microsoft SQL Server niet in te schakelen.  
 
  **Mogelijke oplossing:** Deze problemen oplossen, kunt u inschakelen named-pipes in SQL Server. Geef ook de **SQLShare** eigenschap die vereist is bij het maken van een verbinding met een externe database met behulp van named-pipes. Wanneer u verbinding maakt met behulp van named pipes, gebruikt u geïntegreerde beveiliging om de verbinding met de database te maken. In het geval van implementaties van LTI maakt de gebruikersaccount die u opgeeft de verbinding met de database. Voor implementaties van ZTI die gebruikmaken van Configuration Manager, verbindt het netwerktoegangsaccount met de database. Omdat Windows PE geen beveiligingscontext standaard is, moet u een netwerkverbinding met de database-server een beveiligingscontext voor de gebruiker die het maken van de verbinding tot stand brengen.  
@@ -406,7 +407,7 @@ Afbeelding 2. NTFS-gegevensstromen
 
 -   Schakel named pipe-verbindingen voor SQL Server 2005, zoals beschreven in [inschakelen met de naam Pipe-verbindingen in SQL Server 2005](#EnableNamedPipeConnectionsinSQL).  
 
-#####  <a name="EnableNamedPipeConnectionsinSQLServer"></a>Named Pipe-verbindingen in SQL Server 2008 R2 inschakelen  
+#####  <a name="EnableNamedPipeConnectionsinSQLServer"></a> Named Pipe-verbindingen in SQL Server 2008 R2 inschakelen  
  Om in te schakelen named pipe-verbindingen in SQL Server 2008 R2, moet u de volgende stappen uitvoeren:  
 
 1.  Klik op de computer met SQL Server 2008 R2 die als host fungeert voor de database moeten worden opgevraagd op **Start**, en wijs vervolgens **alle programma's**. Wijs **Microsoft SQL Server 2008 R2**, en klik vervolgens op **SQL Server Management Studio**.  
@@ -441,7 +442,7 @@ Afbeelding 2. NTFS-gegevensstromen
 
  Voor meer informatie, [het inschakelen van externe verbindingen in SQL Server 2008](http://blogs.msdn.com/b/walzenbach/archive/2010/04/14/how-to-enable-remote-connections-in-sql-server-2008.aspx).  
 
-#####  <a name="EnableNamedPipeConnectionsinSQL"></a>Named Pipe-verbindingen in SQL Server 2005 inschakelen  
+#####  <a name="EnableNamedPipeConnectionsinSQL"></a> Named Pipe-verbindingen in SQL Server 2005 inschakelen  
  Om in te schakelen named pipe-verbindingen in SQL Server 2005, moet u de volgende stappen uitvoeren:  
 
 1.  Klik op de computer met SQL Server 2005 die als host fungeert voor de database moeten worden opgevraagd op **Start**, en wijs vervolgens **alle programma's**. Wijs **Microsoft SQL Server 2005**, wijs **configuratiehulpprogramma's**, en klik vervolgens op **SQL Server Surface Area Configuration**.  
@@ -475,7 +476,7 @@ Afbeelding 2. NTFS-gegevensstromen
 
 -   Foutbericht 'Wuredist.cab niet gevonden' wordt weergegeven zoals beschreven in [ZTIWindowsUpdate](#ZTIWindowsUpdate)  
 
-####  <a name="Credentials_script"></a>Referenties\_script  
+####  <a name="Credentials_script"></a> Referenties\_script  
  **Probleem:** Tijdens het opstarten van de laatste\-van een geïmplementeerde computer, de gebruiker wordt gevraagd of u gebruikersreferenties moet opgeven en mogelijk fout 0x80070035, waarmee wordt aangegeven dat het netwerkpad niet is gevonden.  
 
  **Mogelijke oplossing:** Zorg ervoor dat het WIM-bestand bevat geen een MININT of \_SMSTaskSequence map. Het hulpprogramma ImageX koppelen van het WIM-bestand voor het eerst gebruiken deze om mappen te verwijderen, en verwijder vervolgens de mappen.  
@@ -483,7 +484,7 @@ Afbeelding 2. NTFS-gegevensstromen
 > [!NOTE]
 >  Als een toegang geweigerd-fout treedt op wanneer u probeert te verwijderen van de mappen uit het WIM-bestand, open een opdrachtpromptvenster, Ga naar de hoofdmap van de afbeelding in het WIM-bestand en voer vervolgens **RD MININT** en **RD \_ SMSTaskSequence**.  
 
-####  <a name="ZTIWindowsUpdate"></a>ZTIWindowsUpdate  
+####  <a name="ZTIWindowsUpdate"></a> ZTIWindowsUpdate  
  **Probleem:** Als u het script ZTIWindowsUpdate.wsf gebruiken voor het software-updates toepassen tijdens de implementatie, houd er rekening mee dat dit script kan communiceren rechtstreeks met de website Microsoft Update te downloaden en installeren van de vereiste Windows Update Agent-binaire bestanden, scannen naar toepasselijke software-updates downloaden van de binaire bestanden voor de toepasselijke software-updates en installeer vervolgens de gedownloade binaire bestanden. Dit proces vereist dat uw netwerkinfrastructuur worden geconfigureerd zodat de doelcomputer toegang te krijgen tot de website Microsoft Update.  
 
  Als de implementatieshare niet de installatiebestanden van Windows Update Agent bevat en de doelcomputer geen juiste toegang tot Internet heeft, wordt de fout 'wuredist.cab niet gevonden' gerapporteerd in de bestanden ZTIWindowsUpdate.log en BDD.log.  
@@ -495,7 +496,7 @@ Afbeelding 2. NTFS-gegevensstromen
 
 -   Bijwerken van de WIM bestanden mislukt bij het bijwerken van een share-implementatie, zoals beschreven in [Update WIM-bestanden mislukt](#FailuretoUpdateWIMFiles).  
 
-####  <a name="FailuretoUpdateWIMFiles"></a>Fout bij bijwerken van de WIM-bestanden  
+####  <a name="FailuretoUpdateWIMFiles"></a> Fout bij bijwerken van de WIM-bestanden  
  In een omgeving met 'eenvoudige':  
 
 -   MDT doorgaans neemt over WIMGAPI. DLL-bestand van C:\\Windows\\system32 \(altijd in het pad\). De versie van deze WIMGAPI. DLL-bestand dat moet overeenkomen met de versie \(bouwen\) van het besturingssysteem.  
@@ -511,7 +512,7 @@ Afbeelding 2. NTFS-gegevensstromen
 
 -   Wizard Windows Deployment-pagina's worden weergegeven, zelfs wanneer LTI is geconfigureerd voor het overslaan van de wizardpagina's, zoals beschreven in [Wizard pagina's worden niet overgeslagen](#WizardPagesareNotSkipped).  
 
-####  <a name="WizardPagesareNotSkipped"></a>Wizardpagina's worden niet overgeslagen.  
+####  <a name="WizardPagesareNotSkipped"></a> Wizardpagina's worden niet overgeslagen.  
  **Probleem:** Een pagina van de wizard wordt weergegeven hoewel het MDT DB of CustomSettings.ini-bestand opgeven dat de wizard moet worden overgeslagen.  
 
  **Mogelijke oplossing:** Als u wilt een wizardpagina goed overslaan, omvatten alle eigenschappen die zouden worden opgegeven op die wizardpagina eventueel in het MDT DB of CustomSettings.ini-bestand samen met de juiste waarden. Als een eigenschap is niet goed geconfigureerd voor een overgeslagen wizardpagina, kunt u deze pagina wordt weergegeven. Zie de sectie 'Bieden eigenschappen voor overgeslagen implementatie wizardpagina's ', in de MDT-document voor meer informatie over welke eigenschappen vereist zijn om ervoor te zorgen dat een wizardpagina is overgeslagen, *Toolkit verwijzing*.  
@@ -525,7 +526,7 @@ Afbeelding 2. NTFS-gegevensstromen
 
 -   Fouten tijdens Computer vernieuwen implementatiescenario's veroorzaakt door een logische of dynamische schijven, zoals beschreven in [ondersteuning voor logische en dynamische schijven](#SupportforLoogicalandDynamicDisks)  
 
-####  <a name="BitLockerDriveEncryption"></a>BitLocker-stationsversleuteling  
+####  <a name="BitLockerDriveEncryption"></a> BitLocker-stationsversleuteling  
  Implementatie van BitLocker, is een specifieke configuratie vereist voor een juiste implementatie. De volgende potentiële problemen mogelijk te wijten aan de configuratie van de doelcomputer:  
 
 -   In implementaties van ZTI en UDI, ZTIBde.wsf Script mislukt met de fout ' kan niet worden geopend registersleutel ' HKEY\_huidige\_gebruiker\\Configuratiescherm\\International\\LocaleName' om te lezen ', als beschreven in [ZTIBde.wsf Script mislukt met de fout 'Kan niet worden geopend registersleutel 'HKEY_CURRENT_USER\Control Panel\International\LocaleName' om te lezen'](#ZTIBde.wsf).  
@@ -534,17 +535,17 @@ Afbeelding 2. NTFS-gegevensstromen
 
 -   Verkleinen van station C op de doelcomputer om voldoende vrije schijfruimte zoals beschreven in [problemen met schijven verkleinen](#ProblemswithShrinkingDisks)  
 
-#####  <a name="ZTIBde.wsf"></a>ZTIBde.wsf Script mislukt met de fout ' kan niet worden geopend registersleutel ' HKEY\_huidige\_gebruiker\\Configuratiescherm\\International\\LocaleName' om te lezen '  
+#####  <a name="ZTIBde.wsf"></a> ZTIBde.wsf Script mislukt met de fout ' kan niet worden geopend registersleutel ' HKEY\_huidige\_gebruiker\\Configuratiescherm\\International\\LocaleName' om te lezen '  
  **Probleem:** Bij het implementeren van BitLocker op de doelcomputer in ZTI of UDI heeft het ZTIBde.wsf script mislukt met de fout ' kan niet worden geopend registersleutel ' HKEY\_huidige\_gebruiker\\Configuratiescherm\\International\\LocaleName' om te lezen. "  
 
  **Mogelijke oplossing:** Geef de landinstellingen in het **UILanguage** eigenschap. In ZTI en UDI, het ZTIBde.wsf script wordt uitgevoerd in het besturingselement system zodat een volledige gebruikersprofiel is niet geladen. Wanneer het script ZTIBde.wsf probeert te lezen van de landinstellingen-informatie zich niet in het register, omdat het register \(gebruikersprofiel\) is niet volledig geladen. Als tijdelijke oplossing, geef de landinstellingen in het **UILanguage** eigenschap.  
 
-#####  <a name="DevicesAppearasMultipleDriveLetters"></a>Apparaten worden weergegeven als verschillende stationsletters  
+#####  <a name="DevicesAppearasMultipleDriveLetters"></a> Apparaten worden weergegeven als verschillende stationsletters  
  **Probleem:** Sommige apparaten kunnen voorkomen als meerdere logische stationsletter hebben, afhankelijk van hoe ze worden gepartitioneerd. In sommige gevallen kunnen ze worden geëmuleerd een 1,44\-megabyte \(MB\) diskettestation en een opslagschijf geheugen. Windows kan daarom dezelfde apparaat stationsletters A en B voor de diskette-emulatie en F voor de opslagschijf geheugen toewijzen. MDT-scripts gebruiken standaard de laagste stationsletter \(in dit voorbeeld wordt een\).  
 
  **Mogelijke oplossing:** De standaardinstelling wijzigen op de **opgeven van de BitLocker-herstelgegevens** pagina in de Wizard Windows-implementatie. De Wizard Windows Deployment-overzichtspagina verschijnt een waarschuwing om de gebruiker welke stationsaanduiding is geselecteerd voor het opslaan van BitLocker-herstelgegevens te informeren. De bestanden BDD.log en ZTIBDE.log vastleggen bovendien de verwisselbare media-apparaten gedetecteerd en welk apparaat is geselecteerd om de BitLocker-herstelgegevens opslaan.  
 
-#####  <a name="ProblemswithShrinkingDisks"></a>Problemen met het verkleinen van schijven  
+#####  <a name="ProblemswithShrinkingDisks"></a> Problemen met het verkleinen van schijven  
  **Probleem:** Er is onvoldoende vrije schijfruimte bestaat op de doelcomputer BitLocker in te schakelen. Voor het implementeren van BitLocker op een doelcomputer en ten minste 2 GB \(GB\) van niet-toegewezen schijfruimte ruimte is vereist voor het maken van het systeemvolume. De *systeemvolume* is het volume met de hardware\-specifieke bestanden die nodig zijn om Windows te laden nadat de computer is opgestart door het BIOS.  
 
  **Mogelijke oplossing 1:** Gebruik het hulpprogramma Diskpart op bestaande computers station C verkleinen zodat het systeemvolume kan worden gemaakt. In sommige gevallen, het hulpprogramma Diskpart mogelijk niet voor het verkleinen van station C voldoende om op te geven van 2 GB vrije schijfruimte, mogelijk vanwege gefragmenteerde schijfruimte op station C.  
@@ -565,7 +566,7 @@ Afbeelding 2. NTFS-gegevensstromen
 
  **Mogelijke oplossing 2:** Het script ZTIBDE.wsf wordt uitgevoerd het hulpprogramma voor systeemvoorbereiding schijf \(bdehdcfg.exe\) en system partitiegrootte van het volume tot 2 GB standaard configureert. U kunt het script ZTIBDE.wsf om de standaardinstelling te wijzigen indien nodig. Wijzigen van de MDT-scripts wordt echter niet aanbevolen.  
 
-####  <a name="SupportforLoogicalandDynamicDisks"></a>Ondersteuning voor logische en dynamische schijven  
+####  <a name="SupportforLoogicalandDynamicDisks"></a> Ondersteuning voor logische en dynamische schijven  
  **Probleem:** Bij het uitvoeren van een implementatiescenario Computer vernieuwen, mislukt het implementatieproces niet bij implementatie op een doelcomputer die van logische schijven of dynamische schijven gebruikmaakt.  
 
  **Mogelijke oplossing:** MDT biedt geen ondersteuning voor implementatie van besturingssystemen naar logische stations of dynamische schijven.  
@@ -586,7 +587,7 @@ Afbeelding 2. NTFS-gegevensstromen
 
 -   Problemen met het apparaat stuurprogramma installatie met behulp van de SetupAPI.log zoals beschreven in [Apparaatinstallatie oplossen met SetupAPI.log](#TroubleshootDeviceInstallationwithSetupAPI.log)  
 
-####  <a name="TroubleshootDeviceInstallationwithSetupAPI.log"></a>Installatie van apparaten met SetupAPI.log oplossen  
+####  <a name="TroubleshootDeviceInstallationwithSetupAPI.log"></a> Installatie van apparaten met SetupAPI.log oplossen  
  Het witboek [Apparaatinstallatie het oplossen van problemen met het logboekbestand SetupAPI](http://msdn.microsoft.com/windows/hardware/gg463393.aspx) bevat informatie over foutopsporing van de installatie van Windows-apparaten. In het bijzonder biedt het papier richtlijnen voor het stuurprogramma voor ontwikkelaars en testers het logboekbestand SetupAPI interpreteren.  
 
  Een van de handigste logboekbestanden voor de foutopsporing is het bestand SetupAPI.log. Deze zonder opmaak\-tekstbestand houdt de informatie die SetupAPI records over de installatie van service pack installatie en installatie van de update. Het bestand onderhoudt specifiek, een record van apparaat en het stuurprogramma wijzigingen, evenals wijzigingen in het primaire systeem beginnend vanaf de meest recente Windows-installatie. Dit artikel is gericht op het logboekbestand SetupAPI gebruiken bij het oplossen van de installatie van apparatuur; het logboek secties die zijn gekoppeld met servicepack en update-installaties wordt hier niet beschreven.  
@@ -596,7 +597,7 @@ Afbeelding 2. NTFS-gegevensstromen
 
 -   Problemen met het implementatieproces met behulp van vooraf starten\-opstartomgeving voor uitvoering \(PXE\) starten zoals beschreven in [PXE-opstartbewerking](#PXEBoot)  
 
-####  <a name="PXEBoot"></a>PXE-opstartbewerking  
+####  <a name="PXEBoot"></a> PXE-opstartbewerking  
  In het kort werkt de PXE-protocol als volgt: De clientcomputer start het protocol door het uitzenden van een DHCP-detecteren pakket met een uitbreiding waarmee de aanvraag afkomstig is van een clientcomputer waarop de PXE-protocol is geïmplementeerd. Ervan uitgaande dat een implementatie van deze uitgebreide protocol boot-server beschikbaar is, verzendt de opstartserver een aanbieding met het IP-adres van de server die de service voor de client. Trivial File Transfer Protocol wordt gebruikt voor het downloaden van het uitvoerbare bestand van de opstartserver de client. Ten slotte het gedownloade bootstrap programma wordt uitgevoerd in de clientcomputer.  
 
  De eerste fase van dit protocol in een subset van de DHCP-berichten zodat de client voor het detecteren van een server voor opstarten piggybacks \(dat wil zeggen, een server die zorgt voor uitvoerbare bestanden voor setup van nieuwe\). De clientcomputer de mogelijkheid om op te halen van een IP-adres mag gebruiken \(dit is verwacht gedrag\) maar is niet vereist om dit te doen.  
@@ -613,15 +614,15 @@ Afbeelding 2. NTFS-gegevensstromen
 
 -   Verbetering van de responstijden voor het IP-adressen toewijzen aan PXE-clientcomputers, zoals beschreven in [verbeteren PXE IP-adres toewijzing reactietijd](#ImprovePXEIPAddressAssignmentResponseTime).  
 
-#####  <a name="DisableWindowsPELogginginWindowsDeploymentServices"></a>Windows PE logboekregistratie in Windows Deployment Services uitschakelen  
+#####  <a name="DisableWindowsPELogginginWindowsDeploymentServices"></a> Windows PE logboekregistratie in Windows Deployment Services uitschakelen  
  De eerste procedure aanbevolen wordt om ervoor te zorgen dat logboekregistratie naar setupapi.log is uitgeschakeld.  
 
-#####  <a name="EnsuretheProperDHCPConfiguration"></a>Zorg ervoor dat de juiste DHCP-configuratie  
+#####  <a name="EnsuretheProperDHCPConfiguration"></a> Zorg ervoor dat de juiste DHCP-configuratie  
  Afhankelijk van de router-modellen in gebruik, de specifieke routerconfiguratie van uitgezonden DHCP-forwarding mogelijk wordt ondersteund met ofwel een subnet \(of -routerinterface\) of een specifieke host. Als de DHCP-servers en de computer waarop Windows Deployment Services afzonderlijke computers zijn, zorg ervoor dat de routers die door de DHCP-broadcasts zo ontworpen zijn dat de DHCP- en Windows Deployment Services servers de client verzendt ontvangt; anders, ontvangt de clientcomputer geen antwoord op de aanvraag voor opstarten op afstand.  
 
  Is er een router tussen de clientcomputer en de installatie op afstand-server die niet de DHCP toestaat\-op basis van aanvragen en antwoorden via? Wanneer de clientcomputer Windows Deployment Services en de Windows Deployment Services-server zich op afzonderlijke subnetten, moet u de router tussen de twee systemen voor het doorsturen van DHCP-pakketten naar de Windows Deployment Services-server configureren. Deze regeling is nodig omdat Windows Deployment Services-client-computers een Windows Deployment Services-server detecteren via een DHCP-broadcast-bericht. Zonder DHCP forwarding set up op een router, bereiken de clientcomputers DHCP broadcasts de Windows Deployment Services-server niet. Deze DHCP doorstuurproces wordt soms aangeduid als *DHCP Proxy* of *IP-helperadres* in router configuratie handleidingen. Raadpleeg de documentatie van de router voor meer informatie over het configureren van DHCP-forwarding op een specifieke router.  
 
-#####  <a name="ImprovePXEIPAddressAssignmentResponseTime"></a>De reactietijd van PXE-IP-adres toewijzing verbeteren  
+#####  <a name="ImprovePXEIPAddressAssignmentResponseTime"></a> De reactietijd van PXE-IP-adres toewijzing verbeteren  
  Controleer de volgende elementen als lang duurt \(15-20 seconden\) voor de PXE-clientcomputer voor het ophalen van een IP-adres:  
 
 -   De netwerkadapter op de doelcomputer en de switch of router die zijn ingesteld op dezelfde snelheid zijn \(automatische, duplex, volledig en enzovoort\)  
@@ -638,7 +639,7 @@ Afbeelding 2. NTFS-gegevensstromen
 
 -   De doelcomputer wordt niet weergegeven in de juiste AD DS organisatie-eenheid, zoals beschreven in [de Computer Account zich in de juiste organisatie-eenheid](#ComputerAccountisintheWrongOU).  
 
-####  <a name="ComputerAccountisintheWrongOU"></a>De computeraccount Is in de juiste organisatie-eenheid  
+####  <a name="ComputerAccountisintheWrongOU"></a> De computeraccount Is in de juiste organisatie-eenheid  
  **Probleem:** De doelcomputer correct is gekoppeld aan het domein, maar het computeraccount is in de juiste organisatie-eenheid.  
 
  **Mogelijke oplossing 1:** Als een account vooraf\-bestaat voor de doelcomputer, blijft de account in de oorspronkelijke organisatie-eenheid. Toevoegen als het account naar de opgegeven organisatie-eenheid verplaatsen, een takenreeksstap die gebruikmaakt van een automation-hulpprogramma, zoals een Microsoft Visual Basic® Scripting Edition, verplaatst u het account.  
@@ -668,19 +669,19 @@ Afbeelding SEQ afbeelding \\ \* ARABIC 3. Fout voor PXE-service-punt
 
 -   Problemen die als gevolg van onjuiste configuratie van optreden kunnen doorgaan bij fout configuratie-instellingen voor takenreeksstappen zoals beschreven in [gebruik Doorgaan bij fout](#UseContinueonError).  
 
-####  <a name="TaskSequenceDoesNotFinishSuccessfully"></a>De Takenreeks niet wordt voltooid  
+####  <a name="TaskSequenceDoesNotFinishSuccessfully"></a> De Takenreeks niet wordt voltooid  
  **Probleem:** Takenreeks kan niet met succes voltooid of onvoorspelbaar gedrag heeft.  
 
  **Mogelijke oplossing:** De **besturingssysteem installeren** takenreeksstap \(voor LTI\) of de **Besturingssysteeminstallatiekopie toepassen** takenreeksstap \(voor UDI en ZTI\)mogelijk zijn gewijzigd nadat het maken van de takenreeksstap tot onvoorspelbare resultaten leiden kan. Bijvoorbeeld, als een takenreeks is gemaakt voor het implementeren van een 32\-bit van de installatiekopie van Windows 8.1 en later de **besturingssysteem installeren** takenreeksstap of de **Besturingssysteeminstallatiekopie toepassen** taak stap is gewijzigd om te verwijzen naar een 64\-Windows 8.1-bits installatiekopie en de takenreeks kan niet worden uitgevoerd.  
 
  Het is raadzaam dat een nieuwe takenreeks is gemaakt voor het implementeren van de installatiekopie van een ander besturingssysteem.  
 
-####  <a name="OEMTaskSequenceIncorrectlyAppearsforBootImage"></a>De OEM-Takenreeks is niet correct wordt weergegeven voor een installatiekopie gemaakt voor een andere processorarchitectuur  
+####  <a name="OEMTaskSequenceIncorrectlyAppearsforBootImage"></a> De OEM-Takenreeks is niet correct wordt weergegeven voor een installatiekopie gemaakt voor een andere processorarchitectuur  
  **Probleem:** Een takenreeks op basis van een sjabloon LTI OEM taak volgorde, wordt weergegeven voor een opstartinstallatiekopie met een andere processorarchitectuur. Bijvoorbeeld, een OEM-takenreeks die een 64 implementeert\-bits besturingssysteem dat wordt weergegeven op een 32\-bits opstartinstallatiekopie.  
 
  **Mogelijke oplossing:** Dit is verwacht gedrag zoals OEM-takenreeksen in LTI worden niet beschouwd als ' platform\-specifieke ' wordt altijd weergegeven, ongeacht de processorarchitectuur van de opstartinstallatiekopie.  
 
-####  <a name="BadTaskSequenceItem"></a>Ongeldige taak Sequence Item \(ongeldige OS GUID\) bericht in de Wizard Windows-implementatie  
+####  <a name="BadTaskSequenceItem"></a> Ongeldige taak Sequence Item \(ongeldige OS GUID\) bericht in de Wizard Windows-implementatie  
  **Probleem:** Wanneer de Wizard Windows-implementatie wordt uitgevoerd, wordt de wizard het foutbericht ' onjuiste volgorde taakitem \(ongeldige OS GUID\). " Het besturingssysteem wordt weergegeven in het bestand OperatingSystem.xml. het besturingssysteem wordt echter niet weergegeven in de implementatie-Workbench.  
 
  **Mogelijke oplossing:** Het oorspronkelijke besturingssysteem-bron heeft twee of meer WIM-bestanden die zijn gekoppeld. Een SKU die is gekoppeld aan een takenreeks wordt verwijderd. andere SKU's voor de bron van het besturingssysteem zijn echter nog steeds. Wanneer de takenreeks die verwijst naar de verwijderde SKU is geselecteerd op de **Selecteer een takenreeks uit te voeren op deze computer** wizardpagina in de Wizard Windows-implementatie van het foutbericht ' onjuiste volgorde taakitem \( Ongeldige GUID van het besturingssysteem\)' wordt weergegeven nadat u op **volgende** op de wizardpagina.  
@@ -691,12 +692,12 @@ Afbeelding SEQ afbeelding \\ \* ARABIC 3. Fout voor PXE-service-punt
 
 -   Wijzig de takenreeks voor het gebruik van de installatiekopie van een ander besturingssysteem.  
 
-####  <a name="ApplyNetworkSettings"></a>Netwerkinstellingen toepassen  
+####  <a name="ApplyNetworkSettings"></a> Netwerkinstellingen toepassen  
  **Probleem:** Wanneer u de naam van de verbinding configureert in de Workbench-implementatie, vraagt u met een validatiefout opgetreden met het bericht, "Voer een geldige naam voor de netwerkadapter."  
 
  **Mogelijke oplossing:** Verwijder eventuele spaties en de ongeldige tekens uit de naam opgegeven verbinding.  
 
-####  <a name="UseContinueonError"></a>Gebruik Doorgaan bij fout  
+####  <a name="UseContinueonError"></a> Gebruik Doorgaan bij fout  
  Als u een takenreeks MDT is geconfigureerd niet als u wilt doorgaan bij fout en de takenreeks een foutmelding, worden alle resterende takenreeksen in die takenreeksgroep overgeslagen. Echter, de resterende takenreeksgroepen worden verwerkt. Neem het volgende in overweging:  
 
  Twee takenreeksgroepen zijn gemaakt en de groep bevat meer dan één stap in de takenreeks:  
@@ -720,7 +721,7 @@ Afbeelding SEQ afbeelding \\ \* ARABIC 3. Fout voor PXE-service-punt
 
 -   Snelkoppelingen die naar documenten die zijn opgeslagen in gedeelde netwerkmappen verwijzen niet goed zoals beschreven in hersteld [bureaubladpictogrammen ontbreekt](#MissingDesktopShortcuts).  
 
-####  <a name="MissingDesktopShortcuts"></a>Ontbrekende snelkoppelingen op het bureaublad  
+####  <a name="MissingDesktopShortcuts"></a> Ontbrekende snelkoppelingen op het bureaublad  
  **Probleem:** Tijdens het gebruik van USMT om gebruikersgegevens te migreren, kunnen snelkoppelingen die naar de netwerk-documenten verwijzen niet te worden teruggezet. De snelkoppelingen zijn vastgelegd tijdens Scanstate; maar worden ze nooit teruggezet naar de doelcomputer tijdens Loadstate.  
 
  **Mogelijke oplossing:** Bewerk de MigUser.xml bestands- en uitcommentarieer de volgende regel:  
@@ -742,7 +743,7 @@ Afbeelding SEQ afbeelding \\ \* ARABIC 3. Fout voor PXE-service-punt
 
 -   Implementaties van LTI en ZTI mislukken met WIM-bestandsfouten in het bestand BDD.log zoals beschreven in [WIM-bestand beschadigd](#CorruptWIMFile).  
 
-####  <a name="CorruptWIMFile"></a>WIM-bestand beschadigd  
+####  <a name="CorruptWIMFile"></a> WIM-bestand beschadigd  
  **Probleem:** Bij het implementeren van een installatiekopie, mislukt de implementatie met de volgende vermeldingen in het bestand BDD.log:  
 
 -   ```  
@@ -770,7 +771,7 @@ Afbeelding SEQ afbeelding \\ \* ARABIC 3. Fout voor PXE-service-punt
 
 -   Het implementatieproces LTI of ZTI is niet gestart vanwege ontbrekende of onjuiste apparaatstuurprogramma's, zoals beschreven in [implementatie proces is niet gestart: ontbrekende of onjuiste stuurprogramma's](#MissingorIncorrectDrivers).  
 
-####  <a name="LimitedRamorWirelessNetworkAdapter"></a>Implementatieproces niet gestart: beperkte RAM of draadloze netwerkadapter  
+####  <a name="LimitedRamorWirelessNetworkAdapter"></a> Implementatieproces niet gestart: beperkte RAM of draadloze netwerkadapter  
  **Probleem:** Bij het implementeren van een afbeelding met bepaalde doelcomputers, Windows PE wordt gestart, wordt uitgevoerd **wpeinit**, opent u een opdrachtpromptvenster, maar het implementatieproces niet daadwerkelijk wordt gestart. Het oplossen van problemen door een netwerkstation van de doelcomputer toe te wijzen, geeft de stuurprogramma's voor netwerkadapters zijn niet geladen.  
 
  **Mogelijke oplossing 1:**de implementatiewizard niet wordt gestart, omdat er onvoldoende RAM-geheugen. Controleren of de doelcomputer ten minste 512 MB RAM-geheugen en dat er geen gedeelde videogeheugen meer dan 64 MB 512 MB in beslag neemt.  
@@ -779,7 +780,7 @@ Afbeelding SEQ afbeelding \\ \* ARABIC 3. Fout voor PXE-service-punt
 
  **Mogelijke oplossing 2:** De draadloze stuurprogramma's niet opnemen in de Windows PE-installatiekopie.  
 
-####  <a name="MissingComponents"></a>Implementatieproces niet gestart: ontbrekende onderdelen  
+####  <a name="MissingComponents"></a> Implementatieproces niet gestart: ontbrekende onderdelen  
  **Probleem:** Wanneer u problemen met een mislukte implementatie, bevat een overzicht van het bestand BDD.log de volgende vermelding:  
 
 ```  
@@ -791,7 +792,7 @@ ERROR - Unable to create ADODB.Connection object, impossible to query SQL Server
 > [!NOTE]
 >  De Windows PE-installatiekopieën die Configuration Manager maakt bevatten onderdelen die ondersteuning bieden voor scripts, XML- en Windows Management Instrumentation (WMI), maar ze bevatten geen onderdelen die ondersteuning bieden voor Microsoft ActiveX® Data Objects (ADO).  
 
-####  <a name="MissingorIncorrectDrivers"></a>Implementatieproces niet gestart: ontbrekende of onjuiste stuurprogramma's  
+####  <a name="MissingorIncorrectDrivers"></a> Implementatieproces niet gestart: ontbrekende of onjuiste stuurprogramma's  
  **Probleem:** Bij het implementeren van bepaalde doelcomputers, Windows PE wordt gestart, wordt uitgevoerd **wpeinit**, opent u een opdrachtpromptvenster, maar het implementatieproces niet daadwerkelijk wordt gestart. Het oplossen van problemen door een netwerkstation van de doelcomputer toe te wijzen, geeft de stuurprogramma's voor netwerkadapters zijn niet geladen. Een overzicht van het bestand SetupAPI.log in *X*: \Windows\System32\Inf geeft aan dat de Windows PE fouten genereert wanneer dit is de netwerkadapter, waarvan er één is, het configureren van 'dit stuurprogramma is niet bedoeld voor dit platform." De stuurprogramma's in de **Out-of-Box stuurprogramma's** lijst zijn in de afbeelding is ingevoegd.  
 
  **Mogelijke oplossing:** Het is mogelijk dat Windows PE een conflict stuurprogramma met een ander stuurprogramma heeft. Bij het configureren van de instellingen voor de Windows PE-installatiekopie in de Workbench-implementatie, maakt u een groep voor het stuurprogramma's van Windows PE met alleen-netwerkadapter en stuurprogramma's voor opslag en configureer vervolgens de implementatieshare voor het gebruik van alleen de groep in de Windows PE-stuurprogramma.  
@@ -805,7 +806,7 @@ ERROR - Unable to create ADODB.Connection object, impossible to query SQL Server
 
 -   De stroomdiagrammen ZTI implementatie proces controleren, zoals beschreven in [ZTI implementatie proces stroomdiagrammen](#ZTIDevelopmentProcessFlowcharts)  
 
-###  <a name="LTIDeploymentProcessFlowcharts"></a>LTI implementatie proces stroomdiagrammen  
+###  <a name="LTIDeploymentProcessFlowcharts"></a> LTI implementatie proces stroomdiagrammen  
  Stroomdiagrammen zijn beschikbaar voor de volgende fasen:  
 
 -   Validatie (afbeelding 4)  
@@ -885,7 +886,7 @@ Afbeelding 16. Stroomdiagram voor de staat herstellen fase (4 van 4)
 
  **Afbeelding 16. Stroomdiagram voor de staat herstellen fase (4 van 4)**  
 
-###  <a name="ZTIDevelopmentProcessFlowcharts"></a>ZTI implementatie proces stroomdiagrammen  
+###  <a name="ZTIDevelopmentProcessFlowcharts"></a> ZTI implementatie proces stroomdiagrammen  
  Stroomdiagrammen zijn beschikbaar voor de volgende fasen van ZTI implementatie met Configuration Manager:  
 
 -   Initialisatie (figuur 17)  
@@ -956,7 +957,7 @@ Afbeelding 25. Stroomdiagram voor de fase voor het vastleggen
 
 -   Het verkrijgen van aanvullende ondersteuning via blogs en andere internetbronnen, zoals beschreven in [ondersteuning voor Internet](#InternetSupport)  
 
-###  <a name="MicrosoftSupport"></a>Microsoft-ondersteuning  
+###  <a name="MicrosoftSupport"></a> Microsoft-ondersteuning  
  Microsoft biedt Premier- of Professional-ondersteuning voor Microsoft Deployment Toolkit.  
 
  Professional-ondersteuning: [http://support.microsoft.com/](http://support.microsoft.com/)  
@@ -966,7 +967,7 @@ Afbeelding 25. Stroomdiagram voor de fase voor het vastleggen
 > [!NOTE]
 >  Wanneer u contact op met ondersteuning, worden het probleem is met MDT en de specifieke versie.  
 
-###  <a name="InternetSupport"></a>Ondersteuning voor Internet  
+###  <a name="InternetSupport"></a> Ondersteuning voor Internet  
  Veel online bronnen voor probleemoplossing assistentie voor MDT afgezien van wat wordt beschreven in deze verwijzing te voorzien. Deze bronnen online zijn onder andere:  
 
 -   Blogs van Microsoft worden gehost  

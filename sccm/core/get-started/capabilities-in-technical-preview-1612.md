@@ -5,21 +5,22 @@ description: Meer informatie over functies die beschikbaar zijn in de Technical 
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: bceab2e8-2f05-4a17-9ac8-a7a558670fb7
-caps.latest.revision: "5"
+caps.latest.revision: ''
 author: erikje
 ms.author: erikje
 manager: angrobe
 ms.openlocfilehash: 80cace2bec8cb9c39d5f3f00ea244b697e1d75c9
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="capabilities-in-technical-preview-1612-for-system-center-configuration-manager"></a>Mogelijkheden van Technical Preview 1612 voor System Center Configuration Manager
 
@@ -84,12 +85,12 @@ Voordat u de Wizard verschijnt er een optie om te selecteren en de punt-Service 
 
 **Algemene** pagina: De volgende algemene informatie is vereist:
 - **Configuration Manager-database-instellingen:**   
-  - **Servernaam** -Geef de FQDN van de server die als host fungeert voor de sitedatabase. Als u niet een standaardexemplaar van SQL Server gebruikt, moet u het exemplaar na de FQDN-naam in de volgende indeling: ***&lt;Sqlserver_FQDN >\&lt; exemplaarnaam >***
+  - **Servernaam** -Geef de FQDN van de server die als host fungeert voor de sitedatabase. Als u niet een standaardexemplaar van SQL Server gebruikt, moet u het exemplaar na de FQDN-naam in de volgende indeling: ***&lt;Sqlserver_FQDN>\&lt;Instance_name>***
   - **Databasenaam** -Geef de naam van de sitedatabase.
   - **Controleer of** -Klik op **controleren** om ervoor te zorgen dat de verbinding met de sitedatabase geslaagd is.
 </br></br>
 - **Datawarehouse-database-instellingen:**
-  - **Servernaam** : Geef de FQDN-naam van de server die als host fungeert voor het Data Warehouse-servicepunt en de database. Als u niet een standaardexemplaar van SQL Server gebruikt, moet u het exemplaar na de FQDN-naam in de volgende indeling: ***&lt;Sqlserver_FQDN >\&lt; exemplaarnaam >***
+  - **Servernaam** : Geef de FQDN-naam van de server die als host fungeert voor het Data Warehouse-servicepunt en de database. Als u niet een standaardexemplaar van SQL Server gebruikt, moet u het exemplaar na de FQDN-naam in de volgende indeling: ***&lt;Sqlserver_FQDN>\&lt;Instance_name>***
   - **Databasenaam** -Specificeer de FQDN voor de datawarehouse-database.  Configuration Manager maakt de database met deze naam. Als u de naam van een database die al bestaat op het exemplaar van SQL server opgeeft, wordt Configuration Manager dat de database gebruikt.
   - **Controleer of** -Klik op **controleren** om ervoor te zorgen dat de verbinding met de sitedatabase geslaagd is.
 
@@ -199,12 +200,12 @@ De volgende opdrachtregelopties kunnen worden gebruikt in een willekeurige volgo
 
 |Switch|Details|
 |---------|-------|
-|**/ Delete**  |**Optioneel** </br> Gebruik deze switch als u inhoud wilt verwijderen uit het distributiepunt. U wordt gevraagd voordat inhoud wordt verwijderd. </br></br> Wanneer deze switch niet gebruikt wordt, registreert het hulpprogramma resultaten over welke inhoud wordt verwijderd, maar worden niet alle inhoud verwijderd uit het distributiepunt. </br></br> Voorbeeld: ***/ Delete ContentLibraryCleanup.exe /dp server1.contoso.com*** |
+|**/delete**  |**Optioneel** </br> Gebruik deze switch als u inhoud wilt verwijderen uit het distributiepunt. U wordt gevraagd voordat inhoud wordt verwijderd. </br></br> Wanneer deze switch niet gebruikt wordt, registreert het hulpprogramma resultaten over welke inhoud wordt verwijderd, maar worden niet alle inhoud verwijderd uit het distributiepunt. </br></br> Voorbeeld: ***/ Delete ContentLibraryCleanup.exe /dp server1.contoso.com*** |
 | **/q**       |**Optioneel** </br> Het hulpprogramma uitvoeren in stille modus die alle prompts onderdrukken (zoals wordt u gevraagd wanneer u inhoud wilt verwijderen) en het logboekbestand niet automatisch openen. </br></br> Voorbeeld: ***ContentLibraryCleanup.exe /q /dp server1.contoso.com*** |
 | **/dp &lt;distribution point FQDN >**  | **Vereist** </br> Geef de volledig gekwalificeerde domeinnaam (FQDN) van het distributiepunt dat u wilt opruimen. </br></br> Voorbeeld:  ***ContentLibraryCleanup.exe /dp server1.contoso.com***|
 | **/PS &lt;primaire site FQDN >**       | **Optionele** bij het opschonen van de inhoud van een distributiepunt op een primaire site.</br>**Vereist** bij het opschonen van de inhoud van een distributiepunt op een secundaire site. </br></br> Geef dat de FQDN-naam van de primaire site op het distributiepunt naar of van de bovenliggende primaire bovenliggende behoort, wanneer het distributiepunt zich op een secundaire site. </br></br> Voorbeeld: ***ContentLibraryCleanup.exe /dp server1.contoso.com /ps siteserver1.contoso.com*** |
 | **/sc &lt;primaire sitecode >**  | **Optionele** bij het opschonen van de inhoud van een distributiepunt op een primaire site.</br>**Vereist** bij het opschonen van de inhoud van een distributiepunt op een secundaire site. </br></br> Geef de sitecode van de primaire site die het distributiepunt bij of van de bovenliggende primaire site wanneer het distributiepunt zich op een secundaire site.</br></br> Voorbeeld: ***ContentLibraryCleanup.exe /dp server1.contoso.com /sc ABC*** |
-| **/ log<log file directory>**       |**Optioneel** </br> Geef de map voor het plaatsen van de logboekbestanden in. Dit kan een lokaal station of een netwerkshare.</br></br> Wanneer deze switch niet gebruikt wordt, worden logboekbestanden automatisch geplaatst in de map temp van gebruikers.</br></br> Voorbeeld van de lokale schijf: ***ContentLibraryCleanup.exe /dp server1.contoso.com/log C:\Users\Administrator\Desktop*** </br></br>Voorbeeld van een netwerkshare bevinden: ***/ Log ContentLibraryCleanup.exe /dp server1.contoso.com \\ &lt;delen >\&lt; map >***|
+| **/ log <log file directory>**       |**Optioneel** </br> Geef de map voor het plaatsen van de logboekbestanden in. Dit kan een lokaal station of een netwerkshare.</br></br> Wanneer deze switch niet gebruikt wordt, worden logboekbestanden automatisch geplaatst in de map temp van gebruikers.</br></br> Voorbeeld van de lokale schijf: ***ContentLibraryCleanup.exe /dp server1.contoso.com/log C:\Users\Administrator\Desktop*** </br></br>Voorbeeld van een netwerkshare bevinden: ***/ Log ContentLibraryCleanup.exe /dp server1.contoso.com \\ &lt;delen >\&lt; map >***|
 
 
 ## <a name="improvements-for-in-console-search"></a>Verbeteringen voor zoeken in de console

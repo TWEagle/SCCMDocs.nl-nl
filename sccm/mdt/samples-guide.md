@@ -4,17 +4,18 @@ titleSuffix: Microsoft Deployment Toolkit
 description: 'Voorbeelden van de Microsoft Deployment Toolkit. '
 ms.date: 09/09/2016
 ms.prod: configuration-manager
-ms.technology: configmgr-osd
+ms.technology:
+- configmgr-osd
 ms.topic: article
 ms.assetid: 2ff0100c-b7ef-4e09-8c96-fc1898390b6d
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
 ms.openlocfilehash: fe61cecea2b2a4f4083933b937af90dfb61ea5bf
-ms.sourcegitcommit: 645cd5a324bdd299906efa27eaca5885eafc9e9c
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="microsoft-deployment-toolkit-samples-guide"></a>Handleiding voor Microsoft Deployment Toolkit-voorbeelden  
  Deze handleiding is onderdeel van Microsoft® Deployment Toolkit (MDT) 2013 en leidt een team speciale instructies voor het implementeren van Windows-besturingssystemen en Microsoft Office. Deze handleiding is met name zodanig ontworpen dat voorbeeld configuratie-instellingen voor specifieke implementatiescenario's.  
@@ -43,7 +44,7 @@ ms.lasthandoff: 01/16/2018
  |*Quick Start Guide voor Microsoft System Center 2012 R2 Configuration Manager* |Gebruik System Center 2012 R2 Configuration Manager voor het installeren van het besturingssysteem Windows 8.1 in een nieuwe Computer implementatiescenario.|  
  |*Quick Start Guide voor de installatie van Lite Touch* |Het besturingssysteem Windows 8.1 via Lite Touch Installation (LTI) met opstartbare media in het implementatiescenario van een nieuwe Computer installeren.|  
  |*Snelstartgids voor de installatie door gebruikers geïnitieerde* |Installeer het besturingssysteem Windows 8.1 met Driven installatie en System Center 2012 R2 Configuration Manager in een nieuwe Computer implementatiescenario.|  
- |*Met behulp van de Microsoft Deployment Toolkit* |Verder aanpassen van de configuratiebestanden in implementaties van Zero Touch installatie (ZTI) en LTI gebruikt. Deze handleiding bevat ook algemene richtlijnen en technische naslaginformatie voor configuratie-instellingen.|
+ |*Microsoft Deployment Toolkit gebruiken* |Verder aanpassen van de configuratiebestanden in implementaties van Zero Touch installatie (ZTI) en LTI gebruikt. Deze handleiding bevat ook algemene richtlijnen en technische naslaginformatie voor configuratie-instellingen.|
 
 
 ## <a name="deploying-windows-8-applications-using-mdt"></a>Implementatie van Windows 8-toepassingen met MDT  
@@ -55,7 +56,7 @@ ms.lasthandoff: 01/16/2018
 
 -   Met behulp van UDI (User Driven installatie), zoals beschreven in Windows 8-toepassingen implementeren [implementeren van Windows 8-toepassingen met behulp van UDI](#DeployWin8UDI).  
 
-###  <a name="DeployWin8LTI"></a>Implementatie van Windows 8-toepassingen met behulp van LTI  
+###  <a name="DeployWin8LTI"></a> Implementatie van Windows 8-toepassingen met behulp van LTI  
  U kunt Windows 8-toepassingen met behulp van LTI zoals een andere toepassing die het installatieproces vanaf een opdrachtregel initieert implementeren. U kunt Windows 8-toepassingen voor implementaties van LTI toevoegen in het knooppunt toepassingen in de implementatie-Workbench.  
 
  **Voor het implementeren van een Windows 8-toepassing met behulp van LTI**  
@@ -78,7 +79,7 @@ ms.lasthandoff: 01/16/2018
 
 4.  Selecteer de LTI-item toepassing gemaakt in de vorige stap in een takenreeks LTI.  
 
-###  <a name="DeployWin8UDI"></a>Implementatie van Windows 8-toepassingen met behulp van UDI  
+###  <a name="DeployWin8UDI"></a> Implementatie van Windows 8-toepassingen met behulp van UDI  
  U kunt Windows 8-toepassingen met behulp van UDI zoals een andere toepassing die het installatieproces vanaf een opdrachtregel initieert implementeren. U kunt Windows 8-toepassingen voor UDI implementaties toevoegen op de **ApplicationPage** wizardpagina in de ontwerpfunctie van de Wizard UDI.  
 
 > [!NOTE]
@@ -156,14 +157,14 @@ ms.lasthandoff: 01/16/2018
 
 -   Beheren van de mappen in een implementatie met Windows PowerShell, zoals beschreven in [beheren implementatie delen mappen met Windows PowerShell](#ManageDeployShareFolder).  
 
-###  <a name="LoadMDTSnapIn"></a>Bij het laden van de MDT Windows PowerShell-module  
+###  <a name="LoadMDTSnapIn"></a> Bij het laden van de MDT Windows PowerShell-module  
  De MDT-cmdlets beschikbaar zijn in een Windows PowerShell-module **Microsoft.BDD.SnapIn** die moeten worden geladen voordat de MDT-cmdlets gebruiken. U kunt laden de MDT Windows PowerShell-module die met een van de volgende methoden:  
 
 -   Laad de MDT Windows PowerShell-module die met behulp van de console venster PowerShell-Modules, zoals beschreven in [laden van de MDT Windows PowerShell-module met behulp van de importtaak System Modules](#LoadMDTSnapInImport).  
 
 -   Load de MDT Windows PowerShell-module met behulp van de **toevoegen-PSSnapIn** cmdlet zoals beschreven in [laden van de MDT Windows PowerShell-module met behulp van de Cmdlet Add-PSSnapIn](#LoadMDTSnapInCmdlet).  
 
-####  <a name="LoadMDTSnapInImport"></a>Laden van de MDT Windows PowerShell-module met behulp van de importtaak voor systeem-Modules  
+####  <a name="LoadMDTSnapInImport"></a> Laden van de MDT Windows PowerShell-module met behulp van de importtaak voor systeem-Modules  
  De taak voor Import System Modules omvat automatisch de Windows PowerShell-modules en -modules die zich in de modules in de map %Windir%\System32\WindowsPowerShell\1.0\Modules. MDT installeert automatisch de MDT Windows PowerShell-module **Microsoft.BDD.SnapIn** in die map tijdens de MDT-installatie.  
 
 > [!NOTE]
@@ -177,14 +178,14 @@ ms.lasthandoff: 01/16/2018
 
  Zie voor meer informatie over het Start een Windows PowerShell-console met systeem-Modules importeren [Windows PowerShell starten met systeem-Modules importeren](http://msdn.microsoft.com/library/windows/desktop/hh847866.aspx).  
 
-####  <a name="LoadMDTSnapInCmdlet"></a>Laad de MDT Windows PowerShell-module met de Cmdlet-PSSnapIn  
+####  <a name="LoadMDTSnapInCmdlet"></a> Laad de MDT Windows PowerShell-module met de Cmdlet-PSSnapIn  
  Kunt u de MDT Windows PowerShell-module laden **Microsoft.BDD.PSSnapIn** vanuit een Windows PowerShell-omgeving met de [toevoegen-PSSnapIn](http://technet.microsoft.com/library/hh849705.aspx) als weergeven in het volgende voorbeeld-cmdlet:  
 
 ```  
 Add-PSSnapin -Name Microsoft.BDD.PSSnapIn  
 ```  
 
-###  <a name="CreateDeployShare"></a>Maken van de Share van een implementatie met Windows PowerShell  
+###  <a name="CreateDeployShare"></a> Maken van de Share van een implementatie met Windows PowerShell  
  U kunt implementatieshares MDT Windows PowerShell-cmdlets gebruiken. De hoofdmap voor de implementatieshare wordt gemaakt en gedeeld met behulp van standaard Windows PowerShell-cmdlets en aanroepen naar Windows Management Instrumentation (WMI) klasse opdrachten. De implementatieshare is gevuld met de MDTProvider Windows PowerShell-provider en de [NewPSDrive](http://technet.microsoft.com/library/dd315340.aspx) cmdlet. De MDTProvider Windows PowerShell-station is persistent met behulp van de **toevoegen MDTPersistentDrive** cmdlet.  
 
  **Voorbereiden van de share van een implementatie met MDT Windows PowerShell-cmdlets**  
@@ -243,7 +244,7 @@ Add-PSSnapin -Name Microsoft.BDD.PSSnapIn
 
      In het vorige voorbeeld bevat de Windows PowerShell-pijplijn de *naam* en *InputObject* parameters.  
 
-###  <a name="ViewDeployShareProp"></a>Eigenschappen van Implementatieshare met Windows PowerShell weergeven  
+###  <a name="ViewDeployShareProp"></a> Eigenschappen van Implementatieshare met Windows PowerShell weergeven  
  Vindt u de eigenschappen van de MDT-implementatieshares met de [Get ItemProperty](http://technet.microsoft.com/library/hh849851.aspx) cmdlet en de MDTProvider Windows PowerShell-provider. Deze eigenschappen kunnen bekijken in de implementatie-Workbench.  
 
  **Om weer te geven van eigenschappen van implementatieshare MDT Windows PowerShell-cmdlets gebruiken**  
@@ -275,7 +276,7 @@ Add-PSSnapin -Name Microsoft.BDD.PSSnapIn
 
      In dit voorbeeld *DS002:* is de naam van een Windows PowerShell-station werd verkregen in stap 3. De cmdlet retourneert de eigenschappen voor de implementatieshare.  
 
-###  <a name="ViewListDeployShare"></a>De lijst weergeven met behulp van Windows PowerShell-Implementatieshares  
+###  <a name="ViewListDeployShare"></a> De lijst weergeven met behulp van Windows PowerShell-Implementatieshares  
  U kunt de lijst weergeven met shares MDT-implementatie met de [Get-PSDrive](http://technet.microsoft.com/library/hh849796) cmdlet en de MDTProvider Windows PowerShell-provider. Dezelfde lijst met implementatieshares kan ook worden weergegeven in de implementatie-Workbench.  
 
  **Een lijst weergeven van implementatieshares MDT Windows PowerShell-cmdlets gebruiken**  
@@ -299,7 +300,7 @@ Add-PSSnapin -Name Microsoft.BDD.PSSnapIn
 
      De lijst met Windows-PowerShell stations die zijn opgegeven met behulp van de MDTProvider worden vermeld, één voor elke implementatieshare.  
 
-###  <a name="UpdateDeployShare"></a>Bijwerken van de Share van een implementatie met Windows PowerShell  
+###  <a name="UpdateDeployShare"></a> Bijwerken van de Share van een implementatie met Windows PowerShell  
  U kunt bijwerken met implementatieshares de **Update MDTDeploymentShare** cmdlet en de MDTProvider Windows PowerShell-provider. Bijwerken van een implementatieshare maakt de Windows PE-opstartinstallatiekopieën (WIM en International Organization for Standardization [ISO]-bestanden) om te kunnen starten van de implementatie van de LTI. U kunt hetzelfde proces met behulp van de implementatie-Workbench kunt uitvoeren, zoals beschreven in "Update een Share in de Implementatieworkbench-implementatie".  
 
  **Bijwerken van de share van een implementatie met Windows PowerShell**  
@@ -336,7 +337,7 @@ Add-PSSnapin -Name Microsoft.BDD.PSSnapIn
 
      De cmdlet retourneert geen uitvoer als de update geslaagd is.  
 
-###  <a name="UpdateLinkedDeployShare"></a>Bijwerken van een gekoppelde Deployment Share met Windows PowerShell  
+###  <a name="UpdateLinkedDeployShare"></a> Bijwerken van een gekoppelde Deployment Share met Windows PowerShell  
  U kunt bijwerken (repliceren) gekoppelde implementatieshares met de **Update MDTLinkedDS** cmdlet en de MDTProvider Windows PowerShell-provider. De inhoud van de oorspronkelijke implementatieshare bijwerken van een gekoppelde implementatieshare worden gerepliceerd naar de share van de gekoppelde implementatie. U kunt hetzelfde proces met behulp van de implementatie-Workbench kunt uitvoeren, zoals beschreven in "Repliceren gekoppelde Shares in de Implementatieworkbench-implementatie".  
 
  **Bijwerken van een gekoppelde implementatieshare met Windows PowerShell**  
@@ -373,7 +374,7 @@ Add-PSSnapin -Name Microsoft.BDD.PSSnapIn
 
      De cmdlet retourneert geen uitvoer als de update geslaagd is.  
 
-###  <a name="UpdateDeployMedia"></a>Bijwerken van Media voor implementatie met Windows PowerShell  
+###  <a name="UpdateDeployMedia"></a> Bijwerken van Media voor implementatie met Windows PowerShell  
  U kunt bijwerken (genereren) implementatie media met de **Update MDTMedia** cmdlet en de MDTProvider Windows PowerShell-provider. Bijwerken van implementatiemedia repliceert de inhoud van de share van de oorspronkelijke implementatie naar de gekoppelde implementatieshare en genereert vervolgens ISO en WIM-bestanden. U kunt hetzelfde proces met behulp van de implementatie-Workbench kunt uitvoeren, zoals beschreven in 'Genereren Media afbeeldingen in de implementatie-Workbench'.  
 
  Wanneer de **Update MDTMedia** cmdlet is voltooid, worden de volgende bestanden gemaakt:  
@@ -422,12 +423,12 @@ Add-PSSnapin -Name Microsoft.BDD.PSSnapIn
 
      De cmdlet retourneert geen uitvoer als de update geslaagd is.  
 
-###  <a name="ManageItemDeployShare"></a>Het beheren van Items in een implementatie met Windows PowerShell  
+###  <a name="ManageItemDeployShare"></a> Het beheren van Items in een implementatie met Windows PowerShell  
  Een implementatieshare bevat items die worden gebruikt voor het uitvoeren van implementaties, zoals besturingssystemen, toepassingen, stuurprogramma's, besturingssysteempakketten en takenreeksen. Deze items kunnen worden beheerd met behulp van Windows PowerShell en die worden verstrekt met MDT-cmdlets.  
 
  Zie voor meer informatie over het bewerken van items die rechtstreeks met Windows PowerShell-cmdlets, [Items rechtstreeks bewerken van](http://technet.microsoft.com/library/dd315266.aspx). De mapstructuur voor een implementatieshare kan ook worden beheerd met behulp van Windows PowerShell. Zie voor meer informatie [beheren implementatie Share mappen met Windows PowerShell](#ManageDeployShareFolder).  
 
-####  <a name="ImportItemDeployShare"></a>Importeren van een Item in een Implementatieshare  
+####  <a name="ImportItemDeployShare"></a> Importeren van een Item in een Implementatieshare  
  U kunt elk type item, zoals besturingssystemen, toepassingen of apparaatstuurprogramma's importeren met behulp van de MDT-cmdlets. Er is een specifieke MDT-cmdlet voor elk type van item. Als u wilt importeren van meerdere item in de share van een implementatie met Windows PowerShell, Zie [automatiseren populatie van een Deployment Share](#AutomatePopulateDeployShare).  
 
  De volgende tabel bevat de MDT Windows PowerShell-cmdlets gebruikt om items te importeren in een implementatieshare en bevat een korte beschrijving van elke cmdlet. Voorbeelden van het gebruik van elke cmdlet vindt u in de sectie die overeenkomt met elke cmdlet.  
@@ -435,12 +436,12 @@ Add-PSSnapin -Name Microsoft.BDD.PSSnapIn
  |**Cmdlet** | **Beschrijving** |  
  |-|-|  
  |**Importeren MDTApplication** |Kunt u een toepassing importeren in een implementatieshare|  
- |**Importeren MDTDriver** |Een of meer apparaatstuurprogramma's importeert in een implementatieshare|  
- |**Importeren MDTOperatingSystem** |Een of meer besturingssystemen importeert in een implementatieshare|  
+ |**Import-MDTDriver** |Een of meer apparaatstuurprogramma's importeert in een implementatieshare|  
+ |**Import-MDTOperatingSystem** |Een of meer besturingssystemen importeert in een implementatieshare|  
  |**Importeren MDTPackage** |Een of meer pakketten van het besturingssysteem in een implementatieshare geïmporteerd|  
- |**Importeren MDTTaskSequence** |Een takenreeks importeert in een implementatieshare|  
+ |**Import-MDTTaskSequence** |Een takenreeks importeert in een implementatieshare|  
 
-####  <a name="ViewPropertyDeployShare"></a>De eigenschappen van een Item in een Implementatieshare weergeven  
+####  <a name="ViewPropertyDeployShare"></a> De eigenschappen van een Item in een Implementatieshare weergeven  
  Elk item in een implementatieshare heeft een andere set eigenschappen. U kunt de eigenschappen van een item weergeven in een implementatie share met de [Get ItemProperty](http://technet.microsoft.com/library/hh849851.aspx) cmdlet. De [Get ItemProperty](http://technet.microsoft.com/library/hh849851.aspx) cmdlet gebruikt om de eigenschappen voor een specifiek item weer te geven van de MDTProvider net zoals u de eigenschappen in de implementatie-Workbench ziet.  
 
  Als u wilt de eigenschappen van meerdere items weergeven in een implementatie wilt delen met Windows PowerShell, raadpleegt u [automatiseren populatie van een Deployment Share](#AutomatePopulateDeployShare).  
@@ -485,7 +486,7 @@ Add-PSSnapin -Name Microsoft.BDD.PSSnapIn
 
      In dit voorbeeld wordt de waarde van de *pad* parameter is het volledig gekwalificeerde Windows PowerShell-pad naar het item, inclusief de bestandsnaam die is geretourneerd in de vorige stap. U kunt hetzelfde proces gebruiken om de eigenschappen van andere typen van items, zoals de apparaatstuurprogramma's of toepassingen weer te geven.  
 
-####  <a name="RemoveItemDeployShare"></a>Een Item uit een Implementatieshare verwijderen  
+####  <a name="RemoveItemDeployShare"></a> Een Item uit een Implementatieshare verwijderen  
  U kunt een item verwijderen van een implementatie share met de [Item verwijderen](http://technet.microsoft.com/library/hh849765) cmdlet. De [Item verwijderen](http://technet.microsoft.com/library/hh849765) cmdlet wordt de MDTProvider verwijderd met een specifiek item net zoals u kunt een item in de Workbench-implementatie verwijderen. Als u wilt verwijderen meerdere items in een implementatie delen met behulp van Windows PowerShell, raadpleegt u [automatiseren populatie van een Deployment Share](#AutomatePopulateDeployShare).  
 
 > [!NOTE]
@@ -536,7 +537,7 @@ Add-PSSnapin -Name Microsoft.BDD.PSSnapIn
     > [!NOTE]
     >  Verwijderen van een item die gebruikmaakt van een takenreeks zorgt ervoor dat de takenreeks mislukt. Zorg ervoor dat een item niet wordt verwezen door andere items in de implementatieshare voorafgaand aan het item te verwijderen.  
 
-###  <a name="AutomatePopulateDeployShare"></a>Populatie van een Implementatieshare automatiseren  
+###  <a name="AutomatePopulateDeployShare"></a> Populatie van een Implementatieshare automatiseren  
  De MDT Windows PowerShell-cmdlets kunt u afzonderlijke items beheren. Met behulp van enkele van de functies uitvoeren van scripts in Windows PowerShell, kunnen de cmdlets worden gebruikt voor het automatiseren van de populatie van een implementatieshare.  
 
  Bijvoorbeeld een organisatie kan het nodig voor het implementeren van meerdere implementatieshares voor verschillende business units of een organisatie kan bieden operating system deployment-services van andere organisaties. In beide voorbeelden moeten de organisaties de mogelijkheid om te maken en vullen implementatieshares die consistent zijn geconfigureerd.  
@@ -580,7 +581,7 @@ Import-MDTApplication –path $App.ApplicationFolder -enable "True" –Name $App
 
      Zie voor meer informatie over de MDT-cmdlets gebruikt om items te importeren in een implementatieshare [importeren van een Item in een Deployment Share](#ImportItemDeployShare).  
 
-###  <a name="ManageDeployShareFolder"></a>Het beheren van Implementatiemappen van Share met Windows PowerShell  
+###  <a name="ManageDeployShareFolder"></a> Het beheren van Implementatiemappen van Share met Windows PowerShell  
  U kunt mappen in een implementatieshare met de opdrachtregelprogramma's zoals beheren de **mkdir** opdracht of met Windows PowerShell-cmdlets, zoals de [New Item](http://technet.microsoft.com/library/hh849795) cmdlet en de MDTProvider Windows PowerShell-provider. De mapstructuur implementatieshares kan ook worden gezien en beheerd in de implementatie-Workbench. Zie voor meer informatie over het bewerken van items die rechtstreeks met Windows PowerShell-cmdlets, [Items rechtstreeks bewerken van](http://technet.microsoft.com/library/dd315266.aspx).  
 
 #### <a name="create-a-folder-in-a-deployment-share-using-windows-powershell"></a>Maak een map in de Share van een implementatie met Windows PowerShell  
@@ -754,7 +755,7 @@ Import-MDTApplication –path $App.ApplicationFolder -enable "True" –Name $App
 
 -   Het servicepack toepassen op een referentiecomputer en vervolgens een bijgewerkte installatiekopie van een referentiecomputer vastlegt, zoals beschreven in [automatisering van de toepassing van besturingssysteem Service Packs gebruikmaakt van een referentiecomputer en de Windows PowerShell](#AutomateAppUsingRef)  
 
-###  <a name="AutomateAppFromUSM"></a>De toepassing van het besturingssysteem, servicepacks vanaf het BRONmedium bijgewerkte automatiseren  
+###  <a name="AutomateAppFromUSM"></a> De toepassing van het besturingssysteem, servicepacks vanaf het BRONmedium bijgewerkte automatiseren  
  U kunt het proces van het besturingssysteem servicepacks met Windows PowerShell als er bronmedia die het service Pack, zoals een DVD met Windows 7 met SP1 al is geïntegreerd met bijwerken automatiseren.  
 
  Voor deze methode wordt de bronmedia besturingssysteem met het servicepack gekopieerd via de bestaande bestanden van besturingssysteem zonder servicepack in de share van de implementatie met Windows PowerShell.  
@@ -800,7 +801,7 @@ Import-MDTApplication –path $App.ApplicationFolder -enable "True" –Name $App
 
  Voor meer informatie over het bijwerken van MDT media voor implementatie op basis van implementatie delen met behulp van **Update MDTMedia** cmdlet, Zie [bijwerken implementatie Media Windows PowerShell gebruiken](#UpdateDeployMedia).  
 
-###  <a name="AutomateAppUsingRef"></a>De toepassing van servicepacks besturingssysteem met behulp van een referentiecomputer en de Windows PowerShell automatiseren  
+###  <a name="AutomateAppUsingRef"></a> De toepassing van servicepacks besturingssysteem met behulp van een referentiecomputer en de Windows PowerShell automatiseren  
  U kunt het proces van het besturingssysteem servicepacks met Windows PowerShell als u alleen het nog niet is geïntegreerd met het besturingssysteem, zoals met SP1 voor Windows 7 nog niet is geïntegreerd met een installatiekopie van Windows 7 servicepack hebt bijwerken automatiseren.  
 
  Bij deze methode wordt door het besturingssysteem zonder servicepack naar een referentiecomputer te implementeren. Het servicepack vervolgens toepassen op de referentiecomputer. Vervolgens de installatiekopie van een besturingssysteem van de referentiecomputer vastleggen. Ten slotte het vastgelegde WIM-bestand kopiëren via het bestand Install.wim in het besturingssysteem in de share van de implementatie met Windows PowerShell.  
@@ -1277,7 +1278,7 @@ Cscript.exe “%SCRIPTROOT%\ZTIConnect.wsf” /uncpath:unc_path
     |-|-|  
     |**Naam** |Type **verbinding maken met server** (waarbij server de naam van de server waarmee verbinding moet is).|  
     |**Beschrijving** |Typ de tekst waarin wordt uitgelegd waarom de verbinding moet worden gemaakt.|  
-    |**Opdracht** |Type **Cscript.exe "% SCRIPTROOT%\ZTIConnect.wsf" /uncpath:unc_path** (waarbij *unc_path* het UNC-pad naar een gedeelde map op de server is).|  
+    |**opdracht** |Type **Cscript.exe "% SCRIPTROOT%\ZTIConnect.wsf" /uncpath:unc_path** (waarbij *unc_path* het UNC-pad naar een gedeelde map op de server is).|  
 
 7.  Voltooi de **opties** tabblad van de nieuwe taak met de volgende gegevens. Tenzij anders aangegeven, accepteer de standaardwaarden en klik vervolgens op **OK**.  
 
@@ -1401,11 +1402,11 @@ Cscript.exe “%SCRIPTROOT%\ZTIConnect.wsf” /uncpath:unc_path
 
  Op de **opties** tabblad van de takenreeksstap, de volgende acties uitvoeren:  
 
--   **Toevoegen.** Klik op deze knop om een voorwaarde toevoegen aan de takenreeksstap.  
+-   **Add.** Klik op deze knop om een voorwaarde toevoegen aan de takenreeksstap.  
 
--   **Verwijderen.** Klik op deze knop om het verwijderen van een bestaande voorwaarde van een takenreeksstap.  
+-   **Remove.** Klik op deze knop om het verwijderen van een bestaande voorwaarde van een takenreeksstap.  
 
--   **Bewerken.** Klik op deze knop om een bestaande voorwaarde van een takenreeksstap wijzigen.  
+-   **Edit.** Klik op deze knop om een bestaande voorwaarde van een takenreeksstap wijzigen.  
 
 ### <a name="if-statements-in-conditions"></a>Als de instructies in de voorwaarden  
  Alle taak takenreeks voorwaarden zijn een of meer **als** instructies. **Als** -instructies zijn de basis voor het maken van voorwaardelijke taak stappen. Een takenreeksstap stap groepsvoorwaarde kan slechts één bevatten **als** instructie, maar meerdere **als** instructies onder het hoogste niveau kunnen worden genest **als** instructie complexere maken voorwaarden.  
@@ -1612,7 +1613,7 @@ IF ((Computer Model IS “Contoso 1950”) AND (operating system=2003 OR operati
 
  Dit scenario wordt ervan uitgegaan dat MDT is geconfigureerd op een master deployment server en dat de configuratie van de MDT-database is al voltooid zoals beschreven aan het begin van dit document.  
 
-###  <a name="EnsureInfrastructure"></a>Bevestigen dat de juiste infrastructuur bestaat  
+###  <a name="EnsureInfrastructure"></a> Bevestigen dat de juiste infrastructuur bestaat  
  De uiterst schaalbare infrastructuur van de LTI-implementatie maakt gebruik van een hub en spoke-topologie voor replicatie van de inhoud; Daarom wijst eerst een implementatieserver in de productieomgeving die door de rol van de master deployment server worden uitgevoerd.  Hieronder vindt u de vereiste onderdelen voor de van de master-implementatieserver.  
 
  |**Vereiste component** |**Doel/Opmerking** |  
@@ -1635,7 +1636,7 @@ IF ((Computer Model IS “Contoso 1950”) AND (operating system=2003 OR operati
 > [!NOTE]
 >  Windows Deployment Services moet worden ingesteld en geconfigureerd op elke server onderliggende, maar het is niet nodig opstart- of installatiekopieën toe te voegen.  
 
-###  <a name="AddContent"></a>Inhoud toevoegen aan MDT  
+###  <a name="AddContent"></a> Inhoud toevoegen aan MDT  
  De master deployment server in te vullen met inhoud met behulp van de implementatie-Workbench en maken en vullen van de MDT-database, zoals beschreven in de volgende secties. Voor informatie over het vullen van de database met:  
 
 -   Toepassingen, Zie de sectie 'Configureren van toepassingen in de implementatie-Workbench', in het document MDT *met behulp van de Microsoft Deployment Toolkit*  
@@ -1651,7 +1652,7 @@ IF ((Computer Model IS “Contoso 1950”) AND (operating system=2003 OR operati
 > [!NOTE]
 >  Zorg ervoor dat het LiteTouchPE_x86.wim-bestand gemaakt wanneer de implementatieshare is bijgewerkt is toegevoegd aan Windows Deployment Services.  
 
-###  <a name="PrepareDeployment"></a>Voorbereiden van Windows Deployment Services  
+###  <a name="PrepareDeployment"></a> Voorbereiden van Windows Deployment Services  
  Omdat het bestand LiteTouchPE_x86.wim wordt periodiek door de DFS-R-replicatiegroep zijn gerepliceerd, moet de boot configuration data store regelmatig worden bijgewerkt naar aanleiding van de zojuist gerepliceerde Windows PE-omgeving. De volgende stappen uitvoeren op elk van de implementatie-servers.  
 
  **Voorbereiden van Windows Deployment Services**  
@@ -1663,7 +1664,7 @@ IF ((Computer Model IS “Contoso 1950”) AND (operating system=2003 OR operati
 > [!NOTE]
 >  In het voorbeeld dat hier wordt gepresenteerd, is het vernieuwingsinterval ingesteld op 60 minuten. u kunt deze waarde om te repliceren gedurende een periode die gelijk zijn aan die van de DFS-r echter kan configureren  
 
-###  <a name="ConfigureFileReplication"></a>Configureren van Distributed File System Replication  
+###  <a name="ConfigureFileReplication"></a> Configureren van Distributed File System Replication  
  Tijdens het schalen van de architectuur van de LTI-implementatie, gebruikt u DFS-R als basis voor het repliceren van de inhoud van de MDT-implementatieshare en de Windows PE Lite-Touch opstartomgeving en van de van basispagina-implementatieserver naar de onderliggende implementatie-servers.  
 
 > [!NOTE]
@@ -1766,7 +1767,7 @@ IF ((Computer Model IS “Contoso 1950”) AND (operating system=2003 OR operati
 > [!NOTE]
 >  Zorg ervoor dat de nieuwe replicatiegroep wordt nu weergegeven onder het knooppunt replicatie.  
 
-###  <a name="PrepareSQLReplication"></a>Voorbereiden voor SQL Server-replicatie  
+###  <a name="PrepareSQLReplication"></a> Voorbereiden voor SQL Server-replicatie  
  Voordat u SQL Server-replicatie kan worden geconfigureerd, voltooid verschillende vooraf configuratiestappen om ervoor te zorgen dat de gebruikte servers correct zijn geconfigureerd.  
 
  **Voorbereiden voor SQL Server-replicatie op de implementatieserver van basispagina**  
@@ -1789,7 +1790,7 @@ IF ((Computer Model IS “Contoso 1950”) AND (operating system=2003 OR operati
 > [!NOTE]
 >  Deze database moet dezelfde naam als de MDT-DB worden verleend voor de master implementatieserver. Bijvoorbeeld, als de MDT-database op de master deployment server heet *MDTDB*, maakt u een lege database aangeroepen *MDTDB* op de onderliggende implementatie-server.  
 
-###  <a name="ConfigureSQLReplication"></a>SQL Server-replicatie configureren  
+###  <a name="ConfigureSQLReplication"></a> SQL Server-replicatie configureren  
  Na het configureren van de replicatie van bestanden en mappen die zijn vereist voor het bouwen van de implementatie-infrastructuur, SQL Server om te repliceren van de MDT-database te configureren.  
 
 > [!NOTE]
@@ -2063,7 +2064,7 @@ ParameterCondition=OR
 
  Dit scenario veronderstelt dat MDT is geconfigureerd op de implementatieserver van een.  
 
-###  <a name="UnderstandingLocationServer"></a>Understanding LocationServer.xml  
+###  <a name="UnderstandingLocationServer"></a> Understanding LocationServer.xml  
  Eerst moet u begrijpen dat hoe MDT LocationServer.xml gebruikt. Tijdens de LTI, MDT scripts lezen en te verwerken van het bestand BootStrap.ini om initiële informatie over de implementatie te verzamelen. Dit gebeurt voordat een verbinding is gemaakt met de implementatieserver. Daarom de **DeployRoot** eigenschap wordt meestal gebruikt om op te geven in het bestand BootStrap.ini de implementatieserver waarmee deze verbinding moet maken.  
 
  Als het bestand BootStrap.ini geen bevat een **DeployRoot** eigenschap MDT scripts laden van een pagina van de wizard om de gebruiker gevraagd om een pad naar de implementatieserver. Tijdens het initialiseren van de **HTML-toepassing (HTA)** wizardpagina MDT scripts controleren op het bestaan van het bestand LocationServer.xml en, indien aanwezig, LocationServer.xml gebruiken om de implementatie van de beschikbare servers weer te geven.  
@@ -2075,7 +2076,7 @@ ParameterCondition=OR
 
  |**Methode** |**Details** |  
  |-|-|  
- |**% WDSServer %** |Deze methode wordt gebruikt wanneer de MDT-server naast elkaar op de Windows Deployment Services-server wordt gehost.<br /><br /> Wanneer een implementatie van de LTI wordt gestart vanuit Windows Deployment Services, een omgevingsvariabele: % WDSServer % — wordt gemaakt en gevuld met de naam van de Windows Deployment Services-server.<br /><br /> De **DeployRoot** variabele kunt deze variabele gebruiken om automatisch te verbinden met een implementatieshare op de Windows Deployment Services-server, bijvoorbeeld:<br /><br /> **DeployRoot =\\\\%WDSServer%\Deployment$** |  
+ |**%WDSServer%** |Deze methode wordt gebruikt wanneer de MDT-server naast elkaar op de Windows Deployment Services-server wordt gehost.<br /><br /> Wanneer een implementatie van de LTI wordt gestart vanuit Windows Deployment Services, een omgevingsvariabele: % WDSServer % — wordt gemaakt en gevuld met de naam van de Windows Deployment Services-server.<br /><br /> De **DeployRoot** variabele kunt deze variabele gebruiken om automatisch te verbinden met een implementatieshare op de Windows Deployment Services-server, bijvoorbeeld:<br /><br /> **DeployRoot=\\\\%WDSServer%\Deployment$** |  
  |**Op basis van locatie automation** |MDT kunt automatisering op basis van locatie in het bestand BootStrap.ini gebruiken om te bepalen van de server waarop deze moet implementeren.<br /><br /> Gebruik de **standaardgateway** eigenschap onderscheid maken tussen verschillende locaties; voor elk **standaardgateway**, een andere MDT-server is opgegeven.<br /><br /> Raadpleeg voor meer informatie over het gebruik van automatisering op basis van locatie 'Selecteren van de methoden voor toepassen van configuratie-instellingen'.|  
 
  Elke benadering vermeld in de voorgaande tabel biedt een manier om de selectie van de deployment server op een bepaalde locatie voor bepaalde scenario's te automatiseren. Deze methoden zijn gericht op specifieke scenario's, bijvoorbeeld wanneer de MDT-server is CO gehoste met Windows Deployment Services.  
@@ -2084,7 +2085,7 @@ ParameterCondition=OR
 
  In deze scenario's biedt het bestand LocationServer.xml een flexibele manier om deze informatie tijdens de implementatie zonder kennis van de servernamen van de en deployment share.  
 
-###  <a name="CreateLocationServer"></a>Maken van het bestand LocationServer.xml  
+###  <a name="CreateLocationServer"></a> Maken van het bestand LocationServer.xml  
  Als u wilt een lijst met beschikbare implementatie servers aanwezig tijdens de implementatie van een LTI, een LocationServer.xml-bestand met informatie over elke server te maken. Er is geen standaard LocationServer.xml-bestand in MDT, dus maak een met de volgende richtlijnen.  
 
 #### <a name="create-a-locationserverxml-file-to-support-multiple-locations"></a>Maak een bestand LocationServer.xml ter ondersteuning van meerdere locaties  
@@ -2212,7 +2213,7 @@ ParameterCondition=OR
 
     2.  In de **aanpassingen van Windows PE** sectie in de **Extra map toevoegen** in het vak ***pad*** (waar *pad* is volledig gekwalificeerd pad naar de map Extra bestanden, bijvoorbeeld D:\Production implementatie Share\Extra bestanden), en klik vervolgens op **OK**.  
 
-###  <a name="UpdateBootstrap"></a>Het bestand BootStrap.ini bijwerken  
+###  <a name="UpdateBootstrap"></a> Het bestand BootStrap.ini bijwerken  
  Wanneer u een share met behulp van de implementatie-Workbench-implementatie maakt een **DeployRoot** eigenschap automatisch wordt gemaakt en ingevuld in het bestand BootStrap.ini. Omdat het bestand LocationServer.xml wordt gebruikt voor het vullen van de **DeployRoot** eigenschap, moet u deze waarde verwijderen uit het bestand BootStrap.ini.  
 
  **De eigenschap DeployRoot uit BootStrap.ini verwijderen**  
@@ -2231,7 +2232,7 @@ ParameterCondition=OR
 
 7.  Klik op **OK** de wijzigingen wilt indienen.  
 
-###  <a name="UpdateDeploymentShare"></a>De Implementatieshare bijwerken  
+###  <a name="UpdateDeploymentShare"></a> De Implementatieshare bijwerken  
  De implementatieshare moet vervolgens worden bijgewerkt voor het genereren van een nieuwe LiteTouch_x86 en LiteTouch_x64 boot-omgeving waarin het bestand LocationServer.xml en de bijgewerkte BootStrap.ini-bestand.  
 
  **De implementatieshare bijwerken**  
@@ -2320,7 +2321,7 @@ ParameterCondition=OR
     |**Besturingssysteem selecteren**|In **de volgende installatiekopieën van besturingssystemen zijn beschikbaar om te worden geïmplementeerd met deze takenreeks**. Selecteer een wilt gebruiken, selecteert u ***captured_vista_image*** (waarbij *captured_vista_image* is de vastgelegde installatiekopie van de referentiecomputer toegevoegd aan het knooppunt besturingssystemen in de Implementatieworkbench), en vervolgens Klik op *volgende*.|  
     |**Productcode opgeven**|Selecteer **Geef een productcode op dit moment geen**, en klik vervolgens op **volgende**.|  
     |OS-instellingen|1.  In **volledige naam**, type **Woodgrove werknemer**.<br />2.  In **organisatie**, type **Woodgrove Bank**.<br />3.  In **startpagina van Internet Explorer**, type **http://www.woodgrovebank.com**.<br />4.  Klik op **Volgende**.|  
-    |**Beheerderswachtwoord**|In **beheerderswachtwoord** en **Controleer of de Administrator-wachtwoord**, type  **P@ssw0rd** , en klik vervolgens op **voltooien**.|  
+    |**Beheerderswachtwoord**|In **beheerderswachtwoord** en **Controleer of de Administrator-wachtwoord**, type **P@ssw0rd**, en klik vervolgens op **voltooien**.|  
     |**Bevestiging**|Klik op **Voltooien**.|  
 
  De Wizard Nieuwe Takenreeks is voltooid, en de **VISTA_NEW** takenreeks is toegevoegd aan de lijst van takenreeksen.  
@@ -2434,7 +2435,7 @@ ParameterCondition=OR
     |**Op deze wizardpagina**|**Dit doet**|  
     |-|-|  
     |**Welkom bij de implementatie**|Klik op **voert u de Wizard implementatie** een nieuw besturingssysteem installeert en klik vervolgens op **volgende**.|  
-    |**Geef referenties op voor het verbinden met netwerkshares.**|1.  In **gebruikersnaam**, type **beheerder**.<br />2.  In **wachtwoord**, type  **P@ssw0rd** .<br />3.  In **domein**, type **CORP**.<br />4.  Klik op **OK**.|  
+    |**Geef referenties op voor het verbinden met netwerkshares.**|1.  In **gebruikersnaam**, type **beheerder**.<br />2.  In **wachtwoord**, type **P@ssw0rd**.<br />3.  In **domein**, type **CORP**.<br />4.  Klik op **OK**.|  
     |**Selecteer een takenreeks uit te voeren op deze computer.**|Klik op *Scenario met vervangen computers op bestaande Computer uitvoeren*, en klik vervolgens op **volgende**.|  
     |**Opgeven waar u uw gegevens en instellingen opslaan**|Klik op **Volgende**.|  
     |**Geef aan waar een volledige computernaam back-up opslaan**|Klik op **doen geen back-up van de bestaande computer**, en klik vervolgens op **volgende**.|  
@@ -2467,7 +2468,7 @@ ParameterCondition=OR
     |**Op deze wizardpagina**|**Dit doet**|  
     |--|--|
     |**Welkom bij de implementatie**|Klik op **de Wizard voor het installeren van een nieuw besturingssysteem uitvoeren**, en klik vervolgens op **volgende**.|  
-    |**Geef referenties op voor het verbinden met netwerkshares.**|1.  In **gebruikersnaam**, type **beheerder**.<br />2.  In **wachtwoord**, type  **P@ssw0rd** .<br />3.  In **domein**, type **CORP**.<br />4.  Klik op **OK**.|  
+    |**Geef referenties op voor het verbinden met netwerkshares.**|1.  In **gebruikersnaam**, type **beheerder**.<br />2.  In **wachtwoord**, type **P@ssw0rd**.<br />3.  In **domein**, type **CORP**.<br />4.  Klik op **OK**.|  
     |**Selecteer een takenreeks uit te voeren op deze computer.**|Klik op **Scenario met vervangen computers op de nieuwe Computer uitvoeren**, en klik vervolgens op **volgende**.|  
     |**Naam van de computer configureren**|In **computernaam**, type **WDG nieuwe 02**, en klik vervolgens op **volgende**.|  
     |**De computer toevoegen aan een domein of werkgroep**|Klik op **Volgende**.|  
@@ -2501,14 +2502,14 @@ ParameterCondition=OR
 
  De volgende secties wordt ervan uitgegaan dat MDT is geconfigureerd op de implementatieserver van een.  
 
-###  <a name="ChooseAppropLanguage"></a>De juiste taal kiezen  
+###  <a name="ChooseAppropLanguage"></a> De juiste taal kiezen  
  Hoewel elke code die kan worden uitgevoerd op Windows of in Windows PE kan worden aangeroepen als de installatie van een toepassing of via een MDT takenreeksstap, wordt aangeraden met behulp van scripts in de vorm van .vbs of .wsf-bestanden.  
 
  Het voordeel van .wsf-bestanden is ingebouwd logboekregistratie bovendien sommige andere vooraf gedefinieerde functies al gebruikt door de processen van ZTI en LTI. Deze functies zijn beschikbaar in het script ZTIUtility is gedistribueerd met MDT.  
 
  Wanneer er wordt verwezen vanuit een aangepast script, initialiseert het script ZTIUtility de MDT-omgeving en setup-klassen. Deze klassen zijn beschikbaar:  
 
--   **Logboekregistratie**. Deze klasse biedt de functionaliteit van logboekregistratie die alle MDT-scripts gebruiken. Dit leidt ook tot één logboekbestand voor elk script wordt uitgevoerd tijdens de implementatie en een geconsolideerde logbestand van alle scripts uitvoeren. Deze logboekbestanden worden gemaakt in een indeling die is ontworpen om te worden gelezen door TRACE32; Dit hulpprogramma is beschikbaar in de [System Center Configuration Manager 2007 Toolkit V2](https://www.microsoft.com/download/en/details.aspx?id=9257).  
+-   **Logging**. Deze klasse biedt de functionaliteit van logboekregistratie die alle MDT-scripts gebruiken. Dit leidt ook tot één logboekbestand voor elk script wordt uitgevoerd tijdens de implementatie en een geconsolideerde logbestand van alle scripts uitvoeren. Deze logboekbestanden worden gemaakt in een indeling die is ontworpen om te worden gelezen door TRACE32; Dit hulpprogramma is beschikbaar in de [System Center Configuration Manager 2007 Toolkit V2](https://www.microsoft.com/download/en/details.aspx?id=9257).  
 
 -   **Omgeving**. Deze klasse omgevingsvariabelen die worden verzameld via WMI en MDT regelverwerking configureert en kan ze rechtstreeks vanuit het script worden verwezen. Hierdoor kunnen implementatie-eigenschappen moeten worden gelezen, toegang geven tot alle configuratie-informatie die wordt gebruikt door de processen van ZTI en LTI.  
 
@@ -2533,7 +2534,7 @@ ParameterCondition=OR
 > [!NOTE]
 >  De meeste bestaande MDT 2008 Update 1-scripts, werken als-is in MDT, zelfs met de uitgebreide wijzigingen in ZTIUtility.vbs, het meeste MDT scripts ZTIUtility.vbs zal bevatten.  
 
-###  <a name="UnderstandLeverageZTI"></a>Informatie over hoe u ZTIUtility  
+###  <a name="UnderstandLeverageZTI"></a> Informatie over hoe u ZTIUtility  
  Het bestand ZTIUtility.vbs bevat objectklassen die kunnen worden gebruikt in uw aangepaste code. Aangepaste code met MDT geïntegreerd met behulp van de:  
 
 -   Logboekregistratie klasse is gedefinieerd in ZTIUtility.vbs, zoals beschreven in [de klasse ZTIUtility logboekregistratie gebruiken](#UseZTILogging)  
@@ -2542,7 +2543,7 @@ ParameterCondition=OR
 
 -   Hulpprogramma voor klasse is gedefinieerd in ZTIUtility.vbs, zoals beschreven in [de ZTIUtility hulpprogrammaklasse gebruiken](#UseZTIUtility)  
 
-####  <a name="UseZTILogging"></a>Gebruik de klasse ZTIUtility-logboekregistratie  
+####  <a name="UseZTILogging"></a> Gebruik de klasse ZTIUtility-logboekregistratie  
  De klasse logboekregistratie in ZTIUtiliy.vbs biedt een eenvoudige mechanisme voor aangepaste code logboekgegevens status, waarschuwingen en fouten op dezelfde manier als andere scripts tijdens de implementatie van een ZTI of LTI. Deze standaardisatie zorgt ook voor dat de **LTI implementatieoverzicht** correct meldt de status van elke gewenste aangepaste code die wordt uitgevoerd in het dialoogvenster.  
 
  Hieronder ziet u een aangepaste code voorbeeldscript die gebruikmaakt van de **oLogging.CreateEntry** en **TestAndFail** functies aan te melden berichten, afhankelijk van de resultaten van de verschillende soorten scriptacties.  
@@ -2626,10 +2627,10 @@ End Class
 > [!NOTE]
 >  Als u wilt doorgaan met behulp van scripts die aanroep **ZTIProcess()** met **ProcessResults()**, kunt u blijven doen. Bepaalde Verbeterde foutafhandeling functies wordt echter niet worden ingeschakeld.  
 
-####  <a name="UseZTIEnvironment"></a>Gebruik de klasse ZTIUtility-omgeving  
+####  <a name="UseZTIEnvironment"></a> Gebruik de klasse ZTIUtility-omgeving  
  De klasse omgeving in ZTIUtiliy.vbs biedt toegang tot en de mogelijkheid om bij te werken, MDT-eigenschappen. In het voorgaande voorbeeld **oEnvironment.Item("Memory")** wordt gebruikt voor het ophalen van de hoeveelheid RAM-geheugen beschikbaar; Dit kan ook worden gebruikt voor het ophalen van de waarde van een van de eigenschappen die worden beschreven in het document MDT *Toolkit-verwijzing* .  
 
-####  <a name="UseZTIUtility"></a>Gebruik het hulpprogramma ZTIUtility-klasse  
+####  <a name="UseZTIUtility"></a> Gebruik het hulpprogramma ZTIUtility-klasse  
  Het script ZTIUtility.vbs bevat een aantal veelgebruikte hulpprogramma's die een script voor een aangepaste implementatie kunt gebruiken. U kunt deze hulpprogramma's aan toevoegen elk script dezelfde manier als de **oLogging** en **oEnvironment** klassen.  
 
 De volgende tabel details over een aantal handige functies beschikbaar en de uitvoer. Raadpleeg het bestand ZTIUtility.vbs voor een volledige lijst met de beschikbare functies.  
@@ -2648,7 +2649,7 @@ De volgende tabel details over een aantal handige functies beschikbaar en de uit
 |**oUtility.Sections(file)**|Leest de secties van een ini-bestand en slaat ze op in een object voor verwijzing|  
 |**oUtility.SectionContents (bestand, sectie)**|De inhoud van het opgegeven .ini-bestand wordt gelezen en slaat ze op in een object|  
 |**oUtility.RunWithHeartbeat(sCmd)**|Wanneer de opdracht wordt uitgevoerd, heartbeat informatie schrijven naar de logboeken om de 0,5 seconden|  
-|**oUtility.FindFile**<br /><br /> **(sFilename sFoundPath)**|Hiermee zoekt u naar het opgegeven bestand in de map DeployRoot en standaard submappen, inclusief onderhoud, hulpprogramma's voor USMT, sjablonen, Scripts en beheer|  
+|**oUtility.FindFile**<br /><br /> **(sFilename,sFoundPath)**|Hiermee zoekt u naar het opgegeven bestand in de map DeployRoot en standaard submappen, inclusief onderhoud, hulpprogramma's voor USMT, sjablonen, Scripts en beheer|  
 |**oUtility.findMappedDrive(sServerUNC)**|Controleert of een station is toegewezen aan het opgegeven UNC-pad is en de stationsletter retourneert|  
 |**oUtility.ValidateConnection(sServerUNC)**|Controleert of er een bestaande verbinding met de opgegeven server is en als er geen is, probeert te maken van een|  
 |**MapNetworkDrive**<br /><br /> **(sShare, SDomID, sDomPwd)**|Een stationsletter toegewezen aan het UNC-pad dat is opgegeven als de share en retourneert de stationsletter gebruikt; retourneert een fout als mislukt|  
@@ -2657,13 +2658,13 @@ De volgende tabel details over een aantal handige functies beschikbaar en de uit
 |**oEnvironment.Item**<br /><br /> **(sName)**|Lees- of schrijfbewerking een variabele naar een permanente opslag|  
 |**oEnvironment.Exists**<br /><br /> **(sName)**|Tests uit om te zien of de variabele bestaat|  
 |**oEnvironment.ListItem**<br /><br /> **(sName)**|Lees- of schrijfbewerking een variabele van type **matrix** naar een permanente opslag|  
-|**oLogging.ReportFailure**<br /><br /> **(sbericht iError)**|Gebruikt voor het afsluiten van een gestructureerde uitvoeren als er een onherstelbare fout wordt gedetecteerd|  
+|**oLogging.ReportFailure**<br /><br /> **(sMessage, iError)**|Gebruikt voor het afsluiten van een gestructureerde uitvoeren als er een onherstelbare fout wordt gedetecteerd|  
 |**oLogging.CreateEvent**<br /><br /> **(iEventID, iType, sbericht, arrParms)**|Een bericht naar het logboekbestand geschreven en waarmee de gebeurtenis met een gedefinieerde server|  
-|**oLogging.CreateEntry**<br /><br /> **(sLogMsg iType)**|Een bericht naar het logboekbestand geschreven|  
+|**oLogging.CreateEntry**<br /><br /> **(sLogMsg, iType)**|Een bericht naar het logboekbestand geschreven|  
 |**TestAndFail (iRc, iError, sbericht)**|Het script wordt afgesloten **iError** als **iRc** false of is mislukt|  
 |**TestAndLog (iRc, sbericht)**|Hiermee wordt een waarschuwing alleen als geregistreerd **iRc** false of is mislukt|  
 
-###  <a name="IntegrateCustomDeploy"></a>Integratie van aangepaste implementatiecode  
+###  <a name="IntegrateCustomDeploy"></a> Integratie van aangepaste implementatiecode  
  Aangepaste implementatiecode kan worden geïntegreerd in de MDT-proces op verschillende manieren; ongeacht de methode die wordt gebruikt, moeten de volgende twee regels worden voldaan:  
 
 -   De naam van het aangepaste implementatie code script moet altijd beginnen met de letter Z.  
@@ -2760,7 +2761,7 @@ De volgende tabel details over een aantal handige functies beschikbaar en de uit
 
  Dit scenario veronderstelt dat MDT wordt uitgevoerd op een implementatieserver.  
 
-###  <a name="WhichMethodtoInstallDriver"></a>Bepalen welke methode u wilt gebruiken om een apparaatstuurprogramma te installeren  
+###  <a name="WhichMethodtoInstallDriver"></a> Bepalen welke methode u wilt gebruiken om een apparaatstuurprogramma te installeren  
  Hardwarefabrikanten release apparaatstuurprogramma's in een van twee vormen:  
 
 -   Als een pakket dat u kunt bevat uitpakken en die INF-bestanden voor het importeren van het stuurprogramma in de Workbench-implementatie  
@@ -2771,7 +2772,7 @@ De volgende tabel details over een aantal handige functies beschikbaar en de uit
 
  Apparaatstuurprogrammapakketten niet kunnen worden geëxtraheerd isoleren INF-bestanden of die niet goed zonder eerst werken wordt geïnstalleerd met behulp van het installatieprogramma van een toepassing zoals een MSI of de Setup.exe-bestand kunt gebruiken de functie van de MDT-toepassing installeren en het apparaat installeren stuurprogramma net als voor een normale toepassing tijdens de implementatie.  
 
-###  <a name="InstallOutofBoxDrivers"></a>Apparaatstuurprogramma's via de methode Out-of-Box stuurprogramma's installeren  
+###  <a name="InstallOutofBoxDrivers"></a> Apparaatstuurprogramma's via de methode Out-of-Box stuurprogramma's installeren  
  U kunt apparaatstuurprogrammapakketten zoals een INF-bestand voor de implementatie-Workbench en deze automatisch worden geïnstalleerd als onderdeel van het implementatieproces importeren. Voor het implementeren van dit type apparaat stuurprogramma implementatie, moet u eerst de apparaatstuurprogramma's toevoegen aan de implementatie-Workbench.  
 
  **De apparaatstuurprogramma's toevoegen aan de implementatie-Workbench**  
@@ -2813,7 +2814,7 @@ De volgende tabel details over een aantal handige functies beschikbaar en de uit
 
 6.  Op de **bevestiging** pagina, klikt u op **voltooien**.  
 
-###  <a name="InstallDriversasApplications"></a>Apparaatstuurprogramma's installeren als toepassingen  
+###  <a name="InstallDriversasApplications"></a> Apparaatstuurprogramma's installeren als toepassingen  
  Apparaatstuurprogramma's die worden geleverd, zoals toepassingen en u kunt geen uitpakken naar een map met een INF-bestand, naast de stuurprogramma's worden toegevoegd aan de implementatie-Workbench als een toepassing voor de installatie van tijdens het implementatieproces.  
 
  Toepassingen kunnen worden opgegeven als een takenreeksstap of opgegeven in CustomSettings.ini; apparaattoepassingen stuurprogramma moeten echter alleen wanneer de takenreeks wordt uitgevoerd op een computer met de apparaten worden geïnstalleerd. Voer de takenreeksstap voor het implementeren van de relevante apparaattoepassingen stuurprogramma als een voorwaardelijke takenreeksstap zodat dit. De voorwaardelijke criteria kunnen worden opgegeven voor het uitvoeren van de takenreeksstap met behulp van WMI-query's voor het apparaat op de doelcomputer.  
@@ -2862,7 +2863,7 @@ De volgende tabel details over een aantal handige functies beschikbaar en de uit
 
  Elke benadering wordt nader beschreven in de volgende secties beschreven.  
 
-####  <a name="SpecifyDeviceAppTask"></a>De apparaat-stuurprogramma-toepassing opgeven als onderdeel van een Takenreeks  
+####  <a name="SpecifyDeviceAppTask"></a> De apparaat-stuurprogramma-toepassing opgeven als onderdeel van een Takenreeks  
  De eerste methode voor het toevoegen van een apparaat stuurprogrammatoepassing aan het implementatieproces is het gebruik van een takenreeks toevoegen van stappen voor elke apparaattoepassing-stuurprogramma.  
 
  Er zijn twee belangrijkste methoden voor het beheren van apparaat stuurprogrammatoepassingen in de takenreeks:  
@@ -2903,7 +2904,7 @@ De volgende tabel details over een aantal handige functies beschikbaar en de uit
 
          In dit voorbeeld *hardware_model* is de naam van het computermodel (zoals breedtegraad D620) en *hardware_manufacturer* is de naam van de computer maakt (zoals de Dell Corporation).  
 
-         De  **%**  symbool is een jokerteken die is opgenomen in de namen van de beheerders toestaan om te retourneren van alle computermodellen of fabrikanten met de opgegeven waarde voor ***hardware_model***of ***hardware_manufacturer***.  
+         De **%** symbool is een jokerteken die is opgenomen in de namen van de beheerders toestaan om te retourneren van alle computermodellen of fabrikanten met de opgegeven waarde voor ***hardware_model***of ***hardware_manufacturer***.  
 
      Zie de sectie 'Toevoegen WMI-query's naar reeks stap voorwaarden taak', in de MDT-document voor meer informatie over WMI- en WQL-query's *met behulp van de Microsoft Deployment Toolkit*, en zien [opvragen met WQL](http://msdn.microsoft.com/library/aa392902.aspx).  
 
@@ -3125,13 +3126,13 @@ MandatoryApplications001={c303fa6e-3a4d-425e-8102-77db9310e4d0}
 
      Wanneer dit proces voltooid is, de map opstarten in de implementatieshare bevat een aantal opstartinstallatiekopieën, bijvoorbeeld:  
 
-     D:\Production implementatie Share\Boot\LiteTouchPE_x64.iso  
+     D:\Production Deployment Share\Boot\LiteTouchPE_x64.iso  
 
-     D:\Production implementatie Share\Boot\LiteTouchPE_x64.wim  
+     D:\Production Deployment Share\Boot\LiteTouchPE_x64.wim  
 
-     D:\Production implementatie Share\Boot\LiteTouchPE_x86.iso  
+     D:\Production Deployment Share\Boot\LiteTouchPE_x86.iso  
 
-     D:\Production implementatie Share\Boot\LiteTouchPE_x86.wim  
+     D:\Production Deployment Share\Boot\LiteTouchPE_x86.wim  
 
  U kunt de ISO-bestanden die zijn gegenereerd schrijft rechtstreeks naar een CD of DVD of ze initialiseren van het proces LTI op nieuwe hardware gebruiken. U kunt de opstart-WIM-bestanden importeren in Windows Deployment Services, evenals, zodat nieuwe computers het implementatieproces LTI zonder een fysiek medium kunnen worden geïnitialiseerd.  
 
@@ -3472,7 +3473,7 @@ MandatoryApplications001={c303fa6e-3a4d-425e-8102-77db9310e4d0}
 
 -   Verwijderen van media voor implementatie, zoals beschreven in [Media verwijderen](#DeleteMedia).  
 
-###  <a name="CreateNewDeployShare"></a>Maken van een nieuwe Implementatieshare  
+###  <a name="CreateNewDeployShare"></a> Maken van een nieuwe Implementatieshare  
  De volgende Windows PowerShell-opdrachten maakt een nieuwe implementatieshare op D:\Production Deployment Share met de naam *productie$*. De nieuwe implementatieshare wordt weergegeven in de implementatie-Workbench als productie.  
 
 -   ```  
@@ -3483,7 +3484,7 @@ MandatoryApplications001={c303fa6e-3a4d-425e-8102-77db9310e4d0}
     New-PSDrive -Name "DS002" -PSProvider "MDTProvider" -Root "D:\Production Deployment Share" -Description "Production" -NetworkPath "\\Deployment_Server\Production$" -Verbose | add-MDTPersistentDrive -Verbose  
     ```  
 
-###  <a name="CreateFolder"></a>Een map te maken  
+###  <a name="CreateFolder"></a> Een map te maken  
  De volgende Windows PowerShell-opdrachten maken van een map Adobe in de consolestructuur van de implementatie-Workbench op implementatie-Workbench\/Implementatieshares\/productie\/toepassingen.  
 
 -   ```  
@@ -3501,7 +3502,7 @@ MandatoryApplications001={c303fa6e-3a4d-425e-8102-77db9310e4d0}
     > [!NOTE]
     >  Toe te voegen '`remove-psdrive`' aan het script zorgt u ervoor dat de achtergrondproces is voltooid voordat u doorgaat.  
 
-###  <a name="DeleteFolder"></a>Als u een map  
+###  <a name="DeleteFolder"></a> Als u een map  
  De volgende Windows PowerShell-opdrachten verwijderen de implementatie-Workbench\/Implementatieshares\/productie\/toepassingen\/Adobe map.  
 
 -   ```  
@@ -3519,7 +3520,7 @@ MandatoryApplications001={c303fa6e-3a4d-425e-8102-77db9310e4d0}
 > [!NOTE]
 >  Het script mislukt als de map niet leeg zijn is.  
 
-###  <a name="ImportDeviceDriver"></a>Een apparaatstuurprogramma importeren  
+###  <a name="ImportDeviceDriver"></a> Een apparaatstuurprogramma importeren  
  De volgende Windows PowerShell-opdrachten wordt de Dell 2407 WFP monitor apparaatstuurprogramma's importeren in de share van de productie-implementatie.  
 
 -   ```  
@@ -3534,14 +3535,14 @@ MandatoryApplications001={c303fa6e-3a4d-425e-8102-77db9310e4d0}
     Import-mdtdriver -path "DS002:\Out-of-Box Drivers\Monitor" -SourcePath "D:\Drivers\Dell\2407 WFP" -Verbose  
     ```  
 
-###  <a name="DeleteDeviceDriver"></a>Verwijderen van een apparaatstuurprogramma  
+###  <a name="DeleteDeviceDriver"></a> Verwijderen van een apparaatstuurprogramma  
  De volgende Windows PowerShell-opdracht verwijdert het stuurprogramma van de monitor Dell 2407 WFP uit de share van de productie-implementatie.  
 
 ```  
 Remove-item -path "DS002:\Out-of-Box Drivers\Dell Inc. Monitor 2407WFP.INF 1.0" -Verbose  
 ```  
 
-###  <a name="ImportOpSysPackage"></a>Een besturingssysteempakket importeren  
+###  <a name="ImportOpSysPackage"></a> Een besturingssysteempakket importeren  
  De volgende Windows PowerShell-opdrachten importeren alle besturingssysteempakketten weergegeven onder D:\\Updates\\Microsoft\\Vista. Deze pakketten van het besturingssysteem wordt opgeslagen in de implementatieshare productie, dat zich in D: bevindt\\delen van productie-implementatie.  
 
 -   ```  
@@ -3556,14 +3557,14 @@ Remove-item -path "DS002:\Out-of-Box Drivers\Dell Inc. Monitor 2407WFP.INF 1.0" 
     Import-mdtpackage -path "DS002:\Packages" -SourcePath "D:\Updates\Microsoft\Vista" -Verbose  
     ```  
 
-###  <a name="DeleteOpSysPackage"></a>Verwijderen van een besturingssysteem-pakket  
+###  <a name="DeleteOpSysPackage"></a> Verwijderen van een besturingssysteem-pakket  
  De volgende Windows PowerShell-opdracht verwijdert het opgegeven besturingssysteem-pakket uit de share van de productie-implementatie.  
 
 ```  
 Remove-item -path "DS002:\Packages\Package_1_for_KB940105 neutral x86 6.0.1.0 KB940105" -Verbose  
 ```  
 
-###  <a name="ImportOpSys"></a>Importeren van een besturingssysteem  
+###  <a name="ImportOpSys"></a> Importeren van een besturingssysteem  
  De volgende Windows PowerShell-opdrachten importeren van het besturingssysteem Windows Vista zich in D:\\besturingssystemen\\Windows Vista x86. Het besturingssysteem wordt opgeslagen in de implementatieshare productie, dat zich in D: bevindt\\delen van productie-implementatie.  
 
 -   ```  
@@ -3578,14 +3579,14 @@ Remove-item -path "DS002:\Packages\Package_1_for_KB940105 neutral x86 6.0.1.0 KB
     Import-mdtoperatingsystem -path "DS002:\Operating Systems" -SourcePath "D:\Operating Systems\Windows Vista x86" -DestinationFolder "Windows Vista x86" -Verbose  
     ```  
 
-###  <a name="DeleteOpSys"></a>Verwijderen van een besturingssysteem  
+###  <a name="DeleteOpSys"></a> Verwijderen van een besturingssysteem  
  De volgende Windows PowerShell-opdracht verwijdert het besturingssysteem Windows Vista HOMEBASIC uit de share van de productie-implementatie.  
 
 ```  
 Remove-item -path "DS002:\Operating Systems\Windows Vista HOMEBASIC in Windows Vista x86 install.wim" -Verbose  
 ```  
 
-###  <a name="CreateApplication"></a>Maken van een toepassing  
+###  <a name="CreateApplication"></a> Maken van een toepassing  
  De volgende Windows PowerShell-opdrachten de Adobe Reader 9 toepassing maken met de bronbestanden van D:\\Software\\Adobe\\Reader 9. De toepassing wordt opgeslagen in de implementatieshare productie, dat zich in D: bevindt\\delen van productie-implementatie.  
 
 -   ```  
@@ -3600,14 +3601,14 @@ Remove-item -path "DS002:\Operating Systems\Windows Vista HOMEBASIC in Windows V
     Import-MDTApplication -path "DS002:\Applications" -enable "True" -Name "Adobe Reader 9" -ShortName "Reader" -Version "9" -Publisher "Adobe" -Language "" -CommandLine "setup.exe" -WorkingDirectory ".\Applications\Adobe Reader 9" -ApplicationSourcePath "D:\Software\Adobe\Reader 9" -DestinationFolder "Adobe Reader 9" -Source ".\Applications\Adobe Reader 9" -Verbose  
     ```  
 
-###  <a name="DeleteApplication"></a>Verwijderen van een toepassing  
+###  <a name="DeleteApplication"></a> Verwijderen van een toepassing  
  De volgende Windows PowerShell-opdracht worden de Adobe Reader 9-toepassing uit de share van de productie-implementatie verwijderd.  
 
 ```  
 Remove-item -path "DS002:\Applications\Adobe Reader 9" -Verbose  
 ```  
 
-###  <a name="CreateTaskSequence"></a>Een Takenreeks maken  
+###  <a name="CreateTaskSequence"></a> Een Takenreeks maken  
  De volgende Windows PowerShell-opdrachten maken de **Windows Vista productie bouwen** takenreeks in de implementatieshare productie, dat in D: bevindt zich\\delen van productie-implementatie.  
 
 -   ```  
@@ -3622,14 +3623,14 @@ Remove-item -path "DS002:\Applications\Adobe Reader 9" -Verbose
     Import-mdttasksequence -path "DS002:\Task Sequences" -Name "Windows Vista Business Production Build" -Template "Client.xml" -Comments "Approved for use in the production environment.  This task sequence uses the Standard Client task sequence template" -ID "Vista_Ref" -Version "1.0" -OperatingSystemPath "DS002:\Operating Systems\Windows Vista BUSINESS in Windows Vista x86 install.wim" -FullName "Fabrikam User" -OrgName "Fabrikam" -HomePage "http://www.Fabrikam.com" -AdminPassword "secure_password" -Verbose  
     ```  
 
-###  <a name="DeleteTaskSequence"></a>Verwijderen van een Takenreeks  
+###  <a name="DeleteTaskSequence"></a> Verwijderen van een Takenreeks  
  De volgende Windows PowerShell-opdracht verwijdert u de **Windows Vista productie bouwen** takenreeks van de share van de productie-implementatie.  
 
 ```  
 Remove-item -path "DS002:\Task Sequences\Windows Vista Business Production Build" -force -Verbose  
 ```  
 
-###  <a name="CreateMDTDB"></a>Maken van een MDT-DB  
+###  <a name="CreateMDTDB"></a> Maken van een MDT-DB  
  De volgende Windows PowerShell-opdrachten een nieuwe MDT-database maken op de *implementatie\_server* server voor de share van de productie-implementatie. Verbinding met de database worden via TCP\/IP.  
 
 -   ```  
@@ -3644,7 +3645,7 @@ Remove-item -path "DS002:\Task Sequences\Windows Vista Business Production Build
     New-MDTDatabase -path "DS002:" -SQLServer "DeploymentServer" -Netlib "DBMSSOCN" -Database "MDT2010" -SQLShare "DB_Connect" -Force -Verbose  
     ```  
 
-###  <a name="CreateSelectProfile"></a>Maken van een profiel selecteren  
+###  <a name="CreateSelectProfile"></a> Maken van een profiel selecteren  
  De volgende Windows PowerShell-opdrachten maken een profiel voor selectie van nieuwe toepassingen.  
 
 -   ```  
@@ -3659,7 +3660,7 @@ Remove-item -path "DS002:\Task Sequences\Windows Vista Business Production Build
     New-item -path "DS002:\Selection Profiles" -enable "True" -Name "Applications" -Comments "" -Definition "<SelectionProfile><Include path="Applications" /></SelectionProfile>" -ReadOnly "False" -Verbose  
     ```  
 
-###  <a name="UpdatingDeployShare"></a>Een Implementatieshare bijwerken  
+###  <a name="UpdatingDeployShare"></a> Een Implementatieshare bijwerken  
  De volgende Windows PowerShell-opdrachten update de implementatieshare productie, dat zich in D: bevindt\\delen van productie-implementatie.  
 
 -   ```  
@@ -3672,7 +3673,7 @@ Remove-item -path "DS002:\Task Sequences\Windows Vista Business Production Build
 
 -   Update\-MDTDeploymentShare \-pad ' DS002: " \-Uitgebreide  
 
-###  <a name="CreateLinkedDeployShare"></a>Maken van een gekoppelde Implementatieshare  
+###  <a name="CreateLinkedDeployShare"></a> Maken van een gekoppelde Implementatieshare  
  De volgende Windows PowerShell-opdrachten maken een implementatieshare die is gekoppeld aan de share van de productie-implementatie en bevindt zich onder de \\ \\ *externe\_server\_naam* \\Implementatie$-share. Alles selectie profiel wordt gebruikt om te bepalen welke inhoud wordt gerepliceerd naar de share van de gekoppelde implementatie. Inhoud van de share van de productie-implementatie wordt samengevoegd met inhoud die al bestaat in de \\ \\ *externe\_server\_naam*\\implementatie$-share.  
 
 -   ```  
@@ -3687,7 +3688,7 @@ Remove-item -path "DS002:\Task Sequences\Windows Vista Business Production Build
     New-item -path "DS002:\Linked Deployment Shares" -enable "True" -Name "LINKED001" -Comments "" -Root "\\RemoteServerName\Deployment$" -SelectionProfile "Everything" -Replace "False" -Verbose  
     ```  
 
-###  <a name="UpdatingLinkedDeployShare"></a>Een gekoppelde Implementatieshare bijwerken  
+###  <a name="UpdatingLinkedDeployShare"></a> Een gekoppelde Implementatieshare bijwerken  
  De volgende Windows PowerShell-opdrachten update de implementatieshare LINKED001.  
 
 -   ```  
@@ -3702,16 +3703,16 @@ Remove-item -path "DS002:\Task Sequences\Windows Vista Business Production Build
     Replicate-MDTContent -path "DS002:\Linked Deployment Shares\LINKED001" -Verbose  
     ```  
 
-###  <a name="DeleteLinkedDeployShare"></a>Verwijderen van een gekoppelde Implementatieshare  
+###  <a name="DeleteLinkedDeployShare"></a> Verwijderen van een gekoppelde Implementatieshare  
  De volgende Windows PowerShell-opdrachten verwijderen de implementatieshare LINKED001.  
 
--   Voeg\-PSSnapIn Microsoft.BDD.PSSnapIn  
+-   Add\-PSSnapIn Microsoft.BDD.PSSnapIn  
 
 -   ```  
     Remove-item -path "DS002:\Linked Deployment Shares\LINKED001" -Verbose  
     ```  
 
-###  <a name="CreateMedia"></a>Media maken  
+###  <a name="CreateMedia"></a> Media maken  
  De volgende Windows PowerShell-opdrachten maken een bronmap met inhoud die worden gebruikt voor het maken van opstartbare media. De share van de productie-implementatie wordt gebruikt als de bron. Alles selectie profiel bepaalt welke inhoud wordt geplaatst in de map van de media-inhoud. Het bestand LiteTouchMedia.iso wordt gemaakt wanneer de media wordt gegenereerd. De media wordt x86- en x64 platforms ondersteunen.  
 
 -   ```  
@@ -3730,7 +3731,7 @@ Remove-item -path "DS002:\Task Sequences\Windows Vista Business Production Build
     New-PSDrive -Name "MEDIA001" -PSProvider "MDTProvider" -Root "D:\Media\Content" -Description "Embedded media deployment share" -Force -Verbose  
     ```  
 
-###  <a name="GenerateMedia"></a>Genereren van Media  
+###  <a name="GenerateMedia"></a> Genereren van Media  
  De volgende Windows PowerShell-opdrachten maken het bestand LiteTouchMedia.iso in D:\\Media die de inhoud van de bronmap voor MEDIA001 media gebruikt.  
 
 -   ```  
@@ -3745,7 +3746,7 @@ Remove-item -path "DS002:\Task Sequences\Windows Vista Business Production Build
     Generate-MDTMedia -path "DS002:\Media\MEDIA001" -Verbose  
     ```  
 
-###  <a name="DeleteMedia"></a>Media verwijderen  
+###  <a name="DeleteMedia"></a> Media verwijderen  
  De volgende Windows PowerShell-opdracht verwijdert de media MEDIA001 uit de share van de productie-implementatie.  
 
 ```  

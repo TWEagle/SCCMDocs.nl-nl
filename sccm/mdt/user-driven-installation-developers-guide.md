@@ -4,17 +4,18 @@ titleSuffix: Microsoft Deployment Toolkit
 description: 'Handleiding voor ontwikkelaars voor gebruiker gebaseerde installatie van Microsoft Deployment Toolkit 2013. '
 ms.date: 09/09/2016
 ms.prod: configuration-manager
-ms.technology: configmgr-osd
+ms.technology:
+- configmgr-osd
 ms.topic: article
 ms.assetid: a2b3a3a0-7b81-4191-b1f9-c618e59347c3
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
 ms.openlocfilehash: 434178f100c32a4188ecf5283066f9332035f761
-ms.sourcegitcommit: 645cd5a324bdd299906efa27eaca5885eafc9e9c
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="user-driven-installation---developers-guide"></a>Gebruiker gestuurd installatie - handleiding voor ontwikkelaars
 Gebruiker gebaseerde installatie UDI (User) helpt te vereenvoudigen de implementatie van Windows® clientbesturingssystemen, zoals Windows 8.1, op computers met behulp van de functie van het besturingssysteem-implementatie (OSD) in Microsoft® System Center 2012 R2 Configuration Manager. UDI maakt deel uit van de Microsoft Deployment Toolkit (MDT).  
@@ -76,17 +77,17 @@ Afbeelding 1. Relatie tussen de Wizard UDI en de Wizard UDI
 
 3.  Controleren of de ontwikkelomgeving UDI zoals beschreven in correct is geconfigureerd [controleren van de ontwikkelomgeving UDI](#VerifyUDIDeploymentEnvironment).  
 
-####  <a name="PrepareUDIDevelopmentEnvironmentPrerequisites"></a>De vereisten UDI ontwikkelings-omgeving voorbereiden  
+####  <a name="PrepareUDIDevelopmentEnvironmentPrerequisites"></a> De vereisten UDI ontwikkelings-omgeving voorbereiden  
  Als u de ontwikkeling UDI omgevingsvereisten voorbereiden, moet u de volgende stappen uitvoeren:  
 
 1.  Bereid de ontwikkeling UDI omgeving hardware vereisten, zoals beschreven [voorbereiden van de vereisten UDI Development Environment Hardware](#PrepareUDIDevelopmentEnvironmentHardwarePrerequisites).  
 
 2.  De UDI ontwikkelingsomgeving voorbereiden software vereisten zoals beschreven in [voorbereiden van de vereiste UDI Development Environment Software](#PrepareUDIDevelopmentEnvironmentSoftwarePrerequisites).  
 
-#####  <a name="PrepareUDIDevelopmentEnvironmentHardwarePrerequisites"></a>Voorbereiden van de UDI Development Environment Hardware-vereisten  
+#####  <a name="PrepareUDIDevelopmentEnvironmentHardwarePrerequisites"></a> Voorbereiden van de UDI Development Environment Hardware-vereisten  
  De UDI development environment hardware vereisten zijn de dezelfde hardwarevereisten voor de editie van Microsoft Visual Studio 2010 u gebruikt. Zie voor meer informatie over deze vereisten, de systeemvereisten voor elke editie op [Visual Studio 2010-producten](http://www.microsoft.com/visualstudio/products/2010-editions).  
 
-#####  <a name="PrepareUDIDevelopmentEnvironmentSoftwarePrerequisites"></a>De softwarevereisten UDI ontwikkelings-omgeving voorbereiden  
+#####  <a name="PrepareUDIDevelopmentEnvironmentSoftwarePrerequisites"></a> De softwarevereisten UDI ontwikkelings-omgeving voorbereiden  
  De ontwikkelomgeving UDI heeft de volgende softwarevereisten:  
 
 -   Alle Windows-besturingssysteem die Visual Studio 2010 worden ondersteund (Windows 7 of Windows Server® 2008 R2 wordt aanbevolen.)  
@@ -107,10 +108,10 @@ Afbeelding 1. Relatie tussen de Wizard UDI en de Wizard UDI
     > [!NOTE]
     >  De voorbeeldcode van de bron voor de editors pagina van de Wizard UDI wizard is geschreven in C#. De C#-taal installeren als u wilt gebruiken de voorbeeldcode van de bron.  
 
-####  <a name="ConfigureUDIDevelopmentEnvironment"></a>De ontwikkelomgeving UDI configureren  
+####  <a name="ConfigureUDIDevelopmentEnvironment"></a> De ontwikkelomgeving UDI configureren  
  Na vervolgens UDI development environment vereisten wordt voldaan, voert u de volgende stappen voor het configureren van de ontwikkelomgeving UDI:  
 
-1.  Visual Studio 2010 installeren.  
+1.  Install Visual Studio 2010.  
 
      Zorg ervoor dat u de taal C++ en een andere taal die ondersteuning biedt voor WPF installeert.  
 
@@ -140,7 +141,7 @@ Afbeelding 2. Mapstructuur voor UDI-ontwikkeling
 
      **Afbeelding 2. Mapstructuur voor UDI-ontwikkeling**  
 
-####  <a name="VerifyUDIDeploymentEnvironment"></a>Controleer of de ontwikkelomgeving UDI  
+####  <a name="VerifyUDIDeploymentEnvironment"></a> Controleer of de ontwikkelomgeving UDI  
  Wanneer de ontwikkelomgeving UDI is geconfigureerd, moet u controleren of de ontwikkelomgeving UDI correct is geconfigureerd door ervoor te zorgen dat de voorbeeldprojecten correct in Visual Studio 2010 bouwen.  
 
  Controleren of de ontwikkelomgeving UDI correct is geconfigureerd door vast te stellen of:  
@@ -149,7 +150,7 @@ Afbeelding 2. Mapstructuur voor UDI-ontwikkeling
 
 -   Het project SampleEditor correct zoals beschreven in builds [Controleer of het Project SampleEditor correct Builds](#VerifySampleEditorProjectBuildsCorrectly)  
 
-#####  <a name="VerifySamplePageProjectBuildsCorrectly"></a>Controleer of het Project SamplePage correct Builds  
+#####  <a name="VerifySamplePageProjectBuildsCorrectly"></a> Controleer of het Project SamplePage correct Builds  
  Het project SamplePage bevat een voorbeeld van het maken van een aangepaste wizardpagina voor de Wizard UDI. Zie voor meer informatie over het project SamplePage [bekijken van de Visual Studio-oplossing van SamplePage](#ReviewSamplePageVisualStudioSolution).  
 
  **Om te controleren of het project SamplePage correct builds**  
@@ -208,9 +209,9 @@ Afbeelding 2. Mapstructuur voor UDI-ontwikkeling
 
 17. In de **Wizard annuleren** in het dialoogvenster, klikt u op **Ja**.  
 
-18. Visual Studio 2010 te sluiten.  
+18. Close Visual Studio 2010.  
 
-#####  <a name="VerifySampleEditorProjectBuildsCorrectly"></a>Controleer of het Project SampleEditor correct Builds  
+#####  <a name="VerifySampleEditorProjectBuildsCorrectly"></a> Controleer of het Project SampleEditor correct Builds  
  Het project SampleEditor bevat een voorbeeld van het maken van een aangepaste wizard-pagina-editor voor de waarde van de Wizard UDI. Zie voor meer informatie over het project SampleEditor [bekijken van de Visual Studio-oplossing van SamplePage](#ReviewSamplePageVisualStudioSolution).  
 
  **Om te controleren of het project SampleEditor correct builds**  
@@ -295,7 +296,7 @@ Afbeelding 2. Mapstructuur voor UDI-ontwikkeling
 
 20. Sluit de Wizard UDI Designer.  
 
-21. Visual Studio 2010 te sluiten.  
+21. Close Visual Studio 2010.  
 
 ## <a name="reviewing-the-udi-sdk-examples"></a>De voorbeelden UDI SDK controleren  
  Controleer voordat u begint de ontwikkeling, de voorbeelden die is opgegeven in de SDK UDI. Gebruik de informatie in deze handleiding en de broncode in de voorbeelden voor het maken van uw eigen UDI aangepaste wizardpagina's en wizardpagina editors.  
@@ -308,26 +309,26 @@ Afbeelding 2. Mapstructuur voor UDI-ontwikkeling
 
 -   Aangepaste UDI wizard pagina editor voorbeeld zoals beschreven in [SampleEditor Visual Studio-oplossing controleren](#ReviewSampleEditorVisualStudioSolution)  
 
-###  <a name="ReviewContentsofSDKFolder"></a>Controleer de inhoud van de SDK-map  
+###  <a name="ReviewContentsofSDKFolder"></a> Controleer de inhoud van de SDK-map  
  Tijdens het configureren van de ontwikkelomgeving UDI kunt u de SDK-map gekopieerd vanuit de map waarin u MDT geïnstalleerd naar een andere map die u hebt gemaakt. Tabel 1 ziet u de mappen direct onder de map SDK en een korte beschrijving van elke.  
 
 ### <a name="table-1-folders-in-the-udi-sdk"></a>Tabel 1. Mappen in de SDK UDI  
 
-|**Map**|**Deze map bevat**|  
+|**Folder**|**Deze map bevat**|  
 |-|-|  
 |Bevat|De C++-header-bestanden nodig voor het maken van aangepaste wizardpagina's voor de Wizard UDI|  
-|Bibliotheken|De dll-bestanden voor C++ die moeten worden gekoppeld aan uw aangepaste pagina. Er zijn 32-bits en 64-bits versies van de statische link libraries. **Opmerking:**  Itanium-versies van de bibliotheken (IA-64) zijn niet beschikbaar.|  
+|Libs|De dll-bestanden voor C++ die moeten worden gekoppeld aan uw aangepaste pagina. Er zijn 32-bits en 64-bits versies van de statische link libraries. **Opmerking:**  Itanium-versies van de bibliotheken (IA-64) zijn niet beschikbaar.|  
 |SampleEditor|Een Visual Studio-project voor het bouwen van een aangepaste editor gebruikt voor het bewerken van de pagina SamplePage in de Wizard UDI, die is geschreven in C#|  
 |SamplePage|Een Visual Studio-project voor het bouwen van een aangepaste UDI wizardpagina, die is geschreven in Visual C++|  
 
-###  <a name="ReviewSamplePageVisualStudioSolution"></a>Bekijk de SamplePage Visual Studio-oplossing  
+###  <a name="ReviewSamplePageVisualStudioSolution"></a> Bekijk de SamplePage Visual Studio-oplossing  
  Voordat u begint met het maken van uw aangepaste wizardpagina's en wizardpagina editors, moet u de volgende taken voor het voorbereiden van de ontwikkelomgeving UDI uitvoeren:  
 
 -   De fasen van het in de levenscyclus van een pagina van de wizard UDI bekijken, zoals beschreven in [bekijken van de levenscyclus van de Wizard pagina](#ReviewWizardPageLifeCycle).  
 
 -   Bekijk de Visual Studio-oplossing voor het voorbeeld SamplePage in de SDK UDI zoals beschreven in [Bekijk het voorbeeld SamplePage](#ReviewSamplePageExample).  
 
-####  <a name="ReviewWizardPageLifeCycle"></a>Bekijk de pagina levenscyclus van Wizard  
+####  <a name="ReviewWizardPageLifeCycle"></a> Bekijk de pagina levenscyclus van Wizard  
  Een pagina van de wizard UDI heeft methoden die met elke fase of fase van de levenscyclus van de pagina overeenkomen. Als onderdeel van het maken van uw aangepaste wizardpagina, moet u deze methoden met uw code overschrijven. Tabel 2 vermeldt de methoden die u wel wilt overschrijven en bevat een korte beschrijving van elke methode, zoals wanneer u het gebruik van de methode in de levenscyclus van de wizard pagina.  
 
 ### <a name="table-2-methods-in-a-wizard-page-life-cycle"></a>Tabel 2. Methoden in de Wizard een pagina levenscyclus  
@@ -341,7 +342,7 @@ Afbeelding 2. Mapstructuur voor UDI-ontwikkeling
 |**OnNextClicked**|Deze methode wordt aangeroepen wanneer u klikt op **volgende** in de wizard.<br /><br /> Voor deze methode code schrijven waarmee de nodige stappen voordat u doorgaat naar de volgende wizardpagina uitvoert, bijvoorbeeld, het valideren van dat kan lang duren. Als de validatie mislukt, kunt u de **volgende** aanvragen en een bericht weergegeven.|  
 |**OnWindowHidden**|Deze methode wordt aangeroepen telkens wanneer die de pagina is verborgen wanneer de vorige of volgende wizardpagina wordt weergegeven.<br /><br /> Voor deze methode code schrijven die worden eventuele acties uitgevoerd voordat de pagina is verborgen voorafgaand aan een andere pagina wordt weergegeven. Doorgaans is het niet nodig voor het onderdrukken van deze methode.|  
 
-####  <a name="ReviewSamplePageExample"></a>Bekijk het voorbeeld SamplePage  
+####  <a name="ReviewSamplePageExample"></a> Bekijk het voorbeeld SamplePage  
  Controleer het SamplePage voorbeeld met de volgende lijst waarmee de reeks gebeurtenissen tijdens de levenscyclus van de wizard-pagina van het voorbeeld SamplePage:  
 
 1.  De Wizard UDI OSDSetupWizard.exe, leest de configuratie-informatie uit het configuratiebestand van de Wizard UDI in het voorbeeld (het bestand Config.xml) zoals beschreven in [stap 1: De Wizard UDI (OSDSetupWizard.exe) leest het bestand Config.xml](#UDIWizardReadstheConfigFile).  
@@ -352,7 +353,7 @@ Afbeelding 2. Mapstructuur voor UDI-ontwikkeling
 
 4.  Uitvoeren als de aangepaste wizardpagina heeft de gegevens worden verzameld, alle taken die nodig zijn voordat u op **volgende** om door te gaan naar de volgende wizard zoals beschreven in [stap 4: De knop volgende wordt geklikt op de pagina Wizard aangepaste](#TheNextButtonisClickedinCustomWizardPage).  
 
-#####  <a name="UDIWizardReadstheConfigFile"></a>Stap 1: De Wizard UDI (OSDSetupWizard.exe) leest het bestand Config.xml  
+#####  <a name="UDIWizardReadstheConfigFile"></a> Stap 1: De Wizard UDI (OSDSetupWizard.exe) leest het bestand Config.xml  
  Wanneer de Wizard UDI (OSDSetupWizard.exe) wordt gestart, standaard wordt de Wizard UDI configuratiebestand, het bestand UDIWizard_Config.xml gelezen: het primaire configuratiebestand voor de Wizard UDI.  
 
 > [!NOTE]
@@ -384,7 +385,7 @@ Afbeelding 2. Mapstructuur voor UDI-ontwikkeling
 
 -   De naam van uw aangepaste wizard pagina in plaats van **LocationPage**.  
 
-#####  <a name="UDIWizardLoadstheDLLforCustomWizardPage"></a>Stap 2: De Wizard UDI laadt het DLL-bestand voor de aangepaste wizardpagina  
+#####  <a name="UDIWizardLoadstheDLLforCustomWizardPage"></a> Stap 2: De Wizard UDI laadt het DLL-bestand voor de aangepaste wizardpagina  
  Wanneer de Wizard UDI wordt geladen voor de DLL-bestand, roept de **RegisterFactories** functie, die moet worden geïmplementeerd in de DLL-bestand. Deze functie is geïmplementeerd in het voorbeeld in het bestand dllmain.ccp. Elke wizardpagina die u maakt moet implementeren de **RegisterFactories** functie.  
 
  De **RegisterFactories** functie wordt gebruikt om de klasse fabrieksinstellingen van uw pagina van de wizard registreren met het register van de factory klasse voor de Wizard UDI. *Klasse van de fabrieken* zijn klassen die u kunnen geen exemplaar van een andere klasse maken. De **RegisterFactories** functie maakt een nieuw exemplaar van een fabrieksklasse en die klasse in het register van de factory klasse geeft de wizard UDI, waardoor deze factory-klasse beschikbaar is bij de wizard. De Wizard UDI zoekt naar een klasse factory is geregistreerd met een ID die overeenkomt met de **Type** kenmerk van de **pagina** element worden opgegeven voor de aangepaste wizardpagina.  
@@ -402,7 +403,7 @@ Afbeelding 2. Mapstructuur voor UDI-ontwikkeling
 > [!NOTE]
 >  In het voorbeeld bevat en alleen de één aangepaste wizardpagina registreert. Het voorbeeld bevat geen aangepaste taken of validatiefuncties en dus registreert niet alle aangepaste taken of validatiefuncties.  
 
-#####  <a name="UDIWizardDisplaysCustomWizardPage"></a>Stap 3: De Wizard UDI weer met de aangepaste wizardpagina  
+#####  <a name="UDIWizardDisplaysCustomWizardPage"></a> Stap 3: De Wizard UDI weer met de aangepaste wizardpagina  
  De aangepaste wizardpagina in het voorbeeld is gedefinieerd in het bestand LocationPage.cpp. Wizardpagina's worden afgeleid van de sjabloonklassen die bieden dat veel van de functionaliteit van een pagina heeft. Alle wizardpagina's moeten zijn afgeleid van de [WizardPageImpl sjabloonklasse](#WizardPageImplTemplateClass), welke implementeert de [IWizardPage Interface](#IWizardPageInterface). Elke pagina van de wizard kan andere optionele template klassen en de bijbehorende interfaces op basis van de behoeften van de pagina implementeren.  
 
  De [WizardPageImpl sjabloonklasse](#WizardPageImplTemplateClass) bevat verschillende nuttig interfaces waarmee u aangepaste wizardpagina's schrijven. Implementeer de [WizardPageImpl sjabloonklasse](#WizardPageImplTemplateClass) als basisklasse voor uw aangepaste wizardpagina.  
@@ -443,7 +444,7 @@ Afbeelding 2. Mapstructuur voor UDI-ontwikkeling
 
     -   Voegt de informatie die wordt weergegeven op de **samenvatting** pagina met behulp van de **SaveFields** methode  
 
-#####  <a name="TheNextButtonisClickedinCustomWizardPage"></a>Stap 4: De knop volgende wordt geklikt op de pagina Wizard aangepaste  
+#####  <a name="TheNextButtonisClickedinCustomWizardPage"></a> Stap 4: De knop volgende wordt geklikt op de pagina Wizard aangepaste  
  Wanneer de gebruiker de velden op de pagina aangepaste wizard voltooit, hij of zij klikt op **volgende**, welke aanroepen de **OnNextClicked** methode. De **OnNextClicked** methode eventuele benodigde taken voordat u doorgaat naar de volgende wizardpagina, zoals het opnemen van eventuele configuratiewijzigingen op de pagina aangepaste wizard wordt uitgevoerd.  
 
  Voor de aangepaste wizard voorbeeldpagina de onderdrukking voor de **OnNextClicked** methode is geïmplementeerd in het bestand LocationPage.ccp. In de **OnNextClicked** methode in de wizard Aangepaste voorbeeldpagina, de volgende methoden worden genoemd:  
@@ -452,7 +453,7 @@ Afbeelding 2. Mapstructuur voor UDI-ontwikkeling
 
 2.  [SaveFields](#SaveFields). Deze methode bespaart veldwaarden takenreeksvariabelen en de gegevens die worden weergegeven op de **samenvatting** pagina.  
 
-###  <a name="ReviewSampleEditorVisualStudioSolution"></a>Bekijk de SampleEditor Visual Studio-oplossing  
+###  <a name="ReviewSampleEditorVisualStudioSolution"></a> Bekijk de SampleEditor Visual Studio-oplossing  
  Voordat u begint met het maken van uw eigen aangepaste wizardpagina's en wizardpagina editors, voer de volgende stappen voor het voorbereiden van de ontwikkelomgeving UDI:  
 
 -   De architectuur van de waarde van de Wizard UDI bekijken, zoals beschreven in [bekijken van de architectuur van UDI Wizard Designer](#ReviewUDIWizardDesignerArchitecture).  
@@ -461,7 +462,7 @@ Afbeelding 2. Mapstructuur voor UDI-ontwikkeling
 
 -   Bekijk het voorbeeld EditorPage is opgegeven in de UDI SDK, zoals beschreven in [Bekijk het voorbeeld EditorPage](#ReviewEditorPageExample).  
 
-####  <a name="ReviewUDIWizardDesignerArchitecture"></a>Bekijk de ontwerpfunctie UDI Wizard-architectuur  
+####  <a name="ReviewUDIWizardDesignerArchitecture"></a> Bekijk de ontwerpfunctie UDI Wizard-architectuur  
  De waarde van de Wizard UDI is ontwikkeld met behulp van WPF Prismabewerking en Unity. De ontwerpfunctie UDI wordt gebruikt om de Wizard UDI configuratiebestand bewerken (UDIWizard_Config.xml), die de Wizard UDI (OSDSetupWizard.exe) tijdens runtime leest. De [pagina's](#Pages) element in het configuratiebestand van de Wizard UDI bevat een lijst van pagina's met een afzonderlijke [pagina](#Page) element voor elke pagina van de wizard.  
 
  Wanneer u de configuratie-instellingen voor een wizardpagina bewerkt, wordt de aangepaste pagina-editor die overeenkomt met het type van de pagina wizard geladen door de waarde van de Wizard UDI. De wizard Aangepaste pagina editors zijn ontwikkeld als WPF gebruikersbesturingselementen. De aangepaste wizard-editor gebruiken pagina's de [Model-View – ViewModel](http://msdn.microsoft.com/magazine/dd419663.aspx) (MVVM) ontwerppatroon voor WPF.  
@@ -470,7 +471,7 @@ Afbeelding 2. Mapstructuur voor UDI-ontwikkeling
 
  De waarde van de Wizard UDI gebruikt de **DependencyAttribute** toegang krijgen tot de **DataService** klasse op basis van het framework afhankelijkheid injectie in Unity. Zie voor meer informatie over de afhankelijkheid tussenwerpsel framework in Unity [Some levensduur invoeren in uw toepassingen: Kennismaking met het blok Unity-toepassing](http://msdn.microsoft.com/library/ff650806.aspx).  
 
-####  <a name="ReviewConfigurableComponentsofUDIWizardPage"></a>Configureerbare onderdelen van een pagina van de Wizard UDI controleren  
+####  <a name="ReviewConfigurableComponentsofUDIWizardPage"></a> Configureerbare onderdelen van een pagina van de Wizard UDI controleren  
  Bij het maken van uw aangepaste wizardpagina sommige van de configuratie-instellingen in de code kan worden ingesteld en kan niet worden gewijzigd nadat u de pagina zijn gecompileerd. Echter voor andere configuratie-instellingen moet u deze configuratie-instellingen worden gewijzigd met de waarde van de Wizard UDI toestaan.  
 
  De configuratie-instellingen die u wilt configureren met behulp van de waarde van de Wizard UDI worden meestal opgeslagen in het configuratiebestand van de Wizard UDI (het bestand Config.xml in het voorbeeld). U kunt echter ook uw eigen afzonderlijk configuratiebestand maken indien nodig. Een voorbeeld van het gebruik van een afzonderlijk configuratiebestand is de UDIWizard_Config.xml.app bestand, die de **Webtoepassingsdetectie** taak en de **ApplicationPage** wizard pagina type gebruiken.  
@@ -485,7 +486,7 @@ Afbeelding 2. Mapstructuur voor UDI-ontwikkeling
 
  De wizard aangepaste editor die u maakt moet kunnen deze configuratie-instellingen beheren.  
 
-####  <a name="ReviewEditorPageExample"></a>Bekijk het voorbeeld EditorPage  
+####  <a name="ReviewEditorPageExample"></a> Bekijk het voorbeeld EditorPage  
  In het voorbeeld EditorPage wordt gebruikt voor het configureren van de configuratie-instellingen voor de **SamplePage** wizardpagina in het configuratiebestand van de Wizard UDI. In het voorbeeld EditorPage heeft de volgende primaire onderdelen:  
 
 -   Gebruikersinterface voor het configureren van de **locatie** keuzelijst met invoervak instellingen  
@@ -506,7 +507,7 @@ Afbeelding 2. Mapstructuur voor UDI-ontwikkeling
 
 4.  Controleer de code die wordt gebruikt voor het beheren van configuratie-informatie opgeslagen in het configuratiebestand van de Wizard UDI zoals beschreven in [bekijken de Code gebruikt om informatie over de configuratie beheren](#ReviewCodeUsedtoManageConfigurationInformation).  
 
-#####  <a name="ReviewWizardPageEditorLoadingInitialization"></a>Wizard pagina Editor laden en initialisatie controleren  
+#####  <a name="ReviewWizardPageEditorLoadingInitialization"></a> Wizard pagina Editor laden en initialisatie controleren  
  Wizard Aangepaste pagina editors zijn geladen door de waarde van de Wizard UDI vereist. De configuratiebestanden van de Wizard UDI zijn geladen wanneer de waarde van de Wizard UDI wordt gestart. De waarde van de Wizard UDI scant de *install_folder*\Bin\Config map (waarbij *install_folder* is de naam van de map waarin de MDT is geïnstalleerd) voor bestanden met extensie .config.  
 
  Tijdens de configuratie van de ontwikkelomgeving UDI u het bestand SamplePage.dll.confg gekopieerd de *install_folder*\Bin\Config map. Wanneer u de waarde van de Wizard UDI start, wordt het bestand SamplePage.dll.confg gevonden en geladen.  
@@ -519,7 +520,7 @@ Afbeelding 2. Mapstructuur voor UDI-ontwikkeling
 
 -   **Type**. Gebruik dit kenmerk voor het configureren van het paginatype van de aangepaste wizardpagina die door de Wizard UDI wordt geladen. De waarde van de Wizard UDI dit kenmerk wordt gezocht die de juiste [pagina](#Page) element in het configuratiebestand van de Wizard UDI.  
 
--   **DLL-bestand**. Dit kenmerk gebruiken voor het configureren van de [DLL](#DLL) element in het configuratiebestand van de Wizard UDI, waarbij de waarde van de Wizard UDI wordt gemaakt.  
+-   **Dll**. Dit kenmerk gebruiken voor het configureren van de [DLL](#DLL) element in het configuratiebestand van de Wizard UDI, waarbij de waarde van de Wizard UDI wordt gemaakt.  
 
 -   **Beschrijving**. Dit kenmerk gebruiken voor meer informatie over de wizard-editor. De waarde van dit kenmerk wordt weergegeven in de **nieuwe pagina toevoegen** in het dialoogvenster in het ontwerp van de Wizard UDI, die wordt gebruikt voor het toevoegen van de pagina van de wizard aan de 'pagina bibliotheek'.  
 
@@ -527,7 +528,7 @@ Afbeelding 2. Mapstructuur voor UDI-ontwikkeling
 
      In het voorbeeld wordt het type van de **SamplePage** aangepaste wizardpagina is **Microsoft.SamplePage.LocationPage**, die wordt opgeslagen in het bestand Config.xml. Het bestand Config.xml bevindt zich in de *local_folder*\SDK\SamplePage\SamplePage map (waarbij *local_folder* is de map die u hebt gemaakt op de ontwikkelcomputer eerder in de configuratie Dit proces).  
 
-#####  <a name="ReviewUserInterfaceUsedtoConfigureLocationComboBox"></a>Bekijk de gebruikersinterface die wordt gebruikt voor het configureren van de locatie keuzelijst met invoervak  
+#####  <a name="ReviewUserInterfaceUsedtoConfigureLocationComboBox"></a> Bekijk de gebruikersinterface die wordt gebruikt voor het configureren van de locatie keuzelijst met invoervak  
  Wanneer de wizard-editor wordt geladen en geïnitialiseerd, de wizard SampleEditor editor wordt geladen wanneer een pagina met een type **Microsoft.SamplePage.LocationPage** wordt bewerkt. De gebruikersinterface voor de editor wordt opgeslagen in het bestand LocationPageEditor.xaml.  
 
  Als u de gebruikersinterface voor het controleren op de **ontwerp** tabblad en de code op de **XAML** tabblad ziet u de relatie tussen de grafische gebruikersinterface en de elementen en kenmerken in het (Extensible Application Markup Language) XAML).  
@@ -546,14 +547,14 @@ Afbeelding 2. Mapstructuur voor UDI-ontwikkeling
 
  Gebruik de **Views:CollectionTControl.ColumnCollectionView** -element in de XAML die aan de lijst met beschikbare locaties in de rasterweergave bewerken. U gebruikt de [CollectionTControl](#CollectionTControl) besturingselementen voor het weergeven van de rasterweergave en binden van de rasterweergave naar de [gegevens](#Data) element met de naam **locatie** in het configuratiebestand UDI.  
 
-#####  <a name="ReviewUserInterfaceUsedtoModifyListofPossibleLocations"></a>De gebruikersinterface die wordt gebruikt voor het wijzigen van de lijst met mogelijke locaties bekijken  
+#####  <a name="ReviewUserInterfaceUsedtoModifyListofPossibleLocations"></a> De gebruikersinterface die wordt gebruikt voor het wijzigen van de lijst met mogelijke locaties bekijken  
  De gebruikersinterface voor het aanpassen van de lijst met mogelijke locaties bestaat uit:  
 
 -   Een contextafhankelijke menu en lint knoppen waarmee u kunt toevoegen, bewerken, verwijderen of wijzigen van de volgorde van items in de lijst van locaties, zoals beschreven in [Context-sensitive-Menu controleren en lint knoppen voor het wijzigen van de lijst van locaties](#ReviewContextSensitiveMenuandRibbonButtons)  
 
 -   Een dialoogvenster waarin wordt gestart wanneer u wilt toevoegen of bewerken van een item in de lijst van locaties, zoals beschreven in [in het dialoogvenster voor het toevoegen of bewerken van locaties te controleren](#ReviewDialogBoxforAddingEditingLocations)  
 
-######  <a name="ReviewContextSensitiveMenuandRibbonButtons"></a>Contextafhankelijke Menu controleren en lint knoppen voor het wijzigen van de lijst met locaties  
+######  <a name="ReviewContextSensitiveMenuandRibbonButtons"></a> Contextafhankelijke Menu controleren en lint knoppen voor het wijzigen van de lijst met locaties  
  Wanneer u met de rechtermuisknop in de keuzelijst met invoervak waarin de lijst met locaties, wordt een contextafhankelijke menu wordt weergegeven. Het lint heeft een bijbehorende knoppen waarmee u kunt dezelfde taken uitvoeren. De **weergaven: CollectionsTControl** controle-element in het bestand LocationPageEditor.xaml definieert de methoden die worden aangeroepen op basis van de uitgevoerde actie en de eigenschappen die u als volgt instellen:  
 
 -   **SelectedItem**. Deze eigenschap gegevensgebonden wordt geactiveerd wanneer de gebruiker een item in de lijst selecteert. Deze eigenschap is gekoppeld aan de **CurrentLocation** eigenschap in het model weergeven, dat zich bevindt in het bestand LocationPageEditorViewModel.cs, en die wordt gebruikt door de [CollectionTControl](#CollectionTControl) besturingselement om door te geven van het item Wanneer u bewerken of verwijderen van een bestaand item geselecteerd.  
@@ -564,7 +565,7 @@ Afbeelding 2. Mapstructuur voor UDI-ontwikkeling
 
 -   **RemoveAction**. Deze actie wordt uitgevoerd wanneer de gebruiker de **Item verwijderen** optie in het snelmenu. Er is een gegevensbinding aan een eigenschap in het model weergeven die als resultaat geeft de **RemoveAction** object. Dit object is de **EditLocationCallback** methode, zich in het bestand LocationPageEditorViewModel.cs en toont een bericht dat de verwijdering van de locatie.  
 
-######  <a name="ReviewDialogBoxforAddingEditingLocations"></a>Controleer in het dialoogvenster voor het toevoegen of bewerken van locaties  
+######  <a name="ReviewDialogBoxforAddingEditingLocations"></a> Controleer in het dialoogvenster voor het toevoegen of bewerken van locaties  
  Als u een nieuwe locatie aan de lijst met locaties toevoegen of een bestaande locatie, wordt een bericht weergegeven dat in het bestand AddEditLocationView.xaml. Het bericht wordt weergegeven met behulp van de [ShowDialogWindow](#ShowDialogWindow) venster methode in het bestand LocationPageEditorViewModel.cs.  
 
  De gebruikersinterface in het bestand AddEditLocationView.xaml bestaat uit:  
@@ -583,7 +584,7 @@ Afbeelding 2. Mapstructuur voor UDI-ontwikkeling
 
     -   Een tekstvak die is gebonden aan de [gegevens](#Data) element met de naam **locatie** in het configuratiebestand UDI (het bestand Config.xml in het voorbeeld)  
 
-######  <a name="ReviewCodeUsedtoManageConfigurationInformation"></a>De Code die wordt gebruikt voor het beheren van configuratie-informatie bekijken  
+######  <a name="ReviewCodeUsedtoManageConfigurationInformation"></a> De Code die wordt gebruikt voor het beheren van configuratie-informatie bekijken  
  De configuratie-informatie voor uw aangepaste wizardpagina wordt opgeslagen in het configuratiebestand van de Wizard UDI die de:  
 
 -   Bestand Config.XML in het voorbeeld dat is opgegeven met de SDK UDI (dit bestand bevat alleen de configuratieinstellingen voor het voorbeeld).  
@@ -665,7 +666,7 @@ Afbeelding 2. Mapstructuur voor UDI-ontwikkeling
 
 13. Kopieer het DLL-bestand voor uw aangepaste wizard-editor en het *installation_folder*map \Bin (waarbij *installation_folder* is de map waarin u MDT hebt geïnstalleerd).  
 
-##  <a name="CreatingCustomUDITasks"></a>Maken van aangepaste UDI taken  
+##  <a name="CreatingCustomUDITasks"></a> Maken van aangepaste UDI taken  
  *UDI taken* zijn geschreven in C++ DLL die implementeren de [ITask interface](#ITaskinterface). Registreren van het DLL-bestand met de bibliotheek van de Wizard UDI taak door het maken van een configuratiebestand van de Wizard UDI (.config-bestand) en plaatst deze in de *installation_folder*\Bin\Config map (waarbij *installation_ map* is de map waarin u MDT hebt geïnstalleerd).  
 
 > [!NOTE]
@@ -677,7 +678,7 @@ Afbeelding 2. Mapstructuur voor UDI-ontwikkeling
 
     -   [Init](#Init). Deze methode wordt aangeroepen om de initialisatie van de taak.  
 
-    -   [Uitvoeren van](#Execute). Deze methode wordt aangeroepen als de taak wilt uitvoeren.  
+    -   [Execute](#Execute). Deze methode wordt aangeroepen als de taak wilt uitvoeren.  
 
 2.  Schrijven van code die de classfactory aangepaste taak bij het factory-register registreert.  
 
@@ -712,7 +713,7 @@ Afbeelding 2. Mapstructuur voor UDI-ontwikkeling
 
 6.  Kopieer het DLL-bestand voor uw aangepaste taak de *installation_folder*\Templates\Distribution\Tools\ platformmap (waarbij *installation_folder* is de map waarin u MDT en geïnstalleerd*platform* is **x86** voor de 32-bits versie of **x64** is voor de 64-bits-versie).  
 
-##  <a name="CreatingCustomUDIValidators"></a>Maken van aangepaste UDI validatiefuncties  
+##  <a name="CreatingCustomUDIValidators"></a> Maken van aangepaste UDI validatiefuncties  
  *UDI validatiefuncties* zijn geschreven in C++ DLL die implementeren de **IValidator** interface. Registreren van het DLL-bestand met de validatie van de Wizard UDI bibliotheek door het maken van een configuratiebestand van de Wizard UDI (.config-bestand) en plaatst deze in de *installation_folder*\Bin\Config map (waarbij  *installation_folder* is de map waarin u MDT hebt geïnstalleerd).  
 
  **Aangepaste UDI validatiefuncties maken**  
@@ -885,10 +886,10 @@ pValidator->SetProperty(0, pPassword2);
 
 ### <a name="table-7-named-pattern-setters"></a>Tabel 7. Benoemde patroon Setters  
 
-|**Patroon**|**Beschrijving**|  
+|**Pattern**|**Beschrijving**|  
 |-|-|  
-|Gebruikersnaam|Controleert of de tekst is een van de vorm Domein\Gebruiker ofuser@domain|  
-|Computernaam|De naam moet tussen 1 en 15 tekens lang en kan niet een reeks tekens bevatten (bijvoorbeeld: en?)|  
+|Gebruikersnaam|Controleert of de tekst is een van de vorm Domein\Gebruiker of user@domain|  
+|ComputerName|De naam moet tussen 1 en 15 tekens lang en kan niet een reeks tekens bevatten (bijvoorbeeld: en?)|  
 |Werkgroep|De naam moet tussen 1 en 15 tekens bestaan en mag niet een reeks tekens (zoals =, +, en?)|  
 
 #### <a name="factoryregistry-component"></a>FactoryRegistry onderdeel  
@@ -913,7 +914,7 @@ Register<LocationPageFactory>(ID_LocationPage, factories);
 #### <a name="wmirepository-component"></a>WmiRepository onderdeel  
  Dit onderdeel biedt een façade voor het werken met WMI-query's. U kunt aanroepen de **CreateInstance** Help-functie met **ID_WmiRepository** verkrijgen van een exemplaar van dit onderdeel die ondersteuning biedt voor de **IWmiRepository** interface. Dit onderdeel retourneert resultaatrecords via de **IWmiIterator** interface.  
 
-###  <a name="WizardPageHelperClasses"></a>Wizard pagina Helperklassen  
+###  <a name="WizardPageHelperClasses"></a> Wizard pagina Helperklassen  
  U kunt aangepaste UDI wizardpagina's met behulp van de ingebouwde helperklassen opgegeven met de SDK UDI maken. Tabel 8 bevat de helperklassen die u gebruiken kunt voor het maken van aangepaste wizardpagina's.  
 
 ### <a name="table-8-helper-classes"></a>Tabel 8. Helperklassen  
@@ -931,7 +932,7 @@ Register<LocationPageFactory>(ID_LocationPage, factories);
 |[WizardComponent sjabloonklasse](#WizardComponentTemplateClass)|Deze basisklasse wordt gebruikt voor het maken van de onderdelen die toegang nodig tot de wizard-services, zoals het maken van het onderdeel en logboekregistratie.|  
 |[WizardPageImpl sjabloonklasse](#WizardPageImplTemplateClass)|Deze basisklasse moet worden gebruikt als de basisklasse voor alle aangepaste wizardpagina 's|  
 
-####  <a name="ClassFactoryImplClass"></a>ClassFactoryImpl klasse  
+####  <a name="ClassFactoryImplClass"></a> ClassFactoryImpl klasse  
  Dit is een nuttig basisklasse op voor het maken van een classfactory die u kunt vervolgens met het register factory registreren.  
 
  Het volgende is een fragment uit het bestand LocationPage.h in het voorbeeldproject voor het definiëren van de **ClassFactoryImpl** klasse.  
@@ -957,7 +958,7 @@ IUnknown *LocationPageFactory::CreateNewInstance()
 }  
 ```  
 
-####  <a name="InterfaceTemplateClass"></a>Sjabloon interfaceklasse  
+####  <a name="InterfaceTemplateClass"></a> Sjabloon interfaceklasse  
  Deze sjabloonklasse gebruiken wanneer u wilt maken van een component die meer dan één interface implementeert, bijvoorbeeld:  
 
 ```  
@@ -966,7 +967,7 @@ classLocationPage :public Interface<IFieldCallback, WizardPageImpl<IDD_LOCATION_
 
  Deze code wordt gemaakt van de keten van een basisklasse die ondersteuning biedt voor beide **IFieldCalback** en de interfaces die **WizardPageImpl** ondersteunt (dat gebeurt met worden **IWizardPage**).  
 
-####  <a name="PathHelperClass"></a>Klasse van Help voor pad  
+####  <a name="PathHelperClass"></a> Klasse van Help voor pad  
  Deze klasse biedt algemene bewerkingen van het bestand of de map:  
 
 ```  
@@ -999,7 +1000,7 @@ static inline std::wstring Combine(LPCWSTR path, LPCWSTR name)
 
  Ten slotte retourneert de klasse een nieuwe tekenreeks die is het gecombineerde pad en bestand naam (of een ander pad).  
 
-####  <a name="PointerTemplateClass"></a>De sjabloonklasse aanwijzer  
+####  <a name="PointerTemplateClass"></a> De sjabloonklasse aanwijzer  
  Deze klasse is gedefinieerd in Pointer.h. Omdat COM-onderdelen verwijzing telling voor beheer van de levensduur gebruiken, is het belangrijk dat u interfaces altijd vrijgeven wanneer u klaar bent met deze. Microsoft biedt een sjabloonklasse die de levensduur automatisch verwerkt. Bijvoorbeeld, als u een intelligente aanwijzer voor een XML-interface wilt, kunt u schrijven ongeveer het volgende:  
 
 ```  
@@ -1007,7 +1008,7 @@ Pointer<IXMLDOMNode> pNewChild
 pXmlDom->CreateNode(NODE_ELEMENT, L"MyElement", L"", &pNewChild);  
 ```  
 
- De eerste regel definieert de slimme aanwijzer. De tweede regel wordt weergegeven bij het ophalen van een smartcard aanwijzer via een andere aanroep. De  **&**  operator releases altijd een bestaande interface als deze een bevat en het adres voor de interne aanwijzer retourneert. Zodra u hebt opgehaald van een wijzer zoals dit de **aanwijzer** exemplaar aanroepen **Release** voor u wanneer de variabele buiten het bereik. Microsoft raadt slimme aanwijzers te gebruiken in plaats van aanroepen **AddRef** en **Release** handmatig.  
+ De eerste regel definieert de slimme aanwijzer. De tweede regel wordt weergegeven bij het ophalen van een smartcard aanwijzer via een andere aanroep. De **&** operator releases altijd een bestaande interface als deze een bevat en het adres voor de interne aanwijzer retourneert. Zodra u hebt opgehaald van een wijzer zoals dit de **aanwijzer** exemplaar aanroepen **Release** voor u wanneer de variabele buiten het bereik. Microsoft raadt slimme aanwijzers te gebruiken in plaats van aanroepen **AddRef** en **Release** handmatig.  
 
  Bovendien de **aanwijzer** aanwijzer klasse aanroepen van smartcard **QueryInterface** om op te halen van andere interfaces voor u. Bijvoorbeeld, wanneer het register factory een nieuw exemplaar van een onderdeel maakt, heeft deze code als volgt:  
 
@@ -1019,10 +1020,10 @@ if (pComp != nullptr)
 
  Het aanroepen van de eerste regel **QueryInterface** achter de schermen om aan te vragen de **IWizardComponent** interface. De resulterende slimme aanwijzer wordt gelijk **nullptr** als het onderdeel biedt geen ondersteuning voor deze interface.  
 
-####  <a name="PUnkownClass"></a>PUnknown klasse  
+####  <a name="PUnkownClass"></a> PUnknown klasse  
  Deze klasse is een intelligente aanwijzer specifiek voor de **IUnknown** interface. Gebruik voor alle andere interfaces, de **aanwijzer** sjabloonklasse.  
 
-####  <a name="StringUtilHelperClass"></a>StringUtil helperklasse  
+####  <a name="StringUtilHelperClass"></a> StringUtil helperklasse  
  Deze klasse is gedefinieerd in Utilities.h en biedt methoden waarmee het eenvoudiger om met tekenreeksen te werken:  
 
 ```  
@@ -1033,11 +1034,11 @@ static inline int CompareIgnore(LPCWSTR first, LPCWSTR second)
 
 ### <a name="table-9-stringutil-helper-class"></a>Tabel 9. StringUtil helperklasse  
 
-|**Retourneert**|**Beschrijving**|  
+|**retourneert**|**Beschrijving**|  
 |-|-|  
 |**0**|Tekenreeksen overeenkomen, niet hoofdlettergevoelig|  
-|**< 0**|Eerste < tweede|  
-|**> 0**|Eerste > tweede|  
+|**<0**|Eerste < tweede|  
+|**>0**|Eerste > tweede|  
 
  Hier volgt een voorbeeld:  
 
@@ -1057,7 +1058,7 @@ static inline std::wstring Printf(std::wstring format, I val1, J val2, K val3, L
 
  Dit zijn de wrappers voor de **StringCchPrintf** dat rendement een **wstring** zodat er geen geheugen toewijzen voor tekenreeksen of buffers zelf.  
 
-####  <a name="SubInterfaceTemplateClass"></a>Hiermee sjabloonklasse  
+####  <a name="SubInterfaceTemplateClass"></a> Hiermee sjabloonklasse  
  Deze basisklasse vergemakkelijkt het implementeren van een onderdeel dat ondersteunt een interface die zichzelf overneemt van een andere interface. Bijvoorbeeld, de **ICheckBox** overneemt van interface **IControl**. Dit is hoe deze klasse wordt gebruikt voor het definiëren van de **CheckBoxWrapper**:  
 
 ```  
@@ -1066,7 +1067,7 @@ classCheckBoxWrapper :public SubInterface<IControl, UnknownImpl<ICheckBox> >
 
  De basis-interface is de eerste parameter, terwijl de afgeleide interface de tweede parameter is.  
 
-####  <a name="UnknownImplTemplateClass"></a>UnknownImpl sjabloonklasse  
+####  <a name="UnknownImplTemplateClass"></a> UnknownImpl sjabloonklasse  
  Deze klasse is gedefinieerd in UnknownImpl.h en voert het grootste deel van de details van het maken van een COM-onderdeel. Hier volgt een voorbeeld van hoe u deze basisklasse zou gebruiken:  
 
 ```  
@@ -1075,7 +1076,7 @@ classDirectory :public UnknownImpl<IDirectory>
 
  Deze code definieert een klasse die ondersteuning biedt voor de **IDirectory** interface.  
 
-####  <a name="WizardComponentTemplateClass"></a>WizardComponent sjabloonklasse  
+####  <a name="WizardComponentTemplateClass"></a> WizardComponent sjabloonklasse  
  Deze klasse is gedefinieerd in IWizardComponent.h en is een nuttig basisklasse voor het maken van de onderdelen die toegang nodig tot de wizard-services, zoals het maken van het onderdeel en logboekregistratie.  
 
  Een voorbeeld: dit is hoe de **CopyFilesTask** onderdeel is gedefinieerd:  
@@ -1090,7 +1091,7 @@ classCopyFilesTask :public WizardComponent<ITask>
 
  Wanneer u het register van de factory klasse voor het maken van een nieuw onderdeel, het register van het onderdeel roept **IWizardComponent -> SetContainer** methode voor het onderdeel toegang tot de services van de wizard.  
 
-####  <a name="WizardPageImplTemplateClass"></a>WizardPageImpl sjabloonklasse  
+####  <a name="WizardPageImplTemplateClass"></a> WizardPageImpl sjabloonklasse  
  Deze klasse gebruiken als de basisklasse voor uw aangepaste pagina's, bijvoorbeeld:  
 
 ```  
@@ -1099,7 +1100,7 @@ class LocationPage :public WizardPageImpl<IDD_LOCATION_PAGE>
 
  De parameter is de resource-ID voor de sjabloon voor dialoogvensters.  
 
-###  <a name="WizardPageInterfaces"></a>Wizardpagina Interfaces  
+###  <a name="WizardPageInterfaces"></a> Wizardpagina Interfaces  
  De Wizard UDI gebruikt interfaces voor toegang tot de andere besturingselementen op de pagina. Binnen u pagina die u gebruikt de **GetControlWrapper** functie voor het ophalen van een besturingselement wrapper. Hier volgt een voorbeeld:  
 
 ```  
@@ -1109,7 +1110,7 @@ GetControlWrapper(View(), IDC_CHECK_PARTITION, CONTROL_STATIC_TEXT, &pFormat);
 
  Hier **PStaticText** is een intelligente pointer naar de **IStaticText** interface. Slimme aanwijzers automatisch het COM-onderdeel aanroepen **Release()** methode wanneer ze buiten het bereik vallen of u het adres van een variabele doorgeeft (zoals **& pFormat**) aan een methode.  
 
-#### <a name="iadhelper-interface"></a>IADHelper-Interface  
+#### <a name="iadhelper-interface"></a>IADHelper Interface  
 
 ```  
 __interfaceIADHelper : IUnknown  
@@ -1173,7 +1174,7 @@ __interface IBackgroundTask : IUnknown
 |**Parameter**|**Beschrijving**|  
 |-|-|  
 |**pTask**|Verwijzing naar de klasse met de code die u wilt uitvoeren op een andere thread|  
-|**ID**|Een getal dat u in de callback gebruiken kunt **voltooid** methode om te zien welke taak is voltooid; handig als u verschillende taken die met de dezelfde retouraanroepmethode beginnen|  
+|**Id**|Een getal dat u in de callback gebruiken kunt **voltooid** methode om te zien welke taak is voltooid; handig als u verschillende taken die met de dezelfde retouraanroepmethode beginnen|  
 |**pCallback**|Een klasse die implementeert de **voltooid** methode, die wordt aangeroepen wanneer een taak is voltooid; de aanroep van de **voltooid** methode bevindt zich op de achtergrondthread, niet de UI-thread|  
 
 ##### <a name="void-startvoid"></a>VOID Start(void)  
@@ -1181,7 +1182,7 @@ __interface IBackgroundTask : IUnknown
 
 ### <a name="table-13-return-background-thread"></a>Tabel 13. Achtergrondthread retourneren  
 
-|**Retourneert**|**Beschrijving**|  
+|**retourneert**|**Beschrijving**|  
 |-|-|  
 |**E_INVALIDARG**|De taak wordt al uitgevoerd, zodat u deze nu niet starten.|  
 |**E_FAIL**|Er is een probleem met het starten van de thread.|  
@@ -1204,7 +1205,7 @@ __interface IBackgroundTask : IUnknown
 
 ### <a name="table-15-termination-codes"></a>Tabel 15. Beëindiging  
 
-|**Retourneert**|**Beschrijving**|  
+|**retourneert**|**Beschrijving**|  
 |-|-|  
 |**E_FAIL**|De oproep te beëindigen is mislukt.|  
 |**S_OK**|De aanvraag te beëindigen van de thread is voltooid.|  
@@ -1222,7 +1223,7 @@ __interface IBackgroundTask : IUnknown
 ##### <a name="hresult-closevoid"></a>HRESULT Close(void)  
  Deze methode versies de achtergrondthread. Deze retourneert **E_INVALIDARG** als de thread wordt uitgevoerd en **S_OK** anders.  
 
-#### <a name="icheckbox-interface"></a>ICheckBox-Interface  
+#### <a name="icheckbox-interface"></a>ICheckBox Interface  
 
 ```  
 __interface ICheckBox : IControl  
@@ -1238,7 +1239,7 @@ __interface ICheckBox : IControl
 ##### <a name="bool-isbuttonchecked"></a>BOOL IsButtonChecked()  
  Deze methode rapporteert de huidige status van een selectievakje.  
 
-#### <a name="icombobox-interface"></a>IComboBox-Interface  
+#### <a name="icombobox-interface"></a>IComboBox Interface  
 
 ```  
 __interface IComboBox : IControl  
@@ -1308,7 +1309,7 @@ __interface ICpuInfo : IUnknown
 ##### <a name="overview"></a>Overzicht  
  U deze interface verkrijgen door het maken van een nieuw **ID_CpuInfo** onderdeel. De enkele methode rapporten of de CPU is 32 of 64-bits. Houd er rekening mee dat als u een 32-bits besturingssysteem op een 64-bits computer hebt, deze methode TRUE retourneert, omdat het rapport is alleen de breedte van de CPU (niet het besturingssysteem).  
 
-##### <a name="idirectory-interface"></a>IDirectory-Interface  
+##### <a name="idirectory-interface"></a>IDirectory Interface  
 
 ```  
 __interface IDirectory : IUnknown  
@@ -1422,7 +1423,7 @@ pDrives->SetWhereClause(L"WHERE InterfaceType='USB'");
 |-|-|-|  
 |**DISKQUERY_LOGICALDISK**|**Grootte**|De grootte in bytes, weergegeven als een tekenreeks|  
 |**DISKQUERY_DISKPARTITION**|**DiskIndex**|Het schijfnummer als een geheel getal, te beginnen met 0|  
-|**DISKQUERY_LOGICALDISK**|**Volumenaam**|De volumenaam|  
+|**DISKQUERY_LOGICALDISK**|**VolumeName**|De volumenaam|  
 
 ##### <a name="sizet-countvoid"></a>size_t Count(void)  
  Het aantal records de query retourneert. Roep **Update** voordat u deze methode niet aanroepen.  
@@ -1471,7 +1472,7 @@ __interface IImageList
 |**hInstance**|Sessie-ingang van de module die de bitmapbron bevat|  
 |**resourceId**|ID van de resource te laden in de lijst met afbeeldingen|  
 
-#### <a name="ilistview-interface"></a>IListView-Interface  
+#### <a name="ilistview-interface"></a>IListView Interface  
 
 ```  
 __interface IListView : IControl  
@@ -1509,8 +1510,8 @@ __interface IListView : IControl
 |**Parameter**|**Beschrijving**|  
 |-|-|  
 |**index**|De index van het lijstitem dat u wilt wijzigen|  
-|**kolom**|De index van de kolom die u wilt bijwerken. de eerste kolom is ingesteld met **AddItem**, twee kolommen en volgende worden ingesteld met deze methode|  
-|**tekst**|De tekenreeks in de kolom worden weergegeven|  
+|**column**|De index van de kolom die u wilt bijwerken. de eerste kolom is ingesteld met **AddItem**, twee kolommen en volgende worden ingesteld met deze methode|  
+|**Tekst**|De tekenreeks in de kolom worden weergegeven|  
 
 ##### <a name="int-getwidthvoid"></a>int GetWidth(void)  
  Deze methode retourneert de breedte van het volledige tekst.  
@@ -1546,7 +1547,7 @@ m_pList->SetExtendedStyle(LVS_EX_FULLROWSELECT);
 ##### <a name="hresult-clearvoid"></a>HRESULT Clear(void)  
  Alle objecten in de lijst verwijderd.  
 
-#### <a name="iprogressbar-interface"></a>IProgressBar-Interface  
+#### <a name="iprogressbar-interface"></a>IProgressBar Interface  
 
 ```  
 __interface IProgressBar : IControl  
@@ -1565,7 +1566,7 @@ __interface IProgressBar : IControl
 ##### <a name="int-getpercentagevoid"></a>int GetPercentage(void)  
  Deze methode retourneert de huidige positie van de voortgangsbalk.  
 
-#### <a name="iradiobutton-interface"></a>IRadioButton-Interface  
+#### <a name="iradiobutton-interface"></a>IRadioButton Interface  
 
 ```  
 __interface IRadioButton : IControl  
@@ -1612,7 +1613,7 @@ __interface IStaticText : IControl
 ##### <a name="hresult-gettextout-retval-lpbstr-ptext"></a>HRESULT GetText([out, retval] LPBSTR pText)  
  Deze methode retourneert de huidige waarde van de tekst voor het besturingselement.  
 
-####  <a name="ITaskinterface"></a>ITask-Interface  
+####  <a name="ITaskinterface"></a> ITask-Interface  
 
 ```  
 __interface IControl : IUnknown  
@@ -1626,13 +1627,13 @@ __interface IControl : IUnknown
 
  Hier volgen de onderdelen die u implementeert de **ITask** interface:  
 
--   ID_ShellExecuteTask, L"Microsoft.Wizard.ShellExecuteTask'  
+-   ID_ShellExecuteTask, L"Microsoft.Wizard.ShellExecuteTask"  
 
--   ID_CopyFilesTask, L"Microsoft.Wizard.CopyFilesTask'  
+-   ID_CopyFilesTask, L"Microsoft.Wizard.CopyFilesTask"  
 
--   ID_ACPowerTask, L"Microsoft.OSDRefresh.ACPowerTask'  
+-   ID_ACPowerTask, L"Microsoft.OSDRefresh.ACPowerTask"  
 
--   ID_WiredNetworkTask, L"Microsoft.SharedPages.WiredNetworkTask'  
+-   ID_WiredNetworkTask, L"Microsoft.SharedPages.WiredNetworkTask"  
 
 ##### <a name="init"></a>Init  
 
@@ -1656,7 +1657,7 @@ HRESULT Init(IStringProperties *pProperties, ISettingsProperties *pTaskSettings)
 
  De **pProperties** parameter biedt toegang tot de setter drie waarden, terwijl de **pTaskSettings** parameter biedt toegang tot de **taak** -element en onderliggende items. De meeste taken hoeft alleen te lezen van gegevens uit de **pProperties** parameter.  
 
-#####  <a name="Execute"></a>Uitvoeren  
+#####  <a name="Execute"></a> uitvoeren  
 
 ```  
 HRESULT Execute(LPDWORD pReturnCode)  
@@ -1666,7 +1667,7 @@ HRESULT Execute(LPDWORD pReturnCode)
 
  De **pReturnCode** parameter moet worden bijgewerkt met een getal dat de status van de taak rapporteert. Deze waarden worden vergeleken met de pagina preflights om < ExitCode\> elementen.  
 
-#### <a name="itreeview-interface"></a>ITreeView-Interface  
+#### <a name="itreeview-interface"></a>ITreeView Interface  
 
 ```  
 __interface ITreeView : IControl  
@@ -1891,7 +1892,7 @@ __interface IFormController : IUnknown
 ##### <a name="overview"></a>Overzicht  
  Elke pagina in de Wizard UDI heeft een eigen formulier controller die deze interface implementeert. Deze domeincontroller kunt u verbinding maken met gegevens in het veld in het .config-XML-bestand van de besturingselementen op de pagina. De controller van het formulier wordt verwerkt veel van de details voor u.  
 
-#####  <a name="SettingUptheForm"></a>Instellen van het formulier  
+#####  <a name="SettingUptheForm"></a> Instellen van het formulier  
  Het algemeen, stelt u de controller van het formulier in uw pagina **OnWindowCreated** methode. Dus meestal doen omvat het aanroepen van de methoden die wordt weergegeven in de tabel 28.  
 
 ### <a name="table-28-onwindowcreated-method"></a>Tabel 28. OnWindowCreated methode  
@@ -1903,7 +1904,7 @@ __interface IFormController : IUnknown
 |**AddRadioGroup**|Waarmee een keuzerondje verbinding met zowel een groep als een besturingselement in het dialoogvenster|  
 |**AddToGroup**|Hiermee kunt u 'onderliggende'-besturingselementen die zijn ingeschakeld of uitgeschakeld samen met hun bovenliggende of op basis van welke keuzerondje is ingeschakeld|  
 |**InitFields**|Nadat u alle hebt aangeroepen. Roep de **toevoegen** methoden voor het instellen van het formulier|  
-|**Valideren**|De eerste validatie uitvoert|  
+|**valideren**|De eerste validatie uitvoert|  
 
 ##### <a name="processing-form-events"></a>Formulier verwerking van gebeurtenissen  
  Voeg de volgende aanroep uw **OnControlEvent** methode:  
@@ -1924,7 +1925,7 @@ Form()->ControlEvent(eventId, controlId);
 |**InitSection**|Hier wordt de naam van de sectie die wordt weergegeven op de **samenvatting** pagina voor deze pagina|  
 |**SaveFields**|Opslaan van veldwaarden takenreeksvariabelen en zo de **samenvatting** pagina|  
 
-#####  <a name="Init"></a>Init  
+#####  <a name="Init"></a> Init  
 
 ```  
 HRESULT Init(IWizardPageView *pView, IWizardPageContainer *pContainer)  
@@ -2006,7 +2007,7 @@ HRESULT DisableValidation(int controlId, BOOL disable)
 |**controlId**|Het besturingselement waarvan u wilt in- of uitschakelen van validatie|  
 |**Uitschakelen**|Ingesteld op True in validatie uitschakelen en op FALSE om terug te zetten normale validatie|  
 
-#####  <a name="AddField"></a>AddField  
+#####  <a name="AddField"></a> AddField  
 
 ```  
 HRESULT AddField(LPCWSTR fieldName, int controlId, BOOL suppressLog, DialogControlTypes type)  
@@ -2018,12 +2019,12 @@ HRESULT AddField(LPCWSTR fieldName, int controlId, BOOL suppressLog, DialogContr
 
 |**Parameter**|**Beschrijving**|  
 |-|-|  
-|**Veldnaam**|Naam van het veld zoals deze wordt weergegeven in uw pagina XML|  
+|**Fieldname**|Naam van het veld zoals deze wordt weergegeven in uw pagina XML|  
 |**controlId**|De ID van het besturingselement in de sjabloon voor uw pagina dialoogvensters|  
 |**suppressLog**|Ingesteld op TRUE als u niet dat de waarden van dit veld is geschreven naar het logboekbestand wilt; Deze parameter altijd ingesteld op TRUE voor wachtwoord of PINCODE velden|  
 |**Type**|Het type besturingselement, dat zich op een van de volgende:<br /><br /> -   **CONTROL_STATIC_TEXT**<br />-   **CONTROL_COMBO_BOX**<br />-   **CONTROL_LIST_VIEW**<br />-   **CONTROL_PROGRESS_BAR**<br />-   **CONTROL_GENERIC**<br />-   **CONTROL_RADIO_BUTTON**<br />-   **CONTROL_CHECK_BOX**<br />-   **CONTROL_TREE_VIEW**|  
 
-#####  <a name="AddRadioGroup"></a>AddRadioGroup  
+#####  <a name="AddRadioGroup"></a> AddRadioGroup  
 
 ```  
 HRESULT AddRadioGroup(LPCWSTR groupName, int radioControlId)  
@@ -2035,7 +2036,7 @@ HRESULT AddRadioGroup(LPCWSTR groupName, int radioControlId)
 
 |**Parameter**|**Beschrijving**|  
 |-|-|  
-|**Groepsnaam**|Een tekenreeks die een groep keuzerondjes op deze pagina definieert|  
+|**groupName**|Een tekenreeks die een groep keuzerondjes op deze pagina definieert|  
 |**radioControlId**|De ID van een enkele keuzerondje om toe te voegen aan deze groep|  
 
 ##### <a name="enableradiogroup"></a>EnableRadioGroup  
@@ -2050,7 +2051,7 @@ HRESULT EnableRadioGroup(LPCWSTR groupName, BOOL enable)
 
 |**Parameter**|**Beschrijving**|  
 |-|-|  
-|**Groepsnaam**|Naam van een groep met keuzerondjes die u al hebt gedefinieerd met een aanroep naar **AddRadioGroup**|  
+|**groupName**|Naam van een groep met keuzerondjes die u al hebt gedefinieerd met een aanroep naar **AddRadioGroup**|  
 |**Inschakelen**|Ingesteld op TRUE om in te schakelen voor de groep met keuzerondjes en FALSE uitschakelen van de groep|  
 
 ### <a name="table-35-hresult-enableradiogroup"></a>Tabel 35. HRESULT EnableRadioGroup  
@@ -2060,7 +2061,7 @@ HRESULT EnableRadioGroup(LPCWSTR groupName, BOOL enable)
 |**S_OK**|Groep ingeschakeld of uitgeschakeld|  
 |**E_INVALIDARG**|Er is geen groep met keuzerondjes met de naam die u hebt opgegeven|  
 
-#####  <a name="InitFields"></a>InitFields  
+#####  <a name="InitFields"></a> InitFields  
 
 ```  
 HRESULT InitFields(IFieldCallback *pFieldCallback = nullptr)  
@@ -2070,7 +2071,7 @@ HRESULT InitFields(IFieldCallback *pFieldCallback = nullptr)
 
  De **pFieldCallback** parameter is optioneel. Als u dit opgeeft, wordt de controller formulier roept **SetFieldDefault** voor besturingselementen die niet een **CONTROL_STATIC_TEXT** of **CONTROL_CHECK_BOX**. Dit gedrag kunt u een standaardwaarde ophalen uit het XML-bestand en stel deze in het besturingselement zelf.  
 
-#####  <a name="SaveFields"></a>SaveFields  
+#####  <a name="SaveFields"></a> SaveFields  
 
 ```  
 HRESULT SaveFields(IFieldCallback *pFieldCallback = nullptr)  
@@ -2086,7 +2087,7 @@ BOOL IsFieldDisabled(int controlId)
 
  Deze methode kunt u bepalen of een veld is uitgeschakeld in het XML-bestand.  
 
-#####  <a name="InitSection"></a>InitSection  
+#####  <a name="InitSection"></a> InitSection  
 
 ```  
 HRESULT InitSection(LPCWSTR key, LPCWSTR sectionCaption)  
@@ -2113,8 +2114,8 @@ HRESULT AddSummaryItem(LPCWSTR first, LPCWSTR second)
 
 |**Parameter**|**Beschrijving**|  
 |-|-|  
-|**Eerste**|Het bijschrift voor de overzichtsitem die wordt weergegeven aan de linkerkant|  
-|**Tweede**|De waarde die wordt weergegeven aan de rechterkant|  
+|**eerste**|Het bijschrift voor de overzichtsitem die wordt weergegeven aan de linkerkant|  
+|**Second**|De waarde die wordt weergegeven aan de rechterkant|  
 
 ##### <a name="suppresslogvalue"></a>SuppressLogValue  
 
@@ -2214,7 +2215,7 @@ __interface IValidator : IUnknown
 ##### <a name="hresult-setpropertyint-propertyid-lpctstr-pvalue"></a>HRESULT SetProperty) (int eigenschaps-id, LPCTSTR pValue)  
  Als u extra waarden die niet beschikbaar zijn in het XML-bestand nodig hebt, kunt u deze methode implementeren.  
 
-#### <a name="iregex-interface"></a>IRegEx-Interface  
+#### <a name="iregex-interface"></a>IRegEx Interface  
 
 ```  
 __interface IRegEx : IUnknown  
@@ -2261,7 +2262,7 @@ __interface ISummaryBag : IUnknown
 
  U hoeft niet rechtstreeks gebruik van deze interface. Gebruik in plaats daarvan **IFormController**.  
 
-#### <a name="itsvariablebag-interface"></a>ITSVariableBag-Interface  
+#### <a name="itsvariablebag-interface"></a>ITSVariableBag Interface  
 
 ```  
 __interface ITSVariableBag : IUnknown  
@@ -2427,7 +2428,7 @@ __interface IDataNodes : IUnknown
 |**S_OK**|Het knooppunt is opgehaald.|  
 |**E_INVALIDARG**|De index is voorbij het einde van de matrix.|  
 
-#### <a name="ifactoryregistry-interface"></a>IFactoryRegistry-Interface  
+#### <a name="ifactoryregistry-interface"></a>IFactoryRegistry Interface  
 
 ```  
 __interface IFactoryRegistry : IUnknown  
@@ -2487,7 +2488,7 @@ __interface IFactoryRegistry : IUnknown
 
 -   0 als u niet heeft verstrekt de **/locale** opdrachtregelparameter  
 
-#### <a name="ilogger-interface"></a>ILogger-Interface  
+#### <a name="ilogger-interface"></a>ILogger Interface  
 
 ```  
 __interface ILogger : IUnknown  
@@ -2567,7 +2568,7 @@ HRESULT Error(HRESULT error, LPCTSTR component, LPCTSTR message)
 |**Component**|Een tekenreeks die de bron van de fout doorgaans wordt uw pagina of het onderdeel dat u hebt geschreven aangeeft|  
 |**Bericht**|Het bericht waarin wordt uitgelegd wat de fout heeft veroorzaakt|  
 
-#####  <a name="Error2"></a>Error2  
+#####  <a name="Error2"></a> error2  
 
 ```  
 HRESULT Error2(HRESULT error, LPCTSTR component, LPCTSTR message, LPCTSTR message2)  
@@ -2607,7 +2608,7 @@ HRESULT Verbose2(LPCTSTR component, LPCTSTR message, LPCTSTR message2)
 
  Deze methode registreert een uitgebreid bericht. Zie de beschrijving van de [Error2](#Error2) methode voor parameters.  
 
-##### <a name="debug"></a>Fouten opsporen  
+##### <a name="debug"></a>Debug  
 
 ```  
 HRESULT Debug(LPCWSTR component, LPCWSTR message)  
@@ -2731,7 +2732,7 @@ pData->GetDataNodes(&pNodes);
 ISimpleStringProperties Interface  
 ```  
 
-#### <a name="isimplestringproperties-interface"></a>ISimpleStringProperties-Interface  
+#### <a name="isimplestringproperties-interface"></a>ISimpleStringProperties Interface  
 
 ```  
 __interface ISimpleStringProperties : IStringProperties  
@@ -2868,7 +2869,7 @@ __interface ITaskManager : IUnknown
 ##### <a name="void-enablebuttonsbool-enable"></a>VOID EnableButtons(BOOL enable)  
  Deze methode is alleen voor intern gebruik.  
 
-#### <a name="iwizardcomponent-interface"></a>IWizardComponent-Interface  
+#### <a name="iwizardcomponent-interface"></a>IWizardComponent Interface  
 
 ```  
 __interface IWizardComponent : IUnknown  
@@ -2880,7 +2881,7 @@ __interface IWizardComponent : IUnknown
 ##### <a name="overview"></a>Overzicht  
  Normaal gesproken u implementeert geen deze interface rechtstreeks, maar in plaats daarvan via de **WizardComponent** sjabloonklasse. Als het onderdeel deze interface worden geïmplementeerd en u hebt een classfactory geregistreerd met het register, krijgt uw onderdeel een verwijzing naar de **IWizardPageContainer** exemplaar wanneer deze wordt gemaakt. Zo kunt u, bijvoorbeeld, toegang tot het logboek of in het register voor het maken van andere onderdelen die nodig kan zijn uw onderdeel.  
 
-#### <a name="iwizarddialogcontroller-interface"></a>IWizardDialogController-Interface  
+#### <a name="iwizarddialogcontroller-interface"></a>IWizardDialogController Interface  
 
 ```  
 __interface IWizardDialogController : IUnknown  
@@ -2907,7 +2908,7 @@ __interface IWizardDialogController : IUnknown
 
  Deze interface is alleen voor intern gebruik.  
 
-#### <a name="iwizarddialogview-interface"></a>IWizardDialogView-Interface  
+#### <a name="iwizarddialogview-interface"></a>IWizardDialogView Interface  
 
 ```  
 __interface IWizardDialogView : IUnknown  
@@ -2930,7 +2931,7 @@ __interface IWizardDialogView : IUnknown
 
  Deze interface is alleen voor intern gebruik.  
 
-####  <a name="IWizardPageInterface"></a>IWizardPage-Interface  
+####  <a name="IWizardPageInterface"></a> IWizardPage-Interface  
 
 ```  
 __interface IWizardPage : IUnknown  
@@ -2952,7 +2953,7 @@ __interface IWizardPage : IUnknown
 ##### <a name="overview"></a>Overzicht  
  Deze interface is geïmplementeerd door **WizardPageImpl**, zodat u doorgaans geen voor het implementeren van deze deze. De wizard roept al deze methoden voor u, als deze met uw aangepaste pagina's samenwerkt.  
 
-#### <a name="iwizardpagecontainer-interface"></a>IWizardPageContainer-Interface  
+#### <a name="iwizardpagecontainer-interface"></a>IWizardPageContainer Interface  
 
 ```  
 __interface IWizardPageContainer : IUnknown  
@@ -2996,13 +2997,13 @@ Logger()->Verbose(s_component, L"Message for log file");
 |**Indeling**|**Beschrijving**|  
 |-|-|  
 |**$Name$**|Vervangt de waarde van een variabele geheugen met deze naam (als er geen geheugen-variabele met de naam, wordt de 'token' verwijderd.)|  
-|**% Name %**|Een takenreeksvariabele of een omgevingsvariabele. De volgorde is als volgt:<br /><br /> 1.  Gebruik de waarde van een takenreeksvariabele, indien aanwezig.<br />2.  Gebruik de waarde van een omgevingsvariabele, indien aanwezig.<br />3.  Anders kunnen deze tekst verwijderen uit de tekenreeks.|  
+|**%Name%**|Een takenreeksvariabele of een omgevingsvariabele. De volgorde is als volgt:<br /><br /> 1.  Gebruik de waarde van een takenreeksvariabele, indien aanwezig.<br />2.  Gebruik de waarde van een omgevingsvariabele, indien aanwezig.<br />3.  Anders kunnen deze tekst verwijderen uit de tekenreeks.|  
 
-### <a name="table-52-hresult-parameter"></a>Tabel 52. HRESULT-Parameter  
+### <a name="table-52-hresult-parameter"></a>Tabel 52. HRESULT Parameter  
 
 |**Parameter**|**Beschrijving**|  
 |-|-|  
-|**Bron**|De invoerreeks heeft die kan bestaan uit een combinatie van  **$**  en  **%**  variabelen of helemaal|  
+|**Bron**|De invoerreeks heeft die kan bestaan uit een combinatie van **$** en **%** variabelen of helemaal|  
 |**pDest**|Op return bevat een nieuwe reeks met alle tokens volgens tabel 51 vervangen|  
 
 ##### <a name="hresult-gotopagelpctstr-pagename"></a>HRESULT GotoPage(LPCTSTR pageName)  
@@ -3017,7 +3018,7 @@ Logger()->Verbose(s_component, L"Message for log file");
 ##### <a name="hwnd-gethwndvoid"></a>HWND GetHwnd(void)  
  Deze methode retourneert de **HWND** voor de belangrijkste dialoogvenster. Gebruik deze methode zorgvuldig. In het algemeen is de Wizard UDI application programming interface zodanig ontworpen dat u nooit rechtstreeks met vensteringangen werkt.  
 
-#### <a name="iwizardpageview-interface"></a>IWizardPageView-Interface  
+#### <a name="iwizardpageview-interface"></a>IWizardPageView Interface  
 
 ```  
 __interface IWizardPageView : IUnknown  
@@ -3083,7 +3084,7 @@ GetControlWrapper(View(), IDC_MY_COMBO, CONTROL_COMBO_BOX, &m_pCombo);
 ##### <a name="void-hidewarningmessagevoid"></a>VOID HideWarningMessage(void)  
  Een waarschuwingsbericht weergegeven die worden weergegeven met een aanroep naar verbergen **ShowWarningMessage**.  
 
-#### <a name="ixmldocument-interface"></a>PxDoc-Interface  
+#### <a name="ixmldocument-interface"></a>IXmlDocument Interface  
 
 ```  
 __interface IXmlDocument : IUnknown  
@@ -3187,13 +3188,13 @@ GetService<ITSVariableBag>(Container(), &pTsBag);
 |[DesignerMappings](#DesignerMappings)|Een set met groepen [pagina](#Page)elementen|  
 |[Pagina](#Page)|Hiermee geeft u een wizard-pagina-editor om te worden geladen in het ontwerp van de Wizard UDI, die wordt gebruikt voor het bewerken van de configuratie-instellingen voor een wizardpagina|  
 |[Param](#Param)|Hiermee geeft u een parameter die wordt doorgegeven aan de bovenliggende [taak](#Task) of [Validator](#Validator) element en komt overeen met een [Setter]() element in het configuratiebestand van de Wizard UDI **Opmerking:**  De kenmerken voor dit element zijn verschillend als de bovenliggende de [taak](#Task) of [Validator](#Validator) element.|  
-|[Taak](#Task)|Hiermee geeft u een taak in de tapewisselaar taak|  
+|[Task](#Task)|Hiermee geeft u een taak in de tapewisselaar taak|  
 |[TaskItem](#TaskItem)|Hiermee geeft u een groep van de parameters die worden doorgegeven aan de taak|  
 |[TaskLibrary](#TaskLibrary)|Een set met groepen [taak](#Task) elementen|  
 |[Validator](#Validator)|Hiermee geeft u een validator in de tapewisselaar validator|  
 |[ValidatorLibrary](#ValidatorLibrary)|Een set met groepen [Validator](#Validator) elementen|  
 
-####  <a name="DesignerConfig"></a>DesignerConfig  
+####  <a name="DesignerConfig"></a> DesignerConfig  
  Dit element bevat de hoofdmap voor alle andere elementen.  
 
 ##### <a name="element-information"></a>Elementgegevens  
@@ -3223,7 +3224,7 @@ GetService<ITSVariableBag>(Container(), &pTsBag);
 </DesignerConfig>  
 ```  
 
-####  <a name="DesignerMappings"></a>DesignerMappings  
+####  <a name="DesignerMappings"></a> DesignerMappings  
  Dit element een set met groepen [pagina](#Page) elementen.  
 
 ##### <a name="element-information"></a>Elementgegevens  
@@ -3275,7 +3276,7 @@ GetService<ITSVariableBag>(Container(), &pTsBag);
 </DesignerConfig>  
 ```  
 
-####  <a name="Page"></a>Pagina  
+####  <a name="Page"></a> Pagina  
  Dit element bevat een wizard-pagina-editor om te worden geladen in het ontwerp van de Wizard UDI, die op zijn beurt wordt gebruikt voor het bewerken van de configuratie-instellingen voor een pagina van de wizard.  
 
 ##### <a name="element-information"></a>Elementgegevens  
@@ -3299,8 +3300,8 @@ Tabel 58 hier worden de kenmerken van de [pagina](#Page) -element en een beschri
 |**Beschrijving**|Hiermee geeft u de tekst die informatie biedt over de parameter die wordt weergegeven in de Wizard UDI Designer|  
 |**DesignerAssembly**|Geeft de naam van het DLL-bestand dat is gekoppeld aan de wizard-editor (het DLL-bestand moet bestaan in de *installation_folder*map \Bin (waarbij *installation_folder* is de map waarin u geïnstalleerde MDT.)|  
 |**DesignerType**|Geeft de naam van de wizard editor binnen het DLL-bestand dat is opgegeven in de **DesignerAssembly** kenmerk (dit is de Microsoft .NET-type voor de wizard-editor met de volledig gekwalificeerde Microsoft .NET-naamruimte.)|  
-|**Weergavenaam**|Hiermee geeft u de beschrijvende naam van de pagina-editor, zoals wordt weergegeven in de Wizard UDI Designer|  
-|**DLL-BESTAND**|Geeft de naam van het DLL-bestand dat is gekoppeld aan de wizardpagina (het DLL-bestand moet bestaan in de *installation_folder*\Templates\Distribution\Tools\\*platform* map (waarbij *installation_folder* is de map waarin u MDT hebt geïnstalleerd en *platform* is **x86** voor de 32-bits versie of **x64** is voor de 64-bits-versie.) **Opmerking:**  Zorg ervoor dat de processorarchitectuur van DLL-bestand overeenkomt met de processorarchitectuur MDT is geïnstalleerd. Bijvoorbeeld, als u een 32-bits versie van MDT hebt geïnstalleerd, zorgt dat u een 32-bits DLL-bestand gebruiken voor de wizardpagina.|  
+|**DisplayName**|Hiermee geeft u de beschrijvende naam van de pagina-editor, zoals wordt weergegeven in de Wizard UDI Designer|  
+|**DLL**|Geeft de naam van het DLL-bestand dat is gekoppeld aan de wizardpagina (het DLL-bestand moet bestaan in de *installation_folder*\Templates\Distribution\Tools\\*platform* map (waarbij *installation_folder* is de map waarin u MDT hebt geïnstalleerd en *platform* is **x86** voor de 32-bits versie of **x64** is voor de 64-bits-versie.) **Opmerking:**  Zorg ervoor dat de processorarchitectuur van DLL-bestand overeenkomt met de processorarchitectuur MDT is geïnstalleerd. Bijvoorbeeld, als u een 32-bits versie van MDT hebt geïnstalleerd, zorgt dat u een 32-bits DLL-bestand gebruiken voor de wizardpagina.|  
 |**Afbeelding**|Hiermee geeft u de naam van een installatiekopie van de pagina met Portable Network Graphics (PNG)-indeling (PNG-bestand moet bestaan in de *installation_folder*\Bin\Images map (waarbij *installation_folder* is de de map waarin u MDT hebt geïnstalleerd.)|  
 |**Type**|Hiermee geeft u de wizard-editor en moet overeenkomen met de benoemde gebruikt wanneer de aangepaste pagina is geregistreerd|  
 
@@ -3310,7 +3311,7 @@ Tabel 58 hier worden de kenmerken van de [pagina](#Page) -element en een beschri
 ##### <a name="example"></a>Voorbeeld  
  Geen.  
 
-####  <a name="Param"></a>Param  
+####  <a name="Param"></a> Param  
  Dit element wordt een parameter die wordt doorgegeven aan de bovenliggende [taak](#Task) of [Validator](#Validator) element en komt overeen met een [Setter]() element in het configuratiebestand van de Wizard UDI.  
 
 > [!NOTE]
@@ -3335,7 +3336,7 @@ Tabel 58 hier worden de kenmerken van de [pagina](#Page) -element en een beschri
 |**Kenmerk**|**Beschrijving**|  
 |-|-|  
 |**Beschrijving**|Hiermee geeft u de tekst die informatie biedt over de parameter die wordt weergegeven in de ontwerpfunctie van de Wizard UDI **Opmerking:**  Dit kenmerk is alleen geldig voor de [Validator](#Validator) element.|  
-|**Weergavenaam**|Hiermee geeft u de beschrijvende naam van de validatiefunctie-parameter die wordt weergegeven voor de betreffende Wizard UDI pagina in de ontwerpfunctie van de Wizard UDI (deze naam is meestal de meer beschrijvende dan de **naam** kenmerk.) **Opmerking:**  Dit kenmerk is alleen geldig voor de [Validator](#Validator) element.|  
+|**DisplayName**|Hiermee geeft u de beschrijvende naam van de validatiefunctie-parameter die wordt weergegeven voor de betreffende Wizard UDI pagina in de ontwerpfunctie van de Wizard UDI (deze naam is meestal de meer beschrijvende dan de **naam** kenmerk.) **Opmerking:**  Dit kenmerk is alleen geldig voor de [Validator](#Validator) element.|  
 |**Naam**|Hiermee geeft u de naam van de parameter die wordt doorgegeven aan de taak of de validatiefunctie, afhankelijk van het bovenliggende element (dit kenmerk worden de **eigenschap** kenmerk in een [Setter]() element in de Wizard UDI het configuratiebestand.) **Opmerking:**  Deze parameter wordt gebruikt voor zowel [TaskItem](#TaskItem) en [Validator](#Validator) bovenliggende elementen.|  
 
 ##### <a name="remarks"></a>Opmerkingen  
@@ -3344,7 +3345,7 @@ Tabel 58 hier worden de kenmerken van de [pagina](#Page) -element en een beschri
 ##### <a name="example"></a>Voorbeeld  
  Geen.  
 
-####  <a name="Task"></a>Taak  
+####  <a name="Task"></a> Taak  
  Dit element bevat een taak in de tapewisselaar taak.  
 
 ##### <a name="element-information"></a>Elementgegevens  
@@ -3366,7 +3367,7 @@ Tabel 58 hier worden de kenmerken van de [pagina](#Page) -element en een beschri
 |**Kenmerk**|**Beschrijving**|  
 |-|-|  
 |**Beschrijving**|Hiermee geeft u de tekst die informatie biedt over de taak, die wordt weergegeven in de Wizard UDI Designer|  
-|**DLL-BESTAND**|Geeft de naam van het DLL-bestand dat is gekoppeld aan de taak (het DLL-bestand moet bestaan in de *installation_folder*\Templates\Distribution\Tools\\*platform* map (waarbij *installation_folder* is de map waarin u MDT hebt geïnstalleerd en *platform* is **x86** voor de 32-bits versie of **x64** voor de 64 -bitsversie.)|  
+|**DLL**|Geeft de naam van het DLL-bestand dat is gekoppeld aan de taak (het DLL-bestand moet bestaan in de *installation_folder*\Templates\Distribution\Tools\\*platform* map (waarbij *installation_folder* is de map waarin u MDT hebt geïnstalleerd en *platform* is **x86** voor de 32-bits versie of **x64** voor de 64 -bitsversie.)|  
 |**Naam**|Hiermee geeft u de naam van de taak die wordt weergegeven in de desbetreffende pagina van de Wizard UDI en in de Wizard UDI Designer|  
 |**Type**|Hiermee geeft u het taaktype dat is geregistreerd bij de factory-register en gebruikt voor het aanroepen van een specifieke taak binnen een DLL-bestand|  
 
@@ -3376,7 +3377,7 @@ Tabel 58 hier worden de kenmerken van de [pagina](#Page) -element en een beschri
 ##### <a name="example"></a>Voorbeeld  
  Geen.  
 
-####  <a name="TaskItem"></a>TaskItem  
+####  <a name="TaskItem"></a> TaskItem  
  Dit element bevat een aantal parameters die zijn doorgegeven aan de taak.  
 
 ##### <a name="element-information"></a>Elementgegevens  
@@ -3387,7 +3388,7 @@ Tabel 58 hier worden de kenmerken van de [pagina](#Page) -element en een beschri
 |**Kenmerk**|**Waarde**|  
 |-|-|  
 |Aantal exemplaren|Een of meer voor elk **taak** element|  
-|Bovenliggende elementen|**Taak**|  
+|Bovenliggende elementen|**Task**|  
 |Inhoud|**Param**|  
 
 ##### <a name="element-attributes"></a>Elementkenmerken  
@@ -3397,7 +3398,7 @@ Tabel 58 hier worden de kenmerken van de [pagina](#Page) -element en een beschri
 
 |**Kenmerk**|**Beschrijving**|  
 |-|-|  
-|**Type**|Hiermee geeft u het soort element dat wordt gemaakt in het configuratiebestand van de Wizard UDI. Een XML-element er wordt gemaakt die overeenkomt met de waarde van dit kenmerk. Bijvoorbeeld, als de waarde voor dit kenmerk is [bestand](#File), en vervolgens een **bestand** element wordt gemaakt in het configuratiebestand van de Wizard UDI.<br /><br /> Op dit moment zijn de enige waarden die ondersteund:<br /><br /> -   **Bestand**, die vereist twee [Param](#Param) onderliggende elementen (één **Param** onderliggend element met de **naam** -kenmerk ingesteld op **bron** en een andere **Param** onderliggend element met de **naam** -kenmerk ingesteld op **Dest**)<br />-   [Setter](), waarvoor een **Param** onderliggend element|  
+|**Type**|Hiermee geeft u het soort element dat wordt gemaakt in het configuratiebestand van de Wizard UDI. Een XML-element er wordt gemaakt die overeenkomt met de waarde van dit kenmerk. Bijvoorbeeld, als de waarde voor dit kenmerk is [bestand](#File), en vervolgens een **bestand** element wordt gemaakt in het configuratiebestand van de Wizard UDI.<br /><br /> Op dit moment zijn de enige waarden die ondersteund:<br /><br /> -   **Bestand**, die vereist twee [Param](#Param) onderliggende elementen (één **Param** onderliggend element met de **naam** -kenmerk ingesteld op **bron**en een andere **Param** onderliggend element met de **naam** -kenmerk ingesteld op **Dest**)<br />-   [Setter](), waarvoor een **Param** onderliggend element|  
 
 ##### <a name="remarks"></a>Opmerkingen  
  Geen.  
@@ -3405,7 +3406,7 @@ Tabel 58 hier worden de kenmerken van de [pagina](#Page) -element en een beschri
 ##### <a name="example"></a>Voorbeeld  
  Geen.  
 
-####  <a name="TaskLibrary"></a>TaskLibrary  
+####  <a name="TaskLibrary"></a> TaskLibrary  
  Dit element een set met groepen [taak](#Task) elementen.  
 
 ##### <a name="element-information"></a>Elementgegevens  
@@ -3417,7 +3418,7 @@ Tabel 58 hier worden de kenmerken van de [pagina](#Page) -element en een beschri
 |-|-|  
 |Aantal exemplaren|Nul of één binnen de [DesignerConfig](#DesignerConfig) element (dit element is optioneel als er zijn geen aangepaste taken in de DLL die met dit configuratiebestand van de Wizard UDI overeenkomen.)|  
 |Bovenliggende elementen|**DesignerConfig**|  
-|Inhoud|**Taak**|  
+|Inhoud|**Task**|  
 
 ##### <a name="element-attributes"></a>Elementkenmerken  
  Dit element heeft geen kenmerken.  
@@ -3441,7 +3442,7 @@ Tabel 58 hier worden de kenmerken van de [pagina](#Page) -element en een beschri
 </DesignerConfig>  
 ```  
 
-####  <a name="Validator"></a>Validator  
+####  <a name="Validator"></a> Validator  
  Dit element bevat een validator in de tapewisselaar validator.  
 
 ##### <a name="element-information"></a>Elementgegevens  
@@ -3463,8 +3464,8 @@ Tabel 67 hier worden de kenmerken van de [Validator](#Validator) element en bied
 |**Kenmerk**|**Beschrijving**|  
 |-|-|  
 |**Beschrijving**|Hiermee geeft u de tekst die informatie biedt over de validatiefunctie, dat wordt weergegeven in de Wizard UDI Designer|  
-|**Weergavenaam**|Hiermee geeft u de beschrijvende naam van de validatiefunctie weergegeven in de waarde van de Wizard UDI (deze naam is meestal de meer beschrijvende dan de **naam** kenmerk.)|  
-|**DLL-BESTAND**|Geeft de naam van het DLL-bestand dat is gekoppeld aan de validator (het DLL-bestand moet bestaan in de *installation_folder*\Templates\Distribution\Tools\\*platform* map (waarbij *installation_folder* is de map waarin u MDT hebt geïnstalleerd en *platform* is **x86** voor de 32-bits versie of **x64** voor de 64-bits-versie.)|  
+|**DisplayName**|Hiermee geeft u de beschrijvende naam van de validatiefunctie weergegeven in de waarde van de Wizard UDI (deze naam is meestal de meer beschrijvende dan de **naam** kenmerk.)|  
+|**DLL**|Geeft de naam van het DLL-bestand dat is gekoppeld aan de validator (het DLL-bestand moet bestaan in de *installation_folder*\Templates\Distribution\Tools\\*platform* map (waarbij *installation_folder* is de map waarin u MDT hebt geïnstalleerd en *platform* is **x86** voor de 32-bits versie of **x64** voor de 64-bits-versie.)|  
 |**Naam**|Geeft de naam van de validatiefunctie, dat wordt weergegeven in de desbetreffende pagina van de Wizard UDI en in de Wizard UDI Designer|  
 |**Type**|Hiermee geeft u het validatietype, dat is geregistreerd bij de Register-factor en gebruikt voor het aanroepen van een specifieke validatiefunctie binnen een DLL-bestand|  
 
@@ -3474,7 +3475,7 @@ Tabel 67 hier worden de kenmerken van de [Validator](#Validator) element en bied
 ##### <a name="example"></a>Voorbeeld  
  Geen.  
 
-####  <a name="ValidatorLibrary"></a>ValidatorLibrary  
+####  <a name="ValidatorLibrary"></a> ValidatorLibrary  
  Dit element een set met groepen [Validator](#Validator) elementen.  
 
 ##### <a name="element-information"></a>Elementgegevens  
@@ -3510,10 +3511,10 @@ Tabel 67 hier worden de kenmerken van de [Validator](#Validator) element en bied
 |[FieldElementControl](#FieldElementControl)|Dit besturingselement wordt gebruikt voor het bewerken van een veld dat normaal gesproken is gekoppeld aan een besturingselement TextBox in het .xaml-pagina.|  
 |[SetterControl](#SetterControl)|Dit besturingselement wordt gebruikt voor het wijzigen van de waarde van een [setter]() element in het configuratiebestand van de Wizard UDI.|  
 
-####  <a name="CollectionTControl"></a>CollectionTControl  
+####  <a name="CollectionTControl"></a> CollectionTControl  
  Dit besturingselement biedt veel mogelijkheden om gegevens te bewerken. De beste manier om informatie over het gebruik van dit besturingselement is om te kijken naar het voorbeeld, waarin het bewerken van gegevens onder een pagina **gegevens** element. In het bijzonder toont het voorbeeld hoe u wilt toevoegen, verwijderen en bewerken van items in dit besturingselement.  
 
-####  <a name="FieldElementControl"></a>FieldElementControl  
+####  <a name="FieldElementControl"></a> FieldElementControl  
  Gebruik dit besturingselement om te bewerken van een veld dat is meestal gekoppeld aan een **TextBox** besturingselement op de pagina .xaml.  
 
 ##### <a name="example"></a>Voorbeeld  
@@ -3601,7 +3602,7 @@ FieldData="{Binding DataContext.Location, ElementName=ControlRoot}"
 -   **ONWAAR**, de sectie zichtbaar is (dit is de standaardwaarde).  
 
 
-####  <a name="SetterControl"></a>SetterControl  
+####  <a name="SetterControl"></a> SetterControl  
  Gebruik dit besturingselement om te wijzigen van de waarde van een [Setter]() element in het configuratiebestand van de Wizard UDI. Dit besturingselement bevat een onderliggend besturingselement gebruikt voor het wijzigen van de waarde van de **setter** element.  
 
 ##### <a name="example"></a>Voorbeeld  
@@ -3644,7 +3645,7 @@ Tabel 70 zijn de interfaces die u gebruiken kunt voor het maken van aangepaste w
 |[IDataService](#IDataService)|Deze interface velden in om verbinding te gebruiken de **gegevens** elementen in het configuratiebestand van de Wizard UDI.|  
 |[IMessageBoxService](#IMessageBoxService)|Deze interface biedt toegang tot methoden die u gebruiken kunt om berichten weer te geven.|  
 
-####  <a name="IDataService"></a>IDataService  
+####  <a name="IDataService"></a> IDataService  
  Deze interface bevat verschillende eigenschappen en methoden, maar er is slechts één eigenschap dat u net als nodig. Deze eigenschap is de enige ze hier zijn beschreven.  
 
  U kunt afhankelijkheidsinjectie gebruiken om op te halen van een verwijzing naar deze interface met code als volgt in uw klasse:  
@@ -3663,7 +3664,7 @@ public IDataService DataService { get; set; }
 |-|-|  
 |[CurrentPage](#CurrentPage)|Deze eigenschap biedt toegang tot de XML-elementen, kenmerken en waarden onder de context van de huidige pagina in het configuratiebestand van de Wizard UDI wordt bewerkt|  
 
-######  <a name="CurrentPage"></a>CurrentPage  
+######  <a name="CurrentPage"></a> CurrentPage  
 
 ```  
 XElement CurrentPage { get; set; }  
@@ -3671,7 +3672,7 @@ XElement CurrentPage { get; set; }
 
  Deze eigenschap biedt toegang tot de XML voor de huidige pagina. U moet deze eigenschap niet instellen, maar u het XML-bestand voor uw pagina wijzigen. De editor voorbeeld ziet u voorbeelden van het wijzigen van het XML-bestand. U gebruikt deze eigenschap voornamelijk wanneer u aangepaste gegevens hebt. Velden en eigenschappen (setters), kunt u vooraf gedefinieerde besturingselementen die voor alle details zorgt.  
 
-####  <a name="IMessageBoxService"></a>IMessageBoxService  
+####  <a name="IMessageBoxService"></a> IMessageBoxService  
  Deze interface biedt toegang tot methoden die u gebruiken kunt om berichten weer te geven. U vraagt zich misschien af waarom moet u een interface voor het weergeven van het bericht. De realiteit is dat u dit niet doet: Microsoft gebruikt deze interface met in code, omdat het helpt bij het schrijven van automatische tests voor designer's.  
 
  Gebruik van deze methoden biedt echter een handig voordeel: De dialoogvensters hebben altijd 'eigenaar' ingesteld op de Wizard UDI, die zorgt ervoor dat in het dialoogvenster met het hoofdvenster correct is gegroepeerd.  
@@ -3694,7 +3695,7 @@ public IMessageBoxService MessageBoxes { get; set; }
 |[ShowDialogWindow](#ShowDialogWindow)|Gebruik deze methode voor het maken van een nieuw dialoogvenster.|  
 |[ShowWizardWindow](#ShowWizardWindow)|Gebruik deze methode om weer te geven van een aangepaste editor in een dialoogvenster waarin **volgende** en **terug** knoppen voor navigatie.|  
 
-######  <a name="ShowMessageBox"></a>ShowMessageBox  
+######  <a name="ShowMessageBox"></a> ShowMessageBox  
  Deze methode wordt het bericht dat een onderliggend element van de editor aangepaste wizard weergegeven. Dit lid is overbelast: Tabel 73 bevat een lijst van de leden en een korte beschrijving van elke. Zie de sectie die overeenkomt met elk lid voor volledige informatie over elk lid (inclusief syntaxis, syntaxis en voorbeelden).  
 
 ### <a name="table-73-overloaded-members-for-the-showmessagbox-method"></a>Tabel 73. Overbelaste leden voor de methode ShowMessagBox  
@@ -3705,7 +3706,7 @@ public IMessageBoxService MessageBoxes { get; set; }
 |[ShowMessageBox (Tekenreeksbericht, tekenreeks bijschrift, MessageBoxButton knop, MessageBoxImage pictogram)](#ShowMessageBox_stringmessage_stringcaption_MessageBoxButtonbutton_MessageBoxImage_icon)|Geeft een berichtvenster met een pictogram en verschillende mogelijke combinaties van knoppen|  
 |[ShowMessageBox (uitzondering uitzondering)](#ShowMessageBox_Exception_exception)|Geeft een berichtvenster bevat informatie over een uitzondering veroorzaakt en is een **OK** knop|  
 
-######  <a name="ShowMessageBox_Stringmessage_Stringcaption_MessageBoxImage_icon"></a>ShowMessageBox (Tekenreeksbericht, tekenreeks bijschrift, MessageBoxImage pictogram)  
+######  <a name="ShowMessageBox_Stringmessage_Stringcaption_MessageBoxImage_icon"></a> ShowMessageBox (Tekenreeksbericht, tekenreeks bijschrift, MessageBoxImage pictogram)  
 
 ```  
 void ShowMessageBox(String message, String caption, MessageBoxImage icon);  
@@ -3718,10 +3719,10 @@ void ShowMessageBox(String message, String caption, MessageBoxImage icon);
 |**Parameter**|**Beschrijving**|  
 |-|-|  
 |**Bericht**|Het bericht dat wordt weergegeven in het gebied van de inhoud van het bericht|  
-|**bijschrift**|De tekst in de titelbalk van het dialoogvenster worden weergegeven|  
-|**pictogram**|Het type van het pictogram moet worden weergegeven in het berichtvenster|  
+|**Bijschrift**|De tekst in de titelbalk van het dialoogvenster worden weergegeven|  
+|**icon**|Het type van het pictogram moet worden weergegeven in het berichtvenster|  
 
-######  <a name="ShowMessageBox_stringmessage_stringcaption_MessageBoxButtonbutton_MessageBoxImage_icon"></a>ShowMessageBox (Tekenreeksbericht, tekenreeks bijschrift, MessageBoxButton knop, MessageBoxImage pictogram)  
+######  <a name="ShowMessageBox_stringmessage_stringcaption_MessageBoxButtonbutton_MessageBoxImage_icon"></a> ShowMessageBox (Tekenreeksbericht, tekenreeks bijschrift, MessageBoxButton knop, MessageBoxImage pictogram)  
 
 ```  
 MessageBoxResult ShowMessageBox(string message, string caption, MessageBoxButton button, MessageBoxImage icon);  
@@ -3734,11 +3735,11 @@ MessageBoxResult ShowMessageBox(string message, string caption, MessageBoxButton
 |**Parameter**|**Beschrijving**|  
 |-|-|  
 |**Bericht**|Het bericht dat wordt weergegeven in het gebied van de inhoud van het bericht|  
-|**bijschrift**|De tekst in de titelbalk van het dialoogvenster worden weergegeven|  
-|**knop**|Welke knoppen om weer te geven|  
-|**pictogram**|Het type van het pictogram moet worden weergegeven in het berichtvenster|  
+|**Bijschrift**|De tekst in de titelbalk van het dialoogvenster worden weergegeven|  
+|**Knop**|Welke knoppen om weer te geven|  
+|**icon**|Het type van het pictogram moet worden weergegeven in het berichtvenster|  
 
-######  <a name="ShowMessageBox_Exception_exception"></a>ShowMessageBox (uitzondering uitzondering)  
+######  <a name="ShowMessageBox_Exception_exception"></a> ShowMessageBox (uitzondering uitzondering)  
 
 ```  
 void ShowMessageBox(Exception exception);  
@@ -3750,9 +3751,9 @@ void ShowMessageBox(Exception exception);
 
 |**Parameter**|**Beschrijving**|  
 |-|-|  
-|**uitzondering**|De uitzondering die u rapporteren wilt (maakt gebruik van het dialoogvenster **uitzondering. Bericht** als de inhoud.)|  
+|**Uitzondering**|De uitzondering die u rapporteren wilt (maakt gebruik van het dialoogvenster **uitzondering. Bericht** als de inhoud.)|  
 
-######  <a name="ShowDialogWindow"></a>ShowDialogWindow  
+######  <a name="ShowDialogWindow"></a> ShowDialogWindow  
 
 ```  
 void ShowDialogWindow(Type viewType, DialogInteraction dialogPayload);  
@@ -3762,7 +3763,7 @@ void ShowDialogWindow(Type viewType, DialogInteraction dialogPayload);
 
  U kunt gegevens doorgeven aan het besturingselement met de parameter dialogPayload. De **SampleEditor** oplossing in de map SDK bevat een voorbeeld van hoe deze functie kunt gebruiken.  
 
-######  <a name="ShowWizardWindow"></a>ShowWizardWindow  
+######  <a name="ShowWizardWindow"></a> ShowWizardWindow  
 
 ```  
 void ShowWizardWindow(Type viewType, DialogInteraction dialogPayload);  
@@ -3770,7 +3771,7 @@ void ShowWizardWindow(Type viewType, DialogInteraction dialogPayload);
 
  Deze methode kunt u een aangepaste editor in een dialoogvenster waarin weergeven **volgende** en **terug** knoppen voor navigatie. Microsoft is niet opgegeven voor een voorbeeld voor het gebruik van deze methode.  
 
-###  <a name="UDIWizardConfigurationFileSchemaReference"></a>UDI Wizard Configuratie-bestandsverwijzing Schema  
+###  <a name="UDIWizardConfigurationFileSchemaReference"></a> UDI Wizard Configuratie-bestandsverwijzing Schema  
  Dit bestand wordt gebruikt door de Wizard UDI en geconfigureerd door de waarde van de Wizard UDI. Dit bestand wordt gebruikt voor het configureren van de:  
 
 -   Wizardpagina's weergegeven in de Wizard UDI  
@@ -3789,32 +3790,32 @@ void ShowWizardWindow(Type viewType, DialogInteraction dialogPayload);
 
 |**Elementnaam**|**Beschrijving**|  
 |-|-|  
-|[Gegevens](#Data)|De afzonderlijke groepen [DataItem](#DataItem) elementen in een [pagina](#Page) element en de naam is door de **naam** kenmerk.|  
+|[Data](#Data)|De afzonderlijke groepen [DataItem](#DataItem) elementen in een [pagina](#Page) element en de naam is door de **naam** kenmerk.|  
 |[DataItem](#DataItem)|De afzonderlijke groepen [Setter]() elementen in een [pagina](#Page) element. U kunt hiërarchische gegevens maken door een of meer [gegevens](#Data) elementen in een [DataItem](#DataItem) element. Elke **DataItem** element vertegenwoordigt een afzonderlijke item. Bijvoorbeeld, een lijst van beschikbare schijven wellicht een **DataItem** voor de weergavenaam en een andere **DataItem** element voor de bijbehorende stationsletter.|  
 |[Standaard](#Default)|Hiermee geeft u een standaardwaarde voor het veld dat is opgegeven in de bovenliggende [veld](#Field) of [groep met keuzerondjes](#RadioGroup) element. De standaardwaarde is ingesteld op de waarde tussen dit element.|  
-|[DLL-BESTAND](#DLL)|Hiermee geeft u een DLL-bestand dat moet worden geladen en waarnaar wordt verwezen door de Wizard UDI en de waarde van de Wizard UDI.|  
+|[DLL](#DLL)|Hiermee geeft u een DLL-bestand dat moet worden geladen en waarnaar wordt verwezen door de Wizard UDI en de waarde van de Wizard UDI.|  
 |[DLL-bestanden](#DLLs)|De afzonderlijke groepen [DLL](#DLL) elementen.|  
-|[Fout](#Error)|Hiermee geeft u een mogelijke foutcode die een taak kan kunt terugkeren. De waarde van de foutcode is geretourneerd door de taak **HRESULT** en wordt onderschept door dit element kunt u specifiekere foutinformatie verstrekt.|  
+|[Error](#Error)|Hiermee geeft u een mogelijke foutcode die een taak kan kunt terugkeren. De waarde van de foutcode is geretourneerd door de taak **HRESULT** en wordt onderschept door dit element kunt u specifiekere foutinformatie verstrekt.|  
 |[ExitCode](#ExitCode)|Hiermee geeft u een mogelijke afsluitcode voor een taak. De afsluitcodes zijn retourcodes die de taak wordt verwacht. Maak een **ExitCode** element voor elke mogelijke afsluitcode. Anders kunt u een sterretje (\*) in de **waarde** kenmerk voor het afhandelen van retourcodes die niet wordt weergegeven in andere **ExitCode** elementen.|  
 |[ExitCodes](#ExitCodes)|Een set met groepen [ExitCode](#ExitCode) en [fout](#Error) -elementen voor een [taak](#Task) element of een **fout** element.|  
-|[Veld](#Field)|Hiermee geeft u een exemplaar van een besturingselement in een [pagina](#Page) element dat wordt gebruikt voor aanpassing met XML. Niet alle besturingselementen kunt aanpassen met XML-alleen besturingselementen die gebruikmaken van de [veld](#Field) element.|  
-|[Velden](#Fields)|De afzonderlijke groepen [veld](#Field) elementen in een [pagina](#Page) element.|  
+|[Field](#Field)|Hiermee geeft u een exemplaar van een besturingselement in een [pagina](#Page) element dat wordt gebruikt voor aanpassing met XML. Niet alle besturingselementen kunt aanpassen met XML-alleen besturingselementen die gebruikmaken van de [veld](#Field) element.|  
+|[Fields](#Fields)|De afzonderlijke groepen [veld](#Field) elementen in een [pagina](#Page) element.|  
 |[Bestand](#File)|Hiermee geeft u de bron en bestemming voor een bestand kopiëren bewerking met de **Microsoft.Wizard.CopyFilesTask** type taak. U kunt een afzonderlijke opnemen **bestand** element meer dan één bestand kopiëren in één taak.|  
 |[Pagina](#Page)|Hiermee geeft u een exemplaar van een pagina en bevat alle configuratie-instellingen voor de pagina.|  
 |[PageRef](#PageRef)|Hiermee geeft u een verwijzing naar een exemplaar van een pagina binnen een [fase](#Stage) binnen een [StageGroup](#StageGroup).|  
 |[Pagina 's](#Pages)|De afzonderlijke groepen [pagina](#Page) elementen.|  
-|[Groep met keuzerondjes](#RadioGroup)|Hiermee geeft u een groep keuzerondjes binnen een [veld](#Field) element.|  
+|[RadioGroup](#RadioGroup)|Hiermee geeft u een groep keuzerondjes binnen een [veld](#Field) element.|  
 |[StageGroup](#StageGroup)|Hiermee geeft u een groep van een of meer fasen.|  
 |[StageGroups](#StageGroups)|Een set fase groepen in een configuratiebestand van de Wizard UDI gegroepeerd.|  
 |[Setter]()|Hiermee geeft u de instelling van een eigenschap van een waarde voor een eigenschap met de naam in de **eigenschap** eigenschap.|  
 |[Fase](#Stage)|Hiermee geeft u een fase binnen een [StageGroup](#StageGroup) en bevat een of meer [PageRef](#PageRef) elementen.|  
-|[Stijl](#Style)|De afzonderlijke groepen [setter]() elementen die de Wizard UDI uiterlijk, waaronder de titel wordt weergegeven aan de bovenkant van de wizard en de installatiekopie van het banner wordt weergegeven in de Wizard UDI configureren.|  
-|[Taak](#Task)|Hiermee geeft u een taak die moet worden uitgevoerd op de pagina die is opgegeven in de bovenliggende [pagina](#Page) element.|  
+|[stijl](#Style)|De afzonderlijke groepen [setter]() elementen die de Wizard UDI uiterlijk, waaronder de titel wordt weergegeven aan de bovenkant van de wizard en de installatiekopie van het banner wordt weergegeven in de Wizard UDI configureren.|  
+|[Task](#Task)|Hiermee geeft u een taak die moet worden uitgevoerd op de pagina die is opgegeven in de bovenliggende [pagina](#Page) element.|  
 |[Taken](#Tasks)|Groepen van een aantal taken voor een [pagina](#Page) element.|  
 |[Validator](#Validator)|Hiermee geeft u een controle voor het besturingselement dat is opgegeven in de bovenliggende [veld](#Field) element.|  
 |[Wizard](#Wizard)|Hiermee geeft u de hoofdmap voor alle andere elementen.|  
 
-####  <a name="Data"></a>Gegevens  
+####  <a name="Data"></a> Gegevens  
  Dit element de afzonderlijke groepen [DataItem](#DataItem) elementen in een [pagina](#Page) element en de naam is door de **naam** kenmerk.  
 
 ##### <a name="element-information"></a>Elementgegevens  
@@ -3825,7 +3826,7 @@ Tabel 78 bevat informatie over de [gegevens](#Data) element.
 |**Kenmerk**|**Waarde**|  
 |-|-|  
 |Aantal exemplaren|Nul of meer binnen elke [pagina](#Page) element (dit element is optioneel.)|  
-|Bovenliggende elementen|**Pagina**, **DataItem**|  
+|Bovenliggende elementen|**Page**, **DataItem**|  
 |Inhoud|**DataItem**, **Setter**|  
 
 ##### <a name="element-attributes"></a>Elementkenmerken  
@@ -3843,7 +3844,7 @@ Tabel 78 bevat informatie over de [gegevens](#Data) element.
 ##### <a name="example"></a>Voorbeeld  
  Geen.  
 
-####  <a name="DataItem"></a>DataItem  
+####  <a name="DataItem"></a> DataItem  
  Dit element de afzonderlijke groepen [Setter]() elementen in een [pagina](#Page) element. U kunt hiërarchische gegevens maken door een of meer [gegevens](#Data) elementen in een [DataItem](#DataItem) element. Elke **DataItem** element vertegenwoordigt een afzonderlijke item. Bijvoorbeeld, een lijst van beschikbare schijven wellicht een **DataItem** voor de weergavenaam en een andere **DataItem** element voor de bijbehorende stationsletter.  
 
 ##### <a name="element-information"></a>Elementgegevens  
@@ -3854,8 +3855,8 @@ Tabel 78 bevat informatie over de [gegevens](#Data) element.
 |**Kenmerk**|**Waarde**|  
 |-|-|  
 |Aantal exemplaren|Nul of meer binnen elke [gegevens](#Data) element (dit element is optioneel.)|  
-|Bovenliggende elementen|**Gegevens**|  
-|Inhoud|**Gegevens**, **Setter**|  
+|Bovenliggende elementen|**Data**|  
+|Inhoud|**Data**, **Setter**|  
 
 ##### <a name="element-attributes"></a>Elementkenmerken  
  Dit element heeft geen kenmerken.  
@@ -3877,7 +3878,7 @@ Tabel 81 bevat informatie over de [standaard](#Default) element.
 |**Kenmerk**|**Waarde**|  
 |-|-|  
 |Aantal exemplaren |Nul of meer binnen een [veld](#Field) of [groep met keuzerondjes](#RadioGroup) element (dit element is optioneel.)|  
-|Bovenliggende elementen|**Veld**, **groep met keuzerondjes**|  
+|Bovenliggende elementen|**Field**, **RadioGroup**|  
 |Inhoud|Kan juist opgemaakte XML inhoud maar wordt doorgaans standaardtekst|  
 
 ##### <a name="element-attributes"></a>Elementkenmerken  
@@ -3894,7 +3895,7 @@ Tabel 81 bevat informatie over de [standaard](#Default) element.
   <Default>Pacific Standard Time</Default>  
 ```  
 
-####  <a name="DLL"></a>DLL-BESTAND  
+####  <a name="DLL"></a> DLL  
  Dit element bevat een DLL-bestand voor de Wizard UDI en de Wizard UDI laden en verwijzen naar.  
 
 ##### <a name="element-information"></a>Elementgegevens  
@@ -3929,7 +3930,7 @@ Tabel 82 bevat informatie over de [DLL](#DLL) element.
 </DLLs>  
 ```  
 
-####  <a name="DLLs"></a>DLL-bestanden  
+####  <a name="DLLs"></a> DLL-bestanden  
  Dit element de afzonderlijke groepen [DLL](#DLL) elementen.  
 
 ##### <a name="element-information"></a>Elementgegevens  
@@ -3941,7 +3942,7 @@ Tabel 84 bevat informatie over de [dll's](#DLLs) element.
 |-|-|  
 |Aantal exemplaren|een|  
 |Bovenliggende elementen|**Wizard**|  
-|Inhoud|**DLL-BESTAND**|  
+|Inhoud|**DLL**|  
 
 ##### <a name="element-attributes"></a>Elementkenmerken  
  Dit element heeft geen kenmerken.  
@@ -3958,7 +3959,7 @@ Tabel 84 bevat informatie over de [dll's](#DLLs) element.
 </DLLs>  
 ```  
 
-####  <a name="Error"></a>Fout  
+####  <a name="Error"></a> Fout  
  Dit element bevat een mogelijke fout-code die een taak kan retourneren. De waarde van de foutcode is geretourneerd en onderschept door de taak **HRESULT** naar meer gedetailleerde foutinformatie verstrekt.  
 
 ##### <a name="element-information"></a>Elementgegevens  
@@ -3990,7 +3991,7 @@ Tabel 84 bevat informatie over de [dll's](#DLLs) element.
 ##### <a name="example"></a>Voorbeeld  
  Geen.  
 
-####  <a name="ExitCode"></a>ExitCode  
+####  <a name="ExitCode"></a> ExitCode  
  Dit element bevat een mogelijk afsluitcode voor een taak. De afsluitcodes zijn retourcodes die de taak wordt verwacht. Maak een **ExitCode** element voor elke mogelijke afsluitcode. Anders kunt u een sterretje (\*) in de **waarde** kenmerk voor het afhandelen van retourcodes die niet wordt weergegeven in andere **ExitCode** elementen.  
 
 ##### <a name="element-information"></a>Elementgegevens  
@@ -4022,7 +4023,7 @@ Tabel 88 hier worden de kenmerken van de [ExitCode](#ExitCode) element en biedt 
 ##### <a name="example"></a>Voorbeeld  
  Geen.  
 
-####  <a name="ExitCodes"></a>ExitCodes  
+####  <a name="ExitCodes"></a> ExitCodes  
  Dit element een set met groepen [ExitCode](#ExitCode) en [fout](#Error) -elementen voor een [taak](#Task) of een **fout** element.  
 
 ##### <a name="element-information"></a>Elementgegevens  
@@ -4033,8 +4034,8 @@ Tabel 89 bevat informatie over de [ExitCodes](#ExitCodes) element.
 |**Kenmerk**|**Waarde**|  
 |-|-|  
 |Aantal exemplaren|Een binnen elke [taak](#Task) element|  
-|Bovenliggende elementen|**Taak**|  
-|Inhoud|**Fout**, **ExitCode**|  
+|Bovenliggende elementen|**Task**|  
+|Inhoud|**Error**, **ExitCode**|  
 
 ##### <a name="element-attributes"></a>Elementkenmerken  
  Dit element heeft geen kenmerken.  
@@ -4045,7 +4046,7 @@ Tabel 89 bevat informatie over de [ExitCodes](#ExitCodes) element.
 ##### <a name="example"></a>Voorbeeld  
  Geen.  
 
-####  <a name="Field"></a>Veld  
+####  <a name="Field"></a> Veld  
  Dit element bevat een exemplaar van een besturingselement in een [pagina](#Page) element gebruikt voor aanpassing met XML. Niet alle besturingselementen kunt aanpassen met XML-alleen besturingselementen die gebruikmaken van de [veld](#Field) element.  
 
 ##### <a name="element-information"></a>Elementgegevens  
@@ -4056,7 +4057,7 @@ Tabel 89 bevat informatie over de [ExitCodes](#ExitCodes) element.
 |**Kenmerk**|**Waarde**|  
 |-|-|  
 |Aantal exemplaren|Nul of meer binnen elke [veld](#Field) element (dit element is optioneel.)|  
-|Bovenliggende elementen|**Velden**|  
+|Bovenliggende elementen|**Fields**|  
 |Inhoud|**Standaard**, **Validator**|  
 
 ##### <a name="element-attributes"></a>Elementkenmerken  
@@ -4066,10 +4067,10 @@ Tabel 91 hier worden de kenmerken van de [veld](#Field) element en biedt een bes
 
 |**Kenmerk**|**Beschrijving**|  
 |-|-|  
-|**Ingeschakeld**|Geeft aan of het veld is ingeschakeld voor de gebruiker invoer (het kenmerk kan worden ingesteld op True of False.)|  
+|**ingeschakeld**|Geeft aan of het veld is ingeschakeld voor de gebruiker invoer (het kenmerk kan worden ingesteld op True of False.)|  
 |**Naam**|Hiermee geeft u de naam van het veld|  
 |**Samenvatting**|Hiermee geeft u de beschrijvende tekst die wordt weergegeven op de **samenvatting** wizardpagina voor de waarde die in dit veld wordt ingesteld|  
-|**Varnaam**|Hiermee geeft u de variabele takenreeksnaam lezen of geconfigureerd met behulp van het veld in de bovenliggende [veld](#Field) element|  
+|**VarName**|Hiermee geeft u de variabele takenreeksnaam lezen of geconfigureerd met behulp van het veld in de bovenliggende [veld](#Field) element|  
 
 ##### <a name="remarks"></a>Opmerkingen  
  Dit element kan nul of meer bevatten [standaard](#Default) elementen en nul of meer [Validator](#Validator) elementen.  
@@ -4077,7 +4078,7 @@ Tabel 91 hier worden de kenmerken van de [veld](#Field) element en biedt een bes
 ##### <a name="example"></a>Voorbeeld  
  Geen.  
 
-####  <a name="Fields"></a>Velden  
+####  <a name="Fields"></a> Velden  
  Dit element de afzonderlijke groepen [veld](#Field) elementen in een [pagina](#Page) element.  
 
 ##### <a name="element-information"></a>Elementgegevens  
@@ -4089,7 +4090,7 @@ Tabel 92 bevat informatie over de [velden](#Fields) element.
 |-|-|  
 |Aantal exemplaren|Nul of meer binnen elke [pagina](#Page) element (dit element is optioneel.)|  
 |Bovenliggende elementen|**Pagina**|  
-|Inhoud|**Veld**, **groep met keuzerondjes**|  
+|Inhoud|**Field**, **RadioGroup**|  
 
 ##### <a name="element-attributes"></a>Elementkenmerken  
  Dit element heeft geen kenmerken.  
@@ -4100,7 +4101,7 @@ Tabel 92 bevat informatie over de [velden](#Fields) element.
 ##### <a name="example"></a>Voorbeeld  
  Geen.  
 
-####  <a name="File"></a>Bestand  
+####  <a name="File"></a> Bestand  
  Dit element geeft de bron en bestemming voor een bestand kopiëren bewerking met de **Microsoft.Wizard.CopyFilesTask** type taak. U kunt een afzonderlijke opnemen [bestand](#File) element meer dan één bestand kopiëren in één taak.  
 
 ##### <a name="element-information"></a>Elementgegevens  
@@ -4111,7 +4112,7 @@ Tabel 92 bevat informatie over de [velden](#Fields) element.
 |**Kenmerk**|**Waarde**|  
 |-|-|  
 |Aantal exemplaren|Een of meer voor elke taak die een type taak van **Microsoft.Wizard.CopyFilesTask**|  
-|Bovenliggende elementen|**Taak**|  
+|Bovenliggende elementen|**Task**|  
 |Inhoud|Geen|  
 
 ##### <a name="element-attributes"></a>Elementkenmerken  
@@ -4121,7 +4122,7 @@ Tabel 92 bevat informatie over de [velden](#Fields) element.
 
 |**Kenmerk**|**Beschrijving**|  
 |-|-|  
-|**Doel**|Hiermee wordt het volledig gekwalificeerde of relatieve pad naar de doelmap voor het bestand dat is opgegeven in de **bron** kenmerk. Omgevingsvariabelen zijn toegestaan als onderdeel van het pad.|  
+|**Dest**|Hiermee wordt het volledig gekwalificeerde of relatieve pad naar de doelmap voor het bestand dat is opgegeven in de **bron** kenmerk. Omgevingsvariabelen zijn toegestaan als onderdeel van het pad.|  
 |**Bron**|Hiermee geeft u de volledig gekwalificeerde of relatieve pad naar de bron-bestand dat de **Microsoft.Wizard.CopyFilesTask** type kopieën van de taak. Dit kenmerk ondersteunt jokertekens bevatten, zodat meerdere bestanden kunnen worden gekopieerd met behulp van één [bestand](#File) element. Omgevingsvariabelen zijn toegestaan als onderdeel van het pad.|  
 
 ##### <a name="remarks"></a>Opmerkingen  
@@ -4130,7 +4131,7 @@ Tabel 92 bevat informatie over de [velden](#Fields) element.
 ##### <a name="example"></a>Voorbeeld  
  Geen.  
 
-####  <a name="PageElement"></a>Pagina  
+####  <a name="PageElement"></a> Pagina  
  Dit element bevat een exemplaar van een pagina en bevat alle configuratie-instellingen voor de pagina.  
 
 ##### <a name="element-information"></a>Elementgegevens  
@@ -4142,7 +4143,7 @@ Tabel 95 bevat informatie over de [pagina](#Page) element.
 |-|-|  
 |Aantal exemplaren|Een of meer binnen elke [pagina's](#Pages) element|  
 |Bovenliggende elementen|**Pagina 's**|  
-|Inhoud|**Gegevens**, **velden**, **Setter**, **taken**|  
+|Inhoud|**Data**, **Fields**, **Setter**, **Tasks**|  
 
 ##### <a name="element-attributes"></a>Elementkenmerken  
 Tabel 96 zijn de kenmerken van de [pagina](#Page) element en biedt een beschrijving van elke.  
@@ -4151,7 +4152,7 @@ Tabel 96 zijn de kenmerken van de [pagina](#Page) element en biedt een beschrijv
 
 |**Kenmerk**|**Beschrijving**|  
 |-|-|  
-|**Weergavenaam**|Hiermee geeft u de beschrijvende naam van de wizardpagina weergegeven in de waarde van de Wizard UDI. Deze naam is meestal de meer beschrijvende dan de **naam** kenmerk.|  
+|**DisplayName**|Hiermee geeft u de beschrijvende naam van de wizardpagina weergegeven in de waarde van de Wizard UDI. Deze naam is meestal de meer beschrijvende dan de **naam** kenmerk.|  
 |**Naam**|Hiermee geeft u de naam van de wizardpagina weergegeven in de waarde van de Wizard UDI.|  
 |**Type**|Geeft het type van de wizardpagina die rechtstreeks is gekoppeld aan een specifieke wizardpagina binnen een DLL-bestand.|  
 
@@ -4161,7 +4162,7 @@ Tabel 96 zijn de kenmerken van de [pagina](#Page) element en biedt een beschrijv
 ##### <a name="example"></a>Voorbeeld  
  Geen.  
 
-####  <a name="PageRef"></a>PageRef  
+####  <a name="PageRef"></a> PageRef  
  Dit element bevat een verwijzing naar een exemplaar van een pagina binnen een [fase](#Stage) binnen een [StageGroup](#StageGroup).  
 
 ##### <a name="element-information"></a>Elementgegevens  
@@ -4190,7 +4191,7 @@ Tabel 98 geeft een lijst van het kenmerk van de [PageRef](#PageRef) element en b
 ##### <a name="example"></a>Voorbeeld  
  Geen.  
 
-####  <a name="Pages"></a>Pagina 's  
+####  <a name="Pages"></a> Pagina 's  
  Dit element de afzonderlijke groepen [pagina](#Page) elementen.  
 
 ##### <a name="element-information"></a>Elementgegevens  
@@ -4233,7 +4234,7 @@ Tabel 99 bevat informatie over de [pagina's](#Pages) element.
 </Pages>  
 ```  
 
-####  <a name="RadioGroup"></a>Groep met keuzerondjes  
+####  <a name="RadioGroup"></a> RadioGroup  
  Dit element bevat een groep keuzerondjes met in een [veld](#Field) element.  
 
 ##### <a name="element-information"></a>Elementgegevens  
@@ -4244,7 +4245,7 @@ Tabel 99 bevat informatie over de [pagina's](#Pages) element.
 |**Kenmerk**|**Waarde**|  
 |-|-|  
 |Aantal exemplaren|Nul of meer binnen een [velden](#Fields) element (dit element is optioneel.)|  
-|Bovenliggende elementen|**Velden**|  
+|Bovenliggende elementen|**Fields**|  
 |Inhoud|**Standaard**|  
 
 ##### <a name="element-attributes"></a>Elementkenmerken  
@@ -4254,7 +4255,7 @@ Tabel 99 bevat informatie over de [pagina's](#Pages) element.
 
 |**Kenmerk**|**Beschrijving**|  
 |-|-|  
-|**Vergrendeld**|Hiermee geeft u op of de groep keuzerondjes voor invoer van de gebruiker is ingeschakeld. Het kenmerk kan worden ingesteld op:<br /><br /> -   **De waarde True**. Specificeert dat de keuzerondjes zijn uitgeschakeld en dat gebruikers een keuzerondje in de groep niet selecteren.<br />-   **ONWAAR**. Specificeert dat de keuzerondjes zijn ingeschakeld en gebruikers een keuzerondje in de groep selecteren kunnen.|  
+|**Vergrendeld**|Hiermee geeft u op of de groep keuzerondjes voor invoer van de gebruiker is ingeschakeld. Het kenmerk kan worden ingesteld op:<br /><br /> -   **True**. Specificeert dat de keuzerondjes zijn uitgeschakeld en dat gebruikers een keuzerondje in de groep niet selecteren.<br />-   **False**. Specificeert dat de keuzerondjes zijn ingeschakeld en gebruikers een keuzerondje in de groep selecteren kunnen.|  
 |**Naam**|Hiermee geeft u de naam van de groep keuzerondjes optie.|  
 
 ##### <a name="remarks"></a>Opmerkingen  
@@ -4263,7 +4264,7 @@ Tabel 99 bevat informatie over de [pagina's](#Pages) element.
 ##### <a name="example"></a>Voorbeeld  
  Geen.  
 
-####  <a name="StageGroup"></a>StageGroup  
+####  <a name="StageGroup"></a> StageGroup  
  Dit element bevat een implementatiegroep fase.  
 
 ##### <a name="element-information"></a>Elementgegevens  
@@ -4284,7 +4285,7 @@ Tabel 99 bevat informatie over de [pagina's](#Pages) element.
 
 |**Kenmerk**|**Beschrijving**|  
 |-|-|  
-|**Weergavenaam**|Hiermee geeft u de beschrijvende naam van de fase groep weergegeven in de waarde van de Wizard UDI. Deze naam is meestal de meer beschrijvende dan de **naam** kenmerk.|  
+|**DisplayName**|Hiermee geeft u de beschrijvende naam van de fase groep weergegeven in de waarde van de Wizard UDI. Deze naam is meestal de meer beschrijvende dan de **naam** kenmerk.|  
 
 ##### <a name="remarks"></a>Opmerkingen  
  Geen.  
@@ -4292,7 +4293,7 @@ Tabel 99 bevat informatie over de [pagina's](#Pages) element.
 ##### <a name="example"></a>Voorbeeld  
  Geen.  
 
-####  <a name="StageGroups"></a>StageGroups  
+####  <a name="StageGroups"></a> StageGroups  
  Dit element gegroepeerd op een reeks fase groepen binnen een configuratiebestand van de Wizard UDI.  
 
 ##### <a name="element-information"></a>Elementgegevens  
@@ -4315,7 +4316,7 @@ Tabel 99 bevat informatie over de [pagina's](#Pages) element.
 ##### <a name="example"></a>Voorbeeld  
  Geen.  
 
-####  <a name="Setter"></a>Setter  
+####  <a name="Setter"></a> Setter  
  Dit element bevat een instelling voor de waarde voor een eigenschap met de naam in de **eigenschap** eigenschap.  
 
 ##### <a name="element-information"></a>Elementgegevens  
@@ -4326,7 +4327,7 @@ Tabel 99 bevat informatie over de [pagina's](#Pages) element.
 |**Kenmerk**|**Waarde**|  
 |-|-|  
 |Aantal exemplaren|Nul of meer binnen elke bovenliggende element (dit element is optioneel.)|  
-|Bovenliggende elementen|**Gegevens**, **DataItem**, **pagina**, **stijl**, **taak**, **Validator**|  
+|Bovenliggende elementen|**Data**, **DataItem**, **Page**, **Style**, **Task**, **Validator**|  
 |Inhoud|Bevat een string-waarde in de **eigenschap** kenmerk|  
 
 ##### <a name="element-attributes"></a>Elementkenmerken  
@@ -4365,7 +4366,7 @@ Tabel 99 bevat informatie over de [pagina's](#Pages) element.
 
 |**Kenmerk**|**Beschrijving**|  
 |-|-|  
-|**Weergavenaam**|Hiermee geeft u de beschrijvende naam van de wizardpagina weergegeven in de waarde van de Wizard UDI. Deze naam is meestal de meer beschrijvende dan de **naam** kenmerk.|  
+|**DisplayName**|Hiermee geeft u de beschrijvende naam van de wizardpagina weergegeven in de waarde van de Wizard UDI. Deze naam is meestal de meer beschrijvende dan de **naam** kenmerk.|  
 |**Naam**|Hiermee geeft u de naam van de fase. De waarde van dit element wordt gebruikt bij het starten van de Wizard UDI met de **/fase: naam** opdrachtregelparameter.|  
 
 ##### <a name="remarks"></a>Opmerkingen  
@@ -4374,7 +4375,7 @@ Tabel 99 bevat informatie over de [pagina's](#Pages) element.
 ##### <a name="example"></a>Voorbeeld  
  Geen.  
 
-####  <a name="Style"></a>Stijl  
+####  <a name="Style"></a> stijl  
  Dit element de afzonderlijke groepen [Setter]() elementen die de Wizard UDI uiterlijk, waaronder de titel wordt weergegeven aan de bovenkant van de wizard en de installatiekopie van het banner wordt weergegeven in de Wizard UDI configureren.  
 
 ##### <a name="element-information"></a>Elementgegevens  
@@ -4403,7 +4404,7 @@ Tabel 99 bevat informatie over de [pagina's](#Pages) element.
 </Style>  
 ```  
 
-####  <a name="TaskElement"></a>Taak  
+####  <a name="TaskElement"></a> Taak  
  Dit element bevat een taak die moet worden uitgevoerd op de pagina die is opgegeven in de bovenliggende [pagina](#Page) element.  
 
 ##### <a name="element-information"></a>Elementgegevens  
@@ -4415,7 +4416,7 @@ Tabel 110 bevat informatie over de [taak](#Task) element.
 |-|-|  
 |Aantal exemplaren|Een of meer binnen een [taken](#Tasks) element|  
 |Bovenliggende elementen|**Taken**|  
-|Inhoud|**ExitCodes**, **bestand**, **Setter**|  
+|Inhoud|**ExitCodes**, **File**, **Setter**|  
 
 ##### <a name="element-attributes"></a>Elementkenmerken  
 Tabel 111 hier worden de kenmerken van de [taak](#Task) element en biedt een beschrijving van elke.  
@@ -4425,7 +4426,7 @@ Tabel 111 hier worden de kenmerken van de [taak](#Task) element en biedt een bes
 |**Kenmerk**|**Beschrijving**|  
 |-|-|  
 |**DependsOn**|Hiermee geeft u op of de taak afhankelijk is van een andere taak. De waarde van dit kenmerk is ingesteld op de **naam** kenmerk van een andere [taak](#Task) element. **Opmerking:**  Dit kenmerk kan niet worden geconfigureerd met behulp van de waarde van de Wizard UDI. U kunt echter handmatig toevoegen dit kenmerk een [taak](#Task) element het .xml-bestand rechtstreeks wijzigen.|  
-|**Weergavenaam**|Hiermee geeft u de beschrijvende naam van de taak die wordt weergegeven in de ontwerpfunctie van de Wizard UDI. Deze naam is meestal de meer beschrijvende dan de **naam** kenmerk.|  
+|**DisplayName**|Hiermee geeft u de beschrijvende naam van de taak die wordt weergegeven in de ontwerpfunctie van de Wizard UDI. Deze naam is meestal de meer beschrijvende dan de **naam** kenmerk.|  
 |**Naam**|Hiermee geeft u de naam van de taak. Deze naam moet uniek zijn.|  
 |Type|Geeft het taaktype voor de taak moet worden uitgevoerd die is gedefinieerd in het DLL-bestand met de taak.|  
 
@@ -4435,7 +4436,7 @@ Tabel 111 hier worden de kenmerken van de [taak](#Task) element en biedt een bes
 ##### <a name="example"></a>Voorbeeld  
  Geen.  
 
-####  <a name="Tasks"></a>Taken  
+####  <a name="Tasks"></a> Taken  
  Dit element groepen een aantal taken voor een [pagina](#Page) element.  
 
 ##### <a name="element-information"></a>Elementgegevens  
@@ -4447,7 +4448,7 @@ Tabel 112 bevat informatie over de [taken](#Tasks) element.
 |-|-|  
 |Aantal exemplaren|Nul of één in elk [pagina](#Page) element (dit element is optioneel.)|  
 |Bovenliggende elementen|**Pagina**|  
-|Inhoud|**Taak**|  
+|Inhoud|**Task**|  
 
 ##### <a name="element-attributes"></a>Elementkenmerken  
 Tabel 113 hier worden de kenmerken van de [taken](#Tasks) element en biedt een beschrijving van elke.  
@@ -4465,7 +4466,7 @@ Tabel 113 hier worden de kenmerken van de [taken](#Tasks) element en biedt een b
 ##### <a name="example"></a>Voorbeeld  
  Geen.  
 
-####  <a name="ValidatorElement"></a>Validator  
+####  <a name="ValidatorElement"></a> Validator  
  Dit element bevat een validatiefunctie voor het veldbesturingselement dat is opgegeven in de bovenliggende [veld](#Field) element.  
 
 ##### <a name="element-information"></a>Elementgegevens  
@@ -4476,7 +4477,7 @@ Tabel 114 bevat informatie over de [Validator](#Validator) element.
 |**Kenmerk**|**Waarde**|  
 |-|-|  
 |Aantal exemplaren|Nul of één binnen een [veld](#Field) element|  
-|Bovenliggende elementen|**Veld**|  
+|Bovenliggende elementen|**Field**|  
 |Inhoud|**Setter**|  
 
 ##### <a name="element-attributes"></a>Elementkenmerken  
@@ -4494,7 +4495,7 @@ Tabel 114 bevat informatie over de [Validator](#Validator) element.
 ##### <a name="example"></a>Voorbeeld  
  Geen.  
 
-####  <a name="Wizard"></a>Wizard  
+####  <a name="Wizard"></a> Wizard  
  Dit element bevat de hoofdmap voor alle andere elementen.  
 
 ##### <a name="element-information"></a>Elementgegevens  
@@ -4506,7 +4507,7 @@ Tabel 116 bevat informatie over de [Wizard](#Wizard) element.
 |-|-|  
 |Aantal exemplaren|een|  
 |Bovenliggende elementen|Geen|  
-|Inhoud|**DLL's**, **pagina's**, **StageGroups**, **stijl**|  
+|Inhoud|**DLLs**, **Pages**, **StageGroups**, **Style**|  
 
 ##### <a name="element-attributes"></a>Elementkenmerken  
  Dit element heeft geen kenmerken.  

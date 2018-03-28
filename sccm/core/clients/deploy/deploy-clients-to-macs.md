@@ -7,19 +7,20 @@ ms.date: 05/04/2017
 ms.prod: configuration-manager
 ms.reviewer: aaroncz
 ms.suite: na
-ms.technology: configmgr-client
+ms.technology:
+- configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e46ad501-5d73-44ac-92de-0de14ef72b83
-caps.latest.revision: "12"
+caps.latest.revision: ''
 author: arob98
 ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: 1b7f20a48e0e7219d933c367fb9f0315fc287dfd
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="how-to-deploy-clients-to-macs"></a>Clients implementeren op Mac-computers
 
@@ -162,7 +163,7 @@ Gebruik deze procedure voor automatisering van de installatie van de client en a
 
      De gebruikersnaam en het overeenkomstige wachtwoord moeten overeenkomen met een Active Directory-gebruikersaccount waaraan de machtigingen Lezen en Inschrijven zijn toegekend op het certificaatsjabloon voor de Mac-client.  
 
-     Voorbeeld: Als de naam van de inschrijvingsserver van de proxy-punt **server02.contoso.com**, en een gebruikersnaam van **contoso\mnorth** is machtigingen beschikt voor de certificaatsjabloon voor Mac-client, typt u het volgende: **sudo. / CMEnroll -s server02.contoso.com - ignorecertchainvalidation -u 'contoso\mnorth'**  
+     Voorbeeld: Als de naam van de inschrijvingsserver van de proxy-punt **server02.contoso.com**, en een gebruikersnaam van **contoso\mnorth** is machtigingen beschikt voor de certificaatsjabloon voor Mac-client, typt u het volgende:  **sudo. / CMEnroll -s server02.contoso.com - ignorecertchainvalidation -u 'contoso\mnorth'**  
 
     > [!NOTE]  
     >  Als de gebruikersnaam een van de tekens bevat  **&lt;> "+=,** , mislukt de registratie. Verkrijgen van een out-of-band-certificaat met een gebruikersnaam die deze tekens niet bevat.  
@@ -198,7 +199,7 @@ Gebruik deze procedure voor automatisering van de installatie van de client en a
 > -   Het bestand Bill of Materials (BOM) bestand en eigenschappenlijst (.plist) gemaakt door de installatie van de Configuration Manager-client.  
 > -   De inhoud van de map  /Library/Application Support/Microsoft/CCM/Logs.  
 >   
->  De informatie die is verzameld door CmDiagnostics wordt toegevoegd aan een zip-bestand dat wordt opgeslagen op het bureaublad van de computer en de naam cmdiag -*< hostnaam\>***-***&gt;datum en tijd\>*. zip.* **
+>  De informatie die is verzameld door CmDiagnostics wordt toegevoegd aan een zip-bestand dat wordt opgeslagen op het bureaublad van de computer en de naam cmdiag -*< hostnaam\>***-***&gt;datum en tijd\>* . zip.* **
 
 
 ##  <a name="use-a-certificate-request-and-installation-method-that-is-independent-from-configuration-manager"></a>Gebruik een certificaataanvraag en -installatiemethode die onafhankelijk is van Configuration Manager  
@@ -221,7 +222,7 @@ Vervolgens deze taken uitvoeren:
 
 3.  Voer de volgende opdrachtregel: **sudo. / ccmsetup -MP < beheerpunt Internet FQDN\> - SubjectName < onderwerpwaarde van het certificaat\>**.  De certificaatonderwerpwaarde is hoofdlettergevoelig; typ dit dus exact in zoals deze in de certificaatdetails wordt weergegeven.  
 
-     Voorbeeld: Als de Internet-FQDN in de sitesysteemeigenschappen is **server03.contoso.com** en het Mac-clientcertificaat de FQDN van heeft **mac12.contoso.com** als algemene naam in het certificaatonderwerp, typ: **sudo. / ccmsetup -MP server03.contoso.com - SubjectName mac12.contoso.com**  
+     Voorbeeld: Als de Internet-FQDN in de sitesysteemeigenschappen is **server03.contoso.com** en het Mac-clientcertificaat de FQDN van heeft **mac12.contoso.com** als algemene naam in het certificaatonderwerp, typ:  **sudo. / ccmsetup -MP server03.contoso.com - SubjectName mac12.contoso.com**  
 
 4.  Wacht tot u het bericht **Installatie voltooid** ziet en start vervolgens de computer opnieuw op.  
 

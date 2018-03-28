@@ -7,20 +7,21 @@ ms.date: 07/25/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 29ae59b7-2695-4a0f-a9ff-4f29222f28b3
-caps.latest.revision: "7"
-caps.handback.revision: "0"
+caps.latest.revision: ''
+caps.handback.revision: ''
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
 ms.openlocfilehash: 9ef62bbf6269a6090f2345b10c24cc4df16c1e3b
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="configure-certificate-infrastructure"></a>Certificaatinfrastructuur configureren
 
@@ -52,7 +53,7 @@ Volg deze stappen om uw infrastructuur configureren voor SCEP, of PFX-certificat
          Deze vereiste is niet specifiek voor System Center Configuration Manager, maar maakt deel uit van de configuratie van de Network Device Enrollment Service. Zie [Network Device Enrollment Service Guidance](http://go.microsoft.com/fwlink/p/?LinkId=309016) (Richtlijnen voor de Registratieservice van netwerkapparaten) in de bibliotheek Active Directory Certificate Services op TechNet voor meer informatie.  
 
     > [!TIP]  
-    >  Weergeven om te identificeren welke sjablonen die het gebruik van de Network Device Enrollment Service, de volgende registersleutel op de server waarop de Network Device Enrollment Service wordt uitgevoerd: Hkey_local_machine\software\microsoft\cryptography\mscep bij te.  
+    >  Weergeven om te identificeren welke sjablonen die het gebruik van de Network Device Enrollment Service, de volgende registersleutel op de server waarop de Network Device Enrollment Service wordt uitgevoerd: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography\MSCEP.  
 
     > [!NOTE]  
     >  Dit zijn de standaardbeveiligingsmachtigingen die geschikt zijn voor de meeste omgevingen. U kunt echter een alternatieve beveiligingsconfiguratie gebruiken. Voor meer informatie, zie [Certificaatsjabloonmachtigingen voor certificaatprofielen plannen in System Center Configuration Manager](../../protect/plan-design/planning-for-certificate-template-permissions.md).  
@@ -88,7 +89,7 @@ Volg deze stappen om uw infrastructuur configureren voor SCEP, of PFX-certificat
 
 7.  Als u wilt dat een certificaat aanvragen dat een kortere geldigheidsperiode dan de certificaatsjabloon die u gebruikt: Deze configuratie is voor een ondernemings-CA standaard uitgeschakeld. Het opdrachtregelprogramma Certutil gebruiken, vervolgens de certificaatservice stopzetten en opnieuw opstarten met behulp de volgende opdrachten, om deze optie op een ondernemings-CA in te schakelen:  
 
-    1.  **certutil - setreg Policy\EditFlags + EDITF_ATTRIBUTEENDDATE**  
+    1.  **certutil - setreg Policy\EditFlags +EDITF_ATTRIBUTEENDDATE**  
 
     2.  **net stop certsvc**  
 
@@ -96,7 +97,7 @@ Volg deze stappen om uw infrastructuur configureren voor SCEP, of PFX-certificat
 
      Zie [Certificate Services Tools and Settings](http://go.microsoft.com/fwlink/p/?LinkId=309015) (Certificate Services: hulpprogramma's en instellingen) in de PKI-technologiebibliotheek op Technet voor meer informatie.  
 
-8.  Controleer of de registratieservice voor netwerkapparaten werkt door de volgende koppeling als voorbeeld te gebruiken: **https://server.contoso.com/certsrv/mscep/mscep.dll**. U zou de ingebouwde webpagina van de registratieservice voor netwerkapparaten moeten zien. Deze webpagina legt uit waaruit de service bestaat en legt uit dat netwerkapparaten de URL gebruiken om certificaataanvragen te verzenden.  
+8.  Controleren of de Network Device Enrollment Service werkt met behulp van de volgende koppeling als voorbeeld: **https://server.contoso.com/certsrv/mscep/mscep.dll**. U zou de ingebouwde webpagina van de registratieservice voor netwerkapparaten moeten zien. Deze webpagina legt uit waaruit de service bestaat en legt uit dat netwerkapparaten de URL gebruiken om certificaataanvragen te verzenden.  
 
  Nu dat de registratieservice voor netwerkapparaten en afhankelijkheden zijn geconfigureerd, bent u klaar om het certificaatregistratiepunt nu te installeren en configureren.
 
@@ -130,7 +131,7 @@ U moet installeren en configureren van ten minste één certificaatregistratiepu
     -   Als u hebt geselecteerd **proces SCEP-certificaataanvragen**, configureer dan het volgende:
         -   **Websitenaam**, **HTTPS-poortnummer**, en **virtuele toepassingsnaam** voor het certificaatregistratiepunt. Deze velden worden automatisch ingevuld met standaardwaarden. 
         -   **URL voor registratieservice voor netwerkapparaten en basis-CA-certificaat** -Klik op **toevoegen**, klik dan in de **URL toevoegen en CA-basiscertificaat** dialoogvenster geeft u het volgende:
-            - **URL voor de Network Device Enrollment Service**: Geef de URL in de volgende indeling: https://*< server_FQDN >*/certsrv/mscep/mscep.dll. Als bijvoorbeeld de FQDN van uw server waarop de registratieservice voor netwerkapparaten wordt uitgevoerd server1.contoso.com is, typt u **https://server1.contoso.com/certsrv/mscep/mscep.dll**.
+            - **URL voor de Network Device Enrollment Service**: Geef de URL in de volgende indeling: https://*< server_FQDN >*/certsrv/mscep/mscep.dll. Als de FQDN-naam van uw server waarop de Network Device Enrollment Service wordt uitgevoerd server1.contoso.com is, bijvoorbeeld **https://server1.contoso.com/certsrv/mscep/mscep.dll**.
             - **CA-basiscertificaat**: Blader naar en selecteer het certificaatbestand (.cer) dat u hebt gemaakt en opgeslagen in **stap 1: Installeer en configureer de registratieservice voor netwerkapparaten en afhankelijkheden**. Dit CA-basiscertificaat kan het certificaatregistratiepunt voor het valideren van de client certificaat voor clientverificatie die door de System Center Configuration Manager-beleidsmodule wordt gebruikt.  
 
     - Als u hebt geselecteerd **proces PFX-certificaataanvragen**, u de verbindingsgegevens en referenties voor de geselecteerde certificeringsinstantie configureren.
@@ -162,7 +163,7 @@ U moet installeren en configureren van ten minste één certificaatregistratiepu
 
     -   Gebruik op de sitesysteemserver de bestanden *<Installatiepad Configuration Manager\>*\Logs\crpsetup.log en *<Installatiepad Configuration Manager\>*\Logs\crpmsi.log. Een geslaagde installatie retourneert een afsluitcode 0.  
 
-    -   Controleer of u verbinding kunt maken met de URL van het certificaat registratie pointâ€ via een browser "bijvoorbeeld: https://server1.contoso.com/CMCertificateRegistration. U moet een **Serverfout**-pagina zien voor de toepassingsnaam, met een HTTP 404-beschrijving.  
+    -   Controleer of u verbinding kunt maken met de URL van het certificaat registratie pointâ€ via een browser "bijvoorbeeld https://server1.contoso.com/CMCertificateRegistration. U moet een **Serverfout**-pagina zien voor de toepassingsnaam, met een HTTP 404-beschrijving.  
 
 11. Zoek het geëxporteerde certificaatbestand voor de basis-CA dat het certificaatregistratiepunt automatisch in de volgende map op de primaire siteservercomputer heeft gemaakt: *<Installatiepad ConfigMgr\>*\inboxes\certmgr.box. Dit bestand opslaan in een veilige locatie met veilige toegang wanneer u later de System Center Configuration Manager-beleidsmodule installeert op de server waarop de Network Device Enrollment Service wordt uitgevoerd.  
 
@@ -190,7 +191,7 @@ U moet installeren en configureren van de System Center Configuration Manager-be
 
 4.  Op de pagina **Installatiemap**, aanvaardt u de standaardinstallatiemap voor de beleidsmodule of geeft u een alternatieve map op. Klik vervolgens op **Volgende**.  
 
-5.  Geef op de pagina **Certificaatregistratiepunt** de URL van het certificaatregistratiepunt op met behulp van de FQDN van de sitesysteemserver en de virtuele toepassingsnaam die is opgegeven in de eigenschappen voor het certificaatregistratiepunt. De standaardnaam van de virtuele toepassing is CMCertificateRegistration. Als bijvoorbeeld de sitesysteemserver een FQDN van server1.contoso.com heeft en u de standaardnaam van de virtuele toepassing gebruikte, geeft u **https://server1.contoso.com/CMCertificateRegistration** op.  
+5.  Geef op de pagina **Certificaatregistratiepunt** de URL van het certificaatregistratiepunt op met behulp van de FQDN van de sitesysteemserver en de virtuele toepassingsnaam die is opgegeven in de eigenschappen voor het certificaatregistratiepunt. De standaardnaam van de virtuele toepassing is CMCertificateRegistration. Bijvoorbeeld, als de sitesysteemserver een FQDN van server1.contoso.com heeft en u de standaardnaam van de virtuele toepassing gebruikt, geeft u **https://server1.contoso.com/CMCertificateRegistration**.  
 
 6.  Aanvaard de standaardpoort **443** of geef het alternatieve poortnummer op dat door certificaatregistratiepunt wordt gebruikt en klik vervolgens op **Volgende**.  
 
