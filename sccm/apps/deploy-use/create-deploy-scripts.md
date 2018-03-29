@@ -17,11 +17,11 @@ caps.handback.revision: ''
 author: mestew
 ms.author: mstewart
 manager: dougeby
-ms.openlocfilehash: 29806161b29b87834c0cb4b1e478d92bff7a7b3c
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 19bb8b2c4e47dcc8a75db568e7f93541544a4566
+ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-and-run-powershell-scripts-from-the-configuration-manager-console"></a>Maken en PowerShell-scripts uitvoeren vanaf de Configuration Manager-console
 
@@ -70,10 +70,6 @@ Scripts uitvoeren op dit moment ondersteunt:
 >[!WARNING]
 >Let erop dat wanneer u parameters, deze wordt geopend een oppervlak voor mogelijke PowerShell injectie aanval risico. Er zijn verschillende manieren om te beperken en omzeilen, zoals het gebruik van reguliere expressies parameter invoer valideren of met behulp van vooraf gedefinieerde parameters. Algemene aanbevolen procedure is niet op te nemen aan geheimen in uw PowerShell-scripts (geen wachtwoorden, enzovoort). [Meer informatie over de beveiliging van de PowerShell-script](/sccm/apps/deploy-use/learn-script-security) <!--There are external tools available to validate your PowerShell scripts such as the [PowerShell Injection Hunter](https://www.powershellgallery.com/packages/InjectionHunter/1.0.0) tool. -->
 
-
-## <a name="group-policy-considerations-for-scripts"></a>Overwegingen bij het beleid voor scripts groep
-<!--While running scripts on devices, Configuration Manager sets policy to allow local scripts and remote signed scripts.--> 
-Instellen van een beleid kan worden uitgevoerd via Groepsbeleid kunnen geen scripts worden uitgevoerd met Configuration Manager. Zie voor informatie over de uitvoering van het beleid en hoe u stellen de [over Uitvoeringsbeleidsregels](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies) artikel. <!--507185-->
 
 ## <a name="run-script-authors-and-approvers"></a>Voer Script auteurs en fiatteurs
 
@@ -275,9 +271,13 @@ Nadat u hebt gestart om een script uitgevoerd op een verzameling apparaten, moet
 ## <a name="script-output"></a>Uitvoer van het script
 
 - Vanaf Configuration Manager versie 1802, retourneert uitvoer van het script met behulp van JSON-opmaak. Deze indeling retourneert consistent een leesbare scriptuitvoer. 
-- Scripts die u een onbekend resultaat of die waar de client offline was, niet weergegeven in de grafieken of de gegevensset. <!--507179-->
+- Scripts die een onbekend resultaat ophalen of waar de client is offline, worden niet weergegeven in de grafieken of de gegevensset. <!--507179-->
 - Vermijd grote scriptuitvoer retourneren omdat deze is afgekapt tot 4 KB. <!--508488-->
 - Sommige functies met een script uitvoeren opmaak is niet beschikbaar bij het uitvoeren van Configuration Manager versie 1802 of hoger met een eerdere versie van de client. <!--508487-->
+    - Als er een pre-1802 Configuration Manager-client, krijgt u de tekenreeksuitvoer van een.
+    -  Ophalen voor Configuration Manager-clientversie 1802 en hierboven u JSON-opmaak.
+        - U kunt bijvoorbeeld resultaten die tekst op één clientversie zegt en 'TEXT' (de uitvoer tussen dubbele aanhalingstekens) krijgen op andere versie, wordt in de grafiek worden geplaatst als twee verschillende categorieën.
+        - Als u dit probleem omzeilen wilt, kunt u met het uitvoeren van script in twee verschillende verzamelingen. Een met pre-1802 en andere 1802 en hogere-clients. Of u kunt een enum-object converteren naar een string-waarde in scripts zodat ze goed worden weergegeven in de JSON-opmaak. 
 - Een enum-object converteren naar een string-waarde in scripts, zodat ze goed worden weergegeven in de JSON-opmaak. <!--508377--> ![Enum-object converteren naar een tekenreekswaarde](./media/run-scripts/enum-tostring-JSON.png)
 
 
