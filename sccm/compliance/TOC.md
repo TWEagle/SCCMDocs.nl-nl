@@ -11,6 +11,11 @@
 ### [Configuratiebasislijnen maken en implementeren](plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md)
 ## [Beveiliging en privacy](plan-design/security-and-privacy-for-compliance-settings.md)
 
+## [Extensies voor Security Content Automation Protocol (SCAP)](plan-design/scap/about-scap.md)
+### [SCAP-extensies installeren en configureren](plan-design/scap/install-configure-scap.md)
+### [SCAP-nalevingsinstellingen importeren](plan-design/scap/import-scap-compliance-settings.md)
+### [Problemen met SCAP-extensies oplossen](plan-design/scap/troubleshooting-scap.md)
+
 # Implementeren en gebruiken
 
 ## [Configuratie-items maken](deploy-use/create-configuration-items.md)

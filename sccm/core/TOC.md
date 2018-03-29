@@ -109,19 +109,12 @@
 ##   [Configuration Manager evalueren in een testomgeving](get-started/evaluate-with-lab-environment.md)
 ###  [Instellen van uw testomgeving](get-started/set-up-your-lab.md)
 
-<!-- Only show the current plus three, i.e., four total) -->
+<!-- Only show the current plus three; four total) -->
 ##   [Technical Preview](get-started/technical-preview.md)
+###  [Mogelijkheden in 1803](get-started/capabilities-in-technical-preview-1803.md)
 ###  [Mogelijkheden in 1802](get-started/capabilities-in-technical-preview-1802.md)
 ###  [Mogelijkheden in 1801](get-started/capabilities-in-technical-preview-1801.md)
 ###  [Mogelijkheden in 1712](get-started/capabilities-in-technical-preview-1712.md)
-###  [Mogelijkheden in 1711](get-started/capabilities-in-technical-preview-1711.md)
-
-<!-- No longer in support
-###  [Capabilities in 1710](get-started/capabilities-in-technical-preview-1710.md)
-###  [Capabilities in 1709](get-started/capabilities-in-technical-preview-1709.md)
-###  [Capabilities in 1708](get-started/capabilities-in-technical-preview-1708.md)
-###  [Capabilities in 1707](get-started/capabilities-in-technical-preview-1707.md)
--->
 
 ##   [Gegevens migreren tussen hiërarchieën](migration/migrate-data-between-hierarchies.md)
 ###  [Migratieplanning](migration/planning-for-migration.md)
