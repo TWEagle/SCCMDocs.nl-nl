@@ -17,11 +17,11 @@ caps.handback.revision: ''
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 42b9364fc88acc3f403db8d2ca9243a117fd78bf
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: bd03457abdd5cc4464c10227626ba72637c96f90
+ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="about-client-settings-in-system-center-configuration-manager"></a>Clientinstellingen in System Center Configuration Manager
 
@@ -801,8 +801,9 @@ Deze instelling configureert u de lokale poort voor de HTTP-listener snelle inho
 
 Wanneer u dit instellen op **Ja**, hierdoor kan de installatie-instellingen voor Office 365 worden geconfigureerd. Bovendien kunnen downloaden van bestanden van inhoud levering bedrijfsnetwerken (CDN) en het implementeren van de bestanden als een toepassing in Configuration Manager. Zie voor meer informatie [Office 365 ProPlus beheren](/sccm/sum/deploy-use/manage-office-365-proplus-updates).
 
+### <a name="enable-third-party-software-updates"></a>Software-updates van derden inschakelen 
 
-
+Wanneer u dit instellen op **Ja**, wordt het beleid voor 'updates voor een intranet-locatie van Microsoft-updateservice toestaan ondertekende' en het handtekeningcertificaat in het archief Vertrouwde uitgevers op de client installeert. Deze clientinstelling is in Configuration Manager versie 1802 toegevoegd.
 ## <a name="state-messaging"></a>Messaging-status
 
 ### <a name="state-message-reporting-cycle-minutes"></a>Rapportagecyclus (minuten) statusbericht

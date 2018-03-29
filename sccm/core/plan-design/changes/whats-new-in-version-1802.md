@@ -15,11 +15,11 @@ ms.assetid: 5bd637b1-d7a1-411b-877a-c7aae9741173
 author: mestew
 ms.author: mstewart
 manager: dougeby
-ms.openlocfilehash: 4582d1105f2465c37e001570227112bfca3bad1c
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 9c9ff975a58e7c56375fa7740a0a5bb6ebfa6341
+ms.sourcegitcommit: 27da4be015f1496b7b89ebddb517a2685f1ecf74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="whats-new-in-version-1802-of-system-center-configuration-manager"></a>Wat is er nieuw in versie 1802 van System Center Configuration Manager
 
@@ -125,9 +125,9 @@ Bij het maken van een exemplaar van de [management cloudgateway](/sccm/core/clie
 - De functiedocumentatie is herzien en uitgebreid. Zie voor meer informatie de volgende artikelen:
     - [Plan voor de cloud-management-gateway](/sccm/core/clients/manage/cmg/plan-cloud-management-gateway)
     - [De cloud management gateway-grootte en schaal cijfers](/sccm/core/plan-design/configs/size-and-scale-numbers#bkmk_cmg)
-    - [Beveiliging en privacy voor cloud-beheergateway](/sccm/core/clients/manage/cmg/security-and-privacy-for-cloud-management-gateway)
+    - [Beveiliging en privacy voor cloudbeheergateway](/sccm/core/clients/manage/cmg/security-and-privacy-for-cloud-management-gateway)
     - [Veelgestelde vragen over de cloud-management-gateway](/sccm/core/clients/manage/cmg/cloud-management-gateway-faq)
-    - [Certificaten voor cloud-beheergateway](/sccm/core/clients/manage/cmg/certificates-for-cloud-management-gateway)
+    - [Certificaten voor cloudbeheergateway](/sccm/core/clients/manage/cmg/certificates-for-cloud-management-gateway)
     - [Een cloudbeheergateway instellen](/sccm/core/clients/manage/cmg/setup-cloud-management-gateway)  
 
 
@@ -149,8 +149,8 @@ Het dashboard Surface apparaat bevat informatie over de apparaten die Surface ge
 Zie voor meer informatie de [water dashboard](/sccm/core/clients/manage/surface-device-dashboard) artikel.
 
 ### <a name="change-in-the-configuration-manager-client-install"></a>Wijziging in de Configuration Manager-client installeren
-<!--1356195-->|
-U start in deze release, wordt Silverlight niet meer op clientapparaten automatisch geïnstalleerd. Zie voor meer informatie [vereisten voor het implementeren van clients op Windows-computers](/sccm/core/clients/deploy/prerequisites-for-deploying-clients-to-windows-computers.#BKMK_ExternalDependencies)
+<!--1356195-->
+U start in deze release, wordt Silverlight niet meer op clientapparaten automatisch geïnstalleerd. Zie voor meer informatie [vereisten voor het implementeren van clients op Windows-computers](/sccm/core/clients/deploy/prerequisites-for-deploying-clients-to-windows-computers#bkmk_ExternalDependencies)
 
 ## <a name="co-management"></a>Co-management
 

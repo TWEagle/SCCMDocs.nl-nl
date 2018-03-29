@@ -6,20 +6,21 @@ ms.date: 1/3/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: bec00fb4-1ac0-4e49-b330-0871b3722459
-caps.latest.revision: "5"
-caps.handback.revision: "0"
+caps.latest.revision: ''
+caps.handback.revision: ''
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: f4f018721aa09f7e8bd42b9e74552c0d34e0f5a9
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+ms.openlocfilehash: 0ed94de1fc4782539baed0f1589cebf69c0f2219
+ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="system-center-configuration-manager-privacy-statement---configuration-manager-cmdlet-library"></a>Privacyverklaring voor System Center Configuration Manager - Configuration Manager cmdlet library
 
@@ -28,24 +29,32 @@ ms.lasthandoff: 01/04/2018
 Deze privacyverklaring is van toepassing op de functies van de Configuration Manager Cmdlet Library.  
 
 ## <a name="usage-data"></a>Gebruiksgegevens  
- **Wat doet deze functie:**   
-De System Center Configuration Manager cmdlet library kunt u een Configuration Manager-hiërarchie beheren met behulp van Windows PowerShell-cmdlets en scripts. De cmdlet-bibliotheek verzamelt informatie over hoe u de cmdlets in de bibliotheek gebruiken om trends en gebruikspatronen te identificeren. De cmdlet-bibliotheek verzamelt ook de typen en aantallen fouten die optreden wanneer u de cmdlets gebruiken.  
 
- **Informatie verzameld, verwerkt of verzonden:**   
-De verzamelde gebruiksgegevens omvat starten, stoppen en beëindigen van cmdlets, uitvoeren van afgeschafte cmdlets en metrische gegevens van activiteiten voor bewerkingen van de Systems Management Server (SMS)-provider die gerelateerd zijn aan de cmdlets. Deze gegevens zijn niet persoonlijk identificeerbaar.  Informatie verzameld over de fout bevat fouten die cmdlets retourneren en foutdetails voor uitzonderingsfouten. Sommige rapporten met foutdetails bevatten mogelijk per ongeluk individuele id's, zoals een serienummer voor een apparaat dat is verbonden met uw computer. De cmdlet-bibliotheek gefilterd en anoniem gemaakt informatie die in de foutrapporten individuele id's voor verzending naar Microsoft te verwijderen.  
+#### <a name="what-this-feature-does"></a>Wat doet deze functie   
 
- **Gebruik van informatie:**   
-We gebruiken deze informatie voor het verbeteren van de kwaliteit, beveiliging en integriteit van de producten en services die wij bieden.  
+De System Center Configuration Manager cmdlet library kunt u een Configuration Manager-hiërarchie beheren met behulp van Windows PowerShell-cmdlets en scripts. De cmdlet-bibliotheek verzamelt informatie over hoe u de cmdlets in de bibliotheek gebruiken om trends en gebruikspatronen te identificeren. De cmdlet-bibliotheek verzamelt ook de typen en het aantal fouten dat wordt weergegeven wanneer u de cmdlets gebruiken.  
 
- **Keuze/controle:**   
+#### <a name="information-collected-processed-or-transmitted"></a>Verzamelde, verwerkte of verzonden informatie
+   
+De verzamelde gebruiksgegevens omvat starten, stoppen en beëindigen van cmdlets, uitvoeren van afgeschafte cmdlets en metrische gegevens van activiteiten voor bewerkingen van SMS-Provider die gerelateerd zijn aan de cmdlets. Deze informatie niet persoonlijk identificeerbaar. Informatie verzameld over de fout bevat fouten die cmdlets retourneren en foutdetails voor uitzonderingsfouten. Sommige rapporten met foutdetails mogelijk per ongeluk individuele id's, zoals een serienummer voor een apparaat dat is verbonden met uw computer bevatten. De cmdlet-bibliotheek gefilterd en anoniem gemaakt informatie die in de foutrapporten individuele id's voor verzending naar Microsoft te verwijderen.  
+
+#### <a name="use-of-information"></a>Gebruik van informatie
+   
+Microsoft gebruikt deze informatie voor het verbeteren van de kwaliteit, beveiliging en integriteit van de producten en services die ze bieden.  
+
+#### <a name="choicecontrol"></a>Keuze/controle   
+
 Deze functie gebruik gegevens is standaard ingeschakeld. De System Center Configuration Manager cmdlet library bevat twee registersleutels waarmee deze functionaliteit.  
 
- Als u deze functie volledig wilt uitschakelen, moet u deze twee registersleutelwaarden instellen, één voor elk van de ETW-providers (Event Tracing for Windows):  
+ Om volledig opt-out, deze twee registersleutelwaarden instellen Ze zijn voor elk van de providers Event Tracing voor Windows (ETW):  
 
--   HKLM\Software\Microsoft\ConfigMgr10\PowerShell\Microsoft.ConfigurationManagement.PowerShell.Provider:CeipLevel=0 (gebruiksgegevens voor de schijfprovider uitschakelen)  
+-   HKLM\Software\Microsoft\ConfigMgr10\PowerShell\Microsoft.ConfigurationManagement.PowerShell.provider:CeipLevel=0 (kiest buiten gebruiksgegevens voor de schijfprovider)  
 
--   HKLM\Software\Microsoft\ConfigMgr10\PowerShell\Microsoft.ConfigurationManagement.PowerShell.Cmdlets:CeipLevel=0 (gebruiksgegevens voor de cmdlets uitschakelen)  
+-   HKLM\Software\Microsoft\ConfigMgr10\PowerShell\Microsoft.ConfigurationManagement.PowerShell.cmdlets:CeipLevel=0 (kiest buiten gebruiksgegevens voor de cmdlets)  
 
- Wijzigingen in de instellingen voor gebruiksgegevens zijn specifiek voor de computer waarop ze worden ingesteld.  
+ Wijzigingen in de instellingen voor informatie over het gebruik van gegevens zijn specifiek voor de computer waar ze zijn gemaakt.  
 
- Zie voor meer informatie over het configureren van gebruiksgegevens (verzameling) de [documentatie voor System Center Configuration Manager Cmdlet Library](https://technet.microsoft.com/en-us/library/dn958404.aspx).   
+
+## <a name="next-steps"></a>Volgende stappen
+
+[Documentatie voor System Center Configuration Manager Cmdlet Library](https://docs.microsoft.com/powershell/sccm/configurationmanager/).   

@@ -1,25 +1,26 @@
 ---
 title: App-gebruik controleren met softwaremeter
 titleSuffix: Configuration Manager
-description: 
+description: Meer informatie over de bewerkingen die beschikbaar in softwarelicentiecontrole in System Center Configuration Manager zijn.
 ms.custom: na
 ms.date: 09/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-app
+ms.technology:
+- configmgr-app
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b1fdaee2-2816-4447-94cd-609f6948f215
-caps.latest.revision: "8"
+caps.latest.revision: ''
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: c44d606efbbcd099bdcd6d5f83aad156525d9279
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 6864c1a7b10056d664706c25f958b3c73e6855a6
+ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="software-metering-in-system-center-configuration-manager"></a>Softwarelicentiecontrole in System Center Configuration Manager
 
@@ -43,7 +44,7 @@ Softwarelicentiecontrole heeft geen externe afhankelijkheden, alleen afhankelijk
 
 1.  Klik in de Configuration Manager-console op **beheer** > **clientinstellingen** > **Standaardclientinstellingen**.
 
-2.  Klik op **Eigenschappen** in het tabblad **Start** , in de groep **Eigenschappen**.
+2.  Klik op het tabblad **Start** in de groep **Eigenschappen** op **Eigenschappen**.
 
 3.  In het dialoogvenster **Standaardinstellingen** klikt u op **Softwarelicentiecontrole**.
 
@@ -87,7 +88,7 @@ Softwarelicentiecontrole heeft geen externe afhankelijkheden, alleen afhankelijk
         >
         >  Dit vak is optioneel als er een waarde voor **Bestandsnaam** is opgegeven.
 
-    -   **Versie** : de versie van het uitvoerbare bestand dat u deze wilt meten. U kunt het jokerteken (&#42;) ter vertegenwoordiging van een reeks tekens of het jokerteken teken (?) ) een willekeurig teken vertegenwoordigt. Als u meten voor alle versies van een uitvoerbaar bestand wilt, gebruikt u de standaardwaarde (&#42;).
+    -   **Versie** : de versie van het uitvoerbare bestand dat u deze wilt meten. U kunt het jokerteken ( &#42; ) vertegenwoordigt een reeks tekens of het jokerteken teken (?) ) een willekeurig teken vertegenwoordigt. Als u meten voor alle versies van een uitvoerbaar bestand wilt, gebruikt u de standaardwaarde ( &#42; ).
 
     -   **Taal** : de taal van het uitvoerbare bestand dat u wilt meten. De standaardwaarde is de huidige landinstelling van het besturingssysteem dat u gebruikt. Als u een uitvoerbaar bestand selecteert om te meten door te klikken op de knop **Bladeren** , wordt dit vak automatisch ingevuld als er taalinformatie in de koptekst van het bestand aanwezig is. Als u alle taalversies van een bestand wilt meten, selecteert u **Elke** in de vervolgkeuzelijst.
 

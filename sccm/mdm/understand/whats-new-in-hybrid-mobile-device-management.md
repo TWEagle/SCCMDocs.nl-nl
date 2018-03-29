@@ -3,7 +3,7 @@ title: Wat is er nieuw in hybride MDM
 titleSuffix: Configuration Manager
 description: Meer informatie over de nieuwe functies voor mobiele apparaten beschikbaar voor hybride implementaties met Configuration Manager en Intune.
 ms.custom: na
-ms.date: 03/01/2018
+ms.date: 03/28/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 3b48c5296caecd66b5abb6d40578af2009ef0f11
-ms.sourcegitcommit: 6e4fca19083b5dbdcd841012f6e1051bb7c00eb8
+ms.openlocfilehash: 3c3d1c813c307e520b3a9709187937f0d3f732c7
+ms.sourcegitcommit: 27da4be015f1496b7b89ebddb517a2685f1ecf74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-configuration-manager-and-microsoft-intune"></a>Wat is er nieuw in hybride mobile device management met Configuration Manager en Microsoft Intune
 
@@ -41,6 +41,16 @@ Elke sectie van dit artikel vindt u hybridefuncties onder drie verschillende cat
 |**Nieuw in Microsoft Intune** | In het algemeen moeten alle functies die worden vermeld in deze categorie samen met alle versies van de Configuration Manager. Deze inclusief System Center 2012 R2 Configuration Manager worden vrijgegeven, aangezien deze functies alleen de Intune-service nodig en niet aanvullende functionaliteit in Configuration Manager hoeven.|
 |**Nieuw in Configuration Manager Technical Preview**| Alle functies die worden vermeld in deze categorie werken alleen met de opgegeven Technical Preview-versie. Als u wilt deze functies uit te proberen, moet u de Technical Preview-versie die is opgegeven in de beschrijving van de functie installeren. Zie voor meer informatie [Technical Preview voor System Center Configuration Manager](../../core/get-started/technical-preview.md).|
 |**Nieuw in Configuration Manager (huidige vertakking)**| Alle functies die worden vermeld in deze categorie werken alleen met de opgegeven versie van Configuration Manager (huidige vertakking), zoals versie 1511 of 1602. Als u een oudere versie van Configuration Manager voor uw hybride implementatie gebruikt, moet u upgraden naar de Configuration Manager (huidige vertakking) versie opgegeven in de beschrijving van de functie. Zie voor meer informatie [upgraden naar System Center Configuration Manager](../../core/servers/deploy/install/upgrade-to-configuration-manager.md).|
+
+
+
+## <a name="march-2018"></a>2018 maart
+
+### <a name="new-in-microsoft-intune"></a>Nieuw in Microsoft Intune
+
+#### <a name="azure-active-directory-web-sites-can-require-the-intune-managed-browser-app-and-support-single-sign-on-for-the-managed-browser-public-preview"></a>Azure Active Directory-websites kunt vereist de Intune Managed Browser-App en ondersteuning voor eenmalige aanmelding voor de Managed Browser (openbare Preview)
+<!-- 710595 --> 
+Met Azure Active Directory (Azure AD), kunt u toegang beperken tot de websites op mobiele apparaten naar de Intune Managed Browser-app. In de beheerde browser blijven websitegegevens veilig en werkt afzonderlijk van persoonlijke gegevens van eindgebruikers. Mogelijkheden voor eenmalige aanmelding wordt bovendien ondersteuning voor de Managed Browser voor sites die zijn beveiligd door Azure AD. Aanmelden bij de Managed Browser of met behulp van de Managed Browser op een apparaat met een andere app beheerd door Intune, kunt de Managed Browser voor toegang tot zakelijke websites die zijn beveiligd door Azure AD zonder dat de gebruiker de referenties in te voeren. Deze functionaliteit is van toepassing op sites zoals Outlook Web Access (OWA) en SharePoint Online, evenals andere zakelijke sites zoals intranetbronnen toegankelijk via de toepassingsproxy van Azure.
 
 
 
@@ -456,6 +466,35 @@ De volgende aanvullende hybridefuncties zijn ook opgenomen in versie 1702 van Co
 
 
 ## <a name="notices"></a>Aankondigingen
+
+### <a name="windows-company-portal-send-feedback-option-may-no-longer-work"></a>Windows bedrijf Portal verzenden optie voor klantenfeedback werkt niet meer
+
+De Windows-bedrijfsportal-app heeft een optie Feedback verzenden zodat gebruikers feedback over de app naar Microsoft te verzenden. Van 30 April 2018 blijft deze optie worden alleen ondersteund op Windows 10-bedrijfsportal-app die wordt uitgevoerd op Windows 10 versie 1607 en hoger.   
+
+#### <a name="how-does-this-affect-me"></a>Wat betekent dat voor mij?
+
+Negeer dit bericht als u geen over de Windows-bedrijfsportal-app voor eindgebruikers.
+
+Als een van uw eindgebruikers de bedrijfsportal-app hebt, houd er rekening mee dat 30 April wordt gestart, de knop Feedback verzenden niet meer voor de app in de volgende scenario's werkt:  
+
+ - Windows 10-bedrijfsportal-app op Windows 10 versie 1507 en versie 1511  
+
+ - Windows Phone 8.1-bedrijfsportal-app  
+
+Voor apparaten betrokken, de optie Feedback verzenden mislukt en zelfs op opnieuw proberen niet lukt. Om feedback te verzenden naar Microsoft over ervaring met de op deze platforms, zijn er alternatieve feedback kanalen hieronder vermeld.
+
+#### <a name="what-do-i-need-to-do-to-prepare-for-this-change"></a>Wat moet ik doen als voorbereiding op deze wijziging?
+
+Kennis van uw eindgebruikers van deze wijziging en de richtlijnen van elke gebruiker werk indien nodig. 
+
+Informeer gebruikers via de bedrijfsportal op Windows Phone 8.1, Windows 10 versie 1507 en Windows 10 versie 1511 hebben twee alternatieve feedback-kanalen beschikbaar heeft. Ze kunnen:  
+
+- Gebruik de Feedback Hub-app in Windows 10  
+- Een e-mail sturen naar WinCPfeedback@microsoft.com  
+
+Vraag eindgebruikers op Windows 10 versie 1607 of later bij te werken naar de nieuwste versie van de Windows-bedrijfsportal beschikbaar in de Microsoft Store.
+
+
 
 ### <a name="company-portal-for-windows-81-and-windows-phone-81-moving-to-sustaining-mode"></a>Portal voor Windows 8.1 en Windows Phone 8.1 verplaatsen naar de modus voor de bedrijfsportal 
 <!--1428681-->

@@ -7,19 +7,20 @@ ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-hybrid
+ms.technology:
+- configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: aba688d9-fd5b-4c42-8cb4-f7e1b161ef50
-caps.latest.revision: "8"
+caps.latest.revision: ''
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: ff7fef664780730510f17d723a1d13ca691405af
-ms.sourcegitcommit: 0a6b2c53ff4445b5d4f3638fdb0b489d54e333d3
+ms.openlocfilehash: 23073ff562e1ca533e196fff0415efc0451d6fee
+ms.sourcegitcommit: 27da4be015f1496b7b89ebddb517a2685f1ecf74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-mobile-devices-with-system-center-configuration-manager-and-exchange"></a>Mobiele apparaten beheren met System Center Configuration Manager en Exchange
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 12/14/2017
 
 Exchange Server-connector gebruiken in System Center Configuration Manager als u wilt beheren van mobiele apparaten die verbinding met Exchange Server maken (lokaal of online) via het Microsoft Exchange ActiveSync-protocol en u ze niet kunt registreren met Configuration Manager. U kunt Exchange functies voor mobiele apparaten, zoals het wissen van het externe apparaat en instellingen voor meerdere Exchange-servers, vanuit de Configuration Manager-console configureren.  
 
- ![Configuration Manager &#45; met &#45; exchange](../../mdm/deploy-use/media/configmgr-with-exchange.png "Configuration Manager met exchange")  
+ ![configmgr&#45;with&#45;exchange](../../mdm/deploy-use/media/configmgr-with-exchange.png "configmgr-with-exchange")  
 
  Wanneer u mobiele apparaten beheren met behulp van de Exchange Server-connector, wordt dit Configuration Manager-client niet geïnstalleerd op de mobiele apparaten. Sommige beheerfuncties zijn daarom beperkt. U kunt bijvoorbeeld geen software installeren op deze apparaten of configuratie-items gebruiken om deze apparaten te configureren. Zie voor meer informatie over de verschillende beheermogelijkheden die u met Configuration Manager voor mobiele apparaten gebruiken kunt, [een oplossing voor Apparaatbeheer kiezen voor System Center Configuration Manager](../../core/plan-design/choose-a-device-management-solution.md).  
 
@@ -88,11 +89,11 @@ Exchange Server-connector gebruiken in System Center Configuration Manager als u
 
     -   **Get-ActiveSyncOrganizationSettings**  
 
-    -   **Get-Exchange**  
+    -   **Get-ExchangeServer**  
     
     -   **Get-Mailbox**
     
-    -   **Get-ontvanger**  
+    -   **Get-Recipient**  
 
     -   **Set-ADServerSettings**  
 
@@ -102,11 +103,17 @@ Exchange Server-connector gebruiken in System Center Configuration Manager als u
 
     -   **Set-CASMailbox**  
 
-    -   **Nieuwe ActiveSyncDeviceAccessRule**  
+    -   **New-ActiveSyncDeviceAccessRule**  
 
-    -   **Nieuwe ActiveSyncMailboxPolicy**  
+    -   **New-ActiveSyncMailboxPolicy**  
 
     -   **Remove-ActiveSyncDevice**  
+    
+    -   **Get-CasMailbox**  
+    
+    -   **Get-User**  
+    
+    -   **Set-ActiveSyncOrganizationSettings**  
 
     > [!NOTE]  
     >  De volgende Exchange Server-beheerrollen bevatten deze cmdlets: Recipient Management, View-Only Organization Management en Serverbeheer. Zie [Understanding Management Role Groups (Uitleg van beheerrolgroepen)](http://go.microsoft.com/fwlink/p/?LinkId=212914)voor meer informatie over beheerrolgroepen in Microsoft Exchange Server 2010.  

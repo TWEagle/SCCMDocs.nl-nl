@@ -16,11 +16,11 @@ caps.latest.revision: ''
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 5ec9266f33b318ac9c42f86840ebd7ac59713bdf
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 262bfa3991bbd95fad779da9520358d527a42b07
+ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-task-sequences-to-automate-tasks-in-system-center-configuration-manager"></a>Takenreeksen beheren om taken te automatiseren in System Center Configuration Manager
 
@@ -251,7 +251,14 @@ Het volgende bericht wordt weergegeven wanneer de gebruiker de installatie van S
         >     - Als de verzameling een server bevat  
 
     -   **Commentaren (optioneel)**: Geef aanvullende informatie die deze implementatie van de takenreeks beschrijft.  
-    - **Implementatiesjabloon selecteren**: U start in Configuration Manager versie 1802, kunt u opslaan en een implementatiesjabloon-voor een takenreeks opgeven. <!--1357391-->
+    - **Implementatiesjabloon selecteren**: Vanaf Configuration Manager versie 1802,<!--1357391--> u kunt opslaan en een implementatiesjabloon-voor een takenreeks opgeven.     
+
+         > [!IMPORTANT]
+         > In Configuration Manager versie 1802, worden sommige items niet opgeslagen in de sjabloon.  <!--510610--> Zorg ervoor dat u de volgende items toepassen wanneer u de implementatiewizard uitvoert:
+         > - Software-installatie 
+         > - Plannen 
+         > - Inhoud vooraf downloaden
+ 
 6.  Geef op de pagina **Implementatie-instellingen** de volgende informatie op en klik vervolgens op **Volgende**.  
 
     -   **Doel**: Kies een van de volgende opties in de vervolgkeuzelijst:  

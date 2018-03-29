@@ -7,19 +7,20 @@ ms.date: 2/14/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7d8f530b-1a39-4a9d-a2f0-675b516da7e4
-caps.latest.revision: "9"
+caps.latest.revision: ''
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: b4acf5753c8629bcd0f4e2ef5a97bfcb570e9d24
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+ms.openlocfilehash: 3ef93ae505c2af709a3bd1e6a0e7a278993a77ff
+ms.sourcegitcommit: 27da4be015f1496b7b89ebddb517a2685f1ecf74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-a-pull-distribution-point-with-system-center-configuration-manager"></a>Een pull-distributiepunt voor System Center Configuration Manager gebruiken
 
@@ -45,14 +46,37 @@ Pull-distributiepunten ondersteunen dezelfde configuraties en functionaliteit al
 
 -   Zodra inhoud naar een pull-distributiepunt is gedistribueerd, controleert de Package Transfer Manager op de siteserver de sitedatabase om te bevestigen of de inhoud beschikbaar is op het brondistributiepunt. Als dit niet kan bevestigen of de inhoud aanwezig is op het brondistributiepunt voor het pull-distributiepunt, wordt de controle om de 20 minuten herhaald, totdat de inhoud beschikbaar is.  
 
--   Wanneer door Package Transfer Manager wordt bevestigd dat de inhoud beschikbaar is, meldt dit aan het pull-distributiepunt dat de inhoud kan worden gedownload. Wanneer het pull-distributiepunt deze melding ontvangt, probeert dit om de inhoud te downloaden vanaf de bijbehorende brondistributiepunten.  
+-   Wanneer door Package Transfer Manager wordt bevestigd dat de inhoud beschikbaar is, meldt dit aan het pull-distributiepunt dat de inhoud kan worden gedownload. Als deze melding mislukt Er wordt opnieuw geprobeerd op basis van het onderdeel Software distributie **instellingen voor opnieuw proberen** voor pull-distributiepunten. Wanneer het pull-distributiepunt deze melding ontvangt, probeert dit om de inhoud te downloaden vanaf de bijbehorende brondistributiepunten.  
 
--   Nadat het pull-distributiepunt het downloaden van inhoud heeft voltooid, verzendt dit deze status aan een beheerpunt. Echter, als deze status na 60 minuten geen activiteit ontvangen is, de Package Transfer Manager ontwaakt en controleert het pull-distributiepunt om te bevestigen of het pull-distributiepunt de inhoud heeft gedownload. Als het downloaden van de inhoud wordt uitgevoerd, sluimert de Package Transfer Manager gedurende 60 minuten voordat deze het pull-distributiepunt opnieuw controleert. De cyclus gaat door totdat het pull-distributiepunt de inhoudstransfer voltooit.  
+-   Terwijl het pull-distributiepunt de inhoud downloadt de Package Transfer Manager de status op basis van het onderdeel Software-verdeling wordt pollen **Status van navraaginstellingen** voor pull-distributiepunten.  Wanneer het pull-distributiepunt is voltooid voor het downloaden van inhoud, verzendt dit deze status naar een beheerpunt.
 
 **U kunt een pull-distributiepunt configureren** wanneer u het distributiepunt installeert of nadat dit is geïnstalleerd door de eigenschappen van de sitesysteemrol van het distributiepunt te bewerken.  
 
 **U kunt de configuratie voor een pull-distributiepunt verwijderen** door de eigenschappen van het distributiepunt te bewerken. Wanneer u de pull-distributiepuntconfiguratie, verwijdert het distributiepunt weer normaal functioneert en beheert de siteserver toekomstige inhoud worden overgebracht naar het distributiepunt.  
 
+## <a name="to-configure-software-distribution-component-for-pull-distribution-points"></a>Softwareonderdeel van het distributiepunt configureren voor pull-distributiepunten
+
+1.  Kies in de Configuration Manager-console **beheer** > **Sites**.  
+
+2.  Selecteer de gewenste site en selecteer **Siteonderdelen configureren** > **softwaredistributie**
+
+3. Selecteer de **Pull-distributiepunt** tabblad.  
+
+4.  In de **instellingen voor opnieuw proberen** lijst, configureer de volgende waarden:  
+
+    -   **Aantal nieuwe pogingen** -het aantal keren dat de Package Transfer Manager probeert het pull-distributiepunt de inhoud te downloaden melden.  Als dit aantal is overschreden. de Package Transfer Manager de overdracht wordt geannuleerd.
+
+    -   **Vertraging optreden voordat het opnieuw proberen (minuten)** -het aantal minuten dat de Package Transfer Manager tussen pogingen wachten moet. 
+
+5.  In de **Status van navraaginstellingen** lijst, configureer de volgende waarden:  
+
+    -   **Aantal polls** -het aantal keren dat de Package Transfer Manager neemt contact op met de pull-distributiepunt voor het ophalen van de status van de taak.  Als dit aantal wordt overschreden, voordat de taak is voltooid de Package Transfer Manager de overdracht wordt geannuleerd.
+
+    -   **Vertraging optreden voordat het opnieuw proberen (minuten)** -het aantal minuten dat de Package Transfer Manager tussen pogingen wachten moet. 
+    
+    > [!NOTE]  
+    >  Wanneer de Package Transfer Manager een taak annuleert, omdat het aantal Status polling nieuwe pogingen is overschreden blijven het pull-distributiepunt de inhoud te downloaden.  Wanneer deze is voltooid, wordt het juiste statusbericht worden verzonden naar de Package Transfer Manager en de-console geeft de nieuwe status.
+    
 ## <a name="limitations-for-pull-distribution-points"></a>Beperkingen voor pull-distributiepunten  
 
 -   Een clouddistributiepunt kan niet worden geconfigureerd als een pull-distributiepunt.  
@@ -61,12 +85,12 @@ Pull-distributiepunten ondersteunen dezelfde configuraties en functionaliteit al
 
 -   **De configuratie voor het pull-distributiepunt wordt door de configuratie voor voorbereide inhoud overschreven**. Een pull-distributiepunt dat is geconfigureerd voor voorbereide inhoud wacht op de inhoud. Dit komt niet haalt inhoud binnen vanuit het brondistributiepunt en, zoals een standaarddistributiepunt punt met de configuratie van het voorbereide inhoud, ontvangt geen inhoud van de siteserver.  
 
--   **Een pull-distributiepunt gebruikt geen configuraties voor frequentielimieten** wanneer inhoud wordt overgedragen. Als u een eerder geïnstalleerd distributiepunt configureert als een pull-distributiepunt, worden configuraties voor frequentielimieten opgeslagen, maar niet gebruikt. Als u later de pull-distributiepuntconfiguratie verwijdert, worden de frequentielimieten geïmplementeerd zoals eerder is geconfigureerd.  
+-   **Een pull-distributiepunt gebruikt geen configuraties voor schema- of snelheid limieten** wanneer inhoud wordt overgedragen. Als u een eerder geïnstalleerd distributiepunt configureert als een pull-distributiepunt, zijn configuraties voor planning en frequentie grenzen opgeslagen, maar niet gebruikt. Als u later de pull-distributiepuntconfiguratie verwijdert, worden de configuratie van de planning en frequentie limiet geïmplementeerd zoals eerder is geconfigureerd.  
 
     > [!NOTE]  
-    >  Wanneer een distributiepunt is geconfigureerd als een pull-distributiepunt, wordt het tabblad **Frequentielimieten** niet weergegeven in de eigenschappen van het distributiepunt.  
+    >  Wanneer een distributiepunt is geconfigureerd als een pull-distributiepunt, de **planning** en **frequentielimieten** tabbladen zijn niet zichtbaar in de eigenschappen van het distributiepunt.  
 
--   Een distributiepunt maakt geen gebruik van de optie **Instellingen voor opnieuw proberen** voor de distributie van inhoud. **Instellingen voor opnieuw proberen** kan worden geconfigureerd als onderdeel van **Eigenschappen van softwaredistributieonderdelen** van elke site. Weergeven of configureren van deze eigenschappen in de **beheer** werkruimte van de Configuration Manager-console, vouw **siteconfiguratie**, en selecteer vervolgens **Sites**. Selecteer vervolgens een site in het resultatenvenster en klik vervolgens op de **Start** tabblad **Siteonderdelen configureren**. Tot slot selecteert **softwaredistributie**.  
+-   Pull-distributiepunten gebruik niet de instellingen op de **algemene** tabblad van de **eigenschappen van Softwaredistributieonderdelen** voor elke site.  Dit omvat de **gelijktijdige distributie** en **Multicast opnieuw** instelling.  Gebruik de **Pull-distributiepunt** tabblad instellingen configureren voor pull-distributiepunten.
 
 -   Om over te dragen van inhoud van een bron distributiepunt in een extern forest, de computer die als host fungeert de pull-distributiepunt moet een Configuration Manager-client geïnstalleerd hebben. Een netwerktoegangsaccount die toegang heeft tot het brondistributiepunt moet worden geconfigureerd voor gebruik.  
 

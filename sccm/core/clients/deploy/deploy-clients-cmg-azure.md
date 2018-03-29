@@ -17,11 +17,11 @@ caps.handback.revision: ''
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 4a8ca1a60a249756065ee2af6cb9c37f3fe2a1e0
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 903dc7cd6347579e75487c3d8a8bd33b1b2c24d5
+ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="install-and-assign-configuration-manager-windows-10-clients-using-azure-ad-for-authentication"></a>Installeren en toewijzen van Configuration Manager Windows 10-clients die gebruikmaken van Azure AD voor verificatie
 
@@ -48,6 +48,8 @@ Als u wilt de Configuration Manager-client installeren op Windows 10-apparaten m
 - Naast de [bestaande vereisten](/sccm/core/plan-design/configs/site-and-site-system-prerequisites#bkmk_2012MPpreq) voor het beheer van sitesysteemrol, ook inschakelen **ASP.NET 4.5** op deze server. Andere opties automatisch geselecteerd bij het inschakelen van ASP.NET 4.5 bevatten.  
 
 - Configureer alle beheerpunten voor de HTTPS-modus. Zie voor meer informatie [PKI-certificaatvereisten](/sccm/core/plan-design/network/pki-certificate-requirements) en [implementeren van het Webservercertificaat voor sitesystemen die IIS uitvoeren](/sccm/core/plan-design/network/example-deployment-of-pki-certificates#BKMK_webserver2008_cm2012).  
+    - Als u van de cloud-management-gateway gebruikmaakt, alleen moet u HTTPS configureert voor beheerpunten die u voor de cloud management gateway inschakelen.
+    - Als u clients op het intranet met Azure AD-verificatie op basis van tokens, wordt alle beheerpunten dat deze clients kunnen verbinding maken met implementeert, moet zijn ingeschakeld voor HTTPS. 
 
 - Instellen (optioneel) een [management cloudgateway](/sccm/core/clients/manage/cmg/plan-cloud-management-gateway) (CMG) voor het implementeren van clients op internet. Voor lokale clients die met Azure AD verifiëren, hoeft u niet een CMG.  
 

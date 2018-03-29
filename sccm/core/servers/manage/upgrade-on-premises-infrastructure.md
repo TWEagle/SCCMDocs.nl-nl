@@ -12,20 +12,20 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8ca970dd-e71c-404f-9435-d36e773a0db2
-caps.latest.revision: 
-caps.handback.revision: 
+caps.latest.revision: ''
+caps.handback.revision: ''
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 8e17ffad2b972119c92e449bef8f086b950b106c
-ms.sourcegitcommit: fbd4a9d2fa8ed4ddd3a0fecc4a2ec4fc0ccc3d0c
+ms.openlocfilehash: 5c4403588872e426a9346e6c4c50f1853b75f4b9
+ms.sourcegitcommit: 27da4be015f1496b7b89ebddb517a2685f1ecf74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="upgrade-on-premises-infrastructure-that-supports-system-center-configuration-manager"></a>Lokale infrastructuur bijwerken die ondersteuning biedt voor System Center Configuration Manager
 
-Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 Gebruik de informatie in dit artikel om u te helpen u bij het bijwerken van de infrastructuur van de server waarop System Center Configuration Manager wordt uitgevoerd.  
 
@@ -74,6 +74,8 @@ Wanneer u Windows Server 2012 of Windows Server 2012 R2 naar Windows Server 2016
 -   Zorg ervoor dat elke server die als host fungeert voor een sitesysteemrol blijft voldoen aan alle de [vereisten voor sitesysteemrollen](/sccm/core/plan-design/configs/site-and-site-system-prerequisites) die worden uitgevoerd op die server. U wilt bijvoorbeeld BITS, WSUS, opnieuw installeren of configureren met specifieke instellingen voor IIS.
 
 -   Na het terugzetten van ontbrekende vereiste onderdelen, start opnieuw op de server een keer om ervoor te zorgen services zijn gestart en operationele.
+
+-   Als u een van de primaire siteserver vervolgens upgrade [een site resetten](/sccm/core/servers/manage/modify-your-infrastructure#bkmk_reset).
 
 **Bekend probleem voor externe Configuration Manager-consoles:**  
 Na de upgrade van de siteserver of een server die als host fungeert voor een exemplaar van de SMS-provider naar Windows Server 2016, kunnen gebruikers met beheerdersrechten mogelijk niet een Configuration Manager-console verbinden met de site. U kunt dit probleem omzeilen, moet u machtigingen voor de SMS Admins-groep in WMI handmatig herstellen. Machtigingen zijn ingesteld op de siteserver en op elke externe server die als host fungeert voor een exemplaar van de SMS-provider:

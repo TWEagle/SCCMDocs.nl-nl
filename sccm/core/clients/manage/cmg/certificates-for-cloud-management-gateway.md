@@ -10,11 +10,11 @@ ms.prod: configuration-manager
 ms.technology:
 - configmgr-other
 ms.assetid: 71eaa409-b955-45d6-8309-26bf3b3b0911
-ms.openlocfilehash: 1c7adec8f8919736c61859791802a96766af31bb
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 0e4d2add8ece7f548955064a479d9545a1fc64e1
+ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="certificates-for-the-cloud-management-gateway"></a>Certificaten voor de cloud-management-gateway
 
@@ -136,7 +136,7 @@ Na het uitgeven van een certificaat voor clientverificatie op een computer kunt 
 *Certificaatvereisten*
 - Dit certificaat wordt in versies 1706 of 1710, wanneer het beheren van traditionele clients met on-premises identiteiten met behulp van een certificaat voor clientverificatie aanbevolen maar niet vereist.
 - In versie 1710, wanneer Windows 10-clients beheren dat is gekoppeld aan Azure AD, dit certificaat is vereist voor beheerpunten. 
-- Vanaf versie 1802 biedt is dit certificaat vereist in alle scenario's. 
+- Vanaf versie 1802 biedt is dit certificaat vereist in alle scenario's. Alleen de beheerpunten die u voor CMG inschakelt moet HTTPS zijn. Deze wijziging in gedrag biedt betere ondersteuning voor Azure AD-verificatie op basis van tokens. 
 
 Dit certificaat buiten de context van Configuration Manager inrichten. Bijvoorbeeld Active Directory Certificate Services en Groepsbeleid gebruiken om uit te geven van een Webservercertificaat. Zie voor meer informatie [PKI-certificaatvereisten](/sccm/core/plan-design/network/pki-certificate-requirements) en [implementeren van het Webservercertificaat voor sitesystemen die IIS uitvoeren](/sccm/core/plan-design/network/example-deployment-of-pki-certificates#BKMK_webserver2008_cm2012).
 
@@ -146,4 +146,4 @@ Dit certificaat buiten de context van Configuration Manager inrichten. Bijvoorbe
 
 - [Een cloudbeheergateway instellen](/sccm/core/clients/manage/cmg/setup-cloud-management-gateway)
 - [Veelgestelde vragen over de cloud-management-gateway](/sccm/core/clients/manage/cmg/cloud-management-gateway-faq)
-- [Beveiliging en privacy voor cloud-beheergateway](/sccm/core/clients/manage/cmg/security-and-privacy-for-cloud-management-gateway)
+- [Beveiliging en privacy voor cloudbeheergateway](/sccm/core/clients/manage/cmg/security-and-privacy-for-cloud-management-gateway)

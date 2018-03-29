@@ -10,11 +10,11 @@ ms.assetid: 2dc8c9f1-4176-4e35-9794-f44b15f4e55f
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 614c5ba3acb81f90a75726e8783125fb53a39a93
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: dabc248c1788ecad4d7b25c0a1f592e0ddeef826
+ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="plan-for-the-cloud-management-gateway-in-configuration-manager"></a>Plan voor de cloudgateway management in Configuration Manager
 
@@ -155,7 +155,7 @@ Op deze manier wanneer clients op basis van Parijs naar het internet roamen, com
 
 - **Andere certificaten** mogelijk vereist zijn, afhankelijk van uw client-OS-versie en verificatie model. Zie voor meer informatie [CMG certificaten](/sccm/core/clients/manage/cmg/certificates-for-cloud-management-gateway).  
 
-    - Vanaf versie 1802, moet u alle configureren [ **beheerpunten voor gebruik van HTTPS**](/sccm/core/clients/manage/cmg/certificates-for-cloud-management-gateway#enable-management-point-for-https).  
+    - Vanaf versie 1802, moet u alle CMG ingeschakeld [ **beheerpunten voor gebruik van HTTPS**](/sccm/core/clients/manage/cmg/certificates-for-cloud-management-gateway#enable-management-point-for-https).  
 
 - Integratie met **Azure AD** mogelijk zijn vereist voor Windows 10-clients. Zie voor meer informatie [configureren Azure-services](/sccm/core/servers/deploy/configure/azure-services-wizard).  
 
@@ -345,8 +345,8 @@ CMG verbinding sitesysteem van het ondersteunt het gebruik van een webproxy. Zie
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Certificaten voor cloud-beheergateway](/sccm/core/clients/manage/cmg/certificates-for-cloud-management-gateway)
-- [Beveiliging en privacy voor cloud-beheergateway](/sccm/core/clients/manage/cmg/security-and-privacy-for-cloud-management-gateway)
+- [Certificaten voor cloudbeheergateway](/sccm/core/clients/manage/cmg/certificates-for-cloud-management-gateway)
+- [Beveiliging en privacy voor cloudbeheergateway](/sccm/core/clients/manage/cmg/security-and-privacy-for-cloud-management-gateway)
 - [De cloud management gateway-grootte en schaal cijfers](/sccm/core/plan-design/configs/size-and-scale-numbers#bkmk_cmg)
 - [Veelgestelde vragen over de cloud-management-gateway](/sccm/core/clients/manage/cmg/cloud-management-gateway-faq)
 - [Een cloudbeheergateway instellen](/sccm/core/clients/manage/cmg/setup-cloud-management-gateway)

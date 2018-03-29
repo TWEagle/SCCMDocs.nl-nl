@@ -6,18 +6,18 @@ keywords: ''
 author: mestew
 ms.author: mstewart
 manager: dougeby
-ms.date: 03/22/2018
+ms.date: 03/26/2018
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: ''
 ms.technology:
 - configmgr-sum
 ms.assetid: eac542eb-9aa1-4c63-b493-f80128e4e99b
-ms.openlocfilehash: 5bd1a3afd7957e4db1b43e344a7b88e18de50695
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 4fbbe4b6792c51cd7adeeae3a96f81927153362c
+ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-office-365-proplus-with-configuration-manager"></a>Beheren van Office 365 ProPlus met Configuration Manager
 
@@ -174,6 +174,17 @@ Gebruik de volgende procedure op het software-updatepunt op de centrale beheersi
 11. Wanneer u updates voor Office 365 hebt gedownload, worden de updates nu gedownload in de talen die u selecteert in de wizard en geconfigureerd in deze procedure. Om te controleren of de updates in de juiste talen downloaden, gaat u naar de pakketbron voor de update en naar bestanden met de taal in de bestandsnaam zoeken.  
 ![Bestandsnamen met extra talen](..\media\5-verification.png)
 
+## <a name="updating-office-365-during-task-sequences-when-office-365-is-installed-in-the-base-image"></a>Office 365 tijdens takenreeksen bijwerken wanneer Office 365 is geïnstalleerd in de basisinstallatiekopie
+Wanneer u een waarop Office 365 al is geïnstalleerd in de installatiekopie van het besturingssysteem installeert, is het mogelijk dat de update-kanaal-registersleutelwaarde de oorspronkelijke locatie is geïnstalleerd heeft. In dit geval wordt de update-scan niet alle client-updates voor Office 365, indien van toepassing weergegeven. Er is een geplande Office automatische updates taak meerdere keren per week wordt uitgevoerd. Nadat deze taak wordt uitgevoerd, het update-kanaal verwijst naar de geconfigureerde Office CDN-URL en de scan leert vervolgens deze updates van toepassing. <!--510452-->
+
+Om ervoor te zorgen dat het update-kanaal is ingesteld, zodat de toepasselijke updates worden gevonden, gaat u de volgende stappen uit:
+1. Op een computer met dezelfde versie van Office 365 als de basisinstallatiekopie van het besturingssysteem, opent u Taakplanner (taskschd.msc) en identificeren van de Office 365 automatische updates-taak. Normaal gesproken bevindt zich onder **bibliotheek voor Taakplanner** >**Microsoft**>**Office**.
+2. Klik met de rechtermuisknop op de automatische updates taak en selecteer **eigenschappen**.
+3. Ga naar de **acties** tabblad en klik op **bewerken**. Kopieer de opdracht en argumenten. 
+4. In de Configuration Manager-console door de takenreeks te bewerken.
+5. Voeg een nieuwe **opdrachtregel uitvoeren** stap voordat de **Updates installeren** stap in de takenreeks wordt uitgevoerd. 
+6. Kopieer in de opdracht en de argumenten die u hebt verzameld van de Office automatische updates geplande taak. 
+7. Klik op **OK**. 
 
 ## <a name="change-the-update-channel-after-you-enable-office-365-clients-to-receive-updates-from-configuration-manager"></a>Het kanaal update niet wijzigen nadat u Office 365-clients om updates te ontvangen van Configuration Manager inschakelen
 De update om kanaal te wijzigen nadat u Office 365-clients te ontvangen van updates van Configuration Manager, gebruikt u Groepsbeleid voor het distribueren van een registerwijziging sleutelwaarde Office 365-clients ingeschakeld. Wijzig de **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Office\ClickToRun\Configuration\CDNBaseUrl** registersleutel voor een van de volgende waarden:
