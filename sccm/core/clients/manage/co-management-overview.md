@@ -6,17 +6,17 @@ keywords: ''
 author: mestew
 ms.author: mstewart
 manager: dougeby
-ms.date: 03/22/2018
+ms.date: 03/28/2018
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: ''
 ms.technology: ''
 ms.assetid: d6bbc787-83a5-44b4-ad64-016e5da7413f
-ms.openlocfilehash: e4b8bd58d30cd87ffc461289edbfc5da9a684cda
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: cda2ef22bbfb86d0c25c44d5b97b0e1551010374
+ms.sourcegitcommit: aed99ba3c5e9482199cb3fc5c92f6f3a160cb181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="co-management-for-windows-10-devices"></a>CO-beheer voor Windows 10-apparaten    
 <!-- 1350871 -->
@@ -41,7 +41,7 @@ Hieronder vindt u algemene vereisten voor het inschakelen van CO-beheer:
 
 
    > [!Note]  
-   > Als u een hybride MDM-omgeving (Intune geïntegreerd met Configuration Manager) hebt, kunt u mede management niet inschakelen. Als u geïnteresseerd bent in migreren naar de zelfstandige versie van Intune, raadpleegt u [beginnen met het migreren van hybride MDM zelfstandige versie van Intune](/sccm/mdm/deploy-use/migrate-hybridmdm-to-intunesa).
+   > Als u een hybride MDM-omgeving (Intune geïntegreerd met Configuration Manager) hebt, kunt u mede management niet inschakelen. U kunt echter beginnen met het migreren van gebruikers zelfstandige versie van Intune en schakel vervolgens de bijbehorende Windows 10-apparaten voor het beheer van CO. Zie voor meer informatie over het migreren naar Intune standalone [beginnen met het migreren van hybride MDM zelfstandige versie van Intune](/sccm/mdm/deploy-use/migrate-hybridmdm-to-intunesa).
 
 ### <a name="additional-prerequisites-for-devices-with-the-configuration-manager-client"></a>Aanvullende vereisten voor apparaten met Configuration Manager-client
 - Windows 10 versie 1709 (ook wel bekend als de vallen auteurs Update) en hoger

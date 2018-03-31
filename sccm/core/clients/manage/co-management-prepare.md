@@ -1,45 +1,46 @@
 ---
-title: Windows 10-apparaten voor het beheer van CO voorbereiden
+title: Voorbereiden van Windows 10 voor CO-management
+titleSuffix: Configuration Manager
 description: Informatie over het voorbereiden van uw Windows 10-apparaten voor CO-beheer.
-keywords: ''
 author: mestew
 ms.author: mstewart
 manager: dougeby
-ms.date: 03/22/2018
+ms.date: 03/28/2018
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: ''
 ms.technology: ''
 ms.assetid: 101de2ba-9b4d-4890-b087-5d518a4aa624
-ms.openlocfilehash: 61aef0351e32ef6cf31911a8dfd27e86de82f38c
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: a45ded0f3824c148f64f9578e51cc112c05d9f78
+ms.sourcegitcommit: aed99ba3c5e9482199cb3fc5c92f6f3a160cb181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="prepare-windows-10-devices-for-co-management"></a>Windows 10-apparaten voor het beheer van CO voorbereiden
-U kunt CO-beheer op Windows 10-apparaten die zijn toegevoegd aan AD en Azure AD en ingeschreven in Intune en een client in Configuration Manager inschakelen. Voor de nieuwe Windows 10-apparaten, en voor apparaten die al zijn ingeschreven in Intune, de Configuration Manager-client installeren voordat ze samen beheerd worden kunnen. Voor Windows 10-apparaten die al Configuration Manager-clients, kunt u de apparaten inschrijven bij Intune en mede-beheer in de Configuration Manager-console inschakelen.
+U kunt CO-beheer op Windows 10-apparaten die zijn toegevoegd aan AD en Azure AD en ingeschreven bij Microsoft Intune en een client in Configuration Manager inschakelen. Voor de nieuwe Windows 10-apparaten, en voor apparaten die al zijn ingeschreven in Intune, de Configuration Manager-client installeren voordat ze samen beheerd worden kunnen. Voor Windows 10-apparaten die al Configuration Manager-clients, kunt u de apparaten inschrijven bij Intune en mede-beheer in de Configuration Manager-console inschakelen.
 
 > [!IMPORTANT]
 > Windows 10 mobile-apparaten bieden geen ondersteuning voor CO-beheer.
 
+
+
 ## <a name="command-line-to-install-configuration-manager-client"></a>Vanaf de opdrachtregel voor het installeren van Configuration Manager-client
 Een app maken in Intune voor Windows 10-apparaten die nog geen Configuration Manager-clients. Wanneer u de app in de volgende secties maakt, gebruikt u de volgende opdrachtregel:
 
-ccmsetup.msi CCMSETUPCMD = "/ mp:&#60;*URL van een cloudeindpunt management gateway wederzijdse verificatie*&#62;/ CCMHOSTNAME =&#60;*URL van een cloudeindpunt management gateway wederzijdse verificatie* &#62;SMSSiteCode =&#60;*Sitecode* &#62; SMSMP = https:&#47;/&#60;*FQDN-naam van MP* &#62; AADTENANTID =&#60;*AAD-tenant-ID*  &#62; AADTENANTNAME =&#60;*tenantnaam* &#62; AADCLIENTAPPID =&#60;*Server AppID voor AAD-integratie* &#62; AADRESOURCEURI = https:&#47;/&#60;*Resource-ID*&#62;'
+`ccmsetup.msi CCMSETUPCMD="/mp:<URL of cloud management gateway mutual auth endpoint> CCMHOSTNAME=<URL of cloud management gateway mutual auth endpoint> SMSSiteCode=<Sitecode> SMSMP=https://<FQDN of MP> AADTENANTID=<AAD tenant ID> AADCLIENTAPPID=<Server AppID for AAD Integration> AADRESOURCEURI=https://<Resource ID>"`
 
 Bijvoorbeeld, als u had de volgende waarden:
 
-- **URL van een cloudeindpunt management gateway wederzijdse verificatie**: https:/&#47;contoso.cloudapp.net/CCM_Proxy_MutualAuth/72057594037928100    
+- **URL van een cloudeindpunt management gateway wederzijdse verificatie**: https:/&#47;contoso.cloudapp.net/CCM_Proxy_MutualAuth/72186325152220500    
 
    >[!Note]    
    >Gebruik de **MutualAuthPath** waarde in de **vProxy_Roles** SQL-weergave voor de **URL van een cloudeindpunt management gateway wederzijdse verificatie** waarde.
 
-- **FQDN van beheerpunt (MP)**: sccmmp.corp.contoso.com    
+- **FQDN van beheerpunt (MP)**: mp1.contoso.com    
 - **Sitecode**: PS1    
-- **Azure AD-tenant-ID**: 72F988BF-86F1-41AF-91AB-2D7CD011XXXX    
-- **Naam van een Azure AD-tenant**: contoso    
-- **Azure AD client app-ID**: bef323b3-042f-41a6-907a-f9faf0d1XXXX     
+- **Azure AD-tenant-ID**: daf4a1c2-3a0c-401b-966f-0b855d3abd1a    
+- **Azure AD client app-ID**: 7506ee10-f7ec-415a-b415-cd3d58790d97     
 - **AAD Resource-ID-URI**: ConfigMgrServer    
 
   > [!Note]    
@@ -47,7 +48,7 @@ Bijvoorbeeld, als u had de volgende waarden:
 
 Gebruikt u de volgende opdrachtregel:
 
-ccmsetup.msi CCMSETUPCMD="/mp:https:/&#47;contoso.cloudapp.net/CCM_Proxy_MutualAuth/72057594037928100    CCMHOSTNAME=contoso.cloudapp.net/CCM_Proxy_MutualAuth/72057594037928100 SMSSiteCode=PS1 SMSMP=https:/&#47;sccmmp.corp.contoso.com AADTENANTID=72F988BF-86F1-41AF-91AB-2D7CD011XXXX AADTENANTNAME=contoso  AADCLIENTAPPID=bef323b3-042f-41a6-907a-f9faf0d1XXXX AADRESOURCEURI=https:/&#47;ConfigMgrServer”
+`ccmsetup.msi CCMSETUPCMD="/mp:https://contoso.cloudapp.net/CCM_Proxy_MutualAuth/72186325152220500    CCMHOSTNAME=contoso.cloudapp.net/CCM_Proxy_MutualAuth/72186325152220500 SMSSiteCode=PS1 SMSMP=https://mp1.contoso.com AADTENANTID=daf4a1c2-3a0c-401b-966f-0b855d3abd1a AADCLIENTAPPID=7506ee10-f7ec-415a-b415-cd3d58790d97 AADRESOURCEURI=https://ConfigMgrServer"`
 
 > [!Tip]
 > U vindt de opdrachtregelparameters voor uw site met behulp van de volgende stappen uit:     

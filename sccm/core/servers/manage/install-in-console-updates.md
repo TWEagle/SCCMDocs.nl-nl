@@ -3,7 +3,7 @@ title: Console-updates
 titleSuffix: Configuration Manager
 description: Updates voor Configuration Manager installeren vanuit de Microsoft-cloud
 ms.custom: na
-ms.date: 03/22/2018
+ms.date: 03/28/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,15 +12,15 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c14a3607-253b-41fb-8381-ae2d534a9022
-caps.latest.revision: ''
+caps.latest.revision: 36
 author: mestew
 ms.author: mstewart
 manager: dougeby
-ms.openlocfilehash: 5d364e35c8777c782499da978f0d1a31694278cc
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 054bbd8e7b1dd3f5d565afe60eb7e3379cc7a9ee
+ms.sourcegitcommit: aed99ba3c5e9482199cb3fc5c92f6f3a160cb181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="install-in-console-updates-for-system-center-configuration-manager"></a>Updates binnen de console installeren voor System Center Configuration Manager
 
@@ -217,6 +217,10 @@ Nadat een centrale beheersite of primaire site is bijgewerkt, moet ook elke Conf
 U wordt aangeraden de update onmiddellijk te installeren.  
 
 Nadat de update van de console is voltooid, kunt u controleren of de versie van de console en site correct zijn. Ga naar **over System Center Configuration Manager** op de linkerbovenhoek van de console.  
+
+ > [!Note]  
+ > Vanaf versie 1802 biedt de consoleversie is nu enigszins afwijken van de site-versie. De secundaire versie van de console is nu komt overeen met de versie van Configuration Manager. Bijvoorbeeld in Configuration Manager versie 1802 de versie van de eerste site 5.0.8634.1000 is en de consoleversie van de eerste is 5. **1802**.1082.1700. De build (1082) en revisie (1700) getallen kunnen worden gewijzigd met de toekomstige hotfixes op de 1802-release.
+
 
 
 ###  <a name="bkmk_toptier"></a> De installatie van de update op de bovenste site starten  

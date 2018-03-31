@@ -1,9 +1,9 @@
 ---
-title: Updates
+title: Updates en onderhoud
 titleSuffix: Configuration Manager
-description: Meer informatie over een in de console-servicemethode aangeroepen **Updates en onderhoud** waarmee u gemakkelijk om te zoeken en aanbevolen updates te installeren.
+description: Meer informatie over een in de console servicemethode met de naam van Updates en onderhoud waarmee u gemakkelijk om te zoeken en aanbevolen updates te installeren.
 ms.custom: na
-ms.date: 03/22/2018
+ms.date: 03/28/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,16 +12,16 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3a832943-580a-4a40-b454-961d0854ac2b
-caps.latest.revision: ''
-caps.handback.revision: ''
+caps.latest.revision: 51
+caps.handback.revision: 0
 author: mestew
 ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: 8be32aa07819239820711079e4ff3637e96367db
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+manager: dougeby
+ms.openlocfilehash: 7660736dbacebb7167cb6bd19d7590d7f774e17c
+ms.sourcegitcommit: aed99ba3c5e9482199cb3fc5c92f6f3a160cb181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="updates-for-system-center-configuration-manager"></a>Updates voor System Center Configuration Manager
 
@@ -90,6 +90,10 @@ De volgende versies van Configuration Manager zijn beschikbaar als basislijn, al
 *(Opmerking 1)*  De basislijnmedia 1802 en 1702 beschikbaar zijn als onderdeel van de Microsoft System Center 2016 of System Center Configuration Manager (huidige vertakking en Long-Term Servicing Branch) is uitgebracht op de [Volume licentie Service Center](https://www.microsoft.com/Licensing/servicecenter/Downloads/DownloadsAndKeys.aspx) (VLSC). Bijvoorbeeld, op het VLSC u kunt zoeken naar *System Center Config Mgr (huidige vertakking en LTSB)*, 1802 en 1702 versie basislijnmedia zijn geretourneerde en gedownload.
 
 Ga in de linkerbovenhoek van de console naar **Info over System Center Configuration Manager** waar de nieuwe site en consoleversie worden weergegeven als u de versie van uw Configuration Manager-site wilt controleren.  
+
+ > [!Note]  
+ > Vanaf versie 1802 biedt de consoleversie is nu enigszins afwijken van de site-versie. De secundaire versie van de console is nu komt overeen met de versie van Configuration Manager. Bijvoorbeeld in Configuration Manager versie 1802 de versie van de eerste site 5.0.8634.1000 is en de consoleversie van de eerste is 5. **1802**.1082.1700. De build (1082) en revisie (1700) getallen kunnen worden gewijzigd met de toekomstige hotfixes op de 1802-release.
+
 
 ##  <a name="bkmk_inconsole"></a> Updates en onderhoud in de console  
  Wanneer u een productie-gereed-installatie van System Center Configuration Manager, ook wel aangeduid als de huidige vertakking, zijn de meeste updates die u installeert beschikbaar via de Updates en onderhoud van kanaal. Met deze methode worden de updates die van toepassing zijn op de huidige versie en configuratie van uw infrastructuur geïdentificeerd, gedownload en beschikbaar gesteld en worden er alleen updates opgenomen die worden aanbevolen voor alle klanten.   

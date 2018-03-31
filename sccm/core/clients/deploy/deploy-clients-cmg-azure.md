@@ -3,7 +3,7 @@ title: Installeer de client met Azure AD
 titleSuffix: Configuration Manager
 description: Installeer en wijs de Configuration Manager-client op Windows 10-apparaten met Azure Active Directory voor verificatie toe
 ms.custom: na
-ms.date: 03/22/2018
+ms.date: 03/28/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,16 +12,16 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a44006eb-8650-49f6-94e1-18fa0ca959ee
-caps.latest.revision: ''
-caps.handback.revision: ''
+caps.latest.revision: 14
+caps.handback.revision: 0
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 903dc7cd6347579e75487c3d8a8bd33b1b2c24d5
-ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
+ms.openlocfilehash: 12fc1b394ae98c2b384630f4a00e4239e4e8d9d6
+ms.sourcegitcommit: aed99ba3c5e9482199cb3fc5c92f6f3a160cb181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="install-and-assign-configuration-manager-windows-10-clients-using-azure-ad-for-authentication"></a>Installeren en toewijzen van Configuration Manager Windows 10-clients die gebruikmaken van Azure AD voor verificatie
 
@@ -89,7 +89,7 @@ Voor handmatige installatie van de client met behulp van Azure AD identity Lees 
  > [!Note]  
  > Het apparaat moet toegang tot het internet contact te maken met Azure AD, maar hoeven niet te worden op basis van het internet. 
 
-Het volgende voorbeeld ziet u de algemene structuur van de opdrachtregel: `ccmsetup.exe /mp:<source management point> CCMHOSTNAME=<internet-based management point> SMSSiteCode=<site code> SMSMP=<initial management point> AADTENANTID=<Azure AD tenant identifier> AADTENANTNAME=<Azure AD tenant name> AADCLIENTAPPID=<Azure AD client app identifier> AADRESOURCEURI=<Azure AD server app identifier>`
+Het volgende voorbeeld ziet u de algemene structuur van de opdrachtregel: `ccmsetup.exe /mp:<source management point> CCMHOSTNAME=<internet-based management point> SMSSiteCode=<site code> SMSMP=<initial management point> AADTENANTID=<Azure AD tenant identifier> AADCLIENTAPPID=<Azure AD client app identifier> AADRESOURCEURI=<Azure AD server app identifier>`
 
 Zie voor meer informatie [clientinstallatie-eigenschappen](/sccm/core/clients/deploy/about-client-installation-properties).
 
@@ -98,7 +98,7 @@ De CCMHOSTNAME-eigenschappen en /mp Geef een van de volgende, afhankelijk van he
 - Beheergateway cloud
 - Internet-gebaseerd beheerpunt bevindt de SMSMP-eigenschap geeft de on-premises of een beheerpunt op internet.
 
-In dit voorbeeld wordt een cloud-management-gateway. Hiermee vervangt u voorbeeldwaarden voor elke eigenschap: `ccmsetup.exe /mp:https://CONTOSO.CLOUDAPP.NET/CCM_Proxy_MutualAuth/72186325152220500 CCMHOSTNAME=CONTOSO.CLOUDAPP.NET/CCM_Proxy_MutualAuth/72186325152220500 SMSSiteCode=ABC SMSMP=https://mp1.contoso.com AADTENANTID=daf4a1c2-3a0c-401b-966f-0b855d3abd1a AADTENANTNAME=contoso AADCLIENTAPPID=7506ee10-f7ec-415a-b415-cd3d58790d97 AADRESOURCEURI=https://contososerver`
+In dit voorbeeld wordt een cloud-management-gateway. Hiermee vervangt u voorbeeldwaarden voor elke eigenschap: `ccmsetup.exe /mp:https://CONTOSO.CLOUDAPP.NET/CCM_Proxy_MutualAuth/72186325152220500 CCMHOSTNAME=CONTOSO.CLOUDAPP.NET/CCM_Proxy_MutualAuth/72186325152220500 SMSSiteCode=ABC SMSMP=https://mp1.contoso.com AADTENANTID=daf4a1c2-3a0c-401b-966f-0b855d3abd1a AADCLIENTAPPID=7506ee10-f7ec-415a-b415-cd3d58790d97 AADRESOURCEURI=https://contososerver`
 
 Zie het proces voor het automatiseren van de client installeren met behulp van Azure AD identity via Microsoft Intune [voorbereiden Windows 10-apparaten voor het beheer van CO](/sccm/core/clients/manage/co-management-prepare#command-line-to-install-configuration-manager-client).
 

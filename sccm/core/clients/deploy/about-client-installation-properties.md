@@ -3,7 +3,7 @@ title: Clientinstallatie-eigenschappen
 titleSuffix: Configuration Manager
 description: Meer informatie over de ccmsetup-opdrachtregel eigenschappen voor het installeren van Configuration Manager-client.
 ms.custom: na
-ms.date: 03/22/2018
+ms.date: 03/28/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,15 +12,15 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c890fd27-7a8c-4f51-bbe2-f9908af1f42b
-caps.latest.revision: ''
+caps.latest.revision: 15
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 057b078767a08574a806cb6af1cdb3812148a457
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 40e844fbb15a101574d9628648dde0db59c855c4
+ms.sourcegitcommit: aed99ba3c5e9482199cb3fc5c92f6f3a160cb181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="about-client-installation-properties-in-system-center-configuration-manager"></a>Over de eigenschappen van clientinstallatie in System Center Configuration Manager
 
@@ -250,7 +250,21 @@ Voorbeeld: `CCMSetup.exe /ExcludeFeatures:ClientUI` Software Center niet install
 
 
 
-##  <a name="clientMsiProps"></a> Eigenschappen van client.msi  
+## <a name="ccmsetupMsiProps"></a> Ccmsetup.msi eigenschappen  
+ De volgende eigenschappen kunnen het installatiegedrag van ccmsetup.msi wijzigen.
+
+### <a name="ccmsetupcmd"></a>CCMSETUPCMD 
+
+Hiermee geeft u opdrachtregeleigenschappen die worden doorgegeven aan de ccmsetup.exe nadat deze is geïnstalleerd door ccmsetup.msi. Andere eigenschappen tussen aanhalingstekens bevatten. Deze eigenschap gebruiken bij het uitvoeren van de Configuration Manager-client met de Intune MDM-installatiemethode bootstrap. 
+
+Voorbeeld: `ccmsetup.msi CCMSETUPCMD="/mp:https://mp.contoso.com CCMHOSTNAME=mp.contoso.com"`
+
+ > [!Tip]
+ > Microsoft Intune beperkt de opdrachtregel 1024 tekens. 
+
+
+
+##  <a name="clientMsiProps"></a> Client.msi-eigenschappen  
  De volgende eigenschappen kunnen het installatiegedrag van client.msi wijzigen. Als u de clientpushinstallatie gebruikt, kunt u de eigenschappen ook opgeven in het tabblad **Client** van het dialoogvenster **Clientpushinstallatie-eigenschappen** .  
 
 
@@ -282,16 +296,16 @@ Hiermee geeft u de Azure AD-tenant-id. Deze tenant is gekoppeld aan Configuratio
 
 Voorbeeld: `ccmsetup.exe AADTENANTID=607b7853-6f6f-4d5d-b3d4-811c33fdd49a`
 
+<!-- 
+### AADTENANTNAME
 
-### <a name="aadtenantname"></a>AADTENANTNAME
+Specifies the Azure AD tenant name. This tenant is linked to Configuration Manager when you [configure Azure services](/sccm/core/servers/deploy/configure/azure-services-wizard) for Cloud Management. To obtain the value for this property, use the following steps:
+- On a Windows 10 device that is joined to the same Azure AD tenant, open a command prompt.
+- Run the following command: `dsregcmd.exe /status`
+- In the Device State section, find the **TenantName** value. For example, `TenantName : Contoso`
 
-Hiermee geeft u de naam van de Azure AD-tenant. Deze tenant is gekoppeld aan Configuration Manager wanneer u [Azure-services configureren](/sccm/core/servers/deploy/configure/azure-services-wizard) voor het beheer van de Cloud. Als u de waarde voor deze eigenschap, gebruikt u de volgende stappen uit:
-- Open een opdrachtprompt op een Windows 10-apparaat die is gekoppeld aan dezelfde Azure AD-tenant.
-- Voer de volgende opdracht: `dsregcmd.exe /status`
-- Zoek in de sectie status van het apparaat de **TenantName** waarde. Bijvoorbeeld: `TenantName : Contoso`
-
-Voorbeeld: `ccmsetup.exe AADTENANTNAME=Contoso`
-
+Example: `ccmsetup.exe AADTENANTNAME=Contoso`
+-->
 
 ### <a name="ccmadmins"></a>CCMADMINS  
 
@@ -637,7 +651,7 @@ Voorbeeld: `CCMSetup.exe SMSMP=https://smsmp01.contoso.com`
 
  Voorbeeld: `CCMSetup.exe SMSSITECODE=XZY`  
 
-##  <a name="BKMK_attributevalues"></a> Ondersteunde kenmerkwaarden voor de selectiecriteria van PKI-certificaten  
+##  <a name="BKMK_attributevalues"></a> Ondersteunde kenmerkwaarden voor de selectiecriteria van PKI-certificaat  
  Configuration Manager ondersteunt de volgende kenmerkwaarden voor de selectiecriteria van PKI-certificaat:  
 
 |OID-kenmerk|DN-naamkenmerk|Kenmerkdefinitie|  
