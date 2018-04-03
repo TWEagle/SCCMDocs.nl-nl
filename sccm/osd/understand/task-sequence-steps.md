@@ -3,7 +3,7 @@ title: Stappen voor takenreeksen
 titleSuffix: Configuration Manager
 description: Meer informatie over de stappen die u aan een takenreeks van Configuration Manager toevoegen kunt.
 ms.custom: na
-ms.date: 03/22/2018
+ms.date: 03/30/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,16 +12,16 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7c888a6f-8e37-4be5-8edb-832b218f266d
-caps.latest.revision: ''
-caps.handback.revision: ''
+caps.latest.revision: 26
+caps.handback.revision: 0
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: ad68209784b78da5c6e75745094ba8e6bc002c44
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 53929400b983a2191e60a7d42ae84062afd44e3a
+ms.sourcegitcommit: d8a4a53630351b3d677bbdc5d203e7d330472cba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="task-sequence-steps-in-system-center-configuration-manager"></a>Stappen voor takenreeksen in System Center Configuration Manager
 
@@ -711,6 +711,10 @@ De volgende voorwaarden van invloed zijn op de toepassingen zijn geïnstalleerd 
 -   Als de waarde van een variabele andere informatie bevat dan de naam van de toepassing, De takenreeks wordt niet geïnstalleerd voor de toepassing en de takenreeks voortgezet.  
 
 -   Als de takenreeks een variabele met de opgegeven basisnaam en het achtervoegsel '01' niet gevonden, wordt de takenreeks alle toepassingen niet geïnstalleerd. 
+    
+> [!Important]  
+> Deze waarden zijn hoofdlettergevoelig. Bijvoorbeeld, is het anders dan 'Install' 'installeren'. Als u moet de waarde te wijzigen, detecteert de takenreekseditor geen een wijziging van de aanvraag. U moet een andere bewerken op hetzelfde moment, bijvoorbeeld, de Stapbeschrijving van de aanpassen.<!--509714-->   
+
    
 **Als een toepassing mislukt, doorgaan met installatie van andere toepassingen in de lijst**  
  Deze instelling geeft aan dat de stap wordt voorgezet als de installatie van een afzonderlijke toepassing mislukt. Als u deze instelling opgeeft, wordt de takenreeks voortgezet ongeacht eventuele installatiefouten. Als u deze instelling niet opgeeft en de installatie mislukt, wordt de stap onmiddellijk beëindigd.  
@@ -789,6 +793,10 @@ Klik in de takenreekseditor op **toevoegen**, selecteer **Software**, en selecte
 -   Als de pakket-ID kleine letters bevat, mislukt de software-installatie.  
 
 -   Als de takenreeks een variabele met de opgegeven basisnaam en het achtervoegsel '001' niet gevonden, wordt de takenreeks alle pakketten niet geïnstalleerd. De takenreeks voortgezet.  
+    
+> [!Important]  
+> Deze waarden zijn hoofdlettergevoelig. Bijvoorbeeld, is het anders dan 'Install' 'installeren'. Als u moet de waarde te wijzigen, detecteert de takenreekseditor geen een wijziging van de aanvraag. U moet een andere bewerken op hetzelfde moment, bijvoorbeeld, de Stapbeschrijving van de aanpassen.<!--509714-->   
+
    
 **Als de installatie van een softwarepakket mislukt, doorgaan met installatie van andere pakketten in de lijst**  
  Deze instelling geeft aan dat de stap wordt voorgezet als de installatie van een afzonderlijk softwarepakket mislukt. Als u deze instelling opgeeft, wordt de takenreeks voortgezet ongeacht eventuele installatiefouten. Als u deze instelling niet opgeeft en de installatie mislukt, wordt de stap onmiddellijk beëindigd.  
