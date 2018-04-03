@@ -1,5 +1,5 @@
 ---
-title: "Tool hiërarchie-onderhoud"
+title: Tool hiërarchie-onderhoud
 titleSuffix: Configuration Manager
 description: Begrijpen wat de Hierarchy Maintenance Tool doet en waarom u deze kunt gebruiken. Bevat de verwijzing naar de opdrachtregelopties.
 ms.custom: na
@@ -7,12 +7,13 @@ ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: cead6825-6113-4ba5-a381-ac3598dfee86
-caps.latest.revision: "7"
-caps.handback.revision: "0"
+caps.latest.revision: 7
+caps.handback.revision: 0
 author: mestew
 ms.author: mstewart
 manager: angrobe
@@ -47,14 +48,14 @@ Wanneer u het hiërarchieonderhoud-hulpprogramma gebruikt, moet u het lokaal uit
 
 Wanneer u het Hiërarchieonderhoud-hulpprogramma uitvoert, moet u de volgende syntaxis gebruiken: preinst.exe /&lt;optie\>. Hieronder vindt u de opdrachtregelopties.  
 
- **/ DELJOB &lt;* SiteCode*> **-Gebruik deze optie op een site om te wissen van alle taken of opdrachten vanaf de huidige site tot de gespecificeerde doelsite.  
+ **/DELJOB* SiteCode*>** - Gebruik deze optie op een site om te wissen van alle taken of opdrachten vanaf de huidige site tot de gespecificeerde doelsite.  
 
- **/ DELSITE &lt;* ChildSiteCodeToRemove*> **-Gebruik deze optie op een bovenliggende site te verwijderen van de gegevens voor de onderliggende sites uit de sitedatabase van de bovenliggende site. U gebruikt deze optie typisch als een siteservercomputer buiten bedrijf gesteld wordt vóór u de site ervan verwijdert.  
+ **/DELSITE &lt;*ChildSiteCodeToRemove*>** - Gebruik deze optie op een bovenliggende site te verwijderen van de gegevens voor de onderliggende sites uit de sitedatabase van de bovenliggende site. U gebruikt deze optie typisch als een siteservercomputer buiten bedrijf gesteld wordt vóór u de site ervan verwijdert.  
 
 > [!NOTE]  
 >  De /DELSITE-optie maakt de installatie van de site op de computer, opgegeven door de ChildSiteCodeToRemove-parameter, niet ongedaan. Deze optie verwijdert alleen de site-informatie uit de Configuration Manager-sitedatabase.  
 
-**/ DUMP &lt;* SiteCode*> **-Gebruik deze optie op de lokale siteserver om sitebeheerinstallatiekopieën te schrijven naar de hoofdmap van het station waarop de site is geïnstalleerd. U kunt een specifieke sitebeheerinstallatiekopie schrijven naar de map of naar alle sitebeheerbestanden in de hiërarchie schrijven.  
+**/DUMP &lt;*SiteCode*>** - Gebruik deze optie op de lokale siteserver om sitebeheerinstallatiekopieën te schrijven naar de hoofdmap van het station waarop de site is geïnstalleerd. U kunt een specifieke sitebeheerinstallatiekopie schrijven naar de map of naar alle sitebeheerbestanden in de hiërarchie schrijven.  
 
 -   / DUMP &lt; *SiteCode*> schrijft de sitebeheerinstallatiekopie alleen voor de opgegeven site.  
 
