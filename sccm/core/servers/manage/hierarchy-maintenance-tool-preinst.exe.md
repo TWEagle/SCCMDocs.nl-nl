@@ -48,7 +48,7 @@ Wanneer u het hiërarchieonderhoud-hulpprogramma gebruikt, moet u het lokaal uit
 
 Wanneer u het Hiërarchieonderhoud-hulpprogramma uitvoert, moet u de volgende syntaxis gebruiken: preinst.exe /&lt;optie\>. Hieronder vindt u de opdrachtregelopties.  
 
- **/DELJOB* SiteCode*>** - Gebruik deze optie op een site om te wissen van alle taken of opdrachten vanaf de huidige site tot de gespecificeerde doelsite.  
+ **/DELJOB &lt;*SiteCode*>** - Gebruik deze optie op een site om te wissen van alle taken of opdrachten vanaf de huidige site tot de gespecificeerde doelsite.  
 
  **/DELSITE &lt;*ChildSiteCodeToRemove*>** - Gebruik deze optie op een bovenliggende site te verwijderen van de gegevens voor de onderliggende sites uit de sitedatabase van de bovenliggende site. U gebruikt deze optie typisch als een siteservercomputer buiten bedrijf gesteld wordt vóór u de site ervan verwijdert.  
 
