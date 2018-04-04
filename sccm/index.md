@@ -1,6 +1,6 @@
 ---
 layout: HubPage
-hide_bc: 
+hide_bc: true
 title: Documentatie voor System Center Configuration Manager
 description: Informatie over het gebruik van System Center Configuration Manager.
 ms.topic: hub-page
