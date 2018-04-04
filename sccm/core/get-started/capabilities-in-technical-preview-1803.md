@@ -15,11 +15,11 @@ ms.assetid: 56dc4b07-5aa4-43e2-9be8-d26ae5ff5613
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: ac96927b563673311e9ca55d1f2d4edaac30adbe
-ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
+ms.openlocfilehash: f3c200fe699f85c195e41fc2b395a3d710b1788a
+ms.sourcegitcommit: d3863a9b34f9925515cabe9a290a6c733e10108b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/04/2018
 ---
 # <a name="capabilities-in-technical-preview-1803-for-system-center-configuration-manager"></a>Mogelijkheden van Technical Preview 1803 voor System Center Configuration Manager
 
@@ -146,7 +146,7 @@ Selecteren **van derden software-updates inschakelen** in de clientinstellingen 
 Als gevolg van uw [feedback van gebruikers stem](https://configurationmanager.uservoice.com/forums/300492-ideas/suggestions/20234866-allow-us-to-copy-information-out-of-the-asset-det) kunt u nu kopiëren/plakken in het deelvenster details van activa in de implementatie en distributie status monitoring-weergaven inschakelen.  <!--1357552-->
 
 ## <a name="scap-extensions"></a>SCAP-extensies
-De voorlopige versie van de SCAP-extensies is beschikbaar in de map Cd.latest onder SMSSETUP\TOOLS\ConfigMgrSCAPExtension\ConfigMgrExtensionsForSCAP.msi. Deze voorlopige versie van de SCAP-extensies kan worden geïnstalleerd op alle ondersteunde versies van de huidige vertakking van Configuration Manager en LTSB 1606.
+De voorlopige versie van de SCAP-extensies is beschikbaar in de map Cd.latest onder SMSSETUP\TOOLS\ConfigMgrSCAPExtension\ConfigMgrExtensionsForSCAP.msi. Deze voorlopige versie van de SCAP-extensies kan worden geïnstalleerd op alle ondersteunde versies van de huidige vertakking van Configuration Manager en LTSB 1606. Zie voor meer informatie [over de Security Content Automation Protocol (SCAP) extensies](/sccm/compliance/plan-design/scap/about-scap).
 
 
 

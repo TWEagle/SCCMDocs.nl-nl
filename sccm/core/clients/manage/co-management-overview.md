@@ -12,11 +12,11 @@ ms.prod: configuration-manager
 ms.service: ''
 ms.technology: ''
 ms.assetid: d6bbc787-83a5-44b4-ad64-016e5da7413f
-ms.openlocfilehash: cda2ef22bbfb86d0c25c44d5b97b0e1551010374
-ms.sourcegitcommit: aed99ba3c5e9482199cb3fc5c92f6f3a160cb181
+ms.openlocfilehash: a5ceea5502e4eb2785946e1dd3bc9ed0842daf25
+ms.sourcegitcommit: d8a4a53630351b3d677bbdc5d203e7d330472cba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="co-management-for-windows-10-devices"></a>CO-beheer voor Windows 10-apparaten    
 <!-- 1350871 -->
@@ -65,7 +65,7 @@ Resourcetoegangsbeleid configureren VPN, Wi-Fi, e-mail en instellingen van het c
 
 ### <a name="endpoint-protection"></a>Endpoint Protection 
 <!-- 1357365 -->
-U start in Configuration Manager 1802, worden de werkbelasting van de Endpoint Protection overgegaan naar Intune. Zie voor meer informatie [werkbelastingen kunnen worden overgezet naar Intune](/sccm/core/clients/manage/co-management-switch-workloads.md#Workloads-able-to-be-transitioned-to-Intune) en [Endpoint Protection in Configuration Manager](/sccm/protect/deploy-use/endpoint-protection).
+U start in Configuration Manager 1802, worden de werkbelasting van de Endpoint Protection overgegaan naar Intune. Zie voor meer informatie [werkbelastingen kunnen worden overgezet naar Intune](/sccm/core/clients/manage/co-management-switch-workloads#Workloads-able-to-be-transitioned-to-Intune) en [Endpoint Protection in Configuration Manager](/sccm/protect/deploy-use/endpoint-protection).
 
 ## <a name="architectural-overview-for-co-management"></a>Overzicht van de architectuur voor CO-management
 Het volgende diagram biedt een overzicht van de architectuur van CO-beheer en hoe deze in de bestaande infrastructuur voor configuratie en Intune past.

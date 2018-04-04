@@ -3,7 +3,7 @@ title: Wat is er nieuw in hybride MDM
 titleSuffix: Configuration Manager
 description: Meer informatie over de nieuwe functies voor mobiele apparaten beschikbaar voor hybride implementaties met Configuration Manager en Intune.
 ms.custom: na
-ms.date: 03/28/2018
+ms.date: 04/02/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 3c3d1c813c307e520b3a9709187937f0d3f732c7
-ms.sourcegitcommit: 27da4be015f1496b7b89ebddb517a2685f1ecf74
+ms.openlocfilehash: c6918983bca3e598fd99a8f7670ada3f7e43cfa6
+ms.sourcegitcommit: d8a4a53630351b3d677bbdc5d203e7d330472cba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-configuration-manager-and-microsoft-intune"></a>Wat is er nieuw in hybride mobile device management met Configuration Manager en Microsoft Intune
 
@@ -41,6 +41,24 @@ Elke sectie van dit artikel vindt u hybridefuncties onder drie verschillende cat
 |**Nieuw in Microsoft Intune** | In het algemeen moeten alle functies die worden vermeld in deze categorie samen met alle versies van de Configuration Manager. Deze inclusief System Center 2012 R2 Configuration Manager worden vrijgegeven, aangezien deze functies alleen de Intune-service nodig en niet aanvullende functionaliteit in Configuration Manager hoeven.|
 |**Nieuw in Configuration Manager Technical Preview**| Alle functies die worden vermeld in deze categorie werken alleen met de opgegeven Technical Preview-versie. Als u wilt deze functies uit te proberen, moet u de Technical Preview-versie die is opgegeven in de beschrijving van de functie installeren. Zie voor meer informatie [Technical Preview voor System Center Configuration Manager](../../core/get-started/technical-preview.md).|
 |**Nieuw in Configuration Manager (huidige vertakking)**| Alle functies die worden vermeld in deze categorie werken alleen met de opgegeven versie van Configuration Manager (huidige vertakking), zoals versie 1511 of 1602. Als u een oudere versie van Configuration Manager voor uw hybride implementatie gebruikt, moet u upgraden naar de Configuration Manager (huidige vertakking) versie opgegeven in de beschrijving van de functie. Zie voor meer informatie [upgraden naar System Center Configuration Manager](../../core/servers/deploy/install/upgrade-to-configuration-manager.md).|
+
+
+
+## <a name="april-2018"></a>April 2018
+
+### <a name="new-in-microsoft-intune"></a>Nieuw in Microsoft Intune
+
+#### <a name="user-experience-update-for-the-company-portal-app-for-ios"></a>Bijwerken van de gebruikerservaring voor de bedrijfsportal-app voor iOS 
+<!--1412866-->
+We hebben een primaire gebruikerservaring update uitgebracht voor de bedrijfsportal-app voor iOS. De update is uitgerust met een volledig visual nieuw ontwerp met een gemoderniseerde uiterlijk is vernieuwd. We hebben onderhouden de functionaliteit van de app, maar u kunt de gebruiksvriendelijkheid en toegankelijkheid verhoogd.  
+
+U ziet ook:
+- Ondersteuning voor iPhone X.
+- Snellere starten van de app en bij het laden van antwoorden om gebruikers tijd te besparen.
+- Aanvullende staven om gebruikers te bieden de meest recente statusgegevens.
+- Verbeteringen in de manier waarop gebruikers uploaden van Logboeken, dus als er iets mis gaat, is het eenvoudiger om te rapporteren.  
+
+Om te zien van het bijgewerkte uiterlijk, gaat u naar [wat is er nieuw in de gebruikersinterface van de app](/intune/whats-new-app-ui).
 
 
 

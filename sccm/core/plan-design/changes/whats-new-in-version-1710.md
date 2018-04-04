@@ -1,7 +1,7 @@
 ---
 title: Nieuwe versie 1710 | Microsoft Docs
 titleSuffix: Configuration Manager
-description: "Meer informatie over deze wijzigingen en nieuwe mogelijkheden die zijn geïntroduceerd in versie 1710 van System Center Configuration Manager."
+description: Meer informatie over deze wijzigingen en nieuwe mogelijkheden die zijn geïntroduceerd in versie 1710 van System Center Configuration Manager.
 ms.custom: na
 ms.date: 1/08/2018
 ms.reviewer: na
@@ -14,17 +14,23 @@ ms.assetid: bc6c3e5f-b9e2-400e-9d9d-446ff93c520c
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: c75ed431c6a786759e2ddcd6dc6b55d5b55412c7
-ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
+ms.openlocfilehash: e9d1ac44bf0455ff0b1caec94d07cfa734dfbeb0
+ms.sourcegitcommit: d8a4a53630351b3d677bbdc5d203e7d330472cba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="what39s-new-in-version-1710-of-system-center-configuration-manager"></a>Wat &#39; s is nieuw in versie 1710 van System Center Configuration Manager
+# <a name="what39s-new-in-version-1710-of-system-center-configuration-manager"></a>Wat&#39;nieuw in versie 1710 van System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 Update 1710 voor de huidige vertakking van System Center Configuration Manager is beschikbaar als een update in de console voor eerder geïnstalleerde sites waarop versie 1610, 1702 of 1706 wordt uitgevoerd.
+
+Deze versie bevat naast de nieuwe functies ook extra wijzigingen zoals oplossingen voor problemen. Zie voor meer informatie [overzicht van wijzigingen in System Center Configuration Manager current branch versie 1710](https://support.microsoft.com/help/4056470/summary-of-changes-in-system-center-configuration-manager-current-bran).
+
+De volgende aanvullende updates voor deze release zijn nu ook beschikbaar:
+- [Updatepakket voor System Center Configuration Manager current branch versie 1710](https://support.microsoft.com/help/4057517/update-rollup-for-system-center-configuration-manager-current-branch-v)
+- [Update rollup 2 voor System Center Configuration Manager current branch versie 1710](https://support.microsoft.com/en-us/help/4086143/update-rollup-2-for-system-center-configuration-manager-current-branch)
 
 > [!TIP]  
 > Een nieuwe site te installeren, moet u een basislijnversie van Configuration Manager.  
@@ -45,13 +51,13 @@ Version 1710 drops support for the following products:
 
 ## <a name="site-infrastructure"></a>Site-infrastructuur
 
-### <a name="updates-for-peer-cache-----sms500850---"></a>Updates voor Peer-Cache<!-- sms500850 -->
+### <a name="updates-for-peer-cache-----sms500850---"></a>Updates voor Peer-Cache  <!-- sms500850 -->
 Vanaf deze release is is Peer-Cache niet langer een functie van de voorlopige versie.  Er zijn geen andere wijzigingen voor Peer-Cache zijn geïntroduceerd in deze release. Zie voor meer informatie [Peer-Cache voor Configuration Manager-clients](/sccm/core/plan-design/hierarchy/client-peer-cache).
 
-### <a name="cloud-distribution-point-support-for-azure-government-cloud------sms491428---"></a>Cloud distribution point-ondersteuning voor Azure Government Cloud<!-- sms491428 -->
+### <a name="cloud-distribution-point-support-for-azure-government-cloud------sms491428---"></a>Cloud distribution point-ondersteuning voor Azure Government Cloud   <!-- sms491428 -->
 U kunt nu [cloud-gebaseerde distributiepunten](/sccm/core/plan-design/hierarchy/use-a-cloud-based-distribution-point) in de cloud Azure Government.   
 
-### <a name="inventory-default-unit-revision----sms503697---"></a>Inventaris standaard eenheid revisie<!-- sms503697 -->
+### <a name="inventory-default-unit-revision----sms503697---"></a>Inventaris standaard eenheid revisie <!-- sms503697 -->
 Als apparaten nu harde schijven met de grootte in GB (Gigabyte), terabyte (TB) en grotere schaal zijn, verandert deze release de standaardeenheid (SMS_Units) gebruikt in veel weergaven vanaf megabytes (MB) naar GB. De waarde v_gs_LogicalDisk.FreeSpace rapporteert bijvoorbeeld nu GB eenheden.
 
 
@@ -64,7 +70,7 @@ Als apparaten nu harde schijven met de grootte in GB (Gigabyte), terabyte (TB) e
 <!-- 1350871 -->
 In de eerdere Windows 10-updates, kunt u al een Windows 10-apparaat toevoegen met on-premises Active Directory (AD) en Azure AD cloud-gebaseerd op hetzelfde moment (hybride Azure AD). Beginnen met Configuration Manager versie 1710, mede management maakt gebruik van deze verbetering en kunt u gelijktijdig Windows 10 versie 1709 (ook wel bekend als de vallen auteurs Update) om apparaten te beheren met behulp van zowel Configuration Manager en Intune. Het is een oplossing waarmee een verbinding met traditionele naar moderne management biedt en u een pad voor de overgang met behulp van een gefaseerde benadering. Zie voor meer informatie [mede management voor Windows 10-apparaten](/sccm/core/clients/manage/co-management-overview).
 
-### <a name="restart-computers-from-the-configuration-manager-console-----1356283---"></a>Computers uit de Configuration Manager-console opnieuw opstarten<!-- 1356283 -->
+### <a name="restart-computers-from-the-configuration-manager-console-----1356283---"></a>Computers uit de Configuration Manager-console opnieuw opstarten  <!-- 1356283 -->
 Vanaf deze release kunt kunt u de Configuration Manager-console gebruiken om clientapparaten waarvoor opnieuw opstarten te identificeren en gebruik vervolgens een melding clientactie te starten.
 
 Zie [clients in System Center Configuration Manager beheren](/sccm/core/clients/manage/manage-clients#restart-clients)
@@ -74,7 +80,7 @@ Zie [clients in System Center Configuration Manager beheren](/sccm/core/clients/
 
 
 ## <a name="application-management"></a>Toepassingsbeheer
-### <a name="improvements-for-run-scripts------1236459---"></a>Verbeteringen voor het uitvoeren van Scripts<!-- 1236459 -->
+### <a name="improvements-for-run-scripts------1236459---"></a>Verbeteringen voor het uitvoeren van Scripts   <!-- 1236459 -->
 Deze versie biedt verschillende verbeteringen voor de **Scripts uitvoeren** functie kunt u PowerShell-scripts uit te voeren op beheerde apparaten implementeren. Deze functie is geïntroduceerd in versie 1706.
 
 Verbeteringen zijn onder andere:
@@ -117,7 +123,7 @@ Zie [Toepassingsbeheer plannen en configureren in System Center Configuration Ma
 
 ## <a name="software-updates"></a>Software-updates
 
-### <a name="surface-driver-updates-----1098490---"></a>Updates voor Surface stuurprogramma 's<!-- 1098490 -->
+### <a name="surface-driver-updates-----1098490---"></a>Updates voor Surface stuurprogramma 's  <!-- 1098490 -->
 Vanaf deze release is is het beheren van updates voor Surface stuurprogramma's niet langer een functie van de voorlopige versie.  
 
 
@@ -180,7 +186,7 @@ Compatibiliteit om risico te beperken, zijn de bestaande VPN-profielen ongewijzi
 
 Zie voor meer informatie [VPN-profielen op mobiele apparaten in System Center Configuration Manager](../../../mdm/deploy-use/create-vpn-profiles.md).
 
-### <a name="limited-support-for-cryptography-next-generation-cng-certificates----1356191---"></a>Beperkte ondersteuning voor cryptografie: Volgende Generation (CNG)-certificaten<!-- 1356191 -->
+### <a name="limited-support-for-cryptography-next-generation-cng-certificates----1356191---"></a>Beperkte ondersteuning voor cryptografie: Volgende Generation (CNG)-certificaten <!-- 1356191 -->
 
 Configuration Manager biedt beperkte ondersteuning voor cryptografie: Volgende Generation (CNG)-certificaten. Configuration Manager-clients kunnen PKI-clientverificatiecertificaat met persoonlijke sleutel in CNG Sleutelarchiefprovider (KSP) gebruiken. Met ondersteuning voor KSP ondersteuning Configuration Manager-clients voor op hardware gebaseerde persoonlijke sleutel, zoals TPM KSP voor PKI-verificatie van clientcertificaten.
 
