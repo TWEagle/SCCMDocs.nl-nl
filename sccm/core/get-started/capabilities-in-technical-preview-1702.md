@@ -12,15 +12,15 @@ ms.suite: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: aedd608d-6db3-4ea5-851d-70f2dcda6bb5
-caps.latest.revision: 
+caps.latest.revision: 5
 author: erikje
 ms.author: erikje
 manager: angrobe
-ms.openlocfilehash: ed2a858c55cbf389a0e974f4699b5a9c548953ef
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 94c025a75cd0aef62ee00c11b8ee5a113fba2bb1
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="capabilities-in-technical-preview-1702-for-system-center-configuration-manager"></a>Mogelijkheden van Technical Preview 1702 voor System Center Configuration Manager
 
@@ -42,7 +42,7 @@ Deze preview introduceert nieuwe opties voor klantenfeedback in de Configuration
 -  Wanneer u met de rechtermuisknop op een object in de console.   
     ![De optie kopiëren en klik op](./media/feedback-option.png)   
 
-Kiezen **Feedback** uw browser naar de website van de Configuration Manager UserVoice feedback op https://configurationmanager.uservoice.com/forums/300492-ideas wordt geopend.
+Kiezen **Feedback** Hiermee opent u uw browser naar de website Configuration Manager UserVoice-feedback op https://configurationmanager.uservoice.com/forums/300492-ideas.
 ##  <a name="changes-for-updates-and-servicing"></a>Wijzigingen voor Updates en onderhoud
 De volgende zijn geïntroduceerd in dit voorbeeld.
 
@@ -66,7 +66,7 @@ U kunt deze instellingen configureren via de clientklasse agent-configuratie voo
 
 Als de computer een aanvraag voor de inhoud afwijst, blijft de aanvragende computer te zoeken naar inhoud formulier alternatieve bronnen in de groep met beschikbare inhoudsbron locaties.   
 
-## <a name="azurediscovery"></a>Azure Active Directory Domain Services gebruiken voor het beheren van apparaten, gebruikers en groepen
+## <a name="azurediscovery"></a> Azure Active Directory Domain Services gebruiken voor het beheren van apparaten, gebruikers en groepen
 
 Met deze technical preview versie die u kunt apparaten beheren die zijn gekoppeld aan een Azure Active Directory (AD) Domain-Services worden beheerd domein. U kunt ook apparaten, gebruikers en groepen in het domein detecteren met verschillende detectiemethoden van Configuration Manager.
 
@@ -104,7 +104,7 @@ Azure AD worden opgeslagen voor apparaten onder de **AADDC Computers** organisat
 Azure AD beschikt niet over een organisatie-eenheid die groepen opslaat. In plaats daarvan de dezelfde algemene structuur gebruiken als het systeem of gebruiker query's en configureren van de LDAP-query om te verwijzen naar de organisatie-eenheid waarin de groepen die dat u wilt detecteren.
 
 Zie de volgende onderwerpen voor meer informatie over Azure AD:  
- - [Azure Active Directory Domain Services](https://azure.microsoft.com/en-us/services/active-directory-ds) op azure.microsoft.com.
+ - [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds) op azure.microsoft.com.
  - [Active Directory Domain Services-documentatie](https://docs.microsoft.com/azure/active-directory-domain-services) op docs.microsoft.com.
 
 ## <a name="conditional-access-device-compliance-policy-improvements"></a>Voorwaardelijke toegang apparaat naleving beleid verbeteringen
@@ -155,7 +155,7 @@ Het nieuwe beleid wordt weergegeven in het knooppunt **Nalevingsbeleid** van de 
 4. Wanneer u klaar bent, klikt u op **OK**.
 
 ### <a name="monitor-the-compliance-policy"></a>Het nalevingsbeleid bewaken
-Nadat u het nalevingsbeleid hebt gemaakt, kunt u de nalevingsresultaten in Configuration Manager-console kunt bewaken. Zie voor meer informatie [het nalevingsbeleid bewaken](https://docs.microsoft.com/en-us/sccm/protect/deploy-use/create-compliance-policy#monitor-the-compliance-policy).
+Nadat u het nalevingsbeleid hebt gemaakt, kunt u de nalevingsresultaten in Configuration Manager-console kunt bewaken. Zie voor meer informatie [het nalevingsbeleid bewaken](https://docs.microsoft.com/sccm/protect/deploy-use/create-compliance-policy#monitor-the-compliance-policy).
 
 
 ## <a name="improvements-to-software-center-settings-and-notification-messages-for-high-impact-task-sequences"></a>Verbeteringen aan Software Center-instellingen en meldingen voor hoge impact takenreeksen
@@ -211,7 +211,7 @@ Gebruik de volgende procedure om de gegevens voor de takenreeks weergegeven in S
 
 ## <a name="check-for-running-executable-files-before-installing-an-application"></a>Controleer voor het uitvoeren van uitvoerbare bestanden voordat u een toepassing installeert
 
-In de  *<deployment type name>*  **eigenschappen** in het dialoogvenster van een implementatietype op het tabblad gedrag installeren, u kunt nu een opgeven van meer uitvoerbare bestanden die als actief is, wordt de installatie van het implementatietype blokkeren. De gebruiker moet de lopende uitvoerbaar bestand sluiten (of het automatisch kan worden gesloten voor implementaties met als doel vereist) voordat de implementatie van het type kan worden geïnstalleerd.
+In de *<deployment type name>* **eigenschappen** in het dialoogvenster van een implementatietype op het tabblad gedrag installeren, u kunt nu een opgeven van meer uitvoerbare bestanden die als actief is, wordt de installatie van het implementatietype blokkeren. De gebruiker moet de lopende uitvoerbaar bestand sluiten (of het automatisch kan worden gesloten voor implementaties met als doel vereist) voordat de implementatie van het type kan worden geïnstalleerd.
 
 ### <a name="try-it-out"></a>Uitproberen.
 
@@ -301,7 +301,7 @@ Android for Work is een afzonderlijke platform van Android en moet u om te bepal
 De volgende secties beschrijven Android voor Work-beheer.
 
 #### <a name="enable-android-for-work-management"></a>Android voor Work-beheer inschakelen
-1. Maakt een Google-account op https://accounts.google.com/SignUp als uw Android wilt gebruiken voor werk beheeraccount die gekoppeld aan alle Android voor werk beheertaken voor Intune-tenant worden. Dit kan een Google-account gedeeld door de beheerders die voor het beheren van Android-apparaten zijn. Dit is het Google-account die uw organisatie te beheren en publiceren van apps in de Play voor Work-console gebruikt. U gebruikt deze account voor het goedkeuren van apps in de Play voor werk store, dus bijhouden van de accountnaam en het wachtwoord.
+1. Maak een Google-account op https://accounts.google.com/SignUp als uw Android wilt gebruiken voor werk beheeraccount die gekoppeld aan alle Android voor werk beheertaken voor Intune-tenant worden. Dit kan een Google-account gedeeld door de beheerders die voor het beheren van Android-apparaten zijn. Dit is het Google-account die uw organisatie te beheren en publiceren van apps in de Play voor Work-console gebruikt. U gebruikt deze account voor het goedkeuren van apps in de Play voor werk store, dus bijhouden van de accountnaam en het wachtwoord.
 2. Android-registratie inschakelen door de binding van het Google-account voor de Intune-tenant in Configuration Manager worden beheerd:
   1. Ga naar **beheer** > **overzicht** > **Cloudservices** > **Microsoft Intune-abonnementen** en selecteer uw Intune-abonnement.
   2. Klik in het lint op **Platforms configureren** > **Android** en zorg ervoor dat **Android-inschrijving inschakelen** is ingeschakeld.

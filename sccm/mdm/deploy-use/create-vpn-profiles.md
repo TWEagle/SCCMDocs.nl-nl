@@ -12,16 +12,16 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 45388103-2410-4c7e-b4cf-73a1bda485fc
-caps.latest.revision: ''
-caps.handback.revision: ''
+caps.latest.revision: 18
+caps.handback.revision: 0
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
-ms.openlocfilehash: 1d98cd234b2444873f1ffa5819af74d507dfa9c1
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: a66212537c9e6829965f81d7622ae825ca6b80bb
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="vpn-profiles-on-mobile-devices-in-system-center-configuration-manager"></a>VPN-profielen op mobiele apparaten in System Center Configuration Manager
 
@@ -35,7 +35,7 @@ VPN-profielen in System Center Configuration Manager voor het VPN-instellingen i
 
  ## <a name="vpn-profiles-when-using-configuration-manager-together-with-intune"></a>VPN-profielen wanneer Configuration Manager samen met Intune
 
- Om profielen te implementeren op iOS, Android, Windows Phone en Windows 8.1-apparaten, moeten deze apparaten worden geregistreerd bij Microsoft Intune. Apparaten op andere platforms kunnen ook worden ingeschreven bij Intune. Zie voor meer informatie over het inschrijven [mobiele apparaten beheren met Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx). Deze tabel ziet u het verbindingstype dat wordt ondersteund voor elk apparaatplatform:  
+ Om profielen te implementeren op iOS, Android, Windows Phone en Windows 8.1-apparaten, moeten deze apparaten worden geregistreerd bij Microsoft Intune. Apparaten op andere platforms kunnen ook worden ingeschreven bij Intune. Zie voor meer informatie over het inschrijven [mobiele apparaten beheren met Microsoft Intune](https://technet.microsoft.com/library/dn646962.aspx). Deze tabel ziet u het verbindingstype dat wordt ondersteund voor elk apparaatplatform:  
 
  |Type verbinding|iOS en Mac OS X|Android|Windows 8.1|Windows RT|Windows RT 8.1|Windows Phone 8,1|Windows 10 Desktop en Mobile|  
  |---------------------|----------------------|-------------|-----------------|----------------|--------------------|-----------------------|-----------------------------------|  
@@ -103,11 +103,11 @@ VPN-profielen in System Center Configuration Manager voor het VPN-instellingen i
             >  Apparaten met iOS ondersteunen alleen RSA SecurID en MSCHAP v2 voor de methode voor verificatie wanneer het verbindingstype PPTP is. Voorkom melding van fouten door een afzonderlijk PPTP VPN-profiel te implementeren voor apparaten met iOS.  
 
         - **Voorwaardelijke toegang**
-            - Kies **voorwaardelijke toegang inschakelen voor deze VPN-verbinding** om ervoor te zorgen dat apparaten die verbinding met de VPN-verbinding maken zijn getest voor naleving van voorwaardelijke toegang voordat u verbinding maakt. Beleidsregels voor nalevingsbeleid die worden beschreven in [nalevingsbeleid voor apparaten in System Center Configuration Manager](https://docs.microsoft.com/en-us/sccm/protect/deploy-use/device-compliance-policies.md).
+            - Kies **voorwaardelijke toegang inschakelen voor deze VPN-verbinding** om ervoor te zorgen dat apparaten die verbinding met de VPN-verbinding maken zijn getest voor naleving van voorwaardelijke toegang voordat u verbinding maakt. Beleidsregels voor nalevingsbeleid die worden beschreven in [nalevingsbeleid voor apparaten in System Center Configuration Manager](https://docs.microsoft.com/sccm/protect/deploy-use/device-compliance-policies.md).
             - Kies **Schakel eenmalige aanmelding (SSO) met een alternatief certificaat** een certificaat dan het certificaat voor VPN-verificatie voor apparaatcompatibiliteit kiezen. Als u deze optie kiest, geeft u de **EKU** (door komma's gescheiden lijst) en **Hash voor de verlener**, voor het juiste certificaat de VPN-client te vinden.
 
          - Voor **Windows Information Protection**, bieden de centraal beheerde zakelijke identiteit, dat meestal het primaire domein van uw organisatie, bijvoorbeeld, *contoso.com*. U kunt meerdere domeinen die uw organisatie eigenaar is van door deze met elkaar te scheiden opgeven de ' | ' teken. Bijvoorbeeld: *contoso.com|newcontoso.com*.   
-            Zie voor meer informatie over Windows Information Protection [maken van een Windows-beveiliging (OHW)-beleid met Microsoft Intune](https://technet.microsoft.com/en-us/itpro/windows/keep-secure/create-wip-policy-using-intune).   
+            Zie voor meer informatie over Windows Information Protection [maken van een Windows-beveiliging (OHW)-beleid met Microsoft Intune](https://technet.microsoft.com/itpro/windows/keep-secure/create-wip-policy-using-intune).   
 
          ![Voorwaardelijke toegang voor VPN-verbinding configureren](media/vpn-conditional-access.png)
 

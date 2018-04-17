@@ -7,20 +7,21 @@ ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 98feaa06-64b1-4e86-a122-93017c97cd4f
-caps.latest.revision: "7"
-caps.handback.revision: "0"
+caps.latest.revision: 7
+caps.handback.revision: 0
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: eaefae0c51af91e4419ef15cf02b8250c3d2efd8
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 6b0ae2042c1c463bce53c0c1a7438cc7102cd66e
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-monitor-certificate-profiles-in-system-center-configuration-manager"></a>Certificaatprofielen in System Center Configuration Manager controleren
 
@@ -61,7 +62,7 @@ Voor het bewaken van SCEP-certificaatnaleving gebruik niet de-console, in plaats
     |0x00000004|Inschrijving moet worden uitgesteld.|  
     |0x00000010|Er is een fout opgetreden.|  
     |0x00000020|De status van de inschrijving is onbekend.|  
-    |0x00000040|De statusgegevens zijn overgeslagen. Dit kan gebeuren als een HYPERLINK "http://msdn.microsoft.com/nl-nl/windows/ms721572" \l "_security_certification_authority_gly" certificeringsinstantie (CA) ongeldig is of niet is geselecteerd voor bewaking.|  
+    |0x00000040|De statusgegevens zijn overgeslagen. Dit kan gebeuren als een HYPERLINK "http://msdn.microsoft.com/windows/ms721572" "\l _security_certification_authority_gly" certificeringsinstantie is niet geldig of niet is geselecteerd voor bewaking.|  
     |0x00000100|Inschrijving is geweigerd.|  
 
 ##  <a name="view-compliance-results-by-using-reports"></a>Nalevingsresultaten weergeven met behulp van rapporten

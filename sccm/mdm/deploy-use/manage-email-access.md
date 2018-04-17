@@ -7,19 +7,20 @@ ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-hybrid
+ms.technology:
+- configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: fa648e73-5fb8-4818-ab57-7466ffaf888e
-caps.latest.revision: "24"
+caps.latest.revision: 24
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: a83c2030de8a146dad7bf2258e8a983c8ab6c45e
-ms.sourcegitcommit: 922d6d9c91ba2158b938df381277be1b5f1d434a
+ms.openlocfilehash: e36674d27757daab9ced4e7e8b51942a4929b5ff
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-email-access-in-system-center-configuration-manager"></a>Toegang tot e-mail beheren in System Center Configuration Manager
 
@@ -47,7 +48,7 @@ U kunt toegang tot Exchange Online en Exchange On-premises beheren vanuit de ing
 
 Office-bureaubladtoepassingen hebben toegang tot Exchange Online op pc's met:  
 
--   Office Desktop 2013 en hoger waarvoor [moderne verificatie](https://support.office.com/en-US/article/Using-Office-365-modern-authentication-with-Office-clients-776c0036-66fd-41cb-8928-5495c0f9168a) is ingeschakeld.  
+-   Office Desktop 2013 en hoger waarvoor [moderne verificatie](https://support.office.com/article/Using-Office-365-modern-authentication-with-Office-clients-776c0036-66fd-41cb-8928-5495c0f9168a) is ingeschakeld.  
 
 -   Windows 7.0 of Windows 8.1  
 
@@ -171,7 +172,7 @@ Niet-ondersteunde browsers worden geblokkeerd. De OWA-apps voor iOS en Android w
 #### <a name="for-exchange-online-and-tenants-in-the-new-exchange-online-dedicated-environment"></a>Voor Exchange Online (en tenants in de nieuwe Exchange Online-specifieke omgeving)
 
 >[!NOTE]
->U kunt ook een beleid voor voorwaardelijke toegang maken in de Azure AD-beheerconsole. Azure AD-beheerconsole kunt u het apparaat Intune beleidsregels voor voorwaardelijke toegang (aangeduid als het beleid voor voorwaardelijke toegang op basis van apparaten in Azure AD) naast andere beleidsregels voor voorwaardelijke toegang zoals multi-factor authentication-server maken. U kunt ook beleidsregels voor voorwaardelijke toegang voor Enterprise-apps van derden zoals Salesforce instellen en het selectievakje dat Azure AD ondersteunt. Zie voor meer informatie [het instellen van Azure Active Directory op basis van apparaten voorwaardelijke toegangsbeleid voor toegangsbeheer voor Azure Active Directory verbonden toepassingen](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-policy-connected-applications/).
+>U kunt ook een beleid voor voorwaardelijke toegang maken in de Azure AD-beheerconsole. Azure AD-beheerconsole kunt u het apparaat Intune beleidsregels voor voorwaardelijke toegang (aangeduid als het beleid voor voorwaardelijke toegang op basis van apparaten in Azure AD) naast andere beleidsregels voor voorwaardelijke toegang zoals multi-factor authentication-server maken. U kunt ook beleidsregels voor voorwaardelijke toegang voor Enterprise-apps van derden zoals Salesforce instellen en het selectievakje dat Azure AD ondersteunt. Zie voor meer informatie [het instellen van Azure Active Directory op basis van apparaten voorwaardelijke toegangsbeleid voor toegangsbeheer voor Azure Active Directory verbonden toepassingen](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access-policy-connected-applications/).
 
  De volgende stroom wordt gebruikt door het beleid voor voorwaardelijke toegang van Exchange Online om te beoordelen of apparaten toegang moeten krijgen of moeten worden geblokkeerd.  
 
@@ -185,7 +186,7 @@ Niet-ondersteunde browsers worden geblokkeerd. De OWA-apps voor iOS en Android w
 
 -   Registreer het apparaat bij Azure Active Directory (dit gebeurt automatisch wanneer het apparaat is ingeschreven bij Intune.  
 
-     U moet pc's die lid zijn van een domein zo instellen dat deze [het apparaat automatisch registreren](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/) bij Azure Active Directory.  
+     U moet pc's die lid zijn van een domein zo instellen dat deze [het apparaat automatisch registreren](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access-automatic-device-registration/) bij Azure Active Directory.  
 
 -   E-mailadres waarmee de Exchange ActiveSync-ID van het apparaat worden gekoppeld aan de apparaatrecord in Azure Active Directory (van toepassing op iOS- en alleen Android-apparaten) activeren.  
 

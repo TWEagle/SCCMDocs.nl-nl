@@ -2,20 +2,20 @@
 title: Intune voorbereiden voor gebruikersmigratie van de
 titleSuffix: Configuration Manager
 description: Informatie over het voorbereiden van Intune in Azure voor gebruikersmigratie van hybride MDM
-keywords: 
+keywords: ''
 author: dougeby
 manager: dougeby
 ms.date: 12/05/2017
 ms.topic: article
 ms.prod: configmgr-hybrid
-ms.service: 
-ms.technology: 
+ms.service: ''
+ms.technology: ''
 ms.assetid: db97ae9e-34f4-4e10-a282-cd211f612bb4
-ms.openlocfilehash: 226586f0ee42cdad98b1d74f25421685d85e0dcf
-ms.sourcegitcommit: 8c6e9355846ff6a73c534c079e3cdae09cf13c45
+ms.openlocfilehash: 8d636f2c46f3fa14fbc76a605d2cf55a2c0375c6
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prepare-intune-for-user-migration"></a>Intune voorbereiden voor gebruikersmigratie van de 
 
@@ -42,7 +42,7 @@ In Configuration Manager u een verzameling toevoegen aan het Intune-abonnement e
 Uw gebruikers en groepen zijn waarschijnlijk al in AAD, omdat u directory-synchronisatie is geconfigureerd. Om ervoor te zorgen dat uw gebruikers deel van de juiste gebruikersgroep uitmaken, wordt u aangeraden u wordt aangeraden uw Intune-gebruikersgroepen. U richt de beleidsregels, profielen, apps, enz. aan deze groepen. Zorg ervoor dat de gebruikers die u kunt naar Intune standalone migreren deel uitmaken van de juiste groepen. 
 
 ## <a name="configure-role-based-administration-control-rbac"></a>Op rollen gebaseerd beheer toegangsbeheer (RBAC) configureren
-Als onderdeel van de migratie alle benodigde RBAC-rollen configureren in Intune en gebruikers aan deze rollen toewijzen. Houd er rekening mee dat er verschillen tussen RBAC in Configuration Manager en Intune, zijn zoals het bereik van resources. Zie voor meer informatie [Rolgebaseerd beheer toegangsbeheer (RBAC) met Intune](https://docs.microsoft.com/en-us/intune/role-based-access-control).
+Als onderdeel van de migratie alle benodigde RBAC-rollen configureren in Intune en gebruikers aan deze rollen toewijzen. Houd er rekening mee dat er verschillen tussen RBAC in Configuration Manager en Intune, zijn zoals het bereik van resources. Zie voor meer informatie [Rolgebaseerd beheer toegangsbeheer (RBAC) met Intune](https://docs.microsoft.com/intune/role-based-access-control).
 
 ## <a name="assign-apps-and-policies-to-aad-groups"></a>Apps en beleidsregels toewijzen aan AAD-groepen
 Als u hebben doorlopen de [Import Configuration Manager-gegevens naar Microsoft Intune](migrate-import-data.md) fase van het migratieproces voor het migreren van andere Configuration Manager-objecten aan Intune, veel van de objecten mogelijk al worden toegewezen aan AAD-groepen. Echter, moet u controleren of alle objecten (apps, beleid, profielen, enz.) zijn toegewezen aan de juiste AAD-groepen. Als u objecten correct toewijst, worden de apparaten van gebruikers worden automatisch geconfigureerd nadat de gebruiker wordt gemigreerd en de migratie transparant voor gebruikers moet. Zie de volgende onderwerpen voor meer informatie over het toewijzen van de objecten aan een AAD-groep: 
@@ -62,7 +62,7 @@ PowerShell-scripts zijn beschikbaar om te helpen bij het voorbereiden voor de ov
 ### <a name="steps-to-ensure-conditional-access-works-properly-after-user-migration"></a>Om ervoor te zorgen van voorwaardelijke toegang werkt goed in na de gebruikersmigratie
 Voor voorwaardelijke toegang tot goed werken nadat het migreren van gebruikers, en om ervoor te zorgen dat uw gebruikers toegang hebben tot hun e-mailserver blijven, zorg ervoor dat de volgende voorwaarden wordt voldaan:
 - Als de Exchange ActiveSync toegang niveau standaardinstelling (DefaultAccessLevel) is ingesteld op blokkeren of in quarantaine, kunnen apparaten toegang tot e-mail verliezen. 
-- Als de Exchange-Connector in Configuration Manager is geïnstalleerd en de **toegangsniveau wanneer een mobiel apparaat niet wordt beheerd door een regel** instelling een waarde heeft van **toegang toestaan**, moet u de [ Lokale Exchange-connector](https://docs.microsoft.com/en-us/intune/conditional-access-exchange-create#configure-exchange-on-premises-access) in Intune voordat u gebruikers migreert. De standaardinstelling voor het niveau van toegang in Intune configureren op de **on-premises Exchange** blade in **geavanceerde Exchange ActiveSync-toegangsinstellingen**. Zie voor meer informatie [Exchange configureren lokale toegang](https://docs.microsoft.com/intune/conditional-access-exchange-create#configure-exchange-on-premises-access).
+- Als de Exchange-Connector in Configuration Manager is geïnstalleerd en de **toegangsniveau wanneer een mobiel apparaat niet wordt beheerd door een regel** instelling een waarde heeft van **toegang toestaan**, moet u de [ Lokale Exchange-connector](https://docs.microsoft.com/intune/conditional-access-exchange-create#configure-exchange-on-premises-access) in Intune voordat u gebruikers migreert. De standaardinstelling voor het niveau van toegang in Intune configureren op de **on-premises Exchange** blade in **geavanceerde Exchange ActiveSync-toegangsinstellingen**. Zie voor meer informatie [Exchange configureren lokale toegang](https://docs.microsoft.com/intune/conditional-access-exchange-create#configure-exchange-on-premises-access).
 - Gebruik dezelfde configuratie voor beide connectors. De laatste connector die u configureert, overschrijft de eerder geschreven door de andere connector ActiveSync organisatie-instellingen. Als u de connectors anders is geconfigureerd, kan dit leiden tot onverwachte voorwaardelijke toegang wijzigingen.
 - Gebruikers verwijderen uit de voorwaardelijke toegang in Configuration Manager als doel zodra ze worden gemigreerd naar de zelfstandige versie van Intune.
 

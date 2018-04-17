@@ -12,15 +12,15 @@ ms.suite: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ''
-caps.latest.revision: ''
+caps.latest.revision: 5
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: faa1a50b29fe4ba966812441243b81ee2d31b024
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 3f122dc7ba1bce5aaf8fe0ac6e4c75165a9b5a0b
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-deploy-windows-defender-application-guard-policy"></a>Windows Defender toepassing Guard beleid maken en implementeren 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
@@ -29,7 +29,7 @@ U kunt maken en implementeren [Windows Defender toepassing Guard](https://docs.m
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u wilt maken en implementeren van een beleid voor Windows Defender toepassing Guard, moet u de Windows 10 vallen Creator Update (1709). De Windows 10-apparaten waarop u het beleid implementeert moeten ook worden geconfigureerd met een beleid voor het isoleren van netwerken. Zie voor meer informatie de [overzicht van Windows Defender toepassing Guard](https://docs.microsoft.com/en-us/windows/threat-protection/windows-defender-application-guard/wd-app-guard-overview). 
+Als u wilt maken en implementeren van een beleid voor Windows Defender toepassing Guard, moet u de Windows 10 vallen Creator Update (1709). De Windows 10-apparaten waarop u het beleid implementeert moeten ook worden geconfigureerd met een beleid voor het isoleren van netwerken. Zie voor meer informatie de [overzicht van Windows Defender toepassing Guard](https://docs.microsoft.com/windows/threat-protection/windows-defender-application-guard/wd-app-guard-overview). 
 
 
 ## <a name="create-a-policy-and-to-browse-the-available-settings"></a>Maak een beleid en de beschikbare instellingen bladeren:

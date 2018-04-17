@@ -3,37 +3,40 @@ title: VPN-profielen
 titleSuffix: Configuration Manager
 description: Informatie over het VPN-profielen in System Center Configuration Manager gebruiken voor het implementeren van VPN-instellingen voor gebruikers in uw organisatie.
 ms.custom: na
-ms.date: 11/27/2016
+ms.date: 04/10/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c0f094f1-852e-4606-91db-97846d8f0772
-caps.latest.revision: "6"
-caps.handback.revision: "0"
-author: arob98
-ms.author: angrobe
-manager: angrobe
-ms.openlocfilehash: 02d9178dbfe8cb00d38367d0dfcb2f521d4c26a0
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+caps.latest.revision: 6
+caps.handback.revision: 0
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: d30e7cc834f1693f2cbcf2db840d650421062a19
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="vpn-profiles-in-system-center-configuration-manager"></a>VPN-profielen in System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
+<!--1283610-->
+Gebruiken om VPN-instellingen implementeren voor gebruikers in uw organisatie, VPN-profielen in Configuration Manager. Door het implementeren van deze instellingen minimaliseert u de eindgebruikersinspanningen die vereist zijn om verbinding te maken met resources op het bedrijfsnetwerk.  
 
-VPN-profielen in System Center Configuration Manager (ook wel bekend als Configuration Manager of SCCM) gebruiken voor het implementeren van VPN-instellingen voor gebruikers in uw organisatie. Door het implementeren van deze instellingen minimaliseert u de eindgebruikersinspanningen die vereist zijn om verbinding te maken met resources op het bedrijfsnetwerk.  
+ U wilt bijvoorbeeld alle Windows 10-apparaten met de instellingen die zijn vereist om verbinding met een bestandsshare op het bedrijfsnetwerk te configureren. U kunt een VPN-profiel maken met de instellingen nodig verbinding maken met het bedrijfsnetwerk. Vervolgens implementeert u dit profiel voor alle gebruikers die hebben apparaten met Windows 10. Deze gebruikers zien de VPN-verbinding in de lijst met beschikbare netwerken en kunnen moeiteloos verbinding.  
 
- Bijvoorbeeld, wilt u inrichten alle apparaten waarop het besturingssysteem Windows RT wordt uitgevoerd met de instellingen die zijn vereist om te verbinden met een bestandsshare op het bedrijfsnetwerk. U kunt een VPN-profiel met de instellingen die nodig zijn om verbinding maken met het bedrijfsnetwerk en vervolgens implementeert dit profiel voor alle gebruikers hebben apparaten met Windows RT in uw hiërarchie maken. Gebruikers van Windows RT-apparaten zien de VPN-verbinding in de lijst met beschikbare netwerken en kunnen verbinding maken met dit netwerk met een minimale inspanning.  
+ Wanneer u een VPN-profiel maakt, kunt u een groot aantal beveiligingsinstellingen opnemen. Deze instellingen omvatten certificaten voor servervalidatie en clientverificatie die u met Configuration Manager-certificaatprofielen inricht. Zie voor meer informatie [Certificaatprofielen](introduction-to-certificate-profiles.md).  
 
- Wanneer u een VPN-profiel maakt, kunt u een breed scala aan beveiligingsinstellingen, waaronder certificaten voor servervalidatie en clientverificatie die zijn ingericht met behulp van System Center Configuration Manager-certificaatprofielen kunt opnemen. Zie [Certificaatprofielen in System Center Configuration Manager](introduction-to-certificate-profiles.md) voor meer informatie over certificaatprofielen.  
+> [!Note]  
+> Configuration Manager deze optionele functie standaard niet ingeschakeld. Voordat u deze gebruikt, moet u deze functie inschakelen. Zie voor meer informatie [optionele functies van updates inschakelen](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
 
- De volgende secties wordt uitgelegd welke apparaten die u met VPN-profielen configureren kunt als u van Configuration Manager gebruikmaakt.
 
  Zie [VPN-profielen op mobiele apparaten](/sccm/mdm/deploy-use/create-vpn-profiles) om te controleren van de apparaten die u configureren kunt wanneer u Configuration Manager met Microsoft Intune.  
 

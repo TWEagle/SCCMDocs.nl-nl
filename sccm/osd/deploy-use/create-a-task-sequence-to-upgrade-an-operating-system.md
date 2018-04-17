@@ -1,9 +1,9 @@
 ---
-title: Maak een takenreeks om een besturingssysteem te upgraden
+title: Maken van een takenreeks voor OS upgraden
 titleSuffix: Configuration Manager
 description: Een takenreeks gebruiken voor het automatisch upgrade uitvoeren in Windows 7 of hoger naar Windows 10
 ms.custom: na
-ms.date: 03/22/2018
+ms.date: 04/10/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,15 +12,15 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7591e386-a9ab-4640-8643-332dce5aa006
-caps.latest.revision: ''
+caps.latest.revision: 12
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 91d3bf5b1488eb7eac52c7426e4bdeeb92ff43b8
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 48a5e7aa381924e3c0ad052833c9588e3dffa4f5
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-task-sequence-to-upgrade-an-operating-system-in-system-center-configuration-manager"></a>Maak een takenreeks om een besturingssysteem in System Center Configuration Manager te upgraden
 
@@ -87,9 +87,16 @@ Gebruik takenreeksen in Configuration Manager automatisch bijwerken van een best
 
 
 ## <a name="configure-pre-cache-content"></a>Inhoud van de pre-cache configureren
-De vooraf cachefunctie voor beschikbare implementaties van takenreeksen kan clients relevante OS-upgradepakket inhoud downloaden voordat een gebruiker de takenreeks wordt uitgevoerd installeert.
+<!--1021244-->
+De vooraf cachefunctie voor beschikbare implementaties van takenreeksen kan clients relevante OS-upgradepakket inhoud downloaden voordat een gebruiker de takenreeks wordt uitgevoerd installeert.  
+
 > [!TIP]  
-> Deze functie is geïntroduceerd in versie 1702 als een [functie van de voorlopige versie](/sccm/core/servers/manage/pre-release-features). Vanaf versie 1706, deze functie is niet langer een voorlopige versie.
+> Deze functie is geïntroduceerd in versie 1702 als een [functie van de voorlopige versie](/sccm/core/servers/manage/pre-release-features). Vanaf versie 1706, deze functie is niet langer een voorlopige versie.  
+
+
+> [!Note]  
+> Configuration Manager deze optionele functie standaard niet ingeschakeld. Voordat u deze gebruikt, moet u deze functie inschakelen. Zie voor meer informatie [optionele functies van updates inschakelen](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
+
 
 Bijvoorbeeld, u alleen een enkele in-place upgrade takenreeks wilt gebruiken voor alle gebruikers en vele architecturen en talen. In eerdere versies begint de inhoud te downloaden wanneer de gebruiker een beschikbare takenreeksimplementatie vanuit Software Center installeert. Deze vertraging voegt meer tijd voordat de installatie is gereed om te starten. Alle inhoud waarnaar wordt verwezen in de takenreeks wordt gedownload. Deze inhoud bevat het upgradepakket voor besturingssysteem voor alle talen en -architecturen. Als u elke upgradepakket is ongeveer drie GB groot is, wordt de totale inhoud groot is.
 

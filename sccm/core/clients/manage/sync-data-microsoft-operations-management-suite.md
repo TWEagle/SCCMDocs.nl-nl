@@ -1,9 +1,9 @@
 ---
-title: 'Gegevens synchroniseren naar de Microsoft Operations Management Suite '
+title: Gegevens synchroniseren naar OMS
 titleSuffix: Configuration Manager
 description: Synchroniseren van gegevens uit System Center Configuration Manager met Microsoft Operations Management Suite.
 ms.custom: na
-ms.date: 03/22/2018
+ms.date: 04/10/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,25 +12,32 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 33bcf8b3-a6b6-4fc9-bb59-70a9621b2b0d
-caps.latest.revision: ''
-author: mestew
-ms.author: mstewart
+caps.latest.revision: 9
+author: aczechowski
+ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: df57255108d0e5e8b8f5e4e8d73a392c4cf2faae
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 4ac6d69d07e17946abefdc4f5b7d4a1a73385c44
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 #  <a name="sync-data-from-configuration-manager-to-the-microsoft-operations-management-suite"></a>Gegevens synchroniseren van Configuration Manager naar de Microsoft Operations Management Suite
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
+<!--1258052-->
 U kunt de **Wizard Azure-Services** Configureer de verbinding van Configuration Manager naar de cloudservice Operations Management Suite (OMS). Vanaf versie 1706, vervangt de wizard vorige werkstromen voor het configureren van deze verbinding. Zie voor eerdere versies [synchroniseren van gegevens uit Configuration Manager met Microsoft Operations Management Suite (1702 en eerder)](#Sync-data-from-Configuration-Manager-to-the-Microsoft-Operations-Management-Suite-(1702-and-earlier)).
 
 -   De wizard wordt gebruikt voor het configureren van cloudservices voor Configuration Manager, zoals OMS, Microsoft Store voor bedrijven en Azure Active Directory (Azure AD).  
 
 -   Configuration Manager maakt verbinding met OMS voor functies, zoals [logboekanalyse](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite), of [gereedheid voor Upgrade](/sccm/core/clients/manage/upgrade/upgrade-analytics).
+
+
+> [!Note]  
+> Configuration Manager deze optionele functie standaard niet ingeschakeld. Voordat u deze gebruikt, moet u deze functie inschakelen. Zie voor meer informatie [optionele functies van updates inschakelen](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
+
+
 
 ## <a name="prerequisites-for-the-oms-connector"></a>Vereisten voor de OMS-Connector
 Vereisten voor het configureren van een verbinding met OMS is ongewijzigd ten opzichte van de vereisten [beschreven voor de huidige vertakking versie 1702](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite#prerequisites). Deze informatie wordt hier herhaald:  
@@ -129,17 +136,17 @@ Nadat u hebt de Configuration Manager met OMS gekoppeld, kunt u toevoegen of ver
 
     Wijzig de waarde voor de naam van de instelling *FairFaxArmResourceID* moet gelijk zijn aan 'https://management.usgovcloudapi.net/'
 
-   - **Original:** &lt;setting name="FairFaxArmResourceId" serializeAs="String">   
+   - **Oorspronkelijke:** &lt;Instellingsnaam = serializeAs 'FairFaxArmResourceId' = 'Tekenreeks' >   
       &lt;waarde > &lt; /value >   
       &lt;/setting>
 
    - **Bewerkt:**     
-      &lt;setting name="FairFaxArmResourceId" serializeAs="String"> &lt;value>https://management.usgovcloudapi.net/&lt;/value>  
+      &lt;naam van de instelling serializeAs 'FairFaxArmResourceId' = 'Tekenreeks' = > &lt;waarde >https://management.usgovcloudapi.net/ &lt; /value >  
       &lt;/setting>
 
   Wijzig de waarde voor de naam van de instelling *FairFaxAuthorityResource* moet gelijk zijn aan 'https://login.microsoftonline.us/'
 
-  - **Original:** &lt;setting name="FairFaxAuthorityResource" serializeAs="String">   
+  - **Oorspronkelijke:** &lt;Instellingsnaam = serializeAs 'FairFaxAuthorityResource' = 'Tekenreeks' >   
     &lt;waarde > &lt; /value >
 
     - **Bewerkt:** &lt;Instellingsnaam = serializeAs 'FairFaxAuthorityResource' = 'Tekenreeks' >   

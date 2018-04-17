@@ -3,32 +3,39 @@ title: Client-Peer-Cache
 titleSuffix: Configuration Manager
 description: Gebruik voor de inhoudsbron clientlocaties Peer-Cache bij het implementeren van inhoud met System Center Configuration Manager.
 ms.custom: na
-ms.date: 12/07/2017
+ms.date: 04/10/2018
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 86cd5382-8b41-45db-a4f0-16265ae22657
-caps.latest.revision: "3"
+caps.latest.revision: 3
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: 424f4030f2dd2a337a29d48ca831fa3a791de610
-ms.sourcegitcommit: e121d8d3dd82b9f2dde2cb5206cbee602ab8e107
+manager: dougeby
+ms.openlocfilehash: 99eef9faf6ac66f65d16020b703e3a64d9beb9d0
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="peer-cache-for-configuration-manager-clients"></a>Peer-Cache voor Configuration Manager-clients
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-U begint met System Center Configuration Manager versie 1610, kunt u **Peer-Cache** voor het beheer van de implementatie van inhoud voor clients op externe locaties. Peer-Cache is een ingebouwde Configuration Manager-oplossing waarmee clients inhoud te delen met andere clients rechtstreeks vanuit het lokale cachegeheugen.   
+<!--1101436-->
+Gebruik **Peer-Cache** voor het beheer van de implementatie van inhoud voor clients op externe locaties. Peer-Cache is een ingebouwde Configuration Manager-oplossing waarmee clients inhoud te delen met andere clients rechtstreeks vanuit het lokale cachegeheugen.   
 
 > [!TIP]  
-> Deze functie is geïntroduceerd in versie 1610 als een [functie van de voorlopige versie](/sccm/core/servers/manage/pre-release-features). Vanaf versie 1710, deze functie is niet langer een voorlopige versie.
+> Deze functie is geïntroduceerd in versie 1610 als een [functie van de voorlopige versie](/sccm/core/servers/manage/pre-release-features). Vanaf versie 1710, deze functie is niet langer een voorlopige versie.  
+
+
+> [!Note]  
+> Configuration Manager deze optionele functie standaard niet ingeschakeld. Voordat u deze gebruikt, moet u deze functie inschakelen. Zie voor meer informatie [optionele functies van updates inschakelen](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
+
 
 ## <a name="overview"></a>Overzicht
 Een client-Peer-Cache is een Configuration Manager-client die is ingeschakeld voor Peer-Cache gebruiken. Een client die deze inhoud met extra clients delen kunt Peer-Cache is een Peer-Cache-bron.
@@ -37,7 +44,7 @@ Een client-Peer-Cache is een Configuration Manager-client die is ingeschakeld vo
     -  Worden moet lid van een domein. Echter, Peer-Cache-bron lid zijn van een client die niet is verbonden met het domein kan inhoud ophalen van een domein.
     -  Moet een lid van de huidige grensgroep van de client waarmee wordt geprobeerd de inhoud. Wanneer een client terugval gebruikt te zoeken naar inhoud uit een grensgroep neighbor, bevatten de lijst met inhoudsbron locaties een client-Peer-Cache niet in een grensgroep neighbor. Zie voor meer informatie over de huidige en neighbor grensgroepen [grensgroepen](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups##a-namebkmkboundarygroupsa-boundary-groups).
  - Configuration Manager-client dient elke type inhoud in de cache met andere clients met behulp van Peer-Cache. Deze inhoud bevat Office 365-bestanden en drukt bestanden voor installatie.<!--SMS.500850-->
- -  Het gebruik van andere oplossingen zoals BranchCache vervangen-peer-Cache niet. Peer-Cache werkt samen met andere oplossingen voor beschikt u over meer opties voor het uitbreiden van traditionele implementatieoplossingen voor inhoud zoals distributiepunten. Peer-Cache is een aangepaste oplossing met een niet afhankelijk van BranchCache.  Als u niet inschakelen of Windows BranchCache gebruiken, werkt nog altijd Peer-Cache.
+ -  Het gebruik van andere oplossingen zoals BranchCache vervangen-peer-Cache niet. Peer-Cache werkt samen met andere oplossingen voor beschikt u over meer opties voor het uitbreiden van traditionele implementatieoplossingen voor inhoud zoals distributiepunten. Peer-Cache is een aangepaste oplossing met een niet afhankelijk van BranchCache. Als u niet inschakelen of Windows BranchCache gebruiken, werkt nog altijd Peer-Cache.
 
 ### <a name="operations"></a>Bewerkingen
 
@@ -81,7 +88,7 @@ Gebruik dit rapport om te begrijpen afwijzing details voor een opgegeven groep o
 3. **Peer-cache-bron inhoud afwijzing details**:   
   Gebruik dit rapport dat u begrijpt de inhoud die de client is aangevraagd wanneer afgewezen.
 
- - **Bekende problemen:** U kan niet kiezen uit de beschikbare parameters en in plaats daarvan moet ze handmatig invoeren. Voer de waarde voor *afwijzing Type* zoals weergegeven de **Peer-cache-bron inhoud afwijzing** rapport. Voer vervolgens de *Resource-ID* voor de inhoudsbron waarover u meer informatie wilt.  De Resource-ID van de inhoudsbron zoeken:  
+ - **Bekende problemen:** U kan niet kiezen uit de beschikbare parameters en in plaats daarvan moet ze handmatig invoeren. Voer de waarde voor *afwijzing Type* zoals weergegeven de **Peer-cache-bron inhoud afwijzing** rapport. Voer vervolgens de *Resource-ID* voor de inhoudsbron waarover u meer informatie wilt. De Resource-ID van de inhoudsbron zoeken:  
 
     1. Zoek de naam van de computer die wordt weergegeven als de *Peer-cachebron* in de resultaten van de **Peer-cache-bron inhoud afwijzing door voorwaarde** rapport.  
     2. Ga vervolgens naar **activa en naleving** > **apparaten** en zoek vervolgens naar die naam computers. Gebruik de waarde van de Resource-ID-kolom.  
@@ -92,7 +99,7 @@ Gebruik dit rapport om te begrijpen afwijzing details voor een opgegeven groep o
 
 -   Clients kunnen alleen inhoud overdragen van Peer-Cache-clients die zich in hun huidige grensgroep bevinden.
 
--   Voorafgaand aan versie 1706, elke site waar clients gebruiken voor Peer-Cache moet worden geconfigureerd met een [netwerktoegangsaccount](/sccm/core/plan-design/hierarchy/manage-accounts-to-access-content#a-namebkmknaaa-network-access-account). Vanaf versie 1706, account is niet langer vereist met één uitzondering.  Het scenario uitzondering is wanneer een peer-cache-clients een takenreeks vanuit het Software Center uitvoert en dat de takenreeks opnieuw wordt opgestart in een opstartinstallatiekopie. In dit scenario wordt vereist de client nog steeds voor het netwerktoegangsaccount. Wanneer de client in Windows PE is, gebruikt het netwerktoegangsaccount inhoud op te halen uit de peer-cachebron.
+-   Voorafgaand aan versie 1706, elke site waar clients gebruiken voor Peer-Cache moet worden geconfigureerd met een [netwerktoegangsaccount](/sccm/core/plan-design/hierarchy/manage-accounts-to-access-content#a-namebkmknaaa-network-access-account). Vanaf versie 1706, account is niet langer vereist met één uitzondering. Het scenario uitzondering is wanneer een peer-cache-clients een takenreeks vanuit het Software Center uitvoert en dat de takenreeks opnieuw wordt opgestart in een opstartinstallatiekopie. In dit scenario wordt vereist de client nog steeds voor het netwerktoegangsaccount. Wanneer de client in Windows PE is, gebruikt het netwerktoegangsaccount inhoud op te halen uit de peer-cachebron.
 
     Indien vereist, wordt in de Peer-Cache-bron-computer het netwerktoegangsaccount voor aanvragen voor het downloaden van peers verificatie gebruikt. Deze account vereist alleen domeingebruikersmachtigingen nodig voor dit doel.
 

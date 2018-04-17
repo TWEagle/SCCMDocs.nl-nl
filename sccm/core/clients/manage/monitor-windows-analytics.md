@@ -7,19 +7,20 @@ ms.date: 01/02/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-client
+ms.technology:
+- configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: CF35CE87-3BA8-4A84-9BC8-ABCEA4666212
-caps.latest.revision: "23"
+caps.latest.revision: 23
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 6e0b6ec99755b89213b540f22315038911b8eb29
-ms.sourcegitcommit: f1535281b2c3fecff773b722c3f7590bf6ba10a0
+ms.openlocfilehash: 15b1d07f35f774f3ec8f082a86c90ecb989a438e
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-windows-analytics-with-configuration-manager"></a>Windows-Analytics gebruiken met Configuration Manager
 
@@ -64,6 +65,6 @@ Zie voor meer informatie en meer informatie over het configureren en verbinden v
 
 ## <a name="use-windows-analytics-to-identify-gaps-in-windows-information-protection-policies"></a>Gebruik Windows Analytics naar hiaten in de Windows Information Protection-beleid
 
-Windows 10 versie 1703 en latere apparaten die zijn geconfigureerd met een [Windows Information Protection](https://docs.microsoft.com/en-us/windows/threat-protection/windows-information-protection/protect-enterprise-data-using-wip) (OHW) beleid rapport telemetrie over toepassingen die toegang zakelijke gegevens in uw omgeving, maar de toepassing van OHW beleidsregels tot niet bevatten. Gebruikers hebben deze toepassingen om productief te blijven mogelijk nodig, maar OHW blokkeert de toegang van gebruikers. Kennis dat gebruikers van bedrijfsgegevens gebruikmaken is nuttig voor het onderhoud van uw Windows Information Protection-beleid in Configuration Manager. 
+Windows 10 versie 1703 en latere apparaten die zijn geconfigureerd met een [Windows Information Protection](https://docs.microsoft.com/windows/threat-protection/windows-information-protection/protect-enterprise-data-using-wip) (OHW) beleid rapport telemetrie over toepassingen die toegang zakelijke gegevens in uw omgeving, maar de toepassing van OHW beleidsregels tot niet bevatten. Gebruikers hebben deze toepassingen om productief te blijven mogelijk nodig, maar OHW blokkeert de toegang van gebruikers. Kennis dat gebruikers van bedrijfsgegevens gebruikmaken is nuttig voor het onderhoud van uw Windows Information Protection-beleid in Configuration Manager. 
 
 Toegang tot deze Windows Information Protection-gegevens met behulp van dit [Operations Management Suite query](https://go.microsoft.com/fwlink/?linkid=849952).

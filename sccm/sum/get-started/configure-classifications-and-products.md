@@ -1,22 +1,23 @@
 ---
-title: Configureer classificaties en producten voor synchronisatie
+title: Classificaties en producten configureren
 titleSuffix: Configuration Manager
-description: Volg deze stappen voor het configureren van classificaties en producten voor synchronisatie in de Configuration Manager-console.
-keywords: 
-author: dougeby
-ms.author: dougeby
-manager: angrobe
-ms.date: 11/20/2017
+description: Volg deze stappen voor het configureren van software-updateclassificaties en producten voor synchronisatie in de Configuration Manager-console.
+keywords: ''
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.date: 04/10/2018
 ms.topic: article
 ms.prod: configuration-manager
-ms.service: 
-ms.technology: configmgr-sum
+ms.service: ''
+ms.technology:
+- configmgr-sum
 ms.assetid: 5ddde4e6-d553-4182-b752-6bc8b4a26745
-ms.openlocfilehash: f36ff74b794e57b51742c40d10bd25a9cb4a13a5
-ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
+ms.openlocfilehash: 9ba0872b1d2e4ef5dd027df3f7c16a6b3a94e9ac
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 #  <a name="configure-classifications-and-products-to-synchronize"></a>Configureer classificaties en producten voor synchronisatie  
 
@@ -53,9 +54,11 @@ ms.lasthandoff: 11/21/2017
     >       
 
     > [!NOTE]    
-    > Vanaf Configuration Manager versie 1706, kunt u de **opnemen Microsoft Surface stuurprogramma's en firmware-updates** selectievakje in om te synchroniseren van de Microsoft Surface stuurprogramma's. Alle software-updatepunten moeten Windows Server 2016 om te synchroniseren met succes Surface stuurprogramma's worden uitgevoerd. Als u een software-updatepunt op een computer met Windows Server 2012 nadat u Surface stuurprogramma's inschakelen inschakelt, zijn de scanresultaten voor de updates voor stuurprogramma's niet juist. Dit resulteert in een onjuiste compatibiliteitsgegevens weergegeven in de Configuration Manager-console en in de Configuration Manager-rapporten.  
-    > 
-    > De **opnemen Microsoft Surface stuurprogramma's en firmware-updates** selectievakje altijd beschikbaar is in Configuration Manager versie 1710. Echter een voorlopige versie-functie in Configuration Manager versie 1706 is en u moet deze inschakelen beschikbaar. Functies van evaluatieversies zijn functies die zich in de huidige vertakking voor vroege testdoeleinden in een productieomgeving. Deze functies worden volledig ondersteund maar nog in ontwikkeling actief zijn en wijzigingen mogelijk ontvangen totdat ze worden verplaatst buiten de categorie van de voorlopige versie. Zie [Use pre-release features from updates](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease) (Functies van evaluatieversies gebruiken) voor meer informatie.
+    > Vanaf Configuration Manager versie 1706, kunt u de **opnemen Microsoft Surface stuurprogramma's en firmware-updates** selectievakje in om te synchroniseren van de Microsoft Surface stuurprogramma's.<!--1098490--> Alle software-updatepunten moeten Windows Server 2016 om te synchroniseren met succes Surface stuurprogramma's worden uitgevoerd. Als u een software-updatepunt op een computer met Windows Server 2012 nadat u Surface stuurprogramma's inschakelen inschakelt, zijn de scanresultaten voor de updates voor stuurprogramma's niet juist. Dit resulteert in een onjuiste compatibiliteitsgegevens weergegeven in de Configuration Manager-console en in de Configuration Manager-rapporten.  
+    >  
+    > Deze functie is geïntroduceerd in versie 1706 als een [functie van de voorlopige versie](/sccm/core/servers/manage/pre-release-features). Vanaf versie 1710, deze functie is niet langer een voorlopige versie.  
+    >  
+    > Configuration Manager deze optionele functie standaard niet ingeschakeld. Voordat u deze gebruikt, moet u deze functie inschakelen. Zie voor meer informatie [optionele functies van updates inschakelen](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
 
 5.  Geef op het tabblad **Producten** de producten op waarvoor u software-updates wilt synchroniseren, en klik vervolgens op **Sluiten**.  
 

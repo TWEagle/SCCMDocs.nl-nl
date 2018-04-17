@@ -1,36 +1,37 @@
 ---
-title: Toegang tot O365-services voor beheerde pc's beheren
+title: Toegang beheren tot O365-services
 titleSuffix: Configuration Manager
-description: Informatie over het configureren van voorwaardelijke toegang voor pc's die worden beheerd door System Center Configuration Manager.
+description: Informatie over het configureren van voorwaardelijke toegang tot Office 365-services voor pc's die worden beheerd door System Center Configuration Manager.
 ms.custom: na
-ms.date: 01/10/2018
+ms.date: 04/10/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-hybrid
+ms.technology:
+- configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 34024741-edfa-4088-8599-d6bafc331e62
-caps.latest.revision: "15"
-author: andredm7
-ms.author: andredm
-manager: angrobe
-ms.openlocfilehash: e1f50ea65236473f059ded6ef85c37646e929e53
-ms.sourcegitcommit: e121d8d3dd82b9f2dde2cb5206cbee602ab8e107
+caps.latest.revision: 15
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 1e02cb911397d5f1f837996318b12049d328c9c3
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-access-to-o365-services-for-pcs-managed-by-system-center-configuration-manager"></a>Toegang beheren tot O365-services voor pc’s die worden beheerd door System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-In dit artikel wordt beschreven hoe voorwaardelijke toegang configureren voor pc's die worden beheerd door Configuration Manager.  
+<!--1191496-->
+Voorwaardelijke toegang tot Office 365-services voor pc's die worden beheerd door Configuration Manager configureren.  
 
-<!--
- >> [!Tip]  
-> This feature was first introduced in version 1602 as a [pre-release feature](/sccm/core/servers/manage/pre-release-features). Beginning with version 1702, this feature is no longer a pre-release feature.
--->
+> [!Note]  
+> Configuration Manager deze optionele functie standaard niet ingeschakeld. Voordat u deze gebruikt, moet u deze functie inschakelen. Zie voor meer informatie [optionele functies van updates inschakelen](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
+
 
 Zie voor meer informatie over het configureren van voorwaardelijke toegang voor apparaten zijn ingeschreven en beheerd door Microsoft Intune [toegang tot services in System Center Configuration Manager beheren](../../protect/deploy-use/manage-access-to-services.md). Dat artikel bevat ook informatie over apparaten die zijn van een domein is toegevoegd en op compatibiliteit geëvalueerd.
 
@@ -94,15 +95,18 @@ Zie voor meer informatie over het configureren van voorwaardelijke toegang voor 
     - **BitLocker moet zijn ingeschakeld op het apparaat vereisen**
     - **Beveiligd opstarten moet zijn ingeschakeld op het apparaat vereist** 
     - **Code-integriteit worden ingeschakeld op het apparaat vereist**
-    - **Vroegtijdig starten Anti-Malware worden ingeschakeld op het apparaat vereist**
+    - **Vroegtijdig starten Anti-Malware worden ingeschakeld op het apparaat vereist**  
 
->[!Tip]
-> De criteria voor voorwaardelijke toegang voor de health attestation van apparaten is geïntroduceerd in versie 1710, is een voorlopige versie-functie. Zie voor het inschakelen van deze functie [functies van evaluatieversies](/sccm/core/servers/manage/pre-release-features). 
+    >[!Tip]  
+    > De criteria voor voorwaardelijke toegang voor de health attestation van apparaten is geïntroduceerd in versie 1710 als een [functie van de voorlopige versie](/sccm/core/servers/manage/pre-release-features). Vanaf versie 1802, deze functie is niet langer een voorlopige versie.<!--1235616-->  
+
+    > [!Note]  
+    > Configuration Manager deze optionele functie standaard niet ingeschakeld. Voordat u deze gebruikt, moet u deze functie inschakelen. Zie voor meer informatie [optionele functies van updates inschakelen](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
 
 ### <a name="step-2-evaluate-the-effect-of-conditional-access"></a>Stap 2. Het effect van voorwaardelijke toegang evalueren  
- Voer het rapport voor naleving van voorwaardelijke toegang uit. Dit vindt u in de sectie bewaking onder rapporten > compatibiliteit en instellingen beheren. Dit rapport geeft de status van naleving voor alle apparaten.  Apparaten die rapporteren als niet-compatibel in toegang tot Exchange Online en SharePoint Online geblokkeerd.  
+ Voer de **rapport voor naleving van voorwaardelijke toegang**. Kan worden gevonden in **bewaking** werkruimte **rapporten** > **compatibiliteit en instellingen beheren**. Dit rapport geeft de status van naleving voor alle apparaten. Apparaten die rapporteren als niet-compatibel in toegang tot Exchange Online en SharePoint Online geblokkeerd.  
 
- ![CA&#95;naleving&#95;rapport](media/CA_compliance_report.png)  
+ ![Configuration Manager-console, werkruimte bewaking, rapportage, rapporten, compatibiliteit en instellingen beheren: Rapport voor naleving van voorwaardelijke toegang](media/CA_compliance_report.png)  
 
 ### <a name="configure-active-directory-security-groups"></a>Active Directory-beveiligingsgroepen configureren  
  U richt de beleidsregels voor voorwaardelijke toegang op gebruikersgroepen, afhankelijk van de soorten beleid. Deze groepen bevatten de gebruikers die de doelen van beleid of uitgesloten van het beleid. Wanneer een beleid is bedoeld voor een gebruiker, moet elk apparaat dat ze gebruiken compatibel toegang tot de service zijn.  
@@ -113,12 +117,12 @@ Zie voor meer informatie over het configureren van voorwaardelijke toegang voor 
 
 -   **Doelgroepen** -gebruikersgroepen waarop het beleid wordt toegepast. Dezelfde groep moet worden gebruikt voor naleving en beleid voor voorwaardelijke toegang.  
 
--   **Uitgesloten groepen** -gebruikersgroepen die uitgesloten van het beleid (optioneel zijn)  
+-   **Uitgesloten groepen** -gebruikersgroepen die uitgesloten van het beleid (optioneel zijn).  
     Als een gebruiker zich in beide, zijn deze uitgesloten van het beleid.  
 
      Alleen de doelgroepen van het beleid voor voorwaardelijke toegang worden geëvalueerd.  
 
-### <a name="step-3--create-a-conditional-access-policy-for-exchange-online-and-sharepoint-online"></a>Stap 3.  Maak een beleid voor voorwaardelijke toegang tot Exchange Online en SharePoint Online.  
+### <a name="step-3-create-a-conditional-access-policy-for-exchange-online-and-sharepoint-online"></a>Stap 3. Maak een beleid voor voorwaardelijke toegang tot Exchange Online en SharePoint Online.  
 
 1.  Klik op **Activa en naleving** op de Configuration Manager-console.  
 

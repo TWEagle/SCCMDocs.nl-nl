@@ -2,7 +2,7 @@
 title: Plan voor cloud-beheergateway
 titleSuffix: Configuration Manager
 description: Plannen en ontwerpen van de cloud management gateway (CMG) voor het vereenvoudigen van beheer van clients op internet.
-ms.date: 03/22/2018
+ms.date: 04/10/2018
 ms.prod: configuration-manager
 ms.technology:
 - configmgr-client
@@ -10,20 +10,26 @@ ms.assetid: 2dc8c9f1-4176-4e35-9794-f44b15f4e55f
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: dabc248c1788ecad4d7b25c0a1f592e0ddeef826
-ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
+ms.openlocfilehash: 2b207ffe95a078c955817d9251da3adbdf4de10d
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="plan-for-the-cloud-management-gateway-in-configuration-manager"></a>Plan voor de cloudgateway management in Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
-
+ 
+<!--1101764-->
 De cloud management gateway (CMG) biedt een eenvoudige manier voor het beheren van Configuration Manager-clients op internet. De CMG als een cloudservice in Microsoft Azure implementeert, kunt u traditionele clients die op internet zonder aanvullende infrastructuur roamen te beheren. Ook moet niet u uw on-premises infrastructuur met het internet zichtbaar. 
 
 > [!Tip]  
-> Deze functie is geïntroduceerd in versie 1610 als een [functie van de voorlopige versie](/sccm/core/servers/manage/pre-release-features). Vanaf versie 1802, deze functie is niet langer een voorlopige versie.
+> Deze functie is geïntroduceerd in versie 1610 als een [functie van de voorlopige versie](/sccm/core/servers/manage/pre-release-features). Vanaf versie 1802, deze functie is niet langer een voorlopige versie.  
+
+
+> [!Note]  
+> Configuration Manager deze optionele functie standaard niet ingeschakeld. Voordat u deze gebruikt, moet u deze functie inschakelen. Zie voor meer informatie [optionele functies van updates inschakelen](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
+
 
 Nadat de vereiste onderdelen, bestaat het maken van de CMG uit de volgende drie stappen in de Configuration Manager-console:
 1. De cloudservice CMG implementeren in Azure.
@@ -186,6 +192,7 @@ De volgende tabel bevat CMG ondersteuning voor Configuration Manager-functies:
 | Endpoint protection     | ![Ondersteund](media/green_check.png) |
 | Hardware en software-inventaris     | ![Ondersteund](media/green_check.png) |
 | Status van de client en meldingen     | ![Ondersteund](media/green_check.png) |
+| Scripts uitvoeren     | ![Ondersteund](media/green_check.png) |
 | Instellingen voor naleving     | ![Ondersteund](media/green_check.png) |
 | Client installeren</br>(met Azure AD-integratie)     | ![Ondersteund](media/green_check.png)  (1706) |
 | Softwaredistributie (gericht op apparaat)     | ![Ondersteund](media/green_check.png) |
@@ -337,7 +344,7 @@ CMG verbinding sitesysteem van het ondersteunt het gebruik van een webproxy. Zie
 
 - StorageEndpoint (core.windows.net)  
 
-- Token ophalen door de Configuration Manager-console en de client voor Azure AD: ActiveDirectoryEndpoint (https://login.microsoftonline.com/)  
+- Token ophalen door de Configuration Manager-console en de client voor Azure AD: ActiveDirectoryEndpoint)https://login.microsoftonline.com/)  
 
 - Voor Azure AD-gebruikersdetectie: AAD-grafiek eindpunt (https://graph.windows.net/)  
 

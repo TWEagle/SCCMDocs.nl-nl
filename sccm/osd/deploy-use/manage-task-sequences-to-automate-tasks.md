@@ -3,7 +3,7 @@ title: Takenreeksen beheren
 titleSuffix: Configuration Manager
 description: Maken, bewerken, implementeren, importeren en exporteren van takenreeksen voor ze beheren en het automatiseren van taken in uw omgeving.
 ms.custom: na
-ms.date: 03/22/2018
+ms.date: 04/10/2018
 ms.prod: configuration-manager
 ms.reviewer: nac
 ms.suite: na
@@ -12,15 +12,15 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a1f099f1-e9b5-4189-88b3-f53e3b4e4add
-caps.latest.revision: ''
+caps.latest.revision: 10
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: 262bfa3991bbd95fad779da9520358d527a42b07
-ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
+manager: dougeby
+ms.openlocfilehash: 9ed5a94d644aa0bdb7d63c3b976da7dd566dfedd
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-task-sequences-to-automate-tasks-in-system-center-configuration-manager"></a>Takenreeksen beheren om taken te automatiseren in System Center Configuration Manager
 
@@ -103,7 +103,7 @@ Gebruik de volgende procedure om de gegevens voor de takenreeks weergegeven in S
     - **Pakket**     
         Wanneer u selecteert **rst een ander programma**, blader naar het pakket met het programma dat moet worden uitgevoerd voordat deze takenreeks.
 
-    - **Program**     
+    - **Programma**     
     Wanneer u selecteert **rst een ander programma**, selecteer het programma dat moet worden uitgevoerd vóór deze takenreeks van de **programma** vervolgkeuzelijst.
 
         > [!NOTE]    
@@ -483,8 +483,12 @@ U kunt per computer variabelen op een primaire site of op een centrale beheersit
 6.  Wanneer u alle variabelen aan de verzameling hebt toegevoegd, klikt u op **OK**.  
 
 ## <a name="add-child-task-sequences-to-a-task-sequence"></a>Takenreeksen onderliggende toevoegen aan een takenreeks
+<!--1261338-->
+U kunt een nieuwe takenreeksstap waarop een andere takenreeks wordt uitgevoerd vanaf Configuration Manager versie 1710 kunt toevoegen. Deze stap maakt een bovenliggende / onderliggende relatie tussen de takenreeksen. Met behulp van deze stap kunt u meer modulaire takenreeksen maken die u kunt hergebruiken.  
 
-U kunt een nieuwe takenreeksstap waarop een andere takenreeks wordt uitgevoerd vanaf Configuration Manager versie 1710 kunt toevoegen. Deze stap maakt een bovenliggende / onderliggende relatie tussen de takenreeksen. Met behulp van deze stap kunt u meer modulaire takenreeksen maken die u kunt hergebruiken.
+> [!Note]  
+> Configuration Manager deze optionele functie standaard niet ingeschakeld. Voordat u deze gebruikt, moet u deze functie inschakelen. Zie voor meer informatie [optionele functies van updates inschakelen](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
+
 
 Overweeg het volgende wanneer u een takenreeks onderliggende aan een takenreeks toevoegt:
 

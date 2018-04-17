@@ -7,19 +7,20 @@ ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-hybrid
+ms.technology:
+- configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 78a0aecc-f775-451e-aa05-56377ec91b1f
-caps.latest.revision: "7"
+caps.latest.revision: 7
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: c176955c3fcfe40f2089b84c50a982906b59f04d
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: c3dcb39b50293d5c221a1b8b13fcfbf8aa53ad83
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-configure-hardware-inventory-for-mobile-devices-enrolled-by-microsoft-intune-and-system-center-configuration-manager"></a>Het configureren van hardware-inventaris voor mobiele apparaten die zijn geregistreerd door Microsoft Intune en System Center Configuration Manager
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 10/12/2017
 
 In Configuration Manager kunt u de hardware-inventaris verzamelen op iOS, Android en Windows apparaten via de Microsoft Intune-connector. Zie voor meer informatie over het configureren van hardware-inventaris [hardware-inventarisatie in System Center Configuration Manager uitbreiden](../../core/clients/manage/inventory/extend-hardware-inventory.md).  
 
- Zie voor meer informatie over het inschrijven van apparaten in Microsoft Intune [mobiele apparaten beheren met Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx).  
+ Zie voor meer informatie over het inschrijven van apparaten in Microsoft Intune [mobiele apparaten beheren met Microsoft Intune](https://technet.microsoft.com/library/dn646962.aspx).  
 
 ## <a name="hardware-inventory-for-mobile-devices"></a>Hardware-inventarisatie voor mobiele apparaten  
  De volgende tabellen worden de beschikbare inventarisklassen voor hardware-inventaris voor veelgebruikte mobiele platforms.  
@@ -36,7 +37,7 @@ In Configuration Manager kunt u de hardware-inventaris verzamelen op iOS, Androi
 
 |Hardware-inventarisklasse|iOS|  
 |------------------------------|---------|  
-|Naam|Device_ComputerSystem.DeviceName|  
+|Name|Device_ComputerSystem.DeviceName|  
 |Unieke apparaat-ID|Device_ComputerSystem.UDID|  
 |Serienummer|Device_ComputerSystem.SerialNumber|  
 |E-mailadres|Device_Email.OwnerEmailAddress|  
@@ -64,7 +65,7 @@ In Configuration Manager kunt u de hardware-inventaris verzamelen op iOS, Androi
 
 |Hardware-inventarisklasse|Android|  
 |------------------------------|-------------|  
-|Naam|Niet van toepassing|  
+|Name|Niet van toepassing|  
 |Unieke apparaat-ID|Niet van toepassing|  
 |Serienummer|Device_ComputerSystem.SerialNumber|  
 |E-mailadres|Niet van toepassing|  
@@ -89,7 +90,7 @@ In Configuration Manager kunt u de hardware-inventaris verzamelen op iOS, Androi
 
 |Hardware-inventarisklasse|Windows Phone 8 en Windows Phone 8.1|  
 |------------------------------|-------------------------------------------|  
-|Naam|Device_ComputerSystem.DeviceName|  
+|Name|Device_ComputerSystem.DeviceName|  
 |Unieke apparaat-ID|Device_ComputerSystem.DeviceClientID|  
 |Serienummer|Niet van toepassing|  
 |E-mailadres|Device_Email.OwnerEmailAddress|  
@@ -114,7 +115,7 @@ In Configuration Manager kunt u de hardware-inventaris verzamelen op iOS, Androi
 
 |Hardware-inventarisklasse|Windows RT|  
 |------------------------------|----------------|  
-|Naam|Device_ComputerSystem.DeviceName|  
+|Name|Device_ComputerSystem.DeviceName|  
 |Unieke apparaat-ID|Device_ComputerSystem.DeviceName|  
 |Serienummer|Niet van toepassing|  
 |E-mailadres|Device_Email.OwnerEmailAddress|  

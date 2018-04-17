@@ -7,20 +7,21 @@ ms.date: 09/12/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-hybrid
+ms.technology:
+- configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9126d188-7780-45a4-b21d-7fcf4fad7da2
-caps.latest.revision: "0"
-caps.handback.revision: "0"
+caps.latest.revision: 0
+caps.handback.revision: 0
 author: NathBarn
 ms.author: NathBarn
 manager: angrobe
-ms.openlocfilehash: 79d1b3fed3baa74c8ad195925ccda35713cb8865
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 0b1d4993e6ddb2301121a1e32b1672425e919dea
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="apply-settings-to-android-for-work-apps-with-app-configuration-policies-in-system-center-configuration-manager"></a>Instellingen toepassen op Android voor zakelijke apps met configuratiebeleid voor apps in System Center Configuration Manager
 
@@ -35,7 +36,7 @@ U kunt app-configuratiebeleid in System Center Configuration Manager voor het di
 Als de gebruiker de instellingen voert onjuist de last om op te lossen ze valt van uw helpdesk en app-implementatie traag is. Als u deze problemen te voorkomen, kunt u app-configuratiebeleid vereist om instellingen te implementeren voor gebruikers voordat ze de app worden uitgevoerd. De instellingen worden automatisch gekoppeld aan een gebruiker. De gebruiker hoeft niet te doen.
 In plaats van het implementeren van beleidsregels voor de configuratie rechtstreeks aan gebruikers en apparaten, koppelt u een beleid aan een implementatietype wanneer u de app implementeert. De beleidsinstellingen worden toegepast als de app zoekt, meestal de eerste keer dat de app wordt uitgevoerd.
 
-Configuratiebeleid voor android-app zijn alleen beschikbaar voor apparaten met Android for Work. App-configuratiebeleid toepassen op goedgekeurde apps uit de Play voor werk store. Zie voor meer informatie over Android-volume-aankoopprogramma gekochte apps [apps implementeren op Android voor werk apparaten](https://docs.microsoft.com/en-us/intune/deploy-use/android-for-work-apps).
+Configuratiebeleid voor android-app zijn alleen beschikbaar voor apparaten met Android for Work. App-configuratiebeleid toepassen op goedgekeurde apps uit de Play voor werk store. Zie voor meer informatie over Android-volume-aankoopprogramma gekochte apps [apps implementeren op Android voor werk apparaten](https://docs.microsoft.com/intune/deploy-use/android-for-work-apps).
 
 Zie voor meer informatie over app-installatietypen de [inleiding op Toepassingsbeheer](/sccm/apps/understand/introduction-to-application-management).
 

@@ -12,19 +12,19 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 35e237b6-9f7b-4189-90e7-8eca92ae7d3d
-caps.latest.revision: 
+caps.latest.revision: 21
 author: mestew
 ms.author: mstewart
 manager: dougeby
-ms.openlocfilehash: 5c17efa3498907fcc57d366965bec3b4198890bb
-ms.sourcegitcommit: 37e990d191028160486dbca286d2ea945bd5c8c3
+ms.openlocfilehash: 0e1cafc9b1900dd370cb8dac80f5a02fbb3d12dc
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="supported-sql-server-versions-for-system-center-configuration-manager"></a>Ondersteunde versies van SQL Server voor System Center Configuration Manager
 
-Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 Elke System Center Configuration Manager-site is vereist voor een ondersteunde versie van SQL Server en -configuratie om de sitedatabase te hosten.  
 
@@ -75,7 +75,7 @@ Ondersteuning voor een specifieke SQL Server-servicepack bevat cumulatieve updat
 >  Wanneer u SQL Server Standard voor de database op de centrale beheersite gebruikt, beperkt u het totale aantal clients dat een hiërarchie kan ondersteunen. Zie [Grootte en schaalgetallen](../../../core/plan-design/configs/size-and-scale-numbers.md).
 
 ### <a name="sql-server-2017-standard-enterprise"></a>SQL Server 2017: Standard, Enterprise  
-U kunt deze versie van SQL Server, met een minimum van [cumulatieve updateversie 2](https://support.microsoft.com/help/4052574), vanaf met [Configuration Manager versie 1710](https://docs.microsoft.com/en-us/sccm/core/plan-design/changes/whats-new-in-version-1710) voor de volgende sites: 
+U kunt deze versie van SQL Server, met een minimum van [cumulatieve updateversie 2](https://support.microsoft.com/help/4052574), vanaf met [Configuration Manager versie 1710](https://docs.microsoft.com/sccm/core/plan-design/changes/whats-new-in-version-1710) voor de volgende sites: 
 
 -   Een centrale beheersite  
 -   Een primaire site  
@@ -145,7 +145,7 @@ Wanneer dit wordt ondersteund door de versie van Configuration Manager, kunt u d
 -   Een secundaire site
 
 ### <a name="sql-server-2017-express"></a>SQL Server 2017 Express   
-U kunt deze versie van SQL Server, met een minimum van [cumulatieve updateversie 2](https://support.microsoft.com/help/4052574), vanaf met [Configuration Manager versie 1710](https://docs.microsoft.com/en-us/sccm/core/plan-design/changes/whats-new-in-version-1710) voor de volgende sites:
+U kunt deze versie van SQL Server, met een minimum van [cumulatieve updateversie 2](https://support.microsoft.com/help/4052574), vanaf met [Configuration Manager versie 1710](https://docs.microsoft.com/sccm/core/plan-design/changes/whats-new-in-version-1710) voor de volgende sites:
 -   Een secundaire site
 <!--SMS.498506-->
 
@@ -229,7 +229,7 @@ U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebru
 ##  <a name="bkmk_optional"></a> Optionele configuraties voor SQL Server  
  De volgende configuraties zijn optioneel voor elke database die een volledige installatie van SQL Server gebruikt.  
 
- **SQL Server service**  
+ **SQL Server-service**  
  U kunt de SQL Server-service zo configureren dat deze wordt uitgevoerd met:  
 
 -   Een *domeingebruiker van laag niveau aan rechten* account:  

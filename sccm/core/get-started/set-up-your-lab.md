@@ -7,20 +7,21 @@ ms.date: 09/21/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b1970688-0cd2-404f-a17f-9e2aa4a78758
-caps.latest.revision: "11"
-caps.handback.revision: "0"
+caps.latest.revision: 11
+caps.handback.revision: 0
 author: erikje
 ms.author: erikje
 manager: angrobe
-ms.openlocfilehash: a95dda6f536ff9c608abb03d94692b2d9fc6093c
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 3441cb417a0b8fc7979b71018f6cfa345c47a02d
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-your-system-center-configuration-manager-lab"></a>Instellen van uw testomgeving voor System Center Configuration Manager
 
@@ -47,7 +48,7 @@ De instructies in dit onderwerp te volgen, kunt u een testomgeving voor het eval
 
     -   **SQL_Latin1_General_CP1_CI_AS** als de **SQL-sortering** klasse.  
 
-    -   **Windows-verificatie**, [in plaats van de SQL-verificatie](https://technet.microsoft.com/en-us/library/ms144284.aspx), is vereist.  
+    -   **Windows-verificatie**, [in plaats van de SQL-verificatie](https://technet.microsoft.com/library/ms144284.aspx), is vereist.  
 
     -   Een speciaal **SQL Server-exemplaar** is vereist.  
 
@@ -370,7 +371,7 @@ Voordat u de installatie begint, start de [Prerequisite Checker](/sccm/core/serv
     |Stap 15: **Communicatie-instellingen voor client**|Bevestig dat **Alle sitesysteemrollen accepteren alleen HTTPS-communicatie van clients** niet is ingeschakeld.|  
     |Stap 16: **Sitesysteemrollen**|Voer de FQDN-naam in en bevestig dat **Alle sitesysteemrollen accepteren alleen HTTPS-communicatie van clients** nog steeds is uitgeschakeld.|  
 
-##  <a name="BKMK_EnablePubLab"></a>Publicatie inschakelen voor de Configuration Manager-site  
+##  <a name="BKMK_EnablePubLab"></a> Publicatie inschakelen voor de Configuration Manager-site  
 Elke Configuration Manager-site publiceert haar eigen site-specifieke informatie naar de Systeembeheer-container binnen haar domeinpartitie in het Active Directory-schema. Bidirectionele kanalen voor communicatie tussen Active Directory en Configuration Manager moeten worden geopend voor het afhandelen van dit verkeer. U schakelt bovendien ook forestdetectie in om bepaalde onderdelen van uw Active Directory en de netwerkinfrastructuur te bepalen.  
 
 #### <a name="to-configure-active-directory-forests-for-publishing"></a>Handel als volgt om Active Directory-forests voor publicatie te configureren:  

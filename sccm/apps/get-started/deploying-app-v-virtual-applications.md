@@ -3,24 +3,25 @@ title: App-V virtuele toepassingen implementeren
 titleSuffix: Configuration Manager
 description: Zie welke overwegingen u moet rekening account wanneer u maken en implementeren van virtuele toepassingen.
 ms.custom: na
-ms.date: 02/16/2017
+ms.date: 03/12/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-app
+ms.technology:
+- configmgr-app
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ddcad9f2-a542-4079-83ca-007d7cb44995
-caps.latest.revision: "11"
-caps.handback.revision: "0"
+caps.latest.revision: 11
+caps.handback.revision: 0
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: bf324f458c37fa137e24179eb4455fcbe75c855d
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 99c259a20a7e9c9f34d7b355e6fea5d4c6861392
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy-app-v-virtual-applications-with-system-center-configuration-manager"></a>App-V virtuele toepassingen met System Center Configuration Manager implementeren
 
@@ -46,7 +47,7 @@ Naast de andere System Center Configuration Manager-vereisten en procedures voor
 
 -   Wanneer u een toepassing sequentieert, moet u het pakket opslaan naar een locatie die Configuration Manager hiertoe toegang heeft. U kunt vervolgens een toepassingsimplementatie maken die deze virtuele toepassing bevat.  
 
--   Configuration Manager biedt geen ondersteuning voor het gebruik van de gedeelde alleen-lezen cachefunctie van App-V.  
+-   Configuration Manager biedt geen ondersteuning voor het gebruik van de gedeelde alleen-lezen cachefunctie van App-V 4.6.  
 
 -   Configuration Manager ondersteunt de gedeelde inhoud Store-functie in App-V 5.  
 
@@ -66,7 +67,7 @@ Naast de andere System Center Configuration Manager-vereisten en procedures voor
      Voordat u virtuele toepassingen implementeren kunt, moet u de App-V 4.6 SP1-client ook bijwerken met de hotfix die wordt beschreven in het Knowledge Base-artikel [2645225](http://go.microsoft.com/fwlink/p/?LinkId=237322).  
 
 -   **App-V 5, App-V 5.0 SP1, App-V 5.0 SP2, App-V 5.0 SP3 en App-V 5.1**: Voor App-V 5.0 SP2 moet u installeren [hotfixpakket 5](https://support.microsoft.com/en-us/kb/2963211) of App-V 5.0 SP3 gebruiken.  
--   **App-V 5.2**: Dit is ingebouwd in Windows 10 Enterprise (Verjaardag Update en hoger).
+-   **App-V 5.2**: Dit is ingebouwd in Windows 10 Education (1607 en hoger), Windows 10 Enterprise (1607 en hoger) en Windows Server 2016.
 
 Zie de volgende onderwerpen voor meer informatie over App-V in Windows 10:
 
@@ -83,7 +84,7 @@ Zie de volgende onderwerpen voor meer informatie over App-V in Windows 10:
 
 3.   **Distribueren**: Distributie is het proces van beschikbaar maken van App-V-toepassingen op de Configuration Manager-distributiepunten.
 
-4.   **Implementeer**: Implementatie is het proces van beschikbaar maken van de toepassing op clientcomputers. Dit heet streaming in een volledige App-V-infrastructuur.  
+4.   **Implementeer**: Implementatie is het proces van beschikbaar maken van de toepassing op clientcomputers. Dit heet publiceren en streaming in een volledige App-V-infrastructuur.  
 
 ##  <a name="configuration-manager-virtual-application-delivery-methods"></a>Leveringsmethoden van virtuele toepassing Configuration Manager  
 Configuration Manager ondersteunt twee methoden voor het leveren van virtuele toepassingen aan clients: streaming en lokale levering (downloaden en uitvoeren).
@@ -100,7 +101,7 @@ Gebruik de informatie in deze tabel om te bepalen of de beste leveringsmethode v
 |Deze methode gebruikt standaard netwerkprotocollen om pakketinhoud te streamen vanaf distributiepunten.<br /><br /> Programmasnelkoppelingen voor virtuele toepassingen activeren een verbinding naar het distributiepunt, zodat de levering van de virtuele toepassing op aanvraag gebeurt.<br /><br /> Deze methode werkt goed voor clients met verbindingen met hoge bandbreedte naar de distributiepunten.<br /><br /> Bijgewerkte virtuele toepassingen die over het hele bedrijf zijn geïmplementeerd, zijn beschikbaar wanneer clients beleid ontvangen dat hen informeert dat de huidige versie wordt vervangen; vervolgens downloaden ze alleen de wijzigingen ten opzichte van de vorige versie.<br /><br /> Toegangsmachtigingen worden gedefinieerd aan het distributiepunt om gebruikers te verhinderen om niet-toegestane toepassingen of pakketten te openen.|Virtuele toepassingen worden niet gestreamd totdat de gebruiker de toepassing voor de eerste keer uitvoert. In dit scenario is het mogelijk dat een gebruiker programmasnelkoppelingen ontvangt voor virtuele toepassingen en vervolgens de verbinding met het netwerk verbreekt voordat de virtuele toepassingen voor de eerste keer zijn uitgevoerd. Als de gebruiker probeert uit te voeren van de virtuele toepassing terwijl de client offline is, wordt de gebruiker krijgt een foutmelding en de virtuele toepassing kan niet worden uitgevoerd omdat een distributiepunt van Configuration Manager is niet beschikbaar is om de toepassing te streamen. De toepassing zal niet beschikbaar zijn totdat de gebruiker opnieuw verbinding maakt met het netwerk en de toepassing uitvoert.<br /><br /> U kunt dit vermijden door de lokale leveringsmethode te gebruiken voor het leveren van virtuele toepassingen aan clients. U kunt ook het clientbeheer op internet voor levering via streaming inschakelen.|  
 
 ###  <a name="local-delivery-download-and-execute"></a>Lokale levering (downloaden en uitvoeren)  
-Wanneer u de lokale leveringsmethode gebruikt, downloadt de Configuration Manager-client eerst het volledige virtuele toepassingspakket in de Configuration Manager-clientcache. De Configuration Manager instrueert vervolgens de App-V-Client om de toepassing uit de Configuration Manager-cache in de App-V-cache te streamen. Als u een virtuele toepassing naar clientcomputers implementeert en de inhoud niet in de App-V-cache is, wordt de App-V-Client de toepassingsinhoud vanuit de Configuration Manager-clientcache streams in de App-V-cache en vervolgens de toepassing wordt uitgevoerd. Nadat de toepassing wordt uitgevoerd, kunt u instellen dat de Configuration Manager-client te verwijderen van oudere versies van het pakket op de volgende verwijderingscyclus of ze ook behouden in Configuration Manager-clientcache.  
+Downloaden en uitvoeren is de meest voorkomende benadering wanneer u Configuration Manager, omdat deze benadering komt sterk overeen hoe de andere toepassing indelingen met Configuration Manager worden geleverd. Wanneer u de lokale leveringsmethode gebruikt, downloadt de Configuration Manager-client eerst het volledige virtuele toepassingspakket in de Configuration Manager-clientcache. De Configuration Manager instrueert vervolgens de App-V-Client om de toepassing uit de Configuration Manager-cache in de App-V-cache te streamen. Als u een virtuele toepassing naar clientcomputers implementeert en de inhoud niet in de App-V-cache is, wordt de App-V-Client de toepassingsinhoud vanuit de Configuration Manager-clientcache streams in de App-V-cache en vervolgens de toepassing wordt uitgevoerd. Nadat de toepassing wordt uitgevoerd, kunt u instellen dat de Configuration Manager-client te verwijderen van oudere versies van het pakket op de volgende verwijderingscyclus of ze ook behouden in Configuration Manager-clientcache. Lokaal persistent maken inhoud kunt profiteren van pakket contentlevering optimalisatie methoden zoals BranchCache en subnet.
 
 Gebruik de informatie in deze tabel om te bepalen of de lokale levering de beste leveringsmethode voor u is:   
 

@@ -5,7 +5,8 @@ description: Meer informatie over functies die beschikbaar zijn in de Technical 
 ms.custom: na
 ms.date: 09/15/2017
 ms.prod: configuration-manager
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.assetid: ca3b4714-2a16-495e-8a17-1d87991d5556
 author: erikje
 ms.author: erikje
 manager: angrobe
-ms.openlocfilehash: cfb14ebb7b4f7eb9a008ad4464978778e57514a6
-ms.sourcegitcommit: d029b373113051634ed030545348a458eb7b25f4
+ms.openlocfilehash: 9b44f5659caca86150de68d43001c06d9d1a831f
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="capabilities-in-technical-preview-1706-for-system-center-configuration-manager"></a>Mogelijkheden van Technical Preview 1706 voor System Center Configuration Manager
 
@@ -106,7 +107,7 @@ Als u wilt installeren op een siteserver passieve modus, gebruikt u de **maken W
 
 -   De computer waarop de server van de passieve modus wordt uitgevoerd:
 
-    -   Moet voldoen aan de [vereisten voor het installeren van een primaire site](https://docs.microsoft.com/en-us/sccm/core/servers/deploy/install/prerequisites-for-installing-sites#primary-sites-and-the-central-administration-site).
+    -   Moet voldoen aan de [vereisten voor het installeren van een primaire site](https://docs.microsoft.com/sccm/core/servers/deploy/install/prerequisites-for-installing-sites#primary-sites-and-the-central-administration-site).
 
     -   Installeert met behulp van de bronbestanden die overeenkomen met de versie van de siteserver actieve modus.
 
@@ -510,7 +511,7 @@ Zie voor meer informatie over instellingen voor naleving [apparaatcompatibilitei
 
     **Ondersteund op:**
     * Windows Phone 8+
-    * Windows 8.1 +
+    * Windows 8.1+
     * iOS 6+
 <br></br>
 * **Blok USB-foutopsporing op apparaat**. U beschikt niet over deze instellingen configureren, zoals USB-foutopsporing is al uitgeschakeld op Android voor Work-apparaten.

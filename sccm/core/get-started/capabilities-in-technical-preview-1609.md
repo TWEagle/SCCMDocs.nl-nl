@@ -8,18 +8,19 @@ ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
 ms.prod: configuration-manager
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.topic: article
 ms.assetid: e2a59116-b2e5-4dd2-90eb-0b8a5eb50b56
-caps.latest.revision: "2"
+caps.latest.revision: 2
 author: erikje
 ms.author: erikje
 manager: angrobe
-ms.openlocfilehash: e1cceae5f73d003be2fe64df9e6dbaa7badaf0c7
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 4beca8479e5adbfa24b597769b792fd91bed9a2c
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="capabilities-in-technical-preview-1609-for-system-center-configuration-manager"></a>Mogelijkheden van Technical Preview 1609 voor System Center Configuration Manager
 
@@ -45,7 +46,7 @@ Nu kunnen beheerders gebruikers inschrijven maximaal 15 apparaten in hybride mob
 
 Beheerders kunnen nu de volgende Apple Device Enrollment Program (DEP)-instellingen configureren in het DEP-profiel voor iOS en Mac-apparaten.
 - **Touch ID**
-- **Uitzoomen**
+- **Zoom**
 - **Siri**
 
 Bij inschakeling van Apple Configuratieassistent wordt gevraagd voor deze service tijdens de activering van het apparaat.
@@ -95,7 +96,7 @@ De procedure voor het maken en implementeren van een Configuration Manager-toepa
 
 Veel nieuwe instellingen die kunt u in uw configuratie-items voor verschillende platforms toegevoegd.
 Dit zijn de instellingen die eerder beschikbaar waren in Microsoft Intune in een zelfstandige configuratie en zijn nu beschikbaar wanneer u Intune met Configuration Manager.
-Als u hulp nodig met een van deze instellingen, open [instellingen en functies op uw apparaten met Microsoft Intune-beleid beheren](https://docs.microsoft.com/en-us/intune/deploy-use/manage-settings-and-features-on-your-devices-with-microsoft-intune-policies) en selecteer vervolgens het onderwerp van de instellingen voor het platform dat u wilt.
+Als u hulp nodig met een van deze instellingen, open [instellingen en functies op uw apparaten met Microsoft Intune-beleid beheren](https://docs.microsoft.com/intune/deploy-use/manage-settings-and-features-on-your-devices-with-microsoft-intune-policies) en selecteer vervolgens het onderwerp van de instellingen voor het platform dat u wilt.
 
 
 ### <a name="new-settings-for-android-devices"></a>Nieuwe instellingen voor Android-apparaten
@@ -374,9 +375,9 @@ In deze release van het dashboard clientbeheer voor Office 365, kunt u het insta
 #### <a name="to-deploy-office-365-apps-to-clients"></a>Office 365-apps implementeren op clients
 1. Navigeer in de Configuration Manager-console naar **softwarebibliotheek** > **overzicht** > **Office 365-clientbeheer**.
 2. Klik op **Office 365 Installer** in het deelvenster rechtsboven. De Wizard Client installeren van Office 365 wordt geopend.
-3. Op de **toepassingsinstellingen** pagina, Geef een naam en beschrijving voor de app, voer de downloadlocatie voor de bestanden en klik vervolgens op **volgende**. Houd er rekening mee dat de locatie moet worden opgegeven in het formulier &#92; &#92; *server*&#92; *delen*.
+3. Op de **toepassingsinstellingen** pagina, Geef een naam en beschrijving voor de app, voer de downloadlocatie voor de bestanden en klik vervolgens op **volgende**. Houd er rekening mee dat de locatie moet worden opgegeven in het formulier &#92; &#92; *server*&#92;*delen*.
 4. Op de **clientinstellingen importeren** pagina, kiest u of de Office 365 client-instellingen importeren van een bestaande XML-configuratiebestand of geef handmatig de instellingen en klik vervolgens op **volgende**.
-Wanneer u een bestaand configuratiebestand hebt, voer de locatie voor het bestand en gaat u verder met stap 7. Houd er rekening mee dat de locatie moet worden opgegeven in het formulier &#92; &#92; *server*&#92; *delen*&#92; *bestandsnaam*. XML.
+Wanneer u een bestaand configuratiebestand hebt, voer de locatie voor het bestand en gaat u verder met stap 7. Houd er rekening mee dat de locatie moet worden opgegeven in het formulier &#92; &#92; *server*&#92;*delen*&#92;*filename*. XML.
 
     > [!IMPORTANT]
     >Mogelijk hebt u problemen wanneer u probeert te importeren van bestaande clientinstellingen (XML) in deze technical preview.

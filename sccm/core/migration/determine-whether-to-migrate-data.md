@@ -7,20 +7,21 @@ ms.date: 12/29/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 99222dc8-0e1e-4513-8302-7a1acf671e9b
-caps.latest.revision: "6"
-caps.handback.revision: "0"
+caps.latest.revision: 6
+caps.handback.revision: 0
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 822bc5b4e17bdc611243fadfb13c551b0a8237a8
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+ms.openlocfilehash: 0718b7863c45f7b7e56380d4a2fa74e8d1a17b54
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="determine-whether-to-migrate-data-to-system-center-configuration-manager"></a>Bepalen of er gegevens naar System Center Configuration Manager worden gemigreerd
 
@@ -50,7 +51,7 @@ Nadat u een client naar de nieuwe hiërarchie installeert en de client de gegeve
 
 -   [Gegevens die u niet kunt naar System Center Configuration Manager migreren](#Cannot_migrate)  
 
-##  <a name="Can_Migrate"></a>Gegevens die u naar System Center Configuration Manager migreren kunt  
+##  <a name="Can_Migrate"></a> Gegevens die u naar System Center Configuration Manager migreren kunt  
  Migratie kunnen de meeste objecten tussen hiërarchieën van ondersteunde Configuration Manager worden gemigreerd. De gemigreerde exemplaren van sommige objecten van een ondersteunde versie van Configuration Manager 2007 moeten worden gewijzigd om te voldoen aan de System Center 2012 Configuration Manager-schema en object-indeling.
 
 Deze wijzigingen hebben geen invloed op de gegevens in de database van de bronsite. Objecten die zijn gemigreerd vanuit een ondersteunde versie van System Center 2012 Configuration Manager of System Center Configuration Manager hoeven niet worden gewijzigd.  
@@ -58,8 +59,6 @@ Deze wijzigingen hebben geen invloed op de gegevens in de database van de bronsi
  Hieronder vindt u objecten die kunnen worden gemigreerd op basis van de versie van Configuration Manager in de bronhiërarchie. Sommige objecten, zoals query's, kunnen niet worden gemigreerd. Als u deze objecten die niet kunnen worden gemigreerd, wilt blijven gebruiken, moet u ze opnieuw maken in de nieuwe hiërarchie. Andere objecten, waaronder bepaalde clientgegevens, worden automatisch opnieuw gemaakt in de nieuwe hiërarchie wanneer u clients in die hiërarchie beheert.  
 
 ### <a name="objects-that-you-can-migrate-from-system-center-2012-configuration-manager-or-system-center-configuration-manager-current-branch"></a>Objecten die u vanuit System Center 2012 Configuration Manager of System Center Configuration Manager current branche migreren kunt
-
--   Aankondigingen  
 
 -   Toepassingen voor System Center 2012 Configuration Manager en latere versies  
 
@@ -76,6 +75,8 @@ Deze wijzigingen hebben geen invloed op de gegevens in de database van de bronsi
     -   Configuratiebasislijn  
 
     -   Configuratie-items  
+
+-   Implementaties  
 
 -   Implementatie van besturingssysteem:  
 
@@ -161,7 +162,7 @@ Deze wijzigingen hebben geen invloed op de gegevens in de database van de bronsi
 
 -   Virtuele toepassingspakketten  
 
-##  <a name="Cannot_migrate"></a>Gegevens die u niet kunt naar System Center Configuration Manager migreren  
+##  <a name="Cannot_migrate"></a> Gegevens die u niet kunt naar System Center Configuration Manager migreren  
  U kunt de volgende typen objecten niet migreren:  
 
 -   Inrichtingsgegevens voor een AMT-client  

@@ -7,19 +7,20 @@ ms.date: 12/29/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-app
+ms.technology:
+- configmgr-app
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8cdb22a6-72d7-41f5-9bed-c098b1bcf675
-caps.latest.revision: "11"
+caps.latest.revision: 11
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 15644a8c1acdbde85c7ca194a72a10c3cc2c0fcc
-ms.sourcegitcommit: f1535281b2c3fecff773b722c3f7590bf6ba10a0
+ms.openlocfilehash: 89bb52b806c99395bca14be34d06611174823a3c
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-apps-from-the-microsoft-store-for-business-with-system-center-configuration-manager"></a>Apps beheren via de Microsoft Store voor bedrijven met System Center Configuration Manager
 De [Microsoft Store voor bedrijven](https://www.microsoft.com/business-store) kunt u vinden en Windows-apps voor uw organisatie, kopen, afzonderlijk of in volume. De store koppelt aan Configuration Manager, kunt u de lijst met apps die u hebt aangeschaft synchroniseren met Configuration Manager. U kunt deze apps bekijken in de Configuration Manager-console, en deze implementeren zoals u zou ook een andere app implementeren.
@@ -88,7 +89,7 @@ Synchroniseren van de lijst met apps hebt aangeschaft door uw organisatie, kunt 
 ### <a name="for-configuration-manager-versions-prior-to-1706"></a>Voor eerdere versies 1706 Configuration Manager
 
 **Registreren bij Azure Active Directory, Configuration Manager als beheerprogramma 'Webtoepassing en/of Web-API'. Deze actie geeft u een client-ID die u later nodig.**
-1. In het Active Directory-knooppunt van [https://manage.windowsazure.com](https://manage.windowsazure.com), selecteer uw Azure Active Directory en klik vervolgens op **toepassingen** > **toevoegen**.
+1. In het Active Directory-knooppunt van [ https://manage.windowsazure.com ](https://manage.windowsazure.com), selecteer uw Azure Active Directory en klik vervolgens op **toepassingen** > **toevoegen**.
 2.  Klik op **mijn organisatie ontwikkelt toepassing toevoegen**.
 3.  Voer een naam voor de toepassing, selecteer **webtoepassing** en/of **Web API**, klikt u vervolgens op de **volgende** pijl.
 4.  Voer dezelfde URL voor zowel de **aanmeldings-URL** en **App ID URI**. De URL kan van alles zijn en hoeft niet omzetten in een echte adres. Bijvoorbeeld, kunt u *https://yourdomain/sccm*.
@@ -99,7 +100,7 @@ Synchroniseren van de lijst met apps hebt aangeschaft door uw organisatie, kunt 
 2.  Onder **sleutels**, selecteert u een duur in de lijst en klik vervolgens op **opslaan**. Deze actie wordt een nieuwe clientsleutel gemaakt. Verlaat deze pagina totdat u is vrijgegeven Microsoft Store voor bedrijven naar Configuration Manager.
 
 **Configuration Manager in Microsoft Windows Store voor bedrijven configureren als het winkelbeheerprogramma**
-1.  Open [https://businessstore.microsoft.com/en-us/managementtools](https://businessstore.microsoft.com/en-us/managementtools) en meld u als u wordt gevraagd.
+1.  Open [ https://businessstore.microsoft.com/managementtools ](https://businessstore.microsoft.com/managementtools) en meld u als u wordt gevraagd.
 2.  Accepteer de gebruiksvoorwaarden als aangevraagd.
 3.  Onder **beheerhulpprogramma's**, klikt u op **beheerprogramma toevoegen**.
 4.  In **zoeken voor het hulpprogramma met de naam**, typ de naam van de toepassing die u eerder in Add hebt gemaakt en klik vervolgens op **toevoegen**.
@@ -151,6 +152,6 @@ Voor elke store-app die u beheert, kunt u informatie over de app weergeven. Deze
 
 Na implementatie van online apps, eventuele updates voor die app wordt rechtstreeks afkomstig zijn uit de Microsoft Store. Configuration Manager controleert bovendien niet compatibiliteit van de versie van online apps, alleen dat Windows de app meldt geïnstalleerd.  
 
-Wanneer u offline apps implementeert naar Windows 10-apparaten met Configuration Manager-client, gebruikers externe toepassingen voor Configuration Manager-implementaties bijwerken niet toestaan. Beheer van updates voor offline apps is vooral belangrijk in omgevingen met meerdere gebruikers zoals klaslokaal. Een optie voor het uitschakelen van de Microsoft Store is via [groepsbeleid](https://docs.microsoft.com/en-us/windows/configuration/stop-employees-from-using-microsoft-store#a-href-idblock-store-group-policyablock-microsoft-store-using-group-policy). 
+Wanneer u offline apps implementeert naar Windows 10-apparaten met Configuration Manager-client, gebruikers externe toepassingen voor Configuration Manager-implementaties bijwerken niet toestaan. Beheer van updates voor offline apps is vooral belangrijk in omgevingen met meerdere gebruikers zoals klaslokaal. Een optie voor het uitschakelen van de Microsoft Store is via [groepsbeleid](https://docs.microsoft.com/windows/configuration/stop-employees-from-using-microsoft-store#a-href-idblock-store-group-policyablock-microsoft-store-using-group-policy). 
 
 Na de Microsoft Store voor bedrijven beheerder een offline-app aankopen, publiceer de app niet aan gebruikers via de store. Deze configuratie zorgt ervoor dat gebruikers kunnen installeren of online bijwerken. Gebruikers ontvangt alleen offline app-updates via de Configuration Manager. 

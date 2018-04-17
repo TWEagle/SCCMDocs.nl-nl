@@ -5,22 +5,23 @@ description: Meer informatie over functies die beschikbaar zijn in de Technical 
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: aae1cf2f-2c04-4f68-a03a-f4a925433c09
-caps.latest.revision: "7"
+caps.latest.revision: 7
 author: erikje
 ms.author: erikje
 manager: angrobe
 robots: noindex,nofollow
-ms.openlocfilehash: 70efb483ac15ba14497b884ed753032e8e48a4b5
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: b17a89ab08c99a1c3cd8a501e7d58d5b42a110a3
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="capabilities-in-technical-preview-1601-for-system-center-configuration-manager"></a>Mogelijkheden van Technical Preview 1601 voor System Center Configuration Manager
 
@@ -61,7 +62,7 @@ Dit artikel bevat de functies die beschikbaar in de Technical Preview voor Syste
 
 **Hier volgen nieuwe functies die u met deze versie kunt uitproberen.**  
 
-##  <a name="bkmk_hybrid1"></a>Verbeteringen aan Microsoft Intune-integratie  
+##  <a name="bkmk_hybrid1"></a> Verbeteringen aan Microsoft Intune-integratie  
 In de Technical Preview 1601 is ondersteuning voor de volgende functies toegevoegd:  
 
 ### <a name="improvements-to-conditional-access"></a>Verbeteringen aan voorwaardelijke toegang  
@@ -79,11 +80,11 @@ In de Technical Preview 1601 is ondersteuning voor de volgende functies toegevoe
 
     -   Een Microsoft Intune-abonnement. De Microsoft Intune-abonnement moet worden geconfigureerd in Configuration Manager-Console.  
 
-    -   [Vereisten voor automatische registratie van Azure AD](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1).  
+    -   [Vereisten voor automatische registratie van Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1).  
 
     Voor het gebruik van de optie moet u een nalevingsbeleid in Configuration Manager maken met specifieke regels die hieronder worden beschreven en beleid voor voorwaardelijke toegang instellen in de Intune-console.  Ook om te zorgen dat alleen compatibele pc's toegang hebben, stelt u de vereiste Windows-PC op **apparaten moeten voldoen** optie. Hier volgen de compatibiliteitsbeleidsregels die van toepassing op pc's die worden beheerd door System Center Configuration manager.  
 
-    -   **Registratie in Azure Active Directory vereisen:** Deze regel controleert u of het apparaat van de gebruiker is toegevoegd aan Azure AD en als dat niet het geval is, wordt het apparaat automatisch geregistreerd bij Azure AD. Automatische inschrijving wordt alleen ondersteund op Windows 8.1. Implementeer een MSI-bestand om automatische inschrijving voor Windows 7-pc's uit te voeren. Zie voor meer informatie [hier](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1).  
+    -   **Registratie in Azure Active Directory vereisen:** Deze regel controleert u of het apparaat van de gebruiker is toegevoegd aan Azure AD en als dat niet het geval is, wordt het apparaat automatisch geregistreerd bij Azure AD. Automatische inschrijving wordt alleen ondersteund op Windows 8.1. Implementeer een MSI-bestand om automatische inschrijving voor Windows 7-pc's uit te voeren. Zie voor meer informatie [hier](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1).  
 
     -   **Alle vereiste updates zijn geïnstalleerd met een deadline die ouder zijn dan een bepaald aantal dagen:** Deze regel controleert om te zien als apparaat van de gebruiker beschikt over alle vereiste updates (opgegeven in de **vereiste automatische updates** regel) binnen de deadline en respijtperiode die is opgegeven door u en automatisch eventuele vereiste updates die nog niet installeren.  
 
@@ -127,7 +128,7 @@ In de Technical Preview 1601 is ondersteuning voor de volgende functies toegevoe
 
      Om deze optie gebruikt, gaat u naar de **algemene** pagina van de **Wizard voorwaardelijke toegang configureren beleid** voor Exchange on-premises.  
 
-##  <a name="bkmk_clientStatus"></a>Onlinestatus van clients  
+##  <a name="bkmk_clientStatus"></a> Onlinestatus van clients  
 Vanaf technical preview 1601, kunt u identificeren in één oogopslag of een client online of offline in de Configuration Manager-console is. Met bijgewerkte pictogrammen en kolommen in het apparaatoverzicht van de console, kunt u de status van clients in uw omgeving om probleemgebieden en andere problemen die mogelijk uw aandacht te identificeren beoordelen.  
 
 Een client is online als deze momenteel is verbonden met een Configuration Manager management sitesysteemrol. Zolang het beheerpunt ping-achtige berichten van de client ontvangt, wordt de status online is. Als het beheer een bericht voor de 5 minuten ontvangen heeft, wordt de status van de client gewijzigd naar offline.  
@@ -160,7 +161,7 @@ Een client is online als deze momenteel is verbonden met een Configuration Manag
 
  Als u wilt weergeven van recente wijzigingen in de status van de client, vernieuw de console.  
 
-##  <a name="bkmk_appmgmt1601"></a>Verbeteringen aan Toepassingsbeheer  
+##  <a name="bkmk_appmgmt1601"></a> Verbeteringen aan Toepassingsbeheer  
  In Technical Preview 1601 is ondersteuning voor de volgende functies toegevoegd:  
 
 ### <a name="manage-volume-purchased-apps-for-ios-devices"></a>Volume-purchased apps voor iOS-apparaten beheren  
@@ -196,7 +197,7 @@ Een client is online als deze momenteel is verbonden met een Configuration Manag
 
 -   In de **Software distribueren** wizard op de **App-configuratiebeleid** pagina, de app-configuratiebeleid die u hebt gemaakt met een compatibele implementatietype van de toepassing koppelen.  
 
-##  <a name="bkmk_compliance1601"></a>Verbeteringen in de instellingen voor naleving  
+##  <a name="bkmk_compliance1601"></a> Verbeteringen in de instellingen voor naleving  
  In Technical Preview 1601 is ondersteuning voor de volgende functies toegevoegd:  
 
 ### <a name="microsoft-edge-browser-settings"></a>Microsoft Edge-browserinstellingen  

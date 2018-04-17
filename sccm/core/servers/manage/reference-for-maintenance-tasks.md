@@ -7,20 +7,21 @@ ms.date: 3/8/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 68dc6acd-5848-47a4-b4c1-ffa40e47890b
-caps.latest.revision: "16"
-caps.handback.revision: "0"
+caps.latest.revision: 16
+caps.handback.revision: 0
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 3f67bddcb7233b62769271871354c86c5440e320
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 21b5e47efd2678f78fe7b7c0e10524ec7141634d
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="reference-for-maintenance-tasks-for-system-center-configuration-manager"></a>Verwijzing voor onderhoudstaken voor System Center Configuration Manager
 
@@ -105,7 +106,7 @@ Dit onderwerp bevat informatie over elk van de onderhoudstaken voor System Cente
 -   **Primaire site**: Ingeschakeld    
 -   Secundaire site: Niet beschikbaar  
 
-**Verouderde Detectiegegevens verwijderen**: Gebruik deze taak verouderde detectiegegevens verwijderen uit de database. Deze gegevens kunnen records die het gevolg zijn van heartbeat-detectie, netwerkdetectie en Active Directory Domain Services-detectiemethoden (systeem, gebruiker en groep) bevatten. Gegevens die zijn gekoppeld aan een site worden verwijderd wanneer deze taak wordt uitgevoerd op die site, en deze wijzigingen worden gerepliceerd naar andere sites. Zie [Detectie uitvoeren voor System Center Configuration Manager](../../../core/servers/deploy/configure/run-discovery.md) voor informatie over Discovery.  
+**Verouderde Detectiegegevens verwijderen**: Gebruik deze taak verouderde detectiegegevens verwijderen uit de database. Deze gegevens kunnen records die het gevolg zijn van heartbeat-detectie, netwerkdetectie en Active Directory Domain Services-detectiemethoden (systeem, gebruiker en groep) bevatten. Deze taak worden verouderde apparaten die zijn gemarkeerd als buiten bedrijf ook verwijderd. Gegevens die zijn gekoppeld aan een site worden verwijderd wanneer deze taak wordt uitgevoerd op die site, en deze wijzigingen worden gerepliceerd naar andere sites. Zie [Detectie uitvoeren voor System Center Configuration Manager](../../../core/servers/deploy/configure/run-discovery.md) voor informatie over Discovery.  
 
 -   Centrale beheersite: Niet beschikbaar    
 -   **Primaire site**: Ingeschakeld    

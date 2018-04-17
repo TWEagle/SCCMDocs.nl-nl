@@ -1,27 +1,28 @@
 ---
 title: Nieuw in versie 1606
 titleSuffix: Configuraton Manager
-description: "Meer informatie over deze wijzigingen en nieuwe mogelijkheden die zijn geïntroduceerd in versie 1606 van System Center Configuration Manager."
+description: Meer informatie over deze wijzigingen en nieuwe mogelijkheden die zijn geïntroduceerd in versie 1606 van System Center Configuration Manager.
 ms.custom: na
 ms.date: 12/30/2016
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: df2e57b9-6445-4067-98e7-ace85d4e6aa6
-caps.latest.revision: "40"
+caps.latest.revision: 40
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: e26519de8ce0b905fd52ca6ab0762a406d2f1e2c
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 9c948e0ff84c4741d77b9096e52d3abd765aba7b
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="what39s-new-in-version-1606-of-system-center-configuration-manager"></a>Wat &#39; s is nieuw in versie 1606 van System Center Configuration Manager
+# <a name="what39s-new-in-version-1606-of-system-center-configuration-manager"></a>Wat&#39;nieuw in versie 1606 van System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
@@ -82,14 +83,14 @@ Na de update 1606 is geïnstalleerd, wanneer vervolgens installeert u een update
 
 
 
-## <a name="accessibility"></a>Toegankelijkheid
+## <a name="accessibility"></a> Toegankelijkheid
 U kunt nu de eerste letter van de naam van een knooppunt om te navigeren tussen de verschillende knooppunten van een werkruimte, invoeren. Elke toets te drukken verplaatst de cursor naar het volgende knooppunt dat met die letter begint. Voor gebruikers die een lezer scherm, leest de lezer van de naam van dat knooppunt. Zie voor meer informatie over toegankelijkheidsopties [toegankelijkheidsfuncties in System Center Configuration Manager](../../../core/understand/accessibility-features.md).
 
 ## <a name="administration"></a>Beheer
 Hieronder vindt u wijzigingen in beheer in de Configuration Manager-console:
 ### <a name="oms-connector"></a>OMS-Connector
 
-U kunt nu de Configuration Manager verbinding als verzamelingen van System Center Configuration Manager en de [Microsoft Operations Management Suite (OMS)](https://azure.microsoft.com/en-us/documentation/articles/operations-management-suite-overview/). Hierdoor kan de gegevens, zoals verzamelingen van uw Configuration Manager-implementatie zichtbaar in OMS. Meer informatie, Zie [synchroniseren van gegevens uit Configuration Manager naar de Microsoft Operations Management Suite hier](../../../core/clients/manage/sync-data-microsoft-operations-management-suite.md).
+U kunt nu de Configuration Manager verbinding als verzamelingen van System Center Configuration Manager en de [Microsoft Operations Management Suite (OMS)](https://azure.microsoft.com/documentation/articles/operations-management-suite-overview/). Hierdoor kan de gegevens, zoals verzamelingen van uw Configuration Manager-implementatie zichtbaar in OMS. Meer informatie, Zie [synchroniseren van gegevens uit Configuration Manager naar de Microsoft Operations Management Suite hier](../../../core/clients/manage/sync-data-microsoft-operations-management-suite.md).
 
 De OMS-Connector is een functie van de voorlopige versie. Als u wilt inschakelen, Zie [functies van evaluatieversies van updates gebruiken](../../../core/servers/manage/install-in-console-updates.md#bkmk_prerelease).
 

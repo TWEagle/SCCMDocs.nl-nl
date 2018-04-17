@@ -7,20 +7,21 @@ ms.date: 07/28/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-hybrid
+ms.technology:
+- configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 120442be-179e-450c-a0c4-284046895da3
-caps.latest.revision: "4"
-caps.handback.revision: "0"
+caps.latest.revision: 4
+caps.handback.revision: 0
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
-ms.openlocfilehash: 5fc0d5e68e27b3bde9ed3aa45a439c8b333da1d6
-ms.sourcegitcommit: 922d6d9c91ba2158b938df381277be1b5f1d434a
+ms.openlocfilehash: ab429e2702ab1595b035c8e2895dad584be4061a
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="exchange-activesync-email-profiles-in-system-center-configuration-manager"></a>Exchange ActiveSync-e-mailprofielen in System Center Configuration Manager
 
@@ -37,7 +38,7 @@ U kunt apparaten met e-mailprofielen en beperkingen instellen met behulp van Mic
 - Samsung KNOX Standard (4 en hoger)
 - Android for Work
 
-E-mailprofielen implementeren op apparaten, moet u de apparaten in Intune inschrijven. Zie [Mobiele apparaten beheren met Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx)voor meer informatie over het inschrijven van uw apparaten.
+E-mailprofielen implementeren op apparaten, moet u de apparaten in Intune inschrijven. Zie [Mobiele apparaten beheren met Microsoft Intune](https://technet.microsoft.com/library/dn646962.aspx)voor meer informatie over het inschrijven van uw apparaten.
 
 > [!NOTE]
 > Intune biedt twee Android voor zakelijke e-mailprofielen, één voor de Gmail e-mail-app en de negen werk e-mail-app. Deze apps zijn beschikbaar in de Google Play Store en ondersteuning van verbindingen met Exchange. Schakel de e-connectiviteit door een van deze e-mail-apps implementeren op de apparaten van gebruikers, en maken en implementeren van het juiste profiel. E-mail-apps zoals negen werk is mogelijk niet beschikbaar. Bekijk de app de licentiegegevens of neem contact op met de app bedrijf met vragen.

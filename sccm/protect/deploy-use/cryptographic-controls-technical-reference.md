@@ -7,17 +7,18 @@ ms.date: 12/8/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 2c1ed6f4c93f74719ab3fe5d723f7dc01eb1ede7
-ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
+ms.openlocfilehash: 3057d3d78dbb67e0b1b061a6845a6885570b239a
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="cryptographic-controls-technical-reference"></a>Technische naslaginformatie voor cryptografische besturingselementen
 
@@ -286,5 +287,5 @@ Ter verbetering van de beveiliging van uw Configuration Manager-clients en serve
 -   SSL 3.0, TLS 1.0 en TLS 1.1 uitschakelen 
 -   De TLS gerelateerde coderingssuites opnieuw rangschikken 
 
-Zie voor meer informatie [het beperken van het gebruik van bepaalde cryptografische algoritmen en protocols in Schannel.dll](https://support.microsoft.com/en-us/kb/245030/) en [prioriteit Schannel Cipher Suites](https://msdn.microsoft.com/en-us/library/windows/desktop/bb870930.aspx). Deze procedures hebben geen invloed op de Configuration Manager-functionaliteit.
+Zie voor meer informatie [het beperken van het gebruik van bepaalde cryptografische algoritmen en protocols in Schannel.dll](https://support.microsoft.com/en-us/kb/245030/) en [prioriteit Schannel Cipher Suites](https://msdn.microsoft.com/library/windows/desktop/bb870930.aspx). Deze procedures hebben geen invloed op de Configuration Manager-functionaliteit.
 

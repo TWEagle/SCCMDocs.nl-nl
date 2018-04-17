@@ -3,7 +3,7 @@ title: Nieuwe versie 1802
 titleSuffix: Configuration Manager
 description: Meer informatie over deze wijzigingen en nieuwe mogelijkheden die zijn geïntroduceerd in versie 1802 van Configuration Manager.
 ms.custom: na
-ms.date: 03/22/2018
+ms.date: 04/11/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,20 +12,27 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5bd637b1-d7a1-411b-877a-c7aae9741173
-author: mestew
-ms.author: mstewart
+author: aczechowski
+ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 9c9ff975a58e7c56375fa7740a0a5bb6ebfa6341
-ms.sourcegitcommit: 27da4be015f1496b7b89ebddb517a2685f1ecf74
+ms.openlocfilehash: a667c34dc39ef0578ff840e5603080b09c67c63c
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="whats-new-in-version-1802-of-system-center-configuration-manager"></a>Wat is er nieuw in versie 1802 van System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 Update 1802 voor de huidige vertakking van Configuration Manager is beschikbaar als een update in de console. Deze update toepassen op de sites waarop versie 1702 1706 of 1710 uitgevoerd. <!-- baseline only statement: -->Als u een nieuwe site installeert, is het ook beschikbaar als basislijnversie.
+
+Deze versie bevat naast de nieuwe functies ook extra wijzigingen zoals oplossingen voor problemen. Zie voor meer informatie [overzicht van wijzigingen in System Center Configuration Manager current branch versie 1802](https://support.microsoft.com/help/4101375).
+
+<!--
+The following additional updates to this release are also now available:
+- [Update rollup for System Center Configuration Manager current branch, version 1710](https://support.microsoft.com/help/4057517)
+-->
 
 > [!TIP]  
 > Een nieuwe site te installeren, moet u een basislijnversie van Configuration Manager.  
@@ -152,7 +159,7 @@ Zie voor meer informatie de [water dashboard](/sccm/core/clients/manage/surface-
 <!--1356195-->
 U start in deze release, wordt Silverlight niet meer op clientapparaten automatisch geïnstalleerd. Zie voor meer informatie [vereisten voor het implementeren van clients op Windows-computers](/sccm/core/clients/deploy/prerequisites-for-deploying-clients-to-windows-computers#bkmk_ExternalDependencies)
 
-## <a name="co-management"></a>Co-management
+## <a name="co-management"></a>CO-management
 
 ### <a name="transition-endpoint-protection-workload-to-intune-using-co-management"></a>Overgang Endpoint Protection werkbelasting voor Intune met CO-management
 <!-- 1357365 -->

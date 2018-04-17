@@ -3,7 +3,7 @@ title: Console-updates
 titleSuffix: Configuration Manager
 description: Updates voor Configuration Manager installeren vanuit de Microsoft-cloud
 ms.custom: na
-ms.date: 03/28/2018
+ms.date: 04/10/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c14a3607-253b-41fb-8381-ae2d534a9022
 caps.latest.revision: 36
-author: mestew
-ms.author: mstewart
+author: aczechowski
+ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 054bbd8e7b1dd3f5d565afe60eb7e3379cc7a9ee
-ms.sourcegitcommit: aed99ba3c5e9482199cb3fc5c92f6f3a160cb181
+ms.openlocfilehash: 9924346ccbd862aa4462075a3307b4ec40b955bc
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-in-console-updates-for-system-center-configuration-manager"></a>Updates binnen de console installeren voor System Center Configuration Manager
 
@@ -311,7 +311,7 @@ Wanneer u klaar bent voor de installatie van een update opnieuw uitvoeren, selec
 #### <a name="retry-installation-for-the-hierarchy"></a>Installatie voor de hiërarchie opnieuw uitvoeren
 U kunt de installatie van een update voor de gehele hiërarchie opnieuw uitvoeren wanneer deze update een van de volgende statussen heeft:  
 
-  -   Controle van vereisten is voltooid met een of meer waarschuwingen en de optie voor het negeren van waarschuwingen voor vereisten is niet ingesteld in de Wizard Update. (De waarde van de update voor **waarschuwingen voor vereisten negeren** in de **Updates en onderhoud** knooppunt **Nee**.)   
+  -   Controles van vereisten is voltooid met een of meer waarschuwingen en de optie voor het negeren van waarschuwingen voor vereisten is niet ingesteld in de Wizard Update. (De waarde van de update voor **waarschuwingen voor vereisten negeren** in de **Updates en onderhoud** knooppunt **Nee**.)   
   -   De vereiste is mislukt    
   -   De installatie is mislukt
   -   De replicatie van de inhoud naar de site is mislukt   
@@ -324,7 +324,7 @@ Ga naar **beheer** > **Updates en onderhoud**, selecteer de update en kies vervo
 #### <a name="retry-installation-for-the-site"></a>Installatie voor de site opnieuw uitvoeren  
  U kunt de installatie van een update voor een specifieke site opnieuw uitvoeren wanneer deze update een van de volgende statussen heeft:  
 
-  -   Controle van vereisten is voltooid met een of meer waarschuwingen en optie voor het negeren van waarschuwingen voor vereisten is niet ingesteld in de Wizard Update. (De waarden van de updates voor **waarschuwingen voor vereisten negeren** in het knooppunt Updates en onderhoud is **Nee**.)  
+  -   Controles van vereisten is voltooid met een of meer waarschuwingen en optie voor het negeren van waarschuwingen voor vereisten is niet ingesteld in de Wizard Update. (De waarden van de updates voor **waarschuwingen voor vereisten negeren** in het knooppunt Updates en onderhoud is **Nee**.)  
   -   De vereiste is mislukt    
   -   De installatie is mislukt    
 
@@ -369,10 +369,36 @@ Wanneer een update een of meer optionele functies bevat, hebt u de mogelijkheid 
 
 Als u wilt weergeven van beschikbare functies en hun status, in de console gaat u naar **beheer** > **Updates en onderhoud** > **functies**.
 
-Wanneer een functie niet optioneel is, deze wordt automatisch geïnstalleerd en niet wordt weergegeven in de **functies** knooppunt.  
+Wanneer een functie niet optioneel is, wordt deze automatisch geïnstalleerd. Het niet wordt weergegeven de **functies** knooppunt.  
+
+> [!Important]  
+> U kunt alleen optionele of pre-release functies van de centrale beheersite in een hiërarchie met meerdere locaties inschakelen. Dit gedrag zorgt ervoor dat er zijn geen conflicten in de hiërarchie. <!--507197-->
+ 
+
+Wanneer u een nieuwe functie of het onderdeel van de voorlopige versie inschakelt, moet de Configuration Manager-hiërarchie manager (HMAN) de wijziging verwerken voordat deze functie beschikbaar wordt. Verwerking van de wijziging is vaak onmiddellijke, maar duurt maximaal 30 minuten duren, afhankelijk van de HMAN verwerkingscyclus. Nadat de wijziging wordt verwerkt, moet u de console opnieuw opstarten voordat u nieuwe knooppunten die zijn gerelateerd aan deze functie kunt weergeven.
+
+#### <a name="list-of-optional-features"></a>Lijst van optionele functies
+De volgende functies zijn optioneel in de meest recente versie van Configuration Manager:<!--505213-->  
+- [Voorwaardelijke toegang voor beheerde pc 's](/sccm/mdm/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm)  <!--1191496-->
+- [Passport for Work](/sccm/protect/deploy-use/windows-hello-for-business-settings) (ook wel bekend als *Windows Hello voor bedrijven*) <!--1245704-->
+- [VPN voor Windows 10](/sccm/protect/deploy-use/vpn-profiles) <!--1283610-->
+- [Beleid voor Windows Defender misbruiken Guard](/sccm/protect/deploy-use/create-deploy-exploit-guard-policy) <!--1355468-->
+- [Microsoft Operations Management Suite (OMS)-Connector](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite) <!--1258052-->
+- [PFX maken](/sccm/protect/deploy-use/introduction-to-certificate-profiles) <!--1321368-->
+- [Client-Peer-Cache](/sccm/core/plan-design/hierarchy/client-peer-cache) <!--1101436-->
+- [Datawarehouse-servicepunt](/sccm/core/servers/manage/data-warehouse) <!--1277922-->
+- [Beheergateway cloud](/sccm/core/clients/manage/cmg/plan-cloud-management-gateway) <!--1101764-->
+- [Updates voor Surface stuurprogramma 's](/sccm/sum/get-started/configure-classifications-and-products) <!--1098490-->
+- [Task Sequence vooraf inhoudcaching](/sccm/osd/deploy-use/create-a-task-sequence-to-upgrade-an-operating-system#configure-pre-cache-content) <!--1021244-->
+- [Takenreeksstap uitvoeren](/sccm/osd/deploy-use/manage-task-sequences-to-automate-tasks#add-child-task-sequences-to-a-task-sequence) <!--1261338-->
+- [Maken en uitvoeren van scripts](/sccm/apps/deploy-use/create-deploy-scripts) <!--1236459-->
+- [Apparaat Health Attestation beoordeling van van nalevingsbeleid voor voorwaardelijke toegang](/sccm/mdm/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm) <!--1235616-->
+- [Goedkeuren van aanvragen van toepassingen voor gebruikers per apparaat](/sccm/apps/deploy-use/deploy-applications#specify-deployment-settings) <!--1357015-->  
 
 
-Wanneer u een nieuwe functie of het onderdeel van de voorlopige versie inschakelt, moet de Configuration Manager-hiërarchie manager (HMAN) de wijziging verwerken voordat deze functie beschikbaar wordt. Verwerking van de wijziging is vaak onmiddellijke, maar duurt maximaal 30 minuten duren, afhankelijk van de HMAN verwerkingscyclus. Nadat de wijziging wordt verwerkt, moet u de console opnieuw opstarten voordat u de nieuwe gebruikersinterface die betrekking hebben op deze functie kunt weergeven.
+> [!Tip]  
+> Voor meer informatie over functies waarvoor de toestemming geven om te schakelen, Zie [functies van evaluatieversies](/sccm/core/servers/manage/pre-release-features).  
+> Zie voor meer informatie over functies die alleen beschikbaar in de technische preview vertakking [Technical Preview](/sccm/core/get-started/technical-preview).
 
 
 

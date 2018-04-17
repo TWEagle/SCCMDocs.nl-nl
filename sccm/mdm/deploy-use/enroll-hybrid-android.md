@@ -7,20 +7,21 @@ ms.date: 08/11/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-hybrid
+ms.technology:
+- configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: c517fe34-0130-465b-a020-bdb555878778
-caps.latest.revision: "9"
-caps.handback.revision: "0"
+caps.latest.revision: 9
+caps.handback.revision: 0
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: c9b35122f6afbb4fffbbff48b919fd696939c897
-ms.sourcegitcommit: 51cfce302fa8ddf633ad1f379b1161c0617089b8
+ms.openlocfilehash: c75979e8485fa3ece2178af6d21ff06282206569
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-android-hybrid-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Hybride apparaatbeheer instellen voor Android met System Center Configuration Manager en Microsoft Intune
 
@@ -43,7 +44,7 @@ De volgende stappen kunt Configuration Manager beheren van Android-apparaten zon
 ## <a name="enable-android-for-work-enrollment"></a>Android voor zakelijke inschrijving inschakelen
 De volgende stappen kunt Configuration Manager beheren van Android-apparaten met een werk-profiel.
 
-1. Maakt een Google-account op https://accounts.google.com/SignUp als uw Android wilt gebruiken voor werk-beheeraccount. Of meld u aan met het account dat is gekoppeld aan alle Android voor werk beheertaken voor Intune-tenant. Dit account heeft mogelijk een Google-account die wordt gedeeld door de beheerders die Android-apparaten beheren. Dit is het Google-account die uw organisatie te beheren en publiceren van apps in de Play voor Work-console gebruikt. Met dit account kunt u het goedkeuren van apps in de Play voor werk store, dus bijhouden van de accountnaam en wachtwoord.
+1. Maak een Google-account op https://accounts.google.com/SignUp als uw Android wilt gebruiken voor werk-beheeraccount. Of meld u aan met het account dat is gekoppeld aan alle Android voor werk beheertaken voor Intune-tenant. Dit account heeft mogelijk een Google-account die wordt gedeeld door de beheerders die Android-apparaten beheren. Dit is het Google-account die uw organisatie te beheren en publiceren van apps in de Play voor Work-console gebruikt. Met dit account kunt u het goedkeuren van apps in de Play voor werk store, dus bijhouden van de accountnaam en wachtwoord.
 2. Android-registratie inschakelen door de binding van het Google-account voor de Intune-tenant die wordt beheerd in Configuration Manager:
    1. In de Configuration Manager-console in de **beheer** werkruimte, kiest u **overzicht** > **Cloudservices** > **Microsoft Intune-abonnementen** en kies uw Intune-abonnement.
    2. Op de **Start** tabblad de **abonnement** groep, kiest u **Platforms configureren** > **Android for Work**.
@@ -60,7 +61,7 @@ De volgende stappen kunt Configuration Manager beheren van Android-apparaten met
 > Een bekend probleem dat voorkomt dat de **beheren ondersteunde apparaten voor gebruikers die alleen in deze groepen als Android for Work** optie niet werkt zoals verwacht. Apparaten van gebruikers in de opgegeven Azure AD-groepen registreren als Android in plaats van Android for Work. Als u wilt Android for Work inschakelen, moet u de **alle ondersteunde apparaten beheren als Android for Work** optie.
 
 
-Nadat u alles hebt ingesteld, moet u uw gebruikers laten weten hoe ze kunnen hun apparaten inschrijven. Zie [Wat u uw eindgebruikers vertelt over het gebruik van Microsoft Intune](https://docs.microsoft.com/en-us/intune/end-user-educate). Deze informatie is van toepassing op mobiele apparaten die worden beheerd door Configuration Manager en Microsoft Intune.
+Nadat u alles hebt ingesteld, moet u uw gebruikers laten weten hoe ze kunnen hun apparaten inschrijven. Zie [Wat u uw eindgebruikers vertelt over het gebruik van Microsoft Intune](https://docs.microsoft.com/intune/end-user-educate). Deze informatie is van toepassing op mobiele apparaten die worden beheerd door Configuration Manager en Microsoft Intune.
 
 Als de binding is voltooid, ziet u de accountnaam en de naam van de organisatie in de Intune-portal. U kunt beide browsers sluiten op dat moment.
 
