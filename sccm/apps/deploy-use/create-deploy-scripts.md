@@ -3,7 +3,7 @@ title: Maken en uitvoeren van scripts
 titleSuffix: Configuration Manager
 description: Maak en Powershell-scripts uitvoeren op clientapparaten.
 ms.custom: na
-ms.date: 03/22/2018
+ms.date: 04/10/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,26 +12,30 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: cc230ff4-7056-4339-a0a6-6a44cdbb2857
-caps.latest.revision: ''
-caps.handback.revision: ''
+caps.latest.revision: 14
+caps.handback.revision: 0
 author: mestew
 ms.author: mstewart
 manager: dougeby
-ms.openlocfilehash: 19bb8b2c4e47dcc8a75db568e7f93541544a4566
-ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
+ms.openlocfilehash: b9699b2f4bd1f18890d25582be9a8d20778b64be
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-run-powershell-scripts-from-the-configuration-manager-console"></a>Maken en PowerShell-scripts uitvoeren vanaf de Configuration Manager-console
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-
-System Center Configuration Manager heeft een geïntegreerde mogelijkheid om uit te voeren Powershell-scripts. PowerShell heeft het voordeel van het maken van geavanceerde, geautomatiseerde scripts die zijn begrepen en gedeeld met een grotere community. De scripts vereenvoudigen aangepaste hulpprogramma's voor het beheren van software en kunt die u dat snel taken, zodat u grote werk gemakkelijker en consistenter bouwen.
+<!--1236459-->
+System Center Configuration Manager heeft een geïntegreerde mogelijkheid om uit te voeren Powershell-scripts. PowerShell heeft het voordeel van het maken van geavanceerde, geautomatiseerde scripts die zijn begrepen en gedeeld met een grotere community. De scripts vereenvoudigen aangepaste hulpprogramma's voor het beheren van software en kunt die u dat snel taken, zodat u grote werk gemakkelijker en consistenter bouwen.  
 
 > [!TIP]  
-> Deze functie is geïntroduceerd in versie 1706 als een [functie van de voorlopige versie](/sccm/core/servers/manage/pre-release-features). Vanaf versie 1802, deze functie is niet langer een voorlopige versie.
+> Deze functie is geïntroduceerd in versie 1706 als een [functie van de voorlopige versie](/sccm/core/servers/manage/pre-release-features). Vanaf versie 1802, deze functie is niet langer een voorlopige versie.  
+
+
+> [!Note]  
+> Configuration Manager deze optionele functie standaard niet ingeschakeld. Voordat u deze gebruikt, moet u deze functie inschakelen. Zie voor meer informatie [optionele functies van updates inschakelen](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
 
 
 Met deze integratie in System Center Configuration Manager, kunt u de *Scripts uitvoeren* functionaliteit voor het volgende doen:
@@ -187,7 +191,7 @@ Elk van uw script parameters heeft een eigen dialoogvenster voor het toevoegen v
 
 Elke parameter in het script heeft een **Script parametereigenschappen** dialoogvenster u validatie voor deze parameter. Na het toevoegen van validatie moet er treden fouten als u een waarde opgeeft voor een parameter die niet aan de validatie voldoet.
 
-#### <a name="example-firstname"></a>Voorbeeld: *FirstName*
+#### <a name="example-firstname"></a>Voorbeeld: *Voornaam*
 
 In dit voorbeeld u zich kunt instellen van de eigenschappen van de tekenreeksparameter *FirstName*.
 
