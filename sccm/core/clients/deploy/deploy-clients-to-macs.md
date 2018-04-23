@@ -12,7 +12,7 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e46ad501-5d73-44ac-92de-0de14ef72b83
-caps.latest.revision: ''
+caps.latest.revision: 12
 author: arob98
 ms.author: angrobe
 manager: angrobe
@@ -199,7 +199,7 @@ Gebruik deze procedure voor automatisering van de installatie van de client en a
 > -   Het bestand Bill of Materials (BOM) bestand en eigenschappenlijst (.plist) gemaakt door de installatie van de Configuration Manager-client.  
 > -   De inhoud van de map  /Library/Application Support/Microsoft/CCM/Logs.  
 >   
->  De informatie die is verzameld door CmDiagnostics wordt toegevoegd aan een zip-bestand dat wordt opgeslagen op het bureaublad van de computer en de naam cmdiag -*< hostnaam\>***-***&gt;datum en tijd\>* . zip.* **
+>  De informatie die is verzameld door CmDiagnostics wordt toegevoegd aan een zip-bestand dat wordt opgeslagen op het bureaublad van de computer en de naam cmdiag -*< hostnaam\>***-***&gt;datum en tijd\>* . zip.***
 
 
 ##  <a name="use-a-certificate-request-and-installation-method-that-is-independent-from-configuration-manager"></a>Gebruik een certificaataanvraag en -installatiemethode die onafhankelijk is van Configuration Manager  
